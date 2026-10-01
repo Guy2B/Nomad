@@ -3,7 +3,6 @@
  * webhook signature verification, and session retrieval.
  */
 import crypto from 'node:crypto';
-import { SITE } from './catalog.mjs';
 
 const API = 'https://api.stripe.com/v1';
 
@@ -32,7 +31,8 @@ async function stripe(path, { method = 'GET', body } = {}) {
 }
 
 /** The Checkout Session payload (exported for tests). */
-export function sessionPayload({ priced, lang, baseUrl, cart, images }) {
+/** `site` is the store's site.json: currency, shipping countries, invoice footer. */
+export function sessionPayload({ site, priced, lang, baseUrl, cart, images }) {
   const names = { de: 'de', fr: 'fr', en: 'en' };
   return {
     mode: 'payment',
@@ -42,22 +42,22 @@ export function sessionPayload({ priced, lang, baseUrl, cart, images }) {
     line_items: priced.items.map((i) => ({
       quantity: i.qty,
       price_data: {
-        currency: SITE.currency,
+        currency: site.currency,
         unit_amount: i.unitCents,
         product_data: {
           name: i.name,
-          metadata: { sku: i.sku },
+          metadata: { sku: i.sku, store: site.id },
           ...(images[i.id] ? { images: [images[i.id]] } : {}),
         },
       },
     })),
-    shipping_address_collection: { allowed_countries: SITE.shipping.countries },
+    shipping_address_collection: { allowed_countries: site.shipping.countries },
     shipping_options: [
       {
         shipping_rate_data: {
           type: 'fixed_amount',
           display_name: lang === 'de' ? 'Versand mit Sendungsverfolgung' : lang === 'fr' ? 'Livraison suivie' : 'Tracked shipping',
-          fixed_amount: { amount: priced.shippingCents, currency: SITE.currency },
+          fixed_amount: { amount: priced.shippingCents, currency: site.currency },
         },
       },
     ],
@@ -67,12 +67,13 @@ export function sessionPayload({ priced, lang, baseUrl, cart, images }) {
     invoice_creation: {
       enabled: true,
       invoice_data: {
-        footer: SITE.invoice.footer,
-        metadata: { cart },
+        description: site.brand,
+        footer: site.invoice.footer,
+        metadata: { cart, store: site.id },
       },
     },
-    metadata: { cart, lang },
-    payment_intent_data: { metadata: { cart } },
+    metadata: { cart, lang, store: site.id },
+    payment_intent_data: { metadata: { cart, store: site.id }, description: site.brand },
   };
 }
 

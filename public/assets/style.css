@@ -1,4 +1,4 @@
-/* NOMADA — calm travel premium. System fonts only (no external requests). */
+/* Nomad platform storefront — base style (NOMAD: calm travel premium). A store can override it with stores/<id>/assets/theme.css. System fonts only. */
 :root {
   --ink: #16181d;
   --ink-2: #2a2e36;
@@ -730,5 +730,91 @@ details p {
   * {
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ---- shared by every store: badges, bundles, highlight block, guides ---- */
+.card-img {
+  position: relative;
+  display: block;
+}
+.badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgb(22 24 29 / 88%);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: grid;
+  gap: 8px;
+}
+.includes li {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+.promise {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 44px;
+  border-radius: 28px;
+  background: var(--ink);
+  color: #fff;
+}
+.promise h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+}
+.promise p {
+  color: rgb(255 255 255 / 78%);
+}
+.promise-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  align-content: center;
+}
+.promise-list li {
+  padding: 14px 16px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 14px;
+}
+.guide h1 {
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  margin: 0 0 14px;
+}
+.guide-list {
+  margin: 28px 0 40px;
+  padding-left: 1.4em;
+  font-size: 1.06rem;
+}
+.guide-list li {
+  margin: 0 0 12px;
+  padding-left: 4px;
+}
+.guide .grid {
+  margin-top: 16px;
+}
+.guide-teaser {
+  margin: 28px 0 0;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .promise {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
   }
 }

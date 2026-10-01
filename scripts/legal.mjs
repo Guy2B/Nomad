@@ -1,6 +1,6 @@
 /**
  * Legal pages for a German online shop (Kleinunternehmer). German is the
- * authoritative version. Fields in [brackets] come from catalog/site.json and
+ * authoritative version. Fields in [brackets] come from stores/<id>/site.json and
  * must be completed; have the texts checked before launch (see docs/LEGAL-CHECKLIST.md).
  */
 export function legalPages(site) {

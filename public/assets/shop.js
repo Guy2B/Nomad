@@ -1,10 +1,13 @@
-/* NOMADA storefront: cart (stored in this browser only), checkout, thank-you and tracking pages. */
+/* Storefront script shared by every store of the Nomad platform: cart (this browser only), checkout, thank-you and tracking pages. */
 (function () {
   'use strict';
-  var KEY = 'nomada-cart';
   var body = document.body;
   var page = body.getAttribute('data-page');
   var lang = body.getAttribute('data-lang') || 'de';
+  // One cart per store; the API is shared by every store of the platform (same origin for the host store).
+  var STORE = body.getAttribute('data-store') || 'nomad';
+  var API = body.getAttribute('data-api') || '';
+  var KEY = STORE + '-cart';
   var dataEl = document.getElementById('shop-data');
   var data = dataEl ? JSON.parse(dataEl.textContent) : null;
 
@@ -149,10 +152,10 @@
     btn.addEventListener('click', function () {
       btn.disabled = true;
       document.querySelector('[data-checkout-error]').hidden = true;
-      fetch('/api/checkout', {
+      fetch(API + '/api/checkout', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ cart: read(), lang: lang }),
+        body: JSON.stringify({ store: STORE, cart: read(), lang: lang }),
       })
         .then(function (r) {
           return r.json().then(function (j) {
@@ -175,7 +178,7 @@
     var tries = 0;
     var poll = function () {
       if (!session) return;
-      fetch('/api/track?session=' + encodeURIComponent(session))
+      fetch(API + '/api/track?session=' + encodeURIComponent(session))
         .then(function (r) {
           return r.ok ? r.json() : null;
         })
@@ -203,7 +206,7 @@
       e.preventDefault();
       out.textContent = '';
       var q = '?order=' + encodeURIComponent(form.order.value.trim()) + '&email=' + encodeURIComponent(form.email.value.trim());
-      fetch('/api/track' + q)
+      fetch(API + '/api/track' + q)
         .then(function (r) {
           return r.ok ? r.json() : null;
         })

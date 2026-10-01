@@ -1,0 +1,104 @@
+{
+  "id": "nomad",
+  "brand": "NOMAD",
+  "orderPrefix": "NM",
+  "themeColor": "#16181d",
+  "tagline": {
+    "de": "Reisezubehör, das Ordnung ins Gepäck bringt.",
+    "fr": "Des accessoires de voyage qui rangent votre bagage.",
+    "en": "Travel accessories that bring order to your luggage."
+  },
+  "seo": {
+    "de": {
+      "title": "NOMAD — Reisezubehör & Handgepäck-Organizer online kaufen",
+      "description": "Handgepäck clever packen: Vakuum-Rucksack, Packwürfel mit Kompression, Kulturbeutel zum Aufhängen, Handyhalterung fürs Flugzeug und Schmuckrolle. Kostenloser Versand."
+    },
+    "fr": {
+      "title": "NOMAD — Accessoires de voyage et organisateurs de bagage cabine",
+      "description": "Voyager léger en bagage cabine : sac à dos sous vide, cubes de rangement compressibles, trousse de toilette à suspendre, support téléphone avion, pochette à bijoux. Livraison offerte."
+    },
+    "en": {
+      "title": "NOMAD — Travel accessories & carry-on organisers",
+      "description": "Pack smarter for carry-on travel: vacuum backpack, compression packing cubes, hanging toiletry bag, airplane phone holder and jewellery roll. Free shipping."
+    }
+  },
+  "baseUrl": "https://nomad-travel-store.netlify.app",
+  "currency": "eur",
+  "defaultLang": "de",
+  "languages": ["de", "fr", "en"],
+  "shipping": {
+    "countries": ["DE", "AT", "FR", "BE", "LU", "NL", "ES", "IT"],
+    "cents": 0,
+    "deliveryDays": "7–14",
+    "returnDays": 14
+  },
+  "invoice": {
+    "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
+  },
+  "company": {
+    "name": "[Name / Firma — à compléter]",
+    "owner": "[Inhaber — à compléter]",
+    "street": "[Straße Nr. — à compléter]",
+    "city": "[PLZ Ort — à compléter]",
+    "country": "Deutschland",
+    "email": "[support@… — à compléter]",
+    "phone": "",
+    "taxNote": "Kleinunternehmer gemäß § 19 UStG"
+  },
+  "guides": [
+    {
+      "slug": "handgepaeck-packen",
+      "text": {
+        "de": {
+          "title": "Handgepäck richtig packen: 9 Tipps für mehr Platz",
+          "description": "Nur mit Handgepäck reisen: Packliste, Rolltechnik, Packwürfel mit Kompression und Flüssigkeiten-Regel — einfach erklärt.",
+          "lead": "Nur mit Handgepäck reisen spart Zeit, Geld und Nerven. So passt mehr hinein — ohne Chaos.",
+          "items": [
+            "Packliste schreiben: drei Oberteile pro Woche reichen, wenn alles kombinierbar ist.",
+            "Kleidung rollen statt falten: weniger Falten, weniger Volumen.",
+            "Packwürfel mit Kompression nutzen: ein Würfel pro Kategorie, die Luft per Reißverschluss heraus.",
+            "Schwere Teile (Schuhe, Laptop) unten und nah am Rücken packen.",
+            "Flüssigkeiten: max. 100 ml pro Behälter, alles in einem 1-Liter-Beutel.",
+            "Einen Kulturbeutel zum Aufhängen wählen: im Hotelbad ist sofort alles griffbereit.",
+            "Schmuck und Kabel separat in einer Rolle oder Tasche — nichts verheddert sich.",
+            "Die schwerste Kleidung und die Jacke im Flugzeug tragen.",
+            "Gewicht und Maße Ihrer Airline vor dem Packen prüfen."
+          ]
+        },
+        "fr": {
+          "title": "Bien faire son bagage cabine : 9 astuces pour gagner de la place",
+          "description": "Voyager en bagage cabine uniquement : liste, technique du roulé, cubes de rangement compressibles, règle des liquides — expliqués simplement.",
+          "lead": "Voyager avec un seul bagage cabine fait gagner du temps, de l'argent et des nerfs. Voici comment tout faire tenir, sans chaos.",
+          "items": [
+            "Faites une liste : trois hauts par semaine suffisent si tout se combine.",
+            "Roulez vos vêtements au lieu de les plier : moins de plis, moins de volume.",
+            "Utilisez des cubes de rangement compressibles : un cube par catégorie, l'air chassé par la fermeture.",
+            "Placez les pièces lourdes (chaussures, ordinateur) en bas et contre le dos.",
+            "Liquides : 100 ml maximum par flacon, le tout dans un sac d'un litre.",
+            "Choisissez une trousse de toilette à suspendre : tout est à portée de main dans la salle de bain de l'hôtel.",
+            "Rangez bijoux et câbles à part, dans une pochette : plus rien ne s'emmêle.",
+            "Portez vos vêtements les plus lourds et votre veste dans l'avion.",
+            "Vérifiez le poids et les dimensions autorisés par votre compagnie avant de faire le sac."
+          ]
+        },
+        "en": {
+          "title": "How to pack a carry-on: 9 tips for more space",
+          "description": "Travel with hand luggage only: packing list, rolling technique, compression packing cubes and the liquids rule — explained simply.",
+          "lead": "Travelling carry-on only saves time, money and nerves. Here is how to fit more in — without the chaos.",
+          "items": [
+            "Write a packing list: three tops per week are enough when everything matches.",
+            "Roll clothes instead of folding: fewer creases, less volume.",
+            "Use compression packing cubes: one cube per category, zip the air out.",
+            "Pack heavy items (shoes, laptop) at the bottom, close to your back.",
+            "Liquids: 100 ml max per container, all in one 1-litre bag.",
+            "Choose a hanging toiletry bag: everything within reach in the hotel bathroom.",
+            "Keep jewellery and cables separate in a roll or pouch — nothing tangles.",
+            "Wear your heaviest clothes and jacket on the plane.",
+            "Check your airline's weight and size limits before packing."
+          ]
+        }
+      }
+    }
+  ],
+  "byAlgbr": "https://algbr-3b4ee.web.app/"
+}

@@ -5,7 +5,7 @@
  *  - status: GET /shopping/order/getOrderDetail?orderId=… (orderStatus, trackNumber, logisticName).
  * CJ invoices you for each supplier order in your CJ account.
  */
-import { product } from './catalog.mjs';
+import { HOST_STORE, product, supplierLines } from './catalog.mjs';
 
 const API = 'https://developers.cjdropshipping.com/api2.0/v1';
 const COUNTRY_NAMES = {
@@ -41,18 +41,42 @@ export async function accessToken(store) {
   return token;
 }
 
-/** Products without a CJ variant id or SKU cannot be ordered automatically. */
-export function unmapped(items) {
-  return items.filter((i) => {
-    const s = product(i.id)?.supplier;
-    return !s || !(s.cjVid || s.cjSku) || !s.logisticName || !s.fromCountryCode;
+const mapped = (sup) => sup && (sup.cjVid || sup.cjSku) && sup.logisticName && sup.fromCountryCode;
+
+/** Order items that cannot be ordered automatically (a bundle needs every part mapped). */
+export function unmapped(order) {
+  return order.items.filter((i) => {
+    const lines = supplierLines(product(order.store || HOST_STORE, i.id));
+    return !lines.length || lines.some((c) => !mapped(c.supplier));
   });
 }
 
-/** createOrderV2 body (exported for tests). One origin country per order: the first item's. */
+/** Supplier lines of an order: bundles expanded into their parts, same variant merged. */
+export function supplierItems(order) {
+  const out = new Map();
+  for (const i of order.items) {
+    for (const c of supplierLines(product(order.store || HOST_STORE, i.id))) {
+      const s = c.supplier;
+      const ref = s.cjVid ? `vid:${s.cjVid}` : `sku:${s.cjSku}`;
+      const cur = out.get(ref);
+      if (cur) cur.quantity += c.qty * i.qty;
+      else
+        out.set(ref, {
+          ...(s.cjVid ? { vid: s.cjVid } : { sku: s.cjSku }),
+          quantity: c.qty * i.qty,
+          storeLineItemId: c.key === 'main' ? `${order.number}-${i.id}` : `${order.number}-${i.id}-${c.key}`,
+          supplier: s,
+        });
+    }
+  }
+  return [...out.values()];
+}
+
+/** createOrderV2 body (exported for tests). One origin country per order: the first line's. */
 export function orderPayload(order, env = process.env) {
   const a = order.shipping;
-  const first = product(order.items[0].id).supplier;
+  const lines = supplierItems(order);
+  const first = lines[0].supplier;
   return {
     orderNumber: order.number,
     shippingCountryCode: a.country,
@@ -65,17 +89,14 @@ export function orderPayload(order, env = process.env) {
     shippingCustomerName: a.name,
     shippingPhone: order.customer.phone || '',
     email: order.customer.email,
-    remark: 'NOMADA',
+    remark: order.brand || 'NOMAD',
     logisticName: first.logisticName,
     fromCountryCode: first.fromCountryCode,
     // 2 = pay from CJ balance immediately (zero-touch), 3 = create only, pay in CJ.
     payType: env.CJ_AUTO_PAY === 'true' ? 2 : 3,
     iossType: Number(env.CJ_IOSS_TYPE || 3),
     shopAmount: (order.totalCents / 100).toFixed(2),
-    products: order.items.map((i) => {
-      const s = product(i.id).supplier;
-      return { ...(s.cjVid ? { vid: s.cjVid } : { sku: s.cjSku }), quantity: i.qty, storeLineItemId: `${order.number}-${i.id}` };
-    }),
+    products: lines.map(({ supplier, ...line }) => line),
   };
 }
 

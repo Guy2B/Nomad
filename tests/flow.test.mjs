@@ -3,11 +3,12 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 
 process.env.NOMAD_MEMORY_STORE = '1';
-const { priceCart, decodeCart, encodeCart, orderNumber } = await import('../netlify/lib/catalog.mjs');
+const { priceCart, decodeCart, encodeCart, orderNumber, store, allowedOrigins } = await import('../netlify/lib/catalog.mjs');
 const { sessionPayload, verifySignature, formEncode } = await import('../netlify/lib/stripe.mjs');
-const { orderPayload } = await import('../netlify/lib/cj.mjs');
+const { orderPayload, unmapped } = await import('../netlify/lib/cj.mjs');
 const { processPaidSession } = await import('../netlify/lib/orders.mjs');
 const { crm, listOrders, resetMemoryStore } = await import('../netlify/lib/store.mjs');
+const { default: checkout } = await import('../netlify/functions/checkout.mjs');
 
 const realFetch = globalThis.fetch;
 let calls = [];
@@ -63,12 +64,12 @@ test('prices come from the catalogue only: inactive, unknown and absurd lines ar
     { id: 'vacuum-backpack', qty: 3 },
     { id: 'jewelry-roll', qty: 9 },
   ]);
-  assert.match(orderNumber(new Date('2026-10-02T10:00:00Z'), () => 0.5), /^NM-261002-[A-Z0-9]{4}$/);
+  assert.match(orderNumber('NM', new Date('2026-10-02T10:00:00Z'), () => 0.5), /^NM-261002-[A-Z0-9]{4}$/);
 });
 
 test('Stripe Checkout: server prices, shipping countries and an automatic §19 invoice', () => {
   const priced = priceCart([{ id: 'modular-toiletry', qty: 2 }]);
-  const p = sessionPayload({ priced, lang: 'fr', baseUrl: 'https://shop.test', cart: 'modular-toiletry:2', images: {} });
+  const p = sessionPayload({ site: store('nomad').site, priced, lang: 'fr', baseUrl: 'https://shop.test', cart: 'modular-toiletry:2', images: {} });
   assert.equal(p.line_items[0].price_data.unit_amount, 4490);
   assert.equal(p.line_items[0].quantity, 2);
   assert.equal(p.invoice_creation.enabled, true);
@@ -79,6 +80,8 @@ test('Stripe Checkout: server prices, shipping countries and an automatic §19 i
   const form = formEncode(p);
   assert.equal(form.get('line_items[0][price_data][unit_amount]'), '4490');
   assert.equal(form.get('invoice_creation[enabled]'), 'true');
+  assert.equal(form.get('metadata[store]'), 'nomad');
+  assert.equal(form.get('invoice_creation[invoice_data][description]'), 'NOMAD');
 });
 
 test('Stripe webhook signatures: valid accepted, tampered or stale refused', () => {
@@ -95,6 +98,8 @@ test('Stripe webhook signatures: valid accepted, tampered or stale refused', () 
 test('CJ order: delivery address, origin, shipping method and products as CJ expects', () => {
   const order = {
     number: 'NM-261002-AB12',
+    store: 'nomad',
+    brand: 'NOMAD',
     totalCents: 13980,
     items: priceCart([{ id: 'vacuum-backpack', qty: 1 }]).items,
     customer: { email: 'lea@example.com', phone: '+49' },
@@ -162,4 +167,79 @@ test('a CJ error flags the order with the reason', async () => {
   const { order } = await processPaidSession(crm(), paidSession({ id: 'cs_test_789' }));
   assert.equal(order.status, 'needs_attention');
   assert.equal(order.attention, 'CJ: Insufficient balance');
+});
+
+const appartSession = (over = {}) =>
+  paidSession({
+    id: 'cs_test_ar1',
+    amount_total: 3990 * 2 + 6990,
+    metadata: { cart: 'kitchen-reset:2,laundry-reset:1', lang: 'fr', store: 'appart-reset' },
+    ...over,
+  });
+
+test('second store: its own catalogue, prices and order prefix; carts never cross stores', () => {
+  assert.deepEqual(priceCart([{ id: 'kitchen-reset', qty: 1 }], 'nomad').items, []);
+  assert.deepEqual(priceCart([{ id: 'vacuum-backpack', qty: 1 }], 'appart-reset').items, []);
+  assert.deepEqual(priceCart([{ id: 'kitchen-reset', qty: 1 }], 'nope').items, []);
+  const r = priceCart([{ id: 'laundry-reset', qty: 1 }], 'appart-reset');
+  assert.equal(r.totalCents, 6990);
+  const p = sessionPayload({ site: store('appart-reset').site, priced: r, lang: 'de', baseUrl: 'https://ar.test', cart: 'laundry-reset:1', images: {} });
+  assert.equal(p.metadata.store, 'appart-reset');
+  assert.equal(p.invoice_creation.invoice_data.description, 'APPART RESET');
+  assert.match(p.success_url, /^https:\/\/ar\.test\/de\/danke\.html/);
+});
+
+test('bundle → one CJ order with every part, quantities multiplied and identical parts merged', async () => {
+  process.env.CJ_API_KEY = 'CJ123@api@abc';
+  mockFetch((url) => {
+    if (url.includes('getAccessToken')) return jsonResponse({ data: { accessToken: 'tok' } });
+    if (url.includes('createOrderV2')) return jsonResponse({ result: true, data: { orderId: 'CJ-AR' } });
+    return new Response('ok');
+  });
+  const { order } = await processPaidSession(crm(), appartSession());
+  assert.equal(order.store, 'appart-reset');
+  assert.match(order.number, /^AR-\d{6}-[A-Z0-9]{4}$/);
+  assert.equal(order.status, 'supplier_ordered');
+  const sent = JSON.parse(calls.find((c) => c.url.includes('createOrderV2')).init.body);
+  const qty = Object.fromEntries(sent.products.map((x) => [x.sku, x.quantity]));
+  // 2× Kitchen (1 rack + 4 hooks) + 1× Laundry (1 dryer + 1 bag + 4 hooks)
+  assert.deepEqual(qty, {
+    CJYD207339601AZ: 2,
+    CJYD195271102BY: 2 * 4 + 4,
+    'CJJJJTFZ00270-2 frames 80cm': 1,
+    CJYD237778201AZ: 1,
+  });
+  assert.equal(sent.remark, 'APPART RESET');
+  assert.ok(sent.products.every((x) => x.storeLineItemId.startsWith(order.number)));
+});
+
+test('a bundle with one unmapped part is flagged, not half-ordered', () => {
+  const order = { store: 'appart-reset', items: [{ id: 'desk-reset', qty: 1 }] };
+  assert.equal(unmapped(order).length, 0);
+  const desk = store('appart-reset').byId.get('desk-reset');
+  const saved = desk.components[1].supplier.cjSku;
+  desk.components[1].supplier.cjSku = '';
+  try {
+    assert.equal(unmapped(order).length, 1);
+  } finally {
+    desk.components[1].supplier.cjSku = saved;
+  }
+});
+
+test('the shared API answers the other storefronts (CORS) and refuses unknown origins', async () => {
+  assert.ok(allowedOrigins({}).has('https://appart-reset.netlify.app'));
+  const pre = await checkout(new Request('https://nomad-travel-store.netlify.app/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://appart-reset.netlify.app' } }));
+  assert.equal(pre.status, 204);
+  assert.equal(pre.headers.get('access-control-allow-origin'), 'https://appart-reset.netlify.app');
+  const evil = await checkout(new Request('https://nomad-travel-store.netlify.app/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://evil.example' } }));
+  assert.equal(evil.headers.get('access-control-allow-origin'), null);
+  const bad = await checkout(
+    new Request('https://nomad-travel-store.netlify.app/api/checkout', {
+      method: 'POST',
+      headers: { origin: 'https://appart-reset.netlify.app', 'content-type': 'application/json' },
+      body: JSON.stringify({ store: 'nope', cart: [{ id: 'kitchen-reset', qty: 1 }] }),
+    }),
+  );
+  assert.equal(bad.status, 400);
+  assert.deepEqual(await bad.json(), { error: 'unknown-store' });
 });

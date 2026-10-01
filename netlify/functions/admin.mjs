@@ -1,13 +1,13 @@
 /**
  * Admin API (Authorization: Bearer <ADMIN_PASSWORD>):
- *   GET  /api/admin            → overview, orders, customers count
+ *   GET  /api/admin            → stores, setup, overview (all stores and per store), orders
  *   POST /api/admin {action:'retry', sessionId}      → send to the supplier again
  *   POST /api/admin {action:'resolve', sessionId}    → clear the attention flag (done by hand)
  */
 import crypto from 'node:crypto';
 import { crm, getOrder, listOrders } from '../lib/store.mjs';
 import { fulfill } from '../lib/orders.mjs';
-import { PRODUCTS } from '../lib/catalog.mjs';
+import { HOST_STORE, allStores, product, supplierLines, unitCost } from '../lib/catalog.mjs';
 import { cjConfigured } from '../lib/cj.mjs';
 
 const json = (status, body) =>
@@ -27,30 +27,48 @@ export default async (req) => {
   const store = crm();
   if (req.method === 'GET') {
     const orders = await listOrders(store, 500);
-    const paid = orders.filter((o) => o.items.length);
-    const revenue = paid.reduce((a, o) => a + o.totalCents, 0);
-    const cost = paid.reduce(
-      (a, o) =>
-        a + o.items.reduce((s, i) => s + (PRODUCTS.find((p) => p.id === i.id)?.supplier.costCents ?? 0) * i.qty, 0),
-      0,
-    );
+    const storeOf = (o) => o.store || HOST_STORE;
+    const stats = (list) => {
+      const paid = list.filter((o) => o.items.length);
+      const revenue = paid.reduce((a, o) => a + o.totalCents, 0);
+      const cost = paid.reduce(
+        (a, o) => a + o.items.reduce((c, i) => c + unitCost(product(storeOf(o), i.id)) * i.qty, 0),
+        0,
+      );
+      return {
+        orders: list.length,
+        revenueCents: revenue,
+        estimatedMarginCents: revenue - cost,
+        customers: new Set(list.map((o) => o.customer.email.toLowerCase())).size,
+        attention: list.filter((o) => o.attention).length,
+      };
+    };
+    const stores = allStores().map((s) => {
+      const active = s.products.filter((p) => p.active);
+      return {
+        id: s.id,
+        brand: s.site.brand,
+        url: s.site.baseUrl,
+        activeProducts: active.length,
+        mappedProducts: active.filter((p) => {
+          const lines = supplierLines(p);
+          return lines.length && lines.every((c) => c.supplier.cjVid || c.supplier.cjSku);
+        }).length,
+        stats: stats(orders.filter((o) => storeOf(o) === s.id)),
+      };
+    });
     return json(200, {
       setup: {
         stripe: Boolean(process.env.STRIPE_SECRET_KEY && process.env.STRIPE_WEBHOOK_SECRET),
         cj: cjConfigured(),
         cjAutoPay: process.env.CJ_AUTO_PAY === 'true',
         notifications: Boolean(process.env.NTFY_TOPIC),
-        mappedProducts: PRODUCTS.filter((p) => p.active && (p.supplier.cjVid || p.supplier.cjSku)).length,
-        activeProducts: PRODUCTS.filter((p) => p.active).length,
+        mappedProducts: stores.reduce((a, s) => a + s.mappedProducts, 0),
+        activeProducts: stores.reduce((a, s) => a + s.activeProducts, 0),
       },
-      stats: {
-        orders: orders.length,
-        revenueCents: revenue,
-        estimatedMarginCents: revenue - cost,
-        customers: new Set(orders.map((o) => o.customer.email.toLowerCase())).size,
-        attention: orders.filter((o) => o.attention).length,
-      },
-      orders,
+      stores,
+      stats: stats(orders),
+      orders: orders.map((o) => ({ ...o, store: storeOf(o) })),
     });
   }
   if (req.method === 'POST') {

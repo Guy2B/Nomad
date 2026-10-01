@@ -1,0 +1,6 @@
+# APPART RESET storefront (Nomad platform). Netlify site settings:
+#   Base directory = sites/appart-reset
+# Static only: checkout, tracking and the admin are served by the Nomad host site.
+[build]
+  command = "node ../../scripts/build.mjs appart-reset"
+  publish = "../../dist"

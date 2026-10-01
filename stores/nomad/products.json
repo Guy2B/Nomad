@@ -54,6 +54,20 @@
       "logisticName": "CJPacket Ordinary",
       "costCents": 3400,
       "notes": "Variant with pump to confirm after sample; EU shipping to recalculate in CJ."
+    },
+    "seo": {
+      "de": {
+        "title": "Vakuum-Rucksack Handgepäck mit Kompression",
+        "description": "Handgepäck-Rucksack mit Vakuum-Kompressionsfach, Laptopfach und Kofferöffnung: mehr Platz für Kurztrips und Business-Reisen. Kostenloser Versand."
+      },
+      "fr": {
+        "title": "Sac à dos sous vide cabine avec compression",
+        "description": "Sac à dos cabine avec compartiment de compression sous vide, poche ordinateur et ouverture type valise : plus de place en week-end comme en voyage pro."
+      },
+      "en": {
+        "title": "Vacuum compression backpack for carry-on",
+        "description": "Carry-on backpack with a vacuum compression compartment, laptop sleeve and suitcase-style opening: more space for short trips and business travel."
+      }
     }
   },
   {
@@ -111,6 +125,20 @@
       "logisticName": "CJPacket Ordinary",
       "costCents": 800,
       "notes": "Choose colour/variant in CJ; check landed cost to Germany and finish."
+    },
+    "seo": {
+      "de": {
+        "title": "Kulturbeutel zum Aufhängen, modular",
+        "description": "Modularer Kulturbeutel mit Haken zum Aufhängen: herausnehmbare Fächer, alles im Hotelbad griffbereit. Ideal fürs Handgepäck."
+      },
+      "fr": {
+        "title": "Trousse de toilette à suspendre modulable",
+        "description": "Trousse de toilette à suspendre avec crochet et modules amovibles : tout à portée de main à l’hôtel. Idéale en bagage cabine."
+      },
+      "en": {
+        "title": "Hanging toiletry bag, modular",
+        "description": "Modular hanging toiletry bag with hook and removable pouches: everything within reach in the hotel bathroom. Carry-on friendly."
+      }
     }
   },
   {
@@ -169,6 +197,20 @@
       "logisticName": "CJPacket Ordinary",
       "costCents": 1100,
       "notes": "This reference is the 360 stand only (not a kit): sold as such."
+    },
+    "seo": {
+      "de": {
+        "title": "Handyhalterung Flugzeug — Reise-Handyhalter 360°",
+        "description": "Handyhalterung fürs Flugzeug: am Klapptisch oder Sitz befestigen, 360° drehbar — Filme freihändig schauen auf Reisen, im Zug und zu Hause."
+      },
+      "fr": {
+        "title": "Support téléphone avion rotatif 360°",
+        "description": "Support de téléphone pour l’avion : se fixe sur la tablette ou le siège, rotation 360° — regardez vos films les mains libres en avion et en train."
+      },
+      "en": {
+        "title": "Airplane phone holder — 360° travel mount",
+        "description": "Airplane phone holder that clips to the tray table or seat, rotates 360° — hands-free films on planes, trains and at home."
+      }
     }
   },
   {
@@ -226,6 +268,20 @@
       "logisticName": "CJPacket Ordinary",
       "costCents": 600,
       "notes": "Colour Light Blue; check other colours."
+    },
+    "seo": {
+      "de": {
+        "title": "Schmuckrolle für Reisen — Schmuckaufbewahrung unterwegs",
+        "description": "Kompakte Schmuckrolle für die Reise: Ketten, Ringe und Ohrringe getrennt und ohne Verheddern. Passt in jede Handtasche."
+      },
+      "fr": {
+        "title": "Pochette à bijoux de voyage (trousse à bijoux)",
+        "description": "Rouleau à bijoux compact pour le voyage : colliers, bagues et boucles d’oreilles séparés, sans nœuds. Se glisse dans tous les sacs."
+      },
+      "en": {
+        "title": "Travel jewellery roll — jewellery organiser",
+        "description": "Compact travel jewellery roll: necklaces, rings and earrings kept apart and tangle-free. Fits in any bag."
+      }
     }
   },
   {

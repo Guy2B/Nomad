@@ -2,7 +2,7 @@
 export const STR = {
   de: {
     lang: 'Deutsch',
-    nav: { shop: 'Produkte', how: 'So funktioniert’s', faq: 'Fragen', track: 'Bestellung verfolgen', cart: 'Warenkorb' },
+    nav: { guide: 'Ratgeber', shop: 'Produkte', how: 'So funktioniert’s', faq: 'Fragen', track: 'Bestellung verfolgen', cart: 'Warenkorb' },
     promo: 'Kostenloser Versand mit Sendungsverfolgung · Sichere Zahlung · 14 Tage Widerruf',
     hero: {
       eyebrow: 'Reisezubehör, durchdacht',
@@ -39,6 +39,7 @@ export const STR = {
       details: 'Details',
       photoNote: 'Abbildungen können vom Produkt leicht abweichen.',
       back: '← Alle Produkte',
+      includes: 'Im Lieferumfang',
     },
     cart: {
       title: 'Warenkorb',
@@ -65,7 +66,7 @@ export const STR = {
     },
     track: {
       title: 'Bestellung verfolgen',
-      lead: 'Bestellnummer (NM-…) und E-Mail-Adresse der Bestellung eingeben.',
+      lead: 'Bestellnummer ({prefix}-…) und E-Mail-Adresse der Bestellung eingeben.',
       number: 'Bestellnummer',
       email: 'E-Mail',
       submit: 'Status anzeigen',
@@ -80,7 +81,7 @@ export const STR = {
   },
   fr: {
     lang: 'Français',
-    nav: { shop: 'Produits', how: 'Comment ça marche', faq: 'Questions', track: 'Suivre ma commande', cart: 'Panier' },
+    nav: { guide: 'Conseils', shop: 'Produits', how: 'Comment ça marche', faq: 'Questions', track: 'Suivre ma commande', cart: 'Panier' },
     promo: 'Livraison suivie offerte · Paiement sécurisé · 14 jours de rétractation',
     hero: {
       eyebrow: 'Accessoires de voyage, pensés',
@@ -117,6 +118,7 @@ export const STR = {
       details: 'Détails',
       photoNote: 'Les visuels peuvent légèrement différer du produit.',
       back: '← Tous les produits',
+      includes: 'Contenu',
     },
     cart: {
       title: 'Panier',
@@ -143,7 +145,7 @@ export const STR = {
     },
     track: {
       title: 'Suivre ma commande',
-      lead: 'Saisissez le numéro de commande (NM-…) et l’e-mail utilisé.',
+      lead: 'Saisissez le numéro de commande ({prefix}-…) et l’e-mail utilisé.',
       number: 'Numéro de commande',
       email: 'E-mail',
       submit: 'Voir le statut',
@@ -158,7 +160,7 @@ export const STR = {
   },
   en: {
     lang: 'English',
-    nav: { shop: 'Products', how: 'How it works', faq: 'Questions', track: 'Track my order', cart: 'Cart' },
+    nav: { guide: 'Guide', shop: 'Products', how: 'How it works', faq: 'Questions', track: 'Track my order', cart: 'Cart' },
     promo: 'Free tracked shipping · Secure payment · 14-day withdrawal',
     hero: {
       eyebrow: 'Travel accessories, well thought out',
@@ -195,6 +197,7 @@ export const STR = {
       details: 'Details',
       photoNote: 'Pictures may differ slightly from the product.',
       back: '← All products',
+      includes: 'What’s included',
     },
     cart: {
       title: 'Cart',
@@ -221,7 +224,7 @@ export const STR = {
     },
     track: {
       title: 'Track my order',
-      lead: 'Enter the order number (NM-…) and the e-mail used for the order.',
+      lead: 'Enter the order number ({prefix}-…) and the e-mail used for the order.',
       number: 'Order number',
       email: 'E-mail',
       submit: 'Show status',

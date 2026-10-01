@@ -7,7 +7,7 @@
  *        → shipped (tracking number) → delivered
  *   needs_attention: something requires a human (mapping missing, CJ error…), with the reason.
  */
-import { decodeCart, orderNumber, priceCart } from './catalog.mjs';
+import { HOST_STORE, decodeCart, orderNumber, priceCart, store as storeById } from './catalog.mjs';
 import { CJError, cjConfigured, createSupplierOrder, unmapped } from './cj.mjs';
 import { getOrder, saveOrder, upsertCustomer } from './store.mjs';
 import { euros, notifyOwner } from './notify.mjs';
@@ -30,10 +30,14 @@ export function shippingFrom(session) {
 
 export function orderFromSession(session, now = new Date()) {
   const cart = session.metadata?.cart || '';
-  const priced = priceCart(decodeCart(cart));
+  // Sessions created before the multi-store platform carry no store: they are Nomad's.
+  const s = storeById(session.metadata?.store || HOST_STORE) ?? storeById(HOST_STORE);
+  const priced = priceCart(decodeCart(cart), s.id);
   const cust = session.customer_details ?? {};
   return {
-    number: orderNumber(now),
+    number: orderNumber(s.site.orderPrefix, now),
+    store: s.id,
+    brand: s.site.brand,
     sessionId: session.id,
     createdAt: now.toISOString(),
     lang: session.metadata?.lang || 'de',
@@ -54,7 +58,7 @@ export function orderFromSession(session, now = new Date()) {
 /** Sends the order to the supplier, or flags exactly what a human must do. */
 export async function fulfill(store, order) {
   const log = (event) => order.history.push({ at: new Date().toISOString(), event });
-  const missing = unmapped(order.items);
+  const missing = unmapped(order);
   if (!cjConfigured()) order.attention = 'CJ API key missing (CJ_API_KEY)';
   else if (missing.length) order.attention = `CJ variant missing for: ${missing.map((i) => i.name).join(', ')}`;
   else if (!order.shipping.line1 || !order.shipping.city || !order.shipping.country) order.attention = 'Incomplete shipping address';
@@ -93,7 +97,7 @@ export async function processPaidSession(store, session) {
   }
   const lines = order.items.map((i) => `${i.qty}× ${i.name}`).join(', ');
   await notifyOwner(
-    order.attention ? `NOMADA - Action needed ${order.number}` : `NOMADA - New order ${order.number}`,
+    order.attention ? `${order.brand} - Action needed ${order.number}` : `${order.brand} - New order ${order.number}`,
     `${euros(order.totalCents)} · ${lines}\n${order.shipping.name}, ${order.shipping.city} ${order.shipping.country}\n${order.attention ?? 'Sent to the supplier automatically.'}`,
     order.attention ? 'high' : 'default',
   );

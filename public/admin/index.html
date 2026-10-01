@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>NOMADA · Admin</title>
+    <title>Nomad · Admin</title>
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../assets/style.css" />
     <link rel="stylesheet" href="admin.css" />
@@ -12,7 +12,7 @@
   <body data-page="admin">
     <header class="top">
       <div class="wrap top-row">
-        <p class="brand">NOMADA <small class="muted">admin</small></p>
+        <p class="brand">Nomad <small class="muted">admin · toutes les boutiques</small></p>
         <button class="btn btn-line" type="button" id="logout" hidden>Déconnexion</button>
       </div>
     </header>
@@ -25,6 +25,7 @@
       </form>
 
       <section id="app" hidden>
+        <nav class="store-tabs" id="store-tabs" aria-label="Boutique"></nav>
         <div class="kpis" id="kpis"></div>
         <section class="panel">
           <h2>Configuration</h2>
@@ -40,6 +41,7 @@
               <thead>
                 <tr>
                   <th>N°</th>
+                  <th>Boutique</th>
                   <th>Date</th>
                   <th>Client</th>
                   <th>Articles</th>

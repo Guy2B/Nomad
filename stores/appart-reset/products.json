@@ -1,0 +1,603 @@
+[
+  {
+    "id": "kitchen-reset",
+    "sku": "APR-KIT-01",
+    "active": true,
+    "price": 3990,
+    "compare": 5990,
+    "images": [
+      "kitchen-reset-1.webp",
+      "kitchen-reset-2.webp"
+    ],
+    "name": "Kitchen Reset",
+    "text": {
+      "de": {
+        "badge": "Küche ohne Chaos",
+        "tagline": "Endlich Platz rund um die Spüle.",
+        "description": "Mach aus dem Spülbereich eine nutzbare Zone, ohne die Küche umzubauen.",
+        "bullets": [
+          "Schwamm, Bürste und Kleinteile liegen nicht mehr auf der Arbeitsplatte",
+          "4 Haken schaffen vertikalen Stauraum auf geeigneten Flächen",
+          "Der Aluminium-Rack lässt Wasser schnell ablaufen",
+          "Schnelle Montage ohne große Arbeiten"
+        ],
+        "caution": "Untergrund und Belastung vor der Montage immer prüfen."
+      },
+      "fr": {
+        "badge": "Cuisine sans bazar",
+        "tagline": "Ton évier respire enfin.",
+        "description": "Libère le plan de travail et transforme le coin évier en zone utile sans percer.",
+        "bullets": [
+          "Éponge, brosse et petit matériel ne traînent plus sur le plan de travail",
+          "4 crochets ajoutent du rangement vertical sur surfaces compatibles",
+          "Le rack aluminium draine rapidement autour de l’évier",
+          "Installation rapide, sans gros travaux"
+        ],
+        "caution": "Vérifie toujours la compatibilité de la surface et la charge avant installation."
+      },
+      "en": {
+        "badge": "Clutter-free kitchen",
+        "tagline": "Make the sink area work harder.",
+        "description": "Turn the sink corner into usable storage without renovating the kitchen.",
+        "bullets": [
+          "Keep sponge, brush and small tools off the counter",
+          "4 hooks add vertical storage on compatible surfaces",
+          "The aluminum rack drains quickly around the sink",
+          "Fast setup with no major work"
+        ],
+        "caution": "Always check surface compatibility and load before installation."
+      }
+    },
+    "components": [
+      {
+        "key": "sink-rack",
+        "name": "Rack évier aluminium / sink rack",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/kitchen-space-aluminum-sink-faucet-storage-rack-dishwasher-vegetable-sink-supplies-household-drain-basket-bathroom-accessories-p-2407020239431617500.html",
+          "cjProductId": "2407020239431617500",
+          "cjVid": "",
+          "cjSku": "CJYD207339601AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 290,
+          "priceUSD": "1.95-3.15",
+          "notes": "Choisir orientation/couleur exacte et calculer le coût rendu Allemagne."
+        },
+        "label": {
+          "de": "Spülbecken-Organizer aus Aluminium",
+          "fr": "Rangement d’évier en aluminium",
+          "en": "Aluminium sink caddy"
+        }
+      },
+      {
+        "key": "suction-hook",
+        "name": "Crochet ventouse sans perçage",
+        "qty": 4,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/wall-suction-cup-hook-punch-free-powerful-vacuum-single-hook-kitchen-bathroom-door-rear-non-marking-clothes-hook-p-1748605268390322176.html",
+          "cjProductId": "1748605268390322176",
+          "cjVid": "",
+          "cjSku": "CJYD195271102BY",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 72,
+          "priceUSD": "0.53-0.78",
+          "notes": "À valider sur carrelage/verre; ne pas promettre compatibilité avec toutes les surfaces."
+        },
+        "label": {
+          "de": "Saughaken ohne Bohren",
+          "fr": "Crochet ventouse sans perçage",
+          "en": "No-drill suction hook"
+        }
+      }
+    ],
+    "costCents": 1800,
+    "seo": {
+      "de": {
+        "title": "Spülbecken-Organizer ohne Bohren — Küchen-Set",
+        "description": "Spülbecken-Organizer aus Aluminium plus 4 Saughaken ohne Bohren: Schwamm, Bürste und Kleinteile weg von der Arbeitsplatte. Ideal für kleine Küchen."
+      },
+      "fr": {
+        "title": "Organisateur d’évier sans perçage — kit cuisine",
+        "description": "Rangement évier en aluminium et 4 crochets ventouse sans perçage : éponge, brosse et petit matériel hors du plan de travail. Idéal petite cuisine."
+      },
+      "en": {
+        "title": "No-drill sink organiser — kitchen set",
+        "description": "Aluminium sink caddy plus 4 no-drill suction hooks: sponge, brush and small tools off the counter. Made for small kitchens."
+      }
+    }
+  },
+  {
+    "id": "bathroom-reset",
+    "sku": "APR-BATH-02",
+    "active": true,
+    "price": 4990,
+    "compare": 6990,
+    "images": [
+      "bathroom-reset-1.webp",
+      "bathroom-reset-2.webp"
+    ],
+    "name": "Bathroom Reset",
+    "text": {
+      "de": {
+        "badge": "Bad ohne Bohren",
+        "tagline": "Ein aufgeräumtes Bad – ohne Bohrmaschine.",
+        "description": "Bring Pflegeprodukte und Handtücher an die Wand, ohne großen Umbau.",
+        "bullets": [
+          "Eckablage für Shampoo, Duschgel und Pflege",
+          "4 Haken für Handtücher, Rasierer oder leichte Accessoires",
+          "Ideal für kleine Bäder und Mietwohnungen",
+          "Minimaler schwarzer Look mit sichtbarer Ordnung"
+        ],
+        "caution": "Untergrund und Belastung vor der Montage immer prüfen."
+      },
+      "fr": {
+        "badge": "Salle de bain sans percer",
+        "tagline": "Une douche nette, sans perceuse.",
+        "description": "Rassemble tes produits à hauteur de main et exploite les murs sans travaux lourds.",
+        "bullets": [
+          "Étagère d’angle pour shampoing, gel douche et soins",
+          "4 crochets pour serviettes, rasoir ou accessoires légers",
+          "Idéal pour petite salle de bain et location",
+          "Look noir minimal et rangement visible"
+        ],
+        "caution": "Vérifie toujours la compatibilité de la surface et la charge avant installation."
+      },
+      "en": {
+        "badge": "No-drill bathroom",
+        "tagline": "A cleaner shower, no drill required.",
+        "description": "Move daily products off ledges and onto the wall without a renovation.",
+        "bullets": [
+          "Corner caddy for shampoo, shower gel and skincare",
+          "4 hooks for towels, razors or light accessories",
+          "Ideal for small bathrooms and rentals",
+          "Minimal black look with visible organization"
+        ],
+        "caution": "Always check surface compatibility and load before installation."
+      }
+    },
+    "components": [
+      {
+        "key": "shower-caddy",
+        "name": "Étagère douche d’angle sans perçage",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/1pc-wall-mounted-bathroom-shelf-shower-caddy-rack-no-punching-triangle-storage-rack-for-bathroom-kitchen-bathroom-accessories-p-1880165726661005314.html",
+          "cjProductId": "1880165726661005314",
+          "cjVid": "",
+          "cjSku": "CJYS227337902BY",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 810,
+          "priceUSD": "8.80",
+          "notes": "No-drill sur surfaces compatibles. Variante noire affichée publiquement."
+        },
+        "label": {
+          "de": "Eck-Duschablage ohne Bohren",
+          "fr": "Étagère d’angle de douche sans perçage",
+          "en": "No-drill corner shower shelf"
+        }
+      },
+      {
+        "key": "suction-hook",
+        "name": "Crochet ventouse sans perçage",
+        "qty": 4,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/wall-suction-cup-hook-punch-free-powerful-vacuum-single-hook-kitchen-bathroom-door-rear-non-marking-clothes-hook-p-1748605268390322176.html",
+          "cjProductId": "1748605268390322176",
+          "cjVid": "",
+          "cjSku": "CJYD195271102BY",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 72,
+          "priceUSD": "0.53-0.78",
+          "notes": "Surface lisse recommandée; test adhérence avant lancement."
+        },
+        "label": {
+          "de": "Saughaken ohne Bohren",
+          "fr": "Crochet ventouse sans perçage",
+          "en": "No-drill suction hook"
+        }
+      }
+    ],
+    "costCents": 2200,
+    "seo": {
+      "de": {
+        "title": "Duschablage ohne Bohren — Eckregal Bad Set",
+        "description": "Duschablage für die Ecke ohne Bohren plus 4 Haken: Pflegeprodukte und Handtücher an die Wand — ideal für Mietwohnungen und kleine Bäder."
+      },
+      "fr": {
+        "title": "Étagère de douche sans perçage — kit salle de bain",
+        "description": "Étagère d’angle pour douche sans perçage et 4 crochets : produits et serviettes au mur — idéal en location et petite salle de bain."
+      },
+      "en": {
+        "title": "No-drill shower shelf — bathroom corner set",
+        "description": "No-drill corner shower shelf plus 4 hooks: toiletries and towels on the wall — ideal for rentals and small bathrooms."
+      }
+    }
+  },
+  {
+    "id": "desk-reset",
+    "sku": "APR-DESK-03",
+    "active": true,
+    "price": 4990,
+    "compare": 6990,
+    "images": [
+      "desk-reset-1.webp",
+      "desk-reset-2.webp",
+      "desk-reset-3.webp"
+    ],
+    "name": "Desk Reset",
+    "text": {
+      "de": {
+        "badge": "Desk Reset in 10 Min",
+        "tagline": "Ein Desk, an dem du wieder gerne sitzt.",
+        "description": "Kabel führen, Kleinteile verstauen, Oberfläche ruhig halten.",
+        "bullets": [
+          "Kabelclips verhindern, dass Leitungen hinter den Tisch fallen",
+          "Stapelbare Schubladenbox für Stifte und Kleinteile",
+          "Mini-Box für Adapter, USB-Sticks und Earbuds",
+          "Sauberer Look für Homeoffice oder Gaming"
+        ],
+        "caution": "Untergrund und Belastung vor der Montage immer prüfen."
+      },
+      "fr": {
+        "badge": "Bureau net en 10 min",
+        "tagline": "Le bureau qui donne envie de s’y remettre.",
+        "description": "Canalise les câbles, range les petits accessoires et garde la surface visuellement calme.",
+        "bullets": [
+          "Clips de câble pour éviter les fils qui tombent derrière le bureau",
+          "Tiroir/boîte empilable pour stylos, télécommandes et petits objets",
+          "Mini boîte pour adaptateurs, clés USB et écouteurs",
+          "Un setup plus lisible pour télétravail ou gaming"
+        ],
+        "caution": "Vérifie toujours la compatibilité de la surface et la charge avant installation."
+      },
+      "en": {
+        "badge": "Clean desk in 10 min",
+        "tagline": "A desk you actually want to sit at.",
+        "description": "Route cables, hide small accessories and keep the surface visually calm.",
+        "bullets": [
+          "Cable clips stop cords from falling behind the desk",
+          "Stackable drawer box for pens and small gear",
+          "Mini box for adapters, USB drives and earbuds",
+          "Cleaner setup for home office or gaming"
+        ],
+        "caution": "Always check surface compatibility and load before installation."
+      }
+    },
+    "components": [
+      {
+        "key": "cable-clips",
+        "name": "Clips magnétiques / adhésifs pour câbles",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/magnetic-cable-clip-under-desk-cable-management-adjustable-cord-holder-wire-organizer-and-cable-management-wire-keeper-p-1763402968205897728.html",
+          "cjProductId": "1763402968205897728",
+          "cjVid": "",
+          "cjSku": "CJYD197888501AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 777,
+          "priceUSD": "0.05-8.45",
+          "notes": "Sélectionner la variante 6-pack avant activation."
+        },
+        "label": {
+          "de": "Magnetische Kabelclips",
+          "fr": "Clips de câbles magnétiques",
+          "en": "Magnetic cable clips"
+        }
+      },
+      {
+        "key": "desktop-drawer",
+        "name": "Boîte tiroir empilable pour bureau",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/desktop-storage-box-office-accessories-makeup-plastic-storage-container-bathroom-storage-stackable-organizer-drawer-p-1386883997170274304.html",
+          "cjProductId": "1386883997170274304",
+          "cjVid": "",
+          "cjSku": "CJJT110132001AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 513,
+          "priceUSD": "1.92-5.58",
+          "notes": "Couleur neutre à confirmer; 1PC pour le bundle."
+        },
+        "label": {
+          "de": "Stapelbare Schubladenbox",
+          "fr": "Tiroir de rangement empilable",
+          "en": "Stackable drawer box"
+        }
+      },
+      {
+        "key": "cable-box",
+        "name": "Mini boîte accessoires / câbles",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/data-cable-power-bank-storage-box-p-2505150936081600400.html",
+          "cjProductId": "2505150936081600400",
+          "cjVid": "",
+          "cjSku": "CJYD237724401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 52,
+          "priceUSD": "0.56",
+          "notes": "Format 13.5 × 9 × 5 cm."
+        },
+        "label": {
+          "de": "Mini-Aufbewahrungsbox",
+          "fr": "Mini boîte de rangement",
+          "en": "Mini storage box"
+        }
+      }
+    ],
+    "costCents": 1800,
+    "seo": {
+      "de": {
+        "title": "Kabelmanagement Schreibtisch — Organizer Set",
+        "description": "Magnetische Kabelclips, stapelbare Schubladenbox und Mini-Box: Kabel führen und Kleinteile verstauen — Ordnung am Schreibtisch in 10 Minuten."
+      },
+      "fr": {
+        "title": "Range-câbles bureau — kit organisateur",
+        "description": "Clips de câbles magnétiques, tiroir empilable et mini boîte : câbles guidés et petites affaires rangées — un bureau net en 10 minutes."
+      },
+      "en": {
+        "title": "Desk cable management — organiser set",
+        "description": "Magnetic cable clips, stackable drawer box and mini box: route cables and store small items — a tidy desk in 10 minutes."
+      }
+    }
+  },
+  {
+    "id": "wardrobe-reset",
+    "sku": "APR-WARD-04",
+    "active": true,
+    "price": 5490,
+    "compare": 7990,
+    "images": [
+      "wardrobe-reset-1.webp",
+      "wardrobe-reset-2.webp"
+    ],
+    "name": "Wardrobe Reset",
+    "text": {
+      "de": {
+        "badge": "Mehr Platz im Schrank",
+        "tagline": "Mehr Kapazität ohne neuen Schrank.",
+        "description": "Nutze die Höhe besser und mach aus Saisonkleidung stapelbare Einheiten.",
+        "bullets": [
+          "Mehrfach-Bügel nutzen vertikalen Platz",
+          "2 faltbare Taschen für Kleidung, Pullover oder Bettwäsche",
+          "Ideal für Studio, WG oder kleinen Kleiderschrank",
+          "Weniger chaotische Stapel, bessere Kategorien"
+        ],
+        "caution": "Untergrund und Belastung vor der Montage immer prüfen."
+      },
+      "fr": {
+        "badge": "Dressing x2 capacité",
+        "tagline": "Gagne de la capacité sans changer d’armoire.",
+        "description": "Utilise mieux la hauteur et transforme les vêtements hors saison en volumes empilables.",
+        "bullets": [
+          "Cintres multi-niveaux pour exploiter l’espace vertical",
+          "2 sacs pliables pour linge, pulls ou literie",
+          "Parfait pour studio, dortoir ou petit dressing",
+          "Moins de piles qui s’effondrent et plus de catégories visibles"
+        ],
+        "caution": "Vérifie toujours la compatibilité de la surface et la charge avant installation."
+      },
+      "en": {
+        "badge": "More wardrobe space",
+        "tagline": "More capacity without buying a new wardrobe.",
+        "description": "Use vertical space better and turn seasonal clothing into stackable units.",
+        "bullets": [
+          "Multi-level hangers use vertical space",
+          "2 foldable bags for clothes, knits or bedding",
+          "Ideal for studios, dorms and small wardrobes",
+          "Fewer collapsing piles and clearer categories"
+        ],
+        "caution": "Always check surface compatibility and load before installation."
+      }
+    },
+    "components": [
+      {
+        "key": "space-hangers",
+        "name": "Cintres 9 trous gain de place",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://www.cjdropshipping.com/product/9-hole-clothes-hanger-organizer-space-saving-hanger-multi-function-folding-magic-hangers-drying-racks-scarf-clothes-storage-p-1450401413535502336.html",
+          "cjProductId": "1450401413535502336",
+          "cjVid": "",
+          "cjSku": "CJJT132431901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 199,
+          "priceUSD": "0.27-2.16",
+          "notes": "Choisir la variante 4PCS ou 5PCS pour le bundle."
+        },
+        "label": {
+          "de": "Platzsparender Kleiderbügel (9 Löcher)",
+          "fr": "Cintre gain de place (9 trous)",
+          "en": "Space-saving hanger (9 holes)"
+        }
+      },
+      {
+        "key": "storage-bags",
+        "name": "Sacs de rangement pliables grande capacité",
+        "qty": 2,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/foldable-clothes-storage-bag-large-capacity-organizer-with-handle-and-double-zipper-for-bedding-moving-travel-under-bed-storage-p-2505160457141629100.html",
+          "cjProductId": "2505160457141629100",
+          "cjVid": "",
+          "cjSku": "CJYD237778201AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 520,
+          "priceUSD": "0.98-5.65",
+          "notes": "Valider taille Medium/Large et bundle 2pcs."
+        },
+        "label": {
+          "de": "Faltbare Aufbewahrungstasche",
+          "fr": "Sac de rangement pliable",
+          "en": "Foldable storage bag"
+        }
+      }
+    ],
+    "costCents": 1600,
+    "seo": {
+      "de": {
+        "title": "Platzsparende Kleiderbügel & Aufbewahrungstaschen — Schrank-Set",
+        "description": "Platzsparende Kleiderbügel mit 9 Löchern und 2 faltbare Aufbewahrungstaschen: mehr Platz im Kleiderschrank, Saisonkleidung stapelbar verstaut."
+      },
+      "fr": {
+        "title": "Cintres gain de place et sacs de rangement — kit dressing",
+        "description": "Cintres gain de place à 9 trous et 2 sacs de rangement pliables : plus de place dans l’armoire, vêtements de saison rangés et empilables."
+      },
+      "en": {
+        "title": "Space-saving hangers & storage bags — wardrobe set",
+        "description": "9-hole space-saving hangers and 2 foldable storage bags: more room in the wardrobe, seasonal clothes stacked away."
+      }
+    }
+  },
+  {
+    "id": "laundry-reset",
+    "sku": "APR-LAUN-05",
+    "active": true,
+    "price": 6990,
+    "compare": 9990,
+    "images": [
+      "laundry-reset-1.webp",
+      "laundry-reset-2.webp",
+      "laundry-reset-3.webp"
+    ],
+    "name": "Laundry Reset",
+    "text": {
+      "de": {
+        "badge": "Wäsche ohne Umbau",
+        "tagline": "Mach eine Mini-Wäschezone aus ungenutztem Raum.",
+        "description": "Klappbarer Wandtrockner, Textil-Stauraum und Haken für schmale Räume.",
+        "bullets": [
+          "Trockner klappt weg, wenn er nicht gebraucht wird",
+          "Aufbewahrungstasche für Wäsche oder Zubehör",
+          "4 Haken für leichte Textilien und Kleinteile",
+          "Für Wohnung, Balkon, Bad oder Utility-Ecke"
+        ],
+        "caution": "Untergrund und Belastung vor der Montage immer prüfen."
+      },
+      "fr": {
+        "badge": "Buanderie sans travaux",
+        "tagline": "Crée une mini-buanderie là où il n’y en avait pas.",
+        "description": "Un séchoir mural pliable, du rangement textile et des crochets pour exploiter un mur ou un balcon étroit.",
+        "bullets": [
+          "Séchoir qui se replie quand il n’est pas utilisé",
+          "Sac de rangement pour linge ou accessoires",
+          "4 crochets pour petits objets et textiles légers",
+          "Pensé pour appartement, balcon, salle de bain ou coin utility"
+        ],
+        "caution": "Vérifie toujours la compatibilité de la surface et la charge avant installation."
+      },
+      "en": {
+        "badge": "Laundry without renovation",
+        "tagline": "Create a laundry zone where there wasn’t one.",
+        "description": "A fold-away drying rack, textile storage and hooks for narrow walls or balconies.",
+        "bullets": [
+          "Drying rack folds away when not in use",
+          "Storage bag for laundry or accessories",
+          "4 hooks for light textiles and small items",
+          "Built for apartments, balconies, bathrooms or utility corners"
+        ],
+        "caution": "Always check surface compatibility and load before installation."
+      }
+    },
+    "components": [
+      {
+        "key": "drying-rack",
+        "name": "Séchoir mural pliable sans perçage",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/non-perforated-space-aluminum-foldable-invisible-thick-drying-rack-p-AF61B5DA-1063-4FBC-A422-77596E09EC13.html",
+          "cjProductId": "AF61B5DA-1063-4FBC-A422-77596E09EC13",
+          "cjVid": "",
+          "cjSku": "CJJJJTFZ00270-2 frames 80cm",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 791,
+          "priceUSD": "2.92-8.60",
+          "notes": "Valider montage no-drill sur surface cible; échantillon indispensable."
+        },
+        "label": {
+          "de": "Klappbarer Wand-Wäscheständer (80 cm)",
+          "fr": "Séchoir mural pliable (80 cm)",
+          "en": "Fold-away wall drying rack (80 cm)"
+        }
+      },
+      {
+        "key": "storage-bags",
+        "name": "Sac rangement pliable",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/foldable-clothes-storage-bag-large-capacity-organizer-with-handle-and-double-zipper-for-bedding-moving-travel-under-bed-storage-p-2505160457141629100.html",
+          "cjProductId": "2505160457141629100",
+          "cjVid": "",
+          "cjSku": "CJYD237778201AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 520,
+          "priceUSD": "0.98-5.65",
+          "notes": "Taille à confirmer."
+        },
+        "label": {
+          "de": "Faltbare Aufbewahrungstasche",
+          "fr": "Sac de rangement pliable",
+          "en": "Foldable storage bag"
+        }
+      },
+      {
+        "key": "suction-hook",
+        "name": "Crochet ventouse sans perçage",
+        "qty": 4,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/wall-suction-cup-hook-punch-free-powerful-vacuum-single-hook-kitchen-bathroom-door-rear-non-marking-clothes-hook-p-1748605268390322176.html",
+          "cjProductId": "1748605268390322176",
+          "cjVid": "",
+          "cjSku": "CJYD195271102BY",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 72,
+          "priceUSD": "0.53-0.78",
+          "notes": "Surface compatible à valider."
+        },
+        "label": {
+          "de": "Saughaken ohne Bohren",
+          "fr": "Crochet ventouse sans perçage",
+          "en": "No-drill suction hook"
+        }
+      }
+    ],
+    "costCents": 2400,
+    "seo": {
+      "de": {
+        "title": "Wäscheständer Wand klappbar — Wäsche-Set ohne Bohren",
+        "description": "Klappbarer Wand-Wäscheständer, Aufbewahrungstasche und 4 Haken: eine Mini-Waschzone in Bad, Flur oder auf dem Balkon — klappt weg, wenn nicht gebraucht."
+      },
+      "fr": {
+        "title": "Séchoir mural pliable — kit linge petit espace",
+        "description": "Séchoir à linge mural pliable, sac de rangement et 4 crochets : un coin linge dans la salle de bain, l’entrée ou sur le balcon, replié quand il ne sert pas."
+      },
+      "en": {
+        "title": "Fold-away wall drying rack — laundry set",
+        "description": "Folding wall-mounted drying rack, storage bag and 4 hooks: a mini laundry zone in the bathroom, hallway or balcony that folds away when not in use."
+      }
+    }
+  }
+]
