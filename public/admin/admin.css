@@ -1,0 +1,135 @@
+.admin {
+  padding: 32px 0 60px;
+}
+.login {
+  max-width: 380px;
+  margin: 60px auto;
+  display: grid;
+  gap: 12px;
+}
+.login label {
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
+}
+.login input {
+  font: inherit;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.kpi {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  gap: 4px;
+}
+.kpi b {
+  font-size: 1.4rem;
+  font-family: var(--serif);
+}
+.kpi.warn {
+  border-color: var(--accent);
+}
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+}
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.setup {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.setup li {
+  display: flex;
+  gap: 10px;
+}
+.setup .ok span:first-child {
+  color: var(--good);
+  font-weight: 700;
+}
+.setup .todo {
+  color: var(--text-2);
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+th,
+td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+tr.attention {
+  background: #fdf3ee;
+}
+.chip {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--sand);
+}
+.chip-needs_attention {
+  background: #fbe2d6;
+  color: var(--accent);
+}
+.chip-shipped,
+.chip-delivered {
+  background: #dff0e6;
+  color: var(--good);
+}
+.attn {
+  color: var(--accent);
+  margin: 4px 0 0;
+}
+.actions {
+  display: grid;
+  gap: 6px;
+}
+.btn-xs {
+  min-height: 32px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+@media (max-width: 800px) {
+  .kpis {
+    grid-template-columns: 1fr 1fr;
+  }
+}

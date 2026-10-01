@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>NOMADA · Admin</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body data-page="admin">
+    <header class="top">
+      <div class="wrap top-row">
+        <p class="brand">NOMADA <small class="muted">admin</small></p>
+        <button class="btn btn-line" type="button" id="logout" hidden>Déconnexion</button>
+      </div>
+    </header>
+    <main class="wrap admin">
+      <form id="login" class="login">
+        <h1>Tableau de bord</h1>
+        <label>Mot de passe admin<input type="password" name="password" autocomplete="current-password" required /></label>
+        <button class="btn btn-dark" type="submit">Entrer</button>
+        <p class="error" id="login-error" hidden>Mot de passe refusé.</p>
+      </form>
+
+      <section id="app" hidden>
+        <div class="kpis" id="kpis"></div>
+        <section class="panel">
+          <h2>Configuration</h2>
+          <ul class="setup" id="setup"></ul>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Commandes</h2>
+            <label class="filter"><input type="checkbox" id="only-attention" /> Seulement « action requise »</label>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Date</th>
+                  <th>Client</th>
+                  <th>Articles</th>
+                  <th>Total</th>
+                  <th>Statut</th>
+                  <th>Fournisseur</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="orders"></tbody>
+            </table>
+          </div>
+          <p class="muted small" id="empty" hidden>Aucune commande pour l’instant.</p>
+        </section>
+      </section>
+    </main>
+    <script src="admin.js" defer></script>
+  </body>
+</html>

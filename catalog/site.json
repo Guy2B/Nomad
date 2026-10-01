@@ -1,0 +1,32 @@
+{
+  "brand": "NOMADA",
+  "tagline": {
+    "de": "Reisezubehör, das Ordnung ins Gepäck bringt.",
+    "fr": "Des accessoires de voyage qui rangent votre bagage.",
+    "en": "Travel accessories that bring order to your luggage."
+  },
+  "baseUrl": "https://nomada-store.netlify.app",
+  "currency": "eur",
+  "defaultLang": "de",
+  "languages": ["de", "fr", "en"],
+  "shipping": {
+    "countries": ["DE", "AT", "FR", "BE", "LU", "NL", "ES", "IT"],
+    "cents": 0,
+    "deliveryDays": "7–14",
+    "returnDays": 14
+  },
+  "invoice": {
+    "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
+  },
+  "company": {
+    "name": "[Name / Firma — à compléter]",
+    "owner": "[Inhaber — à compléter]",
+    "street": "[Straße Nr. — à compléter]",
+    "city": "[PLZ Ort — à compléter]",
+    "country": "Deutschland",
+    "email": "[support@… — à compléter]",
+    "phone": "",
+    "taxNote": "Kleinunternehmer gemäß § 19 UStG"
+  },
+  "byAlgbr": "https://algbr-3b4ee.web.app/"
+}

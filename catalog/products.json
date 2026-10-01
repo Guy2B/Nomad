@@ -1,0 +1,288 @@
+[
+  {
+    "id": "vacuum-backpack",
+    "sku": "NOM-VAC-01",
+    "active": true,
+    "price": 9990,
+    "compare": 12990,
+    "images": [
+      "vacuum-backpack-1.webp",
+      "vacuum-backpack-2.webp",
+      "vacuum-backpack-3.webp",
+      "vacuum-backpack-4.webp"
+    ],
+    "name": "Vacuum Pack Pro",
+    "text": {
+      "de": {
+        "tagline": "Der Handgepäck-Rucksack, der Chaos in nutzbaren Platz verwandelt.",
+        "description": "Ein strukturierter Rucksack mit Kompressionsbereich: Kleidung besser organisiert, Essentials getrennt, jeder Zentimeter sinnvoll genutzt.",
+        "bullets": [
+          "Hilft, das Volumen weicher Kleidung zu reduzieren",
+          "Kofferöffnung für den schnellen Überblick",
+          "Separates Laptopfach",
+          "Für Kurztrips, Business und Wochenende"
+        ]
+      },
+      "fr": {
+        "tagline": "Le sac cabine qui transforme le chaos en espace utile.",
+        "description": "Un sac structuré avec compartiment compressible : vêtements mieux rangés, essentiels séparés, chaque centimètre exploité.",
+        "bullets": [
+          "Aide à réduire le volume des vêtements souples",
+          "Ouverture type valise pour tout voir d’un coup",
+          "Compartiment ordinateur séparé",
+          "Pour city trips, voyages pro et week-ends"
+        ]
+      },
+      "en": {
+        "tagline": "The carry-on backpack that turns chaos into usable space.",
+        "description": "A structured backpack with a compression compartment: clothes organised, essentials separated, every centimetre put to use.",
+        "bullets": [
+          "Helps reduce the volume of soft clothing",
+          "Suitcase-style opening to see everything at once",
+          "Separate laptop compartment",
+          "For city trips, business and weekends"
+        ]
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/vacuum-compression-backpack-simple-large-capacity-p-2503161203481600600.html",
+      "cjProductId": "2503161203481600600",
+      "cjVid": "",
+      "cjSku": "CJYD232914001AZ",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 3400,
+      "notes": "Variant with pump to confirm after sample; EU shipping to recalculate in CJ."
+    }
+  },
+  {
+    "id": "modular-toiletry",
+    "sku": "NOM-WASH-02",
+    "active": true,
+    "price": 4490,
+    "compare": 5990,
+    "images": [
+      "modular-toiletry-1.webp",
+      "modular-toiletry-2.webp",
+      "modular-toiletry-3.webp",
+      "modular-toiletry-4.webp"
+    ],
+    "name": "MODULA Wash",
+    "text": {
+      "de": {
+        "tagline": "Das ganze Bad im Koffer — aufgehängt und in Sekunden griffbereit.",
+        "description": "Ein hängender Kulturbeutel mit abnehmbaren Fächern: Pflege, Make-up und Rasur getrennt, wasserabweisend und übersichtlich.",
+        "bullets": [
+          "Zum Aufhängen an Haken oder Tür",
+          "Abnehmbare Module für jede Reise",
+          "Wasserabweisendes Material",
+          "Alles auf einen Blick statt Suchen"
+        ]
+      },
+      "fr": {
+        "tagline": "Toute la salle de bain dans la valise — suspendue et prête en un geste.",
+        "description": "Une trousse suspendue à modules amovibles : soins, maquillage et rasage séparés, déperlante et lisible.",
+        "bullets": [
+          "Se suspend à un crochet ou une porte",
+          "Modules amovibles selon le voyage",
+          "Matière déperlante",
+          "Tout est visible, plus besoin de chercher"
+        ]
+      },
+      "en": {
+        "tagline": "Your whole bathroom in the suitcase — hung up and ready in seconds.",
+        "description": "A hanging toiletry bag with detachable modules: skincare, make-up and shaving kept apart, water-repellent and easy to read.",
+        "bullets": [
+          "Hangs on a hook or a door",
+          "Detachable modules for every trip",
+          "Water-repellent material",
+          "Everything in sight, no more searching"
+        ]
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://www.cjdropshipping.com/product/travel-hanging-toiletry-bag-travel-kit-shaving-bag-waterproof-large-makeup-bag-wash-bag-makeup-organizer-cosmetic-case-puffy-makeup-cosmetic-bag-organizer-carry-on-travel-accessories-p-1824032070243864576.html",
+      "cjProductId": "1824032070243864576",
+      "cjVid": "",
+      "cjSku": "CJCZ211153101AZ",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 800,
+      "notes": "Choose colour/variant in CJ; check landed cost to Germany and finish."
+    }
+  },
+  {
+    "id": "flight-stand",
+    "sku": "NOM-FLY-03",
+    "active": true,
+    "price": 3990,
+    "compare": 4990,
+    "images": [
+      "flight-kit-1.webp",
+      "flight-kit-2.webp",
+      "flight-kit-3.webp",
+      "flight-kit-4.webp",
+      "flight-kit-5.webp"
+    ],
+    "name": "Flight Stand 360",
+    "text": {
+      "de": {
+        "tagline": "Filme schauen im Flugzeug, ohne das Handy zu halten.",
+        "description": "Ein faltbarer, um 360° drehbarer Handyhalter: am Klapptisch, am Sitz oder auf dem Hoteltisch — die Hände bleiben frei.",
+        "bullets": [
+          "360° drehbar, Hoch- und Querformat",
+          "Faltbar und leicht für die Jackentasche",
+          "Für Flugzeug, Zug und Hotel",
+          "Passt zu den meisten Smartphones"
+        ]
+      },
+      "fr": {
+        "tagline": "Regarder un film en avion sans tenir son téléphone.",
+        "description": "Un support de téléphone pliable et rotatif à 360° : sur la tablette, le siège ou la table de l’hôtel — les mains restent libres.",
+        "bullets": [
+          "Rotation à 360°, portrait et paysage",
+          "Pliable et léger, tient dans une poche",
+          "Pour l’avion, le train et l’hôtel",
+          "Compatible avec la plupart des smartphones"
+        ]
+      },
+      "en": {
+        "tagline": "Watch films on the plane without holding your phone.",
+        "description": "A foldable phone holder that rotates 360°: on the tray table, the seat or the hotel desk — hands free.",
+        "bullets": [
+          "360° rotation, portrait and landscape",
+          "Foldable and light, fits in a pocket",
+          "For planes, trains and hotels",
+          "Fits most smartphones"
+        ]
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/360-rotary-multifunctional-collapsible-mobile-phone-holder-p-1694937902045736960.html",
+      "cjProductId": "1694937902045736960",
+      "cjVid": "",
+      "cjSku": "CJSJ183035901AZ",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 1100,
+      "notes": "This reference is the 360 stand only (not a kit): sold as such."
+    }
+  },
+  {
+    "id": "jewelry-roll",
+    "sku": "NOM-JEW-04",
+    "active": true,
+    "price": 3990,
+    "compare": 4990,
+    "images": [
+      "jewelry-roll-1.webp",
+      "jewelry-roll-2.webp",
+      "jewelry-roll-3.webp",
+      "jewelry-roll-4.webp"
+    ],
+    "name": "Jewel Roll",
+    "text": {
+      "de": {
+        "tagline": "Ketten ohne Knoten, Ohrringe ohne Suche.",
+        "description": "Eine Schmuckrolle mit Fächern, Ringleiste und Haken: alles getrennt, geschützt und in Sekunden aufgerollt.",
+        "bullets": [
+          "Keine verknoteten Ketten mehr",
+          "Fächer für Ringe, Ohrringe und Armbänder",
+          "Flach aufgerollt im Koffer",
+          "Ideal als Geschenk"
+        ]
+      },
+      "fr": {
+        "tagline": "Des colliers sans nœuds, des boucles d’oreilles sans chercher.",
+        "description": "Un rouleau à bijoux avec compartiments, barre à bagues et crochets : tout est séparé, protégé et roulé en quelques secondes.",
+        "bullets": [
+          "Fini les colliers emmêlés",
+          "Compartiments pour bagues, boucles et bracelets",
+          "Se roule à plat dans la valise",
+          "Idéal en cadeau"
+        ]
+      },
+      "en": {
+        "tagline": "Necklaces without knots, earrings without searching.",
+        "description": "A jewellery roll with pockets, a ring bar and hooks: everything separated, protected and rolled up in seconds.",
+        "bullets": [
+          "No more tangled necklaces",
+          "Pockets for rings, earrings and bracelets",
+          "Rolls flat in the suitcase",
+          "A great gift"
+        ]
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/jewerly-storage-bag-p-5A61DB16-622A-4571-A5F8-8C3E7FB77989.html",
+      "cjProductId": "5A61DB16-622A-4571-A5F8-8C3E7FB77989",
+      "cjVid": "",
+      "cjSku": "CJBHNSNS12867-Light Blue41x14x1",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 600,
+      "notes": "Colour Light Blue; check other colours."
+    }
+  },
+  {
+    "id": "mini-steamer",
+    "sku": "NOM-STM-05",
+    "active": false,
+    "price": 4990,
+    "compare": 6490,
+    "images": [
+      "mini-steamer-1.webp",
+      "mini-steamer-2.webp",
+      "mini-steamer-3.webp",
+      "mini-steamer-4.webp"
+    ],
+    "name": "Steam Mini",
+    "text": {
+      "de": {
+        "tagline": "Gepflegte Kleidung, ohne nach einem Bügeleisen zu suchen.",
+        "description": "Ein kompakter Reise-Steamer für Geschäftsreisen und Events, wenn zerknitterte Kleidung keine Option ist.",
+        "bullets": [
+          "Kompaktes Reiseformat",
+          "Schnell gegen leichte Falten",
+          "Für geeignete Hemden und Kleider",
+          "Praktische Alternative zum Bügeleisen"
+        ]
+      },
+      "fr": {
+        "tagline": "Une tenue nette sans chercher un fer à repasser.",
+        "description": "Un mini défroisseur de voyage pour les rendez-vous et les événements où une chemise froissée n’est pas une option.",
+        "bullets": [
+          "Format compact",
+          "Rapide contre les plis légers",
+          "Pour chemises et robes compatibles",
+          "Alternative pratique au fer"
+        ]
+      },
+      "en": {
+        "tagline": "Crisp clothes without hunting for an iron.",
+        "description": "A compact travel steamer for business trips and events where a creased shirt is not an option.",
+        "bullets": [
+          "Compact travel size",
+          "Quick fix for light creases",
+          "For suitable shirts and dresses",
+          "Handy alternative to an iron"
+        ]
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "",
+      "cjProductId": "2410020843271620000",
+      "cjVid": "",
+      "cjSku": "CJYD215133001AZ",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 1500,
+      "notes": "ELECTRICAL: inactive until CE/LVD documents, EU plug and ElektroG (stiftung ear / WEEE) registration are in place. See docs/LEGAL-CHECKLIST.md."
+    }
+  }
+]
