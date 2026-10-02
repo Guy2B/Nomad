@@ -76,7 +76,7 @@ export const decodeCart = (s) =>
       return { id, qty: Number(qty) || 1 };
     });
 
-/** Human order number: <PREFIX>-YYMMDD-XXXX (NM for Nomad, AR for APPART RESET…). */
+/** Human order number: <PREFIX>-YYMMDD-XXXX (GO, SP for SPACE, EA for EASE…). */
 export function orderNumber(prefix = 'NM', date = new Date(), rand = Math.random) {
   const d = date.toISOString().slice(2, 10).replace(/-/g, '');
   const tail = Math.floor(rand() * 36 ** 4)
@@ -90,7 +90,7 @@ export const ORDER_NUMBER = /^[A-Z]{2}-\d{6}-[A-Z0-9]{4}$/;
 
 /** Origins allowed to call the API from a browser: every store's site (+ this deploy). */
 export function allowedOrigins(env = process.env) {
-  const list = allStores().map((s) => new URL(s.site.baseUrl).origin);
+  const list = allStores().flatMap((s) => [s.site.baseUrl, ...(s.site.aliases ?? [])].map((u) => new URL(u).origin));
   for (const u of [env.URL, env.DEPLOY_PRIME_URL, ...(env.EXTRA_ORIGINS || '').split(',')])
     if (u && /^https?:\/\//.test(u.trim())) list.push(new URL(u.trim()).origin);
   return new Set(list);

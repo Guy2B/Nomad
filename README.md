@@ -4,11 +4,11 @@
 
 | Boutique | Dossier | Site Netlify | Rôle |
 |---|---|---|---|
-| **NOMAD** (voyage) | `stores/nomad/` | `nomad-travel-store` (racine du dépôt) | boutique + **API commune + admin de toutes les boutiques** |
-| **APPART RESET** (petits appartements) | `stores/appart-reset/` | `appart-reset` (Base directory = `sites/appart-reset`) | boutique statique, appelle l'API de Nomad |
-| **BODY CARE** (bien-être bureau) | `stores/body-care/` | `body-care-store` (Base directory = `sites/body-care`) | boutique statique, appelle l'API de Nomad |
+| **GO** (voyage) · go.algbr.eu | `stores/nomad/` | `nomad-travel-store` (racine du dépôt) | boutique + **API commune + admin de toutes les boutiques** |
+| **SPACE** (petits appartements) · space.algbr.eu | `stores/appart-reset/` | `appart-reset` (Base directory = `sites/appart-reset`) | boutique statique, appelle l'API de Nomad |
+| **EASE** (bien-être bureau) · ease.algbr.eu | `stores/body-care/` | `body-care-store` (Base directory = `sites/body-care`) | boutique statique, appelle l'API de Nomad |
 
-Ajouter une marque : copier un dossier `stores/<id>/` (site.json, products.json, assets/), l'ajouter dans `netlify/lib/catalog.mjs`, créer `sites/<id>/netlify.toml`, puis un site Netlify avec ce Base directory. Les commandes de toutes les marques arrivent dans le même CRM et le même admin (filtre par boutique), avec leur propre préfixe de commande (NM-…, AR-…).
+Ajouter une marque : copier un dossier `stores/<id>/` (site.json, products.json, assets/), l'ajouter dans `netlify/lib/catalog.mjs`, créer `sites/<id>/netlify.toml`, puis un site Netlify avec ce Base directory. Les commandes de toutes les marques arrivent dans le même CRM et le même admin (filtre par boutique), avec leur propre préfixe de commande (GO-…, SP-…, EA-…).
 
 Un produit peut être un **kit** (`components`) : à la commande, chaque élément part chez CJ avec sa quantité (ex. Laundry Reset = 1 séchoir + 1 sac + 4 crochets).
 

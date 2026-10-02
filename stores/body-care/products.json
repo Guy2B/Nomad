@@ -10,7 +10,7 @@
       "foot-care-2.webp",
       "foot-care-3.webp"
     ],
-    "name": "Foot Care",
+    "name": "Foot Ease",
     "text": {
       "de": {
         "badge": "Nach langem Sitzen oder Stehen",
@@ -126,7 +126,7 @@
       "hand-wrist-care-2.webp",
       "hand-wrist-care-3.webp"
     ],
-    "name": "Hand & Wrist Care",
+    "name": "Desk Ease",
     "text": {
       "de": {
         "badge": "Tastatur, Maus, Smartphone",
@@ -243,7 +243,7 @@
       "neck-shoulder-care-2.webp",
       "neck-shoulder-care-3.webp"
     ],
-    "name": "Neck & Shoulder Care",
+    "name": "Shoulder Ease",
     "text": {
       "de": {
         "badge": "Feierabend-Routine",
@@ -360,7 +360,7 @@
       "mobility-care-2.webp",
       "mobility-care-3.webp"
     ],
-    "name": "Mobility Care",
+    "name": "Mobility Ease",
     "text": {
       "de": {
         "badge": "10 Minuten bewegen",
@@ -499,14 +499,14 @@
       "full-body-care-2.webp",
       "full-body-care-3.webp"
     ],
-    "name": "Full Body Care",
+    "name": "Full Body Ease",
     "text": {
       "de": {
         "badge": "Die komplette Routine",
-        "tagline": "Die komplette BODY CARE Routine.",
+        "tagline": "Die komplette EASE Routine.",
         "description": "Sechs Accessoires für ein Feierabend-Ritual: Füße, Hände, Nacken, Schultern und allgemeine Mobility.",
         "bullets": [
-          "Alle 6 Teile der BODY CARE Routine in einem Set",
+          "Alle 6 Teile der EASE Routine in einem Set",
           "Von den Füßen bis zum Nacken: flexibel nach verfügbarer Zeit",
           "Rein manuell, leise und bürotauglich",
           "Ein durchdachtes Geschenk für Homeoffice-Menschen"
@@ -515,10 +515,10 @@
       },
       "fr": {
         "badge": "La routine complète",
-        "tagline": "La routine BODY CARE complète.",
+        "tagline": "La routine EASE complète.",
         "description": "Six accessoires réunis pour transformer la fin de journée en rituel : pieds, mains, nuque, épaules et mobilité générale.",
         "bullets": [
-          "Les 6 éléments de la routine BODY CARE dans un seul kit",
+          "Les 6 éléments de la routine EASE dans un seul kit",
           "Des pieds à la nuque : à composer selon le temps disponible",
           "100 % manuel, silencieux, compatible bureau",
           "Une idée cadeau soignée pour les télétravailleurs"
@@ -527,10 +527,10 @@
       },
       "en": {
         "badge": "The complete routine",
-        "tagline": "The complete BODY CARE routine.",
+        "tagline": "The complete EASE routine.",
         "description": "Six accessories in one end-of-day ritual: feet, hands, neck, shoulders and general mobility.",
         "bullets": [
-          "All 6 pieces of the BODY CARE routine in one set",
+          "All 6 pieces of the EASE routine in one set",
           "From feet to neck: mix it to the time you have",
           "Fully manual, quiet and office-friendly",
           "A thoughtful gift for home-office people"
@@ -1207,7 +1207,7 @@
       "yoga-strap-1.webp",
       "yoga-strap-2.webp"
     ],
-    "name": "Floor Routine",
+    "name": "Floor Ease",
     "text": {
       "de": {
         "badge": "Dein Platz am Boden",

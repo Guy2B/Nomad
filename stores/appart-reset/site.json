@@ -1,24 +1,24 @@
 {
   "id": "appart-reset",
-  "brand": "APPART RESET",
-  "orderPrefix": "AR",
+  "brand": "SPACE",
+  "orderPrefix": "SP",
   "themeColor": "#1c2925",
   "tagline": {
-    "de": "Mehr Platz in kleinen Wohnungen — ohne Bohren, ohne Umbau.",
-    "fr": "Plus d'espace dans les petits appartements — sans percer, sans travaux.",
-    "en": "More space in small apartments — no drilling, no renovation."
+    "de": "Mehr Platz. Ohne Bohren.",
+    "fr": "Plus d’espace. Sans percer.",
+    "en": "More room. No renovation."
   },
   "seo": {
     "de": {
-      "title": "APPART RESET — Ordnung & Stauraum für kleine Wohnungen ohne Bohren",
+      "title": "SPACE — Mehr Platz ohne Bohren: Stauraum-Sets für kleine Wohnungen",
       "description": "Stauraum-Sets für Mietwohnungen: Spülbecken-Organizer, Duschablage ohne Bohren, Kabelmanagement am Schreibtisch, platzsparende Kleiderbügel und Wand-Wäscheständer."
     },
     "fr": {
-      "title": "APPART RESET — Rangement petit appartement sans perçage",
+      "title": "SPACE — Plus d’espace sans percer : rangement petit appartement",
       "description": "Kits de rangement pour locataires : organisateur d'évier, étagère de douche sans perçage, rangement de câbles de bureau, cintres gain de place et séchoir mural pliable."
     },
     "en": {
-      "title": "APPART RESET — Small apartment storage, no drilling",
+      "title": "SPACE — More room, no drilling: small apartment storage",
       "description": "Renter-friendly storage bundles: sink organiser, no-drill shower shelf, desk cable management, space-saving hangers and a fold-away wall drying rack."
     }
   },
@@ -26,46 +26,79 @@
     "de": {
       "hero": {
         "eyebrow": "Für Mietwohnungen gedacht",
-        "title": "Mehr Platz. Kein Umbau.",
+        "title": "Mehr Platz. Ohne Bohren.",
         "lead": "Clevere Stauraum-Sets für kleine Wohnungen: Küche, Bad, Schreibtisch, Kleiderschrank und Wäsche.",
         "cta": "Die Sets ansehen",
         "cta2": "So funktioniert’s"
       },
-      "products": { "title": "Kaufe ein Ergebnis, kein Gadget.", "lead": "Jedes Set kombiniert mehrere Produkte rund um ein konkretes Platzproblem." },
-      "product": { "includes": "Das ist im Set" },
+      "products": {
+        "title": "Kaufe ein Ergebnis, kein Gadget.",
+        "lead": "Jedes Set kombiniert mehrere Produkte rund um ein konkretes Platzproblem."
+      },
+      "product": {
+        "includes": "Das ist im Set"
+      },
       "faqExtra": [
-        ["Ist wirklich alles bohrfrei?", "Mehrere Teile sind für die Montage ohne Bohren gedacht. Die Haltbarkeit hängt aber von Untergrund, Vorbereitung und Last ab: bitte vorher an einer kleinen Stelle testen."],
-        ["Kommt ein Set in mehreren Paketen?", "Das ist möglich: die Teile eines Sets können getrennt ankommen. Sie sehen den Status jederzeit unter „Bestellung verfolgen“."]
+        [
+          "Ist wirklich alles bohrfrei?",
+          "Mehrere Teile sind für die Montage ohne Bohren gedacht. Die Haltbarkeit hängt aber von Untergrund, Vorbereitung und Last ab: bitte vorher an einer kleinen Stelle testen."
+        ],
+        [
+          "Kommt ein Set in mehreren Paketen?",
+          "Das ist möglich: die Teile eines Sets können getrennt ankommen. Sie sehen den Status jederzeit unter „Bestellung verfolgen“."
+        ]
       ]
     },
     "fr": {
       "hero": {
         "eyebrow": "Pensé pour les locataires",
-        "title": "Plus d’espace. Zéro chantier.",
+        "title": "Plus d’espace. Sans percer.",
         "lead": "Des kits de rangement pour petits appartements : cuisine, salle de bain, bureau, dressing et linge.",
         "cta": "Voir les kits",
         "cta2": "Comment ça marche"
       },
-      "products": { "title": "Achète un résultat, pas un gadget.", "lead": "Chaque kit réunit plusieurs produits autour d’un problème concret de petit espace." },
-      "product": { "includes": "Ce que contient le kit" },
+      "products": {
+        "title": "Achète un résultat, pas un gadget.",
+        "lead": "Chaque kit réunit plusieurs produits autour d’un problème concret de petit espace."
+      },
+      "product": {
+        "includes": "Ce que contient le kit"
+      },
       "faqExtra": [
-        ["Est-ce vraiment sans perçage ?", "Plusieurs éléments sont conçus pour une fixation sans perçage, mais la tenue dépend de la surface, de la préparation et de la charge : faites un test sur une petite zone."],
-        ["Un kit peut-il arriver en plusieurs colis ?", "C’est possible : les éléments d’un kit peuvent arriver séparément. Le statut est visible à tout moment dans « Suivre ma commande »."]
+        [
+          "Est-ce vraiment sans perçage ?",
+          "Plusieurs éléments sont conçus pour une fixation sans perçage, mais la tenue dépend de la surface, de la préparation et de la charge : faites un test sur une petite zone."
+        ],
+        [
+          "Un kit peut-il arriver en plusieurs colis ?",
+          "C’est possible : les éléments d’un kit peuvent arriver séparément. Le statut est visible à tout moment dans « Suivre ma commande »."
+        ]
       ]
     },
     "en": {
       "hero": {
         "eyebrow": "Built for renters",
-        "title": "More space. No renovation.",
+        "title": "More room. No renovation.",
         "lead": "Smart storage bundles for small apartments: kitchen, bathroom, desk, wardrobe and laundry.",
         "cta": "See the bundles",
         "cta2": "How it works"
       },
-      "products": { "title": "Buy the outcome, not the gadget.", "lead": "Each bundle combines several products around one clear small-space problem." },
-      "product": { "includes": "What’s in the bundle" },
+      "products": {
+        "title": "Buy the outcome, not the gadget.",
+        "lead": "Each bundle combines several products around one clear small-space problem."
+      },
+      "product": {
+        "includes": "What’s in the bundle"
+      },
       "faqExtra": [
-        ["Is everything really no-drill?", "Several parts are designed for no-drill mounting, but hold depends on the surface, preparation and load: test on a small area first."],
-        ["Can a bundle arrive in several parcels?", "Yes, the parts of a bundle may arrive separately. You can see the status at any time under “Track my order”."]
+        [
+          "Is everything really no-drill?",
+          "Several parts are designed for no-drill mounting, but hold depends on the surface, preparation and load: test on a small area first."
+        ],
+        [
+          "Can a bundle arrive in several parcels?",
+          "Yes, the parts of a bundle may arrive separately. You can see the status at any time under “Track my order”."
+        ]
       ]
     }
   },
@@ -74,27 +107,55 @@
       "eyebrow": "Renter first",
       "title": "Für Mietwohnungen gedacht.",
       "text": "Wir bevorzugen bohrfreie oder schonende Lösungen. Keine Befestigung hält auf jeder Oberfläche: Untergrund und Belastung immer prüfen.",
-      "points": ["Komplette Sets statt Einzel-Gadgets", "Bohrfreie Montage, wo immer möglich", "Rückstandsarm wieder abnehmbar", "Für Küche, Bad, Büro, Schrank und Wäsche"]
+      "points": [
+        "Komplette Sets statt Einzel-Gadgets",
+        "Bohrfreie Montage, wo immer möglich",
+        "Rückstandsarm wieder abnehmbar",
+        "Für Küche, Bad, Büro, Schrank und Wäsche"
+      ]
     },
     "fr": {
       "eyebrow": "Renter first",
       "title": "Une marque pensée pour les locataires.",
       "text": "On privilégie les solutions sans perçage ou à faible impact, mais aucune fixation n’est universelle : vérifiez toujours la surface et la charge.",
-      "points": ["Des kits complets plutôt que des gadgets isolés", "Fixation sans perçage dès que possible", "Retrait facile, sans trace dans la plupart des cas", "Cuisine, salle de bain, bureau, dressing et linge"]
+      "points": [
+        "Des kits complets plutôt que des gadgets isolés",
+        "Fixation sans perçage dès que possible",
+        "Retrait facile, sans trace dans la plupart des cas",
+        "Cuisine, salle de bain, bureau, dressing et linge"
+      ]
     },
     "en": {
       "eyebrow": "Renter first",
       "title": "Built for renters.",
       "text": "We favour no-drill and low-impact solutions, but no mounting holds on every surface: always check the surface and the load.",
-      "points": ["Complete bundles instead of random gadgets", "No-drill mounting wherever possible", "Easy to remove, usually without marks", "Kitchen, bathroom, desk, wardrobe and laundry"]
+      "points": [
+        "Complete bundles instead of random gadgets",
+        "No-drill mounting wherever possible",
+        "Easy to remove, usually without marks",
+        "Kitchen, bathroom, desk, wardrobe and laundry"
+      ]
     }
   },
-  "baseUrl": "https://appart-reset.netlify.app",
+  "baseUrl": "https://space.algbr.eu",
   "currency": "eur",
   "defaultLang": "de",
-  "languages": ["de", "fr", "en"],
+  "languages": [
+    "de",
+    "fr",
+    "en"
+  ],
   "shipping": {
-    "countries": ["DE", "AT", "FR", "BE", "LU", "NL", "ES", "IT"],
+    "countries": [
+      "DE",
+      "AT",
+      "FR",
+      "BE",
+      "LU",
+      "NL",
+      "ES",
+      "IT"
+    ],
     "cents": 0,
     "deliveryDays": "7–14",
     "returnDays": 14
@@ -167,5 +228,9 @@
       }
     }
   ],
-  "byAlgbr": "https://algbr-3b4ee.web.app/"
+  "byAlgbr": "https://algbr-3b4ee.web.app/",
+  "byline": "by ALGBr",
+  "aliases": [
+    "https://space.algbr.de"
+  ]
 }

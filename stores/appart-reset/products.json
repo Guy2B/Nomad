@@ -9,7 +9,7 @@
       "kitchen-reset-1.webp",
       "kitchen-reset-2.webp"
     ],
-    "name": "Kitchen Reset",
+    "name": "Kitchen Space",
     "text": {
       "de": {
         "badge": "Küche ohne Chaos",
@@ -125,7 +125,7 @@
       "bathroom-reset-1.webp",
       "bathroom-reset-2.webp"
     ],
-    "name": "Bathroom Reset",
+    "name": "Bath Space",
     "text": {
       "de": {
         "badge": "Bad ohne Bohren",
@@ -242,10 +242,10 @@
       "desk-reset-2.webp",
       "desk-reset-3.webp"
     ],
-    "name": "Desk Reset",
+    "name": "Desk Space",
     "text": {
       "de": {
-        "badge": "Desk Reset in 10 Min",
+        "badge": "Desk Space in 10 Min",
         "tagline": "Ein Desk, an dem du wieder gerne sitzt.",
         "description": "Kabel führen, Kleinteile verstauen, Oberfläche ruhig halten.",
         "bullets": [
@@ -380,7 +380,7 @@
       "wardrobe-reset-1.webp",
       "wardrobe-reset-2.webp"
     ],
-    "name": "Wardrobe Reset",
+    "name": "Closet Space",
     "text": {
       "de": {
         "badge": "Mehr Platz im Schrank",
@@ -497,7 +497,7 @@
       "laundry-reset-2.webp",
       "laundry-reset-3.webp"
     ],
-    "name": "Laundry Reset",
+    "name": "Laundry Space",
     "text": {
       "de": {
         "badge": "Wäsche ohne Umbau",

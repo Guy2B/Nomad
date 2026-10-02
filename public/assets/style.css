@@ -1,4 +1,4 @@
-/* Nomad platform storefront — base style (NOMAD: calm travel premium). A store can override it with stores/<id>/assets/theme.css. System fonts only. */
+/* Nomad platform storefront — base style (GO: calm travel premium). A store can override it with stores/<id>/assets/theme.css. System fonts only. */
 :root {
   --ink: #16181d;
   --ink-2: #2a2e36;
@@ -840,4 +840,12 @@ details p {
 .btn-xs {
   padding: 6px 12px;
   font-size: 0.8rem;
+}
+.byline {
+  font-family: var(--sans);
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+  white-space: nowrap;
 }

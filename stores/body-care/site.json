@@ -1,100 +1,164 @@
 {
   "id": "body-care",
-  "brand": "BODY CARE",
-  "orderPrefix": "BC",
+  "brand": "EASE",
+  "orderPrefix": "EA",
   "themeColor": "#1e1e24",
   "tagline": {
-    "de": "Kurze Routinen für lange Bildschirmtage.",
-    "fr": "Des routines courtes pour les longues journées d’écran.",
-    "en": "Short routines for long screen days."
+    "de": "Move with ease.",
+    "fr": "Move with ease.",
+    "en": "Move with ease."
   },
   "seo": {
     "de": {
-      "title": "BODY CARE — Wellness-Sets fürs Homeoffice: Fußroller, Nackenroller & mehr",
+      "title": "EASE — Move with ease: Wellness-Sets fürs Homeoffice",
       "description": "Manuelle Wellness-Accessoires für lange Bildschirmtage: Fußmassageroller, Nackenroller, Handballenauflage, Handtrainer und Stretchband — als Sets. Kostenloser Versand."
     },
     "fr": {
-      "title": "BODY CARE — Kits bien-être télétravail : rouleau pieds, rouleau nuque et plus",
+      "title": "EASE — Move with ease : kits bien-être pour le télétravail",
       "description": "Accessoires bien-être manuels pour les journées d’écran : rouleau de massage pieds, rouleau nuque, repose-poignet, grip et bande élastique — en kits. Livraison offerte."
     },
     "en": {
-      "title": "BODY CARE — Home office wellness sets: foot roller, neck roller & more",
+      "title": "EASE — Move with ease: home office wellness sets",
       "description": "Manual wellness accessories for long screen days: foot massage roller, neck roller, wrist rest, hand grip and stretch band — in sets. Free shipping."
     }
   },
   "copy": {
     "de": {
       "hero": {
-        "eyebrow": "Für lange Bildschirmtage",
+        "eyebrow": "Move with ease · für lange Bildschirmtage",
         "title": "8 Stunden sitzen. 10 Minuten bewegen.",
         "lead": "Einfache Sets für mehr Bewegung, Komfort und eine Feierabend-Routine nach langen Tagen am Bildschirm.",
         "cta": "Die Routinen ansehen",
         "cta2": "So funktioniert’s"
       },
-      "products": { "title": "Eine Gewohnheit, kein Gadget.", "lead": "Jedes Set passt zu einem Moment deines Tages: Tastaturpause, Feierabend, Bewegung." },
-      "product": { "includes": "Das ist im Set", "photoNote": "Abbildungen können vom Produkt leicht abweichen. Allgemeine Wellness-Accessoires, keine Medizinprodukte." },
+      "products": {
+        "title": "Eine Gewohnheit, kein Gadget.",
+        "lead": "Jedes Set passt zu einem Moment deines Tages: Tastaturpause, Feierabend, Bewegung."
+      },
+      "product": {
+        "includes": "Das ist im Set",
+        "photoNote": "Abbildungen können vom Produkt leicht abweichen. Allgemeine Wellness-Accessoires, keine Medizinprodukte."
+      },
       "faqExtra": [
-        ["Sind das Medizinprodukte?", "Nein. Es sind allgemeine Wellness-, Komfort- und Bewegungsaccessoires, nicht zur Diagnose oder Behandlung. Bei anhaltenden Beschwerden bitte fachlichen Rat einholen."],
-        ["Kommt ein Set in mehreren Paketen?", "Das ist möglich: die Teile eines Sets können getrennt ankommen. Sie sehen den Status jederzeit unter „Bestellung verfolgen“."]
+        [
+          "Sind das Medizinprodukte?",
+          "Nein. Es sind allgemeine Wellness-, Komfort- und Bewegungsaccessoires, nicht zur Diagnose oder Behandlung. Bei anhaltenden Beschwerden bitte fachlichen Rat einholen."
+        ],
+        [
+          "Kommt ein Set in mehreren Paketen?",
+          "Das ist möglich: die Teile eines Sets können getrennt ankommen. Sie sehen den Status jederzeit unter „Bestellung verfolgen“."
+        ]
       ]
     },
     "fr": {
       "hero": {
-        "eyebrow": "Pour les longues journées d’écran",
+        "eyebrow": "Move with ease · pour les journées d’écran",
         "title": "8 heures assis. 10 minutes pour bouger.",
         "lead": "Des kits simples pour remettre du mouvement, du confort et une routine de fin de journée après les heures d’écran.",
         "cta": "Voir les routines",
         "cta2": "Comment ça marche"
       },
-      "products": { "title": "Une habitude, pas un gadget.", "lead": "Chaque kit correspond à un moment de ta journée : pause clavier, fin de journée, mouvement." },
-      "product": { "includes": "Ce que contient le kit", "photoNote": "Les visuels peuvent légèrement différer du produit. Accessoires de bien-être général, pas des dispositifs médicaux." },
+      "products": {
+        "title": "Une habitude, pas un gadget.",
+        "lead": "Chaque kit correspond à un moment de ta journée : pause clavier, fin de journée, mouvement."
+      },
+      "product": {
+        "includes": "Ce que contient le kit",
+        "photoNote": "Les visuels peuvent légèrement différer du produit. Accessoires de bien-être général, pas des dispositifs médicaux."
+      },
       "faqExtra": [
-        ["Est-ce un dispositif médical ?", "Non. Ce sont des accessoires de bien-être général, de confort et de mouvement, pas des dispositifs de diagnostic ou de traitement. En cas de douleur persistante, demandez conseil à un professionnel."],
-        ["Un kit peut-il arriver en plusieurs colis ?", "C’est possible : les éléments d’un kit peuvent arriver séparément. Le statut est visible à tout moment dans « Suivre ma commande »."]
+        [
+          "Est-ce un dispositif médical ?",
+          "Non. Ce sont des accessoires de bien-être général, de confort et de mouvement, pas des dispositifs de diagnostic ou de traitement. En cas de douleur persistante, demandez conseil à un professionnel."
+        ],
+        [
+          "Un kit peut-il arriver en plusieurs colis ?",
+          "C’est possible : les éléments d’un kit peuvent arriver séparément. Le statut est visible à tout moment dans « Suivre ma commande »."
+        ]
       ]
     },
     "en": {
       "hero": {
-        "eyebrow": "Made for long screen days",
+        "eyebrow": "Move with ease · for long screen days",
         "title": "8 hours sitting. 10 minutes to move.",
         "lead": "Simple sets that add movement, comfort and an end-of-day routine after long hours at the screen.",
         "cta": "See the routines",
         "cta2": "How it works"
       },
-      "products": { "title": "A habit, not a gadget.", "lead": "Each set fits one moment of your day: keyboard break, end of work, movement." },
-      "product": { "includes": "What’s in the set", "photoNote": "Images may differ slightly from the product. General wellness accessories, not medical devices." },
+      "products": {
+        "title": "A habit, not a gadget.",
+        "lead": "Each set fits one moment of your day: keyboard break, end of work, movement."
+      },
+      "product": {
+        "includes": "What’s in the set",
+        "photoNote": "Images may differ slightly from the product. General wellness accessories, not medical devices."
+      },
       "faqExtra": [
-        ["Are these medical devices?", "No. They are general wellness, comfort and movement accessories, not for diagnosis or treatment. If discomfort persists, seek qualified professional advice."],
-        ["Can a set arrive in several parcels?", "Yes, the parts of a set may arrive separately. You can see the status at any time under “Track my order”."]
+        [
+          "Are these medical devices?",
+          "No. They are general wellness, comfort and movement accessories, not for diagnosis or treatment. If discomfort persists, seek qualified professional advice."
+        ],
+        [
+          "Can a set arrive in several parcels?",
+          "Yes, the parts of a set may arrive separately. You can see the status at any time under “Track my order”."
+        ]
       ]
     }
   },
   "highlight": {
     "de": {
-      "eyebrow": "Body Care Methode",
+      "eyebrow": "EASE Methode",
       "title": "Für lange Bildschirmtage gedacht.",
-      "text": "BODY CARE steht für Komfort, Bewegung und eine kleine tägliche Routine. Wir versprechen keine Diagnose, Behandlung oder medizinische Wirkung.",
-      "points": ["Sets, die zu einem Moment des Tages passen", "Rein manuell: kein Akku, keine App", "Leise und bürotauglich", "5 bis 10 Minuten reichen"]
+      "text": "EASE steht für Komfort, Bewegung und eine kleine tägliche Routine. Wir versprechen keine Diagnose, Behandlung oder medizinische Wirkung.",
+      "points": [
+        "Sets, die zu einem Moment des Tages passen",
+        "Rein manuell: kein Akku, keine App",
+        "Leise und bürotauglich",
+        "5 bis 10 Minuten reichen"
+      ]
     },
     "fr": {
-      "eyebrow": "Méthode Body Care",
+      "eyebrow": "Méthode EASE",
       "title": "Pensé pour les journées d’écran.",
-      "text": "BODY CARE, c’est du confort, du mouvement et une petite routine quotidienne. Aucun diagnostic, traitement ou résultat médical n’est promis.",
-      "points": ["Des kits pensés pour un moment de la journée", "100 % manuel : ni batterie, ni application", "Silencieux et compatible bureau", "5 à 10 minutes suffisent"]
+      "text": "EASE, c’est du confort, du mouvement et une petite routine quotidienne. Aucun diagnostic, traitement ou résultat médical n’est promis.",
+      "points": [
+        "Des kits pensés pour un moment de la journée",
+        "100 % manuel : ni batterie, ni application",
+        "Silencieux et compatible bureau",
+        "5 à 10 minutes suffisent"
+      ]
     },
     "en": {
-      "eyebrow": "The Body Care method",
+      "eyebrow": "The EASE method",
       "title": "Built for screen-heavy days.",
-      "text": "BODY CARE is about comfort, movement and a small daily routine. We promise no diagnosis, treatment or medical outcome.",
-      "points": ["Sets built around one moment of your day", "Fully manual: no battery, no app", "Quiet and office-friendly", "5 to 10 minutes is enough"]
+      "text": "EASE is about comfort, movement and a small daily routine. We promise no diagnosis, treatment or medical outcome.",
+      "points": [
+        "Sets built around one moment of your day",
+        "Fully manual: no battery, no app",
+        "Quiet and office-friendly",
+        "5 to 10 minutes is enough"
+      ]
     }
   },
-  "baseUrl": "https://body-care-store.netlify.app",
+  "baseUrl": "https://ease.algbr.eu",
   "currency": "eur",
   "defaultLang": "de",
-  "languages": ["de", "fr", "en"],
+  "languages": [
+    "de",
+    "fr",
+    "en"
+  ],
   "shipping": {
-    "countries": ["DE", "AT", "FR", "BE", "LU", "NL", "ES", "IT"],
+    "countries": [
+      "DE",
+      "AT",
+      "FR",
+      "BE",
+      "LU",
+      "NL",
+      "ES",
+      "IT"
+    ],
     "cents": 0,
     "deliveryDays": "7–14",
     "returnDays": 14
@@ -167,5 +231,9 @@
       }
     }
   ],
-  "byAlgbr": "https://algbr-3b4ee.web.app/"
+  "byAlgbr": "https://algbr-3b4ee.web.app/",
+  "byline": "by ALGBr",
+  "aliases": [
+    "https://ease.algbr.de"
+  ]
 }

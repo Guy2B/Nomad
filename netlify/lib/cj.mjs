@@ -89,7 +89,7 @@ export function orderPayload(order, env = process.env) {
     shippingCustomerName: a.name,
     shippingPhone: order.customer.phone || '',
     email: order.customer.email,
-    remark: order.brand || 'NOMAD',
+    remark: order.brand || 'GO',
     logisticName: first.logisticName,
     fromCountryCode: first.fromCountryCode,
     // 2 = pay from CJ balance immediately (zero-touch), 3 = create only, pay in CJ.

@@ -24,7 +24,7 @@ export default async () => {
       if (d.status === 'CANCELLED') {
         o.status = 'needs_attention';
         o.attention = 'Supplier order cancelled by CJ';
-        await notifyOwner(`${o.brand ?? 'NOMAD'} - Supplier cancelled ${o.number}`, o.attention, 'high');
+        await notifyOwner(`${o.brand ?? 'GO'} - Supplier cancelled ${o.number}`, o.attention, 'high');
       }
       if (`${o.supplier.status}|${o.supplier.trackNumber}` !== before) {
         o.history.push({ at: new Date().toISOString(), event: `CJ ${o.supplier.status}${o.supplier.trackNumber ? ` · ${o.supplier.trackNumber}` : ''}` });

@@ -81,7 +81,7 @@ test('Stripe Checkout: server prices, shipping countries and an automatic §19 i
   assert.equal(form.get('line_items[0][price_data][unit_amount]'), '4490');
   assert.equal(form.get('invoice_creation[enabled]'), 'true');
   assert.equal(form.get('metadata[store]'), 'nomad');
-  assert.equal(form.get('invoice_creation[invoice_data][description]'), 'NOMAD');
+  assert.equal(form.get('invoice_creation[invoice_data][description]'), 'GO');
 });
 
 test('Stripe webhook signatures: valid accepted, tampered or stale refused', () => {
@@ -99,7 +99,7 @@ test('CJ order: delivery address, origin, shipping method and products as CJ exp
   const order = {
     number: 'NM-261002-AB12',
     store: 'nomad',
-    brand: 'NOMAD',
+    brand: 'GO',
     totalCents: 13980,
     items: priceCart([{ id: 'vacuum-backpack', qty: 1 }]).items,
     customer: { email: 'lea@example.com', phone: '+49' },
@@ -185,7 +185,7 @@ test('second store: its own catalogue, prices and order prefix; carts never cros
   assert.equal(r.totalCents, 6990);
   const p = sessionPayload({ site: store('appart-reset').site, priced: r, lang: 'de', baseUrl: 'https://ar.test', cart: 'laundry-reset:1', images: {} });
   assert.equal(p.metadata.store, 'appart-reset');
-  assert.equal(p.invoice_creation.invoice_data.description, 'APPART RESET');
+  assert.equal(p.invoice_creation.invoice_data.description, 'SPACE');
   assert.match(p.success_url, /^https:\/\/ar\.test\/de\/danke\.html/);
 });
 
@@ -198,7 +198,7 @@ test('bundle → one CJ order with every part, quantities multiplied and identic
   });
   const { order } = await processPaidSession(crm(), appartSession());
   assert.equal(order.store, 'appart-reset');
-  assert.match(order.number, /^AR-\d{6}-[A-Z0-9]{4}$/);
+  assert.match(order.number, /^SP-\d{6}-[A-Z0-9]{4}$/);
   assert.equal(order.status, 'supplier_ordered');
   const sent = JSON.parse(calls.find((c) => c.url.includes('createOrderV2')).init.body);
   const qty = Object.fromEntries(sent.products.map((x) => [x.sku, x.quantity]));
@@ -209,7 +209,7 @@ test('bundle → one CJ order with every part, quantities multiplied and identic
     'CJJJJTFZ00270-2 frames 80cm': 1,
     CJYD237778201AZ: 1,
   });
-  assert.equal(sent.remark, 'APPART RESET');
+  assert.equal(sent.remark, 'SPACE');
   assert.ok(sent.products.every((x) => x.storeLineItemId.startsWith(order.number)));
 });
 
@@ -227,16 +227,16 @@ test('a bundle with one unmapped part is flagged, not half-ordered', () => {
 });
 
 test('the shared API answers the other storefronts (CORS) and refuses unknown origins', async () => {
-  assert.ok(allowedOrigins({}).has('https://appart-reset.netlify.app'));
-  const pre = await checkout(new Request('https://nomad-travel-store.netlify.app/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://appart-reset.netlify.app' } }));
+  assert.ok(allowedOrigins({}).has('https://space.algbr.eu'));
+  const pre = await checkout(new Request('https://go.algbr.eu/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://space.algbr.eu' } }));
   assert.equal(pre.status, 204);
-  assert.equal(pre.headers.get('access-control-allow-origin'), 'https://appart-reset.netlify.app');
-  const evil = await checkout(new Request('https://nomad-travel-store.netlify.app/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://evil.example' } }));
+  assert.equal(pre.headers.get('access-control-allow-origin'), 'https://space.algbr.eu');
+  const evil = await checkout(new Request('https://go.algbr.eu/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://evil.example' } }));
   assert.equal(evil.headers.get('access-control-allow-origin'), null);
   const bad = await checkout(
-    new Request('https://nomad-travel-store.netlify.app/api/checkout', {
+    new Request('https://go.algbr.eu/api/checkout', {
       method: 'POST',
-      headers: { origin: 'https://appart-reset.netlify.app', 'content-type': 'application/json' },
+      headers: { origin: 'https://space.algbr.eu', 'content-type': 'application/json' },
       body: JSON.stringify({ store: 'nope', cart: [{ id: 'kitchen-reset', qty: 1 }] }),
     }),
   );
@@ -244,12 +244,16 @@ test('the shared API answers the other storefronts (CORS) and refuses unknown or
   assert.deepEqual(await bad.json(), { error: 'unknown-store' });
 });
 
-test('third store BODY CARE: own prefix, 6-part bundle mapped, API open to its site', () => {
+test('third store EASE: own prefix, 6-part bundle mapped, API open to its site', () => {
   const r = priceCart([{ id: 'full-body-care', qty: 1 }], 'body-care');
   assert.equal(r.totalCents, 9990);
-  assert.equal(store('body-care').site.orderPrefix, 'BC');
-  const order = { number: 'BC-261002-AB12', store: 'body-care', brand: 'BODY CARE', totalCents: 9990, items: r.items, customer: { email: 'a@b.c' }, shipping: { country: 'DE', name: 'A', line1: 'x', city: 'y', postalCode: '1' } };
+  assert.equal(store('body-care').site.orderPrefix, 'EA');
+  const order = { number: 'EA-261002-AB12', store: 'body-care', brand: 'EASE', totalCents: 9990, items: r.items, customer: { email: 'a@b.c' }, shipping: { country: 'DE', name: 'A', line1: 'x', city: 'y', postalCode: '1' } };
   assert.deepEqual(unmapped(order), []);
   assert.equal(orderPayload(order, {}).products.length, 6);
-  assert.ok(allowedOrigins({}).has('https://body-care-store.netlify.app'));
+  assert.ok(allowedOrigins({}).has('https://ease.algbr.eu'));
+});
+
+test('secondary .de domains are allowed origins too', () => {
+  for (const o of ['https://go.algbr.de', 'https://space.algbr.de', 'https://ease.algbr.de']) assert.ok(allowedOrigins({}).has(o), o);
 });

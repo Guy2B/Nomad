@@ -1,33 +1,46 @@
 {
   "id": "nomad",
-  "brand": "NOMAD",
-  "orderPrefix": "NM",
+  "brand": "GO",
+  "orderPrefix": "GO",
   "themeColor": "#16181d",
   "tagline": {
-    "de": "Reisezubehör, das Ordnung ins Gepäck bringt.",
-    "fr": "Des accessoires de voyage qui rangent votre bagage.",
-    "en": "Travel accessories that bring order to your luggage."
+    "de": "Leichter reisen.",
+    "fr": "Voyager plus léger.",
+    "en": "Travel lighter."
   },
   "seo": {
     "de": {
-      "title": "NOMAD — Reisezubehör & Handgepäck-Organizer online kaufen",
+      "title": "GO — Reisezubehör & Handgepäck-Organizer | Pack less. Go more.",
       "description": "Handgepäck clever packen: Vakuum-Rucksack, Packwürfel mit Kompression, Kulturbeutel zum Aufhängen, Handyhalterung fürs Flugzeug und Schmuckrolle. Kostenloser Versand."
     },
     "fr": {
-      "title": "NOMAD — Accessoires de voyage et organisateurs de bagage cabine",
+      "title": "GO — Accessoires de voyage et organisateurs cabine | Pack less. Go more.",
       "description": "Voyager léger en bagage cabine : sac à dos sous vide, cubes de rangement compressibles, trousse de toilette à suspendre, support téléphone avion, pochette à bijoux. Livraison offerte."
     },
     "en": {
-      "title": "NOMAD — Travel accessories & carry-on organisers",
+      "title": "GO — Travel accessories & carry-on organisers | Pack less. Go more.",
       "description": "Pack smarter for carry-on travel: vacuum backpack, compression packing cubes, hanging toiletry bag, airplane phone holder and jewellery roll. Free shipping."
     }
   },
-  "baseUrl": "https://nomad-travel-store.netlify.app",
+  "baseUrl": "https://go.algbr.eu",
   "currency": "eur",
   "defaultLang": "de",
-  "languages": ["de", "fr", "en"],
+  "languages": [
+    "de",
+    "fr",
+    "en"
+  ],
   "shipping": {
-    "countries": ["DE", "AT", "FR", "BE", "LU", "NL", "ES", "IT"],
+    "countries": [
+      "DE",
+      "AT",
+      "FR",
+      "BE",
+      "LU",
+      "NL",
+      "ES",
+      "IT"
+    ],
     "cents": 0,
     "deliveryDays": "7–14",
     "returnDays": 14
@@ -100,5 +113,26 @@
       }
     }
   ],
-  "byAlgbr": "https://algbr-3b4ee.web.app/"
+  "byAlgbr": "https://algbr-3b4ee.web.app/",
+  "byline": "by ALGBr",
+  "aliases": [
+    "https://go.algbr.de"
+  ],
+  "copy": {
+    "de": {
+      "hero": {
+        "title": "Pack less. Go more."
+      }
+    },
+    "fr": {
+      "hero": {
+        "title": "Pack less. Go more."
+      }
+    },
+    "en": {
+      "hero": {
+        "title": "Pack less. Go more."
+      }
+    }
+  }
 }

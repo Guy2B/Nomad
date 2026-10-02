@@ -110,7 +110,7 @@ ${jsonLd.map(ldJson).join('\n')}
 <p class="promo">${esc(t.promo)}</p>
 <header class="top">
   <div class="wrap top-row">
-    <a class="brand" href="${L}index.html">${esc(SITE.brand)}</a>
+    <a class="brand" href="${L}index.html">${esc(SITE.brand)}${SITE.byline ? ` <small class="byline">${esc(SITE.byline)}</small>` : ''}</a>
     <nav class="menu" aria-label="Menu">
       <a href="${L}index.html#produkte">${esc(t.nav.shop)}</a>
       ${GUIDES.length ? `<a href="${L}ratgeber/${GUIDES[0].slug}.html">${esc(t.nav.guide)}</a>` : `<a href="${L}index.html#so-gehts">${esc(t.nav.how)}</a>`}
@@ -131,7 +131,7 @@ ${body}
 <footer class="foot">
   <div class="wrap foot-row">
     <div>
-      <p class="brand">${esc(SITE.brand)}</p>
+      <p class="brand">${esc(SITE.brand)}${SITE.byline ? ` <small class="byline">${esc(SITE.byline)}</small>` : ''}</p>
       <p class="muted">${esc(SITE.tagline[lang])}</p>
     </div>
     ${guideLinks ? `<nav aria-label="${esc(t.nav.guide)}" class="foot-links">${guideLinks}</nav>` : ''}
@@ -524,6 +524,8 @@ write(
 );
 write('robots.txt', `User-agent: *\nDisallow: /admin/\nDisallow: /api/\nSitemap: ${BASE}/sitemap.xml\n`);
 write('_headers', headers());
+// Secondary domains (e.g. go.algbr.de) → the primary one, path kept.
+write('_redirects', (SITE.aliases ?? []).map((u) => `${u.replace(/\/$/, '')}/* ${BASE}/:splat 301!`).join('\n') + '\n');
 console.log(
   `• dist/ built for ${SITE.brand}: ${SITE.languages.length} languages × ${ACTIVE.length} products, ${GUIDES.length} guide(s)${IS_HOST ? ' + admin for every store' : `, API ${API}`}`,
 );
