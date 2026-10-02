@@ -243,3 +243,13 @@ test('the shared API answers the other storefronts (CORS) and refuses unknown or
   assert.equal(bad.status, 400);
   assert.deepEqual(await bad.json(), { error: 'unknown-store' });
 });
+
+test('third store BODY CARE: own prefix, 6-part bundle mapped, API open to its site', () => {
+  const r = priceCart([{ id: 'full-body-care', qty: 1 }], 'body-care');
+  assert.equal(r.totalCents, 9990);
+  assert.equal(store('body-care').site.orderPrefix, 'BC');
+  const order = { number: 'BC-261002-AB12', store: 'body-care', brand: 'BODY CARE', totalCents: 9990, items: r.items, customer: { email: 'a@b.c' }, shipping: { country: 'DE', name: 'A', line1: 'x', city: 'y', postalCode: '1' } };
+  assert.deepEqual(unmapped(order), []);
+  assert.equal(orderPayload(order, {}).products.length, 6);
+  assert.ok(allowedOrigins({}).has('https://body-care-store.netlify.app'));
+});

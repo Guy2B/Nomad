@@ -1,0 +1,672 @@
+[
+  {
+    "id": "foot-care",
+    "sku": "BDC-FOOT-01",
+    "active": true,
+    "price": 3990,
+    "compare": 5990,
+    "images": [
+      "foot-care-1.webp",
+      "foot-care-2.webp",
+      "foot-care-3.webp"
+    ],
+    "name": "Foot Care",
+    "text": {
+      "de": {
+        "badge": "Nach langem Sitzen oder Stehen",
+        "tagline": "Auch deine Füße haben Feierabend.",
+        "description": "Eine kleine Routine unter dem Schreibtisch oder nach der Arbeit: rollen, Zehen bewegen, kurz abschalten.",
+        "bullets": [
+          "Beide Füße gleichzeitig rollen — in der Pause oder nach Feierabend",
+          "Weiche Zehentrenner aus Silikon für eine ruhige Routine",
+          "Kompakt, passt unter jeden Schreibtisch",
+          "Rein manuell: kein Akku, keine App"
+        ],
+        "caution": "Allgemeine Wellness-Accessoires. Bei anhaltenden Beschwerden oder gesundheitlichen Problemen bitte fachlichen Rat einholen."
+      },
+      "fr": {
+        "badge": "Après une journée debout ou assise",
+        "tagline": "Tes pieds aussi ont une fin de journée.",
+        "description": "Un mini rituel sous le bureau ou après le travail pour dérouler, bouger les orteils et changer de sensation.",
+        "bullets": [
+          "Roulez les deux pieds à la fois, en pause ou en fin de journée",
+          "Séparateurs d’orteils souples en silicone pour une routine calme",
+          "Compact, se range sous n’importe quel bureau",
+          "100 % manuel : ni batterie, ni application"
+        ],
+        "caution": "Accessoires de bien-être général. En cas de douleur persistante ou de problème de santé, demandez conseil à un professionnel."
+      },
+      "en": {
+        "badge": "After long sitting or standing",
+        "tagline": "Your feet need an end-of-day routine too.",
+        "description": "A small under-desk or after-work ritual: roll, move the toes and change how the day feels.",
+        "bullets": [
+          "Roll both feet at once — on a break or after work",
+          "Soft silicone toe separators for a calm routine",
+          "Compact enough for under any desk",
+          "Fully manual: no battery, no app"
+        ],
+        "caution": "General wellness accessories. If discomfort persists or you have a health concern, seek qualified professional advice."
+      }
+    },
+    "components": [
+      {
+        "key": "footroller",
+        "name": "Dual foot massage roller",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/dual-foot-massager-roller-wooden-foot-massager-for-plantar-fasciitis-pain-relief-heal-spur-deep-tissue-acupressure-foot-heel-massager-washable-foot-roller-relieve-foot-pressure-and-clear-fatigue-p-1710221612786012160.html",
+          "cjProductId": "1710221612786012160",
+          "cjVid": "",
+          "cjSku": "CJYS186389401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 845,
+          "priceUSD": "9.18",
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+        },
+        "label": {
+          "de": "Doppelter Fußmassageroller",
+          "fr": "Rouleau de massage double pour les pieds",
+          "en": "Dual foot massage roller"
+        }
+      },
+      {
+        "key": "toe",
+        "name": "Silicone toe separators",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/breathable-and-comfortable-silicone-toe-braces-p-1393149956377939968.html",
+          "cjProductId": "1393149956377939968",
+          "cjVid": "",
+          "cjSku": "CJJT112906701AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 51,
+          "priceUSD": "0.26-0.55",
+          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device."
+        },
+        "label": {
+          "de": "Zehentrenner aus Silikon (Paar)",
+          "fr": "Séparateurs d’orteils en silicone (paire)",
+          "en": "Silicone toe separators (pair)"
+        }
+      }
+    ],
+    "costCents": 1600,
+    "seo": {
+      "de": {
+        "title": "Fußmassageroller & Zehentrenner Set",
+        "description": "Doppelter Fußroller und weiche Zehentrenner aus Silikon: eine kurze Fuß-Routine unter dem Schreibtisch oder nach Feierabend. Rein manuell, kostenloser Versand."
+      },
+      "fr": {
+        "title": "Rouleau de massage pieds et séparateurs d’orteils",
+        "description": "Rouleau double pour les pieds et séparateurs d’orteils en silicone : une routine courte sous le bureau ou en fin de journée. Manuel, livraison offerte."
+      },
+      "en": {
+        "title": "Foot massage roller & toe separator set",
+        "description": "Dual foot roller and soft silicone toe separators: a short foot routine under the desk or after work. Fully manual, free shipping."
+      }
+    }
+  },
+  {
+    "id": "hand-wrist-care",
+    "sku": "BDC-HAND-02",
+    "active": true,
+    "price": 3990,
+    "compare": 5990,
+    "images": [
+      "hand-wrist-care-1.webp",
+      "hand-wrist-care-2.webp",
+      "hand-wrist-care-3.webp"
+    ],
+    "name": "Hand & Wrist Care",
+    "text": {
+      "de": {
+        "badge": "Tastatur, Maus, Smartphone",
+        "tagline": "Tastaturpause. Hände bewegen.",
+        "description": "Ein einfaches Duo für mehr Komfort am Arbeitsplatz und mehr Abwechslung nach stundenlang gleicher Handposition.",
+        "bullets": [
+          "Handballenauflage für eine weichere Fläche vor der Tastatur",
+          "Handtrainer mit Schaumstoffgriff für Abwechslung zwischendurch",
+          "Beides funktioniert direkt am Schreibtisch",
+          "Für Homeoffice, Gaming und lange Bildschirmtage"
+        ],
+        "caution": "Allgemeine Wellness-Accessoires. Bei anhaltenden Beschwerden oder gesundheitlichen Problemen bitte fachlichen Rat einholen."
+      },
+      "fr": {
+        "badge": "Clavier, souris, téléphone",
+        "tagline": "Pause clavier. Reprends tes mains.",
+        "description": "Un duo simple pour rendre le poste plus confortable et sortir les mains de la même position toute la journée.",
+        "bullets": [
+          "Repose-poignet pour une surface plus douce devant le clavier",
+          "Grip à poignées en mousse pour varier les mouvements des mains",
+          "Les deux s’utilisent directement au bureau",
+          "Pour le télétravail, le gaming et les longues journées d’écran"
+        ],
+        "caution": "Accessoires de bien-être général. En cas de douleur persistante ou de problème de santé, demandez conseil à un professionnel."
+      },
+      "en": {
+        "badge": "Keyboard, mouse, phone",
+        "tagline": "Keyboard break. Move your hands.",
+        "description": "A simple duo for a softer desk setup and more movement after hours in the same hand position.",
+        "bullets": [
+          "Wrist rest for a softer surface in front of the keyboard",
+          "Foam-handle hand grip to vary hand movement",
+          "Both work right at your desk",
+          "For home office, gaming and long screen days"
+        ],
+        "caution": "General wellness accessories. If discomfort persists or you have a health concern, seek qualified professional advice."
+      }
+    },
+    "components": [
+      {
+        "key": "wrist",
+        "name": "Keyboard wrist rest",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/rgb-keyboard-support-wristband-high-rebound-luminous-machinery-keyboard-support-p-1783071395044405248.html",
+          "cjProductId": "1783071395044405248",
+          "cjVid": "",
+          "cjSku": "CJYD201950801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 686,
+          "priceUSD": "1.55-7.46",
+          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation."
+        },
+        "label": {
+          "de": "Handballenauflage für die Tastatur",
+          "fr": "Repose-poignet pour clavier",
+          "en": "Keyboard wrist rest"
+        }
+      },
+      {
+        "key": "grip",
+        "name": "Foam hand grip trainer",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/hand-training-spring-hand-grip-finger-strength-finger-trainer-power-exerciser-sponge-forearm-grip-strengthener-carpal-expander-p-1414110349644402688.html",
+          "cjProductId": "1414110349644402688",
+          "cjVid": "",
+          "cjSku": "CJAM120925301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 52,
+          "priceUSD": "0.46-0.57",
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+        },
+        "label": {
+          "de": "Handtrainer mit Schaumstoffgriff",
+          "fr": "Grip à main en mousse",
+          "en": "Foam hand grip trainer"
+        }
+      }
+    ],
+    "costCents": 1400,
+    "seo": {
+      "de": {
+        "title": "Handballenauflage Tastatur & Handtrainer Set",
+        "description": "Ergonomische Handballenauflage für die Tastatur plus Handtrainer: mehr Komfort im Homeoffice und beim Gaming. Kostenloser Versand."
+      },
+      "fr": {
+        "title": "Repose-poignet clavier et grip main",
+        "description": "Repose-poignet ergonomique pour clavier et grip à main : plus de confort en télétravail et en gaming. Livraison offerte."
+      },
+      "en": {
+        "title": "Keyboard wrist rest & hand grip set",
+        "description": "Ergonomic keyboard wrist rest plus a hand grip trainer: more comfort for home office and gaming. Free shipping."
+      }
+    }
+  },
+  {
+    "id": "neck-shoulder-care",
+    "sku": "BDC-NECK-03",
+    "active": true,
+    "price": 4990,
+    "compare": 6990,
+    "images": [
+      "neck-shoulder-care-1.webp",
+      "neck-shoulder-care-2.webp",
+      "neck-shoulder-care-3.webp"
+    ],
+    "name": "Neck & Shoulder Care",
+    "text": {
+      "de": {
+        "badge": "Feierabend-Routine",
+        "tagline": "Laptop zu. Schultern bewegen.",
+        "description": "Eine kurze manuelle Routine für Nacken, Schultern und Oberkörper nach einem statischen Arbeitstag.",
+        "bullets": [
+          "Manueller Nacken- und Schulterroller: Sie bestimmen den Druck",
+          "Stretchband für langsame Bewegungen des Oberkörpers",
+          "Kein Akku, keine App",
+          "Ideal für eine 5- bis 10-Minuten-Routine nach der Arbeit"
+        ],
+        "caution": "Allgemeine Wellness-Accessoires. Bei anhaltenden Beschwerden oder gesundheitlichen Problemen bitte fachlichen Rat einholen."
+      },
+      "fr": {
+        "badge": "Routine de fin de journée",
+        "tagline": "Ferme le laptop. Ouvre les épaules.",
+        "description": "Une routine manuelle courte autour de la nuque, des épaules et du haut du corps après une journée statique.",
+        "bullets": [
+          "Rouleau manuel nuque et épaules : vous dosez la pression",
+          "Bande élastique pour des mouvements lents du haut du corps",
+          "Ni batterie, ni application",
+          "Idéal pour une routine de 5 à 10 minutes après le travail"
+        ],
+        "caution": "Accessoires de bien-être général. En cas de douleur persistante ou de problème de santé, demandez conseil à un professionnel."
+      },
+      "en": {
+        "badge": "End-of-day routine",
+        "tagline": "Close the laptop. Open the shoulders.",
+        "description": "A short manual routine around the neck, shoulders and upper body after a static workday.",
+        "bullets": [
+          "Manual neck and shoulder roller: you control the pressure",
+          "Stretch band for slow upper-body movement",
+          "No battery, no app",
+          "Made for a 5–10 minute after-work routine"
+        ],
+        "caution": "General wellness accessories. If discomfort persists or you have a health concern, seek qualified professional advice."
+      }
+    },
+    "components": [
+      {
+        "key": "neck",
+        "name": "Manual 6-wheel neck & shoulder roller",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/multifunctional-manual-six-wheel-neck-massager-massage-relieve-roller-massage-tool-p-1444929719182168064.html",
+          "cjProductId": "1444929719182168064",
+          "cjVid": "",
+          "cjSku": "CJAM130816101AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 326,
+          "priceUSD": "0.66-3.54",
+          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy."
+        },
+        "label": {
+          "de": "Manueller Nacken- und Schulterroller (6 Rollen)",
+          "fr": "Rouleau manuel nuque et épaules (6 roues)",
+          "en": "Manual neck & shoulder roller (6 wheels)"
+        }
+      },
+      {
+        "key": "band",
+        "name": "Mobility stretch band",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/yoga-fitness-resistance-band-arm-back-training-elastic-ropes---pure-barre-workout-chest-arm-and-shoulder-stretch-bands-exercise-equipment-for-physical-therapyyogapilatesstretching-p-1682008781574000640.html",
+          "cjProductId": "1682008781574000640",
+          "cjVid": "",
+          "cjSku": "CJJM1804042-Pink",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 918,
+          "priceUSD": "9.98",
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+        },
+        "label": {
+          "de": "Stretchband für Mobility",
+          "fr": "Bande élastique de mobilité",
+          "en": "Mobility stretch band"
+        }
+      }
+    ],
+    "costCents": 1800,
+    "seo": {
+      "de": {
+        "title": "Nackenmassage Roller manuell & Stretchband",
+        "description": "Manueller Nacken- und Schulterroller mit 6 Rollen plus Stretchband: eine 10-Minuten-Routine nach langen Bildschirmtagen. Ohne Akku."
+      },
+      "fr": {
+        "title": "Rouleau de massage nuque manuel et bande élastique",
+        "description": "Rouleau manuel 6 roues pour la nuque et les épaules et bande élastique : une routine de 10 minutes après les journées d’écran. Sans batterie."
+      },
+      "en": {
+        "title": "Manual neck massage roller & stretch band",
+        "description": "Manual 6-wheel neck and shoulder roller plus a stretch band: a 10-minute routine after long screen days. No battery."
+      }
+    }
+  },
+  {
+    "id": "mobility-care",
+    "sku": "BDC-MOVE-04",
+    "active": true,
+    "price": 5990,
+    "compare": 8990,
+    "images": [
+      "mobility-care-1.webp",
+      "mobility-care-2.webp",
+      "mobility-care-3.webp"
+    ],
+    "name": "Mobility Care",
+    "text": {
+      "de": {
+        "badge": "10 Minuten bewegen",
+        "tagline": "Dein 10-Minuten-Mobility-Ritual.",
+        "description": "Drei Tools, die aus einem statischen Tag eine kurze Bewegungspause von Kopf bis Fuß machen.",
+        "bullets": [
+          "Stretchband für allgemeine Beweglichkeit",
+          "Fußroller für die Pause am Boden oder unter dem Tisch",
+          "Handtrainer für Abwechslung zwischendurch",
+          "Ein einfaches Set für eine tägliche Gewohnheit"
+        ],
+        "caution": "Allgemeine Wellness-Accessoires. Bei anhaltenden Beschwerden oder gesundheitlichen Problemen bitte fachlichen Rat einholen."
+      },
+      "fr": {
+        "badge": "10 minutes pour bouger",
+        "tagline": "Ton reset mouvement en 10 minutes.",
+        "description": "Trois outils pour passer d’une journée immobile à une courte routine de mouvement de la tête aux pieds.",
+        "bullets": [
+          "Bande élastique pour la mobilité générale",
+          "Rouleau pieds pour une pause au sol ou sous le bureau",
+          "Grip pour varier les mouvements des mains",
+          "Un kit simple pour prendre une habitude quotidienne"
+        ],
+        "caution": "Accessoires de bien-être général. En cas de douleur persistante ou de problème de santé, demandez conseil à un professionnel."
+      },
+      "en": {
+        "badge": "10 minutes to move",
+        "tagline": "Your 10-minute movement reset.",
+        "description": "Three tools that turn a static day into a short head-to-toe movement routine.",
+        "bullets": [
+          "Stretch band for general mobility",
+          "Foot roller for a floor or under-desk break",
+          "Hand grip for variety between tasks",
+          "A simple kit for a daily habit"
+        ],
+        "caution": "General wellness accessories. If discomfort persists or you have a health concern, seek qualified professional advice."
+      }
+    },
+    "components": [
+      {
+        "key": "band",
+        "name": "Mobility stretch band",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/yoga-fitness-resistance-band-arm-back-training-elastic-ropes---pure-barre-workout-chest-arm-and-shoulder-stretch-bands-exercise-equipment-for-physical-therapyyogapilatesstretching-p-1682008781574000640.html",
+          "cjProductId": "1682008781574000640",
+          "cjVid": "",
+          "cjSku": "CJJM1804042-Pink",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 918,
+          "priceUSD": "9.98",
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+        },
+        "label": {
+          "de": "Stretchband für Mobility",
+          "fr": "Bande élastique de mobilité",
+          "en": "Mobility stretch band"
+        }
+      },
+      {
+        "key": "footroller",
+        "name": "Dual foot massage roller",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/dual-foot-massager-roller-wooden-foot-massager-for-plantar-fasciitis-pain-relief-heal-spur-deep-tissue-acupressure-foot-heel-massager-washable-foot-roller-relieve-foot-pressure-and-clear-fatigue-p-1710221612786012160.html",
+          "cjProductId": "1710221612786012160",
+          "cjVid": "",
+          "cjSku": "CJYS186389401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 845,
+          "priceUSD": "9.18",
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+        },
+        "label": {
+          "de": "Doppelter Fußmassageroller",
+          "fr": "Rouleau de massage double pour les pieds",
+          "en": "Dual foot massage roller"
+        }
+      },
+      {
+        "key": "grip",
+        "name": "Foam hand grip trainer",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/hand-training-spring-hand-grip-finger-strength-finger-trainer-power-exerciser-sponge-forearm-grip-strengthener-carpal-expander-p-1414110349644402688.html",
+          "cjProductId": "1414110349644402688",
+          "cjVid": "",
+          "cjSku": "CJAM120925301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 52,
+          "priceUSD": "0.46-0.57",
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+        },
+        "label": {
+          "de": "Handtrainer mit Schaumstoffgriff",
+          "fr": "Grip à main en mousse",
+          "en": "Foam hand grip trainer"
+        }
+      }
+    ],
+    "costCents": 2600,
+    "seo": {
+      "de": {
+        "title": "Mobility Set: Stretchband, Fußroller & Handtrainer",
+        "description": "Stretchband, Fußmassageroller und Handtrainer: ein einfaches Mobility-Set für 10 Minuten Bewegung am Tag, zu Hause oder im Büro."
+      },
+      "fr": {
+        "title": "Kit mobilité : bande élastique, rouleau pieds et grip",
+        "description": "Bande élastique, rouleau de massage pieds et grip : un kit mobilité simple pour bouger 10 minutes par jour, à la maison ou au bureau."
+      },
+      "en": {
+        "title": "Mobility kit: stretch band, foot roller & hand grip",
+        "description": "Stretch band, foot massage roller and hand grip: a simple mobility kit for 10 minutes of movement a day, at home or in the office."
+      }
+    }
+  },
+  {
+    "id": "full-body-care",
+    "sku": "BDC-FULL-05",
+    "active": true,
+    "price": 9990,
+    "compare": 14990,
+    "images": [
+      "full-body-care-1.webp",
+      "full-body-care-2.webp",
+      "full-body-care-3.webp"
+    ],
+    "name": "Full Body Care",
+    "text": {
+      "de": {
+        "badge": "Die komplette Routine",
+        "tagline": "Die komplette BODY CARE Routine.",
+        "description": "Sechs Accessoires für ein Feierabend-Ritual: Füße, Hände, Nacken, Schultern und allgemeine Mobility.",
+        "bullets": [
+          "Alle 6 Teile der BODY CARE Routine in einem Set",
+          "Von den Füßen bis zum Nacken: flexibel nach verfügbarer Zeit",
+          "Rein manuell, leise und bürotauglich",
+          "Ein durchdachtes Geschenk für Homeoffice-Menschen"
+        ],
+        "caution": "Allgemeine Wellness-Accessoires. Bei anhaltenden Beschwerden oder gesundheitlichen Problemen bitte fachlichen Rat einholen."
+      },
+      "fr": {
+        "badge": "La routine complète",
+        "tagline": "La routine BODY CARE complète.",
+        "description": "Six accessoires réunis pour transformer la fin de journée en rituel : pieds, mains, nuque, épaules et mobilité générale.",
+        "bullets": [
+          "Les 6 éléments de la routine BODY CARE dans un seul kit",
+          "Des pieds à la nuque : à composer selon le temps disponible",
+          "100 % manuel, silencieux, compatible bureau",
+          "Une idée cadeau soignée pour les télétravailleurs"
+        ],
+        "caution": "Accessoires de bien-être général. En cas de douleur persistante ou de problème de santé, demandez conseil à un professionnel."
+      },
+      "en": {
+        "badge": "The complete routine",
+        "tagline": "The complete BODY CARE routine.",
+        "description": "Six accessories in one end-of-day ritual: feet, hands, neck, shoulders and general mobility.",
+        "bullets": [
+          "All 6 pieces of the BODY CARE routine in one set",
+          "From feet to neck: mix it to the time you have",
+          "Fully manual, quiet and office-friendly",
+          "A thoughtful gift for home-office people"
+        ],
+        "caution": "General wellness accessories. If discomfort persists or you have a health concern, seek qualified professional advice."
+      }
+    },
+    "components": [
+      {
+        "key": "toe",
+        "name": "Silicone toe separators",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/breathable-and-comfortable-silicone-toe-braces-p-1393149956377939968.html",
+          "cjProductId": "1393149956377939968",
+          "cjVid": "",
+          "cjSku": "CJJT112906701AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 51,
+          "priceUSD": "0.26-0.55",
+          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device."
+        },
+        "label": {
+          "de": "Zehentrenner aus Silikon (Paar)",
+          "fr": "Séparateurs d’orteils en silicone (paire)",
+          "en": "Silicone toe separators (pair)"
+        }
+      },
+      {
+        "key": "footroller",
+        "name": "Dual foot massage roller",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/dual-foot-massager-roller-wooden-foot-massager-for-plantar-fasciitis-pain-relief-heal-spur-deep-tissue-acupressure-foot-heel-massager-washable-foot-roller-relieve-foot-pressure-and-clear-fatigue-p-1710221612786012160.html",
+          "cjProductId": "1710221612786012160",
+          "cjVid": "",
+          "cjSku": "CJYS186389401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 845,
+          "priceUSD": "9.18",
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+        },
+        "label": {
+          "de": "Doppelter Fußmassageroller",
+          "fr": "Rouleau de massage double pour les pieds",
+          "en": "Dual foot massage roller"
+        }
+      },
+      {
+        "key": "neck",
+        "name": "Manual 6-wheel neck & shoulder roller",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/multifunctional-manual-six-wheel-neck-massager-massage-relieve-roller-massage-tool-p-1444929719182168064.html",
+          "cjProductId": "1444929719182168064",
+          "cjVid": "",
+          "cjSku": "CJAM130816101AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 326,
+          "priceUSD": "0.66-3.54",
+          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy."
+        },
+        "label": {
+          "de": "Manueller Nacken- und Schulterroller (6 Rollen)",
+          "fr": "Rouleau manuel nuque et épaules (6 roues)",
+          "en": "Manual neck & shoulder roller (6 wheels)"
+        }
+      },
+      {
+        "key": "wrist",
+        "name": "Keyboard wrist rest",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/rgb-keyboard-support-wristband-high-rebound-luminous-machinery-keyboard-support-p-1783071395044405248.html",
+          "cjProductId": "1783071395044405248",
+          "cjVid": "",
+          "cjSku": "CJYD201950801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 686,
+          "priceUSD": "1.55-7.46",
+          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation."
+        },
+        "label": {
+          "de": "Handballenauflage für die Tastatur",
+          "fr": "Repose-poignet pour clavier",
+          "en": "Keyboard wrist rest"
+        }
+      },
+      {
+        "key": "grip",
+        "name": "Foam hand grip trainer",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/hand-training-spring-hand-grip-finger-strength-finger-trainer-power-exerciser-sponge-forearm-grip-strengthener-carpal-expander-p-1414110349644402688.html",
+          "cjProductId": "1414110349644402688",
+          "cjVid": "",
+          "cjSku": "CJAM120925301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 52,
+          "priceUSD": "0.46-0.57",
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+        },
+        "label": {
+          "de": "Handtrainer mit Schaumstoffgriff",
+          "fr": "Grip à main en mousse",
+          "en": "Foam hand grip trainer"
+        }
+      },
+      {
+        "key": "band",
+        "name": "Mobility stretch band",
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/yoga-fitness-resistance-band-arm-back-training-elastic-ropes---pure-barre-workout-chest-arm-and-shoulder-stretch-bands-exercise-equipment-for-physical-therapyyogapilatesstretching-p-1682008781574000640.html",
+          "cjProductId": "1682008781574000640",
+          "cjVid": "",
+          "cjSku": "CJJM1804042-Pink",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 918,
+          "priceUSD": "9.98",
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+        },
+        "label": {
+          "de": "Stretchband für Mobility",
+          "fr": "Bande élastique de mobilité",
+          "en": "Mobility stretch band"
+        }
+      }
+    ],
+    "costCents": 4200,
+    "seo": {
+      "de": {
+        "title": "Wellness Geschenkset Homeoffice — 6 Teile",
+        "description": "Das komplette Set: Fußroller, Zehentrenner, Nackenroller, Handballenauflage, Handtrainer und Stretchband. Ideal als Geschenk für Homeoffice-Menschen."
+      },
+      "fr": {
+        "title": "Coffret bien-être télétravail — 6 accessoires",
+        "description": "Le kit complet : rouleau pieds, séparateurs d’orteils, rouleau nuque, repose-poignet, grip et bande élastique. Idée cadeau pour télétravailleurs."
+      },
+      "en": {
+        "title": "Home office wellness gift set — 6 pieces",
+        "description": "The complete set: foot roller, toe separators, neck roller, wrist rest, hand grip and stretch band. A gift idea for home-office people."
+      }
+    }
+  }
+]

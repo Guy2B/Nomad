@@ -12,11 +12,14 @@ import nomadSite from '../../stores/nomad/site.json' with { type: 'json' };
 import nomadProducts from '../../stores/nomad/products.json' with { type: 'json' };
 import appartSite from '../../stores/appart-reset/site.json' with { type: 'json' };
 import appartProducts from '../../stores/appart-reset/products.json' with { type: 'json' };
+import bodySite from '../../stores/body-care/site.json' with { type: 'json' };
+import bodyProducts from '../../stores/body-care/products.json' with { type: 'json' };
 
 /** The first store is the host: it serves the API and the admin for all of them. */
 const DEFINITIONS = [
   [nomadSite, nomadProducts],
   [appartSite, appartProducts],
+  [bodySite, bodyProducts],
 ];
 
 const STORES = new Map(

@@ -1,0 +1,35 @@
+/* BODY CARE — warm blush & graphite, soft sage accents (overrides the Nomad base style). */
+:root {
+  --ink: #1e1e24;
+  --ink-2: #3a3a45;
+  --paper: #f5eee8;
+  --sand: #ebe0d6;
+  --card: #fffdfa;
+  --text: #1e1e24;
+  --text-2: #45434b;
+  --muted: #6d6b72;
+  --line: #ded7d1;
+  --accent: #c4604f;
+  --sage: #93a696;
+}
+h1,
+h2,
+.brand {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  line-height: 1.02;
+}
+.card,
+.includes li {
+  border-radius: 24px;
+}
+.promise {
+  background: linear-gradient(135deg, #1e1e24, #3a3a45);
+}
+.promise-list li::first-letter {
+  color: var(--sage);
+}

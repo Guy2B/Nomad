@@ -6,3 +6,4 @@ dist/
 *.log
 .netlify-site-id
 .netlify-site-id-appart
+.netlify-site-id-body

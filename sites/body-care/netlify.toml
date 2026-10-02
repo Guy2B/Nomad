@@ -1,0 +1,6 @@
+# BODY CARE storefront (Nomad platform). Netlify site settings:
+#   Base directory = sites/body-care
+# Static only: checkout, tracking and the admin are served by the Nomad host site.
+[build]
+  command = "node ../../scripts/build.mjs body-care"
+  publish = "../../dist"
