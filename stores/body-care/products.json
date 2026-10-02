@@ -109,7 +109,12 @@
         "title": "Foot massage roller & toe separator set",
         "description": "Dual foot roller and soft silicone toe separators: a short foot routine under the desk or after work. Fully manual, free shipping."
       }
-    }
+    },
+    "upsells": [
+      "wrist-rest",
+      "hand-grip",
+      "neck-roller"
+    ]
   },
   {
     "id": "hand-wrist-care",
@@ -221,7 +226,12 @@
         "title": "Keyboard wrist rest & hand grip set",
         "description": "Ergonomic keyboard wrist rest plus a hand grip trainer: more comfort for home office and gaming. Free shipping."
       }
-    }
+    },
+    "upsells": [
+      "foot-roller",
+      "toe-separators",
+      "neck-roller"
+    ]
   },
   {
     "id": "neck-shoulder-care",
@@ -333,7 +343,12 @@
         "title": "Manual neck massage roller & stretch band",
         "description": "Manual 6-wheel neck and shoulder roller plus a stretch band: a 10-minute routine after long screen days. No battery."
       }
-    }
+    },
+    "upsells": [
+      "foot-roller",
+      "toe-separators",
+      "wrist-rest"
+    ]
   },
   {
     "id": "mobility-care",
@@ -467,7 +482,12 @@
         "title": "Mobility kit: stretch band, foot roller & hand grip",
         "description": "Stretch band, foot massage roller and hand grip: a simple mobility kit for 10 minutes of movement a day, at home or in the office."
       }
-    }
+    },
+    "upsells": [
+      "toe-separators",
+      "wrist-rest",
+      "neck-roller"
+    ]
   },
   {
     "id": "full-body-care",
@@ -667,6 +687,508 @@
         "title": "Home office wellness gift set — 6 pieces",
         "description": "The complete set: foot roller, toe separators, neck roller, wrist rest, hand grip and stretch band. A gift idea for home-office people."
       }
-    }
+    },
+    "upsells": []
+  },
+  {
+    "id": "foot-roller",
+    "sku": "BDC-S-FOOT-ROLLE",
+    "active": true,
+    "single": true,
+    "price": 2490,
+    "compare": 2990,
+    "images": [
+      "foot-roller-1.webp"
+    ],
+    "name": "Dual Foot Roller",
+    "text": {
+      "de": {
+        "tagline": "Beide Füße, eine Minute, Feierabend.",
+        "description": "Doppelter Fußmassageroller für beide Füße: eine kurze Routine unter dem Schreibtisch oder nach Feierabend. Rein manuell.",
+        "bullets": [
+          "Doppelter Fußroller für beide Füße",
+          "Unter dem Schreibtisch oder vor dem Sofa",
+          "Rein manuell, kein Akku"
+        ]
+      },
+      "fr": {
+        "tagline": "Les deux pieds, une minute, fin de journée.",
+        "description": "Rouleau de massage double pour les deux pieds : une routine courte sous le bureau ou en fin de journée. Manuel.",
+        "bullets": [
+          "Rouleau double pour les deux pieds",
+          "Sous le bureau ou devant le canapé",
+          "100 % manuel, sans batterie"
+        ]
+      },
+      "en": {
+        "tagline": "Both feet, one minute, done.",
+        "description": "Dual foot massage roller for both feet: a short routine under the desk or after work. Fully manual.",
+        "bullets": [
+          "Dual roller for both feet",
+          "Under the desk or in front of the sofa",
+          "Fully manual, no battery"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Fußmassageroller für beide Füße",
+        "description": "Doppelter Fußmassageroller für beide Füße: eine kurze Routine unter dem Schreibtisch oder nach Feierabend. Rein manuell."
+      },
+      "fr": {
+        "title": "Rouleau de massage pieds double",
+        "description": "Rouleau de massage double pour les deux pieds : une routine courte sous le bureau ou en fin de journée. Manuel."
+      },
+      "en": {
+        "title": "Dual foot massage roller",
+        "description": "Dual foot massage roller for both feet: a short routine under the desk or after work. Fully manual."
+      }
+    },
+    "components": [
+      {
+        "key": "footroller",
+        "name": "Dual foot massage roller",
+        "label": {
+          "de": "Doppelter Fußmassageroller",
+          "fr": "Rouleau de massage double pour les pieds",
+          "en": "Dual foot massage roller"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/dual-foot-massager-roller-wooden-foot-massager-for-plantar-fasciitis-pain-relief-heal-spur-deep-tissue-acupressure-foot-heel-massager-washable-foot-roller-relieve-foot-pressure-and-clear-fatigue-p-1710221612786012160.html",
+          "cjProductId": "1710221612786012160",
+          "cjVid": "",
+          "cjSku": "CJYS186389401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 845,
+          "priceUSD": "9.18",
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+        }
+      }
+    ],
+    "upsells": [
+      "foot-care",
+      "mobility-care",
+      "full-body-care"
+    ]
+  },
+  {
+    "id": "toe-separators",
+    "sku": "BDC-S-TOE-SEPARA",
+    "active": true,
+    "single": true,
+    "price": 990,
+    "compare": 1290,
+    "images": [
+      "toe-separators-1.webp"
+    ],
+    "name": "Toe Separators",
+    "text": {
+      "de": {
+        "tagline": "Weiches Silikon für eine ruhige Pause.",
+        "description": "Weiche Zehentrenner aus Silikon im Paar: waschbar, wiederverwendbar — für Yoga, Feierabend oder Pediküre.",
+        "bullets": [
+          "Zehentrenner aus weichem Silikon (Paar)",
+          "Waschbar und wiederverwendbar",
+          "Für Yoga, Feierabend oder Pediküre"
+        ]
+      },
+      "fr": {
+        "tagline": "Silicone souple pour une pause calme.",
+        "description": "Séparateurs d’orteils en silicone souple, la paire : lavables et réutilisables, pour le yoga ou la pédicure.",
+        "bullets": [
+          "Séparateurs d’orteils en silicone souple (paire)",
+          "Lavables et réutilisables",
+          "Pour le yoga, la détente ou la pédicure"
+        ]
+      },
+      "en": {
+        "tagline": "Soft silicone for a calm break.",
+        "description": "Soft silicone toe separators, one pair: washable and reusable, for yoga, relaxing or pedicures.",
+        "bullets": [
+          "Soft silicone toe separators (pair)",
+          "Washable and reusable",
+          "For yoga, relaxing or pedicures"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Zehentrenner Silikon",
+        "description": "Weiche Zehentrenner aus Silikon im Paar: waschbar, wiederverwendbar — für Yoga, Feierabend oder Pediküre."
+      },
+      "fr": {
+        "title": "Séparateurs d’orteils silicone",
+        "description": "Séparateurs d’orteils en silicone souple, la paire : lavables et réutilisables, pour le yoga ou la pédicure."
+      },
+      "en": {
+        "title": "Silicone toe separators",
+        "description": "Soft silicone toe separators, one pair: washable and reusable, for yoga, relaxing or pedicures."
+      }
+    },
+    "components": [
+      {
+        "key": "toe",
+        "name": "Silicone toe separators",
+        "label": {
+          "de": "Zehentrenner aus Silikon (Paar)",
+          "fr": "Séparateurs d’orteils en silicone (paire)",
+          "en": "Silicone toe separators (pair)"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/breathable-and-comfortable-silicone-toe-braces-p-1393149956377939968.html",
+          "cjProductId": "1393149956377939968",
+          "cjVid": "",
+          "cjSku": "CJJT112906701AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 51,
+          "priceUSD": "0.26-0.55",
+          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device."
+        }
+      }
+    ],
+    "upsells": [
+      "foot-care",
+      "full-body-care"
+    ]
+  },
+  {
+    "id": "wrist-rest",
+    "sku": "BDC-S-WRIST-REST",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "compare": 2490,
+    "images": [
+      "wrist-rest-1.webp"
+    ],
+    "name": "Keyboard Wrist Rest",
+    "text": {
+      "de": {
+        "tagline": "Weicher tippen, den ganzen Tag.",
+        "description": "Ergonomische Handballenauflage für die Tastatur aus Memory-Schaum, rutschfest — für Homeoffice und Gaming.",
+        "bullets": [
+          "Handballenauflage aus Memory-Schaum",
+          "Rutschfeste Unterseite",
+          "Für Homeoffice und Gaming"
+        ]
+      },
+      "fr": {
+        "tagline": "Taper en douceur, toute la journée.",
+        "description": "Repose-poignet ergonomique pour clavier en mousse à mémoire de forme, antidérapant, pour télétravail et gaming.",
+        "bullets": [
+          "Repose-poignet en mousse à mémoire de forme",
+          "Dessous antidérapant",
+          "Pour le télétravail et le gaming"
+        ]
+      },
+      "en": {
+        "tagline": "Type softer, all day.",
+        "description": "Ergonomic memory foam keyboard wrist rest with non-slip base — for home office and gaming.",
+        "bullets": [
+          "Memory foam wrist rest",
+          "Non-slip base",
+          "For home office and gaming"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Handballenauflage Tastatur Memory Foam",
+        "description": "Ergonomische Handballenauflage für die Tastatur aus Memory-Schaum, rutschfest — für Homeoffice und Gaming."
+      },
+      "fr": {
+        "title": "Repose-poignet clavier mousse mémoire",
+        "description": "Repose-poignet ergonomique pour clavier en mousse à mémoire de forme, antidérapant, pour télétravail et gaming."
+      },
+      "en": {
+        "title": "Memory foam keyboard wrist rest",
+        "description": "Ergonomic memory foam keyboard wrist rest with non-slip base — for home office and gaming."
+      }
+    },
+    "components": [
+      {
+        "key": "wrist",
+        "name": "Keyboard wrist rest",
+        "label": {
+          "de": "Handballenauflage für die Tastatur",
+          "fr": "Repose-poignet pour clavier",
+          "en": "Keyboard wrist rest"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/rgb-keyboard-support-wristband-high-rebound-luminous-machinery-keyboard-support-p-1783071395044405248.html",
+          "cjProductId": "1783071395044405248",
+          "cjVid": "",
+          "cjSku": "CJYD201950801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 686,
+          "priceUSD": "1.55-7.46",
+          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation."
+        }
+      }
+    ],
+    "upsells": [
+      "hand-wrist-care",
+      "full-body-care"
+    ]
+  },
+  {
+    "id": "hand-grip",
+    "sku": "BDC-S-HAND-GRIP",
+    "active": true,
+    "single": true,
+    "price": 990,
+    "compare": 1290,
+    "images": [
+      "hand-grip-1.webp"
+    ],
+    "name": "Hand Grip",
+    "text": {
+      "de": {
+        "tagline": "Ein paar Mal drücken, zwischen zwei Mails.",
+        "description": "Handtrainer mit Schaumstoffgriffen für zwischendurch: klein, leise, passt in jede Schreibtischschublade.",
+        "bullets": [
+          "Handtrainer mit Schaumstoffgriffen",
+          "Klein genug für die Schreibtischschublade",
+          "Leise, überall nutzbar"
+        ]
+      },
+      "fr": {
+        "tagline": "Quelques pressions entre deux e-mails.",
+        "description": "Grip à main à poignées en mousse pour les pauses : petit, silencieux, tient dans tous les tiroirs.",
+        "bullets": [
+          "Grip à poignées en mousse",
+          "Assez petit pour le tiroir du bureau",
+          "Silencieux, utilisable partout"
+        ]
+      },
+      "en": {
+        "tagline": "A few squeezes between emails.",
+        "description": "Hand grip trainer with foam handles for quick breaks: small, quiet, fits any desk drawer.",
+        "bullets": [
+          "Hand grip with foam handles",
+          "Small enough for the desk drawer",
+          "Quiet, use it anywhere"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Handtrainer Fingertrainer mit Schaumstoffgriff",
+        "description": "Handtrainer mit Schaumstoffgriffen für zwischendurch: klein, leise, passt in jede Schreibtischschublade."
+      },
+      "fr": {
+        "title": "Grip main musculation poignées mousse",
+        "description": "Grip à main à poignées en mousse pour les pauses : petit, silencieux, tient dans tous les tiroirs."
+      },
+      "en": {
+        "title": "Hand grip trainer with foam handles",
+        "description": "Hand grip trainer with foam handles for quick breaks: small, quiet, fits any desk drawer."
+      }
+    },
+    "components": [
+      {
+        "key": "grip",
+        "name": "Foam hand grip trainer",
+        "label": {
+          "de": "Handtrainer mit Schaumstoffgriff",
+          "fr": "Grip à main en mousse",
+          "en": "Foam hand grip trainer"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/hand-training-spring-hand-grip-finger-strength-finger-trainer-power-exerciser-sponge-forearm-grip-strengthener-carpal-expander-p-1414110349644402688.html",
+          "cjProductId": "1414110349644402688",
+          "cjVid": "",
+          "cjSku": "CJAM120925301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 52,
+          "priceUSD": "0.46-0.57",
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+        }
+      }
+    ],
+    "upsells": [
+      "hand-wrist-care",
+      "mobility-care",
+      "full-body-care"
+    ]
+  },
+  {
+    "id": "neck-roller",
+    "sku": "BDC-S-NECK-ROLLE",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "compare": 2490,
+    "images": [
+      "neck-roller-1.webp"
+    ],
+    "name": "Neck & Shoulder Roller",
+    "text": {
+      "de": {
+        "tagline": "Du bestimmst den Druck.",
+        "description": "Manueller Nacken- und Schulterroller mit 6 Rollen: den Druck bestimmen Sie selbst — ohne Akku, ohne App.",
+        "bullets": [
+          "Manueller Roller mit 6 Rollen",
+          "Für Nacken und Schultern",
+          "Kein Akku, keine App"
+        ]
+      },
+      "fr": {
+        "tagline": "Vous dosez la pression.",
+        "description": "Rouleau de massage manuel 6 roues pour la nuque et les épaules : vous dosez la pression, sans batterie.",
+        "bullets": [
+          "Rouleau manuel à 6 roues",
+          "Pour la nuque et les épaules",
+          "Ni batterie, ni application"
+        ]
+      },
+      "en": {
+        "tagline": "You control the pressure.",
+        "description": "Manual 6-wheel neck and shoulder roller: you control the pressure — no battery, no app.",
+        "bullets": [
+          "Manual 6-wheel roller",
+          "For neck and shoulders",
+          "No battery, no app"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Nackenmassage Roller manuell 6 Rollen",
+        "description": "Manueller Nacken- und Schulterroller mit 6 Rollen: den Druck bestimmen Sie selbst — ohne Akku, ohne App."
+      },
+      "fr": {
+        "title": "Rouleau massage nuque manuel 6 roues",
+        "description": "Rouleau de massage manuel 6 roues pour la nuque et les épaules : vous dosez la pression, sans batterie."
+      },
+      "en": {
+        "title": "Manual 6-wheel neck massage roller",
+        "description": "Manual 6-wheel neck and shoulder roller: you control the pressure — no battery, no app."
+      }
+    },
+    "components": [
+      {
+        "key": "neck",
+        "name": "Manual 6-wheel neck & shoulder roller",
+        "label": {
+          "de": "Manueller Nacken- und Schulterroller (6 Rollen)",
+          "fr": "Rouleau manuel nuque et épaules (6 roues)",
+          "en": "Manual neck & shoulder roller (6 wheels)"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/multifunctional-manual-six-wheel-neck-massager-massage-relieve-roller-massage-tool-p-1444929719182168064.html",
+          "cjProductId": "1444929719182168064",
+          "cjVid": "",
+          "cjSku": "CJAM130816101AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 326,
+          "priceUSD": "0.66-3.54",
+          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy."
+        }
+      }
+    ],
+    "upsells": [
+      "neck-shoulder-care",
+      "full-body-care"
+    ]
+  },
+  {
+    "id": "stretch-band",
+    "sku": "BDC-S-STRETCH-BA",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "compare": 2490,
+    "images": [
+      "stretch-band-1.webp"
+    ],
+    "name": "Mobility Stretch Band",
+    "text": {
+      "de": {
+        "tagline": "Langsam strecken, ruhig atmen.",
+        "description": "Elastisches Stretchband mit Griffen für Schultern, Arme und Rücken: Mobility zu Hause, im Büro oder auf Reisen.",
+        "bullets": [
+          "Elastisches Stretchband mit Griffen",
+          "Für Schultern, Arme und Rücken",
+          "Leicht, passt in jede Tasche"
+        ]
+      },
+      "fr": {
+        "tagline": "S’étirer lentement, respirer calmement.",
+        "description": "Bande élastique avec poignées pour les épaules, les bras et le dos : mobilité à la maison, au bureau ou en voyage.",
+        "bullets": [
+          "Bande élastique avec poignées",
+          "Pour les épaules, les bras et le dos",
+          "Légère, tient dans tous les sacs"
+        ]
+      },
+      "en": {
+        "tagline": "Stretch slowly, breathe calmly.",
+        "description": "Elastic stretch band with handles for shoulders, arms and back: mobility at home, at work or travelling.",
+        "bullets": [
+          "Elastic stretch band with handles",
+          "For shoulders, arms and back",
+          "Light, fits in any bag"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Stretchband Schultern Fitnessband mit Griffen",
+        "description": "Elastisches Stretchband mit Griffen für Schultern, Arme und Rücken: Mobility zu Hause, im Büro oder auf Reisen."
+      },
+      "fr": {
+        "title": "Bande élastique épaules avec poignées",
+        "description": "Bande élastique avec poignées pour les épaules, les bras et le dos : mobilité à la maison, au bureau ou en voyage."
+      },
+      "en": {
+        "title": "Stretch band with handles for shoulders",
+        "description": "Elastic stretch band with handles for shoulders, arms and back: mobility at home, at work or travelling."
+      }
+    },
+    "components": [
+      {
+        "key": "band",
+        "name": "Mobility stretch band",
+        "label": {
+          "de": "Stretchband für Mobility",
+          "fr": "Bande élastique de mobilité",
+          "en": "Mobility stretch band"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/yoga-fitness-resistance-band-arm-back-training-elastic-ropes---pure-barre-workout-chest-arm-and-shoulder-stretch-bands-exercise-equipment-for-physical-therapyyogapilatesstretching-p-1682008781574000640.html",
+          "cjProductId": "1682008781574000640",
+          "cjVid": "",
+          "cjSku": "CJJM1804042-Pink",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 918,
+          "priceUSD": "9.98",
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+        }
+      }
+    ],
+    "upsells": [
+      "neck-shoulder-care",
+      "mobility-care",
+      "full-body-care"
+    ]
   }
 ]

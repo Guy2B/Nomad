@@ -187,7 +187,13 @@ function home(lang) {
 <section class="section" id="produkte">
   <div class="wrap">
     <header class="head"><h2>${esc(t.products.title)}</h2><p class="muted">${esc(t.products.lead)}</p></header>
-    <div class="grid">${ACTIVE.map((p) => card(p, lang, '')).join('')}</div>
+    <div class="grid">${ACTIVE.filter((p) => !p.single).map((p) => card(p, lang, '')).join('')}</div>
+    ${
+      ACTIVE.some((p) => p.single)
+        ? `<header class="head head-sub"><h2>${esc(t.products.singles)}</h2></header>
+    <div class="grid">${ACTIVE.filter((p) => p.single).map((p) => card(p, lang, '')).join('')}</div>`
+        : ''
+    }
   </div>
 </section>
 ${
@@ -273,7 +279,18 @@ function productPage(p, lang) {
       <p>${esc(x.description)}</p>
     </div>
   </div>
-</section>`;
+</section>
+${
+  (p.upsells ?? []).filter((id) => ACTIVE.some((q) => q.id === id)).length
+    ? `<section class="section soft"><div class="wrap"><header class="head"><h2>${esc(t.cart.upsell)}</h2></header>
+<div class="grid">${p.upsells
+        .map((id) => ACTIVE.find((q) => q.id === id))
+        .filter(Boolean)
+        .map((q) => card(q, lang, '../'))
+        .join('')
+        .replaceAll('src="../assets/', 'src="../../assets/')}</div></div></section>`
+    : ''
+}`;
   const url = `${BASE}/${lang}/produkt/${p.id}.html`;
   const jsonLd = [
     {
@@ -376,7 +393,7 @@ function shopData(lang) {
     lang,
     shippingCents: SITE.shipping.cents,
     products: Object.fromEntries(
-      ACTIVE.map((p) => [p.id, { name: p.name, price: p.price, img: p.images[0], url: `produkt/${p.id}.html` }]),
+      ACTIVE.map((p) => [p.id, { name: p.name, price: p.price, img: p.images[0], url: `produkt/${p.id}.html`, upsells: p.upsells ?? [] }]),
     ),
     t: { cart: t.cart, thanks: t.thanks, track: t.track },
   };
@@ -404,6 +421,7 @@ function cartPage(lang) {
     <p class="muted small">${esc(t.note)}</p>
     <p class="error" data-checkout-error hidden>${esc(t.error)}</p>
   </div>
+  <div class="upsells" data-upsell hidden><h2 class="small-title">${esc(t.upsell)}</h2><div data-upsell-row></div></div>
 </div></section>
 ${shopDataTag(lang)}`,
     true,

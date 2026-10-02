@@ -140,12 +140,53 @@
         row.append(img, info, qty, total, rm);
         linesEl.appendChild(row);
       });
+      renderUpsell();
       var empty = cart.length === 0;
       document.querySelector('[data-cart-empty]').hidden = !empty;
       document.querySelector('[data-cart-summary]').hidden = empty;
       document.querySelector('[data-subtotal]').textContent = money(subtotal);
       document.querySelector('[data-shipping]').textContent = data.shippingCents ? money(data.shippingCents) : t.free;
       document.querySelector('[data-total]').textContent = money(subtotal + data.shippingCents);
+    };
+    // Upsells: what goes with the cart (each product lists its logical companions).
+    var upEl = document.querySelector('[data-upsell]');
+    var renderUpsell = function () {
+      if (!upEl) return;
+      var cart = read();
+      var inCart = {};
+      cart.forEach(function (l) {
+        inCart[l.id] = true;
+      });
+      var ids = [];
+      cart.forEach(function (l) {
+        ((data.products[l.id] || {}).upsells || []).forEach(function (id) {
+          if (!inCart[id] && data.products[id] && ids.indexOf(id) < 0) ids.push(id);
+        });
+      });
+      var row = upEl.querySelector('[data-upsell-row]');
+      row.textContent = '';
+      ids.slice(0, 3).forEach(function (id) {
+        var p = data.products[id];
+        var card = el('div', 'upsell');
+        var img = el('img');
+        img.src = '../assets/products/' + p.img;
+        img.alt = '';
+        img.width = 64;
+        img.height = 64;
+        var info = el('div', 'line-info');
+        var name = el('a', 'line-name', p.name);
+        name.href = p.url;
+        info.append(name, el('span', 'muted small', money(p.price)));
+        var b = el('button', 'btn btn-line btn-xs', '+ ' + t.addShort);
+        b.type = 'button';
+        b.addEventListener('click', function () {
+          add(id);
+          render();
+        });
+        card.append(img, info, b);
+        row.appendChild(card);
+      });
+      upEl.hidden = ids.length === 0;
     };
     render();
     var btn = document.querySelector('[data-checkout]');

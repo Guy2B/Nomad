@@ -11,7 +11,7 @@ export const STR = {
       cta: 'Produkte entdecken',
       cta2: 'So funktioniert’s',
     },
-    products: { title: 'Die Kollektion', lead: 'Wenige Produkte, sorgfältig ausgewählt.', from: 'statt', add: 'In den Warenkorb', view: 'Ansehen' },
+    products: { title: 'Die Kollektion', lead: 'Wenige Produkte, sorgfältig ausgewählt.', from: 'statt', singles: 'Einzeln erhältlich', add: 'In den Warenkorb', view: 'Ansehen' },
     how: {
       title: 'So einfach ist es',
       steps: [
@@ -52,6 +52,8 @@ export const STR = {
       free: 'kostenlos',
       total: 'Gesamt',
       checkout: 'Sicher zur Kasse',
+      upsell: 'Passt dazu',
+      addShort: 'Hinzufügen',
       note: 'Sie werden zu Stripe weitergeleitet. Lieferadresse und Zahlung geben Sie dort ein; die Rechnung erhalten Sie per E-Mail.',
       error: 'Die Kasse ist gerade nicht erreichbar. Bitte versuchen Sie es in einem Moment erneut.',
       vat: 'Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.',
@@ -90,7 +92,7 @@ export const STR = {
       cta: 'Découvrir les produits',
       cta2: 'Comment ça marche',
     },
-    products: { title: 'La collection', lead: 'Peu de produits, choisis avec soin.', from: 'au lieu de', add: 'Ajouter au panier', view: 'Voir' },
+    products: { title: 'La collection', lead: 'Peu de produits, choisis avec soin.', from: 'au lieu de', singles: 'À l’unité', add: 'Ajouter au panier', view: 'Voir' },
     how: {
       title: 'Aussi simple que ça',
       steps: [
@@ -131,6 +133,8 @@ export const STR = {
       free: 'offerte',
       total: 'Total',
       checkout: 'Paiement sécurisé',
+      upsell: 'Pour compléter',
+      addShort: 'Ajouter',
       note: 'Vous allez être redirigé vers Stripe pour l’adresse de livraison et le paiement ; la facture vous est envoyée par e-mail.',
       error: 'Le paiement est momentanément indisponible. Merci de réessayer dans un instant.',
       vat: 'TVA non applicable — § 19 UStG (régime allemand des petites entreprises).',
@@ -169,7 +173,7 @@ export const STR = {
       cta: 'Discover the products',
       cta2: 'How it works',
     },
-    products: { title: 'The collection', lead: 'Few products, carefully chosen.', from: 'instead of', add: 'Add to cart', view: 'View' },
+    products: { title: 'The collection', lead: 'Few products, carefully chosen.', from: 'instead of', singles: 'Sold separately', add: 'Add to cart', view: 'View' },
     how: {
       title: 'As simple as that',
       steps: [
@@ -210,6 +214,8 @@ export const STR = {
       free: 'free',
       total: 'Total',
       checkout: 'Secure checkout',
+      upsell: 'Goes well with',
+      addShort: 'Add',
       note: 'You will be taken to Stripe for the delivery address and payment; your invoice is sent by e-mail.',
       error: 'Checkout is unavailable right now. Please try again in a moment.',
       vat: 'No VAT charged — § 19 UStG (German small-business scheme).',

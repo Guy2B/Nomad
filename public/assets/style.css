@@ -818,3 +818,26 @@ details p {
     padding: 28px 22px;
   }
 }
+.head-sub {
+  margin-top: 56px;
+}
+.upsells {
+  margin-top: 32px;
+}
+.upsell {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.upsell img {
+  border-radius: 10px;
+  background: #fff;
+  object-fit: cover;
+}
+.btn-xs {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
