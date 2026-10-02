@@ -1,10 +1,15 @@
 /**
- * CRM storage (Netlify Blobs): orders/<stripeSessionId>, customers/<email>,
- * index/orders (latest first), cj/token. An in-memory store is used in tests.
+ * CRM storage: orders/<stripeSessionId>, customers/<email>, index/orders
+ * (latest first), cj/token, metrics, reviews. The Cloudflare worker plugs in
+ * its D1 database with useStore(); an in-memory store is used in tests.
  */
-import { getStore } from '@netlify/blobs';
-
 let memory = null;
+let backend = null;
+
+/** Sets the storage used by crm(): any { get(key, {type}), setJSON, delete }. */
+export const useStore = (s) => {
+  backend = s;
+};
 
 export function crm() {
   if (process.env.NOMAD_MEMORY_STORE === '1') {
@@ -22,7 +27,8 @@ export function crm() {
       },
     };
   }
-  return getStore({ name: 'crm', consistency: 'strong' });
+  if (!backend) throw new Error('No CRM storage configured');
+  return backend;
 }
 
 export const resetMemoryStore = () => {

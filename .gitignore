@@ -7,3 +7,5 @@ dist/
 .netlify-site-id
 .netlify-site-id-appart
 .netlify-site-id-body
+.dev.vars
+.wrangler/
