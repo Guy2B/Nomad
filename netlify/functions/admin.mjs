@@ -55,6 +55,21 @@ export default async (req) => {
           return lines.length && lines.every((c) => c.supplier.cjVid || c.supplier.cjSku);
         }).length,
         stats: stats(orders.filter((o) => storeOf(o) === s.id)),
+        catalog: s.products.map((p) => ({
+          id: p.id,
+          name: p.name,
+          active: p.active,
+          priceCents: p.price,
+          costCents: unitCost(p),
+          parts: supplierLines(p).map((c) => ({
+            qty: c.qty,
+            name: c.name,
+            sku: c.supplier.cjSku,
+            vid: c.supplier.cjVid || '',
+            url: c.supplier.url,
+            sourcing: c.supplier.sourcing ?? null,
+          })),
+        })),
       };
     });
     return json(200, {

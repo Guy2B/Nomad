@@ -68,7 +68,12 @@
         "title": "Vacuum compression backpack for carry-on",
         "description": "Carry-on backpack with a vacuum compression compartment, laptop sleeve and suitcase-style opening: more space for short trips and business travel."
       }
-    }
+    },
+    "upsells": [
+      "packing-cubes",
+      "sleep-kit",
+      "card-holder"
+    ]
   },
   {
     "id": "modular-toiletry",
@@ -139,7 +144,12 @@
         "title": "Hanging toiletry bag, modular",
         "description": "Modular hanging toiletry bag with hook and removable pouches: everything within reach in the hotel bathroom. Carry-on friendly."
       }
-    }
+    },
+    "upsells": [
+      "beauty-case",
+      "packing-cubes",
+      "jewelry-roll"
+    ]
   },
   {
     "id": "flight-stand",
@@ -211,7 +221,12 @@
         "title": "Airplane phone holder — 360° travel mount",
         "description": "Airplane phone holder that clips to the tray table or seat, rotates 360° — hands-free films on planes, trains and at home."
       }
-    }
+    },
+    "upsells": [
+      "sleep-kit",
+      "travel-pillow",
+      "card-holder"
+    ]
   },
   {
     "id": "jewelry-roll",
@@ -282,7 +297,12 @@
         "title": "Travel jewellery roll — jewellery organiser",
         "description": "Compact travel jewellery roll: necklaces, rings and earrings kept apart and tangle-free. Fits in any bag."
       }
-    }
+    },
+    "upsells": [
+      "beauty-case",
+      "card-holder",
+      "modular-toiletry"
+    ]
   },
   {
     "id": "mini-steamer",
@@ -340,5 +360,635 @@
       "costCents": 1500,
       "notes": "ELECTRICAL: inactive until CE/LVD documents, EU plug and ElektroG (stiftung ear / WEEE) registration are in place. See docs/LEGAL-CHECKLIST.md."
     }
+  },
+  {
+    "id": "packing-cubes",
+    "sku": "NOM-CUBE-06",
+    "active": true,
+    "price": 2990,
+    "compare": 3490,
+    "images": [
+      "packing-cubes-1.webp",
+      "packing-cubes-2.webp",
+      "packing-cubes-3.webp",
+      "packing-cubes-4.webp"
+    ],
+    "name": "Packing Cubes ×8",
+    "text": {
+      "de": {
+        "tagline": "Acht Würfel. Ein Koffer, in dem du alles findest.",
+        "description": "Packwürfel Set mit 8 Teilen: Kleidung, Schuhe und Unterwäsche getrennt verstaut — Koffer-Organizer für Handgepäck und Koffer. Kostenloser Versand.",
+        "bullets": [
+          "8-teiliges Set: Kleidung, Unterwäsche, Schuhe, Kabel",
+          "Leichtes, robustes Gewebe mit Sichtfenster",
+          "Passt in Koffer, Handgepäck und Rucksack"
+        ]
+      },
+      "fr": {
+        "tagline": "Huit cubes. Une valise où tout se retrouve.",
+        "description": "Set de 8 cubes de rangement pour valise : vêtements, chaussures et sous-vêtements séparés. Organisateur de bagage cabine. Livraison offerte.",
+        "bullets": [
+          "Set de 8 : vêtements, sous-vêtements, chaussures, câbles",
+          "Tissu léger et résistant avec fenêtre",
+          "Pour valise, bagage cabine et sac à dos"
+        ]
+      },
+      "en": {
+        "tagline": "Eight cubes. A suitcase where you find everything.",
+        "description": "8-piece packing cubes set: clothes, shoes and underwear kept apart — suitcase and carry-on organiser. Free shipping.",
+        "bullets": [
+          "8-piece set: clothes, underwear, shoes, cables",
+          "Light, sturdy fabric with see-through window",
+          "Fits suitcases, carry-ons and backpacks"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Packwürfel Set 8-teilig — Koffer Organizer",
+        "description": "Packwürfel Set mit 8 Teilen: Kleidung, Schuhe und Unterwäsche getrennt verstaut — Koffer-Organizer für Handgepäck und Koffer. Kostenloser Versand."
+      },
+      "fr": {
+        "title": "Cubes de rangement valise — set de 8",
+        "description": "Set de 8 cubes de rangement pour valise : vêtements, chaussures et sous-vêtements séparés. Organisateur de bagage cabine. Livraison offerte."
+      },
+      "en": {
+        "title": "Packing cubes set of 8 — suitcase organiser",
+        "description": "8-piece packing cubes set: clothes, shoes and underwear kept apart — suitcase and carry-on organiser. Free shipping."
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/8-piece-set-luggage-divider-bag-travel-storage-clothes-underwear-shoes-organizer-packing-cube-bag-p-1386852733046362112.html",
+      "cjProductId": "1386852733046362112",
+      "cjVid": "",
+      "cjSku": "CJNS110086901AZ",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 1200,
+      "sourcing": {
+        "checkedAt": "2026-10-02",
+        "priceUSD": "4.62",
+        "listedByStores": 3753,
+        "supplierRating": "4.9",
+        "cjReviews": 0,
+        "cjComments": 0,
+        "stock": 40000,
+        "weight": "480g",
+        "amazonDe": "Packwürfel Set: 4,5–4,7★, bis 44.015 Bewertungen, 25–33 € (8-teilig)"
+      },
+      "notes": ""
+    },
+    "upsells": [
+      "vacuum-backpack",
+      "weekender-bag",
+      "beauty-case"
+    ]
+  },
+  {
+    "id": "beauty-case",
+    "sku": "NOM-BEAU-07",
+    "active": true,
+    "price": 2490,
+    "compare": 2990,
+    "images": [
+      "beauty-case-1.webp",
+      "beauty-case-2.webp",
+      "beauty-case-3.webp",
+      "beauty-case-4.webp"
+    ],
+    "name": "Cloud Beauty Case",
+    "text": {
+      "de": {
+        "tagline": "Weit offen, alles auf einen Blick.",
+        "description": "Große Kosmetiktasche mit weiter Öffnung aus weichem Kunstleder: Make-up, Pflege und Pinsel übersichtlich verstaut — ideal für Reisen.",
+        "bullets": [
+          "Große Öffnung mit formstabilem Rahmen",
+          "Weiches, abwischbares Kunstleder",
+          "Platz für Make-up, Pflege und Pinsel"
+        ]
+      },
+      "fr": {
+        "tagline": "Grande ouverture, tout d’un coup d’œil.",
+        "description": "Grande trousse de maquillage à large ouverture en similicuir doux : maquillage, soins et pinceaux bien rangés, idéale en voyage.",
+        "bullets": [
+          "Grande ouverture avec cadre qui garde sa forme",
+          "Similicuir doux, facile à essuyer",
+          "De la place pour maquillage, soins et pinceaux"
+        ]
+      },
+      "en": {
+        "tagline": "Wide open, everything at a glance.",
+        "description": "Large make-up bag with a wide opening in soft faux leather: make-up, skincare and brushes neatly stored — made for travel.",
+        "bullets": [
+          "Wide opening with shape-holding frame",
+          "Soft, wipe-clean faux leather",
+          "Room for make-up, skincare and brushes"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Kosmetiktasche groß für die Reise",
+        "description": "Große Kosmetiktasche mit weiter Öffnung aus weichem Kunstleder: Make-up, Pflege und Pinsel übersichtlich verstaut — ideal für Reisen."
+      },
+      "fr": {
+        "title": "Trousse de maquillage grande ouverture voyage",
+        "description": "Grande trousse de maquillage à large ouverture en similicuir doux : maquillage, soins et pinceaux bien rangés, idéale en voyage."
+      },
+      "en": {
+        "title": "Large travel make-up bag",
+        "description": "Large make-up bag with a wide opening in soft faux leather: make-up, skincare and brushes neatly stored — made for travel."
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/travel-cosmetic-bag-large-capacity-multifunction-travel-cosmetic-bag-women-toiletries-organizer-female-storage-make-up-case-tool-p-1546430072087916544.html",
+      "cjProductId": "1546430072087916544",
+      "cjVid": "",
+      "cjSku": "CJNS152304210JQ",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 800,
+      "sourcing": {
+        "checkedAt": "2026-10-02",
+        "priceUSD": "1.15",
+        "listedByStores": 6812,
+        "supplierRating": "4.9",
+        "cjReviews": 75,
+        "cjComments": 23,
+        "stock": "CN: large stock",
+        "weight": "220g",
+        "amazonDe": "Kosmetiktasche groß Reise: 4,4–4,9★, bis 2.744 Bewertungen, 16–30 €"
+      },
+      "notes": "Choose colour; CN warehouse (US stock 0)."
+    },
+    "upsells": [
+      "modular-toiletry",
+      "jewelry-roll",
+      "packing-cubes"
+    ]
+  },
+  {
+    "id": "travel-pillow",
+    "sku": "NOM-PILL-08",
+    "active": true,
+    "price": 2290,
+    "compare": 2790,
+    "images": [
+      "travel-pillow-1.webp",
+      "travel-pillow-2.webp"
+    ],
+    "name": "Hooded Travel Pillow",
+    "text": {
+      "de": {
+        "tagline": "Kapuze auf, Welt aus.",
+        "description": "Aufblasbares Reise-Nackenkissen in H-Form mit Kapuze: stützt Kinn und Nacken im Flugzeug, Zug oder Auto und faltet sich klein.",
+        "bullets": [
+          "Aufblasbares H-Kissen stützt Kinn und Nacken",
+          "Kapuze dunkelt ab und schirmt ab",
+          "Faltet sich klein für das Handgepäck"
+        ]
+      },
+      "fr": {
+        "tagline": "Capuche sur la tête, le monde en pause.",
+        "description": "Coussin de voyage gonflable en H avec capuche : soutient menton et nuque en avion, en train ou en voiture, et se replie tout petit.",
+        "bullets": [
+          "Coussin gonflable en H qui soutient menton et nuque",
+          "Capuche qui assombrit et isole",
+          "Se replie tout petit pour le bagage cabine"
+        ]
+      },
+      "en": {
+        "tagline": "Hood up, world off.",
+        "description": "Inflatable H-shaped travel neck pillow with hood: supports chin and neck on planes, trains or in the car, and folds small.",
+        "bullets": [
+          "Inflatable H-shape supports chin and neck",
+          "Hood darkens and shields",
+          "Folds small for your carry-on"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Nackenkissen Flugzeug aufblasbar mit Kapuze",
+        "description": "Aufblasbares Reise-Nackenkissen in H-Form mit Kapuze: stützt Kinn und Nacken im Flugzeug, Zug oder Auto und faltet sich klein."
+      },
+      "fr": {
+        "title": "Coussin de voyage gonflable avec capuche",
+        "description": "Coussin de voyage gonflable en H avec capuche : soutient menton et nuque en avion, en train ou en voiture, et se replie tout petit."
+      },
+      "en": {
+        "title": "Inflatable hooded travel neck pillow",
+        "description": "Inflatable H-shaped travel neck pillow with hood: supports chin and neck on planes, trains or in the car, and folds small."
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/hooded-travel-pillow-h-shaped-inflatable-neck-pillow-folding-lightweight-nap-car-seat-office-airplane-sleeping-cushion-pillows-p-1400751666202021888.html",
+      "cjProductId": "1400751666202021888",
+      "cjVid": "",
+      "cjSku": "CJZT115982902BY",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 1100,
+      "sourcing": {
+        "checkedAt": "2026-10-02",
+        "priceUSD": "5.13",
+        "listedByStores": 1108,
+        "supplierRating": "4.9",
+        "cjReviews": 0,
+        "cjComments": 1,
+        "stock": 31966,
+        "weight": "249g",
+        "amazonDe": "Nackenkissen Flugzeug aufblasbar: 4,2–4,6★, bis 6.597 Bewertungen, 9–30 €"
+      },
+      "notes": ""
+    },
+    "upsells": [
+      "sleep-kit",
+      "sleep-mask",
+      "flight-stand"
+    ]
+  },
+  {
+    "id": "sleep-mask",
+    "sku": "NOM-MASK-09",
+    "active": true,
+    "price": 1490,
+    "compare": 1790,
+    "images": [
+      "sleep-mask-1.webp",
+      "sleep-mask-2.webp",
+      "sleep-mask-3.webp"
+    ],
+    "name": "3D Sleep Mask",
+    "text": {
+      "de": {
+        "tagline": "Dunkel, auch über den Wolken.",
+        "description": "3D-Schlafmaske mit Augenmulden und verstellbarem Band: blockiert Licht im Flugzeug, Hotel oder zu Hause — auch für Seitenschläfer.",
+        "bullets": [
+          "3D-Form: kein Druck auf die Augen",
+          "Verstellbares Band, auch für Seitenschläfer",
+          "Leicht genug für jede Jackentasche"
+        ]
+      },
+      "fr": {
+        "tagline": "Le noir complet, même au-dessus des nuages.",
+        "description": "Masque de sommeil 3D avec cavités pour les yeux et bandeau réglable : bloque la lumière en avion, à l’hôtel ou à la maison.",
+        "bullets": [
+          "Forme 3D : aucune pression sur les yeux",
+          "Bandeau réglable, même pour dormir sur le côté",
+          "Assez léger pour une poche de veste"
+        ]
+      },
+      "en": {
+        "tagline": "Darkness, even above the clouds.",
+        "description": "3D sleep mask with eye cups and adjustable strap: blocks light on planes, in hotels or at home — side-sleeper friendly.",
+        "bullets": [
+          "3D shape: no pressure on the eyes",
+          "Adjustable strap, side-sleeper friendly",
+          "Light enough for any jacket pocket"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Schlafmaske 3D ohne Druck auf die Augen",
+        "description": "3D-Schlafmaske mit Augenmulden und verstellbarem Band: blockiert Licht im Flugzeug, Hotel oder zu Hause — auch für Seitenschläfer."
+      },
+      "fr": {
+        "title": "Masque de sommeil 3D sans pression",
+        "description": "Masque de sommeil 3D avec cavités pour les yeux et bandeau réglable : bloque la lumière en avion, à l’hôtel ou à la maison."
+      },
+      "en": {
+        "title": "3D sleep mask with no eye pressure",
+        "description": "3D sleep mask with eye cups and adjustable strap: blocks light on planes, in hotels or at home — side-sleeper friendly."
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/adjustable-3d-eye-mask-p-B15D8D56-5637-4BE9-A14C-C11F1C141055.html",
+      "cjProductId": "B15D8D56-5637-4BE9-A14C-C11F1C141055",
+      "cjVid": "",
+      "cjSku": "CJBJPFMZ00232-Dark gray",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 700,
+      "sourcing": {
+        "checkedAt": "2026-10-02",
+        "priceUSD": "3.22",
+        "listedByStores": 294,
+        "supplierRating": "4.9",
+        "cjReviews": 39,
+        "cjComments": 0,
+        "stock": 14725,
+        "weight": "90g",
+        "amazonDe": "Schlafmaske 3D: 4,4–4,8★, bis 2.761 Bewertungen, 6–16 €"
+      },
+      "notes": ""
+    },
+    "upsells": [
+      "sleep-kit",
+      "travel-pillow",
+      "flight-stand"
+    ]
+  },
+  {
+    "id": "weekender-bag",
+    "sku": "NOM-DUFF-10",
+    "active": true,
+    "price": 3990,
+    "compare": 4990,
+    "images": [
+      "weekender-bag-1.webp",
+      "weekender-bag-2.webp",
+      "weekender-bag-3.webp"
+    ],
+    "name": "Weekender Bag",
+    "text": {
+      "de": {
+        "tagline": "Ein Wochenende, eine Tasche.",
+        "description": "Weekender-Reisetasche mit separatem Schuhfach und Nassfach aus wasserabweisendem Oxford-Gewebe — für Kurztrips, Sport und Handgepäck.",
+        "bullets": [
+          "Separates Schuhfach und Nassfach",
+          "Wasserabweisendes Oxford-Gewebe",
+          "Als Handgepäck, Sport- oder Wochenendtasche"
+        ]
+      },
+      "fr": {
+        "tagline": "Un week-end, un seul sac.",
+        "description": "Sac de voyage week-end avec compartiment chaussures et poche humide, en tissu Oxford déperlant : city trips, sport, bagage cabine.",
+        "bullets": [
+          "Compartiment chaussures et poche humide séparés",
+          "Tissu Oxford déperlant",
+          "En bagage cabine, sac de sport ou de week-end"
+        ]
+      },
+      "en": {
+        "tagline": "One weekend, one bag.",
+        "description": "Weekender travel bag with separate shoe and wet compartments in water-repellent Oxford fabric — short trips, gym and carry-on.",
+        "bullets": [
+          "Separate shoe and wet compartments",
+          "Water-repellent Oxford fabric",
+          "Carry-on, gym or weekend bag"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Reisetasche mit Schuhfach — Weekender",
+        "description": "Weekender-Reisetasche mit separatem Schuhfach und Nassfach aus wasserabweisendem Oxford-Gewebe — für Kurztrips, Sport und Handgepäck."
+      },
+      "fr": {
+        "title": "Sac de voyage week-end avec compartiment chaussures",
+        "description": "Sac de voyage week-end avec compartiment chaussures et poche humide, en tissu Oxford déperlant : city trips, sport, bagage cabine."
+      },
+      "en": {
+        "title": "Weekender bag with shoe compartment",
+        "description": "Weekender travel bag with separate shoe and wet compartments in water-repellent Oxford fabric — short trips, gym and carry-on."
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/luggage-bags-for-women-handbag-oxford-mens-fitness-gym-shoulder-bag-waterproof-sports-travel-backpack-with-shoes-compartment-p-1619525655895486464.html",
+      "cjProductId": "1619525655895486464",
+      "cjVid": "",
+      "cjSku": "CJJT167029603CX",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 1600,
+      "sourcing": {
+        "checkedAt": "2026-10-02",
+        "priceUSD": "4.19",
+        "listedByStores": 1423,
+        "supplierRating": "4.9",
+        "cjReviews": 2,
+        "cjComments": 2,
+        "stock": 10183,
+        "weight": "550g",
+        "amazonDe": "Reisetasche/Sporttasche mit Schuhfach: 4,4–4,5★, bis 3.768 Bewertungen, 19–30 €"
+      },
+      "notes": ""
+    },
+    "upsells": [
+      "packing-cubes",
+      "beauty-case",
+      "card-holder"
+    ]
+  },
+  {
+    "id": "card-holder",
+    "sku": "NOM-CARD-11",
+    "active": true,
+    "price": 1990,
+    "compare": 2490,
+    "images": [
+      "card-holder-1.webp",
+      "card-holder-2.webp",
+      "card-holder-3.webp"
+    ],
+    "name": "RFID Card Holder",
+    "text": {
+      "de": {
+        "tagline": "Karten griffbereit, Daten geschützt.",
+        "description": "Kartenetui aus Metall mit RFID-Schutz: Karten per Schieber auffächern, schlank und robust — ideal für Reisen und Alltag.",
+        "bullets": [
+          "Metallgehäuse mit RFID-Schutz",
+          "Karten per Schieber auffächern",
+          "Flach genug für jede Hosentasche"
+        ]
+      },
+      "fr": {
+        "tagline": "Cartes à portée de main, données protégées.",
+        "description": "Porte-cartes en métal avec protection RFID : cartes déployées d’un geste, fin et solide, idéal en voyage.",
+        "bullets": [
+          "Boîtier métal avec protection RFID",
+          "Cartes déployées d’un geste",
+          "Assez plat pour toutes les poches"
+        ]
+      },
+      "en": {
+        "tagline": "Cards at hand, data protected.",
+        "description": "Metal card holder with RFID protection: fan out cards with one slide, slim and sturdy — great for travel.",
+        "bullets": [
+          "Metal case with RFID protection",
+          "Fan out cards with one slide",
+          "Slim enough for any pocket"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Kartenetui RFID Metall — Smart Wallet",
+        "description": "Kartenetui aus Metall mit RFID-Schutz: Karten per Schieber auffächern, schlank und robust — ideal für Reisen und Alltag."
+      },
+      "fr": {
+        "title": "Porte-cartes RFID en métal",
+        "description": "Porte-cartes en métal avec protection RFID : cartes déployées d’un geste, fin et solide, idéal en voyage."
+      },
+      "en": {
+        "title": "Metal RFID card holder",
+        "description": "Metal card holder with RFID protection: fan out cards with one slide, slim and sturdy — great for travel."
+      }
+    },
+    "supplier": {
+      "name": "CJdropshipping",
+      "url": "https://cjdropshipping.com/product/metal-credit-card-holder-smart-wallet-p-1669613206655995904.html",
+      "cjProductId": "1669613206655995904",
+      "cjVid": "",
+      "cjSku": "CJQB177998104DW",
+      "fromCountryCode": "CN",
+      "logisticName": "CJPacket Ordinary",
+      "costCents": 600,
+      "sourcing": {
+        "checkedAt": "2026-10-02",
+        "priceUSD": "1.57",
+        "listedByStores": 703,
+        "supplierRating": "4.9",
+        "cjReviews": 0,
+        "cjComments": 2,
+        "stock": 13153,
+        "weight": "90g",
+        "amazonDe": "Kartenetui RFID Metall: 4,3–4,5★, bis 10.237 Bewertungen, 11–32 €"
+      },
+      "notes": ""
+    },
+    "upsells": [
+      "jewelry-roll",
+      "packing-cubes",
+      "sleep-kit"
+    ]
+  },
+  {
+    "id": "sleep-kit",
+    "sku": "NOM-SLEEP-12",
+    "active": true,
+    "price": 3290,
+    "compare": 3990,
+    "images": [
+      "travel-pillow-1.webp",
+      "travel-pillow-2.webp",
+      "sleep-mask-1.webp",
+      "sleep-mask-2.webp"
+    ],
+    "name": "Sleep on Board Kit",
+    "text": {
+      "de": {
+        "badge": "Schlafen im Flugzeug",
+        "tagline": "Kissen und Maske: ankommen ausgeruht.",
+        "description": "Das Kapuzen-Reisekissen und die 3D-Schlafmaske im Set — günstiger als einzeln.",
+        "bullets": [
+          "Aufblasbares H-Kissen mit Kapuze",
+          "3D-Schlafmaske ohne Druck auf die Augen",
+          "Beides passt in eine Jackentasche"
+        ]
+      },
+      "fr": {
+        "badge": "Dormir en avion",
+        "tagline": "Coussin et masque : arriver reposé.",
+        "description": "Le coussin de voyage à capuche et le masque 3D réunis — moins cher qu’à l’unité.",
+        "bullets": [
+          "Coussin gonflable en H avec capuche",
+          "Masque 3D sans pression sur les yeux",
+          "Le tout tient dans une poche de veste"
+        ]
+      },
+      "en": {
+        "badge": "Sleep on the plane",
+        "tagline": "Pillow and mask: arrive rested.",
+        "description": "The hooded travel pillow and the 3D sleep mask together — cheaper than separately.",
+        "bullets": [
+          "Inflatable hooded H-pillow",
+          "3D sleep mask with no eye pressure",
+          "Both fit in a jacket pocket"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Schlafset Flugzeug: Nackenkissen + Schlafmaske",
+        "description": "Reise-Schlafset aus aufblasbarem Nackenkissen mit Kapuze und 3D-Schlafmaske — ausgeruht ankommen nach Flug oder Zugfahrt."
+      },
+      "fr": {
+        "title": "Kit sommeil avion : coussin + masque",
+        "description": "Kit sommeil de voyage : coussin gonflable à capuche et masque 3D, pour arriver reposé après un vol ou un trajet en train."
+      },
+      "en": {
+        "title": "Plane sleep kit: neck pillow + sleep mask",
+        "description": "Travel sleep kit with an inflatable hooded neck pillow and a 3D sleep mask — arrive rested after a flight or train ride."
+      }
+    },
+    "components": [
+      {
+        "key": "travel-pillow",
+        "name": "Hooded Travel Pillow",
+        "label": {
+          "de": "Hooded Travel Pillow",
+          "fr": "Hooded Travel Pillow",
+          "en": "Hooded Travel Pillow"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/hooded-travel-pillow-h-shaped-inflatable-neck-pillow-folding-lightweight-nap-car-seat-office-airplane-sleeping-cushion-pillows-p-1400751666202021888.html",
+          "cjProductId": "1400751666202021888",
+          "cjVid": "",
+          "cjSku": "CJZT115982902BY",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 1100,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "5.13",
+            "listedByStores": 1108,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 1,
+            "stock": 31966,
+            "weight": "249g",
+            "amazonDe": "Nackenkissen Flugzeug aufblasbar: 4,2–4,6★, bis 6.597 Bewertungen, 9–30 €"
+          },
+          "notes": ""
+        }
+      },
+      {
+        "key": "sleep-mask",
+        "name": "3D Sleep Mask",
+        "label": {
+          "de": "3D Sleep Mask",
+          "fr": "3D Sleep Mask",
+          "en": "3D Sleep Mask"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/adjustable-3d-eye-mask-p-B15D8D56-5637-4BE9-A14C-C11F1C141055.html",
+          "cjProductId": "B15D8D56-5637-4BE9-A14C-C11F1C141055",
+          "cjVid": "",
+          "cjSku": "CJBJPFMZ00232-Dark gray",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 700,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "3.22",
+            "listedByStores": 294,
+            "supplierRating": "4.9",
+            "cjReviews": 39,
+            "cjComments": 0,
+            "stock": 14725,
+            "weight": "90g",
+            "amazonDe": "Schlafmaske 3D: 4,4–4,8★, bis 2.761 Bewertungen, 6–16 €"
+          },
+          "notes": ""
+        }
+      }
+    ],
+    "upsells": [
+      "flight-stand",
+      "packing-cubes",
+      "card-holder"
+    ]
   }
 ]

@@ -114,6 +114,8 @@
       setup.append(li);
     });
 
+    renderCatalog(d);
+
     var only = $('only-attention').checked;
     var rows = d.orders.filter(function (o) {
       return (!only || o.attention) && (current === 'all' || o.store === current);
@@ -171,6 +173,42 @@
       );
       tbody.append(tr);
     });
+  }
+
+  function renderCatalog(d) {
+    var tbody = $('catalog');
+    tbody.textContent = '';
+    d.stores
+      .filter(function (s) {
+        return current === 'all' || s.id === current;
+      })
+      .forEach(function (s) {
+        (s.catalog || []).forEach(function (p) {
+          p.parts.forEach(function (c, i) {
+            var tr = el('tr', p.active ? '' : 'muted');
+            var src = c.sourcing || {};
+            var first = i === 0;
+            var ref = el('td', 'small');
+            var a = el('a', '', c.sku || '—');
+            a.href = c.url;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            ref.append(el('span', '', p.parts.length > 1 ? c.qty + '× ' : ''), a);
+            if (!c.vid) ref.append(el('br'), el('span', 'attn small', 'variante (vid) à confirmer'));
+            tr.append(
+              el('td', '', first ? s.brand : ''),
+              el('td', '', first ? p.name + (p.active ? '' : ' (inactif)') : ''),
+              el('td', '', first ? euros(p.priceCents) : ''),
+              el('td', '', first ? euros(p.priceCents - p.costCents) : ''),
+              ref,
+              el('td', 'small', src.listedByStores != null ? String(src.listedByStores) : '—'),
+              el('td', 'small', src.supplierRating ? src.supplierRating + '/5' + (src.cjReviews ? ' · ' + src.cjReviews + ' avis' : '') : '—'),
+              el('td', 'small', src.amazonDe || '—'),
+            );
+            tbody.append(tr);
+          });
+        });
+      });
   }
 
   function act(action, sessionId, btn) {

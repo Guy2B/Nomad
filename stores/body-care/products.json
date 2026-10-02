@@ -111,9 +111,8 @@
       }
     },
     "upsells": [
-      "wrist-rest",
-      "hand-grip",
-      "neck-roller"
+      "massage-cone",
+      "seat-cushion"
     ]
   },
   {
@@ -228,8 +227,8 @@
       }
     },
     "upsells": [
-      "foot-roller",
-      "toe-separators",
+      "seat-cushion",
+      "massage-cone",
       "neck-roller"
     ]
   },
@@ -345,9 +344,9 @@
       }
     },
     "upsells": [
-      "foot-roller",
-      "toe-separators",
-      "wrist-rest"
+      "back-stretcher",
+      "massage-cone",
+      "seat-cushion"
     ]
   },
   {
@@ -484,9 +483,9 @@
       }
     },
     "upsells": [
-      "toe-separators",
-      "wrist-rest",
-      "neck-roller"
+      "floor-routine",
+      "foam-roller-set",
+      "back-stretcher"
     ]
   },
   {
@@ -688,7 +687,11 @@
         "description": "The complete set: foot roller, toe separators, neck roller, wrist rest, hand grip and stretch band. A gift idea for home-office people."
       }
     },
-    "upsells": []
+    "upsells": [
+      "floor-routine",
+      "back-stretcher",
+      "seat-cushion"
+    ]
   },
   {
     "id": "foot-roller",
@@ -1189,6 +1192,839 @@
       "neck-shoulder-care",
       "mobility-care",
       "full-body-care"
+    ]
+  },
+  {
+    "id": "floor-routine",
+    "sku": "BDC-FLOOR-13",
+    "active": true,
+    "price": 4990,
+    "compare": 5990,
+    "images": [
+      "yoga-mat-1.webp",
+      "yoga-block-1.webp",
+      "yoga-block-2.webp",
+      "yoga-strap-1.webp",
+      "yoga-strap-2.webp"
+    ],
+    "name": "Floor Routine",
+    "text": {
+      "de": {
+        "badge": "Dein Platz am Boden",
+        "tagline": "Matte ausrollen, zehn Minuten, fertig.",
+        "description": "NBR-Matte, Yoga-Block und Stretch-Gurt: alles für eine ruhige Routine am Boden — günstiger als einzeln.",
+        "bullets": [
+          "Dicke NBR-Matte mit Tragegurt",
+          "EVA-Block für mehr Halt",
+          "Gurt mit Schlaufen zum Dehnen"
+        ]
+      },
+      "fr": {
+        "badge": "Votre coin au sol",
+        "tagline": "Dérouler le tapis, dix minutes, terminé.",
+        "description": "Tapis NBR, brique et sangle : tout pour une routine calme au sol — moins cher qu’à l’unité.",
+        "bullets": [
+          "Tapis NBR épais avec sangle",
+          "Brique EVA pour plus de stabilité",
+          "Sangle à boucles pour s’étirer"
+        ]
+      },
+      "en": {
+        "badge": "Your spot on the floor",
+        "tagline": "Roll out the mat, ten minutes, done.",
+        "description": "NBR mat, yoga block and stretch strap: all you need for a calm floor routine — cheaper than separately.",
+        "bullets": [
+          "Thick NBR mat with carry strap",
+          "EVA block for more support",
+          "Looped strap for stretching"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Yoga Set: Matte, Block & Gurt",
+        "description": "Yoga- und Stretching-Set mit dicker NBR-Matte, EVA-Block und Gurt mit Schlaufen — für 10 Minuten Bewegung am Tag zu Hause."
+      },
+      "fr": {
+        "title": "Kit yoga : tapis, brique et sangle",
+        "description": "Kit yoga et étirements : tapis NBR épais, brique EVA et sangle à boucles, pour 10 minutes de mouvement par jour."
+      },
+      "en": {
+        "title": "Yoga set: mat, block & strap",
+        "description": "Yoga and stretching set with a thick NBR mat, EVA block and looped strap — 10 minutes of movement a day at home."
+      }
+    },
+    "components": [
+      {
+        "key": "yoga-mat",
+        "name": "NBR Comfort Mat",
+        "label": {
+          "de": "NBR Comfort Mat",
+          "fr": "NBR Comfort Mat",
+          "en": "NBR Comfort Mat"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/eco-friendly-nbr-yoga-mat-p-BAAD67F2-E961-4266-98BA-0E10DFD87F15.html",
+          "cjProductId": "BAAD67F2-E961-4266-98BA-0E10DFD87F15",
+          "cjVid": "",
+          "cjSku": "CJYDQTJM00621-Black With straps-1.5",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 1800,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "3.36",
+            "listedByStores": 1812,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 16,
+            "stock": 10010,
+            "weight": "980g",
+            "amazonDe": "Yogamatte NBR: 4,3–4,5★, bis 747 Bewertungen, 20–25 €"
+          },
+          "notes": "Heavy parcel: recheck EU shipping cost."
+        }
+      },
+      {
+        "key": "yoga-block",
+        "name": "Yoga Block",
+        "label": {
+          "de": "Yoga Block",
+          "fr": "Yoga Block",
+          "en": "Yoga Block"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/high-density-eva-foam-yoga-block-p-2411210733271608700.html",
+          "cjProductId": "2411210733271608700",
+          "cjVid": "",
+          "cjSku": "CJYD220315401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 600,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "2.72",
+            "listedByStores": 28,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 0,
+            "stock": 10890,
+            "weight": "220g",
+            "amazonDe": "Yoga Block EVA: 3,9–4,8★, wenige Bewertungen (Nischenprodukt, gut als Set-Ergänzung)"
+          },
+          "notes": ""
+        }
+      },
+      {
+        "key": "yoga-strap",
+        "name": "Stretch Strap",
+        "label": {
+          "de": "Stretch Strap",
+          "fr": "Stretch Strap",
+          "en": "Stretch Strap"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/rehabilitation-lajin-band-yoga-stretch-band-auxiliary-ligament-p-1441219130710691840.html",
+          "cjProductId": "1441219130710691840",
+          "cjVid": "",
+          "cjSku": "CJJT129735301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 500,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "1.48",
+            "listedByStores": 514,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 0,
+            "stock": "CN",
+            "weight": "160g",
+            "amazonDe": "Yoga Gurt Stretching: 4,5–4,6★, bis 883 Bewertungen, 7–15 €"
+          },
+          "notes": ""
+        }
+      }
+    ],
+    "upsells": [
+      "foam-roller-set",
+      "back-stretcher",
+      "massage-cone"
+    ]
+  },
+  {
+    "id": "back-stretcher",
+    "sku": "BDC-BACK-06",
+    "active": true,
+    "price": 2990,
+    "compare": 3490,
+    "images": [
+      "back-stretcher-1.webp",
+      "back-stretcher-2.webp",
+      "back-stretcher-3.webp",
+      "back-stretcher-4.webp"
+    ],
+    "name": "Back Stretcher",
+    "text": {
+      "de": {
+        "tagline": "Hinlegen, ausatmen, Feierabend.",
+        "description": "Gewölbter Rückenstrecker mit 3 Höhenstufen für eine entspannte Dehnpause auf dem Boden nach langen Bürotagen. Allgemeines Wellness-Accessoire.",
+        "bullets": [
+          "Gewölbte Form zum entspannten Dehnen auf dem Boden",
+          "3 Höhenstufen, du wählst die Intensität",
+          "Leicht und schnell verstaut"
+        ]
+      },
+      "fr": {
+        "tagline": "S’allonger, expirer, fin de journée.",
+        "description": "Étireur de dos en arc à 3 hauteurs pour une pause étirement au sol après les longues journées de bureau. Accessoire de bien-être général.",
+        "bullets": [
+          "Forme cintrée pour s’étirer au sol en douceur",
+          "3 hauteurs, vous choisissez l’intensité",
+          "Léger et vite rangé"
+        ]
+      },
+      "en": {
+        "tagline": "Lie down, breathe out, done for the day.",
+        "description": "Arched back stretcher with 3 heights for a relaxing floor stretch after long office days. General wellness accessory.",
+        "bullets": [
+          "Arched shape for a gentle floor stretch",
+          "3 heights, you choose the intensity",
+          "Light and quick to store"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Rückenstrecker zum Dehnen — 3 Stufen",
+        "description": "Gewölbter Rückenstrecker mit 3 Höhenstufen für eine entspannte Dehnpause auf dem Boden nach langen Bürotagen. Allgemeines Wellness-Accessoire."
+      },
+      "fr": {
+        "title": "Étireur de dos en arc — 3 niveaux",
+        "description": "Étireur de dos en arc à 3 hauteurs pour une pause étirement au sol après les longues journées de bureau. Accessoire de bien-être général."
+      },
+      "en": {
+        "title": "Back stretcher — 3 levels",
+        "description": "Arched back stretcher with 3 heights for a relaxing floor stretch after long office days. General wellness accessory."
+      }
+    },
+    "single": true,
+    "components": [
+      {
+        "key": "back-stretcher",
+        "name": "Back Stretcher",
+        "label": {
+          "de": "Back Stretcher",
+          "fr": "Back Stretcher",
+          "en": "Back Stretcher"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/back-stretcher-pillow-neck-lumbar-support-massager-for-neck-waist-back-sciatica-herniated-disc-pain-relief-massage-relaxation-p-1423469624212721664.html",
+          "cjProductId": "1423469624212721664",
+          "cjVid": "",
+          "cjSku": "CJJT124131003CX",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 1000,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "3.69",
+            "listedByStores": 8033,
+            "supplierRating": "4.9",
+            "cjReviews": 8,
+            "cjComments": 6,
+            "stock": 28703,
+            "weight": "380g",
+            "amazonDe": "Rückenstrecker: 4,1–4,4★, bis 1.284 Bewertungen, 21–60 €"
+          },
+          "notes": "Supplier copy makes medical claims (sciatica, disc): never reuse them."
+        }
+      }
+    ],
+    "upsells": [
+      "yoga-mat",
+      "floor-routine",
+      "neck-roller"
+    ]
+  },
+  {
+    "id": "yoga-mat",
+    "sku": "BDC-MAT-07",
+    "active": true,
+    "price": 3490,
+    "compare": 3990,
+    "images": [
+      "yoga-mat-1.webp"
+    ],
+    "name": "NBR Comfort Mat",
+    "text": {
+      "de": {
+        "tagline": "Weich genug für jeden Boden.",
+        "description": "Dicke NBR-Yogamatte mit Tragegurt: weich, rutschfest und leicht — für Yoga, Stretching und Mobility zu Hause.",
+        "bullets": [
+          "Dickes NBR, weich unter Knien und Rücken",
+          "Mit Tragegurt zum Mitnehmen",
+          "Rutschfeste Oberfläche"
+        ]
+      },
+      "fr": {
+        "tagline": "Assez épais pour tous les sols.",
+        "description": "Tapis de yoga épais en NBR avec sangle de transport : doux, antidérapant et léger, pour yoga, étirements et mobilité.",
+        "bullets": [
+          "NBR épais, doux sous les genoux et le dos",
+          "Avec sangle de transport",
+          "Surface antidérapante"
+        ]
+      },
+      "en": {
+        "tagline": "Soft enough for any floor.",
+        "description": "Thick NBR yoga mat with carry strap: soft, non-slip and light — for yoga, stretching and mobility at home.",
+        "bullets": [
+          "Thick NBR, soft under knees and back",
+          "With carry strap",
+          "Non-slip surface"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Yogamatte NBR dick mit Tragegurt",
+        "description": "Dicke NBR-Yogamatte mit Tragegurt: weich, rutschfest und leicht — für Yoga, Stretching und Mobility zu Hause."
+      },
+      "fr": {
+        "title": "Tapis de yoga NBR épais avec sangle",
+        "description": "Tapis de yoga épais en NBR avec sangle de transport : doux, antidérapant et léger, pour yoga, étirements et mobilité."
+      },
+      "en": {
+        "title": "Thick NBR yoga mat with carry strap",
+        "description": "Thick NBR yoga mat with carry strap: soft, non-slip and light — for yoga, stretching and mobility at home."
+      }
+    },
+    "single": true,
+    "components": [
+      {
+        "key": "yoga-mat",
+        "name": "NBR Comfort Mat",
+        "label": {
+          "de": "NBR Comfort Mat",
+          "fr": "NBR Comfort Mat",
+          "en": "NBR Comfort Mat"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/eco-friendly-nbr-yoga-mat-p-BAAD67F2-E961-4266-98BA-0E10DFD87F15.html",
+          "cjProductId": "BAAD67F2-E961-4266-98BA-0E10DFD87F15",
+          "cjVid": "",
+          "cjSku": "CJYDQTJM00621-Black With straps-1.5",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 1800,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "3.36",
+            "listedByStores": 1812,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 16,
+            "stock": 10010,
+            "weight": "980g",
+            "amazonDe": "Yogamatte NBR: 4,3–4,5★, bis 747 Bewertungen, 20–25 €"
+          },
+          "notes": "Heavy parcel: recheck EU shipping cost."
+        }
+      }
+    ],
+    "upsells": [
+      "floor-routine",
+      "foam-roller-set",
+      "back-stretcher"
+    ]
+  },
+  {
+    "id": "yoga-strap",
+    "sku": "BDC-STRAP-08",
+    "active": true,
+    "price": 1290,
+    "compare": 1490,
+    "images": [
+      "yoga-strap-1.webp",
+      "yoga-strap-2.webp",
+      "yoga-strap-3.webp"
+    ],
+    "name": "Stretch Strap",
+    "text": {
+      "de": {
+        "tagline": "Weiter dehnen, ohne zu ziehen.",
+        "description": "Yoga-Gurt mit mehreren Schlaufen: Beine, Schultern und Rücken entspannt dehnen — leicht und überall dabei.",
+        "bullets": [
+          "Gurt mit Schlaufen für jede Länge",
+          "Für Beine, Schultern und Rücken",
+          "Leicht, passt in jede Tasche"
+        ]
+      },
+      "fr": {
+        "tagline": "S’étirer plus loin, sans forcer.",
+        "description": "Sangle de yoga à plusieurs boucles : étirez jambes, épaules et dos en douceur, légère et toujours avec vous.",
+        "bullets": [
+          "Sangle à boucles pour toutes les longueurs",
+          "Pour les jambes, les épaules et le dos",
+          "Légère, tient dans tous les sacs"
+        ]
+      },
+      "en": {
+        "tagline": "Stretch further, without forcing.",
+        "description": "Yoga strap with several loops: stretch legs, shoulders and back gently — light and always with you.",
+        "bullets": [
+          "Strap with loops for any length",
+          "For legs, shoulders and back",
+          "Light, fits in any bag"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Yoga Gurt mit Schlaufen — Stretching Band",
+        "description": "Yoga-Gurt mit mehreren Schlaufen: Beine, Schultern und Rücken entspannt dehnen — leicht und überall dabei."
+      },
+      "fr": {
+        "title": "Sangle de yoga à boucles",
+        "description": "Sangle de yoga à plusieurs boucles : étirez jambes, épaules et dos en douceur, légère et toujours avec vous."
+      },
+      "en": {
+        "title": "Yoga strap with loops",
+        "description": "Yoga strap with several loops: stretch legs, shoulders and back gently — light and always with you."
+      }
+    },
+    "single": true,
+    "components": [
+      {
+        "key": "yoga-strap",
+        "name": "Stretch Strap",
+        "label": {
+          "de": "Stretch Strap",
+          "fr": "Stretch Strap",
+          "en": "Stretch Strap"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/rehabilitation-lajin-band-yoga-stretch-band-auxiliary-ligament-p-1441219130710691840.html",
+          "cjProductId": "1441219130710691840",
+          "cjVid": "",
+          "cjSku": "CJJT129735301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 500,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "1.48",
+            "listedByStores": 514,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 0,
+            "stock": "CN",
+            "weight": "160g",
+            "amazonDe": "Yoga Gurt Stretching: 4,5–4,6★, bis 883 Bewertungen, 7–15 €"
+          },
+          "notes": ""
+        }
+      }
+    ],
+    "upsells": [
+      "floor-routine",
+      "yoga-block",
+      "stretch-band"
+    ]
+  },
+  {
+    "id": "seat-cushion",
+    "sku": "BDC-SEAT-09",
+    "active": true,
+    "price": 3990,
+    "compare": 4490,
+    "images": [
+      "seat-cushion-1.webp",
+      "seat-cushion-2.webp",
+      "seat-cushion-3.webp"
+    ],
+    "name": "Memory Foam Seat Cushion",
+    "text": {
+      "de": {
+        "tagline": "Bequemer sitzen, den ganzen Arbeitstag.",
+        "description": "Sitzkissen aus Memory-Schaum für Bürostuhl, Auto oder Sofa: bequemer sitzen im Homeoffice, Bezug abnehmbar.",
+        "bullets": [
+          "Memory-Schaum passt sich an",
+          "Für Bürostuhl, Auto oder Sofa",
+          "Bezug abnehmbar"
+        ]
+      },
+      "fr": {
+        "tagline": "Mieux assis, toute la journée de travail.",
+        "description": "Coussin d’assise en mousse à mémoire de forme pour chaise de bureau, voiture ou canapé : plus de confort en télétravail.",
+        "bullets": [
+          "Mousse à mémoire de forme qui s’adapte",
+          "Pour chaise de bureau, voiture ou canapé",
+          "Housse amovible"
+        ]
+      },
+      "en": {
+        "tagline": "Sit comfier, all workday long.",
+        "description": "Memory foam seat cushion for office chair, car or sofa: more comfortable sitting at the home office, removable cover.",
+        "bullets": [
+          "Memory foam adapts to you",
+          "For office chair, car or sofa",
+          "Removable cover"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Sitzkissen Memory Foam für den Bürostuhl",
+        "description": "Sitzkissen aus Memory-Schaum für Bürostuhl, Auto oder Sofa: bequemer sitzen im Homeoffice, Bezug abnehmbar."
+      },
+      "fr": {
+        "title": "Coussin d’assise mémoire de forme bureau",
+        "description": "Coussin d’assise en mousse à mémoire de forme pour chaise de bureau, voiture ou canapé : plus de confort en télétravail."
+      },
+      "en": {
+        "title": "Memory foam seat cushion for office chairs",
+        "description": "Memory foam seat cushion for office chair, car or sofa: more comfortable sitting at the home office, removable cover."
+      }
+    },
+    "single": true,
+    "components": [
+      {
+        "key": "seat-cushion",
+        "name": "Memory Foam Seat Cushion",
+        "label": {
+          "de": "Memory Foam Seat Cushion",
+          "fr": "Memory Foam Seat Cushion",
+          "en": "Memory Foam Seat Cushion"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/seat-cushion-pillow-for-office-memory-foam-p-A836EF9B-9D73-43BE-9F69-013F42AAA01E.html",
+          "cjProductId": "A836EF9B-9D73-43BE-9F69-013F42AAA01E",
+          "cjVid": "",
+          "cjSku": "CJYDQTJM00326-Blue-Grid-Woman",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 1500,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "4.64",
+            "listedByStores": 880,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 0,
+            "stock": "CN",
+            "weight": "597g",
+            "amazonDe": "Sitzkissen Memory Foam Bürostuhl: Angebot auf Amazon.de verstreut, wenige Bewertungen pro Modell (Nachfrage über „Steißbeinkissen“ prüfen)"
+          },
+          "notes": ""
+        }
+      }
+    ],
+    "upsells": [
+      "wrist-rest",
+      "back-stretcher",
+      "hand-wrist-care"
+    ]
+  },
+  {
+    "id": "massage-cone",
+    "sku": "BDC-CONE-10",
+    "active": true,
+    "price": 1490,
+    "compare": 1790,
+    "images": [
+      "massage-cone-1.webp"
+    ],
+    "name": "Silicone Massage Cone",
+    "text": {
+      "de": {
+        "tagline": "Gezielter Druck, wo du ihn willst.",
+        "description": "Massage-Kegel aus festem Silikon für Schultern, Rücken und Füße: gezielte Selbstmassage an der Wand oder auf dem Boden, ohne Akku.",
+        "bullets": [
+          "Fester Silikon-Kegel für Schultern, Rücken und Füße",
+          "An der Wand, auf dem Boden oder im Sitzen",
+          "Klein, leise, ohne Akku"
+        ]
+      },
+      "fr": {
+        "tagline": "Une pression ciblée, là où vous la voulez.",
+        "description": "Cône de massage en silicone ferme pour épaules, dos et pieds : auto-massage ciblé contre un mur ou au sol, sans batterie.",
+        "bullets": [
+          "Cône en silicone ferme pour épaules, dos et pieds",
+          "Contre un mur, au sol ou assis",
+          "Petit, silencieux, sans batterie"
+        ]
+      },
+      "en": {
+        "tagline": "Targeted pressure, right where you want it.",
+        "description": "Firm silicone massage cone for shoulders, back and feet: targeted self-massage against a wall or on the floor, no battery.",
+        "bullets": [
+          "Firm silicone cone for shoulders, back and feet",
+          "Against a wall, on the floor or seated",
+          "Small, quiet, no battery"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Massage Kegel Silikon — Triggerpunkt Massagehilfe",
+        "description": "Massage-Kegel aus festem Silikon für Schultern, Rücken und Füße: gezielte Selbstmassage an der Wand oder auf dem Boden, ohne Akku."
+      },
+      "fr": {
+        "title": "Cône de massage en silicone",
+        "description": "Cône de massage en silicone ferme pour épaules, dos et pieds : auto-massage ciblé contre un mur ou au sol, sans batterie."
+      },
+      "en": {
+        "title": "Silicone massage cone",
+        "description": "Firm silicone massage cone for shoulders, back and feet: targeted self-massage against a wall or on the floor, no battery."
+      }
+    },
+    "single": true,
+    "components": [
+      {
+        "key": "massage-cone",
+        "name": "Silicone Massage Cone",
+        "label": {
+          "de": "Silicone Massage Cone",
+          "fr": "Silicone Massage Cone",
+          "en": "Silicone Massage Cone"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/silicon-massage-cone-fitness-massage-ball-trigger-point-self-massage-therapy-tool-p-1823645526647525376.html",
+          "cjProductId": "1823645526647525376",
+          "cjVid": "",
+          "cjSku": "CJAM211047101AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 1100,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "8.26",
+            "listedByStores": 46,
+            "supplierRating": "5.0",
+            "cjReviews": 0,
+            "cjComments": 0,
+            "stock": 927,
+            "weight": "100g",
+            "amazonDe": "Triggerpunkt/Massage-Kegel: 4,1–4,7★, bis 336 Bewertungen, 7–17 €"
+          },
+          "notes": "Low CJ listing count and stock: watch availability."
+        }
+      }
+    ],
+    "upsells": [
+      "foam-roller-set",
+      "neck-roller",
+      "foot-roller"
+    ]
+  },
+  {
+    "id": "foam-roller-set",
+    "sku": "BDC-ROLL-11",
+    "active": true,
+    "price": 3490,
+    "compare": 3990,
+    "images": [
+      "foam-roller-set-1.webp",
+      "foam-roller-set-2.webp",
+      "foam-roller-set-3.webp"
+    ],
+    "name": "Foam Roller Set 3-in-1",
+    "text": {
+      "de": {
+        "tagline": "Rollen statt sitzen.",
+        "description": "Faszienrollen-Set mit 3 Teilen für Rücken, Beine und Füße: fester Schaum, leicht zu reinigen — für Aufwärmen und Feierabend.",
+        "bullets": [
+          "3-teiliges Set für Rücken, Beine und Füße",
+          "Fester Schaum, leicht zu reinigen",
+          "Für Aufwärmen und Feierabend"
+        ]
+      },
+      "fr": {
+        "tagline": "Rouler plutôt que rester assis.",
+        "description": "Kit de 3 rouleaux de massage en mousse pour le dos, les jambes et les pieds : ferme, facile à nettoyer.",
+        "bullets": [
+          "Set de 3 pour le dos, les jambes et les pieds",
+          "Mousse ferme, facile à nettoyer",
+          "Pour l’échauffement et la fin de journée"
+        ]
+      },
+      "en": {
+        "tagline": "Roll instead of sit.",
+        "description": "3-piece foam roller set for back, legs and feet: firm, easy-clean foam — for warm-ups and after work.",
+        "bullets": [
+          "3-piece set for back, legs and feet",
+          "Firm foam, easy to clean",
+          "For warm-ups and after work"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Faszienrolle Set 3 in 1",
+        "description": "Faszienrollen-Set mit 3 Teilen für Rücken, Beine und Füße: fester Schaum, leicht zu reinigen — für Aufwärmen und Feierabend."
+      },
+      "fr": {
+        "title": "Kit rouleau de massage 3 en 1",
+        "description": "Kit de 3 rouleaux de massage en mousse pour le dos, les jambes et les pieds : ferme, facile à nettoyer."
+      },
+      "en": {
+        "title": "Foam roller set 3-in-1",
+        "description": "3-piece foam roller set for back, legs and feet: firm, easy-clean foam — for warm-ups and after work."
+      }
+    },
+    "single": true,
+    "components": [
+      {
+        "key": "foam-roller-set",
+        "name": "Foam Roller Set 3-in-1",
+        "label": {
+          "de": "Foam Roller Set 3-in-1",
+          "fr": "Foam Roller Set 3-in-1",
+          "en": "Foam Roller Set 3-in-1"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/3-in-1-pe-yoga-pillar-set-foam-shaft-p-560DC174-CD02-42DE-A926-C64AD583497A.html",
+          "cjProductId": "560DC174-CD02-42DE-A926-C64AD583497A",
+          "cjVid": "",
+          "cjSku": "CJJJJTJT11763-45x16cm",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 2200,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "9.37",
+            "listedByStores": 122,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 0,
+            "stock": 12850,
+            "weight": "1539g",
+            "amazonDe": "Faszienrolle Set 3 in 1: 4,0–4,8★, bis 380 Bewertungen, 17–30 €"
+          },
+          "notes": "Heavy (1.5 kg): EU shipping may eat the margin; check before listing."
+        }
+      }
+    ],
+    "upsells": [
+      "floor-routine",
+      "massage-cone",
+      "yoga-mat"
+    ]
+  },
+  {
+    "id": "yoga-block",
+    "sku": "BDC-BLOCK-12",
+    "active": true,
+    "price": 1290,
+    "compare": 1490,
+    "images": [
+      "yoga-block-1.webp",
+      "yoga-block-2.webp",
+      "yoga-block-3.webp"
+    ],
+    "name": "Yoga Block",
+    "text": {
+      "de": {
+        "tagline": "Ein Block mehr Halt.",
+        "description": "Yoga-Block aus EVA-Schaum mit hoher Dichte: leicht, rutschfest und griffig — für Yoga, Stretching und Mobility.",
+        "bullets": [
+          "EVA-Schaum mit hoher Dichte",
+          "Leicht, rutschfest, griffig",
+          "Für Yoga, Stretching und Mobility"
+        ]
+      },
+      "fr": {
+        "tagline": "Un bloc de stabilité en plus.",
+        "description": "Brique de yoga en mousse EVA haute densité : légère, antidérapante, pour yoga, étirements et mobilité.",
+        "bullets": [
+          "Mousse EVA haute densité",
+          "Léger, antidérapant, bonne prise",
+          "Pour yoga, étirements et mobilité"
+        ]
+      },
+      "en": {
+        "tagline": "One block more support.",
+        "description": "High-density EVA foam yoga block: light, non-slip and grippy — for yoga, stretching and mobility.",
+        "bullets": [
+          "High-density EVA foam",
+          "Light, non-slip, good grip",
+          "For yoga, stretching and mobility"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Yoga Block EVA rutschfest",
+        "description": "Yoga-Block aus EVA-Schaum mit hoher Dichte: leicht, rutschfest und griffig — für Yoga, Stretching und Mobility."
+      },
+      "fr": {
+        "title": "Brique de yoga EVA antidérapante",
+        "description": "Brique de yoga en mousse EVA haute densité : légère, antidérapante, pour yoga, étirements et mobilité."
+      },
+      "en": {
+        "title": "Non-slip EVA yoga block",
+        "description": "High-density EVA foam yoga block: light, non-slip and grippy — for yoga, stretching and mobility."
+      }
+    },
+    "single": true,
+    "components": [
+      {
+        "key": "yoga-block",
+        "name": "Yoga Block",
+        "label": {
+          "de": "Yoga Block",
+          "fr": "Yoga Block",
+          "en": "Yoga Block"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/high-density-eva-foam-yoga-block-p-2411210733271608700.html",
+          "cjProductId": "2411210733271608700",
+          "cjVid": "",
+          "cjSku": "CJYD220315401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Ordinary",
+          "costCents": 600,
+          "sourcing": {
+            "checkedAt": "2026-10-02",
+            "priceUSD": "2.72",
+            "listedByStores": 28,
+            "supplierRating": "4.9",
+            "cjReviews": 0,
+            "cjComments": 0,
+            "stock": 10890,
+            "weight": "220g",
+            "amazonDe": "Yoga Block EVA: 3,9–4,8★, wenige Bewertungen (Nischenprodukt, gut als Set-Ergänzung)"
+          },
+          "notes": ""
+        }
+      }
+    ],
+    "upsells": [
+      "floor-routine",
+      "yoga-strap",
+      "yoga-mat"
     ]
   }
 ]
