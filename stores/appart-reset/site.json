@@ -164,12 +164,12 @@
     "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
   },
   "company": {
-    "name": "[Name / Firma — à compléter]",
-    "owner": "[Inhaber — à compléter]",
-    "street": "[Straße Nr. — à compléter]",
-    "city": "[PLZ Ort — à compléter]",
+    "name": "ALGBr",
+    "owner": "Guy Beaho",
+    "street": "Carlo-Mierendorff-Str. 15",
+    "city": "68623 Lampertheim",
     "country": "Deutschland",
-    "email": "[support@… — à compléter]",
+    "email": "contact@algbr.de",
     "phone": "",
     "taxNote": "Kleinunternehmer gemäß § 19 UStG"
   },
