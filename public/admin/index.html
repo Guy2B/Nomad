@@ -28,6 +28,14 @@
         <nav class="store-tabs" id="store-tabs" aria-label="Boutique"></nav>
         <div class="kpis" id="kpis"></div>
         <section class="panel">
+          <div class="panel-head">
+            <h2>Conversion · 30 derniers jours</h2>
+            <span class="muted small">Compteurs anonymes, sans cookie · commandes issues de Stripe</span>
+          </div>
+          <div class="funnel" id="funnel"></div>
+          <div class="table-wrap"><table><thead><tr><th>Produit</th><th>Vues</th><th>Ajouts panier</th><th>Taux d’ajout</th><th>Vendus</th></tr></thead><tbody id="funnel-products"></tbody></table></div>
+        </section>
+        <section class="panel">
           <h2>Configuration</h2>
           <ul class="setup" id="setup"></ul>
         </section>
@@ -55,6 +63,13 @@
             </table>
           </div>
           <p class="muted small" id="empty" hidden>Aucune commande pour l’instant.</p>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Avis à modérer</h2>
+            <span class="muted small">Avis vérifiés (commande + e-mail) · publiés seulement après validation</span>
+          </div>
+          <div id="reviews"></div>
         </section>
         <section class="panel">
           <div class="panel-head">

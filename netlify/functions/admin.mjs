@@ -9,6 +9,8 @@ import { crm, getOrder, listOrders } from '../lib/store.mjs';
 import { fulfill } from '../lib/orders.mjs';
 import { HOST_STORE, allStores, product, supplierLines, unitCost } from '../lib/catalog.mjs';
 import { cjConfigured } from '../lib/cj.mjs';
+import { funnel } from '../lib/metrics.mjs';
+import { moderate, pendingReviews } from '../lib/reviews.mjs';
 
 const json = (status, body) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } });
@@ -72,6 +74,7 @@ export default async (req) => {
         })),
       };
     });
+    for (const s of stores) s.funnel = await funnel(store, s.id, orders, 30);
     return json(200, {
       setup: {
         stripe: Boolean(process.env.STRIPE_SECRET_KEY && process.env.STRIPE_WEBHOOK_SECRET),
@@ -83,11 +86,16 @@ export default async (req) => {
       },
       stores,
       stats: stats(orders),
+      pendingReviews: await pendingReviews(store),
       orders: orders.map((o) => ({ ...o, store: storeOf(o) })),
     });
   }
   if (req.method === 'POST') {
-    const { action, sessionId } = await req.json().catch(() => ({}));
+    const { action, sessionId, reviewId } = await req.json().catch(() => ({}));
+    if (action === 'approveReview' || action === 'rejectReview') {
+      const r = await moderate(store, String(reviewId || ''), action === 'approveReview');
+      return r ? json(200, { ok: true }) : json(404, { error: 'not-found' });
+    }
     const order = sessionId ? await getOrder(store, sessionId) : null;
     if (!order) return json(404, { error: 'not-found' });
     if (action === 'retry') return json(200, await fulfill(store, { ...order, attention: null }));

@@ -12,7 +12,7 @@ const publicView = (o) => ({
   number: o.number,
   status: o.status === 'needs_attention' ? 'processing' : o.status,
   createdAt: o.createdAt,
-  items: o.items.map((i) => ({ name: i.name, qty: i.qty })),
+  items: o.items.map((i) => ({ id: i.id, name: i.name, qty: i.qty })),
   trackNumber: o.supplier.trackNumber,
   carrier: o.supplier.logisticName,
 });

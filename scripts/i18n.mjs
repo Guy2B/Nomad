@@ -2,6 +2,7 @@
 export const STR = {
   de: {
     lang: 'Deutsch',
+    reviews: {"title": "Kundenbewertungen", "none": "Noch keine Bewertungen. Sie haben dieses Produkt gekauft? Teilen Sie Ihre Erfahrung.", "write": "Bewertung schreiben", "basedOn": "aus {n} Bewertungen", "verified": "Verifizierter Kauf", "note": "Bewertungen können nur Kunden mit einer Bestellung abgeben: Wir prüfen Bestellnummer und E-Mail. Jede Bewertung wird vor der Veröffentlichung gelesen; positive und negative Bewertungen werden gleich behandelt.", "formTitle": "Bewertung schreiben", "formLead": "Nur für Kunden mit Bestellung. Ihre E-Mail und Bestellnummer werden nicht veröffentlicht.", "order": "Bestellnummer", "email": "E-Mail der Bestellung", "product": "Produkt", "rating": "Ihre Bewertung", "rTitle": "Titel (optional)", "text": "Ihre Erfahrung", "name": "Angezeigter Name (Vorname, Initial des Nachnamens)", "consent": "Ich bin einverstanden, dass meine Bewertung mit Vorname und Initial auf dieser Website veröffentlicht wird.", "submit": "Bewertung senden", "thanks": "Danke! Ihre Bewertung wird geprüft und erscheint bald auf der Produktseite.", "errors": {"bad-order": "Bitte Bestellnummer und E-Mail prüfen.", "order-not-found": "Keine Bestellung mit diesen Angaben gefunden.", "not-in-order": "Dieses Produkt ist nicht in dieser Bestellung.", "already-reviewed": "Für dieses Produkt dieser Bestellung gibt es bereits eine Bewertung.", "too-short": "Bitte schreiben Sie mindestens ein paar Worte.", "bad-rating": "Bitte wählen Sie 1 bis 5 Sterne.", "consent": "Bitte stimmen Sie der Veröffentlichung zu.", "default": "Senden gerade nicht möglich. Bitte später erneut versuchen."}, "rate": "Bewerten"},
     nav: { guide: 'Ratgeber', shop: 'Produkte', how: 'So funktioniert’s', faq: 'Fragen', track: 'Bestellung verfolgen', cart: 'Warenkorb' },
     promo: 'Kostenloser Versand mit Sendungsverfolgung · Sichere Zahlung · 14 Tage Widerruf',
     hero: {
@@ -53,6 +54,9 @@ export const STR = {
       total: 'Gesamt',
       checkout: 'Sicher zur Kasse',
       upsell: 'Passt dazu',
+      added: 'Im Warenkorb',
+      viewCart: 'Warenkorb ansehen',
+      close: 'Schließen',
       addShort: 'Hinzufügen',
       note: 'Sie werden zu Stripe weitergeleitet. Lieferadresse und Zahlung geben Sie dort ein; die Rechnung erhalten Sie per E-Mail.',
       error: 'Die Kasse ist gerade nicht erreichbar. Bitte versuchen Sie es in einem Moment erneut.',
@@ -83,6 +87,7 @@ export const STR = {
   },
   fr: {
     lang: 'Français',
+    reviews: {"title": "Avis clients", "none": "Pas encore d’avis. Vous avez acheté ce produit ? Partagez votre expérience.", "write": "Écrire un avis", "basedOn": "sur {n} avis", "verified": "Achat vérifié", "note": "Seuls les clients ayant passé commande peuvent laisser un avis : nous vérifions le numéro de commande et l’e-mail. Chaque avis est lu avant publication ; les avis positifs et négatifs sont traités de la même façon.", "formTitle": "Écrire un avis", "formLead": "Réservé aux clients ayant commandé. Votre e-mail et votre numéro de commande ne sont pas publiés.", "order": "Numéro de commande", "email": "E-mail de la commande", "product": "Produit", "rating": "Votre note", "rTitle": "Titre (facultatif)", "text": "Votre expérience", "name": "Nom affiché (prénom, initiale du nom)", "consent": "J’accepte que mon avis soit publié sur ce site avec mon prénom et l’initiale de mon nom.", "submit": "Envoyer mon avis", "thanks": "Merci ! Votre avis va être relu et apparaîtra bientôt sur la fiche produit.", "errors": {"bad-order": "Vérifiez le numéro de commande et l’e-mail.", "order-not-found": "Aucune commande trouvée avec ces informations.", "not-in-order": "Ce produit ne fait pas partie de cette commande.", "already-reviewed": "Un avis existe déjà pour ce produit de cette commande.", "too-short": "Écrivez au moins quelques mots.", "bad-rating": "Choisissez de 1 à 5 étoiles.", "consent": "Merci d’accepter la publication.", "default": "Envoi impossible pour le moment. Réessayez plus tard."}, "rate": "Évaluer"},
     nav: { guide: 'Conseils', shop: 'Produits', how: 'Comment ça marche', faq: 'Questions', track: 'Suivre ma commande', cart: 'Panier' },
     promo: 'Livraison suivie offerte · Paiement sécurisé · 14 jours de rétractation',
     hero: {
@@ -134,6 +139,9 @@ export const STR = {
       total: 'Total',
       checkout: 'Paiement sécurisé',
       upsell: 'Pour compléter',
+      added: 'Dans votre panier',
+      viewCart: 'Voir le panier',
+      close: 'Fermer',
       addShort: 'Ajouter',
       note: 'Vous allez être redirigé vers Stripe pour l’adresse de livraison et le paiement ; la facture vous est envoyée par e-mail.',
       error: 'Le paiement est momentanément indisponible. Merci de réessayer dans un instant.',
@@ -164,6 +172,7 @@ export const STR = {
   },
   en: {
     lang: 'English',
+    reviews: {"title": "Customer reviews", "none": "No reviews yet. Bought this product? Share your experience.", "write": "Write a review", "basedOn": "from {n} reviews", "verified": "Verified purchase", "note": "Only customers with an order can leave a review: we check the order number and e-mail. Every review is read before publication; positive and negative reviews are treated the same way.", "formTitle": "Write a review", "formLead": "For customers with an order only. Your e-mail and order number are never published.", "order": "Order number", "email": "Order e-mail", "product": "Product", "rating": "Your rating", "rTitle": "Title (optional)", "text": "Your experience", "name": "Display name (first name, last-name initial)", "consent": "I agree that my review is published on this website with my first name and last-name initial.", "submit": "Send my review", "thanks": "Thank you! Your review will be checked and will appear on the product page soon.", "errors": {"bad-order": "Please check the order number and e-mail.", "order-not-found": "No order found with these details.", "not-in-order": "This product is not part of that order.", "already-reviewed": "There is already a review for this product of that order.", "too-short": "Please write at least a few words.", "bad-rating": "Please choose 1 to 5 stars.", "consent": "Please agree to the publication.", "default": "Sending is not possible right now. Please try again later."}, "rate": "Review"},
     nav: { guide: 'Guide', shop: 'Products', how: 'How it works', faq: 'Questions', track: 'Track my order', cart: 'Cart' },
     promo: 'Free tracked shipping · Secure payment · 14-day withdrawal',
     hero: {
@@ -215,6 +224,9 @@ export const STR = {
       total: 'Total',
       checkout: 'Secure checkout',
       upsell: 'Goes well with',
+      added: 'In your cart',
+      viewCart: 'View cart',
+      close: 'Close',
       addShort: 'Add',
       note: 'You will be taken to Stripe for the delivery address and payment; your invoice is sent by e-mail.',
       error: 'Checkout is unavailable right now. Please try again in a moment.',

@@ -160,3 +160,12 @@ tr.attention {
   color: var(--ink);
   white-space: nowrap;
 }
+
+.funnel { display: grid; gap: 8px; margin: 8px 0 18px; }
+.funnel-row { display: grid; grid-template-columns: 170px 1fr 70px 90px; gap: 12px; align-items: center; }
+.funnel-bar { height: 14px; border-radius: 7px; background: var(--ink); min-width: 4px; }
+.funnel-label { font-size: 0.9rem; }
+@media (max-width: 700px) { .funnel-row { grid-template-columns: 120px 1fr 50px; } .funnel-row > :last-child { display: none; } }
+
+.review-mod { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
+.review-mod p { margin: 0 0 6px; }

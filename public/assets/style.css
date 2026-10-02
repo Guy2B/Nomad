@@ -1051,3 +1051,44 @@ details p {
 .usage.has-img:hover img { transform: scale(1.04); }
 .usage.has-img > :not(img) { margin-left: 28px; margin-right: 28px; }
 @media (max-width: 760px) { .next-pill { display: none; } }
+
+/* Slide-in cart drawer */
+.no-scroll { overflow: hidden; }
+.drawer { position: fixed; inset: 0; z-index: 90; pointer-events: none; }
+.drawer-overlay { position: absolute; inset: 0; background: rgb(22 24 29 / 40%); opacity: 0; transition: opacity 0.2s ease; }
+.drawer-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(420px, 92vw); background: var(--paper); display: flex; flex-direction: column; transform: translateX(102%); transition: transform 0.25s ease; box-shadow: -30px 0 80px rgb(22 24 29 / 18%); }
+.drawer.open { pointer-events: auto; }
+.drawer.open .drawer-overlay { opacity: 1; }
+.drawer.open .drawer-panel { transform: none; }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 20px 22px; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+.drawer-x { border: 0; background: none; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--ink); }
+.drawer-lines { flex: 1; overflow: auto; padding: 8px 22px; }
+.drawer-line { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.drawer-line img { border-radius: 12px; background: #fff; object-fit: cover; }
+.drawer-line b { display: block; font-weight: 600; }
+.drawer-foot { padding: 18px 22px 22px; border-top: 1px solid var(--line); display: grid; gap: 10px; }
+.drawer-sum { display: flex; justify-content: space-between; margin: 0; font-size: 1.1rem; }
+.drawer-ship { margin: 0; }
+.drawer-view { text-align: center; font-weight: 600; color: var(--ink); }
+
+.drawer-sugg-title { margin: 18px 0 4px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.drawer-sugg { border-bottom: 0; }
+
+/* Reviews */
+.reviews-summary { margin-bottom: 20px; }
+.stars-big { font-size: 1.6rem; letter-spacing: 0.1em; color: var(--accent); margin: 0; }
+.review { padding: 20px 0; border-top: 1px solid var(--line); }
+.review h3 { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; margin: 4px 0 6px; }
+.review p { margin: 0 0 6px; }
+.review-stars { color: var(--accent); letter-spacing: 0.08em; }
+.review-form { display: grid; gap: 16px; margin: 24px 0; }
+.review-form label { display: grid; gap: 6px; font-weight: 600; font-size: 0.92rem; }
+.review-form input, .review-form select, .review-form textarea { font: inherit; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); font-weight: 400; }
+.check-row { grid-template-columns: auto 1fr !important; align-items: start; font-weight: 400 !important; }
+.stars { border: 0; padding: 0; margin: 0; display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 4px; }
+.stars legend { font-weight: 600; font-size: 0.92rem; margin-bottom: 6px; float: left; width: 100%; }
+.stars input { position: absolute; opacity: 0; }
+.stars label { font-size: 2rem; color: var(--line); cursor: pointer; font-weight: 400; }
+.stars input:checked ~ label, .stars label:hover, .stars label:hover ~ label { color: var(--accent); }
+.stars input:focus-visible + label { outline: 2px solid var(--accent); border-radius: 4px; }
+.review-link { margin-left: 8px; font-size: 0.85rem; }

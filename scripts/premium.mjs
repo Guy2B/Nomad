@@ -5,7 +5,7 @@
  * products.json → rich.<lang>), so every brand shares one design system.
  */
 export function createTemplates(ctx) {
-  const { SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, BASE, pub, esc, money, fill, ldJson, write, up } = ctx;
+  const { SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, shopDataTag, BASE, pub, esc, money, fill, ldJson, write, up } = ctx;
   const byId = new Map(ACTIVE.map((p) => [p.id, p]));
   const U = (lang) => SITE.ui[lang];
   const lines = (arr) => (Array.isArray(arr) ? arr.map(esc).join('<br>') : esc(arr));
@@ -90,6 +90,7 @@ ${jsonLd.map(ldJson).join('\n')}
 <main id="main">
 ${body}
 </main>
+${body.includes('id="shop-data"') ? '' : shopDataTag(lang)}
 ${nextBanner(lang, r)}
 <footer class="foot">
   <div class="wrap foot-grid">
@@ -292,6 +293,12 @@ ${
     ? `<section class="section"><div class="wrap"><header class="head-x head-row"><h2>${esc(up_.crossTitle)}</h2>${cross.length > 1 ? `<button class="btn btn-line" type="button" data-add-all="${cross.map((c) => c.id).join(',')}">${esc(up_.addAll)}</button>` : ''}</header><div class="grid">${cross.map((q) => card(q, lang, '../', '../../')).join('')}</div></div></section>`
     : ''
 }
+<section class="section" id="reviews" data-reviews="${p.id}"><div class="wrap narrow">
+  <header class="head-x head-row"><h2>${esc(t.reviews.title)}</h2><a class="btn btn-line" href="../bewertung.html?p=${p.id}">${esc(t.reviews.write)}</a></header>
+  <div class="reviews-summary" data-reviews-summary><p class="muted">${esc(t.reviews.none)}</p></div>
+  <div class="reviews-list" data-reviews-list></div>
+  <p class="muted small">${esc(t.reviews.note)}</p>
+</div></section>
 <section class="section soft"><div class="wrap narrow"><header class="head-x"><h2>${esc(up_.faqTitle)}</h2></header>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(fill(a))}</p></details>`).join('')}</div></section>
 <section class="final-cta small-cta"><div class="wrap center">
   <h2>${esc(rich.final || up_.finalTitle)}</h2>

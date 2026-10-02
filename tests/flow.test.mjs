@@ -81,6 +81,8 @@ test('Stripe Checkout: server prices, shipping countries and an automatic §19 i
   assert.equal(form.get('line_items[0][price_data][unit_amount]'), '4490');
   assert.equal(form.get('invoice_creation[enabled]'), 'true');
   assert.equal(form.get('metadata[store]'), 'nomad');
+  assert.equal(form.get('allow_promotion_codes'), 'true');
+  assert.match(form.get('custom_text[submit][message]'), /14 jours de rétractation/);
   assert.equal(form.get('invoice_creation[invoice_data][description]'), 'GO');
 });
 
@@ -256,4 +258,50 @@ test('third store EASE: own prefix, 6-part bundle mapped, API open to its site',
 
 test('secondary .de domains are allowed origins too', () => {
   for (const o of ['https://go.algbr.de', 'https://space.algbr.de', 'https://ease.algbr.de']) assert.ok(allowedOrigins({}).has(o), o);
+});
+
+test('anonymous funnel: only our storefronts count, events add up, rates computed', async () => {
+  const { parseEvent, recordEvent, funnel } = await import('../netlify/lib/metrics.mjs');
+  const blobs = crm();
+  assert.equal(parseEvent('{"store":"nomad","type":"view"}', 'https://evil.example'), null);
+  assert.equal(parseEvent('{"store":"nomad","type":"hack"}', 'https://go.algbr.eu'), null);
+  assert.equal(parseEvent('not json', 'https://go.algbr.eu'), null);
+  assert.deepEqual(parseEvent('{"store":"nomad","type":"product","product":"nope"}', 'https://go.algbr.eu'), { store: 'nomad', type: 'product', product: null });
+  const now = new Date('2026-10-02T12:00:00Z');
+  const ev = (type, product) => recordEvent(blobs, parseEvent(JSON.stringify({ store: 'nomad', type, product }), 'https://go.algbr.eu'), now);
+  for (let i = 0; i < 10; i++) await ev('view');
+  for (let i = 0; i < 4; i++) await ev('product', 'packing-cubes');
+  await ev('add', 'packing-cubes');
+  await ev('add', 'packing-cubes');
+  await ev('checkout');
+  const orders = [{ store: 'nomad', createdAt: now.toISOString(), totalCents: 2990, items: [{ id: 'packing-cubes', qty: 1 }] }];
+  const f = await funnel(blobs, 'nomad', orders, 30, now);
+  assert.deepEqual([f.view, f.product, f.add, f.checkout, f.orders], [10, 4, 2, 1, 1]);
+  assert.equal(f.rates.addPerProduct, 50);
+  assert.equal(f.rates.orderPerView, 10);
+  assert.deepEqual(f.products['packing-cubes'], { product: 4, add: 2, sold: 1 });
+});
+
+test('reviews: only buyers of the product, once, moderated, private data never published', async () => {
+  const { submitReview, moderate, publicReviews, pendingReviews, displayName } = await import('../netlify/lib/reviews.mjs');
+  const { saveOrder } = await import('../netlify/lib/store.mjs');
+  const blobs = crm();
+  await saveOrder(blobs, { sessionId: 'cs_r1', number: 'GO-261002-REV1', store: 'nomad', createdAt: new Date().toISOString(), status: 'delivered', items: [{ id: 'packing-cubes', qty: 1 }], customer: { email: 'lea@example.com', name: 'Léa Muster' }, totalCents: 2990, supplier: {}, history: [] });
+  const base = { order: 'go-261002-rev1', email: 'Lea@Example.com', product: 'packing-cubes', rating: 5, text: 'Tout rentre enfin dans ma valise.', consent: true };
+  await assert.rejects(submitReview(blobs, { ...base, email: 'x@y.z' }), /order-not-found/);
+  await assert.rejects(submitReview(blobs, { ...base, product: 'sleep-mask' }), /not-in-order/);
+  await assert.rejects(submitReview(blobs, { ...base, consent: false }), /consent/);
+  await assert.rejects(submitReview(blobs, { ...base, rating: 9 }), /bad-rating/);
+  const r = await submitReview(blobs, base);
+  assert.equal(r.name, 'Léa M.');
+  await assert.rejects(submitReview(blobs, base), /already-reviewed/);
+  assert.equal((await publicReviews(blobs, 'nomad', 'packing-cubes')).count, 0); // not before moderation
+  await moderate(blobs, r.id, true);
+  const pub = await publicReviews(blobs, 'nomad', 'packing-cubes');
+  assert.equal(pub.count, 1);
+  assert.equal(pub.average, 5);
+  assert.equal(JSON.stringify(pub).includes('GO-261002-REV1'), false);
+  assert.equal(JSON.stringify(pub).includes('lea@example.com'), false);
+  assert.equal((await pendingReviews(blobs)).length, 0);
+  assert.equal(displayName('jean'), 'jean');
 });

@@ -115,6 +115,8 @@
     });
 
     renderCatalog(d);
+    renderFunnel(d);
+    renderReviews(d);
 
     var only = $('only-attention').checked;
     var rows = d.orders.filter(function (o) {
@@ -173,6 +175,106 @@
       );
       tbody.append(tr);
     });
+  }
+
+  function renderReviews(d) {
+    var box = $('reviews');
+    box.textContent = '';
+    var list = (d.pendingReviews || []).filter(function (r) {
+      return current === 'all' || r.store === current;
+    });
+    if (!list.length) {
+      box.append(el('p', 'muted small', 'Aucun avis en attente.'));
+      return;
+    }
+    list.forEach(function (r) {
+      var card = el('div', 'review-mod');
+      var head = el('p');
+      head.append(el('b', '', '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating) + ' '), el('span', '', brandOf(d, r.store) + ' · ' + r.product + ' · ' + r.name + ' · ' + r.order));
+      card.append(head);
+      if (r.title) card.append(el('p', '', r.title));
+      card.append(el('p', 'muted', r.text));
+      var ok = el('button', 'btn btn-dark btn-xs', 'Publier');
+      ok.type = 'button';
+      var no = el('button', 'link', 'Refuser');
+      no.type = 'button';
+      ok.addEventListener('click', function () {
+        moderate('approveReview', r.id, ok);
+      });
+      no.addEventListener('click', function () {
+        moderate('rejectReview', r.id, no);
+      });
+      var row = el('div', 'actions');
+      row.append(ok, no);
+      card.append(row);
+      box.append(card);
+    });
+  }
+
+  function moderate(action, id, btn) {
+    btn.disabled = true;
+    api('POST', { action: action, reviewId: id })
+      .then(load)
+      .catch(function () {
+        btn.disabled = false;
+      });
+  }
+
+  function renderFunnel(d) {
+    var list = d.stores.filter(function (s) {
+      return current === 'all' || s.id === current;
+    });
+    var sum = { view: 0, product: 0, add: 0, checkout: 0, orders: 0, products: {} };
+    var names = {};
+    list.forEach(function (s) {
+      var f = s.funnel || {};
+      ['view', 'product', 'add', 'checkout', 'orders'].forEach(function (k) {
+        sum[k] += f[k] || 0;
+      });
+      (s.catalog || []).forEach(function (p) {
+        names[p.id] = (current === 'all' ? s.brand + ' · ' : '') + p.name;
+      });
+      Object.keys(f.products || {}).forEach(function (id) {
+        var a = (sum.products[id] = sum.products[id] || { product: 0, add: 0, sold: 0 });
+        a.product += f.products[id].product;
+        a.add += f.products[id].add;
+        a.sold += f.products[id].sold;
+      });
+    });
+    var pct = function (a, b) {
+      return b ? Math.round((a / b) * 1000) / 10 + ' %' : '—';
+    };
+    var steps = [
+      ['Pages vues', sum.view, null],
+      ['Fiches produit', sum.product, pct(sum.product, sum.view)],
+      ['Ajouts au panier', sum.add, pct(sum.add, sum.product)],
+      ['Passages au paiement', sum.checkout, pct(sum.checkout, sum.add)],
+      ['Commandes', sum.orders, pct(sum.orders, sum.checkout)],
+    ];
+    var max = Math.max(1, sum.view);
+    var box = $('funnel');
+    box.textContent = '';
+    steps.forEach(function (s) {
+      var row = el('div', 'funnel-row');
+      var bar = el('div', 'funnel-bar');
+      bar.style.width = Math.max(2, (s[1] / max) * 100) + '%';
+      row.append(el('span', 'funnel-label', s[0]), bar, el('b', '', String(s[1])), el('span', 'muted small', s[2] ? '↳ ' + s[2] : ''));
+      box.append(row);
+    });
+    box.append(el('p', 'muted small', 'Conversion globale (commandes / pages vues) : ' + pct(sum.orders, sum.view)));
+    var tbody = $('funnel-products');
+    tbody.textContent = '';
+    Object.keys(sum.products)
+      .sort(function (a, b) {
+        return sum.products[b].product - sum.products[a].product;
+      })
+      .slice(0, 20)
+      .forEach(function (id) {
+        var p = sum.products[id];
+        var tr = el('tr');
+        tr.append(el('td', '', names[id] || id), el('td', '', String(p.product)), el('td', '', String(p.add)), el('td', '', pct(p.add, p.product)), el('td', '', String(p.sold)));
+        tbody.append(tr);
+      });
   }
 
   function renderCatalog(d) {

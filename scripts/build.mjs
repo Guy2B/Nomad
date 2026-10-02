@@ -104,7 +104,7 @@ function write(path, html) {
 const up = (depth) => '../'.repeat(depth);
 
 const NEXT_AD = readJson(join(root, 'stores', 'platform.json')).next;
-const { layout, card, home, productPage } = createTemplates({ SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, BASE, pub, esc, money, fill, ldJson, write, up });
+const { layout, card, home, productPage } = createTemplates({ SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, shopDataTag: (l) => shopDataTag(l), BASE, pub, esc, money, fill, ldJson, write, up });
 
 function guidePage(g, lang) {
   const x = g.text[lang];
@@ -154,11 +154,12 @@ function shopData(lang) {
     products: Object.fromEntries(
       ACTIVE.map((p) => [p.id, { name: p.name, price: p.price, img: p.images[0], url: `produkt/${p.id}.html`, upsells: p.upsells ?? [] }]),
     ),
-    t: { cart: t.cart, thanks: t.thanks, track: t.track },
+    t: { cart: t.cart, thanks: t.thanks, track: t.track, reviews: t.reviews },
   };
 }
-const shopDataTag = (lang) =>
-  `<script type="application/json" id="shop-data">${JSON.stringify(shopData(lang)).replace(/</g, '\\u003c')}</script>`;
+function shopDataTag(lang) {
+  return `<script type="application/json" id="shop-data">${JSON.stringify(shopData(lang)).replace(/</g, '\\u003c')}</script>`;
+}
 
 function cartPage(lang) {
   const t = STR[lang].cart;
@@ -229,6 +230,36 @@ ${shopDataTag(lang)}`,
   );
 }
 
+function reviewPage(lang) {
+  const t = STR[lang].reviews;
+  const options = ACTIVE.map((p) => `<option value="${p.id}">${esc(p.name)}</option>`).join('');
+  simplePage(
+    lang,
+    'bewertung.html',
+    'review',
+    t.formTitle,
+    `<section class="section"><div class="wrap narrow">
+  <h1>${esc(t.formTitle)}</h1>
+  <p class="muted">${esc(t.formLead)}</p>
+  <form class="review-form" data-review-form novalidate>
+    <label>${esc(t.order)}<input name="order" required placeholder="${SITE.orderPrefix}-261002-AB12" autocomplete="off"></label>
+    <label>${esc(t.email)}<input name="email" type="email" required autocomplete="email"></label>
+    <label>${esc(t.product)}<select name="product" required>${options}</select></label>
+    <fieldset class="stars"><legend>${esc(t.rating)}</legend>${[5, 4, 3, 2, 1].map((n) => `<input type="radio" id="star${n}" name="rating" value="${n}"><label for="star${n}" title="${n}/5">★</label>`).join('')}</fieldset>
+    <label>${esc(t.rTitle)}<input name="title" maxlength="80"></label>
+    <label>${esc(t.text)}<textarea name="text" rows="5" required minlength="10" maxlength="1200"></textarea></label>
+    <label>${esc(t.name)}<input name="name" maxlength="60" autocomplete="given-name"></label>
+    <label class="check-row"><input type="checkbox" name="consent" required> <span>${esc(t.consent)}</span></label>
+    <button class="btn btn-dark btn-lg" type="submit">${esc(t.submit)}</button>
+    <p class="error" data-review-error hidden></p>
+  </form>
+  <p class="lead" data-review-thanks hidden>${esc(t.thanks)}</p>
+  <p class="muted small">${esc(t.note)}</p>
+</div></section>`,
+    true,
+  );
+}
+
 function legal(lang) {
   for (const [k, html] of Object.entries(LEGAL[lang]))
     simplePage(lang, `${k}.html`, 'legal', STR[lang].legalNames[k], `<section class="section"><div class="wrap narrow legal">${html}</div></section>`);
@@ -237,7 +268,7 @@ function legal(lang) {
 /** Security headers per storefront (Cloudflare Pages reads the same _headers format as Netlify). */
 function headers() {
   const connect = ["'self'", API].filter(Boolean).join(' ');
-  const csp = `default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src ${connect}; form-action 'self' https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'`;
+  const csp = `default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src ${connect} https://cloudflareinsights.com; form-action 'self' https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'`;
   return `/*
 ${SITE.launched ? '' : '  # PRE-LAUNCH: search engines kept out until the legal pages are complete ("launched": true in site.json).\n  X-Robots-Tag: noindex, nofollow\n'}  Strict-Transport-Security: max-age=31536000
   X-Content-Type-Options: nosniff
@@ -262,6 +293,7 @@ for (const lang of SITE.languages) {
   cartPage(lang);
   thanksPage(lang);
   trackPage(lang);
+  reviewPage(lang);
   legal(lang);
 }
 // Root: language chooser (redirect by browser language in shop.js).

@@ -62,6 +62,17 @@ export function sessionPayload({ site, priced, lang, baseUrl, cart, images }) {
       },
     ],
     phone_number_collection: { enabled: true },
+    // Promotion codes created in the Stripe dashboard can be entered on the payment page.
+    allow_promotion_codes: true,
+    custom_text: {
+      submit: {
+        message: {
+          de: `Versand mit Sendungsverfolgung in ${site.shipping.deliveryDays} Werktagen · 14 Tage Widerrufsrecht · Rechnung per E-Mail`,
+          fr: `Livraison suivie en ${site.shipping.deliveryDays} jours ouvrés · 14 jours de rétractation · Facture par e-mail`,
+          en: `Tracked shipping in ${site.shipping.deliveryDays} working days · 14-day withdrawal · Invoice by e-mail`,
+        }[lang] ?? '',
+      },
+    },
     billing_address_collection: 'required',
     // The customer invoice: Stripe numbers it, emails it and keeps the PDF.
     invoice_creation: {

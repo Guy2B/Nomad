@@ -34,13 +34,17 @@ export function legalPages(site) {
 <li><strong>Stripe</strong> (Stripe Payments Europe Ltd., Irland): Zahlungsabwicklung und Rechnungsversand. Ihre Zahlungsdaten gibt Stripe nicht an uns weiter.</li>
 <li><strong>Unser Lieferant / Versandlager</strong> (CJdropshipping): erhält Name, Lieferadresse, Telefonnummer und E-Mail, um Ihre Bestellung zu verpacken und zu versenden. Die Ware kann aus einem Lager außerhalb der EU versendet werden; die Übermittlung erfolgt zur Vertragserfüllung (Art. 49 Abs. 1 lit. b DSGVO).</li>
 <li><strong>Versanddienstleister</strong>: erhalten die für die Zustellung nötigen Angaben.</li>
-<li><strong>Netlify</strong> (Netlify Inc., USA): Hosting dieser Website und Speicherung der Bestelldaten; Datenübermittlung auf Grundlage des EU-US Data Privacy Framework bzw. von Standardvertragsklauseln.</li>
+<li><strong>Cloudflare</strong> (Cloudflare, Inc., USA): Auslieferung dieser Website (Cloudflare Pages) und cookielose Reichweitenmessung (Cloudflare Web Analytics); Datenübermittlung auf Grundlage des EU-US Data Privacy Framework bzw. von Standardvertragsklauseln.</li>
+<li><strong>Netlify</strong> (Netlify Inc., USA): Betrieb der Bestell-Schnittstelle und Speicherung der Bestelldaten; Datenübermittlung auf Grundlage des EU-US Data Privacy Framework bzw. von Standardvertragsklauseln.</li>
 </ul>
 <h2>4. Speicherdauer</h2>
 <p>Bestell- und Rechnungsdaten bewahren wir entsprechend den handels- und steuerrechtlichen Fristen auf (bis zu 10 Jahre), andere Daten nur so lange, wie es für die Bestellung nötig ist.</p>
-<h2>5. Cookies und Tracking</h2>
-<p>Diese Website setzt keine Tracking- oder Werbe-Cookies und lädt keine externen Schriftarten. Der Warenkorb wird nur lokal in Ihrem Browser gespeichert.</p>
-<h2>6. Ihre Rechte</h2>
+<h2>5. Cookies und Reichweitenmessung</h2>
+<p>Diese Website setzt keine Tracking- oder Werbe-Cookies und lädt keine externen Schriftarten. Der Warenkorb wird nur lokal in Ihrem Browser gespeichert, weil Sie ihn nutzen (technisch erforderlich).</p>
+<p>Zur Verbesserung des Shops zählen wir anonym, wie oft Seiten und Produkte aufgerufen, Artikel in den Warenkorb gelegt und die Kasse geöffnet wird. Dabei wird nichts auf Ihrem Gerät gespeichert und keine Kennung, IP-Adresse oder sonstige personenbezogene Angabe erfasst. Zusätzlich nutzen wir Cloudflare Web Analytics, das ohne Cookies und ohne geräteübergreifende Kennung arbeitet. Rechtsgrundlage ist unser berechtigtes Interesse an einem funktionierenden, verbesserten Angebot (Art. 6 Abs. 1 lit. f DSGVO).</p>
+<h2>6. Kundenbewertungen</h2>
+<p>Wenn Sie eine Bewertung abgeben, prüfen wir anhand von Bestellnummer und E-Mail, ob Sie das Produkt bei uns gekauft haben. Veröffentlicht werden nur Sterne, Titel, Text, Datum sowie Ihr Vorname mit dem Anfangsbuchstaben des Nachnamens, und nur mit Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). E-Mail und Bestellnummer werden nie veröffentlicht. Sie können die Löschung Ihrer Bewertung jederzeit verlangen.</p>
+<h2>7. Ihre Rechte</h2>
 <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde. Schreiben Sie uns an ${c.email}.</p>`,
 
     agb: `
