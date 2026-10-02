@@ -11,7 +11,7 @@
 
 Les boutiques appellent l'API définie dans `stores/platform.json`. Netlify facture des crédits par déploiement : il ne reconstruit le backend que si l'API, le dashboard ou un catalogue change (règle `ignore` de `netlify.toml`). Les domaines `.de` sont redirigés vers les `.eu` chez Porkbun.
 
-Ajouter une marque : copier un dossier `stores/<id>/` (site.json, products.json, assets/), l'ajouter dans `netlify/lib/catalog.mjs`, créer `sites/<id>/netlify.toml`, puis un site Netlify avec ce Base directory. Les commandes de toutes les marques arrivent dans le même CRM et le même admin (filtre par boutique), avec leur propre préfixe de commande (GO-…, SP-…, EA-…).
+Ajouter une marque : copier un dossier `stores/<id>/` (site.json, products.json, assets/), l'ajouter dans `netlify/lib/catalog.mjs`, puis un projet Cloudflare Pages (build `node scripts/build.mjs <id>`, sortie `dist`) et ajouter son domaine dans `site.json` (baseUrl, utilisé aussi pour autoriser l’API). Les commandes de toutes les marques arrivent dans le même CRM et le même admin (filtre par boutique), avec leur propre préfixe de commande (GO-…, SP-…, EA-…).
 
 Un produit peut être un **kit** (`components`) : à la commande, chaque élément part chez CJ avec sa quantité (ex. Laundry Reset = 1 séchoir + 1 sac + 4 crochets).
 
