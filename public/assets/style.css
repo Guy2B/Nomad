@@ -1092,3 +1092,16 @@ details p {
 .stars input:checked ~ label, .stars label:hover, .stars label:hover ~ label { color: var(--accent); }
 .stars input:focus-visible + label { outline: 2px solid var(--accent); border-radius: 4px; }
 .review-link { margin-left: 8px; font-size: 0.85rem; }
+
+/* NΣXT logo — black frame, Σ as the E */
+.nsxt { display: inline-flex; align-items: center; padding: 5px 9px 4px; border-radius: 7px; background: #111214; color: #f6f3ee; font-family: var(--sans); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.14em; line-height: 1; white-space: nowrap; }
+.nsxt b { font-weight: 800; font-family: var(--serif); letter-spacing: 0.1em; }
+.nsxt-lg { font-size: 1.15rem; padding: 12px 16px 11px; border-radius: 12px; }
+.next-pill { padding: 0; border: 0; background: none; }
+.next-pill:hover .nsxt { background: #000; }
+
+.next-pill .nsxt { width: auto; height: auto; display: inline-flex; place-items: initial; border-radius: 7px; font-size: 0.72rem; background: #111214; color: #f6f3ee; font-family: var(--sans); }
+.next-pill .nsxt b { width: auto; height: auto; display: inline; background: none; border-radius: 0; font-size: inherit; font-family: var(--serif); }
+
+.nsxt, .next-pill .nsxt { letter-spacing: 0.02em; text-transform: none; font-weight: 700; align-items: baseline; }
+.nsxt b, .next-pill .nsxt b { font-family: var(--sans); font-weight: 800; font-size: 1.45em; line-height: 0.8; margin: 0 0.04em; letter-spacing: 0; }

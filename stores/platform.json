@@ -4,22 +4,19 @@
   "next": {
     "url": "https://next.algbr.eu",
     "de": {
-      "label": "Auch von ALGBr",
       "title": "Know what matters. Do what’s next.",
-      "text": "Mails, Kalender und Aufgaben werden zu drei klaren Entscheidungen pro Tag. Kostenlos testen.",
-      "cta": "NEXT entdecken"
+      "text": "Mails, Kalender und Aufgaben werden zu drei klaren Entscheidungen pro Tag. nΣxt LifeOS — kostenlos testen.",
+      "cta": "nΣxt entdecken"
     },
     "fr": {
-      "label": "Aussi par ALGBr",
       "title": "Know what matters. Do what’s next.",
-      "text": "E-mails, agenda et tâches deviennent trois décisions claires par jour. Essai gratuit.",
-      "cta": "Découvrir NEXT"
+      "text": "E-mails, agenda et tâches deviennent trois décisions claires par jour. nΣxt LifeOS — essai gratuit.",
+      "cta": "Découvrir nΣxt"
     },
     "en": {
-      "label": "Also by ALGBr",
       "title": "Know what matters. Do what’s next.",
-      "text": "Mail, calendar and tasks become three clear decisions a day. Try it free.",
-      "cta": "Discover NEXT"
+      "text": "Mail, calendar and tasks become three clear decisions a day. nΣxt LifeOS — try it free.",
+      "cta": "Discover nΣxt"
     }
   }
 }

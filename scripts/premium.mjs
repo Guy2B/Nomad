@@ -14,14 +14,16 @@ export function createTemplates(ctx) {
   const was = (p, lang) => (SITE.showCompare && p.compare ? ` <s>${money(p.compare, lang)}</s>` : '');
   const short = (p, lang) => p.text[lang].short || p.text[lang].tagline;
 
+  const nsxt = (cls = '') => `<span class="nsxt ${cls}" role="img" aria-label="NEXT">n<b>Σ</b>xt</span>`;
+
   function nextBanner(lang, r) {
     const n = NEXT_AD?.[lang];
     if (!n) return '';
     const href = `${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}`;
     return `<aside class="next-ad" aria-label="NEXT by ALGBr">
   <div class="wrap next-ad-row">
-    <span class="next-mark" aria-hidden="true">Σ</span>
-    <div class="next-copy"><p class="next-label">${esc(n.label)}</p><p class="next-title"><b>NEXT</b> <small>by ALGBr</small> — ${esc(n.title)}</p><p class="next-text">${esc(n.text)}</p></div>
+    ${nsxt('nsxt-lg')}
+    <div class="next-copy"><p class="next-title">${esc(n.title)} <small>by ALGBr</small></p><p class="next-text">${esc(n.text)}</p></div>
     <a class="btn next-btn" href="${href}" target="_blank" rel="noopener">${esc(n.cta)} ↗</a>
   </div>
 </aside>`;
@@ -78,7 +80,7 @@ ${jsonLd.map(ldJson).join('\n')}
       <a href="${L}bestellung.html">${esc(u.nav.track)}</a>
     </nav>
     <div class="top-actions">
-      ${NEXT_AD ? `<a class="next-pill" href="${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}" target="_blank" rel="noopener" title="NEXT by ALGBr"><span aria-hidden="true">Σ</span> NEXT</a>` : ''}
+      ${NEXT_AD ? `<a class="next-pill" href="${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}" target="_blank" rel="noopener" title="NEXT by ALGBr">${nsxt()}</a>` : ''}
       <nav class="langs" aria-label="Language">${langLinks}</nav>
       <a class="cart-link" href="${L}warenkorb.html" aria-label="${esc(t.nav.cart)}">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Zm3 0a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>

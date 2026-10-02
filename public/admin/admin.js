@@ -117,6 +117,7 @@
     renderCatalog(d);
     renderFunnel(d);
     renderReviews(d);
+    renderCrm(d);
 
     var only = $('only-attention').checked;
     var rows = d.orders.filter(function (o) {
@@ -173,6 +174,49 @@
         sup,
         actions,
       );
+      tbody.append(tr);
+    });
+  }
+
+  function renderCrm(d) {
+    var by = {};
+    d.orders
+      .filter(function (o) {
+        return o.customer && o.customer.email && (current === 'all' || o.store === current);
+      })
+      .forEach(function (o) {
+        var k = o.customer.email.toLowerCase();
+        var c = (by[k] = by[k] || { name: '', email: k, phone: '', city: '', stores: {}, orders: 0, total: 0, last: '' });
+        c.name = c.name || o.customer.name || '';
+        c.phone = c.phone || o.customer.phone || '';
+        c.city = [o.shipping.city, o.shipping.country].filter(Boolean).join(', ') || c.city;
+        c.stores[brandOf(d, o.store)] = true;
+        c.orders += 1;
+        c.total += o.totalCents || 0;
+        if (o.createdAt > c.last) c.last = o.createdAt;
+      });
+    var list = Object.keys(by)
+      .map(function (k) { return by[k]; })
+      .sort(function (a, b) { return b.last.localeCompare(a.last); });
+    $('crm-count').textContent = list.length + ' client' + (list.length > 1 ? 's' : '') + (list.length ? ' · clients récurrents : ' + list.filter(function (c) { return c.orders > 1; }).length : '');
+    var tbody = $('crm');
+    tbody.textContent = '';
+    if (!list.length) {
+      var tr0 = el('tr');
+      var td0 = el('td', 'muted small', 'Aucun client pour l’instant — ils apparaîtront ici à la première commande.');
+      td0.colSpan = 6;
+      tr0.append(td0);
+      tbody.append(tr0);
+      return;
+    }
+    list.forEach(function (c) {
+      var tr = el('tr');
+      var who = el('td');
+      var mail = el('a', '', c.email);
+      mail.href = 'mailto:' + c.email;
+      who.append(el('b', '', c.name || '—'), el('br'), mail);
+      if (c.phone) who.append(el('br'), el('span', 'muted small', c.phone));
+      tr.append(who, el('td', 'small', Object.keys(c.stores).join(', ')), el('td', 'small', c.city), el('td', '', String(c.orders)), el('td', '', euros(c.total)), el('td', 'small', new Date(c.last).toLocaleDateString('fr-FR')));
       tbody.append(tr);
     });
   }
