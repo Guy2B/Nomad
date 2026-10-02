@@ -10,6 +10,7 @@
  *   node scripts/build.mjs backend   → dist/ = /admin/ only (Netlify, with the functions).
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { STR as BASE_STR } from './i18n.mjs';
 import { legalPages } from './legal.mjs';
@@ -57,6 +58,11 @@ const GUIDES = SITE.guides ?? [];
 const LEGAL = legalPages(SITE);
 const HAS_THEME = existsSync(join(storeDir, 'assets', 'theme.css'));
 const BASE = SITE.baseUrl.replace(/\/$/, '');
+/** Content hash of the shared assets: ?v= on CSS/JS so browsers never keep a stale design. */
+const ASSET_V = createHash('sha256')
+  .update([join(root, 'public/assets/style.css'), join(root, 'public/assets/shop.js'), join(storeDir, 'assets/theme.css')].filter(existsSync).map((f) => readFileSync(f)).join(''))
+  .digest('hex')
+  .slice(0, 10);
 /** Public URL of a page as Cloudflare Pages serves it (/de/, /de/produkt/x): canonical, hreflang, sitemap. */
 const pub = (path) => `${BASE}/${path.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '')}`;
 
@@ -98,7 +104,7 @@ function write(path, html) {
 const up = (depth) => '../'.repeat(depth);
 
 const NEXT_AD = readJson(join(root, 'stores', 'platform.json')).next;
-const { layout, card, home, productPage } = createTemplates({ SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, BASE, pub, esc, money, fill, ldJson, write, up });
+const { layout, card, home, productPage } = createTemplates({ SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, BASE, pub, esc, money, fill, ldJson, write, up });
 
 function guidePage(g, lang) {
   const x = g.text[lang];
@@ -233,7 +239,8 @@ function headers() {
   const connect = ["'self'", API].filter(Boolean).join(' ');
   const csp = `default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src ${connect}; form-action 'self' https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'`;
   return `/*
-${SITE.launched ? '' : '  # PRE-LAUNCH: search engines kept out until the legal pages are complete ("launched": true in site.json).\n  X-Robots-Tag: noindex, nofollow\n'}  X-Content-Type-Options: nosniff
+${SITE.launched ? '' : '  # PRE-LAUNCH: search engines kept out until the legal pages are complete ("launched": true in site.json).\n  X-Robots-Tag: noindex, nofollow\n'}  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
@@ -260,7 +267,7 @@ for (const lang of SITE.languages) {
 // Root: language chooser (redirect by browser language in shop.js).
 write(
   'index.html',
-  `<!doctype html><html lang="${SITE.defaultLang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(SITE.seo?.[SITE.defaultLang]?.title || SITE.brand)}</title><meta name="description" content="${esc(SITE.seo?.[SITE.defaultLang]?.description || SITE.tagline[SITE.defaultLang])}"><link rel="canonical" href="${pub(`${SITE.defaultLang}/index.html`)}">${SITE.languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${pub(`${l}/index.html`)}">`).join('')}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">${HAS_THEME ? '<link rel="stylesheet" href="assets/theme.css">' : ''}</head><body data-page="root" data-root="" data-store="${SITE.id}" data-api="${API}"><main class="section center"><p class="brand big-brand">${esc(SITE.brand)}</p><nav class="langs-big">${SITE.languages.map((l) => `<a href="${l}/index.html" hreflang="${l}">${esc(STR[l].lang)}</a>`).join('')}</nav></main><script src="assets/shop.js" defer></script></body></html>`,
+  `<!doctype html><html lang="${SITE.defaultLang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(SITE.seo?.[SITE.defaultLang]?.title || SITE.brand)}</title><meta name="description" content="${esc(SITE.seo?.[SITE.defaultLang]?.description || SITE.tagline[SITE.defaultLang])}"><link rel="canonical" href="${pub(`${SITE.defaultLang}/index.html`)}">${SITE.languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${pub(`${l}/index.html`)}">`).join('')}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v=${ASSET_V}">${HAS_THEME ? `<link rel="stylesheet" href="assets/theme.css?v=${ASSET_V}">` : ''}</head><body data-page="root" data-root="" data-store="${SITE.id}" data-api="${API}"><main class="section center"><p class="brand big-brand">${esc(SITE.brand)}</p><nav class="langs-big">${SITE.languages.map((l) => `<a href="${l}/index.html" hreflang="${l}">${esc(STR[l].lang)}</a>`).join('')}</nav></main><script src="assets/shop.js?v=${ASSET_V}" defer></script></body></html>`,
 );
 const pages = ['index.html', ...ACTIVE.map((p) => `produkt/${p.id}.html`), ...GUIDES.map((g) => `ratgeber/${g.slug}.html`)];
 const today = new Date().toISOString().slice(0, 10);

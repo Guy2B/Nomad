@@ -252,19 +252,22 @@
             "title": "48 heures ailleurs",
             "text": "Tout ce qu’il faut pour un week-end, rien de plus.",
             "cta": "Voir la sélection week-end",
-            "href": "#g-transport"
+            "href": "#g-transport",
+            "img": "weekender-bag"
           },
           {
             "title": "Bagage cabine",
             "text": "Gagner de la place sans sacrifier ce qui compte.",
             "cta": "Préparer ma cabine",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "packing-cubes"
           },
           {
             "title": "Long courrier",
             "text": "Quelques objets simples qui rendent plusieurs heures d’avion beaucoup plus supportables.",
             "cta": "Voir les essentiels confort",
-            "href": "#g-comfort"
+            "href": "#g-comfort",
+            "img": "travel-pillow"
           }
         ]
       },
@@ -586,19 +589,22 @@
             "title": "48 Stunden woanders",
             "text": "Alles für ein Wochenende, nichts mehr.",
             "cta": "Wochenend-Auswahl ansehen",
-            "href": "#g-transport"
+            "href": "#g-transport",
+            "img": "weekender-bag"
           },
           {
             "title": "Handgepäck",
             "text": "Platz gewinnen, ohne auf Wichtiges zu verzichten.",
             "cta": "Handgepäck vorbereiten",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "packing-cubes"
           },
           {
             "title": "Langstrecke",
             "text": "Ein paar einfache Dinge, die viele Stunden im Flugzeug deutlich angenehmer machen.",
             "cta": "Komfort-Essentials ansehen",
-            "href": "#g-comfort"
+            "href": "#g-comfort",
+            "img": "travel-pillow"
           }
         ]
       },
@@ -920,19 +926,22 @@
             "title": "48 hours away",
             "text": "Everything you need for a weekend, nothing more.",
             "cta": "See the weekend picks",
-            "href": "#g-transport"
+            "href": "#g-transport",
+            "img": "weekender-bag"
           },
           {
             "title": "Carry-on only",
             "text": "Gain space without giving up what matters.",
             "cta": "Prepare my carry-on",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "packing-cubes"
           },
           {
             "title": "Long haul",
             "text": "A few simple things that make many hours on a plane far more bearable.",
             "cta": "See the comfort essentials",
-            "href": "#g-comfort"
+            "href": "#g-comfort",
+            "img": "travel-pillow"
           }
         ]
       },

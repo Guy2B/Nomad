@@ -361,19 +361,22 @@
             "title": "Tastaturpause",
             "text": "Zwei Minuten für Hände und Handgelenke, zwischen zwei Meetings.",
             "cta": "Schreibtisch-Auswahl ansehen",
-            "href": "#g-desk"
+            "href": "#g-desk",
+            "img": "hand-wrist-care"
           },
           {
             "title": "Feierabend",
             "text": "Eine ruhige Routine, die den Arbeitstag abschließt.",
             "cta": "Die 10-Minuten-Routine lesen",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "neck-shoulder-care"
           },
           {
             "title": "Am Boden, zu Hause",
             "text": "Matte, Block und Gurt für ein paar Minuten Bewegung am Tag.",
             "cta": "Bewegungs-Auswahl ansehen",
-            "href": "#g-move"
+            "href": "#g-move",
+            "img": "floor-routine"
           }
         ]
       },
@@ -707,19 +710,22 @@
             "title": "Pause clavier",
             "text": "Deux minutes pour les mains et les poignets, entre deux réunions.",
             "cta": "Voir la sélection bureau",
-            "href": "#g-desk"
+            "href": "#g-desk",
+            "img": "hand-wrist-care"
           },
           {
             "title": "Fin de journée",
             "text": "Une routine calme pour marquer la fin du travail.",
             "cta": "Lire la routine de 10 minutes",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "neck-shoulder-care"
           },
           {
             "title": "Au sol, à la maison",
             "text": "Tapis, brique et sangle pour bouger quelques minutes chaque jour.",
             "cta": "Voir la sélection mouvement",
-            "href": "#g-move"
+            "href": "#g-move",
+            "img": "floor-routine"
           }
         ]
       },
@@ -1053,19 +1059,22 @@
             "title": "Keyboard break",
             "text": "Two minutes for hands and wrists, between two meetings.",
             "cta": "See the desk picks",
-            "href": "#g-desk"
+            "href": "#g-desk",
+            "img": "hand-wrist-care"
           },
           {
             "title": "End of the day",
             "text": "A calm routine to close the workday.",
             "cta": "Read the 10-minute routine",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "neck-shoulder-care"
           },
           {
             "title": "On the floor, at home",
             "text": "Mat, block and strap for a few minutes of movement every day.",
             "cta": "See the movement picks",
-            "href": "#g-move"
+            "href": "#g-move",
+            "img": "floor-routine"
           }
         ]
       },

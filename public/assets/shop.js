@@ -1,6 +1,10 @@
 /* Storefront script shared by every store of the Nomad platform: cart (this browser only), checkout, thank-you and tracking pages. */
 (function () {
   'use strict';
+  if (location.protocol === 'http:' && !/^(localhost|127\.)/.test(location.hostname)) {
+    location.replace('https:' + location.href.slice(5));
+    return;
+  }
   var body = document.body;
   var page = body.getAttribute('data-page');
   var lang = body.getAttribute('data-lang') || 'de';

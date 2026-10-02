@@ -353,19 +353,22 @@
             "title": "Erste Wohnung",
             "text": "Die Basics, damit jeder Raum vom ersten Tag an funktioniert.",
             "cta": "Mit der Küche anfangen",
-            "href": "#g-kitchen"
+            "href": "#g-kitchen",
+            "img": "kitchen-reset"
           },
           {
             "title": "Mietwohnung",
             "text": "Lösungen, die sich anbringen und wieder abnehmen lassen, ohne die Wände zu beschädigen.",
             "cta": "Die 9 Hacks lesen",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "wall-drying-rack"
           },
           {
             "title": "Homeoffice",
             "text": "Ein ruhiger Schreibtisch, an dem Kabel und Kleinkram endlich ihren Platz haben.",
             "cta": "Desk-Set ansehen",
-            "href": "#g-desk"
+            "href": "#g-desk",
+            "img": "desk-reset"
           }
         ]
       },
@@ -694,19 +697,22 @@
             "title": "Premier appartement",
             "text": "Les bases pour que chaque pièce fonctionne dès le premier jour.",
             "cta": "Commencer par la cuisine",
-            "href": "#g-kitchen"
+            "href": "#g-kitchen",
+            "img": "kitchen-reset"
           },
           {
             "title": "Location",
             "text": "Des solutions qui se posent et se retirent sans abîmer les murs.",
             "cta": "Lire les 9 astuces",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "wall-drying-rack"
           },
           {
             "title": "Télétravail",
             "text": "Un bureau net où les câbles et les petites affaires ont enfin leur place.",
             "cta": "Voir le kit bureau",
-            "href": "#g-desk"
+            "href": "#g-desk",
+            "img": "desk-reset"
           }
         ]
       },
@@ -1035,19 +1041,22 @@
             "title": "First apartment",
             "text": "The basics so every room works from day one.",
             "cta": "Start with the kitchen",
-            "href": "#g-kitchen"
+            "href": "#g-kitchen",
+            "img": "kitchen-reset"
           },
           {
             "title": "Renting",
             "text": "Solutions that go up and come down without damaging the walls.",
             "cta": "Read the 9 hacks",
-            "href": "GUIDE"
+            "href": "GUIDE",
+            "img": "wall-drying-rack"
           },
           {
             "title": "Home office",
             "text": "A calm desk where cables and small things finally have a place.",
             "cta": "See the desk bundle",
-            "href": "#g-desk"
+            "href": "#g-desk",
+            "img": "desk-reset"
           }
         ]
       },

@@ -5,7 +5,7 @@
  * products.json → rich.<lang>), so every brand shares one design system.
  */
 export function createTemplates(ctx) {
-  const { SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, BASE, pub, esc, money, fill, ldJson, write, up } = ctx;
+  const { SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, BASE, pub, esc, money, fill, ldJson, write, up } = ctx;
   const byId = new Map(ACTIVE.map((p) => [p.id, p]));
   const U = (lang) => SITE.ui[lang];
   const lines = (arr) => (Array.isArray(arr) ? arr.map(esc).join('<br>') : esc(arr));
@@ -61,8 +61,8 @@ ${SITE.languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${pub(`
 ${ogImage ? `<meta property="og:image" content="${ogImage}">\n<meta name="twitter:card" content="summary_large_image">` : ''}
 <meta name="theme-color" content="${SITE.themeColor || '#16181d'}">
 <link rel="icon" href="${r}assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="${r}assets/style.css">
-${HAS_THEME ? `<link rel="stylesheet" href="${r}assets/theme.css">` : ''}
+<link rel="stylesheet" href="${r}assets/style.css?v=${ASSET_V}">
+${HAS_THEME ? `<link rel="stylesheet" href="${r}assets/theme.css?v=${ASSET_V}">` : ''}
 ${jsonLd.map(ldJson).join('\n')}
 </head>
 <body data-page="${page}" data-lang="${lang}" data-root="${r}" data-store="${SITE.id}" data-api="${API}">
@@ -78,6 +78,7 @@ ${jsonLd.map(ldJson).join('\n')}
       <a href="${L}bestellung.html">${esc(u.nav.track)}</a>
     </nav>
     <div class="top-actions">
+      ${NEXT_AD ? `<a class="next-pill" href="${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}" target="_blank" rel="noopener" title="NEXT by ALGBr"><span aria-hidden="true">Σ</span> NEXT</a>` : ''}
       <nav class="langs" aria-label="Language">${langLinks}</nav>
       <a class="cart-link" href="${L}warenkorb.html" aria-label="${esc(t.nav.cart)}">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Zm3 0a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -103,7 +104,7 @@ ${nextBanner(lang, r)}
     <a class="by-algbr" href="${SITE.byAlgbr}" target="_blank" rel="noopener">by <img src="${r}assets/algbr.svg" alt="" width="22" height="22"> <b>Al.<i>G.B.</i><u>r.</u></b></a>
   </div>
 </footer>
-<script src="${r}assets/shop.js" defer></script>
+<script src="${r}assets/shop.js?v=${ASSET_V}" defer></script>
 </body>
 </html>`;
   }
@@ -179,7 +180,7 @@ ${nextBanner(lang, r)}
 <section class="section" id="anlaesse">
   <div class="wrap">
     <header class="head-x"><h2>${lines(u.usages.title)}</h2></header>
-    <div class="usage-grid">${u.usages.cards.map((c, i) => `<a class="usage" href="${c.href === 'GUIDE' && guide ? `ratgeber/${guide.slug}.html` : c.href}"><span class="usage-n">0${i + 1}</span><h3>${esc(c.title)}</h3><p>${esc(c.text)}</p><span class="link-arrow">${esc(c.cta)} →</span></a>`).join('')}</div>
+    <div class="usage-grid">${u.usages.cards.map((c, i) => `<a class="usage${c.img && byId.get(c.img) ? ' has-img' : ''}" href="${c.href === 'GUIDE' && guide ? `ratgeber/${guide.slug}.html` : c.href}">${c.img && byId.get(c.img) ? `<img src="${img('../', byId.get(c.img).images[Math.min(1, byId.get(c.img).images.length - 1)])}" alt="" loading="lazy" width="600" height="420">` : ''}<span class="usage-n">0${i + 1}</span><h3>${esc(c.title)}</h3><p>${esc(c.text)}</p><span class="link-arrow">${esc(c.cta)} →</span></a>`).join('')}</div>
   </div>
 </section>
 <section class="section ink" id="warum">
