@@ -79,12 +79,29 @@
       }
       return;
     }
+    var all = e.target.closest('[data-add-all]');
+    if (all) {
+      all.getAttribute('data-add-all').split(',').forEach(function (id) {
+        if (id) add(id);
+      });
+      location.href = (body.getAttribute('data-root') || '') + lang + '/warenkorb.html';
+      return;
+    }
     var thumb = e.target.closest('[data-thumb]');
     if (thumb) {
       var main = document.querySelector('[data-main]');
       if (main) main.src = thumb.getAttribute('data-thumb');
     }
   });
+
+  // Product page: sticky buy bar once the main "add to cart" button has scrolled out of view.
+  var bar = document.querySelector('[data-buy-bar]');
+  var mainBuy = document.querySelector('.buy [data-add]');
+  if (bar && mainBuy && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      bar.classList.toggle('show', !entries[0].isIntersecting && entries[0].boundingClientRect.top < 0);
+    }).observe(mainBuy);
+  }
 
   // ---------------------------------------------------------------- cart
   if (page === 'cart' && data) {

@@ -21,7 +21,8 @@
           "Kofferöffnung für den schnellen Überblick",
           "Separates Laptopfach",
           "Für Kurztrips, Business und Wochenende"
-        ]
+        ],
+        "short": "Der Handgepäck-Rucksack, der Platz schafft."
       },
       "fr": {
         "tagline": "Le sac cabine qui transforme le chaos en espace utile.",
@@ -31,7 +32,8 @@
           "Ouverture type valise pour tout voir d’un coup",
           "Compartiment ordinateur séparé",
           "Pour city trips, voyages pro et week-ends"
-        ]
+        ],
+        "short": "Le sac cabine qui fait de la place."
       },
       "en": {
         "tagline": "The carry-on backpack that turns chaos into usable space.",
@@ -41,7 +43,8 @@
           "Suitcase-style opening to see everything at once",
           "Separate laptop compartment",
           "For city trips, business and weekends"
-        ]
+        ],
+        "short": "The carry-on that makes room."
       }
     },
     "supplier": {
@@ -73,7 +76,213 @@
       "packing-cubes",
       "sleep-kit",
       "card-holder"
-    ]
+    ],
+    "rich": {
+      "fr": {
+        "lead": "Pensé pour les week-ends, city-trips et déplacements professionnels : organisez vêtements, ordinateur et essentiels dans un seul sac plus facile à vivre.",
+        "benefits": [
+          "Gagnez de la place grâce au compartiment compressible pour vêtements souples.",
+          "Ouvrez-le comme une valise pour voir immédiatement ce que vous avez emporté.",
+          "Gardez votre ordinateur séparé dans un compartiment dédié.",
+          "Passez du trajet au week-end facilement, sans multiplier les sacs."
+        ],
+        "story": [
+          {
+            "title": "Une place pour chaque chose.",
+            "text": "Un voyage devient vite désordonné lorsque vêtements, câbles, ordinateur et petits objets partagent le même espace. Le Vacuum Pack Pro sépare ce qui doit l’être et rend le contenu plus facile à retrouver."
+          },
+          {
+            "title": "Emportez vos vêtements. Pas leur volume.",
+            "text": "Le compartiment compressible aide à réduire l’espace occupé par les vêtements souples et à garder le reste du sac organisé."
+          },
+          {
+            "title": "Il s’ouvre comme une valise.",
+            "text": "Plus besoin de fouiller par le haut pour atteindre ce qui se trouve au fond. Ouvrez le sac à plat et voyez votre contenu d’un coup d’œil."
+          },
+          {
+            "title": "Votre ordinateur garde sa place.",
+            "text": "Le compartiment séparé garde votre ordinateur accessible, sans déranger vos vêtements et vos affaires personnelles."
+          }
+        ],
+        "ideal": [
+          {
+            "t": "Week-end",
+            "s": "Les essentiels de quelques jours dans un format unique."
+          },
+          {
+            "t": "City-trip",
+            "s": "Gardez les mains libres pendant vos déplacements."
+          },
+          {
+            "t": "Voyage professionnel",
+            "s": "Séparez votre équipement de travail du reste de vos affaires."
+          },
+          {
+            "t": "Train & avion",
+            "s": "Une organisation plus pratique quand vous êtes souvent en mouvement."
+          }
+        ],
+        "details": [
+          "Ouverture type valise",
+          "Compartiment compressible",
+          "Compartiment ordinateur séparé",
+          "Compartiments d’organisation",
+          "Bretelles de sac à dos"
+        ],
+        "why": "Parce qu’un bon bagage ne doit pas seulement contenir vos affaires : il doit rendre le voyage plus simple. Nous l’avons retenu pour son organisation intérieure, son ouverture pratique et sa capacité à réunir vêtements et équipement de travail dans un seul sac.",
+        "faq": [
+          [
+            "Le sac convient-il pour un week-end ?",
+            "Il est particulièrement adapté aux courts séjours et aux déplacements où vous voulez réunir vêtements et équipement de travail dans un seul sac."
+          ],
+          [
+            "Le compartiment compresse-t-il réellement les vêtements ?",
+            "Il est conçu pour aider à réduire le volume des vêtements souples. Le résultat dépend du type et de la quantité de vêtements."
+          ],
+          [
+            "Puis-je y transporter un ordinateur ?",
+            "Oui, le sac possède un compartiment ordinateur séparé."
+          ]
+        ],
+        "final": "Moins de chaos. Plus de voyage."
+      },
+      "de": {
+        "lead": "Für Wochenenden, Städtetrips und Geschäftsreisen: Kleidung, Laptop und Essentials in einem einzigen Rucksack, der den Alltag unterwegs leichter macht.",
+        "benefits": [
+          "Mehr Platz dank komprimierbarem Fach für weiche Kleidung.",
+          "Öffnet wie ein Koffer — Sie sehen sofort, was Sie dabeihaben.",
+          "Ihr Laptop bleibt im eigenen Fach getrennt.",
+          "Vom Pendeln zum Wochenende, ohne mehrere Taschen."
+        ],
+        "story": [
+          {
+            "title": "Ein Platz für alles.",
+            "text": "Unterwegs wird es schnell unordentlich, wenn Kleidung, Kabel, Laptop und Kleinkram denselben Raum teilen. Der Vacuum Pack Pro trennt, was getrennt gehört, und macht alles leichter auffindbar."
+          },
+          {
+            "title": "Nehmen Sie Ihre Kleidung mit. Nicht ihr Volumen.",
+            "text": "Das komprimierbare Fach hilft, den Platzbedarf weicher Kleidung zu reduzieren, und hält den Rest des Rucksacks geordnet."
+          },
+          {
+            "title": "Er öffnet wie ein Koffer.",
+            "text": "Kein Wühlen von oben mehr. Rucksack flach aufklappen und den Inhalt auf einen Blick sehen."
+          },
+          {
+            "title": "Ihr Laptop behält seinen Platz.",
+            "text": "Das separate Fach hält den Laptop griffbereit, ohne Kleidung und persönliche Sachen durcheinanderzubringen."
+          }
+        ],
+        "ideal": [
+          {
+            "t": "Wochenende",
+            "s": "Das Nötigste für ein paar Tage in einem Format."
+          },
+          {
+            "t": "Städtetrip",
+            "s": "Die Hände bleiben frei."
+          },
+          {
+            "t": "Geschäftsreise",
+            "s": "Arbeitsausrüstung getrennt vom Rest."
+          },
+          {
+            "t": "Zug & Flugzeug",
+            "s": "Praktischer organisiert, wenn Sie oft unterwegs sind."
+          }
+        ],
+        "details": [
+          "Kofferöffnung",
+          "Komprimierbares Fach",
+          "Separates Laptopfach",
+          "Organisationsfächer",
+          "Rucksackträger"
+        ],
+        "why": "Weil gutes Gepäck nicht nur Sachen tragen, sondern die Reise einfacher machen soll. Wir haben ihn wegen seiner Innenorganisation, der praktischen Öffnung und weil er Kleidung und Arbeitsausrüstung in einer Tasche vereint, ausgewählt.",
+        "faq": [
+          [
+            "Eignet sich der Rucksack für ein Wochenende?",
+            "Ja, besonders für Kurztrips, bei denen Kleidung und Arbeitsausrüstung in eine Tasche sollen."
+          ],
+          [
+            "Komprimiert das Fach die Kleidung wirklich?",
+            "Es hilft, das Volumen weicher Kleidung zu reduzieren. Das Ergebnis hängt von Art und Menge der Kleidung ab."
+          ],
+          [
+            "Passt ein Laptop hinein?",
+            "Ja, der Rucksack hat ein separates Laptopfach."
+          ]
+        ],
+        "final": "Weniger Chaos. Mehr Reise."
+      },
+      "en": {
+        "lead": "Built for weekends, city trips and business travel: clothes, laptop and essentials in one bag that makes life on the move easier.",
+        "benefits": [
+          "Gain space with the compressible compartment for soft clothing.",
+          "Open it like a suitcase and see everything you packed at once.",
+          "Keep your laptop apart in its own compartment.",
+          "Go from commute to weekend without juggling bags."
+        ],
+        "story": [
+          {
+            "title": "A place for everything.",
+            "text": "A trip gets messy fast when clothes, cables, laptop and small things share one space. The Vacuum Pack Pro separates what should be separate and makes everything easier to find."
+          },
+          {
+            "title": "Take your clothes. Not their volume.",
+            "text": "The compressible compartment helps reduce the space soft clothing takes up and keeps the rest of the bag organised."
+          },
+          {
+            "title": "It opens like a suitcase.",
+            "text": "No more digging from the top. Open the bag flat and see its contents at a glance."
+          },
+          {
+            "title": "Your laptop keeps its place.",
+            "text": "The separate compartment keeps your laptop within reach without disturbing your clothes and personal things."
+          }
+        ],
+        "ideal": [
+          {
+            "t": "Weekend",
+            "s": "A few days’ essentials in a single bag."
+          },
+          {
+            "t": "City trip",
+            "s": "Keep your hands free on the move."
+          },
+          {
+            "t": "Business trip",
+            "s": "Keep work gear apart from everything else."
+          },
+          {
+            "t": "Train & plane",
+            "s": "Better organised when you’re often on the move."
+          }
+        ],
+        "details": [
+          "Suitcase-style opening",
+          "Compressible compartment",
+          "Separate laptop compartment",
+          "Organiser pockets",
+          "Backpack straps"
+        ],
+        "why": "Because good luggage shouldn’t just hold your things — it should make the trip simpler. We chose it for its inner organisation, its practical opening and the way it brings clothes and work gear together in one bag.",
+        "faq": [
+          [
+            "Is it suitable for a weekend?",
+            "Yes, especially for short trips where you want clothes and work gear in a single bag."
+          ],
+          [
+            "Does the compartment really compress clothes?",
+            "It is designed to help reduce the volume of soft clothing. Results depend on the type and amount of clothes."
+          ],
+          [
+            "Can I carry a laptop?",
+            "Yes, the bag has a separate laptop compartment."
+          ]
+        ],
+        "final": "Less chaos. More travel."
+      }
+    }
   },
   {
     "id": "modular-toiletry",
@@ -97,7 +306,8 @@
           "Abnehmbare Module für jede Reise",
           "Wasserabweisendes Material",
           "Alles auf einen Blick statt Suchen"
-        ]
+        ],
+        "short": "Das ganze Bad in einer Tasche."
       },
       "fr": {
         "tagline": "Toute la salle de bain dans la valise — suspendue et prête en un geste.",
@@ -107,7 +317,8 @@
           "Modules amovibles selon le voyage",
           "Matière déperlante",
           "Tout est visible, plus besoin de chercher"
-        ]
+        ],
+        "short": "La salle de bain qui tient dans une trousse."
       },
       "en": {
         "tagline": "Your whole bathroom in the suitcase — hung up and ready in seconds.",
@@ -117,7 +328,8 @@
           "Detachable modules for every trip",
           "Water-repellent material",
           "Everything in sight, no more searching"
-        ]
+        ],
+        "short": "The bathroom that fits in a bag."
       }
     },
     "supplier": {
@@ -174,7 +386,8 @@
           "Faltbar und leicht für die Jackentasche",
           "Für Flugzeug, Zug und Hotel",
           "Passt zu den meisten Smartphones"
-        ]
+        ],
+        "short": "Filme schauen, Hände frei."
       },
       "fr": {
         "tagline": "Regarder un film en avion sans tenir son téléphone.",
@@ -184,7 +397,8 @@
           "Pliable et léger, tient dans une poche",
           "Pour l’avion, le train et l’hôtel",
           "Compatible avec la plupart des smartphones"
-        ]
+        ],
+        "short": "Vos films, les mains libres."
       },
       "en": {
         "tagline": "Watch films on the plane without holding your phone.",
@@ -194,7 +408,8 @@
           "Foldable and light, fits in a pocket",
           "For planes, trains and hotels",
           "Fits most smartphones"
-        ]
+        ],
+        "short": "Your films, hands free."
       }
     },
     "supplier": {
@@ -250,7 +465,8 @@
           "Fächer für Ringe, Ohrringe und Armbänder",
           "Flach aufgerollt im Koffer",
           "Ideal als Geschenk"
-        ]
+        ],
+        "short": "Schmuck ohne Knoten."
       },
       "fr": {
         "tagline": "Des colliers sans nœuds, des boucles d’oreilles sans chercher.",
@@ -260,7 +476,8 @@
           "Compartiments pour bagues, boucles et bracelets",
           "Se roule à plat dans la valise",
           "Idéal en cadeau"
-        ]
+        ],
+        "short": "Vos bijoux, sans nœuds."
       },
       "en": {
         "tagline": "Necklaces without knots, earrings without searching.",
@@ -270,7 +487,8 @@
           "Pockets for rings, earrings and bracelets",
           "Rolls flat in the suitcase",
           "A great gift"
-        ]
+        ],
+        "short": "Jewellery without tangles."
       }
     },
     "supplier": {
@@ -382,7 +600,8 @@
           "8-teiliges Set: Kleidung, Unterwäsche, Schuhe, Kabel",
           "Leichtes, robustes Gewebe mit Sichtfenster",
           "Passt in Koffer, Handgepäck und Rucksack"
-        ]
+        ],
+        "short": "Ein Platz für alles, von der Abreise bis zurück."
       },
       "fr": {
         "tagline": "Huit cubes. Une valise où tout se retrouve.",
@@ -391,7 +610,8 @@
           "Set de 8 : vêtements, sous-vêtements, chaussures, câbles",
           "Tissu léger et résistant avec fenêtre",
           "Pour valise, bagage cabine et sac à dos"
-        ]
+        ],
+        "short": "Une place pour tout, du départ au retour."
       },
       "en": {
         "tagline": "Eight cubes. A suitcase where you find everything.",
@@ -400,7 +620,8 @@
           "8-piece set: clothes, underwear, shoes, cables",
           "Light, sturdy fabric with see-through window",
           "Fits suitcases, carry-ons and backpacks"
-        ]
+        ],
+        "short": "A place for everything, there and back."
       }
     },
     "seo": {
@@ -466,7 +687,8 @@
           "Große Öffnung mit formstabilem Rahmen",
           "Weiches, abwischbares Kunstleder",
           "Platz für Make-up, Pflege und Pinsel"
-        ]
+        ],
+        "short": "Ihr Make-up auf einen Blick."
       },
       "fr": {
         "tagline": "Grande ouverture, tout d’un coup d’œil.",
@@ -475,7 +697,8 @@
           "Grande ouverture avec cadre qui garde sa forme",
           "Similicuir doux, facile à essuyer",
           "De la place pour maquillage, soins et pinceaux"
-        ]
+        ],
+        "short": "Tout votre maquillage d’un coup d’œil."
       },
       "en": {
         "tagline": "Wide open, everything at a glance.",
@@ -484,7 +707,8 @@
           "Wide opening with shape-holding frame",
           "Soft, wipe-clean faux leather",
           "Room for make-up, skincare and brushes"
-        ]
+        ],
+        "short": "All your make-up at a glance."
       }
     },
     "seo": {
@@ -548,7 +772,8 @@
           "Aufblasbares H-Kissen stützt Kinn und Nacken",
           "Kapuze dunkelt ab und schirmt ab",
           "Faltet sich klein für das Handgepäck"
-        ]
+        ],
+        "short": "Kapuze auf, Welt aus."
       },
       "fr": {
         "tagline": "Capuche sur la tête, le monde en pause.",
@@ -557,7 +782,8 @@
           "Coussin gonflable en H qui soutient menton et nuque",
           "Capuche qui assombrit et isole",
           "Se replie tout petit pour le bagage cabine"
-        ]
+        ],
+        "short": "Capuche sur la tête, le monde en pause."
       },
       "en": {
         "tagline": "Hood up, world off.",
@@ -566,7 +792,8 @@
           "Inflatable H-shape supports chin and neck",
           "Hood darkens and shields",
           "Folds small for your carry-on"
-        ]
+        ],
+        "short": "Hood up, world off."
       }
     },
     "seo": {
@@ -631,7 +858,8 @@
           "3D-Form: kein Druck auf die Augen",
           "Verstellbares Band, auch für Seitenschläfer",
           "Leicht genug für jede Jackentasche"
-        ]
+        ],
+        "short": "Ganz dunkel, ohne Druck."
       },
       "fr": {
         "tagline": "Le noir complet, même au-dessus des nuages.",
@@ -640,7 +868,8 @@
           "Forme 3D : aucune pression sur les yeux",
           "Bandeau réglable, même pour dormir sur le côté",
           "Assez léger pour une poche de veste"
-        ]
+        ],
+        "short": "Le noir complet, sans pression."
       },
       "en": {
         "tagline": "Darkness, even above the clouds.",
@@ -649,7 +878,8 @@
           "3D shape: no pressure on the eyes",
           "Adjustable strap, side-sleeper friendly",
           "Light enough for any jacket pocket"
-        ]
+        ],
+        "short": "Total darkness, no pressure."
       }
     },
     "seo": {
@@ -714,7 +944,8 @@
           "Separates Schuhfach und Nassfach",
           "Wasserabweisendes Oxford-Gewebe",
           "Als Handgepäck, Sport- oder Wochenendtasche"
-        ]
+        ],
+        "short": "Ein Wochenende, eine Tasche."
       },
       "fr": {
         "tagline": "Un week-end, un seul sac.",
@@ -723,7 +954,8 @@
           "Compartiment chaussures et poche humide séparés",
           "Tissu Oxford déperlant",
           "En bagage cabine, sac de sport ou de week-end"
-        ]
+        ],
+        "short": "Un week-end, un seul sac."
       },
       "en": {
         "tagline": "One weekend, one bag.",
@@ -732,7 +964,8 @@
           "Separate shoe and wet compartments",
           "Water-repellent Oxford fabric",
           "Carry-on, gym or weekend bag"
-        ]
+        ],
+        "short": "One weekend, one bag."
       }
     },
     "seo": {
@@ -797,7 +1030,8 @@
           "Metallgehäuse mit RFID-Schutz",
           "Karten per Schieber auffächern",
           "Flach genug für jede Hosentasche"
-        ]
+        ],
+        "short": "Karten griffbereit, Daten geschützt."
       },
       "fr": {
         "tagline": "Cartes à portée de main, données protégées.",
@@ -806,7 +1040,8 @@
           "Boîtier métal avec protection RFID",
           "Cartes déployées d’un geste",
           "Assez plat pour toutes les poches"
-        ]
+        ],
+        "short": "Cartes à portée de main, données protégées."
       },
       "en": {
         "tagline": "Cards at hand, data protected.",
@@ -815,7 +1050,8 @@
           "Metal case with RFID protection",
           "Fan out cards with one slide",
           "Slim enough for any pocket"
-        ]
+        ],
+        "short": "Cards at hand, data protected."
       }
     },
     "seo": {
@@ -867,10 +1103,10 @@
     "price": 3290,
     "compare": 3990,
     "images": [
-      "travel-pillow-1.webp",
-      "travel-pillow-2.webp",
       "sleep-mask-1.webp",
-      "sleep-mask-2.webp"
+      "sleep-mask-2.webp",
+      "travel-pillow-1.webp",
+      "travel-pillow-2.webp"
     ],
     "name": "Sleep on Board Kit",
     "text": {
@@ -882,7 +1118,8 @@
           "Aufblasbares H-Kissen mit Kapuze",
           "3D-Schlafmaske ohne Druck auf die Augen",
           "Beides passt in eine Jackentasche"
-        ]
+        ],
+        "short": "Licht aus, endlich schlafen."
       },
       "fr": {
         "badge": "Dormir en avion",
@@ -892,7 +1129,8 @@
           "Coussin gonflable en H avec capuche",
           "Masque 3D sans pression sur les yeux",
           "Le tout tient dans une poche de veste"
-        ]
+        ],
+        "short": "Pour couper la lumière et dormir enfin."
       },
       "en": {
         "badge": "Sleep on the plane",
@@ -902,7 +1140,8 @@
           "Inflatable hooded H-pillow",
           "3D sleep mask with no eye pressure",
           "Both fit in a jacket pocket"
-        ]
+        ],
+        "short": "Shut out the light and finally sleep."
       }
     },
     "seo": {

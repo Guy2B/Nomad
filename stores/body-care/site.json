@@ -235,5 +235,1046 @@
   "byline": "by ALGBr",
   "aliases": [
     "https://ease.algbr.de"
-  ]
+  ],
+  "ui": {
+    "de": {
+      "promo": "Versand mit Sendungsverfolgung · Sichere Zahlung · 14 Tage Widerruf",
+      "nav": {
+        "shop": "Produkte",
+        "guide": "Ratgeber",
+        "why": "Warum EASE",
+        "track": "Bestellung verfolgen"
+      },
+      "hero": {
+        "label": "Wellness für lange Bildschirmtage",
+        "title": [
+          "8 Stunden sitzen.",
+          "10 Minuten für Sie."
+        ],
+        "signature": "Move with ease.",
+        "text": "Kurze Routinen und manuelle Accessoires, die Bewegung und Komfort in lange Tage am Bildschirm zurückbringen.",
+        "cta": "Routinen entdecken",
+        "cta2": "Die 10-Minuten-Routine",
+        "cta2Href": "GUIDE",
+        "micro": "100 % manuell · Ohne Akku und App · Sichere Zahlung"
+      },
+      "trust": [
+        {
+          "t": "Versand mit Tracking",
+          "s": "Sie wissen immer, wo Ihre Bestellung ist."
+        },
+        {
+          "t": "Sichere Zahlung",
+          "s": "Karte, Apple Pay und Google Pay über Stripe."
+        },
+        {
+          "t": "14 Tage Widerruf",
+          "s": "Bestellen ohne Druck."
+        },
+        {
+          "t": "Persönlicher Support",
+          "s": "Eine Frage? Wir antworten wirklich."
+        }
+      ],
+      "featured": {
+        "id": "full-body-care",
+        "label": "Die komplette Routine",
+        "pitch": "Alles für eine Feierabend-Routine, von den Füßen bis zum Nacken.",
+        "sub": "Sechs manuelle Accessoires in einem Set: Fußroller, Zehentrenner, Nackenroller, Handballenauflage, Handtrainer und Stretchband.",
+        "benefits": [
+          {
+            "t": "Eine Routine, kein Gadget",
+            "s": "Jedes Teil hat seinen Platz in 10 Minuten."
+          },
+          {
+            "t": "Leise",
+            "s": "Ohne Akku, bürotauglich."
+          },
+          {
+            "t": "Geschenkidee",
+            "s": "Für Homeoffice-Menschen und lange Sitztage."
+          }
+        ],
+        "cta": "Full Body Ease entdecken",
+        "link": "Alle Routinen ansehen"
+      },
+      "collection": {
+        "label": "Nach Tagesmoment",
+        "title": [
+          "Ein Moment des Tages.",
+          "Eine Routine, die passt."
+        ],
+        "text": "Sets für einen bestimmten Moment, jedes Accessoire auch einzeln. Allgemeine Wellness-Accessoires, keine Medizinprodukte.",
+        "groups": [
+          {
+            "key": "feet",
+            "title": "Füße",
+            "ids": [
+              "foot-care",
+              "foot-roller",
+              "toe-separators"
+            ]
+          },
+          {
+            "key": "desk",
+            "title": "Am Schreibtisch",
+            "ids": [
+              "hand-wrist-care",
+              "wrist-rest",
+              "hand-grip",
+              "seat-cushion"
+            ]
+          },
+          {
+            "key": "neck",
+            "title": "Nacken & Rücken",
+            "ids": [
+              "neck-shoulder-care",
+              "neck-roller",
+              "back-stretcher",
+              "massage-cone"
+            ]
+          },
+          {
+            "key": "move",
+            "title": "Bewegung",
+            "ids": [
+              "full-body-care",
+              "mobility-care",
+              "floor-routine",
+              "stretch-band",
+              "yoga-mat",
+              "yoga-strap",
+              "yoga-block",
+              "foam-roller-set"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Bildschirm zu.",
+          "Zurück zu sich."
+        ],
+        "cards": [
+          {
+            "title": "Tastaturpause",
+            "text": "Zwei Minuten für Hände und Handgelenke, zwischen zwei Meetings.",
+            "cta": "Schreibtisch-Auswahl ansehen",
+            "href": "#g-desk"
+          },
+          {
+            "title": "Feierabend",
+            "text": "Eine ruhige Routine, die den Arbeitstag abschließt.",
+            "cta": "Die 10-Minuten-Routine lesen",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Am Boden, zu Hause",
+            "text": "Matte, Block und Gurt für ein paar Minuten Bewegung am Tag.",
+            "cta": "Bewegungs-Auswahl ansehen",
+            "href": "#g-move"
+          }
+        ]
+      },
+      "why": {
+        "label": "Wie wir auswählen",
+        "title": [
+          "Kein medizinisches Versprechen.",
+          "Eine Routine, die guttut."
+        ],
+        "text": [
+          "Bildschirmtage lassen wenig Raum für Bewegung. EASE verspricht weder Diagnose noch Behandlung — nur Komfort und eine kleine Routine, die man beibehält.",
+          "Wir wählen manuelle, leise Accessoires, die im Büro wie zu Hause einfach zu nutzen sind."
+        ],
+        "principles": [
+          {
+            "t": "100 % manuell",
+            "s": "Kein Akku, keine App, kein Abo."
+          },
+          {
+            "t": "Kurz und regelmäßig",
+            "s": "5 bis 10 Minuten reichen für eine echte Pause."
+          },
+          {
+            "t": "Ehrlich",
+            "s": "Allgemeine Wellness-Accessoires, nie als Medizinprodukte dargestellt."
+          }
+        ]
+      },
+      "how": {
+        "title": "Eine Routine in drei Schritten.",
+        "steps": [
+          {
+            "t": "Moment auswählen",
+            "s": "Tastaturpause, Feierabend oder Bewegung am Boden."
+          },
+          {
+            "t": "Bestellen",
+            "s": "Sicher bezahlen mit Karte, Apple Pay oder Google Pay."
+          },
+          {
+            "t": "Verfolgen",
+            "s": "Bestätigung und Sendungsverfolgung kommen per E-Mail."
+          }
+        ],
+        "help": "Zum Einstieg: die 10-Minuten-Routine lesen"
+      },
+      "guides": {
+        "title": "Wohlbefinden beginnt mit einer kleinen Gewohnheit.",
+        "soon": [
+          "5 Minuten Bewegung zwischen zwei Meetings",
+          "Den Homeoffice-Platz einrichten"
+        ],
+        "soonLabel": "Demnächst",
+        "read": "Ratgeber lesen"
+      },
+      "faq": {
+        "title": "Häufige Fragen",
+        "items": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage. Sie erhalten eine Sendungsnummer, sobald das Paket unterwegs ist."
+          ],
+          [
+            "Was kostet der Versand?",
+            "Der Versand ist kostenlos."
+          ],
+          [
+            "Kann ich zurückgeben?",
+            "Ja: Sie haben 14 Tage Widerrufsrecht ab Erhalt. Schreiben Sie uns an contact@algbr.de."
+          ],
+          [
+            "Wie kann ich bezahlen?",
+            "Mit Karte, Apple Pay, Google Pay und weiteren Methoden über Stripe. Wir sehen Ihre Kartendaten nie."
+          ],
+          [
+            "Wie verfolge ich meine Bestellung?",
+            "Mit Bestellnummer und E-Mail auf der Seite „Bestellung verfolgen“."
+          ],
+          [
+            "Sind das Medizinprodukte?",
+            "Nein. Es sind allgemeine Wellness-, Komfort- und Bewegungsaccessoires. Bei anhaltenden Beschwerden bitte fachlichen Rat einholen."
+          ],
+          [
+            "Wie lange dauert eine Routine?",
+            "Die Routinen dauern 5 bis 10 Minuten. Passen Sie die Nutzung Ihrem Komfort und der Produktanleitung an."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Bereit für eine Pause?",
+        "title": [
+          "Weniger steif durch den Tag.",
+          "Mehr Raum für Sie."
+        ],
+        "text": "Einfache Routinen für lange Bildschirmtage.",
+        "cta": "Routinen ansehen",
+        "cta2": "Routine lesen"
+      },
+      "footer": {
+        "tagline": "Kurze Routinen für lange Bildschirmtage.",
+        "rights": "Eine Marke von ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Alle Produkte",
+                "#produkte"
+              ],
+              [
+                "Füße",
+                "#g-feet"
+              ],
+              [
+                "Am Schreibtisch",
+                "#g-desk"
+              ],
+              [
+                "Bewegung",
+                "#g-move"
+              ]
+            ]
+          },
+          {
+            "title": "Ratgeber",
+            "links": [
+              [
+                "Reise-Ratgeber",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Bestellung verfolgen",
+                "bestellung.html"
+              ],
+              [
+                "Versand & Zahlung",
+                "versand.html"
+              ],
+              [
+                "Rückgabe",
+                "widerruf.html"
+              ],
+              [
+                "Kontakt",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informationen",
+            "links": [
+              [
+                "AGB",
+                "agb.html"
+              ],
+              [
+                "Datenschutz",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Widerruf",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Kollektion",
+        "trust": [
+          "🔒 Sichere Zahlung mit Stripe",
+          "🚚 Versand mit Tracking · ca. {days} Werktage",
+          "↩ 14 Tage Widerrufsrecht",
+          "🧾 Rechnung per E-Mail"
+        ],
+        "idealTitle": "Für welchen Moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Warum es bei EASE ist",
+        "whyDefault": "Wir haben es ausgewählt, weil es einfach, manuell und leicht in eine kurze tägliche Routine einzubauen ist.",
+        "crossTitle": "Ihre Routine vervollständigen",
+        "addAll": "Alle in den Warenkorb",
+        "faqTitle": "Häufige Fragen",
+        "faqDefault": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage, mit Sendungsverfolgung."
+          ],
+          [
+            "Kann ich es zurückgeben?",
+            "Ja, Sie haben 14 Tage Widerrufsrecht ab Erhalt."
+          ],
+          [
+            "Wie bezahle ich?",
+            "Karte, Apple Pay oder Google Pay über Stripe. Die Rechnung kommt per E-Mail."
+          ]
+        ],
+        "finalTitle": "Bildschirm zu. 10 Minuten für Sie.",
+        "finalMicro": "Sichere Zahlung · Versand mit Tracking · 14 Tage Widerruf"
+      }
+    },
+    "fr": {
+      "promo": "Livraison suivie · Paiement sécurisé · 14 jours pour changer d’avis",
+      "nav": {
+        "shop": "Produits",
+        "guide": "Conseils",
+        "why": "Pourquoi EASE",
+        "track": "Suivre ma commande"
+      },
+      "hero": {
+        "label": "Bien-être pour les longues journées d’écran",
+        "title": [
+          "8 heures assis.",
+          "10 minutes pour vous."
+        ],
+        "signature": "Move with ease.",
+        "text": "Des routines courtes et des accessoires manuels pour remettre du mouvement et du confort dans les journées passées devant un écran.",
+        "cta": "Découvrir les routines",
+        "cta2": "La routine de 10 minutes",
+        "cta2Href": "GUIDE",
+        "micro": "100 % manuel · Sans batterie ni application · Paiement sécurisé"
+      },
+      "trust": [
+        {
+          "t": "Livraison suivie",
+          "s": "Vous savez où se trouve votre commande."
+        },
+        {
+          "t": "Paiement sécurisé",
+          "s": "Carte, Apple Pay et Google Pay via Stripe."
+        },
+        {
+          "t": "14 jours pour changer d’avis",
+          "s": "Commandez sans pression."
+        },
+        {
+          "t": "Support humain",
+          "s": "Une question ? Nous répondons vraiment."
+        }
+      ],
+      "featured": {
+        "id": "full-body-care",
+        "label": "La routine complète",
+        "pitch": "Tout ce qu’il faut pour une routine de fin de journée, des pieds à la nuque.",
+        "sub": "Six accessoires manuels réunis dans un seul kit : rouleau pieds, séparateurs, rouleau nuque, repose-poignet, grip et bande élastique.",
+        "benefits": [
+          {
+            "t": "Une routine, pas un gadget",
+            "s": "Chaque élément a sa place dans 10 minutes."
+          },
+          {
+            "t": "Silencieux",
+            "s": "Sans batterie, compatible bureau."
+          },
+          {
+            "t": "Idée cadeau",
+            "s": "Pour les télétravailleurs et les journées assises."
+          }
+        ],
+        "cta": "Découvrir Full Body Ease",
+        "link": "Voir toutes les routines"
+      },
+      "collection": {
+        "label": "Par moment de la journée",
+        "title": [
+          "Un moment de la journée.",
+          "Une routine qui lui va."
+        ],
+        "text": "Des kits pensés pour un moment précis, et chaque accessoire disponible à l’unité. Accessoires de bien-être général, pas des dispositifs médicaux.",
+        "groups": [
+          {
+            "key": "feet",
+            "title": "Pieds",
+            "ids": [
+              "foot-care",
+              "foot-roller",
+              "toe-separators"
+            ]
+          },
+          {
+            "key": "desk",
+            "title": "Au bureau",
+            "ids": [
+              "hand-wrist-care",
+              "wrist-rest",
+              "hand-grip",
+              "seat-cushion"
+            ]
+          },
+          {
+            "key": "neck",
+            "title": "Nuque & dos",
+            "ids": [
+              "neck-shoulder-care",
+              "neck-roller",
+              "back-stretcher",
+              "massage-cone"
+            ]
+          },
+          {
+            "key": "move",
+            "title": "Bouger",
+            "ids": [
+              "full-body-care",
+              "mobility-care",
+              "floor-routine",
+              "stretch-band",
+              "yoga-mat",
+              "yoga-strap",
+              "yoga-block",
+              "foam-roller-set"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Fermez l’écran.",
+          "Revenez à vous."
+        ],
+        "cards": [
+          {
+            "title": "Pause clavier",
+            "text": "Deux minutes pour les mains et les poignets, entre deux réunions.",
+            "cta": "Voir la sélection bureau",
+            "href": "#g-desk"
+          },
+          {
+            "title": "Fin de journée",
+            "text": "Une routine calme pour marquer la fin du travail.",
+            "cta": "Lire la routine de 10 minutes",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Au sol, à la maison",
+            "text": "Tapis, brique et sangle pour bouger quelques minutes chaque jour.",
+            "cta": "Voir la sélection mouvement",
+            "href": "#g-move"
+          }
+        ]
+      },
+      "why": {
+        "label": "Notre façon de choisir",
+        "title": [
+          "Pas de promesse médicale.",
+          "Une routine qui fait du bien."
+        ],
+        "text": [
+          "Les journées d’écran laissent peu de place au mouvement. EASE ne promet ni diagnostic ni traitement — seulement du confort et une petite routine facile à garder.",
+          "Nous choisissons des accessoires manuels, silencieux et simples à utiliser au bureau comme à la maison."
+        ],
+        "principles": [
+          {
+            "t": "100 % manuel",
+            "s": "Ni batterie, ni application, ni abonnement."
+          },
+          {
+            "t": "Court et régulier",
+            "s": "5 à 10 minutes suffisent pour une vraie pause."
+          },
+          {
+            "t": "Honnête",
+            "s": "Des accessoires de bien-être général, jamais présentés comme des dispositifs médicaux."
+          }
+        ]
+      },
+      "how": {
+        "title": "Une routine en trois étapes.",
+        "steps": [
+          {
+            "t": "Choisissez votre moment",
+            "s": "Pause clavier, fin de journée ou mouvement au sol."
+          },
+          {
+            "t": "Commandez",
+            "s": "Paiement sécurisé par carte, Apple Pay ou Google Pay."
+          },
+          {
+            "t": "Suivez",
+            "s": "Vous recevez votre confirmation et les informations de suivi par e-mail."
+          }
+        ],
+        "help": "Pour commencer : lire la routine de 10 minutes"
+      },
+      "guides": {
+        "title": "Le bien-être commence par une petite habitude.",
+        "soon": [
+          "Bouger 5 minutes entre deux réunions",
+          "Préparer son poste de télétravail"
+        ],
+        "soonLabel": "Bientôt",
+        "read": "Lire le guide"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés. Vous recevez un numéro de suivi dès que le colis part."
+          ],
+          [
+            "Combien coûte la livraison ?",
+            "La livraison est offerte."
+          ],
+          [
+            "Puis-je retourner un article ?",
+            "Oui : vous disposez de 14 jours de rétractation à réception. Écrivez-nous à contact@algbr.de."
+          ],
+          [
+            "Comment puis-je payer ?",
+            "Par carte bancaire, Apple Pay, Google Pay et d’autres moyens via Stripe. Nous ne voyons jamais vos données de carte."
+          ],
+          [
+            "Comment suivre ma commande ?",
+            "Avec votre numéro de commande et votre e-mail, sur la page « Suivre ma commande »."
+          ],
+          [
+            "Est-ce un dispositif médical ?",
+            "Non. Ce sont des accessoires de bien-être général, de confort et de mouvement. En cas de douleur persistante, demandez conseil à un professionnel."
+          ],
+          [
+            "Combien de temps dure une routine ?",
+            "Les routines proposées durent 5 à 10 minutes. Adaptez l’usage à votre confort et aux instructions de chaque produit."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Prêt pour une pause ?",
+        "title": [
+          "Moins de raideur dans la journée.",
+          "Plus de place pour vous."
+        ],
+        "text": "Des routines simples pour les journées passées devant un écran.",
+        "cta": "Voir les routines",
+        "cta2": "Lire la routine"
+      },
+      "footer": {
+        "tagline": "Des routines courtes pour les longues journées d’écran.",
+        "rights": "Une marque ALGBr.",
+        "cols": [
+          {
+            "title": "Boutique",
+            "links": [
+              [
+                "Toute la collection",
+                "#produkte"
+              ],
+              [
+                "Pieds",
+                "#g-feet"
+              ],
+              [
+                "Au bureau",
+                "#g-desk"
+              ],
+              [
+                "Bouger",
+                "#g-move"
+              ]
+            ]
+          },
+          {
+            "title": "Conseils",
+            "links": [
+              [
+                "Guides",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Suivre ma commande",
+                "bestellung.html"
+              ],
+              [
+                "Livraison & paiement",
+                "versand.html"
+              ],
+              [
+                "Retours",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informations",
+            "links": [
+              [
+                "CGV",
+                "agb.html"
+              ],
+              [
+                "Confidentialité",
+                "datenschutz.html"
+              ],
+              [
+                "Mentions légales",
+                "impressum.html"
+              ],
+              [
+                "Rétractation",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Paiement sécurisé avec Stripe",
+          "🚚 Livraison suivie · délai estimé {days} jours ouvrés",
+          "↩ 14 jours pour changer d’avis",
+          "🧾 Facture par e-mail"
+        ],
+        "idealTitle": "Pour quel moment ?",
+        "detailsTitle": "Détails",
+        "whyTitle": "Pourquoi il est chez EASE",
+        "whyDefault": "Nous l’avons retenu parce qu’il est simple, manuel et facile à intégrer dans une courte routine quotidienne.",
+        "crossTitle": "Complétez votre routine",
+        "addAll": "Tout ajouter au panier",
+        "faqTitle": "Questions fréquentes",
+        "faqDefault": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés, avec suivi."
+          ],
+          [
+            "Puis-je le retourner ?",
+            "Oui, vous disposez de 14 jours de rétractation à réception."
+          ],
+          [
+            "Comment payer ?",
+            "Carte, Apple Pay ou Google Pay via Stripe. La facture arrive par e-mail."
+          ]
+        ],
+        "finalTitle": "Fermez l’écran. Prenez 10 minutes.",
+        "finalMicro": "Paiement sécurisé · Livraison suivie · 14 jours de rétractation"
+      }
+    },
+    "en": {
+      "promo": "Tracked shipping · Secure payment · 14 days to change your mind",
+      "nav": {
+        "shop": "Products",
+        "guide": "Guides",
+        "why": "Why EASE",
+        "track": "Track my order"
+      },
+      "hero": {
+        "label": "Wellness for long screen days",
+        "title": [
+          "8 hours sitting.",
+          "10 minutes for you."
+        ],
+        "signature": "Move with ease.",
+        "text": "Short routines and manual accessories that bring movement and comfort back into long days at the screen.",
+        "cta": "Discover the routines",
+        "cta2": "The 10-minute routine",
+        "cta2Href": "GUIDE",
+        "micro": "100 % manual · No battery, no app · Secure payment"
+      },
+      "trust": [
+        {
+          "t": "Tracked shipping",
+          "s": "You always know where your order is."
+        },
+        {
+          "t": "Secure payment",
+          "s": "Card, Apple Pay and Google Pay via Stripe."
+        },
+        {
+          "t": "14 days to change your mind",
+          "s": "Order without pressure."
+        },
+        {
+          "t": "Human support",
+          "s": "A question? We actually answer."
+        }
+      ],
+      "featured": {
+        "id": "full-body-care",
+        "label": "The complete routine",
+        "pitch": "Everything for an end-of-day routine, from feet to neck.",
+        "sub": "Six manual accessories in one set: foot roller, toe separators, neck roller, wrist rest, hand grip and stretch band.",
+        "benefits": [
+          {
+            "t": "A routine, not a gadget",
+            "s": "Every piece has its place in 10 minutes."
+          },
+          {
+            "t": "Quiet",
+            "s": "No battery, office-friendly."
+          },
+          {
+            "t": "Gift idea",
+            "s": "For home-office people and long sitting days."
+          }
+        ],
+        "cta": "Discover Full Body Ease",
+        "link": "See all routines"
+      },
+      "collection": {
+        "label": "By moment of the day",
+        "title": [
+          "One moment of the day.",
+          "A routine that fits it."
+        ],
+        "text": "Sets built for a specific moment, and every accessory sold on its own. General wellness accessories, not medical devices.",
+        "groups": [
+          {
+            "key": "feet",
+            "title": "Feet",
+            "ids": [
+              "foot-care",
+              "foot-roller",
+              "toe-separators"
+            ]
+          },
+          {
+            "key": "desk",
+            "title": "At the desk",
+            "ids": [
+              "hand-wrist-care",
+              "wrist-rest",
+              "hand-grip",
+              "seat-cushion"
+            ]
+          },
+          {
+            "key": "neck",
+            "title": "Neck & back",
+            "ids": [
+              "neck-shoulder-care",
+              "neck-roller",
+              "back-stretcher",
+              "massage-cone"
+            ]
+          },
+          {
+            "key": "move",
+            "title": "Move",
+            "ids": [
+              "full-body-care",
+              "mobility-care",
+              "floor-routine",
+              "stretch-band",
+              "yoga-mat",
+              "yoga-strap",
+              "yoga-block",
+              "foam-roller-set"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Close the screen.",
+          "Come back to yourself."
+        ],
+        "cards": [
+          {
+            "title": "Keyboard break",
+            "text": "Two minutes for hands and wrists, between two meetings.",
+            "cta": "See the desk picks",
+            "href": "#g-desk"
+          },
+          {
+            "title": "End of the day",
+            "text": "A calm routine to close the workday.",
+            "cta": "Read the 10-minute routine",
+            "href": "GUIDE"
+          },
+          {
+            "title": "On the floor, at home",
+            "text": "Mat, block and strap for a few minutes of movement every day.",
+            "cta": "See the movement picks",
+            "href": "#g-move"
+          }
+        ]
+      },
+      "why": {
+        "label": "How we choose",
+        "title": [
+          "No medical promises.",
+          "A routine that feels good."
+        ],
+        "text": [
+          "Screen days leave little room for movement. EASE promises no diagnosis or treatment — just comfort and a small routine you can keep.",
+          "We choose manual, quiet accessories that are easy to use at the office and at home."
+        ],
+        "principles": [
+          {
+            "t": "100 % manual",
+            "s": "No battery, no app, no subscription."
+          },
+          {
+            "t": "Short and regular",
+            "s": "5 to 10 minutes is enough for a real break."
+          },
+          {
+            "t": "Honest",
+            "s": "General wellness accessories, never presented as medical devices."
+          }
+        ]
+      },
+      "how": {
+        "title": "A routine in three steps.",
+        "steps": [
+          {
+            "t": "Choose your moment",
+            "s": "Keyboard break, end of day or floor movement."
+          },
+          {
+            "t": "Order",
+            "s": "Secure payment by card, Apple Pay or Google Pay."
+          },
+          {
+            "t": "Track",
+            "s": "Confirmation and tracking details arrive by e-mail."
+          }
+        ],
+        "help": "To start: read the 10-minute routine"
+      },
+      "guides": {
+        "title": "Wellbeing starts with a small habit.",
+        "soon": [
+          "5 minutes of movement between meetings",
+          "Setting up your home-office corner"
+        ],
+        "soonLabel": "Coming soon",
+        "read": "Read the guide"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days. You get a tracking number as soon as the parcel ships."
+          ],
+          [
+            "How much is shipping?",
+            "Shipping is free."
+          ],
+          [
+            "Can I return an item?",
+            "Yes: you have 14 days to withdraw after delivery. Write to contact@algbr.de."
+          ],
+          [
+            "How can I pay?",
+            "Card, Apple Pay, Google Pay and other methods via Stripe. We never see your card details."
+          ],
+          [
+            "How do I track my order?",
+            "With your order number and e-mail on the “Track my order” page."
+          ],
+          [
+            "Are these medical devices?",
+            "No. They are general wellness, comfort and movement accessories. If discomfort persists, seek qualified professional advice."
+          ],
+          [
+            "How long is a routine?",
+            "The routines take 5 to 10 minutes. Adapt use to your comfort and each product’s instructions."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Ready for a break?",
+        "title": [
+          "Less stiffness through the day.",
+          "More room for you."
+        ],
+        "text": "Simple routines for long screen days.",
+        "cta": "See the routines",
+        "cta2": "Read the routine"
+      },
+      "footer": {
+        "tagline": "Short routines for long screen days.",
+        "rights": "An ALGBr brand.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "All products",
+                "#produkte"
+              ],
+              [
+                "Feet",
+                "#g-feet"
+              ],
+              [
+                "At the desk",
+                "#g-desk"
+              ],
+              [
+                "Move",
+                "#g-move"
+              ]
+            ]
+          },
+          {
+            "title": "Guides",
+            "links": [
+              [
+                "Guides",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Track my order",
+                "bestellung.html"
+              ],
+              [
+                "Shipping & payment",
+                "versand.html"
+              ],
+              [
+                "Returns",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Information",
+            "links": [
+              [
+                "Terms",
+                "agb.html"
+              ],
+              [
+                "Privacy",
+                "datenschutz.html"
+              ],
+              [
+                "Legal notice",
+                "impressum.html"
+              ],
+              [
+                "Withdrawal",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Secure payment with Stripe",
+          "🚚 Tracked shipping · about {days} working days",
+          "↩ 14 days to change your mind",
+          "🧾 Invoice by e-mail"
+        ],
+        "idealTitle": "For which moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Why it’s at EASE",
+        "whyDefault": "We chose it because it is simple, manual and easy to fit into a short daily routine.",
+        "crossTitle": "Complete your routine",
+        "addAll": "Add all to cart",
+        "faqTitle": "Frequently asked questions",
+        "faqDefault": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days, tracked."
+          ],
+          [
+            "Can I return it?",
+            "Yes, you have 14 days to withdraw after delivery."
+          ],
+          [
+            "How do I pay?",
+            "Card, Apple Pay or Google Pay via Stripe. The invoice arrives by e-mail."
+          ]
+        ],
+        "finalTitle": "Close the screen. Take 10 minutes.",
+        "finalMicro": "Secure payment · Tracked shipping · 14-day withdrawal"
+      }
+    }
+  },
+  "showCompare": false
 }

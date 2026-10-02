@@ -134,5 +134,1010 @@
         "title": "Pack less. Go more."
       }
     }
-  }
+  },
+  "ui": {
+    "fr": {
+      "promo": "Livraison suivie · Paiement sécurisé · 14 jours pour changer d’avis",
+      "nav": {
+        "shop": "Produits",
+        "guide": "Conseils",
+        "why": "Pourquoi GO",
+        "track": "Suivre ma commande"
+      },
+      "hero": {
+        "label": "Accessoires de voyage, choisis avec intention",
+        "title": [
+          "Voyagez léger.",
+          "Gardez l’essentiel."
+        ],
+        "signature": "Pack less. Go more.",
+        "text": "Des accessoires utiles pour mieux organiser, transporter et profiter de vos voyages — sans remplir votre valise de gadgets.",
+        "cta": "Découvrir la collection",
+        "cta2": "Préparer mon bagage cabine",
+        "cta2Href": "GUIDE",
+        "micro": "Collection courte · Produits utiles · Paiement sécurisé"
+      },
+      "trust": [
+        {
+          "t": "Livraison suivie",
+          "s": "Vous savez où se trouve votre commande."
+        },
+        {
+          "t": "Paiement sécurisé",
+          "s": "Carte, Apple Pay et Google Pay via Stripe."
+        },
+        {
+          "t": "14 jours pour changer d’avis",
+          "s": "Commandez sans pression."
+        },
+        {
+          "t": "Support humain",
+          "s": "Une question ? Nous répondons vraiment."
+        }
+      ],
+      "featured": {
+        "id": "vacuum-backpack",
+        "label": "L’essentiel GO",
+        "pitch": "Le sac cabine pensé pour faire rentrer davantage, sans transformer votre voyage en déménagement.",
+        "sub": "Une ouverture type valise, un compartiment ordinateur séparé et un espace compressible pour mieux organiser vos vêtements.",
+        "benefits": [
+          {
+            "t": "Plus de place",
+            "s": "Aide à réduire le volume des vêtements souples."
+          },
+          {
+            "t": "Tout à sa place",
+            "s": "Séparez ordinateur, vêtements et essentiels."
+          },
+          {
+            "t": "Pensé pour bouger",
+            "s": "Week-ends, city-trips et déplacements professionnels."
+          }
+        ],
+        "cta": "Découvrir le Vacuum Pack Pro",
+        "link": "Voir toute la collection"
+      },
+      "collection": {
+        "label": "La collection",
+        "title": [
+          "Peu de produits.",
+          "Chacun doit mériter sa place."
+        ],
+        "text": "Nous préférons une sélection courte d’accessoires réellement utiles à un catalogue rempli de gadgets.",
+        "groups": [
+          {
+            "key": "transport",
+            "title": "Transporter",
+            "ids": [
+              "vacuum-backpack",
+              "weekender-bag"
+            ]
+          },
+          {
+            "key": "organise",
+            "title": "Organiser",
+            "ids": [
+              "packing-cubes",
+              "modular-toiletry",
+              "beauty-case"
+            ]
+          },
+          {
+            "key": "comfort",
+            "title": "Voyager confortablement",
+            "ids": [
+              "sleep-kit",
+              "sleep-mask",
+              "travel-pillow"
+            ]
+          },
+          {
+            "key": "access",
+            "title": "Garder l’essentiel accessible",
+            "ids": [
+              "card-holder",
+              "flight-stand",
+              "jewelry-roll"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Partez avec moins.",
+          "Profitez de plus."
+        ],
+        "cards": [
+          {
+            "title": "48 heures ailleurs",
+            "text": "Tout ce qu’il faut pour un week-end, rien de plus.",
+            "cta": "Voir la sélection week-end",
+            "href": "#g-transport"
+          },
+          {
+            "title": "Bagage cabine",
+            "text": "Gagner de la place sans sacrifier ce qui compte.",
+            "cta": "Préparer ma cabine",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Long courrier",
+            "text": "Quelques objets simples qui rendent plusieurs heures d’avion beaucoup plus supportables.",
+            "cta": "Voir les essentiels confort",
+            "href": "#g-comfort"
+          }
+        ]
+      },
+      "why": {
+        "label": "Notre façon de choisir",
+        "title": [
+          "Pas plus d’objets.",
+          "De meilleurs compagnons de voyage."
+        ],
+        "text": [
+          "Internet ne manque pas d’accessoires de voyage. Le vrai problème est de savoir lesquels méritent réellement de prendre de la place dans votre sac.",
+          "GO sélectionne des produits simples à comprendre, faciles à utiliser et capables d’améliorer concrètement un déplacement."
+        ],
+        "principles": [
+          {
+            "t": "Utile avant tout",
+            "s": "S’il ne résout pas un problème réel, il n’entre pas dans la collection."
+          },
+          {
+            "t": "Facile à emporter",
+            "s": "Un accessoire de voyage ne devrait pas devenir une nouvelle contrainte."
+          },
+          {
+            "t": "Choisi, pas accumulé",
+            "s": "Une petite collection cohérente plutôt que des centaines de références interchangeables."
+          }
+        ]
+      },
+      "how": {
+        "title": "Aussi simple que de partir.",
+        "steps": [
+          {
+            "t": "Choisissez",
+            "s": "Une collection courte, pensée autour de besoins de voyage réels."
+          },
+          {
+            "t": "Commandez",
+            "s": "Paiement sécurisé par carte, Apple Pay ou Google Pay."
+          },
+          {
+            "t": "Suivez",
+            "s": "Vous recevez votre confirmation et les informations de suivi par e-mail."
+          }
+        ],
+        "help": "Besoin d’aide avant de choisir ? Lire nos conseils"
+      },
+      "guides": {
+        "title": "Mieux voyager commence avant le départ.",
+        "soon": [
+          "Que mettre dans son bagage cabine pour 3 jours ?",
+          "Comment mieux dormir en avion ?"
+        ],
+        "soonLabel": "Bientôt",
+        "read": "Lire le guide"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés. Vous recevez un numéro de suivi dès que le colis part."
+          ],
+          [
+            "Combien coûte la livraison ?",
+            "La livraison est offerte."
+          ],
+          [
+            "Puis-je retourner un article ?",
+            "Oui : vous disposez de 14 jours de rétractation à réception. Écrivez-nous à contact@algbr.de."
+          ],
+          [
+            "Comment puis-je payer ?",
+            "Par carte bancaire, Apple Pay, Google Pay et d’autres moyens via Stripe. Nous ne voyons jamais vos données de carte."
+          ],
+          [
+            "Comment suivre ma commande ?",
+            "Avec votre numéro de commande et votre e-mail, sur la page « Suivre ma commande »."
+          ],
+          [
+            "Comment choisissez-vous les produits GO ?",
+            "Nous privilégions des produits qui répondent à un problème concret de voyage : gagner de la place, mieux organiser, mieux dormir ou garder l’essentiel accessible."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Prêt à partir ?",
+        "title": [
+          "Moins à transporter.",
+          "Plus à vivre."
+        ],
+        "text": "Découvrez une collection pensée pour rendre les déplacements plus simples.",
+        "cta": "Voir la collection",
+        "cta2": "Lire les conseils"
+      },
+      "footer": {
+        "tagline": "Des accessoires choisis pour voyager plus léger.",
+        "rights": "Une marque ALGBr.",
+        "cols": [
+          {
+            "title": "Boutique",
+            "links": [
+              [
+                "Toute la collection",
+                "#produkte"
+              ],
+              [
+                "Bagages",
+                "#g-transport"
+              ],
+              [
+                "Organisation",
+                "#g-organise"
+              ],
+              [
+                "Confort",
+                "#g-comfort"
+              ]
+            ]
+          },
+          {
+            "title": "Conseils",
+            "links": [
+              [
+                "Guides",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Suivre ma commande",
+                "bestellung.html"
+              ],
+              [
+                "Livraison & paiement",
+                "versand.html"
+              ],
+              [
+                "Retours",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informations",
+            "links": [
+              [
+                "CGV",
+                "agb.html"
+              ],
+              [
+                "Confidentialité",
+                "datenschutz.html"
+              ],
+              [
+                "Mentions légales",
+                "impressum.html"
+              ],
+              [
+                "Rétractation",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Paiement sécurisé avec Stripe",
+          "🚚 Livraison suivie · délai estimé {days} jours ouvrés",
+          "↩ 14 jours pour changer d’avis",
+          "🧾 Facture par e-mail"
+        ],
+        "idealTitle": "Une seule pièce, plusieurs façons de partir.",
+        "detailsTitle": "Détails",
+        "whyTitle": "Pourquoi il est chez GO",
+        "whyDefault": "Nous l’avons retenu parce qu’il résout un problème concret de voyage, simplement, sans encombrer votre sac.",
+        "crossTitle": "Complétez votre setup de voyage",
+        "addAll": "Tout ajouter au panier",
+        "faqTitle": "Questions fréquentes",
+        "faqDefault": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés, avec suivi."
+          ],
+          [
+            "Puis-je le retourner ?",
+            "Oui, vous disposez de 14 jours de rétractation à réception."
+          ],
+          [
+            "Comment payer ?",
+            "Carte, Apple Pay ou Google Pay via Stripe. La facture arrive par e-mail."
+          ]
+        ],
+        "finalTitle": "Moins de chaos. Plus de voyage.",
+        "finalMicro": "Paiement sécurisé · Livraison suivie · 14 jours de rétractation"
+      }
+    },
+    "de": {
+      "promo": "Versand mit Sendungsverfolgung · Sichere Zahlung · 14 Tage Widerruf",
+      "nav": {
+        "shop": "Produkte",
+        "guide": "Ratgeber",
+        "why": "Warum GO",
+        "track": "Bestellung verfolgen"
+      },
+      "hero": {
+        "label": "Reisezubehör, mit Absicht ausgewählt",
+        "title": [
+          "Leicht reisen.",
+          "Das Wesentliche dabei."
+        ],
+        "signature": "Pack less. Go more.",
+        "text": "Nützliche Begleiter, um auf Reisen besser zu packen, zu tragen und mehr davon zu haben — ohne den Koffer mit Gadgets zu füllen.",
+        "cta": "Kollektion entdecken",
+        "cta2": "Handgepäck richtig packen",
+        "cta2Href": "GUIDE",
+        "micro": "Kleine Kollektion · Nützliche Produkte · Sichere Zahlung"
+      },
+      "trust": [
+        {
+          "t": "Versand mit Tracking",
+          "s": "Sie wissen immer, wo Ihre Bestellung ist."
+        },
+        {
+          "t": "Sichere Zahlung",
+          "s": "Karte, Apple Pay und Google Pay über Stripe."
+        },
+        {
+          "t": "14 Tage Widerruf",
+          "s": "Bestellen ohne Druck."
+        },
+        {
+          "t": "Persönlicher Support",
+          "s": "Eine Frage? Wir antworten wirklich."
+        }
+      ],
+      "featured": {
+        "id": "vacuum-backpack",
+        "label": "Das GO-Essential",
+        "pitch": "Der Handgepäck-Rucksack, in den mehr hineinpasst — ohne dass die Reise zum Umzug wird.",
+        "sub": "Kofferöffnung, separates Laptopfach und ein komprimierbarer Bereich, damit Kleidung geordnet bleibt.",
+        "benefits": [
+          {
+            "t": "Mehr Platz",
+            "s": "Hilft, das Volumen weicher Kleidung zu reduzieren."
+          },
+          {
+            "t": "Alles an seinem Platz",
+            "s": "Laptop, Kleidung und Essentials getrennt."
+          },
+          {
+            "t": "Für unterwegs gemacht",
+            "s": "Wochenenden, Städtetrips und Geschäftsreisen."
+          }
+        ],
+        "cta": "Vacuum Pack Pro entdecken",
+        "link": "Ganze Kollektion ansehen"
+      },
+      "collection": {
+        "label": "Die Kollektion",
+        "title": [
+          "Wenige Produkte.",
+          "Jedes muss seinen Platz verdienen."
+        ],
+        "text": "Lieber eine kleine Auswahl wirklich nützlicher Begleiter als ein Katalog voller Gadgets.",
+        "groups": [
+          {
+            "key": "transport",
+            "title": "Tragen",
+            "ids": [
+              "vacuum-backpack",
+              "weekender-bag"
+            ]
+          },
+          {
+            "key": "organise",
+            "title": "Organisieren",
+            "ids": [
+              "packing-cubes",
+              "modular-toiletry",
+              "beauty-case"
+            ]
+          },
+          {
+            "key": "comfort",
+            "title": "Bequem reisen",
+            "ids": [
+              "sleep-kit",
+              "sleep-mask",
+              "travel-pillow"
+            ]
+          },
+          {
+            "key": "access",
+            "title": "Das Wichtigste griffbereit",
+            "ids": [
+              "card-holder",
+              "flight-stand",
+              "jewelry-roll"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Mit weniger los.",
+          "Mehr davon haben."
+        ],
+        "cards": [
+          {
+            "title": "48 Stunden woanders",
+            "text": "Alles für ein Wochenende, nichts mehr.",
+            "cta": "Wochenend-Auswahl ansehen",
+            "href": "#g-transport"
+          },
+          {
+            "title": "Handgepäck",
+            "text": "Platz gewinnen, ohne auf Wichtiges zu verzichten.",
+            "cta": "Handgepäck vorbereiten",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Langstrecke",
+            "text": "Ein paar einfache Dinge, die viele Stunden im Flugzeug deutlich angenehmer machen.",
+            "cta": "Komfort-Essentials ansehen",
+            "href": "#g-comfort"
+          }
+        ]
+      },
+      "why": {
+        "label": "Wie wir auswählen",
+        "title": [
+          "Nicht mehr Dinge.",
+          "Bessere Reisebegleiter."
+        ],
+        "text": [
+          "An Reisezubehör fehlt es im Internet nicht. Die eigentliche Frage ist, welches wirklich Platz in Ihrer Tasche verdient.",
+          "GO wählt Produkte, die leicht zu verstehen, einfach zu nutzen und auf Reisen spürbar hilfreich sind."
+        ],
+        "principles": [
+          {
+            "t": "Zuerst nützlich",
+            "s": "Was kein echtes Problem löst, kommt nicht in die Kollektion."
+          },
+          {
+            "t": "Leicht mitzunehmen",
+            "s": "Reisezubehör sollte keine neue Last werden."
+          },
+          {
+            "t": "Ausgewählt, nicht angehäuft",
+            "s": "Eine kleine, stimmige Kollektion statt hunderter austauschbarer Artikel."
+          }
+        ]
+      },
+      "how": {
+        "title": "So einfach wie losfahren.",
+        "steps": [
+          {
+            "t": "Auswählen",
+            "s": "Eine kleine Kollektion, rund um echte Reisebedürfnisse."
+          },
+          {
+            "t": "Bestellen",
+            "s": "Sicher bezahlen mit Karte, Apple Pay oder Google Pay."
+          },
+          {
+            "t": "Verfolgen",
+            "s": "Bestätigung und Sendungsverfolgung kommen per E-Mail."
+          }
+        ],
+        "help": "Unsicher, was Sie brauchen? Zum Ratgeber"
+      },
+      "guides": {
+        "title": "Gutes Reisen beginnt vor der Abreise.",
+        "soon": [
+          "Was ins Handgepäck für 3 Tage?",
+          "Besser schlafen im Flugzeug"
+        ],
+        "soonLabel": "Demnächst",
+        "read": "Ratgeber lesen"
+      },
+      "faq": {
+        "title": "Häufige Fragen",
+        "items": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage. Sie erhalten eine Sendungsnummer, sobald das Paket unterwegs ist."
+          ],
+          [
+            "Was kostet der Versand?",
+            "Der Versand ist kostenlos."
+          ],
+          [
+            "Kann ich zurückgeben?",
+            "Ja: Sie haben 14 Tage Widerrufsrecht ab Erhalt. Schreiben Sie uns an contact@algbr.de."
+          ],
+          [
+            "Wie kann ich bezahlen?",
+            "Mit Karte, Apple Pay, Google Pay und weiteren Methoden über Stripe. Wir sehen Ihre Kartendaten nie."
+          ],
+          [
+            "Wie verfolge ich meine Bestellung?",
+            "Mit Bestellnummer und E-Mail auf der Seite „Bestellung verfolgen“."
+          ],
+          [
+            "Wie wählt GO die Produkte aus?",
+            "Wir bevorzugen Produkte, die ein konkretes Reiseproblem lösen: Platz gewinnen, besser organisieren, besser schlafen oder das Wichtigste griffbereit haben."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Bereit für die Abreise?",
+        "title": [
+          "Weniger zu tragen.",
+          "Mehr zu erleben."
+        ],
+        "text": "Eine Kollektion, die das Unterwegssein einfacher macht.",
+        "cta": "Kollektion ansehen",
+        "cta2": "Ratgeber lesen"
+      },
+      "footer": {
+        "tagline": "Ausgewähltes Zubehör, um leichter zu reisen.",
+        "rights": "Eine Marke von ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Alle Produkte",
+                "#produkte"
+              ],
+              [
+                "Taschen",
+                "#g-transport"
+              ],
+              [
+                "Organisation",
+                "#g-organise"
+              ],
+              [
+                "Komfort",
+                "#g-comfort"
+              ]
+            ]
+          },
+          {
+            "title": "Ratgeber",
+            "links": [
+              [
+                "Reise-Ratgeber",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Bestellung verfolgen",
+                "bestellung.html"
+              ],
+              [
+                "Versand & Zahlung",
+                "versand.html"
+              ],
+              [
+                "Rückgabe",
+                "widerruf.html"
+              ],
+              [
+                "Kontakt",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informationen",
+            "links": [
+              [
+                "AGB",
+                "agb.html"
+              ],
+              [
+                "Datenschutz",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Widerruf",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Kollektion",
+        "trust": [
+          "🔒 Sichere Zahlung mit Stripe",
+          "🚚 Versand mit Tracking · ca. {days} Werktage",
+          "↩ 14 Tage Widerrufsrecht",
+          "🧾 Rechnung per E-Mail"
+        ],
+        "idealTitle": "Ein Begleiter, viele Arten zu reisen.",
+        "detailsTitle": "Details",
+        "whyTitle": "Warum es bei GO ist",
+        "whyDefault": "Wir haben es ausgewählt, weil es ein konkretes Reiseproblem einfach löst — ohne die Tasche zu füllen.",
+        "crossTitle": "Ihr Reise-Setup vervollständigen",
+        "addAll": "Alle in den Warenkorb",
+        "faqTitle": "Häufige Fragen",
+        "faqDefault": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage, mit Sendungsverfolgung."
+          ],
+          [
+            "Kann ich es zurückgeben?",
+            "Ja, Sie haben 14 Tage Widerrufsrecht ab Erhalt."
+          ],
+          [
+            "Wie bezahle ich?",
+            "Karte, Apple Pay oder Google Pay über Stripe. Die Rechnung kommt per E-Mail."
+          ]
+        ],
+        "finalTitle": "Weniger Chaos. Mehr Reise.",
+        "finalMicro": "Sichere Zahlung · Versand mit Tracking · 14 Tage Widerruf"
+      }
+    },
+    "en": {
+      "promo": "Tracked shipping · Secure payment · 14 days to change your mind",
+      "nav": {
+        "shop": "Products",
+        "guide": "Guides",
+        "why": "Why GO",
+        "track": "Track my order"
+      },
+      "hero": {
+        "label": "Travel accessories, chosen with intent",
+        "title": [
+          "Travel light.",
+          "Keep what matters."
+        ],
+        "signature": "Pack less. Go more.",
+        "text": "Useful accessories to pack, carry and enjoy your trips better — without filling your suitcase with gadgets.",
+        "cta": "Discover the collection",
+        "cta2": "Prepare my carry-on",
+        "cta2Href": "GUIDE",
+        "micro": "Short collection · Useful products · Secure payment"
+      },
+      "trust": [
+        {
+          "t": "Tracked shipping",
+          "s": "You always know where your order is."
+        },
+        {
+          "t": "Secure payment",
+          "s": "Card, Apple Pay and Google Pay via Stripe."
+        },
+        {
+          "t": "14 days to change your mind",
+          "s": "Order without pressure."
+        },
+        {
+          "t": "Human support",
+          "s": "A question? We actually answer."
+        }
+      ],
+      "featured": {
+        "id": "vacuum-backpack",
+        "label": "The GO essential",
+        "pitch": "The carry-on backpack built to fit more — without turning your trip into a house move.",
+        "sub": "A suitcase-style opening, a separate laptop compartment and a compressible section to keep clothes organised.",
+        "benefits": [
+          {
+            "t": "More room",
+            "s": "Helps reduce the volume of soft clothing."
+          },
+          {
+            "t": "Everything in its place",
+            "s": "Laptop, clothes and essentials kept apart."
+          },
+          {
+            "t": "Made to move",
+            "s": "Weekends, city trips and business travel."
+          }
+        ],
+        "cta": "Discover the Vacuum Pack Pro",
+        "link": "See the whole collection"
+      },
+      "collection": {
+        "label": "The collection",
+        "title": [
+          "Few products.",
+          "Each one has to earn its place."
+        ],
+        "text": "We prefer a short selection of genuinely useful accessories to a catalogue full of gadgets.",
+        "groups": [
+          {
+            "key": "transport",
+            "title": "Carry",
+            "ids": [
+              "vacuum-backpack",
+              "weekender-bag"
+            ]
+          },
+          {
+            "key": "organise",
+            "title": "Organise",
+            "ids": [
+              "packing-cubes",
+              "modular-toiletry",
+              "beauty-case"
+            ]
+          },
+          {
+            "key": "comfort",
+            "title": "Travel in comfort",
+            "ids": [
+              "sleep-kit",
+              "sleep-mask",
+              "travel-pillow"
+            ]
+          },
+          {
+            "key": "access",
+            "title": "Keep essentials at hand",
+            "ids": [
+              "card-holder",
+              "flight-stand",
+              "jewelry-roll"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Leave with less.",
+          "Enjoy more."
+        ],
+        "cards": [
+          {
+            "title": "48 hours away",
+            "text": "Everything you need for a weekend, nothing more.",
+            "cta": "See the weekend picks",
+            "href": "#g-transport"
+          },
+          {
+            "title": "Carry-on only",
+            "text": "Gain space without giving up what matters.",
+            "cta": "Prepare my carry-on",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Long haul",
+            "text": "A few simple things that make many hours on a plane far more bearable.",
+            "cta": "See the comfort essentials",
+            "href": "#g-comfort"
+          }
+        ]
+      },
+      "why": {
+        "label": "How we choose",
+        "title": [
+          "Not more things.",
+          "Better travel companions."
+        ],
+        "text": [
+          "The internet has no shortage of travel accessories. The real question is which ones deserve space in your bag.",
+          "GO picks products that are easy to understand, easy to use and genuinely helpful on a trip."
+        ],
+        "principles": [
+          {
+            "t": "Useful first",
+            "s": "If it doesn’t solve a real problem, it doesn’t join the collection."
+          },
+          {
+            "t": "Easy to carry",
+            "s": "A travel accessory shouldn’t become a new burden."
+          },
+          {
+            "t": "Chosen, not piled up",
+            "s": "A small, coherent collection instead of hundreds of interchangeable items."
+          }
+        ]
+      },
+      "how": {
+        "title": "As simple as leaving.",
+        "steps": [
+          {
+            "t": "Choose",
+            "s": "A short collection built around real travel needs."
+          },
+          {
+            "t": "Order",
+            "s": "Secure payment by card, Apple Pay or Google Pay."
+          },
+          {
+            "t": "Track",
+            "s": "Confirmation and tracking details arrive by e-mail."
+          }
+        ],
+        "help": "Need help choosing? Read our guides"
+      },
+      "guides": {
+        "title": "Better trips start before you leave.",
+        "soon": [
+          "What to pack in a carry-on for 3 days?",
+          "How to sleep better on a plane"
+        ],
+        "soonLabel": "Coming soon",
+        "read": "Read the guide"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days. You get a tracking number as soon as the parcel ships."
+          ],
+          [
+            "How much is shipping?",
+            "Shipping is free."
+          ],
+          [
+            "Can I return an item?",
+            "Yes: you have 14 days to withdraw after delivery. Write to contact@algbr.de."
+          ],
+          [
+            "How can I pay?",
+            "Card, Apple Pay, Google Pay and other methods via Stripe. We never see your card details."
+          ],
+          [
+            "How do I track my order?",
+            "With your order number and e-mail on the “Track my order” page."
+          ],
+          [
+            "How does GO choose its products?",
+            "We favour products that solve a concrete travel problem: gaining space, organising better, sleeping better or keeping essentials at hand."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Ready to go?",
+        "title": [
+          "Less to carry.",
+          "More to live."
+        ],
+        "text": "A collection designed to make travelling simpler.",
+        "cta": "See the collection",
+        "cta2": "Read the guides"
+      },
+      "footer": {
+        "tagline": "Accessories chosen to travel lighter.",
+        "rights": "An ALGBr brand.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "All products",
+                "#produkte"
+              ],
+              [
+                "Bags",
+                "#g-transport"
+              ],
+              [
+                "Organisation",
+                "#g-organise"
+              ],
+              [
+                "Comfort",
+                "#g-comfort"
+              ]
+            ]
+          },
+          {
+            "title": "Guides",
+            "links": [
+              [
+                "Guides",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Track my order",
+                "bestellung.html"
+              ],
+              [
+                "Shipping & payment",
+                "versand.html"
+              ],
+              [
+                "Returns",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Information",
+            "links": [
+              [
+                "Terms",
+                "agb.html"
+              ],
+              [
+                "Privacy",
+                "datenschutz.html"
+              ],
+              [
+                "Legal notice",
+                "impressum.html"
+              ],
+              [
+                "Withdrawal",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Secure payment with Stripe",
+          "🚚 Tracked shipping · about {days} working days",
+          "↩ 14 days to change your mind",
+          "🧾 Invoice by e-mail"
+        ],
+        "idealTitle": "One piece, many ways to travel.",
+        "detailsTitle": "Details",
+        "whyTitle": "Why it’s at GO",
+        "whyDefault": "We chose it because it solves a concrete travel problem, simply, without crowding your bag.",
+        "crossTitle": "Complete your travel setup",
+        "addAll": "Add all to cart",
+        "faqTitle": "Frequently asked questions",
+        "faqDefault": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days, tracked."
+          ],
+          [
+            "Can I return it?",
+            "Yes, you have 14 days to withdraw after delivery."
+          ],
+          [
+            "How do I pay?",
+            "Card, Apple Pay or Google Pay via Stripe. The invoice arrives by e-mail."
+          ]
+        ],
+        "finalTitle": "Less chaos. More travel.",
+        "finalMicro": "Secure payment · Tracked shipping · 14-day withdrawal"
+      }
+    }
+  },
+  "showCompare": false
 }

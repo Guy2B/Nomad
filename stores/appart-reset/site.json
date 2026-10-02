@@ -232,5 +232,1031 @@
   "byline": "by ALGBr",
   "aliases": [
     "https://space.algbr.de"
-  ]
+  ],
+  "ui": {
+    "de": {
+      "promo": "Versand mit Sendungsverfolgung · Sichere Zahlung · 14 Tage Widerruf",
+      "nav": {
+        "shop": "Produkte",
+        "guide": "Ratgeber",
+        "why": "Warum SPACE",
+        "track": "Bestellung verfolgen"
+      },
+      "hero": {
+        "label": "Stauraum für kleine Wohnungen, ohne Umbau",
+        "title": [
+          "Mehr Platz.",
+          "Ohne Bohren."
+        ],
+        "signature": "More room. No renovation.",
+        "text": "Stauraum-Sets, Raum für Raum gedacht, für kleine Wohnungen und Mietwohnungen — Küche, Bad, Schreibtisch, Schrank und Wäsche.",
+        "cta": "Sets entdecken",
+        "cta2": "9 Hacks ohne Bohren",
+        "cta2Href": "GUIDE",
+        "micro": "Komplette Sets · Wo möglich ohne Bohren · Sichere Zahlung"
+      },
+      "trust": [
+        {
+          "t": "Versand mit Tracking",
+          "s": "Sie wissen immer, wo Ihre Bestellung ist."
+        },
+        {
+          "t": "Sichere Zahlung",
+          "s": "Karte, Apple Pay und Google Pay über Stripe."
+        },
+        {
+          "t": "14 Tage Widerruf",
+          "s": "Bestellen ohne Druck."
+        },
+        {
+          "t": "Persönlicher Support",
+          "s": "Eine Frage? Wir antworten wirklich."
+        }
+      ],
+      "featured": {
+        "id": "kitchen-reset",
+        "label": "Das einfachste Set für den Start",
+        "pitch": "Der Spülbereich wird wieder nutzbar — ohne Bohren, ohne Umbau.",
+        "sub": "Ein Spülbecken-Organizer aus Aluminium und vier Saughaken: Schwamm, Bürste und Kleinteile verschwinden endlich von der Arbeitsplatte.",
+        "benefits": [
+          {
+            "t": "Freie Arbeitsplatte",
+            "s": "Alles rund um die Spüle hat seinen Platz."
+          },
+          {
+            "t": "Ohne Bohren",
+            "s": "Am Wasserhahn befestigt, Saughaken an der Wand."
+          },
+          {
+            "t": "In 5 Minuten fertig",
+            "s": "Kein Werkzeug, keine Spuren an der Wand."
+          }
+        ],
+        "cta": "Kitchen Space entdecken",
+        "link": "Alle Sets ansehen"
+      },
+      "collection": {
+        "label": "Raum für Raum",
+        "title": [
+          "Ein Platzproblem.",
+          "Ein Set, das es löst."
+        ],
+        "text": "Jedes Set vereint Teile, die in einem Raum zusammen funktionieren. Alle Teile gibt es auch einzeln.",
+        "groups": [
+          {
+            "key": "kitchen",
+            "title": "Küche",
+            "ids": [
+              "kitchen-reset",
+              "sink-caddy",
+              "suction-hooks-4"
+            ]
+          },
+          {
+            "key": "bath",
+            "title": "Bad",
+            "ids": [
+              "bathroom-reset",
+              "shower-shelf"
+            ]
+          },
+          {
+            "key": "desk",
+            "title": "Schreibtisch",
+            "ids": [
+              "desk-reset",
+              "cable-clips",
+              "desk-drawer",
+              "mini-box"
+            ]
+          },
+          {
+            "key": "closet",
+            "title": "Schrank & Wäsche",
+            "ids": [
+              "wardrobe-reset",
+              "laundry-reset",
+              "space-hangers",
+              "storage-bag",
+              "wall-drying-rack"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Kleine Wohnung.",
+          "Großer Unterschied."
+        ],
+        "cards": [
+          {
+            "title": "Erste Wohnung",
+            "text": "Die Basics, damit jeder Raum vom ersten Tag an funktioniert.",
+            "cta": "Mit der Küche anfangen",
+            "href": "#g-kitchen"
+          },
+          {
+            "title": "Mietwohnung",
+            "text": "Lösungen, die sich anbringen und wieder abnehmen lassen, ohne die Wände zu beschädigen.",
+            "cta": "Die 9 Hacks lesen",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Homeoffice",
+            "text": "Ein ruhiger Schreibtisch, an dem Kabel und Kleinkram endlich ihren Platz haben.",
+            "cta": "Desk-Set ansehen",
+            "href": "#g-desk"
+          }
+        ]
+      },
+      "why": {
+        "label": "Wie wir auswählen",
+        "title": [
+          "Nicht mehr Möbel.",
+          "Den Raum besser nutzen."
+        ],
+        "text": [
+          "In einer kleinen Wohnung zählt jeder Zentimeter — und jedes zusätzliche Ding kann neues Chaos werden.",
+          "SPACE vereint einfache Lösungen, die Flächen frei machen, die Höhe nutzen und ohne Umbau auskommen."
+        ],
+        "principles": [
+          {
+            "t": "Für Mieter gedacht",
+            "s": "Wo möglich ohne Bohren und leicht wieder abzunehmen."
+          },
+          {
+            "t": "Sets statt Gadgets",
+            "s": "Teile, die in einem Raum zusammen funktionieren."
+          },
+          {
+            "t": "Ehrlich bei den Grenzen",
+            "s": "Keine Befestigung hält auf jeder Oberfläche — das sagen wir klar."
+          }
+        ]
+      },
+      "how": {
+        "title": "Mehr Platz in drei Schritten.",
+        "steps": [
+          {
+            "t": "Raum auswählen",
+            "s": "Ein Set pro Platzproblem oder die Teile einzeln."
+          },
+          {
+            "t": "Bestellen",
+            "s": "Sicher bezahlen mit Karte, Apple Pay oder Google Pay."
+          },
+          {
+            "t": "Verfolgen",
+            "s": "Bestätigung und Sendungsverfolgung kommen per E-Mail."
+          }
+        ],
+        "help": "Vor der Montage: unsere 9 Hacks ohne Bohren"
+      },
+      "guides": {
+        "title": "Mehr Platz beginnt mit einem anderen Blick.",
+        "soon": [
+          "Kleine Küche ohne Bohren organisieren",
+          "Ein ruhiger Schreibtisch in 10 Minuten"
+        ],
+        "soonLabel": "Demnächst",
+        "read": "Ratgeber lesen"
+      },
+      "faq": {
+        "title": "Häufige Fragen",
+        "items": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage. Sie erhalten eine Sendungsnummer, sobald das Paket unterwegs ist."
+          ],
+          [
+            "Was kostet der Versand?",
+            "Der Versand ist kostenlos."
+          ],
+          [
+            "Kann ich zurückgeben?",
+            "Ja: Sie haben 14 Tage Widerrufsrecht ab Erhalt. Schreiben Sie uns an contact@algbr.de."
+          ],
+          [
+            "Wie kann ich bezahlen?",
+            "Mit Karte, Apple Pay, Google Pay und weiteren Methoden über Stripe. Wir sehen Ihre Kartendaten nie."
+          ],
+          [
+            "Wie verfolge ich meine Bestellung?",
+            "Mit Bestellnummer und E-Mail auf der Seite „Bestellung verfolgen“."
+          ],
+          [
+            "Ist wirklich alles bohrfrei?",
+            "Mehrere Teile halten ohne Bohren, aber die Haltbarkeit hängt von Untergrund und Last ab: bitte vorher an einer kleinen Stelle testen."
+          ],
+          [
+            "Kommt ein Set in mehreren Paketen?",
+            "Das ist möglich: Teile eines Sets können getrennt ankommen. Den Status sehen Sie unter „Bestellung verfolgen“."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Bereit für mehr Platz?",
+        "title": [
+          "Weniger Chaos.",
+          "Mehr Raum zum Leben."
+        ],
+        "text": "Einfache Sets für jeden Raum, ohne Umbau.",
+        "cta": "Sets ansehen",
+        "cta2": "Hacks lesen"
+      },
+      "footer": {
+        "tagline": "Mehr Platz in kleinen Wohnungen — ohne Bohren, ohne Umbau.",
+        "rights": "Eine Marke von ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Alle Produkte",
+                "#produkte"
+              ],
+              [
+                "Küche",
+                "#g-kitchen"
+              ],
+              [
+                "Bad",
+                "#g-bath"
+              ],
+              [
+                "Schreibtisch",
+                "#g-desk"
+              ]
+            ]
+          },
+          {
+            "title": "Ratgeber",
+            "links": [
+              [
+                "Reise-Ratgeber",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Bestellung verfolgen",
+                "bestellung.html"
+              ],
+              [
+                "Versand & Zahlung",
+                "versand.html"
+              ],
+              [
+                "Rückgabe",
+                "widerruf.html"
+              ],
+              [
+                "Kontakt",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informationen",
+            "links": [
+              [
+                "AGB",
+                "agb.html"
+              ],
+              [
+                "Datenschutz",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Widerruf",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Kollektion",
+        "trust": [
+          "🔒 Sichere Zahlung mit Stripe",
+          "🚚 Versand mit Tracking · ca. {days} Werktage",
+          "↩ 14 Tage Widerrufsrecht",
+          "🧾 Rechnung per E-Mail"
+        ],
+        "idealTitle": "Wo es den Unterschied macht",
+        "detailsTitle": "Details",
+        "whyTitle": "Warum es bei SPACE ist",
+        "whyDefault": "Wir haben es ausgewählt, weil es wirklich Platz schafft, einfach anzubringen ist und zu Mietwohnungen passt.",
+        "crossTitle": "Den Raum vervollständigen",
+        "addAll": "Alle in den Warenkorb",
+        "faqTitle": "Häufige Fragen",
+        "faqDefault": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage, mit Sendungsverfolgung."
+          ],
+          [
+            "Kann ich es zurückgeben?",
+            "Ja, Sie haben 14 Tage Widerrufsrecht ab Erhalt."
+          ],
+          [
+            "Wie bezahle ich?",
+            "Karte, Apple Pay oder Google Pay über Stripe. Die Rechnung kommt per E-Mail."
+          ]
+        ],
+        "finalTitle": "Weniger Chaos. Mehr Platz.",
+        "finalMicro": "Sichere Zahlung · Versand mit Tracking · 14 Tage Widerruf"
+      }
+    },
+    "fr": {
+      "promo": "Livraison suivie · Paiement sécurisé · 14 jours pour changer d’avis",
+      "nav": {
+        "shop": "Produits",
+        "guide": "Conseils",
+        "why": "Pourquoi SPACE",
+        "track": "Suivre ma commande"
+      },
+      "hero": {
+        "label": "Rangement pour petits espaces, sans travaux",
+        "title": [
+          "Plus d’espace.",
+          "Sans percer."
+        ],
+        "signature": "More room. No renovation.",
+        "text": "Des kits de rangement pensés pièce par pièce pour les petits appartements et les locations — cuisine, salle de bain, bureau, dressing et linge.",
+        "cta": "Découvrir les kits",
+        "cta2": "9 astuces sans perçage",
+        "cta2Href": "GUIDE",
+        "micro": "Kits complets · Pose sans perçage dès que possible · Paiement sécurisé"
+      },
+      "trust": [
+        {
+          "t": "Livraison suivie",
+          "s": "Vous savez où se trouve votre commande."
+        },
+        {
+          "t": "Paiement sécurisé",
+          "s": "Carte, Apple Pay et Google Pay via Stripe."
+        },
+        {
+          "t": "14 jours pour changer d’avis",
+          "s": "Commandez sans pression."
+        },
+        {
+          "t": "Support humain",
+          "s": "Une question ? Nous répondons vraiment."
+        }
+      ],
+      "featured": {
+        "id": "kitchen-reset",
+        "label": "Le kit le plus simple pour commencer",
+        "pitch": "Le coin évier redevient une zone utile — sans percer, sans travaux.",
+        "sub": "Un rangement d’évier en aluminium et quatre crochets ventouse : éponge, brosse et petit matériel quittent enfin le plan de travail.",
+        "benefits": [
+          {
+            "t": "Plan de travail libéré",
+            "s": "Tout ce qui traînait autour de l’évier a sa place."
+          },
+          {
+            "t": "Sans perçage",
+            "s": "Fixation au robinet et crochets ventouse."
+          },
+          {
+            "t": "Prêt en 5 minutes",
+            "s": "Aucun outil, aucune trace sur les murs."
+          }
+        ],
+        "cta": "Découvrir Kitchen Space",
+        "link": "Voir tous les kits"
+      },
+      "collection": {
+        "label": "Pièce par pièce",
+        "title": [
+          "Un problème de place.",
+          "Un kit pour le régler."
+        ],
+        "text": "Chaque kit réunit les éléments qui fonctionnent ensemble pour une pièce. Les éléments existent aussi à l’unité.",
+        "groups": [
+          {
+            "key": "kitchen",
+            "title": "Cuisine",
+            "ids": [
+              "kitchen-reset",
+              "sink-caddy",
+              "suction-hooks-4"
+            ]
+          },
+          {
+            "key": "bath",
+            "title": "Salle de bain",
+            "ids": [
+              "bathroom-reset",
+              "shower-shelf"
+            ]
+          },
+          {
+            "key": "desk",
+            "title": "Bureau",
+            "ids": [
+              "desk-reset",
+              "cable-clips",
+              "desk-drawer",
+              "mini-box"
+            ]
+          },
+          {
+            "key": "closet",
+            "title": "Dressing & linge",
+            "ids": [
+              "wardrobe-reset",
+              "laundry-reset",
+              "space-hangers",
+              "storage-bag",
+              "wall-drying-rack"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Petit appartement.",
+          "Grande différence."
+        ],
+        "cards": [
+          {
+            "title": "Premier appartement",
+            "text": "Les bases pour que chaque pièce fonctionne dès le premier jour.",
+            "cta": "Commencer par la cuisine",
+            "href": "#g-kitchen"
+          },
+          {
+            "title": "Location",
+            "text": "Des solutions qui se posent et se retirent sans abîmer les murs.",
+            "cta": "Lire les 9 astuces",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Télétravail",
+            "text": "Un bureau net où les câbles et les petites affaires ont enfin leur place.",
+            "cta": "Voir le kit bureau",
+            "href": "#g-desk"
+          }
+        ]
+      },
+      "why": {
+        "label": "Notre façon de choisir",
+        "title": [
+          "Pas plus de meubles.",
+          "Mieux utiliser l’espace."
+        ],
+        "text": [
+          "Dans un petit logement, chaque centimètre compte — et chaque objet en plus peut devenir un nouveau désordre.",
+          "SPACE réunit des solutions simples qui libèrent les surfaces, utilisent la hauteur et se posent sans travaux."
+        ],
+        "principles": [
+          {
+            "t": "Pensé pour les locataires",
+            "s": "Sans perçage dès que possible, et facile à retirer."
+          },
+          {
+            "t": "Des kits, pas des gadgets",
+            "s": "Des éléments choisis pour fonctionner ensemble dans une pièce."
+          },
+          {
+            "t": "Honnête sur les limites",
+            "s": "Aucune fixation ne tient sur toutes les surfaces : nous le disons clairement."
+          }
+        ]
+      },
+      "how": {
+        "title": "Plus d’espace en trois étapes.",
+        "steps": [
+          {
+            "t": "Choisissez votre pièce",
+            "s": "Un kit par problème de place, ou les éléments à l’unité."
+          },
+          {
+            "t": "Commandez",
+            "s": "Paiement sécurisé par carte, Apple Pay ou Google Pay."
+          },
+          {
+            "t": "Suivez",
+            "s": "Vous recevez votre confirmation et les informations de suivi par e-mail."
+          }
+        ],
+        "help": "Avant de poser : lire nos 9 astuces sans perçage"
+      },
+      "guides": {
+        "title": "Gagner de la place commence par regarder autrement.",
+        "soon": [
+          "Ranger une petite cuisine sans percer",
+          "Un bureau net en 10 minutes"
+        ],
+        "soonLabel": "Bientôt",
+        "read": "Lire le guide"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés. Vous recevez un numéro de suivi dès que le colis part."
+          ],
+          [
+            "Combien coûte la livraison ?",
+            "La livraison est offerte."
+          ],
+          [
+            "Puis-je retourner un article ?",
+            "Oui : vous disposez de 14 jours de rétractation à réception. Écrivez-nous à contact@algbr.de."
+          ],
+          [
+            "Comment puis-je payer ?",
+            "Par carte bancaire, Apple Pay, Google Pay et d’autres moyens via Stripe. Nous ne voyons jamais vos données de carte."
+          ],
+          [
+            "Comment suivre ma commande ?",
+            "Avec votre numéro de commande et votre e-mail, sur la page « Suivre ma commande »."
+          ],
+          [
+            "Est-ce vraiment sans perçage ?",
+            "Plusieurs éléments se fixent sans perçage, mais la tenue dépend de la surface et de la charge : faites toujours un test sur une petite zone."
+          ],
+          [
+            "Un kit peut-il arriver en plusieurs colis ?",
+            "C’est possible : les éléments d’un kit peuvent arriver séparément. Le statut est visible dans « Suivre ma commande »."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Prêt à faire de la place ?",
+        "title": [
+          "Moins de désordre.",
+          "Plus d’espace pour vivre."
+        ],
+        "text": "Des kits simples pour chaque pièce, sans travaux.",
+        "cta": "Voir les kits",
+        "cta2": "Lire les astuces"
+      },
+      "footer": {
+        "tagline": "Plus d’espace dans les petits appartements — sans percer, sans travaux.",
+        "rights": "Une marque ALGBr.",
+        "cols": [
+          {
+            "title": "Boutique",
+            "links": [
+              [
+                "Toute la collection",
+                "#produkte"
+              ],
+              [
+                "Cuisine",
+                "#g-kitchen"
+              ],
+              [
+                "Salle de bain",
+                "#g-bath"
+              ],
+              [
+                "Bureau",
+                "#g-desk"
+              ]
+            ]
+          },
+          {
+            "title": "Conseils",
+            "links": [
+              [
+                "Guides",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Suivre ma commande",
+                "bestellung.html"
+              ],
+              [
+                "Livraison & paiement",
+                "versand.html"
+              ],
+              [
+                "Retours",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informations",
+            "links": [
+              [
+                "CGV",
+                "agb.html"
+              ],
+              [
+                "Confidentialité",
+                "datenschutz.html"
+              ],
+              [
+                "Mentions légales",
+                "impressum.html"
+              ],
+              [
+                "Rétractation",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Paiement sécurisé avec Stripe",
+          "🚚 Livraison suivie · délai estimé {days} jours ouvrés",
+          "↩ 14 jours pour changer d’avis",
+          "🧾 Facture par e-mail"
+        ],
+        "idealTitle": "Là où il fait la différence",
+        "detailsTitle": "Détails",
+        "whyTitle": "Pourquoi il est chez SPACE",
+        "whyDefault": "Nous l’avons retenu parce qu’il libère vraiment de la place, se pose simplement et convient aux logements en location.",
+        "crossTitle": "Complétez la pièce",
+        "addAll": "Tout ajouter au panier",
+        "faqTitle": "Questions fréquentes",
+        "faqDefault": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés, avec suivi."
+          ],
+          [
+            "Puis-je le retourner ?",
+            "Oui, vous disposez de 14 jours de rétractation à réception."
+          ],
+          [
+            "Comment payer ?",
+            "Carte, Apple Pay ou Google Pay via Stripe. La facture arrive par e-mail."
+          ]
+        ],
+        "finalTitle": "Moins de désordre. Plus d’espace.",
+        "finalMicro": "Paiement sécurisé · Livraison suivie · 14 jours de rétractation"
+      }
+    },
+    "en": {
+      "promo": "Tracked shipping · Secure payment · 14 days to change your mind",
+      "nav": {
+        "shop": "Products",
+        "guide": "Guides",
+        "why": "Why SPACE",
+        "track": "Track my order"
+      },
+      "hero": {
+        "label": "Small-space storage, no renovation",
+        "title": [
+          "More room.",
+          "No drilling."
+        ],
+        "signature": "More room. No renovation.",
+        "text": "Storage bundles designed room by room for small apartments and rentals — kitchen, bathroom, desk, wardrobe and laundry.",
+        "cta": "Discover the bundles",
+        "cta2": "9 no-drill hacks",
+        "cta2Href": "GUIDE",
+        "micro": "Complete bundles · No-drill wherever possible · Secure payment"
+      },
+      "trust": [
+        {
+          "t": "Tracked shipping",
+          "s": "You always know where your order is."
+        },
+        {
+          "t": "Secure payment",
+          "s": "Card, Apple Pay and Google Pay via Stripe."
+        },
+        {
+          "t": "14 days to change your mind",
+          "s": "Order without pressure."
+        },
+        {
+          "t": "Human support",
+          "s": "A question? We actually answer."
+        }
+      ],
+      "featured": {
+        "id": "kitchen-reset",
+        "label": "The easiest bundle to start with",
+        "pitch": "The sink corner becomes usable again — no drilling, no renovation.",
+        "sub": "An aluminium sink caddy and four suction hooks: sponge, brush and small tools finally leave the counter.",
+        "benefits": [
+          {
+            "t": "A clear counter",
+            "s": "Everything around the sink gets its place."
+          },
+          {
+            "t": "No drilling",
+            "s": "Mounts on the tap, suction hooks on the wall."
+          },
+          {
+            "t": "Ready in 5 minutes",
+            "s": "No tools, no marks on the walls."
+          }
+        ],
+        "cta": "Discover Kitchen Space",
+        "link": "See all bundles"
+      },
+      "collection": {
+        "label": "Room by room",
+        "title": [
+          "One space problem.",
+          "One bundle to solve it."
+        ],
+        "text": "Each bundle brings together parts that work together in one room. Every part is also sold on its own.",
+        "groups": [
+          {
+            "key": "kitchen",
+            "title": "Kitchen",
+            "ids": [
+              "kitchen-reset",
+              "sink-caddy",
+              "suction-hooks-4"
+            ]
+          },
+          {
+            "key": "bath",
+            "title": "Bathroom",
+            "ids": [
+              "bathroom-reset",
+              "shower-shelf"
+            ]
+          },
+          {
+            "key": "desk",
+            "title": "Desk",
+            "ids": [
+              "desk-reset",
+              "cable-clips",
+              "desk-drawer",
+              "mini-box"
+            ]
+          },
+          {
+            "key": "closet",
+            "title": "Wardrobe & laundry",
+            "ids": [
+              "wardrobe-reset",
+              "laundry-reset",
+              "space-hangers",
+              "storage-bag",
+              "wall-drying-rack"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Small apartment.",
+          "Big difference."
+        ],
+        "cards": [
+          {
+            "title": "First apartment",
+            "text": "The basics so every room works from day one.",
+            "cta": "Start with the kitchen",
+            "href": "#g-kitchen"
+          },
+          {
+            "title": "Renting",
+            "text": "Solutions that go up and come down without damaging the walls.",
+            "cta": "Read the 9 hacks",
+            "href": "GUIDE"
+          },
+          {
+            "title": "Home office",
+            "text": "A calm desk where cables and small things finally have a place.",
+            "cta": "See the desk bundle",
+            "href": "#g-desk"
+          }
+        ]
+      },
+      "why": {
+        "label": "How we choose",
+        "title": [
+          "Not more furniture.",
+          "Better use of space."
+        ],
+        "text": [
+          "In a small home every centimetre counts — and every extra object can become new clutter.",
+          "SPACE brings together simple solutions that clear surfaces, use height and need no renovation."
+        ],
+        "principles": [
+          {
+            "t": "Built for renters",
+            "s": "No-drill wherever possible, and easy to remove."
+          },
+          {
+            "t": "Bundles, not gadgets",
+            "s": "Parts chosen to work together in one room."
+          },
+          {
+            "t": "Honest about limits",
+            "s": "No mounting holds on every surface — we say so clearly."
+          }
+        ]
+      },
+      "how": {
+        "title": "More room in three steps.",
+        "steps": [
+          {
+            "t": "Choose your room",
+            "s": "One bundle per space problem, or the parts on their own."
+          },
+          {
+            "t": "Order",
+            "s": "Secure payment by card, Apple Pay or Google Pay."
+          },
+          {
+            "t": "Track",
+            "s": "Confirmation and tracking details arrive by e-mail."
+          }
+        ],
+        "help": "Before mounting: read our 9 no-drill hacks"
+      },
+      "guides": {
+        "title": "More room starts with a different look.",
+        "soon": [
+          "Organising a small kitchen without drilling",
+          "A calm desk in 10 minutes"
+        ],
+        "soonLabel": "Coming soon",
+        "read": "Read the guide"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days. You get a tracking number as soon as the parcel ships."
+          ],
+          [
+            "How much is shipping?",
+            "Shipping is free."
+          ],
+          [
+            "Can I return an item?",
+            "Yes: you have 14 days to withdraw after delivery. Write to contact@algbr.de."
+          ],
+          [
+            "How can I pay?",
+            "Card, Apple Pay, Google Pay and other methods via Stripe. We never see your card details."
+          ],
+          [
+            "How do I track my order?",
+            "With your order number and e-mail on the “Track my order” page."
+          ],
+          [
+            "Is everything really no-drill?",
+            "Several parts mount without drilling, but hold depends on the surface and load: always test on a small area first."
+          ],
+          [
+            "Can a bundle arrive in several parcels?",
+            "Yes, the parts of a bundle may arrive separately. You can see the status under “Track my order”."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Ready to make room?",
+        "title": [
+          "Less clutter.",
+          "More room to live."
+        ],
+        "text": "Simple bundles for every room, no renovation.",
+        "cta": "See the bundles",
+        "cta2": "Read the hacks"
+      },
+      "footer": {
+        "tagline": "More room in small apartments — no drilling, no renovation.",
+        "rights": "An ALGBr brand.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "All products",
+                "#produkte"
+              ],
+              [
+                "Kitchen",
+                "#g-kitchen"
+              ],
+              [
+                "Bathroom",
+                "#g-bath"
+              ],
+              [
+                "Desk",
+                "#g-desk"
+              ]
+            ]
+          },
+          {
+            "title": "Guides",
+            "links": [
+              [
+                "Guides",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Track my order",
+                "bestellung.html"
+              ],
+              [
+                "Shipping & payment",
+                "versand.html"
+              ],
+              [
+                "Returns",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Information",
+            "links": [
+              [
+                "Terms",
+                "agb.html"
+              ],
+              [
+                "Privacy",
+                "datenschutz.html"
+              ],
+              [
+                "Legal notice",
+                "impressum.html"
+              ],
+              [
+                "Withdrawal",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Secure payment with Stripe",
+          "🚚 Tracked shipping · about {days} working days",
+          "↩ 14 days to change your mind",
+          "🧾 Invoice by e-mail"
+        ],
+        "idealTitle": "Where it makes the difference",
+        "detailsTitle": "Details",
+        "whyTitle": "Why it’s at SPACE",
+        "whyDefault": "We chose it because it genuinely frees up space, is simple to mount and suits rented homes.",
+        "crossTitle": "Complete the room",
+        "addAll": "Add all to cart",
+        "faqTitle": "Frequently asked questions",
+        "faqDefault": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days, tracked."
+          ],
+          [
+            "Can I return it?",
+            "Yes, you have 14 days to withdraw after delivery."
+          ],
+          [
+            "How do I pay?",
+            "Card, Apple Pay or Google Pay via Stripe. The invoice arrives by e-mail."
+          ]
+        ],
+        "finalTitle": "Less clutter. More room.",
+        "finalMicro": "Secure payment · Tracked shipping · 14-day withdrawal"
+      }
+    }
+  },
+  "showCompare": false
 }

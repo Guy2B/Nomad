@@ -32,3 +32,6 @@ h2,
 .badge {
   background: rgb(28 41 37 / 90%);
 }
+
+.hero-x h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.02; }
+.featured h2, .why-grid h2, .final-cta h2 { letter-spacing: -0.04em; }

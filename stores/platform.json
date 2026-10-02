@@ -1,4 +1,25 @@
 {
   "api": "https://api.algbr.eu",
-  "note": "Shared backend (Netlify): /api/* for every store + /admin/. Storefronts are static (Cloudflare Pages) and call this API cross-origin."
+  "note": "Shared backend (Netlify): /api/* for every store + /admin/. Storefronts are static (Cloudflare Pages) and call this API cross-origin.",
+  "next": {
+    "url": "https://next.algbr.eu",
+    "de": {
+      "label": "Auch von ALGBr",
+      "title": "Know what matters. Do what’s next.",
+      "text": "Mails, Kalender und Aufgaben werden zu drei klaren Entscheidungen pro Tag. Kostenlos testen.",
+      "cta": "NEXT entdecken"
+    },
+    "fr": {
+      "label": "Aussi par ALGBr",
+      "title": "Know what matters. Do what’s next.",
+      "text": "E-mails, agenda et tâches deviennent trois décisions claires par jour. Essai gratuit.",
+      "cta": "Découvrir NEXT"
+    },
+    "en": {
+      "label": "Also by ALGBr",
+      "title": "Know what matters. Do what’s next.",
+      "text": "Mail, calendar and tasks become three clear decisions a day. Try it free.",
+      "cta": "Discover NEXT"
+    }
+  }
 }
