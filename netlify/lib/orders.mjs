@@ -59,9 +59,9 @@ export function orderFromSession(session, now = new Date()) {
 export async function fulfill(store, order) {
   const log = (event) => order.history.push({ at: new Date().toISOString(), event });
   const missing = unmapped(order);
-  if (!cjConfigured()) order.attention = 'CJ API key missing (CJ_API_KEY)';
-  else if (missing.length) order.attention = `CJ variant missing for: ${missing.map((i) => i.name).join(', ')}`;
-  else if (!order.shipping.line1 || !order.shipping.city || !order.shipping.country) order.attention = 'Incomplete shipping address';
+  if (!cjConfigured()) order.attention = 'Clé CJ absente (CJ_API_KEY) : commander à la main sur CJ, puis « Traité à la main »';
+  else if (missing.length) order.attention = `Variante CJ manquante pour : ${missing.map((i) => i.name).join(', ')}`;
+  else if (!order.shipping.line1 || !order.shipping.city || !order.shipping.country) order.attention = 'Adresse de livraison incomplète';
   else {
     try {
       const r = await createSupplierOrder(order, store);
@@ -69,7 +69,7 @@ export async function fulfill(store, order) {
       order.supplier.status = process.env.CJ_AUTO_PAY === 'true' ? 'PAID' : 'CREATED';
       order.status = 'supplier_ordered';
       order.attention =
-        process.env.CJ_AUTO_PAY === 'true' ? null : 'Pay the supplier order in CJ (CJ_AUTO_PAY is off)';
+        process.env.CJ_AUTO_PAY === 'true' ? null : 'Payer la commande fournisseur dans CJ (CJ_AUTO_PAY désactivé)';
       log(`supplier order ${r.cjOrderId ?? ''}`.trim());
     } catch (err) {
       order.attention = `CJ: ${err instanceof CJError ? err.message : 'unreachable'}`;
@@ -88,7 +88,7 @@ export async function processPaidSession(store, session) {
   const order = orderFromSession(session);
   if (!order.items.length || !order.customer.email) {
     order.status = 'needs_attention';
-    order.attention = 'Empty cart or missing email in the Stripe session';
+    order.attention = 'Panier vide ou e-mail absent dans la session Stripe';
     await saveOrder(store, order);
   } else {
     await saveOrder(store, order);

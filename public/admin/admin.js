@@ -1,4 +1,4 @@
-/* Nomad admin, shared by every store: overview per store, setup checklist, orders (retry supplier order, mark as handled). */
+/* ALGBr admin, shared by every store: overview per store, setup checklist, orders (retry supplier order, mark as handled). */
 (function () {
   'use strict';
   var KEY = 'nomad-admin';
@@ -149,8 +149,9 @@
       if (o.supplier.trackNumber) sup.append(el('br'), el('span', '', '📦 ' + o.supplier.trackNumber));
       var shop = el('td');
       shop.append(el('span', 'chip chip-store', brandOf(d, o.store)));
-      var actions = el('td', 'actions');
+      var actions = el('td');
       if (o.attention) {
+        var box = el('div', 'actions');
         var retry = el('button', 'btn btn-dark btn-xs', 'Renvoyer au fournisseur');
         retry.type = 'button';
         retry.addEventListener('click', function () {
@@ -161,7 +162,8 @@
         done.addEventListener('click', function () {
           act('resolve', o.sessionId, done);
         });
-        actions.append(retry, done);
+        box.append(retry, done);
+        actions.append(box);
       }
       tr.append(
         el('td', '', o.number),
