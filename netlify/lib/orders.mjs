@@ -28,6 +28,9 @@ export function shippingFrom(session) {
   };
 }
 
+/** CJ needs a house number in Address1 or Address2 ("Hauptstraße 12", "12b"). */
+export const hasHouseNumber = (shipping) => /\d/.test(`${shipping.line1} ${shipping.line2}`);
+
 export function orderFromSession(session, now = new Date()) {
   const cart = session.metadata?.cart || '';
   // Sessions created before the multi-store platform carry no store: they are Nomad's.
@@ -52,6 +55,8 @@ export function orderFromSession(session, now = new Date()) {
     supplier: { provider: 'CJdropshipping', orderId: null, status: null, trackNumber: null, logisticName: null },
     history: [{ at: now.toISOString(), event: 'paid' }],
     attention: null,
+    // Paid with a Stripe test key: never sent to the supplier.
+    test: session.livemode === false,
   };
 }
 
@@ -59,9 +64,12 @@ export function orderFromSession(session, now = new Date()) {
 export async function fulfill(store, order) {
   const log = (event) => order.history.push({ at: new Date().toISOString(), event });
   const missing = unmapped(order);
-  if (!cjConfigured()) order.attention = 'Clé CJ absente (CJ_API_KEY) : commander à la main sur CJ, puis « Traité à la main »';
+  if (order.test) order.attention = 'Commande test (Stripe en mode test) : non envoyée à CJ';
+  else if (!cjConfigured()) order.attention = 'Clé CJ absente (CJ_API_KEY) : commander à la main sur CJ, puis « Traité à la main »';
   else if (missing.length) order.attention = `Variante CJ manquante pour : ${missing.map((i) => i.name).join(', ')}`;
   else if (!order.shipping.line1 || !order.shipping.city || !order.shipping.country) order.attention = 'Adresse de livraison incomplète';
+  else if (!hasHouseNumber(order.shipping))
+    order.attention = 'Numéro de rue manquant (exigé par CJ) : demander l’adresse complète au client, commander à la main sur CJ';
   else {
     try {
       const r = await createSupplierOrder(order, store);

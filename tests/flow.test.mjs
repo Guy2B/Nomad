@@ -305,3 +305,30 @@ test('reviews: only buyers of the product, once, moderated, private data never p
   assert.equal((await pendingReviews(blobs)).length, 0);
   assert.equal(displayName('jean'), 'jean');
 });
+
+test('Stripe test-mode payments are kept in the CRM but never sent to CJ', async () => {
+  process.env.CJ_API_KEY = 'CJ123@api@abc';
+  const calls = [];
+  mockFetch((url) => {
+    calls.push(url);
+    return new Response('ok');
+  });
+  const { order } = await processPaidSession(crm(), paidSession({ id: 'cs_test_t1', livemode: false }));
+  assert.equal(order.status, 'needs_attention');
+  assert.match(order.attention, /test/);
+  assert.ok(!calls.some((u) => String(u).includes('cjdropshipping')));
+});
+
+test('an address without a house number is flagged before reaching CJ', async () => {
+  process.env.CJ_API_KEY = 'CJ123@api@abc';
+  const calls = [];
+  mockFetch((url) => {
+    calls.push(url);
+    return new Response('ok');
+  });
+  const session = paidSession({ id: 'cs_test_h1' });
+  session.collected_information.shipping_details.address = { line1: 'Hauptstraße', line2: '', postal_code: '10115', city: 'Berlin', state: '', country: 'DE' };
+  const { order } = await processPaidSession(crm(), session);
+  assert.match(order.attention, /Numéro de rue/);
+  assert.ok(!calls.some((u) => String(u).includes('cjdropshipping')));
+});

@@ -65,6 +65,13 @@ export function sessionPayload({ site, priced, lang, baseUrl, cart, images }) {
     // Promotion codes created in the Stripe dashboard can be entered on the payment page.
     allow_promotion_codes: true,
     custom_text: {
+      shipping_address: {
+        message: {
+          de: 'Bitte Straße mit Hausnummer angeben (z. B. Hauptstraße 12), sonst kann der Versand nicht starten.',
+          fr: 'Indiquez la rue avec le numéro (ex. 12 rue de la Paix), sinon l’expédition ne peut pas partir.',
+          en: 'Please include your house number (e.g. 12 Main Street), otherwise we cannot ship.',
+        }[lang] ?? '',
+      },
       submit: {
         message: {
           de: `Versand mit Sendungsverfolgung in ${site.shipping.deliveryDays} Werktagen · 14 Tage Widerrufsrecht · Rechnung per E-Mail`,
