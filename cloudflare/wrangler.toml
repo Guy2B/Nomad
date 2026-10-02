@@ -1,14 +1,23 @@
-# ALGBr shared backend on Cloudflare Pages: api.algbr.eu (/api/* + /admin/).
+# ALGBr shared backend on Cloudflare Workers: /api/* for every store + the
+# /admin/ dashboard (static assets from dist/), hourly CJ sync (cron).
 # Kept in cloudflare/ so the storefront Pages builds (repo root) ignore it.
-# Build: npm run build:api (static admin + dist/_worker.js), deploy: npm run deploy:api.
+# Build + deploy: npm run deploy:api.
 # Secrets (ADMIN_PASSWORD, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, CJ_API_KEY,
 # optional CJ_AUTO_PAY, NTFY_TOPIC) are set in the Cloudflare dashboard, never here.
 name = "api-algbr"
-pages_build_output_dir = "../dist"
+main = "worker.mjs"
 compatibility_date = "2026-09-01"
 compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "../dist"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[triggers]
+crons = ["17 * * * *"]
 
 [[d1_databases]]
 binding = "DB"
 database_name = "algbr-crm"
-database_id = "REPLACE_WITH_D1_ID"
+database_id = "3ab63107-8a8e-40e2-988d-33edb35f2da5"

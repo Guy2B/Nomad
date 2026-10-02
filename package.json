@@ -10,11 +10,10 @@
     "build:ease": "node scripts/build.mjs body-care",
     "images": "node scripts/optimize-images.mjs",
     "test": "node --test tests/*.test.mjs",
-    "build:api": "node scripts/build.mjs backend && esbuild cloudflare/worker.mjs --bundle --format=esm --platform=neutral --main-fields=module,main --external:node:* --outfile=dist/_worker.js",
-    "deploy:api": "npm run build:api && cd cloudflare && wrangler pages deploy --branch main"
+    "build:api": "node scripts/build.mjs backend",
+    "deploy:api": "npm run build:api && cd cloudflare && wrangler deploy"
   },
   "devDependencies": {
-    "esbuild": "^0.28.2",
     "sharp": "^0.34.0"
   },
   "engines": {
