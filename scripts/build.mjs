@@ -5,8 +5,9 @@
  * from stores/<store>/site.json + products.json + assets/:
  *   /<lang>/index.html, /<lang>/produkt/<id>.html, /<lang>/ratgeber/<slug>.html,
  *   warenkorb, danke, bestellung, legal pages, sitemap, robots, _headers.
- * The host store also gets /admin/ (one dashboard for every store) and serves
- * the API; the other stores call it cross-origin.
+ * Every storefront is static (Cloudflare Pages) and calls the shared API
+ * (stores/platform.json → api) cross-origin. The backend itself is built with
+ *   node scripts/build.mjs backend   → dist/ = /admin/ only (Netlify, with the functions).
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -15,17 +16,41 @@ import { legalPages } from './legal.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const dist = join(root, 'dist');
-const HOST = 'nomad';
-const STORE = process.argv[2] || process.env.STORE || HOST;
+const STORE = process.argv[2] || process.env.STORE || 'nomad';
+const readJson = (f) => JSON.parse(readFileSync(f, 'utf8'));
+const API = readJson(join(root, 'stores', 'platform.json')).api.replace(/\/$/, '');
+
+if (STORE === 'backend') {
+  // Shared backend: the admin dashboard (the API itself lives in netlify/functions).
+  rmSync(dist, { recursive: true, force: true });
+  cpSync(join(root, 'public', 'admin'), join(dist, 'admin'), { recursive: true });
+  for (const f of ['style.css', 'algbr.svg']) cpSync(join(root, 'public', 'assets', f), join(dist, 'assets', f));
+  cpSync(join(root, 'stores', 'nomad', 'assets', 'favicon.svg'), join(dist, 'assets', 'favicon.svg'));
+  writeFileSync(join(dist, 'index.html'), '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/admin/"><title>ALGBr</title>');
+  writeFileSync(join(dist, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+  writeFileSync(
+    join(dist, '_headers'),
+    [
+      '/*',
+      '  X-Robots-Tag: noindex, nofollow',
+      '  X-Content-Type-Options: nosniff',
+      '  Referrer-Policy: strict-origin-when-cross-origin',
+      '  X-Frame-Options: DENY',
+      "  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'",
+      '',
+      '/admin/*',
+      '  Cache-Control: no-store',
+      '',
+    ].join('\n'),
+  );
+  console.log(`• dist/ built for the shared backend (${API}): /admin/`);
+  process.exit(0);
+}
+
 const storeDir = join(root, 'stores', STORE);
 if (!existsSync(join(storeDir, 'site.json'))) throw new Error(`Unknown store "${STORE}" (no stores/${STORE}/site.json)`);
-const readJson = (f) => JSON.parse(readFileSync(f, 'utf8'));
 const PRODUCTS = readJson(join(storeDir, 'products.json'));
 const SITE = readJson(join(storeDir, 'site.json'));
-const HOST_SITE = readJson(join(root, 'stores', HOST, 'site.json'));
-const IS_HOST = STORE === HOST;
-// Empty = same origin (the host store); otherwise the host store's API, called with CORS.
-const API = IS_HOST ? '' : HOST_SITE.baseUrl.replace(/\/$/, '');
 const ACTIVE = PRODUCTS.filter((p) => p.active);
 const GUIDES = SITE.guides ?? [];
 const LEGAL = legalPages(SITE);
@@ -475,7 +500,7 @@ function legal(lang) {
     simplePage(lang, `${k}.html`, 'legal', STR[lang].legalNames[k], `<section class="section"><div class="wrap narrow legal">${html}</div></section>`);
 }
 
-/** Security headers per site (the API origin differs between the host store and the others). */
+/** Security headers per storefront (Cloudflare Pages reads the same _headers format as Netlify). */
 function headers() {
   const connect = ["'self'", API].filter(Boolean).join(' ');
   const csp = `default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src ${connect}; form-action 'self' https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'`;
@@ -488,12 +513,12 @@ ${SITE.launched ? '' : '  # PRE-LAUNCH: search engines kept out until the legal 
 
 /assets/*
   Cache-Control: public, max-age=604800
-${IS_HOST ? '\n/admin/*\n  X-Robots-Tag: noindex, nofollow\n  Cache-Control: no-store\n' : ''}`;
+`;
 }
 
 // ---------------------------------------------------------------- build
 rmSync(dist, { recursive: true, force: true });
-cpSync(join(root, 'public'), dist, { recursive: true, filter: (src) => IS_HOST || !src.includes(`${join(root, 'public', 'admin')}`) });
+cpSync(join(root, 'public'), dist, { recursive: true, filter: (src) => !src.includes(join(root, 'public', 'admin')) });
 cpSync(join(storeDir, 'assets'), join(dist, 'assets'), { recursive: true });
 for (const lang of SITE.languages) {
   home(lang);
@@ -524,8 +549,7 @@ write(
 );
 write('robots.txt', `User-agent: *\nDisallow: /admin/\nDisallow: /api/\nSitemap: ${BASE}/sitemap.xml\n`);
 write('_headers', headers());
-// Secondary domains (e.g. go.algbr.de) → the primary one, path kept.
-write('_redirects', (SITE.aliases ?? []).map((u) => `${u.replace(/\/$/, '')}/* ${BASE}/:splat 301!`).join('\n') + '\n');
+// Secondary domains (go.algbr.de…) are forwarded to the primary one at the registrar (Porkbun).
 console.log(
-  `• dist/ built for ${SITE.brand}: ${SITE.languages.length} languages × ${ACTIVE.length} products, ${GUIDES.length} guide(s)${IS_HOST ? ' + admin for every store' : `, API ${API}`}`,
+  `• dist/ built for ${SITE.brand}: ${SITE.languages.length} languages × ${ACTIVE.length} products, ${GUIDES.length} guide(s), API ${API}`,
 );

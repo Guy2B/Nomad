@@ -228,13 +228,13 @@ test('a bundle with one unmapped part is flagged, not half-ordered', () => {
 
 test('the shared API answers the other storefronts (CORS) and refuses unknown origins', async () => {
   assert.ok(allowedOrigins({}).has('https://space.algbr.eu'));
-  const pre = await checkout(new Request('https://go.algbr.eu/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://space.algbr.eu' } }));
+  const pre = await checkout(new Request('https://api.algbr.eu/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://space.algbr.eu' } }));
   assert.equal(pre.status, 204);
   assert.equal(pre.headers.get('access-control-allow-origin'), 'https://space.algbr.eu');
-  const evil = await checkout(new Request('https://go.algbr.eu/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://evil.example' } }));
+  const evil = await checkout(new Request('https://api.algbr.eu/api/checkout', { method: 'OPTIONS', headers: { origin: 'https://evil.example' } }));
   assert.equal(evil.headers.get('access-control-allow-origin'), null);
   const bad = await checkout(
-    new Request('https://go.algbr.eu/api/checkout', {
+    new Request('https://api.algbr.eu/api/checkout', {
       method: 'POST',
       headers: { origin: 'https://space.algbr.eu', 'content-type': 'application/json' },
       body: JSON.stringify({ store: 'nope', cart: [{ id: 'kitchen-reset', qty: 1 }] }),

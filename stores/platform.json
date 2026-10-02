@@ -1,0 +1,4 @@
+{
+  "api": "https://api.algbr.eu",
+  "note": "Shared backend (Netlify): /api/* for every store + /admin/. Storefronts are static (Cloudflare Pages) and call this API cross-origin."
+}

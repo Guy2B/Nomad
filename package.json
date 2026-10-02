@@ -5,12 +5,13 @@
   "type": "module",
   "description": "Nomad — multi-store dropshipping platform: storefront, Stripe checkout & invoices, CRM, automatic supplier orders (CJdropshipping). by Al.G.B.r.",
   "scripts": {
-    "build": "node scripts/build.mjs nomad",
+    "build": "node scripts/build.mjs backend",
+    "build:go": "node scripts/build.mjs nomad",
+    "build:space": "node scripts/build.mjs appart-reset",
+    "build:ease": "node scripts/build.mjs body-care",
     "images": "node scripts/optimize-images.mjs",
     "test": "node --test tests/*.test.mjs",
-    "dev": "netlify dev",
-    "build:appart": "node scripts/build.mjs appart-reset",
-    "build:body": "node scripts/build.mjs body-care"
+    "dev": "netlify dev"
   },
   "dependencies": {
     "@netlify/blobs": "^10.0.0"

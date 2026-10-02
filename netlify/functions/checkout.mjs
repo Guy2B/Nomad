@@ -24,9 +24,8 @@ export default async (req) => {
   if (!priced.items.length) return json(400, { error: 'empty-cart' }, req);
   if (!process.env.STRIPE_SECRET_KEY) return json(503, { error: 'payments-not-configured' }, req);
 
-  // Back to the storefront the customer came from (deploy previews of the host store included).
-  const own = s.id === HOST_STORE && process.env.URL ? process.env.URL : s.site.baseUrl;
-  const baseUrl = own.replace(/\/$/, '');
+  // Back to the storefront the customer came from.
+  const baseUrl = s.site.baseUrl.replace(/\/$/, '');
   const images = Object.fromEntries(
     priced.items.map((i) => [i.id, `${baseUrl}/assets/products/${s.byId.get(i.id).images[0]}`]),
   );

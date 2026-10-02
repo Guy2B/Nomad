@@ -2,11 +2,14 @@
 
 **Un seul backend, un seul dashboard, plusieurs marques.** Aujourd'hui :
 
-| Boutique | Dossier | Site Netlify | Rôle |
+| Partie | Dossier | Hébergement | Rôle |
 |---|---|---|---|
-| **GO** (voyage) · go.algbr.eu | `stores/nomad/` | `nomad-travel-store` (racine du dépôt) | boutique + **API commune + admin de toutes les boutiques** |
-| **SPACE** (petits appartements) · space.algbr.eu | `stores/appart-reset/` | `appart-reset` (Base directory = `sites/appart-reset`) | boutique statique, appelle l'API de Nomad |
-| **EASE** (bien-être bureau) · ease.algbr.eu | `stores/body-care/` | `body-care-store` (Base directory = `sites/body-care`) | boutique statique, appelle l'API de Nomad |
+| **GO** · go.algbr.eu | `stores/nomad/` | Cloudflare Pages (build `node scripts/build.mjs nomad`, sortie `dist`) | boutique statique |
+| **SPACE** · space.algbr.eu | `stores/appart-reset/` | Cloudflare Pages (build `node scripts/build.mjs appart-reset`) | boutique statique |
+| **EASE** · ease.algbr.eu | `stores/body-care/` | Cloudflare Pages (build `node scripts/build.mjs body-care`) | boutique statique |
+| **Backend** · api.algbr.eu | `netlify/`, `public/admin/` | Netlify (build `node scripts/build.mjs backend`) | API commune (paiement, webhook Stripe, suivi, CJ) + dashboard `/admin/` |
+
+Les boutiques appellent l'API définie dans `stores/platform.json`. Netlify facture des crédits par déploiement : il ne reconstruit le backend que si l'API, le dashboard ou un catalogue change (règle `ignore` de `netlify.toml`). Les domaines `.de` sont redirigés vers les `.eu` chez Porkbun.
 
 Ajouter une marque : copier un dossier `stores/<id>/` (site.json, products.json, assets/), l'ajouter dans `netlify/lib/catalog.mjs`, créer `sites/<id>/netlify.toml`, puis un site Netlify avec ce Base directory. Les commandes de toutes les marques arrivent dans le même CRM et le même admin (filtre par boutique), avec leur propre préfixe de commande (GO-…, SP-…, EA-…).
 
@@ -51,7 +54,7 @@ Client ──► Boutique (Netlify) ──► Stripe Checkout ──► paiement
 1. Compte Stripe activé (vérification d'identité, IBAN).
 2. **Paramètres → Facturation → Factures** : nom, adresse, e-mail, et la mention *Kleinunternehmer* (déjà ajoutée automatiquement en pied de facture par la boutique).
 3. **Paramètres → E-mails clients** : activer « Paiements réussis » et l'envoi des factures.
-4. **Développeurs → Webhooks → Ajouter un endpoint** : `https://<votre-site>/api/stripe/webhook`, événements `checkout.session.completed` et `checkout.session.async_payment_succeeded`. Copier le **secret de signature** (`whsec_…`).
+4. **Développeurs → Webhooks → Ajouter un endpoint** : `https://api.algbr.eu/api/stripe/webhook`, événements `checkout.session.completed` et `checkout.session.async_payment_succeeded`. Copier le **secret de signature** (`whsec_…`).
 5. Copier la **clé secrète** (`sk_live_…`, ou `sk_test_…` pour tester).
 
 ### 2. CJdropshipping — commande fournisseur automatique
@@ -77,7 +80,7 @@ Client ──► Boutique (Netlify) ──► Stripe Checkout ──► paiement
 Compléter `stores/<id>/site.json` → `company` (pour chaque marque) (nom, adresse, e-mail), puis `npm run build`. Les pages Impressum, Datenschutz, AGB, Widerruf et Versand sont générées à partir de là. **À faire relire** (voir `docs/LEGAL-CHECKLIST.md`).
 
 ## Au quotidien
-- **Admin** : `https://<votre-site>/admin/` — chiffre d'affaires, marge estimée, clients, commandes, check-list de configuration, bouton « Renvoyer au fournisseur » ou « Traité à la main » sur les commandes en « Action requise ».
+- **Admin** : `https://api.algbr.eu/admin/` — chiffre d'affaires, marge estimée, clients, commandes, check-list de configuration, bouton « Renvoyer au fournisseur » ou « Traité à la main » sur les commandes en « Action requise ».
 - **Notifications** : une notification par commande, prioritaire si une action est requise.
 - **Factures** : clients → Stripe (Paiements / Factures) ; fournisseur → compte CJ (Commandes / Factures).
 

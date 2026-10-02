@@ -1,10 +1,12 @@
-# Nomad platform — host site: the NOMAD storefront + the shared API (functions)
-# and the admin dashboard for every store. Other stores are separate Netlify
-# sites with their own netlify.toml in sites/<store>/ (static, no functions).
-# Security headers and the pre-launch noindex are generated per store in dist/_headers.
+# ALGBr shared backend (Netlify): /api/* for every store (checkout, Stripe webhook,
+# tracking, admin, hourly CJ sync) + the /admin/ dashboard, on api.algbr.eu.
+# The storefronts (GO, SPACE, EASE) are static sites on Cloudflare Pages.
 [build]
-  command = "node scripts/build.mjs nomad"
+  command = "node scripts/build.mjs backend"
   publish = "dist"
+  # Netlify bills credits per production deploy: rebuild only when the API, the
+  # admin or a catalogue (prices, products) changed. Exit 0 = skip this build.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- netlify/ public/admin/ public/assets/style.css package.json 'stores/*/products.json' 'stores/*/site.json' stores/platform.json"
 
 [functions]
   directory = "netlify/functions"
