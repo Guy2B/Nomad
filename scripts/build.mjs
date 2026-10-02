@@ -56,6 +56,8 @@ const GUIDES = SITE.guides ?? [];
 const LEGAL = legalPages(SITE);
 const HAS_THEME = existsSync(join(storeDir, 'assets', 'theme.css'));
 const BASE = SITE.baseUrl.replace(/\/$/, '');
+/** Public URL of a page as Cloudflare Pages serves it (/de/, /de/produkt/x): canonical, hreflang, sitemap. */
+const pub = (path) => `${BASE}/${path.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '')}`;
 
 /** Store texts = shared texts + the store's own overrides (site.json → copy). */
 const merge = (a, b) => {
@@ -98,7 +100,7 @@ function layout({ lang, depth, title, description, body, page, alternates, jsonL
   const t = STR[lang];
   const r = up(depth);
   const L = `${r}${lang}/`;
-  const canonical = `${BASE}/${lang}/${alternates}`;
+  const canonical = pub(`${lang}/${alternates}`);
   const langLinks = SITE.languages
     .map((l) => `<a href="${r}${l}/${alternates}" ${l === lang ? 'aria-current="true"' : ''} hreflang="${l}">${l.toUpperCase()}</a>`)
     .join('');
@@ -115,8 +117,8 @@ function layout({ lang, depth, title, description, body, page, alternates, jsonL
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<link rel="canonical" href="${canonical}">
-${SITE.languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${BASE}/${l}/${alternates}">`).join('\n')}
-<link rel="alternate" hreflang="x-default" href="${BASE}/${SITE.defaultLang}/${alternates}">
+${SITE.languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${pub(`${l}/${alternates}`)}">`).join('\n')}
+<link rel="alternate" hreflang="x-default" href="${pub(`${SITE.defaultLang}/${alternates}`)}">
 <meta property="og:type" content="${page === 'product' ? 'product' : 'website'}">
 <meta property="og:site_name" content="${esc(SITE.brand)}">
 <meta property="og:title" content="${esc(title)}">
@@ -316,7 +318,7 @@ ${
         .replaceAll('src="../assets/', 'src="../../assets/')}</div></div></section>`
     : ''
 }`;
-  const url = `${BASE}/${lang}/produkt/${p.id}.html`;
+  const url = pub(`${lang}/produkt/${p.id}.html`);
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -351,7 +353,7 @@ ${
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: SITE.brand, item: `${BASE}/${lang}/index.html` },
+        { '@type': 'ListItem', position: 1, name: SITE.brand, item: pub(`${lang}/index.html`) },
         { '@type': 'ListItem', position: 2, name: p.name, item: url },
       ],
     },
@@ -532,7 +534,7 @@ for (const lang of SITE.languages) {
 // Root: language chooser (redirect by browser language in shop.js).
 write(
   'index.html',
-  `<!doctype html><html lang="${SITE.defaultLang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(SITE.seo?.[SITE.defaultLang]?.title || SITE.brand)}</title><meta name="description" content="${esc(SITE.seo?.[SITE.defaultLang]?.description || SITE.tagline[SITE.defaultLang])}"><link rel="canonical" href="${BASE}/${SITE.defaultLang}/index.html">${SITE.languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${BASE}/${l}/index.html">`).join('')}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">${HAS_THEME ? '<link rel="stylesheet" href="assets/theme.css">' : ''}</head><body data-page="root" data-root="" data-store="${SITE.id}" data-api="${API}"><main class="section center"><p class="brand big-brand">${esc(SITE.brand)}</p><nav class="langs-big">${SITE.languages.map((l) => `<a href="${l}/index.html" hreflang="${l}">${esc(STR[l].lang)}</a>`).join('')}</nav></main><script src="assets/shop.js" defer></script></body></html>`,
+  `<!doctype html><html lang="${SITE.defaultLang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(SITE.seo?.[SITE.defaultLang]?.title || SITE.brand)}</title><meta name="description" content="${esc(SITE.seo?.[SITE.defaultLang]?.description || SITE.tagline[SITE.defaultLang])}"><link rel="canonical" href="${pub(`${SITE.defaultLang}/index.html`)}">${SITE.languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${pub(`${l}/index.html`)}">`).join('')}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">${HAS_THEME ? '<link rel="stylesheet" href="assets/theme.css">' : ''}</head><body data-page="root" data-root="" data-store="${SITE.id}" data-api="${API}"><main class="section center"><p class="brand big-brand">${esc(SITE.brand)}</p><nav class="langs-big">${SITE.languages.map((l) => `<a href="${l}/index.html" hreflang="${l}">${esc(STR[l].lang)}</a>`).join('')}</nav></main><script src="assets/shop.js" defer></script></body></html>`,
 );
 const pages = ['index.html', ...ACTIVE.map((p) => `produkt/${p.id}.html`), ...GUIDES.map((g) => `ratgeber/${g.slug}.html`)];
 const today = new Date().toISOString().slice(0, 10);
@@ -542,7 +544,7 @@ write(
     .flatMap((l) =>
       pages.map(
         (u) =>
-          `<url><loc>${BASE}/${l}/${u}</loc><lastmod>${today}</lastmod>${SITE.languages.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${BASE}/${x}/${u}"/>`).join('')}</url>`,
+          `<url><loc>${pub(`${l}/${u}`)}</loc><lastmod>${today}</lastmod>${SITE.languages.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${pub(`${x}/${u}`)}"/>`).join('')}</url>`,
       ),
     )
     .join('\n')}\n</urlset>\n`,
