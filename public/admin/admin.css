@@ -169,3 +169,8 @@ tr.attention {
 
 .review-mod { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
 .review-mod p { margin: 0 0 6px; }
+
+.ok { color: #1f7a4d; }
+.chip-verdict-DE { background: #dff3e8; color: #1f7a4d; }
+.chip-verdict-EU { background: #fdf1d8; color: #8a5a00; }
+.chip-verdict-CN { background: #f6e1e1; color: #9b2c2c; }

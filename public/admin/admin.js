@@ -115,6 +115,7 @@
     });
 
     renderCatalog(d);
+    renderAudit(d);
     renderFunnel(d);
     renderReviews(d);
     renderCrm(d);
@@ -359,6 +360,102 @@
       });
   }
 
+  var VERDICT = { DE: 'Stock Allemagne', EU: 'Stock UE', CN: 'Chine seulement' };
+  var ORDER = { DE: 0, EU: 1, CN: 2 };
+
+  function quote(q) {
+    return q.days.min + '–' + q.days.max + ' j · $' + q.priceUsd.toFixed(2);
+  }
+
+  function routeCell(r, to) {
+    var td = el('td', 'small');
+    (r.routes || [])
+      .filter(function (x) {
+        return x.to === to;
+      })
+      .forEach(function (x) {
+        var line = el('div');
+        if (x.error) {
+          line.append(el('span', 'muted', x.from + ' : pas de route'));
+        } else {
+          var txt = x.from + ' : ' + quote(x.cheapest);
+          if (x.fastest.days.max < x.cheapest.days.max) txt += ' (express ' + quote(x.fastest) + ')';
+          line.textContent = txt;
+          if (x.from !== 'CN' && x.cheapest.days.max <= 5) line.className = 'ok';
+        }
+        td.append(line);
+      });
+    return td;
+  }
+
+  function renderAudit(d) {
+    var tbody = $('audit');
+    tbody.textContent = '';
+    var a = d.supplyAudit;
+    if (!a) {
+      $('audit-info').textContent = 'Jamais lancée';
+      return;
+    }
+    $('audit-info').textContent = a.finishedAt
+      ? 'Dernière analyse : ' + new Date(a.finishedAt).toLocaleString('fr-FR')
+      : 'Analyse incomplète — relancer';
+    var brand = current === 'all' ? null : brandOf(d, current);
+    Object.keys(a.results)
+      .map(function (k) {
+        return a.results[k];
+      })
+      .filter(function (r) {
+        return !brand || r.usedIn.some(function (u) {
+          return u.brand === brand;
+        });
+      })
+      .sort(function (x, y) {
+        return (ORDER[x.verdict] === undefined ? 3 : ORDER[x.verdict]) - (ORDER[y.verdict] === undefined ? 3 : ORDER[y.verdict]);
+      })
+      .forEach(function (r) {
+        var tr = el('tr');
+        var name = el('td', 'small');
+        r.usedIn.forEach(function (u, i) {
+          if (i) name.append(el('br'));
+          name.append(el('b', '', u.brand + ' '), el('span', '', u.product + (u.part ? ' · ' + u.part : '') + (u.prospect ? ' (prospect)' : '')));
+        });
+        if (r.weightG) name.append(el('br'), el('span', 'muted', r.weightG + ' g · $' + (r.sellPriceUsd || 0).toFixed(2)));
+        var stock = el('td', 'small');
+        if (r.error) stock.append(el('span', 'attn', 'Erreur CJ : ' + r.error));
+        else
+          Object.keys(r.stock || {})
+            .sort(function (x, y) {
+              return x === 'DE' ? -1 : y === 'DE' ? 1 : (r.stock[y] || 0) - (r.stock[x] || 0);
+            })
+            .forEach(function (c) {
+              stock.append(el('div', r.stock[c] > 0 ? '' : 'muted', c + ' : ' + r.stock[c]));
+            });
+        var v = el('td');
+        if (r.verdict) v.append(el('span', 'chip chip-verdict-' + r.verdict, VERDICT[r.verdict]));
+        tr.append(name, stock, routeCell(r, 'DE'), routeCell(r, 'FR'), v);
+        tbody.append(tr);
+      });
+  }
+
+  function runAudit(btn) {
+    btn.disabled = true;
+    var step = function (cursor) {
+      return api('POST', { action: 'auditSupply', cursor: cursor }).then(function (r) {
+        if (r.error) throw new Error(r.error);
+        $('audit-info').textContent = 'Analyse en cours : ' + r.next + ' / ' + r.total + ' produits… (laisser la page ouverte)';
+        return r.done ? null : step(r.next);
+      });
+    };
+    step(0)
+      .then(load)
+      .catch(function (e) {
+        $('audit-info').textContent = 'Analyse interrompue (' + e.message + ') — relancer';
+      })
+      .then(function () {
+        btn.disabled = false;
+      });
+  }
+
   function act(action, sessionId, btn) {
     btn.disabled = true;
     api('POST', { action: action, sessionId: sessionId })
@@ -383,6 +480,9 @@
       });
   }
 
+  $('audit-run').addEventListener('click', function (e) {
+    runAudit(e.currentTarget);
+  });
   $('login').addEventListener('submit', function (e) {
     e.preventDefault();
     password = e.target.password.value;
