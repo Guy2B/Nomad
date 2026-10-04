@@ -106,8 +106,9 @@
             <h2>Stock &amp; délais (CJ)</h2>
             <span class="muted small" id="audit-info"></span>
             <button class="btn btn-dark btn-xs" id="audit-run" type="button">Analyser</button>
+            <button class="btn btn-xs" id="alt-run" type="button">Chercher équivalents stockés en Allemagne</button>
           </div>
-          <p class="muted small">Entrepôts CJ qui ont du stock, puis livraison la moins chère (et l’express si plus rapide) vers l’Allemagne et la France, pour 1 unité. GLOW et KIN (prospects) inclus. Prix CJ en dollars, hors taxes.</p>
+          <p class="muted small">Entrepôts CJ qui ont du stock, puis livraison la moins chère (et l’express si plus rapide) vers l’Allemagne et la France, pour 1 unité. GLOW et KIN (prospects) inclus. Prix CJ en dollars, hors taxes. Les équivalents sont les 2 produits CJ les plus listés pour le même mot-clé avec du stock en Allemagne : à vérifier (qualité, photos) avant de remplacer.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -117,6 +118,7 @@
                   <th>→ Allemagne</th>
                   <th>→ France</th>
                   <th>Verdict</th>
+                  <th>Équivalent stocké en Allemagne</th>
                 </tr>
               </thead>
               <tbody id="audit"></tbody>

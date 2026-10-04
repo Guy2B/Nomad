@@ -3,7 +3,7 @@
  *   GET  /api/admin            → stores, setup, overview (all stores and per store), orders
  *   POST /api/admin {action:'retry', sessionId}      → send to the supplier again
  *   POST /api/admin {action:'resolve', sessionId}    → clear the attention flag (done by hand)
- *   POST /api/admin {action:'auditSupply', cursor}   → next batch of the CJ stock & delivery audit
+ *   POST /api/admin {action:'auditSupply', cursor, kind} → next batch of the CJ stock & delivery audit (kind 'alternatives': same products stocked in Germany)
  */
 import crypto from 'node:crypto';
 import { crm, getOrder, listOrders } from '../lib/store.mjs';
@@ -12,7 +12,7 @@ import { HOST_STORE, allStores, product, supplierLines, unitCost } from '../lib/
 import { cjConfigured } from '../lib/cj.mjs';
 import { funnel } from '../lib/metrics.mjs';
 import { moderate, pendingReviews } from '../lib/reviews.mjs';
-import { auditBatch, supplyAudit } from '../lib/supply.mjs';
+import { alternatives, auditBatch, supplyAudit } from '../lib/supply.mjs';
 
 const json = (status, body) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } });
@@ -90,14 +90,15 @@ export default async (req) => {
       stats: stats(orders),
       pendingReviews: await pendingReviews(store),
       supplyAudit: await supplyAudit(store),
+      alternatives: await alternatives(store),
       orders: orders.map((o) => ({ ...o, store: storeOf(o) })),
     });
   }
   if (req.method === 'POST') {
-    const { action, sessionId, reviewId, cursor } = await req.json().catch(() => ({}));
+    const { action, sessionId, reviewId, cursor, kind } = await req.json().catch(() => ({}));
     if (action === 'auditSupply') {
       if (!cjConfigured()) return json(400, { error: 'cj-not-configured' });
-      return json(200, await auditBatch(store, Math.max(0, Number(cursor) || 0)));
+      return json(200, await auditBatch(store, Math.max(0, Number(cursor) || 0), kind === 'alternatives' ? 'alternatives' : 'stock'));
     }
     if (action === 'approveReview' || action === 'rejectReview') {
       const r = await moderate(store, String(reviewId || ''), action === 'approveReview');

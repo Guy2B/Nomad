@@ -60,10 +60,12 @@
           "cjVid": "",
           "cjSku": "CJYD207339601AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 290,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1196,
           "priceUSD": "1.95-3.15",
-          "notes": "Choisir orientation/couleur exacte et calculer le coût rendu Allemagne."
+          "notes": "Choisir orientation/couleur exacte et calculer le coût rendu Allemagne.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Spülbecken-Organizer aus Aluminium",
@@ -82,10 +84,12 @@
           "cjVid": "",
           "cjSku": "CJYD195271102BY",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 72,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 541,
           "priceUSD": "0.53-0.78",
-          "notes": "À valider sur carrelage/verre; ne pas promettre compatibilité avec toutes les surfaces."
+          "notes": "À valider sur carrelage/verre; ne pas promettre compatibilité avec toutes les surfaces.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Saughaken ohne Bohren",
@@ -94,7 +98,7 @@
         }
       }
     ],
-    "costCents": 1800,
+    "costCents": 3360,
     "seo": {
       "de": {
         "title": "Spülbecken-Organizer ohne Bohren — Küchen-Set",
@@ -118,7 +122,7 @@
   {
     "id": "bathroom-reset",
     "sku": "APR-BATH-02",
-    "active": true,
+    "active": false,
     "price": 4990,
     "compare": 6990,
     "images": [
@@ -198,10 +202,12 @@
           "cjVid": "",
           "cjSku": "CJYD195271102BY",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 72,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 541,
           "priceUSD": "0.53-0.78",
-          "notes": "Surface lisse recommandée; test adhérence avant lancement."
+          "notes": "Surface lisse recommandée; test adhérence avant lancement.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Saughaken ohne Bohren",
@@ -210,7 +216,7 @@
         }
       }
     ],
-    "costCents": 2200,
+    "costCents": 2974,
     "seo": {
       "de": {
         "title": "Duschablage ohne Bohren — Eckregal Bad Set",
@@ -293,10 +299,12 @@
           "cjVid": "",
           "cjSku": "CJYD197888501AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 777,
+          "logisticName": "CJPacket Sensitive",
+          "costCents": 553,
           "priceUSD": "0.05-8.45",
-          "notes": "Sélectionner la variante 6-pack avant activation."
+          "notes": "Sélectionner la variante 6-pack avant activation.",
+          "shippingDays": "4–9",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Magnetische Kabelclips",
@@ -315,10 +323,12 @@
           "cjVid": "",
           "cjSku": "CJJT110132001AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 513,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1174,
           "priceUSD": "1.92-5.58",
-          "notes": "Couleur neutre à confirmer; 1PC pour le bundle."
+          "notes": "Couleur neutre à confirmer; 1PC pour le bundle.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Stapelbare Schubladenbox",
@@ -337,10 +347,12 @@
           "cjVid": "",
           "cjSku": "CJYD237724401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 52,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 517,
           "priceUSD": "0.56",
-          "notes": "Format 13.5 × 9 × 5 cm."
+          "notes": "Format 13.5 × 9 × 5 cm.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Mini-Aufbewahrungsbox",
@@ -349,7 +361,7 @@
         }
       }
     ],
-    "costCents": 1800,
+    "costCents": 2244,
     "seo": {
       "de": {
         "title": "Kabelmanagement Schreibtisch — Organizer Set",
@@ -431,10 +443,12 @@
           "cjVid": "",
           "cjSku": "CJJT132431901AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 199,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 752,
           "priceUSD": "0.27-2.16",
-          "notes": "Choisir la variante 4PCS ou 5PCS pour le bundle."
+          "notes": "Choisir la variante 4PCS ou 5PCS pour le bundle.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Platzsparender Kleiderbügel (9 Löcher)",
@@ -453,10 +467,12 @@
           "cjVid": "",
           "cjSku": "CJYD237778201AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 520,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 657,
           "priceUSD": "0.98-5.65",
-          "notes": "Valider taille Medium/Large et bundle 2pcs."
+          "notes": "Valider taille Medium/Large et bundle 2pcs.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Faltbare Aufbewahrungstasche",
@@ -465,7 +481,7 @@
         }
       }
     ],
-    "costCents": 1600,
+    "costCents": 2066,
     "seo": {
       "de": {
         "title": "Platzsparende Kleiderbügel & Aufbewahrungstaschen — Schrank-Set",
@@ -548,10 +564,12 @@
           "cjVid": "",
           "cjSku": "CJJJJTFZ00270-2 frames 80cm",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 791,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1997,
           "priceUSD": "2.92-8.60",
-          "notes": "Valider montage no-drill sur surface cible; échantillon indispensable."
+          "notes": "Valider montage no-drill sur surface cible; échantillon indispensable.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Klappbarer Wand-Wäscheständer (80 cm)",
@@ -570,10 +588,12 @@
           "cjVid": "",
           "cjSku": "CJYD237778201AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 520,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 657,
           "priceUSD": "0.98-5.65",
-          "notes": "Taille à confirmer."
+          "notes": "Taille à confirmer.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Faltbare Aufbewahrungstasche",
@@ -592,10 +612,12 @@
           "cjVid": "",
           "cjSku": "CJYD195271102BY",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 72,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 541,
           "priceUSD": "0.53-0.78",
-          "notes": "Surface compatible à valider."
+          "notes": "Surface compatible à valider.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Saughaken ohne Bohren",
@@ -604,7 +626,7 @@
         }
       }
     ],
-    "costCents": 2400,
+    "costCents": 4818,
     "seo": {
       "de": {
         "title": "Wäscheständer Wand klappbar — Wäsche-Set ohne Bohren",
@@ -696,10 +718,12 @@
           "cjVid": "",
           "cjSku": "CJYD207339601AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 290,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1196,
           "priceUSD": "1.95-3.15",
-          "notes": "Choisir orientation/couleur exacte et calculer le coût rendu Allemagne."
+          "notes": "Choisir orientation/couleur exacte et calculer le coût rendu Allemagne.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -710,7 +734,7 @@
   {
     "id": "suction-hooks-4",
     "sku": "APR-S-SUCTION-HO",
-    "active": true,
+    "active": false,
     "single": true,
     "price": 1290,
     "compare": 1490,
@@ -778,10 +802,12 @@
           "cjVid": "",
           "cjSku": "CJYD195271102BY",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 72,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 541,
           "priceUSD": "0.53-0.78",
-          "notes": "À valider sur carrelage/verre; ne pas promettre compatibilité avec toutes les surfaces."
+          "notes": "À valider sur carrelage/verre; ne pas promettre compatibilité avec toutes les surfaces.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -794,7 +820,7 @@
   {
     "id": "shower-shelf",
     "sku": "APR-S-SHOWER-SHE",
-    "active": true,
+    "active": false,
     "single": true,
     "price": 3990,
     "compare": 4490,
@@ -944,10 +970,12 @@
           "cjVid": "",
           "cjSku": "CJYD197888501AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 777,
+          "logisticName": "CJPacket Sensitive",
+          "costCents": 553,
           "priceUSD": "0.05-8.45",
-          "notes": "Sélectionner la variante 6-pack avant activation."
+          "notes": "Sélectionner la variante 6-pack avant activation.",
+          "shippingDays": "4–9",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1026,10 +1054,12 @@
           "cjVid": "",
           "cjSku": "CJJT110132001AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 513,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1174,
           "priceUSD": "1.92-5.58",
-          "notes": "Couleur neutre à confirmer; 1PC pour le bundle."
+          "notes": "Couleur neutre à confirmer; 1PC pour le bundle.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1108,10 +1138,12 @@
           "cjVid": "",
           "cjSku": "CJYD237724401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 52,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 517,
           "priceUSD": "0.56",
-          "notes": "Format 13.5 × 9 × 5 cm."
+          "notes": "Format 13.5 × 9 × 5 cm.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1190,10 +1222,12 @@
           "cjVid": "",
           "cjSku": "CJJT132431901AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 199,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 752,
           "priceUSD": "0.27-2.16",
-          "notes": "Choisir la variante 4PCS ou 5PCS pour le bundle."
+          "notes": "Choisir la variante 4PCS ou 5PCS pour le bundle.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1272,10 +1306,12 @@
           "cjVid": "",
           "cjSku": "CJYD237778201AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 520,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 657,
           "priceUSD": "0.98-5.65",
-          "notes": "Valider taille Medium/Large et bundle 2pcs."
+          "notes": "Valider taille Medium/Large et bundle 2pcs.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1355,10 +1391,12 @@
           "cjVid": "",
           "cjSku": "CJJJJTFZ00270-2 frames 80cm",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 791,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1997,
           "priceUSD": "2.92-8.60",
-          "notes": "Valider montage no-drill sur surface cible; échantillon indispensable."
+          "notes": "Valider montage no-drill sur surface cible; échantillon indispensable.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],

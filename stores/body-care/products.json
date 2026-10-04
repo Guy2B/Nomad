@@ -61,10 +61,12 @@
           "cjVid": "",
           "cjSku": "CJYS186389401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 845,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1248,
           "priceUSD": "9.18",
-          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Doppelter Fußmassageroller",
@@ -83,10 +85,12 @@
           "cjVid": "",
           "cjSku": "CJJT112906701AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 51,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 480,
           "priceUSD": "0.26-0.55",
-          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device."
+          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Zehentrenner aus Silikon (Paar)",
@@ -95,7 +99,7 @@
         }
       }
     ],
-    "costCents": 1600,
+    "costCents": 1728,
     "seo": {
       "de": {
         "title": "Fußmassageroller & Zehentrenner Set",
@@ -177,10 +181,12 @@
           "cjVid": "",
           "cjSku": "CJYD201950801AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 686,
+          "logisticName": "CJPacket Sensitive",
+          "costCents": 1533,
           "priceUSD": "1.55-7.46",
-          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation."
+          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation.",
+          "shippingDays": "4–9",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Handballenauflage für die Tastatur",
@@ -199,10 +205,12 @@
           "cjVid": "",
           "cjSku": "CJAM120925301AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 52,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 565,
           "priceUSD": "0.46-0.57",
-          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Handtrainer mit Schaumstoffgriff",
@@ -211,7 +219,7 @@
         }
       }
     ],
-    "costCents": 1400,
+    "costCents": 2098,
     "seo": {
       "de": {
         "title": "Handballenauflage Tastatur & Handtrainer Set",
@@ -294,10 +302,12 @@
           "cjVid": "",
           "cjSku": "CJAM130816101AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 326,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 862,
           "priceUSD": "0.66-3.54",
-          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy."
+          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Manueller Nacken- und Schulterroller (6 Rollen)",
@@ -316,10 +326,12 @@
           "cjVid": "",
           "cjSku": "CJJM1804042-Pink",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 918,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1318,
           "priceUSD": "9.98",
-          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Stretchband für Mobility",
@@ -328,7 +340,7 @@
         }
       }
     ],
-    "costCents": 1800,
+    "costCents": 2180,
     "seo": {
       "de": {
         "title": "Nackenmassage Roller manuell & Stretchband",
@@ -411,10 +423,12 @@
           "cjVid": "",
           "cjSku": "CJJM1804042-Pink",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 918,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1318,
           "priceUSD": "9.98",
-          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Stretchband für Mobility",
@@ -433,10 +447,12 @@
           "cjVid": "",
           "cjSku": "CJYS186389401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 845,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1248,
           "priceUSD": "9.18",
-          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Doppelter Fußmassageroller",
@@ -455,10 +471,12 @@
           "cjVid": "",
           "cjSku": "CJAM120925301AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 52,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 565,
           "priceUSD": "0.46-0.57",
-          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Handtrainer mit Schaumstoffgriff",
@@ -467,7 +485,7 @@
         }
       }
     ],
-    "costCents": 2600,
+    "costCents": 3131,
     "seo": {
       "de": {
         "title": "Mobility Set: Stretchband, Fußroller & Handtrainer",
@@ -550,10 +568,12 @@
           "cjVid": "",
           "cjSku": "CJJT112906701AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 51,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 480,
           "priceUSD": "0.26-0.55",
-          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device."
+          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Zehentrenner aus Silikon (Paar)",
@@ -572,10 +592,12 @@
           "cjVid": "",
           "cjSku": "CJYS186389401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 845,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1248,
           "priceUSD": "9.18",
-          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Doppelter Fußmassageroller",
@@ -594,10 +616,12 @@
           "cjVid": "",
           "cjSku": "CJAM130816101AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 326,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 862,
           "priceUSD": "0.66-3.54",
-          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy."
+          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Manueller Nacken- und Schulterroller (6 Rollen)",
@@ -616,10 +640,12 @@
           "cjVid": "",
           "cjSku": "CJYD201950801AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 686,
+          "logisticName": "CJPacket Sensitive",
+          "costCents": 1533,
           "priceUSD": "1.55-7.46",
-          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation."
+          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation.",
+          "shippingDays": "4–9",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Handballenauflage für die Tastatur",
@@ -638,10 +664,12 @@
           "cjVid": "",
           "cjSku": "CJAM120925301AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 52,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 565,
           "priceUSD": "0.46-0.57",
-          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Handtrainer mit Schaumstoffgriff",
@@ -660,10 +688,12 @@
           "cjVid": "",
           "cjSku": "CJJM1804042-Pink",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 918,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1318,
           "priceUSD": "9.98",
-          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         },
         "label": {
           "de": "Stretchband für Mobility",
@@ -672,7 +702,7 @@
         }
       }
     ],
-    "costCents": 4200,
+    "costCents": 6006,
     "seo": {
       "de": {
         "title": "Wellness Geschenkset Homeoffice — 6 Teile",
@@ -764,10 +794,12 @@
           "cjVid": "",
           "cjSku": "CJYS186389401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 845,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1248,
           "priceUSD": "9.18",
-          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated."
+          "notes": "Use neutral relaxation/comfort claims only. Exact variant must be sample-validated.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -848,10 +880,12 @@
           "cjVid": "",
           "cjSku": "CJJT112906701AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 51,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 480,
           "priceUSD": "0.26-0.55",
-          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device."
+          "notes": "Choose exact size/color after sample test. Market as comfort/mobility accessory, not a medical correction device.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -863,7 +897,7 @@
   {
     "id": "wrist-rest",
     "sku": "BDC-S-WRIST-REST",
-    "active": true,
+    "active": false,
     "single": true,
     "price": 1990,
     "compare": 2490,
@@ -931,10 +965,12 @@
           "cjVid": "",
           "cjSku": "CJYD201950801AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 686,
+          "logisticName": "CJPacket Sensitive",
+          "costCents": 1533,
           "priceUSD": "1.55-7.46",
-          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation."
+          "notes": "Listing includes lit and non-lit variants. Select the plain black wrist-rest variant before activation.",
+          "shippingDays": "4–9",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1014,10 +1050,12 @@
           "cjVid": "",
           "cjSku": "CJAM120925301AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 52,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 565,
           "priceUSD": "0.46-0.57",
-          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample."
+          "notes": "Simple manual spring grip. Validate spring resistance and foam quality on sample.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1098,10 +1136,12 @@
           "cjVid": "",
           "cjSku": "CJAM130816101AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 326,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 862,
           "priceUSD": "0.66-3.54",
-          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy."
+          "notes": "Choose the simple manual 6-wheel variant. Avoid therapeutic/medical claims from supplier copy.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1181,10 +1221,12 @@
           "cjVid": "",
           "cjSku": "CJJM1804042-Pink",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 918,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1318,
           "priceUSD": "9.98",
-          "notes": "Select one neutral color; market for stretching/mobility rather than therapy."
+          "notes": "Select one neutral color; market for stretching/mobility rather than therapy.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1271,8 +1313,8 @@
           "cjVid": "",
           "cjSku": "CJYDQTJM00621-Black With straps-1.5",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 1800,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 2506,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "3.36",
@@ -1284,7 +1326,9 @@
             "weight": "980g",
             "amazonDe": "Yogamatte NBR: 4,3–4,5★, bis 747 Bewertungen, 20–25 €"
           },
-          "notes": "Heavy parcel: recheck EU shipping cost."
+          "notes": "Heavy parcel: recheck EU shipping cost.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       },
       {
@@ -1303,8 +1347,8 @@
           "cjVid": "",
           "cjSku": "CJYD220315401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 600,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1296,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "2.72",
@@ -1316,7 +1360,9 @@
             "weight": "220g",
             "amazonDe": "Yoga Block EVA: 3,9–4,8★, wenige Bewertungen (Nischenprodukt, gut als Set-Ergänzung)"
           },
-          "notes": ""
+          "notes": "",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       },
       {
@@ -1335,8 +1381,8 @@
           "cjVid": "",
           "cjSku": "CJJT129735301AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 500,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 756,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "1.48",
@@ -1348,7 +1394,9 @@
             "weight": "160g",
             "amazonDe": "Yoga Gurt Stretching: 4,5–4,6★, bis 883 Bewertungen, 7–15 €"
           },
-          "notes": ""
+          "notes": "",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1361,7 +1409,7 @@
   {
     "id": "back-stretcher",
     "sku": "BDC-BACK-06",
-    "active": true,
+    "active": false,
     "price": 2990,
     "compare": 3490,
     "images": [
@@ -1432,8 +1480,8 @@
           "cjVid": "",
           "cjSku": "CJJT124131003CX",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 1000,
+          "logisticName": "CJPacket Eub",
+          "costCents": 1210,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "3.69",
@@ -1445,7 +1493,9 @@
             "weight": "380g",
             "amazonDe": "Rückenstrecker: 4,1–4,4★, bis 1.284 Bewertungen, 21–60 €"
           },
-          "notes": "Supplier copy makes medical claims (sciatica, disc): never reuse them."
+          "notes": "Supplier copy makes medical claims (sciatica, disc): never reuse them.",
+          "shippingDays": "12–50",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1526,8 +1576,8 @@
           "cjVid": "",
           "cjSku": "CJYDQTJM00621-Black With straps-1.5",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 1800,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 2506,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "3.36",
@@ -1539,7 +1589,9 @@
             "weight": "980g",
             "amazonDe": "Yogamatte NBR: 4,3–4,5★, bis 747 Bewertungen, 20–25 €"
           },
-          "notes": "Heavy parcel: recheck EU shipping cost."
+          "notes": "Heavy parcel: recheck EU shipping cost.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1622,8 +1674,8 @@
           "cjVid": "",
           "cjSku": "CJJT129735301AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 500,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 756,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "1.48",
@@ -1635,7 +1687,9 @@
             "weight": "160g",
             "amazonDe": "Yoga Gurt Stretching: 4,5–4,6★, bis 883 Bewertungen, 7–15 €"
           },
-          "notes": ""
+          "notes": "",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1718,8 +1772,8 @@
           "cjVid": "",
           "cjSku": "CJYDQTJM00326-Blue-Grid-Woman",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 1500,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 2037,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "4.64",
@@ -1731,7 +1785,9 @@
             "weight": "597g",
             "amazonDe": "Sitzkissen Memory Foam Bürostuhl: Angebot auf Amazon.de verstreut, wenige Bewertungen pro Modell (Nachfrage über „Steißbeinkissen“ prüfen)"
           },
-          "notes": ""
+          "notes": "",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1744,7 +1800,7 @@
   {
     "id": "massage-cone",
     "sku": "BDC-CONE-10",
-    "active": true,
+    "active": false,
     "price": 1490,
     "compare": 1790,
     "images": [
@@ -1812,8 +1868,8 @@
           "cjVid": "",
           "cjSku": "CJAM211047101AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 1100,
+          "logisticName": "Yunexpress CN to Multi-Region",
+          "costCents": 1167,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "8.26",
@@ -1825,7 +1881,9 @@
             "weight": "100g",
             "amazonDe": "Triggerpunkt/Massage-Kegel: 4,1–4,7★, bis 336 Bewertungen, 7–17 €"
           },
-          "notes": "Low CJ listing count and stock: watch availability."
+          "notes": "Low CJ listing count and stock: watch availability.",
+          "shippingDays": "5–10",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1838,7 +1896,7 @@
   {
     "id": "foam-roller-set",
     "sku": "BDC-ROLL-11",
-    "active": true,
+    "active": false,
     "price": 3490,
     "compare": 3990,
     "images": [
@@ -1908,8 +1966,8 @@
           "cjVid": "",
           "cjSku": "CJJJJTJT11763-45x16cm",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 2200,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 3318,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "9.37",
@@ -1921,7 +1979,9 @@
             "weight": "1539g",
             "amazonDe": "Faszienrolle Set 3 in 1: 4,0–4,8★, bis 380 Bewertungen, 17–30 €"
           },
-          "notes": "Heavy (1.5 kg): EU shipping may eat the margin; check before listing."
+          "notes": "Heavy (1.5 kg): EU shipping may eat the margin; check before listing.",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],
@@ -1934,7 +1994,7 @@
   {
     "id": "yoga-block",
     "sku": "BDC-BLOCK-12",
-    "active": true,
+    "active": false,
     "price": 1290,
     "compare": 1490,
     "images": [
@@ -2004,8 +2064,8 @@
           "cjVid": "",
           "cjSku": "CJYD220315401AZ",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 600,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1296,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "2.72",
@@ -2017,7 +2077,9 @@
             "weight": "220g",
             "amazonDe": "Yoga Block EVA: 3,9–4,8★, wenige Bewertungen (Nischenprodukt, gut als Set-Ergänzung)"
           },
-          "notes": ""
+          "notes": "",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],

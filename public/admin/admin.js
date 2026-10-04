@@ -432,15 +432,64 @@
             });
         var v = el('td');
         if (r.verdict) v.append(el('span', 'chip chip-verdict-' + r.verdict, VERDICT[r.verdict]));
-        tr.append(name, stock, routeCell(r, 'DE'), routeCell(r, 'FR'), v);
+        tr.append(name, stock, routeCell(r, 'DE'), routeCell(r, 'FR'), v, altCell(d, r.pid || r.id));
+        tbody.append(tr);
+      });
+    // Products still to source (no CJ product yet), e.g. a replacement.
+    var alts = (d.alternatives && d.alternatives.results) || {};
+    Object.keys(alts)
+      .filter(function (k) {
+        return !a.results[k];
+      })
+      .forEach(function (k) {
+        var x = alts[k];
+        if (brand && !x.usedIn.some(function (u) { return u.brand === brand; })) return;
+        var tr = el('tr');
+        var name = el('td', 'small');
+        name.append(el('b', '', x.usedIn[0].brand + ' '), el('span', '', x.usedIn[0].product));
+        tr.append(name, el('td', 'muted small', 'à sourcer'), el('td'), el('td'), el('td'), altCell(d, k));
         tbody.append(tr);
       });
   }
 
-  function runAudit(btn) {
+  function altCell(d, id) {
+    var td = el('td', 'small');
+    var x = d.alternatives && d.alternatives.results && d.alternatives.results[id];
+    if (!x) return td;
+    if (x.error) {
+      td.append(el('span', 'attn', 'Erreur CJ : ' + x.error));
+      return td;
+    }
+    if (!x.candidates.length) {
+      td.append(el('span', 'muted', 'Aucun produit « ' + x.keyword + ' » stocké en Allemagne'));
+      return td;
+    }
+    x.candidates.forEach(function (c) {
+      var box = el('div', 'alt');
+      var a = el('a', '', c.name || c.pid);
+      a.href = c.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      box.append(a);
+      var facts = [];
+      if (c.sellPriceUsd) facts.push('$' + c.sellPriceUsd.toFixed(2));
+      if (c.weightG) facts.push(c.weightG + ' g');
+      if (c.inventory != null) facts.push('stock ' + c.inventory);
+      if (c.listedNum != null) facts.push(c.listedNum + ' boutiques');
+      box.append(el('br'), el('span', 'muted', facts.join(' · ')));
+      (c.routes || []).forEach(function (rt) {
+        if (rt.error) return;
+        box.append(el('br'), el('span', rt.cheapest.days.max <= 5 ? 'ok' : '', '→ ' + rt.to + ' ' + quote(rt.cheapest)));
+      });
+      td.append(box);
+    });
+    return td;
+  }
+
+  function runAudit(btn, kind) {
     btn.disabled = true;
     var step = function (cursor) {
-      return api('POST', { action: 'auditSupply', cursor: cursor }).then(function (r) {
+      return api('POST', { action: 'auditSupply', cursor: cursor, kind: kind }).then(function (r) {
         if (r.error) throw new Error(r.error);
         $('audit-info').textContent = 'Analyse en cours : ' + r.next + ' / ' + r.total + ' produits… (laisser la page ouverte)';
         return r.done ? null : step(r.next);
@@ -481,7 +530,10 @@
   }
 
   $('audit-run').addEventListener('click', function (e) {
-    runAudit(e.currentTarget);
+    runAudit(e.currentTarget, 'stock');
+  });
+  $('alt-run').addEventListener('click', function (e) {
+    runAudit(e.currentTarget, 'alternatives');
   });
   $('login').addEventListener('submit', function (e) {
     e.preventDefault();

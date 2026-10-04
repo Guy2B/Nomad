@@ -5,11 +5,13 @@
  *
  * CJ allows about one call per second and a Worker request only a few dozen
  * sub-requests, so the admin runs it in small batches; results are kept in
- * audit/supply and shown in the admin.
+ * audit/supply and shown in the admin. A second job looks, per product, for
+ * the most listed CJ equivalents stocked in Germany (audit/alternatives).
  */
 import { allStores, supplierLines } from './catalog.mjs';
 import { CJError, accessToken } from './cj.mjs';
 import prospects from '../../stores/prospects.json' with { type: 'json' };
+import keywords from '../../stores/alt-keywords.json' with { type: 'json' };
 
 const API = 'https://developers.cjdropshipping.com/api2.0/v1';
 const KEY = 'audit/supply';
@@ -149,22 +151,84 @@ export async function auditOne(item, token) {
   };
 }
 
-/** Runs one batch from `cursor` (0 starts a fresh audit) and returns the progress. */
-export async function auditBatch(store, cursor = 0) {
-  const items = auditItems();
-  const saved = cursor === 0 ? { startedAt: new Date().toISOString(), results: {} } : ((await store.get(KEY, { type: 'json' })) ?? { results: {} });
-  const token = await accessToken(store);
-  for (const item of items.slice(cursor, cursor + BATCH)) {
+/** Same product stocked in Germany: CJ search per keyword (stores/alt-keywords.json), plus products still to source. */
+export function altItems() {
+  const items = auditItems()
+    .filter((i) => keywords.byPid[i.pid])
+    .map((i) => ({ id: i.pid, keyword: keywords.byPid[i.pid], usedIn: i.usedIn }));
+  for (const e of keywords.extra) items.push({ id: e.id, keyword: e.keyword, usedIn: [{ brand: e.brand, product: e.product, part: null }] });
+  return items;
+}
+
+const slug = (s) =>
+  String(s || 'product')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 80);
+export const cjProductUrl = (id, name) => `https://cjdropshipping.com/product/${slug(name)}-p-${id}.html`;
+
+/** The 2 most listed CJ products for the keyword with stock in Germany, with delivery from there. */
+export async function findAlternatives(item, token) {
+  const q = new URLSearchParams({ keyWord: item.keyword, countryCode: 'DE', page: '1', size: '20', orderBy: '1' });
+  const data = await cj(token, `/product/listV2?${q}`);
+  const list = (data?.content ?? []).flatMap((c) => c.productList ?? []).filter((p) => p.id !== item.id);
+  const candidates = [];
+  for (const p of list.slice(0, 2)) {
+    const c = {
+      pid: p.id,
+      name: p.nameEn,
+      image: p.bigImage,
+      url: cjProductUrl(p.id, p.nameEn),
+      sellPriceUsd: parseFloat(p.nowPrice || p.sellPrice) || null,
+      listedNum: p.listedNum ?? null,
+      inventory: p.warehouseInventoryNum ?? null,
+      routes: [],
+    };
     try {
-      saved.results[item.pid] = await auditOne(item, token);
+      const prod = await cj(token, `/product/query?pid=${encodeURIComponent(p.id)}&countryCode=DE`);
+      const v = prod?.variants?.[0];
+      if (v) {
+        c.vid = v.vid;
+        c.variantSku = v.variantSku;
+        c.weightG = Number(v.variantWeight) || null;
+        c.sellPriceUsd = Number(v.variantSellPrice) || c.sellPriceUsd;
+        for (const to of DESTINATIONS) {
+          const quotes = bestQuotes(await cj(token, '/logistic/freightCalculate', { startCountryCode: 'DE', endCountryCode: to, products: [{ quantity: 1, vid: v.vid }] }));
+          c.routes.push({ from: 'DE', to, ...(quotes ?? { error: 'no-route' }) });
+        }
+      }
     } catch (err) {
-      saved.results[item.pid] = { pid: item.pid, usedIn: item.usedIn, error: err.message, checkedAt: new Date().toISOString() };
+      c.error = err.message;
+    }
+    candidates.push(c);
+  }
+  return { id: item.id, keyword: item.keyword, usedIn: item.usedIn, found: list.length, candidates, checkedAt: new Date().toISOString() };
+}
+
+const JOBS = {
+  stock: { key: KEY, batch: BATCH, items: () => auditItems().map((i) => ({ ...i, id: i.pid })), run: auditOne },
+  alternatives: { key: 'audit/alternatives', batch: 3, items: altItems, run: findAlternatives },
+};
+
+/** Runs one batch of a job from `cursor` (0 starts it afresh) and returns the progress. */
+export async function auditBatch(store, cursor = 0, kind = 'stock') {
+  const job = JOBS[kind] ?? JOBS.stock;
+  const items = job.items();
+  const saved = cursor === 0 ? { startedAt: new Date().toISOString(), results: {} } : ((await store.get(job.key, { type: 'json' })) ?? { results: {} });
+  const token = await accessToken(store);
+  for (const item of items.slice(cursor, cursor + job.batch)) {
+    try {
+      saved.results[item.id] = await job.run(item, token);
+    } catch (err) {
+      saved.results[item.id] = { id: item.id, pid: item.pid, usedIn: item.usedIn, error: err.message, checkedAt: new Date().toISOString() };
     }
   }
-  const next = cursor + BATCH;
+  const next = cursor + job.batch;
   saved.finishedAt = next >= items.length ? new Date().toISOString() : null;
-  await store.setJSON(KEY, saved);
+  await store.setJSON(job.key, saved);
   return { total: items.length, next: Math.min(next, items.length), done: next >= items.length };
 }
 
 export const supplyAudit = (store) => store.get(KEY, { type: 'json' });
+export const alternatives = (store) => store.get('audit/alternatives', { type: 'json' });

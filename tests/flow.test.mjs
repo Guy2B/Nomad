@@ -111,7 +111,7 @@ test('CJ order: delivery address, origin, shipping method and products as CJ exp
   assert.equal(p.shippingCountryCode, 'DE');
   assert.equal(p.shippingCountry, 'Germany');
   assert.equal(p.shippingCustomerName, 'Léa');
-  assert.equal(p.logisticName, 'CJPacket Ordinary');
+  assert.equal(p.logisticName, 'YunExpress Sensitive');
   assert.equal(p.fromCountryCode, 'CN');
   assert.equal(p.payType, 3);
   assert.deepEqual(p.products[0], { sku: 'CJYD232914001AZ', quantity: 1, storeLineItemId: 'NM-261002-AB12-vacuum-backpack' });

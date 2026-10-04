@@ -174,3 +174,6 @@ tr.attention {
 .chip-verdict-DE { background: #dff3e8; color: #1f7a4d; }
 .chip-verdict-EU { background: #fdf1d8; color: #8a5a00; }
 .chip-verdict-CN { background: #f6e1e1; color: #9b2c2c; }
+
+.alt { margin-bottom: 8px; max-width: 280px; }
+.alt a { font-weight: 600; }

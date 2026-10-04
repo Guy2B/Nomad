@@ -54,9 +54,11 @@
       "cjVid": "",
       "cjSku": "CJYD232914001AZ",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 3400,
-      "notes": "Variant with pump to confirm after sample; EU shipping to recalculate in CJ."
+      "logisticName": "YunExpress Sensitive",
+      "costCents": 4120,
+      "notes": "Variant with pump to confirm after sample; EU shipping to recalculate in CJ.",
+      "shippingDays": "8–15",
+      "checkedAt": "2026-10-04"
     },
     "seo": {
       "de": {
@@ -339,9 +341,11 @@
       "cjVid": "",
       "cjSku": "CJCZ211153101AZ",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 800,
-      "notes": "Choose colour/variant in CJ; check landed cost to Germany and finish."
+      "logisticName": "Yunexpress CN to Multi-Region #4",
+      "costCents": 1587,
+      "notes": "Choose colour/variant in CJ; check landed cost to Germany and finish.",
+      "shippingDays": "5–8",
+      "checkedAt": "2026-10-04"
     },
     "seo": {
       "de": {
@@ -419,9 +423,11 @@
       "cjVid": "",
       "cjSku": "CJSJ183035901AZ",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 1100,
-      "notes": "This reference is the 360 stand only (not a kit): sold as such."
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 666,
+      "notes": "This reference is the 360 stand only (not a kit): sold as such.",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "seo": {
       "de": {
@@ -498,9 +504,11 @@
       "cjVid": "",
       "cjSku": "CJBHNSNS12867-Light Blue41x14x1",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 600,
-      "notes": "Colour Light Blue; check other colours."
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 774,
+      "notes": "Colour Light Blue; check other colours.",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "seo": {
       "de": {
@@ -645,8 +653,8 @@
       "cjVid": "",
       "cjSku": "CJNS110086901AZ",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 1200,
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 1465,
       "sourcing": {
         "checkedAt": "2026-10-02",
         "priceUSD": "4.62",
@@ -658,7 +666,9 @@
         "weight": "480g",
         "amazonDe": "Packwürfel Set: 4,5–4,7★, bis 44.015 Bewertungen, 25–33 € (8-teilig)"
       },
-      "notes": ""
+      "notes": "",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "upsells": [
       "vacuum-backpack",
@@ -732,8 +742,8 @@
       "cjVid": "",
       "cjSku": "CJNS152304210JQ",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 800,
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 808,
       "sourcing": {
         "checkedAt": "2026-10-02",
         "priceUSD": "1.15",
@@ -745,7 +755,9 @@
         "weight": "220g",
         "amazonDe": "Kosmetiktasche groß Reise: 4,4–4,9★, bis 2.744 Bewertungen, 16–30 €"
       },
-      "notes": "Choose colour; CN warehouse (US stock 0)."
+      "notes": "Choose colour; CN warehouse (US stock 0).",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "upsells": [
       "modular-toiletry",
@@ -817,8 +829,8 @@
       "cjVid": "",
       "cjSku": "CJZT115982902BY",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 1100,
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 1198,
       "sourcing": {
         "checkedAt": "2026-10-02",
         "priceUSD": "5.13",
@@ -830,7 +842,9 @@
         "weight": "249g",
         "amazonDe": "Nackenkissen Flugzeug aufblasbar: 4,2–4,6★, bis 6.597 Bewertungen, 9–30 €"
       },
-      "notes": ""
+      "notes": "",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "upsells": [
       "sleep-kit",
@@ -903,8 +917,8 @@
       "cjVid": "",
       "cjSku": "CJBJPFMZ00232-Dark gray",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 700,
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 814,
       "sourcing": {
         "checkedAt": "2026-10-02",
         "priceUSD": "3.22",
@@ -916,7 +930,9 @@
         "weight": "90g",
         "amazonDe": "Schlafmaske 3D: 4,4–4,8★, bis 2.761 Bewertungen, 6–16 €"
       },
-      "notes": ""
+      "notes": "",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "upsells": [
       "sleep-kit",
@@ -989,8 +1005,8 @@
       "cjVid": "",
       "cjSku": "CJJT167029603CX",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 1600,
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 1522,
       "sourcing": {
         "checkedAt": "2026-10-02",
         "priceUSD": "4.19",
@@ -1002,7 +1018,9 @@
         "weight": "550g",
         "amazonDe": "Reisetasche/Sporttasche mit Schuhfach: 4,4–4,5★, bis 3.768 Bewertungen, 19–30 €"
       },
-      "notes": ""
+      "notes": "",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "upsells": [
       "packing-cubes",
@@ -1075,8 +1093,8 @@
       "cjVid": "",
       "cjSku": "CJQB177998104DW",
       "fromCountryCode": "CN",
-      "logisticName": "CJPacket Ordinary",
-      "costCents": 600,
+      "logisticName": "CJPacket Fast Ordinary",
+      "costCents": 669,
       "sourcing": {
         "checkedAt": "2026-10-02",
         "priceUSD": "1.57",
@@ -1088,7 +1106,9 @@
         "weight": "90g",
         "amazonDe": "Kartenetui RFID Metall: 4,3–4,5★, bis 10.237 Bewertungen, 11–32 €"
       },
-      "notes": ""
+      "notes": "",
+      "shippingDays": "4–6",
+      "checkedAt": "2026-10-04"
     },
     "upsells": [
       "jewelry-roll",
@@ -1175,8 +1195,8 @@
           "cjVid": "",
           "cjSku": "CJZT115982902BY",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 1100,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1198,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "5.13",
@@ -1188,7 +1208,9 @@
             "weight": "249g",
             "amazonDe": "Nackenkissen Flugzeug aufblasbar: 4,2–4,6★, bis 6.597 Bewertungen, 9–30 €"
           },
-          "notes": ""
+          "notes": "",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       },
       {
@@ -1207,8 +1229,8 @@
           "cjVid": "",
           "cjSku": "CJBJPFMZ00232-Dark gray",
           "fromCountryCode": "CN",
-          "logisticName": "CJPacket Ordinary",
-          "costCents": 700,
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 814,
           "sourcing": {
             "checkedAt": "2026-10-02",
             "priceUSD": "3.22",
@@ -1220,7 +1242,9 @@
             "weight": "90g",
             "amazonDe": "Schlafmaske 3D: 4,4–4,8★, bis 2.761 Bewertungen, 6–16 €"
           },
-          "notes": ""
+          "notes": "",
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04"
         }
       }
     ],

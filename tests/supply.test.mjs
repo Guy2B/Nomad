@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 process.env.NOMAD_MEMORY_STORE = '1';
-const { agingDays, auditItems, auditOne, bestQuotes, originsFor, pickVariant, stockByCountry, verdictOf } = await import(
+const { agingDays, altItems, auditItems, auditOne, findAlternatives, bestQuotes, originsFor, pickVariant, stockByCountry, verdictOf } = await import(
   '../netlify/lib/supply.mjs'
 );
 
@@ -10,7 +10,7 @@ test('audit list: every active catalogue product once per CJ product, plus the G
   const items = auditItems();
   assert.equal(new Set(items.map((i) => i.pid)).size, items.length);
   assert.ok(items.some((i) => i.usedIn.some((u) => u.brand === 'GO')));
-  assert.equal(items.filter((i) => i.usedIn.some((u) => u.prospect)).length, 24);
+  assert.equal(items.filter((i) => i.usedIn.some((u) => u.prospect)).length, 23);
 });
 
 test('stock: variant figures first, Germany beats other EU warehouses, China last', () => {
@@ -56,6 +56,30 @@ test('one product: CJ product, stock and freight from each warehouse to DE and F
       ['DEDE', 'DEFR', 'CNDE', 'CNFR'],
     );
     assert.equal(calls.filter(([u]) => u.includes('freightCalculate'))[0][1].products[0].vid, 'v1');
+  } finally {
+    globalThis.fetch = realFetch;
+  }
+});
+
+test('equivalents in Germany: CJ search filtered on DE stock, the original excluded, delivery quoted from DE', async () => {
+  assert.ok(altItems().some((i) => i.id === 'shower-caddy'));
+  const calls = [];
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    calls.push([String(url), init?.body ? JSON.parse(init.body) : null]);
+    const ok = (data) => new Response(JSON.stringify({ result: true, data }));
+    if (String(url).includes('/product/listV2'))
+      return ok({ content: [{ productList: [{ id: 'orig', nameEn: 'Same' }, { id: 'p9', nameEn: 'Shower Shelf Corner', sellPrice: '4.10', listedNum: 120, warehouseInventoryNum: 33 }] }] });
+    if (String(url).includes('/product/query')) return ok({ variants: [{ vid: 'v9', variantSku: 'S9', variantWeight: 300, variantSellPrice: 4.1 }] });
+    return ok([{ logisticName: 'DHL DE', logisticPrice: 3.5, logisticAging: '1-3' }]);
+  };
+  try {
+    const r = await findAlternatives({ id: 'orig', keyword: 'shower shelf corner', usedIn: [] }, 'tok');
+    assert.match(calls[0][0], /countryCode=DE/);
+    assert.equal(r.candidates.length, 1);
+    assert.equal(r.candidates[0].pid, 'p9');
+    assert.deepEqual(r.candidates[0].routes.map((x) => x.to), ['DE', 'FR']);
+    assert.equal(calls.find(([u]) => u.includes('freight'))[1].startCountryCode, 'DE');
   } finally {
     globalThis.fetch = realFetch;
   }
