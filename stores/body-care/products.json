@@ -501,7 +501,6 @@
       }
     },
     "upsells": [
-      "floor-routine",
       "foam-roller-set",
       "back-stretcher"
     ]
@@ -718,7 +717,6 @@
       }
     },
     "upsells": [
-      "floor-routine",
       "back-stretcher",
       "seat-cushion"
     ]
@@ -1239,7 +1237,7 @@
   {
     "id": "floor-routine",
     "sku": "BDC-FLOOR-13",
-    "active": true,
+    "active": false,
     "price": 4990,
     "compare": 5990,
     "images": [
@@ -1500,15 +1498,14 @@
       }
     ],
     "upsells": [
-      "yoga-mat",
-      "floor-routine",
-      "neck-roller"
+      "neck-roller",
+      "mobility-care"
     ]
   },
   {
     "id": "yoga-mat",
     "sku": "BDC-MAT-07",
-    "active": true,
+    "active": false,
     "price": 3490,
     "compare": 3990,
     "images": [
@@ -1596,7 +1593,6 @@
       }
     ],
     "upsells": [
-      "floor-routine",
       "foam-roller-set",
       "back-stretcher"
     ]
@@ -1694,7 +1690,6 @@
       }
     ],
     "upsells": [
-      "floor-routine",
       "yoga-block",
       "stretch-band"
     ]
@@ -1986,9 +1981,8 @@
       }
     ],
     "upsells": [
-      "floor-routine",
       "massage-cone",
-      "yoga-mat"
+      "mobility-care"
     ]
   },
   {
@@ -2084,9 +2078,8 @@
       }
     ],
     "upsells": [
-      "floor-routine",
       "yoga-strap",
-      "yoga-mat"
+      "mobility-care"
     ]
   }
 ]

@@ -272,25 +272,25 @@
         }
       ],
       "featured": {
-        "id": "night-ritual",
-        "label": "Das Nacht-Ritual",
-        "pitch": "Kissenbezug, Schlafhaube, Haarband: die ganze Nacht in Satin.",
-        "sub": "Drei Satin-Teile, die zusammen eine ruhige Abendroutine ergeben, einfacher als jede Zehn-Schritte-Pflege.",
+        "id": "glow-complete",
+        "label": "Das komplette Ritual",
+        "pitch": "Fünf Teile, ein Ritual, 31 % günstiger als einzeln.",
+        "sub": "Satin-Kissenbezug, Schlafhaube, Haarband, Kopfhautbürste und Beauty-Tasche: die ganze Abendroutine für zu Hause und unterwegs, in einem Set.",
         "benefits": [
           {
-            "t": "Drei Teile, ein Ritual",
-            "s": "Abgestimmt und sofort einsatzbereit."
+            "t": "Alles in einem Set",
+            "s": "Nacht, Haare und Reise abgedeckt."
           },
           {
-            "t": "Glatter Satin",
-            "s": "Angenehm auf Haut und Haaren."
+            "t": "31 % gespart",
+            "s": "69,90 € statt 101,50 € einzeln."
           },
           {
-            "t": "Geschenkidee",
+            "t": "Geschenkfertig",
             "s": "Für alle, die sich abends Zeit nehmen."
           }
         ],
-        "cta": "Night Ritual Set entdecken",
+        "cta": "Glow Complete entdecken",
         "link": "Alle Rituale ansehen"
       },
       "collection": {
@@ -305,6 +305,7 @@
             "key": "night",
             "title": "Für die Nacht",
             "ids": [
+              "glow-complete",
               "night-ritual",
               "night-satin-set",
               "satin-pillowcase",
@@ -609,25 +610,25 @@
         }
       ],
       "featured": {
-        "id": "night-ritual",
-        "label": "Le rituel de nuit",
-        "pitch": "Taie, bonnet, bandeau : toute la nuit en satin.",
-        "sub": "Trois pièces en satin qui forment une routine du soir apaisée, plus simple que n’importe quelle routine en dix étapes.",
+        "id": "glow-complete",
+        "label": "Le rituel complet",
+        "pitch": "Cinq pièces, un rituel, 31 % moins cher qu’à l’unité.",
+        "sub": "Taie en satin, bonnet de nuit, bandeau, brosse cuir chevelu et trousse beauté : toute la routine du soir, à la maison comme en voyage, dans un seul coffret.",
         "benefits": [
           {
-            "t": "Trois pièces, un rituel",
-            "s": "Assorties et prêtes à l’emploi."
+            "t": "Tout en un coffret",
+            "s": "Nuit, cheveux et voyage couverts."
           },
           {
-            "t": "Satin lisse",
-            "s": "Agréable pour la peau et les cheveux."
+            "t": "31 % d’économie",
+            "s": "69,90 € au lieu de 101,50 € à l’unité."
           },
           {
-            "t": "Idée cadeau",
+            "t": "Prêt à offrir",
             "s": "Pour celles et ceux qui prennent leur temps le soir."
           }
         ],
-        "cta": "Découvrir le Night Ritual Set",
+        "cta": "Découvrir Glow Complete",
         "link": "Voir tous les rituels"
       },
       "collection": {
@@ -642,6 +643,7 @@
             "key": "night",
             "title": "Pour la nuit",
             "ids": [
+              "glow-complete",
               "night-ritual",
               "night-satin-set",
               "satin-pillowcase",
@@ -946,25 +948,25 @@
         }
       ],
       "featured": {
-        "id": "night-ritual",
-        "label": "The night ritual",
-        "pitch": "Pillowcase, bonnet, headband: the whole night in satin.",
-        "sub": "Three satin pieces that make a calm evening routine, simpler than any ten-step regimen.",
+        "id": "glow-complete",
+        "label": "The complete ritual",
+        "pitch": "Five pieces, one ritual, 31 % less than buying separately.",
+        "sub": "Satin pillowcase, sleep bonnet, headband, scalp brush and beauty bag: the whole evening routine for home and travel, in one set.",
         "benefits": [
           {
-            "t": "Three pieces, one ritual",
-            "s": "Matched and ready to use."
+            "t": "All in one set",
+            "s": "Night, hair and travel covered."
           },
           {
-            "t": "Smooth satin",
-            "s": "Pleasant on skin and hair."
+            "t": "Save 31 %",
+            "s": "€69.90 instead of €101.50 separately."
           },
           {
-            "t": "Gift idea",
+            "t": "Gift-ready",
             "s": "For anyone who takes their time at night."
           }
         ],
-        "cta": "Discover the Night Ritual Set",
+        "cta": "Discover Glow Complete",
         "link": "See all rituals"
       },
       "collection": {
@@ -979,6 +981,7 @@
             "key": "night",
             "title": "For the night",
             "ids": [
+              "glow-complete",
               "night-ritual",
               "night-satin-set",
               "satin-pillowcase",

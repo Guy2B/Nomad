@@ -1,5 +1,194 @@
 [
   {
+    "id": "glow-complete",
+    "sku": "GL-B-GLOW-COMPLET",
+    "active": true,
+    "price": 6990,
+    "images": [
+      "satin-pillowcase-1.webp",
+      "satin-nightcap-1.webp",
+      "satin-headband-1.webp",
+      "scalp-brush-1.webp",
+      "travel-beauty-case-1.webp"
+    ],
+    "name": "Glow Complete Ritual",
+    "text": {
+      "de": {
+        "tagline": "Das komplette Ritual, einmal gepackt.",
+        "description": "Satin-Kissenbezug, Schlafhaube, Haarband, Kopfhautbürste und Beauty-Tasche: alles für die Abendroutine zu Hause und unterwegs. Fünf Teile, ein Ritual, 31 % günstiger als einzeln.",
+        "bullets": [
+          "Satin Pillowcase",
+          "Satin Sleep Bonnet",
+          "Satin Headband",
+          "Silicone Scalp Brush",
+          "Cloud Beauty Case"
+        ]
+      },
+      "fr": {
+        "tagline": "Le rituel complet, prêt en une fois.",
+        "description": "Taie en satin, bonnet de nuit, bandeau, brosse cuir chevelu et trousse beauté : tout pour la routine du soir, à la maison comme en voyage. Cinq pièces, un rituel, 31 % moins cher qu’à l’unité.",
+        "bullets": [
+          "Satin Pillowcase",
+          "Satin Sleep Bonnet",
+          "Satin Headband",
+          "Silicone Scalp Brush",
+          "Cloud Beauty Case"
+        ]
+      },
+      "en": {
+        "tagline": "The complete ritual, packed once.",
+        "description": "Satin pillowcase, sleep bonnet, headband, scalp brush and beauty bag: everything for your evening routine at home and on the go. Five pieces, one ritual, 31 % less than buying them separately.",
+        "bullets": [
+          "Satin Pillowcase",
+          "Satin Sleep Bonnet",
+          "Satin Headband",
+          "Silicone Scalp Brush",
+          "Cloud Beauty Case"
+        ]
+      }
+    },
+    "components": [
+      {
+        "key": "satin-pillowcase",
+        "name": "Satin Pillowcase",
+        "label": {
+          "de": "Satin Pillowcase",
+          "fr": "Satin Pillowcase",
+          "en": "Satin Pillowcase"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pillowcase-satin-solid-color-simulation-silk-single-pillowcase-ice-silk-pillowcase-p-F25DF9B2-5E6B-42C9-85FD-B34D55E39822.html",
+          "cjProductId": "F25DF9B2-5E6B-42C9-85FD-B34D55E39822",
+          "cjVid": "",
+          "cjSku": "CJJJJFZT00222-Silver-20x29inches-1PC",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 791,
+          "weightG": 120,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "satin-nightcap",
+        "name": "Satin Nightcap",
+        "label": {
+          "de": "Satin Sleep Bonnet",
+          "fr": "Satin Sleep Bonnet",
+          "en": "Satin Sleep Bonnet"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/wide-brimmed-lace-up-adjustable-elastic-large-silk-nightcap-p-1796116600802783232.html",
+          "cjProductId": "1796116600802783232",
+          "cjVid": "",
+          "cjSku": "CJYD204989601AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1031,
+          "weightG": 50,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "satin-headband",
+        "name": "Satin Headband",
+        "label": {
+          "de": "Satin Headband",
+          "fr": "Satin Headband",
+          "en": "Satin Headband"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/retro-satin-sponge-headband-net-red-french-solid-color-simple-wide-brim-hair-accessories-p-1473143561305329664.html",
+          "cjProductId": "1473143561305329664",
+          "cjVid": "",
+          "cjSku": "CJHL138506901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 535,
+          "weightG": 46,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "scalp-brush",
+        "name": "Scalp Brush",
+        "label": {
+          "de": "Silicone Scalp Brush",
+          "fr": "Silicone Scalp Brush",
+          "en": "Silicone Scalp Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/silicone-shampoo-brush-massage-scalp-hair-brush-p-E4E9B804-6EC0-483F-BA9A-FE4FC7D88331.html",
+          "cjProductId": "E4E9B804-6EC0-483F-BA9A-FE4FC7D88331",
+          "cjVid": "",
+          "cjSku": "CJJJJTYS00320-Black Pink",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 792,
+          "weightG": 140,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "travel-beauty-case",
+        "name": "Travel Beauty Case",
+        "label": {
+          "de": "Cloud Beauty Case",
+          "fr": "Cloud Beauty Case",
+          "en": "Cloud Beauty Case"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pu-large-capacity-travel-make-up-storage-organizer-makeup-pouch-cosmetic-bag-shell-bags-p-1705890767220248576.html",
+          "cjProductId": "1705890767220248576",
+          "cjVid": "",
+          "cjSku": "CJYD185535501AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 844,
+          "weightG": 210,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "seo": {
+      "de": {
+        "title": "Satin Beauty-Set: Kissenbezug, Schlafhaube, Haarband, Bürste, Kosmetiktasche",
+        "description": "Satin-Kissenbezug, Schlafhaube, Haarband, Kopfhautbürste und Beauty-Tasche: alles für die Abendroutine zu Hause und unterwegs. Fünf Teile, ein Ritual, 31 % günstiger als einzeln."
+      },
+      "fr": {
+        "title": "Coffret beauté satin : taie, bonnet, bandeau, brosse, trousse",
+        "description": "Taie en satin, bonnet de nuit, bandeau, brosse cuir chevelu et trousse beauté : tout pour la routine du soir, à la maison comme en voyage. Cinq pièces, un rituel, 31 % moins cher qu’à l’unité."
+      },
+      "en": {
+        "title": "Satin beauty set: pillowcase, bonnet, headband, brush, beauty bag",
+        "description": "Satin pillowcase, sleep bonnet, headband, scalp brush and beauty bag: everything for your evening routine at home and on the go. Five pieces, one ritual, 31 % less than buying them separately."
+      }
+    },
+    "upsells": [
+      "half-moon-beauty-bag",
+      "dual-concealer-brush"
+    ]
+  },
+  {
     "id": "night-ritual",
     "sku": "GL-B-NIGHT-RITUAL",
     "active": true,
@@ -128,8 +317,8 @@
       }
     },
     "upsells": [
-      "scalp-brush",
-      "travel-glow-kit"
+      "glow-complete",
+      "scalp-brush"
     ]
   },
   {

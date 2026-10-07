@@ -372,11 +372,11 @@
             "img": "neck-shoulder-care"
           },
           {
-            "title": "Am Boden, zu Hause",
-            "text": "Matte, Block und Gurt für ein paar Minuten Bewegung am Tag.",
+            "title": "Bewegung zu Hause",
+            "text": "Stretchband und Gurt für ein paar Minuten Bewegung am Tag.",
             "cta": "Bewegungs-Auswahl ansehen",
             "href": "#g-move",
-            "img": "floor-routine"
+            "img": "mobility-care"
           }
         ]
       },
@@ -721,11 +721,11 @@
             "img": "neck-shoulder-care"
           },
           {
-            "title": "Au sol, à la maison",
-            "text": "Tapis, brique et sangle pour bouger quelques minutes chaque jour.",
+            "title": "Bouger à la maison",
+            "text": "Bande élastique et sangle pour quelques minutes de mouvement par jour.",
             "cta": "Voir la sélection mouvement",
             "href": "#g-move",
-            "img": "floor-routine"
+            "img": "mobility-care"
           }
         ]
       },
@@ -1070,11 +1070,11 @@
             "img": "neck-shoulder-care"
           },
           {
-            "title": "On the floor, at home",
-            "text": "Mat, block and strap for a few minutes of movement every day.",
+            "title": "Moving at home",
+            "text": "Stretch band and strap for a few minutes of movement a day.",
             "cta": "See the movement picks",
             "href": "#g-move",
-            "img": "floor-routine"
+            "img": "mobility-care"
           }
         ]
       },
