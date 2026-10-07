@@ -11,6 +11,7 @@ import reviews from '../netlify/functions/reviews.mjs';
 import stripeWebhook from '../netlify/functions/stripe-webhook.mjs';
 import track from '../netlify/functions/track.mjs';
 import off from '../netlify/functions/off.mjs';
+import radar from '../netlify/functions/radar.mjs';
 import { useOff } from '../netlify/lib/off.mjs';
 import { useStore } from '../netlify/lib/store.mjs';
 import { d1Store } from './d1-store.mjs';
@@ -26,6 +27,7 @@ const ROUTES = {
   '/api/off/sourcing': off,
   '/api/off/admin': off,
   '/api/off/upload': off,
+  '/api/radar': radar,
 };
 
 // The shared code reads its settings from process.env (variables and secrets of the Worker).

@@ -177,3 +177,8 @@ tr.attention {
 
 .alt { margin-bottom: 8px; max-width: 280px; }
 .alt a { font-weight: 600; }
+
+#radar-universe { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.chip-radar-SCALE_CANDIDATE, .chip-radar-TEST { background: #dff3e8; color: #1f7a4d; }
+.chip-radar-SOURCE_NOW, .chip-radar-VALIDATE_PRICE { background: #fdf1d8; color: #8a5a00; }
+.chip-radar-REJECT { background: #f6e1e1; color: #9b2c2c; }

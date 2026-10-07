@@ -116,6 +116,8 @@
 
     renderCatalog(d);
     renderAudit(d);
+    if (!radar) loadRadar();
+    else renderRadar();
     renderFunnel(d);
     renderReviews(d);
     renderCrm(d);
@@ -505,6 +507,68 @@
       });
   }
 
+  var radar = null;
+  var DECISION = { SCALE_CANDIDATE: 'À scaler', TEST: 'À tester', VALIDATE_PRICE: 'Valider le prix', SOURCE_NOW: 'Sourcer', WATCH: 'Surveiller', LOW_PRIORITY: 'Faible priorité', REJECT: 'Rejeté' };
+
+  function loadRadar() {
+    fetch('/api/radar', { headers: { authorization: 'Bearer ' + password } })
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .then(function (d) {
+        radar = d;
+        renderRadar();
+      })
+      .catch(function () {
+        /* radar is optional */
+      });
+  }
+
+  function renderRadar() {
+    var tbody = $('radar');
+    tbody.textContent = '';
+    if (!radar || !radar.scores || !radar.scores.length) {
+      $('radar-info').textContent = 'Aucun scan reçu pour le moment';
+      return;
+    }
+    var srcs = radar.sources || {};
+    var off = Object.keys(srcs).filter(function (k) {
+      return /needs|optional/.test(String(srcs[k]));
+    });
+    $('radar-info').textContent =
+      'Scan du ' + new Date(radar.generatedAt).toLocaleString('fr-FR') + ' · ' + radar.scores.length + ' concepts' + (off.length ? ' · sources manquantes : ' + off.join(', ') : '');
+    var sel = $('radar-universe');
+    var uni = sel.value;
+    if (sel.options.length === 1) {
+      Array.from(new Set(radar.scores.map(function (s) { return s.universe; })))
+        .sort()
+        .forEach(function (u) {
+          var o = el('option', '', u);
+          o.value = u;
+          sel.append(o);
+        });
+    }
+    var fmt = function (v) {
+      return v === null || v === undefined ? '—' : String(Math.round(v));
+    };
+    radar.scores
+      .filter(function (s) {
+        return !uni || s.universe === uni;
+      })
+      .slice(0, 60)
+      .forEach(function (s) {
+        var tr = el('tr', s.decision === 'REJECT' ? 'muted' : '');
+        var c = el('td', 'small');
+        c.append(el('b', '', s.concept));
+        if (s.explanation) c.title = s.explanation;
+        var price = s.marketPriceEur || s.landedEur ? (s.marketPriceEur ? s.marketPriceEur.toFixed(2) + ' €' : '—') + ' / ' + (s.landedEur ? s.landedEur.toFixed(2) + ' €' : '—') : '—';
+        var d = el('td');
+        d.append(el('span', 'chip chip-radar-' + s.decision, DECISION[s.decision] || s.decision));
+        tr.append(c, el('td', 'small', s.universe), el('td', 'small', s.stage), el('td', '', fmt(s.trend)), el('td', '', fmt(s.cash)), el('td', '', fmt(s.risk)), el('td', 'small', price), el('td', '', fmt(s.opportunity)), d);
+        tbody.append(tr);
+      });
+  }
+
   function act(action, sessionId, btn) {
     btn.disabled = true;
     api('POST', { action: action, sessionId: sessionId })
@@ -529,6 +593,7 @@
       });
   }
 
+  $('radar-universe').addEventListener('change', renderRadar);
   $('audit-run').addEventListener('click', function (e) {
     runAudit(e.currentTarget, 'stock');
   });

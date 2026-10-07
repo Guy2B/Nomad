@@ -101,6 +101,32 @@
             </table>
           </div>
         </section>
+        <section class="panel" id="radar-panel">
+          <div class="panel-head">
+            <h2>Radar d’opportunités</h2>
+            <span class="muted small" id="radar-info"></span>
+            <select id="radar-universe" aria-label="Univers"><option value="">Tous univers</option></select>
+          </div>
+          <p class="muted small">Produit par l’Opportunity Engine sur votre PC (scan quotidien automatique) : tendances Google, prix marché et coûts CJ. Les estimations restent des indices, pas des ventes.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Concept</th>
+                  <th>Univers</th>
+                  <th>Cycle</th>
+                  <th>Tendance</th>
+                  <th>Cash</th>
+                  <th>Risque</th>
+                  <th>Prix marché / coût</th>
+                  <th>Score</th>
+                  <th>Décision</th>
+                </tr>
+              </thead>
+              <tbody id="radar"></tbody>
+            </table>
+          </div>
+        </section>
         <section class="panel">
           <div class="panel-head">
             <h2>Stock &amp; délais (CJ)</h2>
