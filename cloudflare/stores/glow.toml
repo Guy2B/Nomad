@@ -1,0 +1,8 @@
+# GLOW storefront: static pages built by scripts/build.mjs (glow), served by Cloudflare (assets only).
+# Deploy: npm run deploy:glow. Custom domain glow.algbr.eu is attached in the Cloudflare dashboard.
+name = "glow-algbr"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "../../dist"
+html_handling = "auto-trailing-slash"

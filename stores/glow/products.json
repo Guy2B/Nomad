@@ -1,0 +1,1192 @@
+[
+  {
+    "id": "night-ritual",
+    "sku": "GL-B-NIGHT-RITUAL",
+    "active": true,
+    "price": 4490,
+    "images": [
+      "satin-pillowcase-1.webp",
+      "satin-nightcap-1.webp",
+      "satin-headband-1.webp"
+    ],
+    "name": "Night Ritual Set",
+    "text": {
+      "de": {
+        "tagline": "Die ganze Nacht in Satin.",
+        "description": "Satin-Kissenbezug, Schlafhaube und Haarband: drei Teile für eine ruhige, einfache Abendroutine.",
+        "bullets": [
+          "Satin Pillowcase",
+          "Satin Sleep Bonnet",
+          "Satin Headband"
+        ]
+      },
+      "fr": {
+        "tagline": "Toute la nuit en satin.",
+        "description": "Taie en satin, bonnet de nuit et bandeau : trois pièces pour une routine du soir calme et simple.",
+        "bullets": [
+          "Satin Pillowcase",
+          "Satin Sleep Bonnet",
+          "Satin Headband"
+        ]
+      },
+      "en": {
+        "tagline": "The whole night in satin.",
+        "description": "Satin pillowcase, sleep bonnet and headband: three pieces for a calm, simple evening routine.",
+        "bullets": [
+          "Satin Pillowcase",
+          "Satin Sleep Bonnet",
+          "Satin Headband"
+        ]
+      }
+    },
+    "components": [
+      {
+        "key": "satin-pillowcase",
+        "name": "Satin Pillowcase",
+        "label": {
+          "de": "Satin Pillowcase",
+          "fr": "Satin Pillowcase",
+          "en": "Satin Pillowcase"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pillowcase-satin-solid-color-simulation-silk-single-pillowcase-ice-silk-pillowcase-p-F25DF9B2-5E6B-42C9-85FD-B34D55E39822.html",
+          "cjProductId": "F25DF9B2-5E6B-42C9-85FD-B34D55E39822",
+          "cjVid": "",
+          "cjSku": "CJJJJFZT00222-Silver-20x29inches-1PC",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 791,
+          "weightG": 120,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "satin-nightcap",
+        "name": "Satin Nightcap",
+        "label": {
+          "de": "Satin Sleep Bonnet",
+          "fr": "Satin Sleep Bonnet",
+          "en": "Satin Sleep Bonnet"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/wide-brimmed-lace-up-adjustable-elastic-large-silk-nightcap-p-1796116600802783232.html",
+          "cjProductId": "1796116600802783232",
+          "cjVid": "",
+          "cjSku": "CJYD204989601AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1031,
+          "weightG": 50,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "satin-headband",
+        "name": "Satin Headband",
+        "label": {
+          "de": "Satin Headband",
+          "fr": "Satin Headband",
+          "en": "Satin Headband"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/retro-satin-sponge-headband-net-red-french-solid-color-simple-wide-brim-hair-accessories-p-1473143561305329664.html",
+          "cjProductId": "1473143561305329664",
+          "cjVid": "",
+          "cjSku": "CJHL138506901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 535,
+          "weightG": 46,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "seo": {
+      "de": {
+        "title": "Satin Nachtroutine Set: Kissenbezug, Schlafhaube, Haarband",
+        "description": "Satin-Kissenbezug, Schlafhaube und Haarband: drei Teile für eine ruhige, einfache Abendroutine."
+      },
+      "fr": {
+        "title": "Kit routine nuit satin : taie, bonnet, bandeau",
+        "description": "Taie en satin, bonnet de nuit et bandeau : trois pièces pour une routine du soir calme et simple."
+      },
+      "en": {
+        "title": "Satin night routine set: pillowcase, bonnet, headband",
+        "description": "Satin pillowcase, sleep bonnet and headband: three pieces for a calm, simple evening routine."
+      }
+    },
+    "upsells": [
+      "scalp-brush",
+      "travel-glow-kit"
+    ]
+  },
+  {
+    "id": "travel-glow-kit",
+    "sku": "GL-B-TRAVEL-GLOW-",
+    "active": true,
+    "price": 3990,
+    "images": [
+      "travel-beauty-case-1.webp",
+      "dual-concealer-brush-1.webp",
+      "satin-headband-1.webp"
+    ],
+    "name": "Travel Glow Kit",
+    "text": {
+      "de": {
+        "tagline": "Die Routine reist mit.",
+        "description": "Große Beauty-Tasche, Doppel-Pinsel und Satin-Haarband: alles für die Routine unterwegs, ordentlich an einem Ort.",
+        "bullets": [
+          "Cloud Beauty Case",
+          "Dual Concealer Brush",
+          "Satin Headband"
+        ]
+      },
+      "fr": {
+        "tagline": "La routine voyage avec vous.",
+        "description": "Grande trousse beauté, pinceau double et bandeau satin : tout pour la routine en voyage, rangé au même endroit.",
+        "bullets": [
+          "Cloud Beauty Case",
+          "Dual Concealer Brush",
+          "Satin Headband"
+        ]
+      },
+      "en": {
+        "tagline": "Your routine travels too.",
+        "description": "Large beauty bag, dual brush and satin headband: everything for your routine on the go, tidy in one place.",
+        "bullets": [
+          "Cloud Beauty Case",
+          "Dual Concealer Brush",
+          "Satin Headband"
+        ]
+      }
+    },
+    "components": [
+      {
+        "key": "travel-beauty-case",
+        "name": "Travel Beauty Case",
+        "label": {
+          "de": "Cloud Beauty Case",
+          "fr": "Cloud Beauty Case",
+          "en": "Cloud Beauty Case"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pu-large-capacity-travel-make-up-storage-organizer-makeup-pouch-cosmetic-bag-shell-bags-p-1705890767220248576.html",
+          "cjProductId": "1705890767220248576",
+          "cjVid": "",
+          "cjSku": "CJYD185535501AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 844,
+          "weightG": 210,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "dual-concealer-brush",
+        "name": "Dual Concealer Brush",
+        "label": {
+          "de": "Dual Concealer Brush",
+          "fr": "Dual Concealer Brush",
+          "en": "Dual Concealer Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/double-headed-miter-sponge-concealer-brush-makeup-brush-p-2506010849411614900.html",
+          "cjProductId": "2506010849411614900",
+          "cjVid": "",
+          "cjSku": "CJYD239063401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 524,
+          "weightG": 18,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "satin-headband",
+        "name": "Satin Headband",
+        "label": {
+          "de": "Satin Headband",
+          "fr": "Satin Headband",
+          "en": "Satin Headband"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/retro-satin-sponge-headband-net-red-french-solid-color-simple-wide-brim-hair-accessories-p-1473143561305329664.html",
+          "cjProductId": "1473143561305329664",
+          "cjVid": "",
+          "cjSku": "CJHL138506901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 535,
+          "weightG": 46,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "seo": {
+      "de": {
+        "title": "Beauty Reise-Set: Kosmetiktasche, Pinsel, Haarband",
+        "description": "Große Beauty-Tasche, Doppel-Pinsel und Satin-Haarband: alles für die Routine unterwegs, ordentlich an einem Ort."
+      },
+      "fr": {
+        "title": "Kit beauté voyage : trousse, pinceau, bandeau",
+        "description": "Grande trousse beauté, pinceau double et bandeau satin : tout pour la routine en voyage, rangé au même endroit."
+      },
+      "en": {
+        "title": "Travel beauty kit: cosmetic bag, brush, headband",
+        "description": "Large beauty bag, dual brush and satin headband: everything for your routine on the go, tidy in one place."
+      }
+    },
+    "upsells": [
+      "night-ritual",
+      "half-moon-beauty-bag"
+    ]
+  },
+  {
+    "id": "satin-pillowcase",
+    "sku": "GL-S-SATIN-PILLOW",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "images": [
+      "satin-pillowcase-1.webp"
+    ],
+    "name": "Satin Pillowcase",
+    "text": {
+      "de": {
+        "tagline": "Glatt, kühl, angenehm.",
+        "description": "Kissenbezug aus glattem Polyester-Satin mit Hotelverschluss — angenehm auf Haut und Haaren.",
+        "bullets": [
+          "Glatter Polyester-Satin",
+          "Hotelverschluss, kein Reißverschluss",
+          "Maschinenwaschbar (Pflegeetikett beachten)"
+        ]
+      },
+      "fr": {
+        "tagline": "Lisse, frais, agréable.",
+        "description": "Taie en satin de polyester lisse, fermeture portefeuille — agréable pour la peau et les cheveux.",
+        "bullets": [
+          "Satin de polyester lisse",
+          "Fermeture portefeuille, sans zip",
+          "Lavable en machine (voir étiquette)"
+        ]
+      },
+      "en": {
+        "tagline": "Smooth, cool, pleasant.",
+        "description": "Smooth polyester satin pillowcase with envelope closure — pleasant on skin and hair.",
+        "bullets": [
+          "Smooth polyester satin",
+          "Envelope closure, no zip",
+          "Machine washable (see care label)"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Satin Kissenbezug glatt",
+        "description": "Kissenbezug aus glattem Polyester-Satin mit Hotelverschluss — angenehm auf Haut und Haaren."
+      },
+      "fr": {
+        "title": "Taie d’oreiller en satin",
+        "description": "Taie en satin de polyester lisse, fermeture portefeuille — agréable pour la peau et les cheveux."
+      },
+      "en": {
+        "title": "Satin pillowcase",
+        "description": "Smooth polyester satin pillowcase with envelope closure — pleasant on skin and hair."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Satin Pillowcase",
+        "label": {
+          "de": "Satin Pillowcase",
+          "fr": "Satin Pillowcase",
+          "en": "Satin Pillowcase"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pillowcase-satin-solid-color-simulation-silk-single-pillowcase-ice-silk-pillowcase-p-F25DF9B2-5E6B-42C9-85FD-B34D55E39822.html",
+          "cjProductId": "F25DF9B2-5E6B-42C9-85FD-B34D55E39822",
+          "cjVid": "",
+          "cjSku": "CJJJJFZT00222-Silver-20x29inches-1PC",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 791,
+          "weightG": 120,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "night-ritual",
+      "satin-nightcap"
+    ]
+  },
+  {
+    "id": "satin-nightcap",
+    "sku": "GL-S-SATIN-NIGHTC",
+    "active": true,
+    "single": true,
+    "price": 2490,
+    "images": [
+      "satin-nightcap-1.webp"
+    ],
+    "name": "Satin Sleep Bonnet",
+    "text": {
+      "de": {
+        "tagline": "Die Frisur hält bis morgen.",
+        "description": "Weite Satin-Schlafhaube mit verstellbarem Band: hält die Haare nachts zusammen, auch bei viel Volumen.",
+        "bullets": [
+          "Weiter Schnitt für viel Haar",
+          "Verstellbares Band",
+          "Leicht: rund 50 g"
+        ]
+      },
+      "fr": {
+        "tagline": "La coiffure tient jusqu’au matin.",
+        "description": "Bonnet de nuit ample en satin avec lien réglable : garde les cheveux rassemblés la nuit, même volumineux.",
+        "bullets": [
+          "Coupe ample pour cheveux volumineux",
+          "Lien réglable",
+          "Léger : environ 50 g"
+        ]
+      },
+      "en": {
+        "tagline": "Your hairstyle lasts till morning.",
+        "description": "Roomy satin sleep bonnet with adjustable tie: keeps hair together at night, even with lots of volume.",
+        "bullets": [
+          "Roomy cut for lots of hair",
+          "Adjustable tie",
+          "Light: about 50 g"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Satin Schlafhaube verstellbar",
+        "description": "Weite Satin-Schlafhaube mit verstellbarem Band: hält die Haare nachts zusammen, auch bei viel Volumen."
+      },
+      "fr": {
+        "title": "Bonnet de nuit en satin réglable",
+        "description": "Bonnet de nuit ample en satin avec lien réglable : garde les cheveux rassemblés la nuit, même volumineux."
+      },
+      "en": {
+        "title": "Adjustable satin sleep bonnet",
+        "description": "Roomy satin sleep bonnet with adjustable tie: keeps hair together at night, even with lots of volume."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Satin Nightcap",
+        "label": {
+          "de": "Satin Sleep Bonnet",
+          "fr": "Satin Sleep Bonnet",
+          "en": "Satin Sleep Bonnet"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/wide-brimmed-lace-up-adjustable-elastic-large-silk-nightcap-p-1796116600802783232.html",
+          "cjProductId": "1796116600802783232",
+          "cjVid": "",
+          "cjSku": "CJYD204989601AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1031,
+          "weightG": 50,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "night-ritual",
+      "satin-pillowcase"
+    ]
+  },
+  {
+    "id": "satin-headband",
+    "sku": "GL-S-SATIN-HEADBA",
+    "active": true,
+    "single": true,
+    "price": 1690,
+    "images": [
+      "satin-headband-1.webp"
+    ],
+    "name": "Satin Headband",
+    "text": {
+      "de": {
+        "tagline": "Weich statt eng.",
+        "description": "Breites, gepolstertes Satin-Haarband: hält die Haare beim Abschminken und am Abend aus dem Gesicht.",
+        "bullets": [
+          "Breit und gepolstert",
+          "Weicher Satin",
+          "Für Abend- und Morgenroutine"
+        ]
+      },
+      "fr": {
+        "tagline": "Doux plutôt que serré.",
+        "description": "Bandeau large et rembourré en satin : garde les cheveux hors du visage au démaquillage et le soir.",
+        "bullets": [
+          "Large et rembourré",
+          "Satin doux",
+          "Pour la routine du soir et du matin"
+        ]
+      },
+      "en": {
+        "tagline": "Soft, not tight.",
+        "description": "Wide padded satin headband: keeps hair off your face while removing make-up and in the evening.",
+        "bullets": [
+          "Wide and padded",
+          "Soft satin",
+          "For evening and morning routines"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Satin Haarband breit",
+        "description": "Breites, gepolstertes Satin-Haarband: hält die Haare beim Abschminken und am Abend aus dem Gesicht."
+      },
+      "fr": {
+        "title": "Bandeau satin large",
+        "description": "Bandeau large et rembourré en satin : garde les cheveux hors du visage au démaquillage et le soir."
+      },
+      "en": {
+        "title": "Wide satin headband",
+        "description": "Wide padded satin headband: keeps hair off your face while removing make-up and in the evening."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Satin Headband",
+        "label": {
+          "de": "Satin Headband",
+          "fr": "Satin Headband",
+          "en": "Satin Headband"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/retro-satin-sponge-headband-net-red-french-solid-color-simple-wide-brim-hair-accessories-p-1473143561305329664.html",
+          "cjProductId": "1473143561305329664",
+          "cjVid": "",
+          "cjSku": "CJHL138506901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 535,
+          "weightG": 46,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "night-ritual",
+      "travel-glow-kit"
+    ]
+  },
+  {
+    "id": "night-satin-set",
+    "sku": "GL-S-NIGHT-SATIN-",
+    "active": true,
+    "single": true,
+    "price": 3490,
+    "images": [
+      "night-satin-set-1.webp"
+    ],
+    "name": "Night Satin Set (4 pieces)",
+    "text": {
+      "de": {
+        "tagline": "Vier Teile, ein Abend.",
+        "description": "Satin-Set mit Schlafmaske, Kissenbezug und Haargummis — das kleine Komplettpaket für die Nacht.",
+        "bullets": [
+          "Schlafmaske, Kissenbezug, Haargummis",
+          "Abgestimmte Farben",
+          "Schönes Geschenk"
+        ]
+      },
+      "fr": {
+        "tagline": "Quatre pièces, une soirée.",
+        "description": "Set satin avec masque de nuit, taie et chouchous — le petit ensemble complet pour la nuit.",
+        "bullets": [
+          "Masque, taie, chouchous",
+          "Couleurs assorties",
+          "Idée cadeau"
+        ]
+      },
+      "en": {
+        "tagline": "Four pieces, one evening.",
+        "description": "Satin set with sleep mask, pillowcase and scrunchies — the small complete set for the night.",
+        "bullets": [
+          "Sleep mask, pillowcase, scrunchies",
+          "Matching colours",
+          "Lovely gift"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Satin Schlaf-Set mit Schlafmaske",
+        "description": "Satin-Set mit Schlafmaske, Kissenbezug und Haargummis — das kleine Komplettpaket für die Nacht."
+      },
+      "fr": {
+        "title": "Set de nuit satin avec masque",
+        "description": "Set satin avec masque de nuit, taie et chouchous — le petit ensemble complet pour la nuit."
+      },
+      "en": {
+        "title": "Satin sleep set with eye mask",
+        "description": "Satin set with sleep mask, pillowcase and scrunchies — the small complete set for the night."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Night Satin Set",
+        "label": {
+          "de": "Night Satin Set (4 pieces)",
+          "fr": "Night Satin Set (4 pieces)",
+          "en": "Night Satin Set (4 pieces)"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/double-sided-silk-eye-mask-pillowcase-hair-tie-four-piece-set-p-1524212426772852736.html",
+          "cjProductId": "1524212426772852736",
+          "cjVid": "",
+          "cjSku": "CJCS148046301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1104,
+          "weightG": 135,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "night-ritual",
+      "scalp-brush"
+    ]
+  },
+  {
+    "id": "scalp-brush",
+    "sku": "GL-S-SCALP-BRUSH",
+    "active": true,
+    "single": true,
+    "price": 1490,
+    "images": [
+      "scalp-brush-1.webp"
+    ],
+    "name": "Silicone Scalp Brush",
+    "text": {
+      "de": {
+        "tagline": "Kurz durchbürsten, abschalten.",
+        "description": "Handliche Silikonbürste für Kopfhaut und Haarwäsche: weiche Noppen, gut in der Hand, auch unter der Dusche.",
+        "bullets": [
+          "Weiche Silikon-Noppen",
+          "Für Dusche und Abend",
+          "Leicht zu reinigen"
+        ]
+      },
+      "fr": {
+        "tagline": "Un passage de brosse, on décroche.",
+        "description": "Brosse en silicone pour le cuir chevelu et le shampooing : picots souples, bonne prise en main, même sous la douche.",
+        "bullets": [
+          "Picots souples en silicone",
+          "Pour la douche et le soir",
+          "Facile à nettoyer"
+        ]
+      },
+      "en": {
+        "tagline": "A quick brush, switch off.",
+        "description": "Handy silicone brush for scalp and hair washing: soft bristles, good grip, shower-friendly.",
+        "bullets": [
+          "Soft silicone bristles",
+          "For the shower and the evening",
+          "Easy to clean"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Silikon Kopfhautbürste",
+        "description": "Handliche Silikonbürste für Kopfhaut und Haarwäsche: weiche Noppen, gut in der Hand, auch unter der Dusche."
+      },
+      "fr": {
+        "title": "Brosse cuir chevelu en silicone",
+        "description": "Brosse en silicone pour le cuir chevelu et le shampooing : picots souples, bonne prise en main, même sous la douche."
+      },
+      "en": {
+        "title": "Silicone scalp brush",
+        "description": "Handy silicone brush for scalp and hair washing: soft bristles, good grip, shower-friendly."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Scalp Brush",
+        "label": {
+          "de": "Silicone Scalp Brush",
+          "fr": "Silicone Scalp Brush",
+          "en": "Silicone Scalp Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/silicone-shampoo-brush-massage-scalp-hair-brush-p-E4E9B804-6EC0-483F-BA9A-FE4FC7D88331.html",
+          "cjProductId": "E4E9B804-6EC0-483F-BA9A-FE4FC7D88331",
+          "cjVid": "",
+          "cjSku": "CJJJJTYS00320-Black Pink",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 792,
+          "weightG": 140,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "night-ritual",
+      "satin-headband"
+    ]
+  },
+  {
+    "id": "travel-beauty-case",
+    "sku": "GL-S-TRAVEL-BEAUT",
+    "active": true,
+    "single": true,
+    "price": 2490,
+    "images": [
+      "travel-beauty-case-1.webp"
+    ],
+    "name": "Cloud Beauty Case",
+    "text": {
+      "de": {
+        "tagline": "Alles auf einen Blick.",
+        "description": "Große Kosmetiktasche aus pflegeleichtem PU, weit zu öffnen: Make-up und Pflege sind sofort sichtbar.",
+        "bullets": [
+          "Große Öffnung",
+          "Pflegeleichtes PU",
+          "Leicht: rund 210 g"
+        ]
+      },
+      "fr": {
+        "tagline": "Tout d’un coup d’œil.",
+        "description": "Grande trousse beauté en PU facile d’entretien, à large ouverture : maquillage et soins visibles d’un coup.",
+        "bullets": [
+          "Large ouverture",
+          "PU facile d’entretien",
+          "Léger : environ 210 g"
+        ]
+      },
+      "en": {
+        "tagline": "Everything at a glance.",
+        "description": "Large easy-care PU beauty bag with a wide opening: make-up and skincare visible at once.",
+        "bullets": [
+          "Wide opening",
+          "Easy-care PU",
+          "Light: about 210 g"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Große Kosmetiktasche Reise",
+        "description": "Große Kosmetiktasche aus pflegeleichtem PU, weit zu öffnen: Make-up und Pflege sind sofort sichtbar."
+      },
+      "fr": {
+        "title": "Grande trousse de toilette voyage",
+        "description": "Grande trousse beauté en PU facile d’entretien, à large ouverture : maquillage et soins visibles d’un coup."
+      },
+      "en": {
+        "title": "Large travel cosmetic bag",
+        "description": "Large easy-care PU beauty bag with a wide opening: make-up and skincare visible at once."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Travel Beauty Case",
+        "label": {
+          "de": "Cloud Beauty Case",
+          "fr": "Cloud Beauty Case",
+          "en": "Cloud Beauty Case"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pu-large-capacity-travel-make-up-storage-organizer-makeup-pouch-cosmetic-bag-shell-bags-p-1705890767220248576.html",
+          "cjProductId": "1705890767220248576",
+          "cjVid": "",
+          "cjSku": "CJYD185535501AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 844,
+          "weightG": 210,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "travel-glow-kit",
+      "shell-beauty-pouch"
+    ]
+  },
+  {
+    "id": "premium-beauty-case",
+    "sku": "GL-S-PREMIUM-BEAU",
+    "active": false,
+    "single": true,
+    "price": 3490,
+    "images": [
+      "premium-beauty-case-1.webp"
+    ],
+    "name": "Premium Beauty Case",
+    "text": {
+      "de": {
+        "tagline": "Ordnung mit Stil.",
+        "description": "Hochwertige Beauty-Tasche mit Fächern: Pinsel, Fläschchen und Paletten bleiben getrennt und griffbereit.",
+        "bullets": [
+          "Mehrere Fächer",
+          "Formstabil",
+          "Für Bad und Koffer"
+        ]
+      },
+      "fr": {
+        "tagline": "De l’ordre avec style.",
+        "description": "Trousse beauté haut de gamme à compartiments : pinceaux, flacons et palettes restent séparés et à portée de main.",
+        "bullets": [
+          "Plusieurs compartiments",
+          "Tient sa forme",
+          "Pour la salle de bain et la valise"
+        ]
+      },
+      "en": {
+        "tagline": "Order with style.",
+        "description": "Premium beauty bag with compartments: brushes, bottles and palettes stay separate and within reach.",
+        "bullets": [
+          "Several compartments",
+          "Holds its shape",
+          "For bathroom and suitcase"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Kosmetiktasche mit Fächern",
+        "description": "Hochwertige Beauty-Tasche mit Fächern: Pinsel, Fläschchen und Paletten bleiben getrennt und griffbereit."
+      },
+      "fr": {
+        "title": "Trousse maquillage à compartiments",
+        "description": "Trousse beauté haut de gamme à compartiments : pinceaux, flacons et palettes restent séparés et à portée de main."
+      },
+      "en": {
+        "title": "Cosmetic bag with compartments",
+        "description": "Premium beauty bag with compartments: brushes, bottles and palettes stay separate and within reach."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Premium Beauty Case",
+        "label": {
+          "de": "Premium Beauty Case",
+          "fr": "Premium Beauty Case",
+          "en": "Premium Beauty Case"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/high-grade-cosmetic-storage-bag-p-2406300856051627500.html",
+          "cjProductId": "2406300856051627500",
+          "cjVid": "",
+          "cjSku": "CJYD207231301AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1102,
+          "weightG": 220,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "travel-glow-kit",
+      "half-moon-beauty-bag"
+    ]
+  },
+  {
+    "id": "half-moon-beauty-bag",
+    "sku": "GL-S-HALF-MOON-BE",
+    "active": true,
+    "single": true,
+    "price": 2990,
+    "images": [
+      "half-moon-beauty-bag-1.webp"
+    ],
+    "name": "Half-Moon Beauty Bag",
+    "text": {
+      "de": {
+        "tagline": "Die Tasche, die man zeigt.",
+        "description": "Halbmond-Kosmetiktasche mit Tragegriff: elegant genug für den Koffer, praktisch für jeden Tag.",
+        "bullets": [
+          "Halbmond-Form mit Griff",
+          "Pflegeleichtes Material",
+          "Für Reise und Alltag"
+        ]
+      },
+      "fr": {
+        "tagline": "La trousse qu’on montre.",
+        "description": "Trousse demi-lune avec poignée : assez élégante pour la valise, pratique au quotidien.",
+        "bullets": [
+          "Forme demi-lune avec poignée",
+          "Matière facile d’entretien",
+          "Pour le voyage et le quotidien"
+        ]
+      },
+      "en": {
+        "tagline": "The bag you show.",
+        "description": "Half-moon cosmetic bag with handle: elegant enough for the suitcase, practical every day.",
+        "bullets": [
+          "Half-moon shape with handle",
+          "Easy-care material",
+          "For travel and every day"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Halbmond Kosmetiktasche",
+        "description": "Halbmond-Kosmetiktasche mit Tragegriff: elegant genug für den Koffer, praktisch für jeden Tag."
+      },
+      "fr": {
+        "title": "Trousse maquillage demi-lune",
+        "description": "Trousse demi-lune avec poignée : assez élégante pour la valise, pratique au quotidien."
+      },
+      "en": {
+        "title": "Half-moon cosmetic bag",
+        "description": "Half-moon cosmetic bag with handle: elegant enough for the suitcase, practical every day."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Half-Moon Beauty Bag",
+        "label": {
+          "de": "Half-Moon Beauty Bag",
+          "fr": "Half-Moon Beauty Bag",
+          "en": "Half-Moon Beauty Bag"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/womens-fashionable-half-bend-portable-cosmetic-bag-p-1798162143481700352.html",
+          "cjProductId": "1798162143481700352",
+          "cjVid": "",
+          "cjSku": "CJYD205356001AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 971,
+          "weightG": 270,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "travel-glow-kit",
+      "shell-beauty-pouch"
+    ]
+  },
+  {
+    "id": "shell-beauty-pouch",
+    "sku": "GL-S-SHELL-BEAUTY",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "images": [
+      "shell-beauty-pouch-1.webp"
+    ],
+    "name": "Shell Beauty Pouch",
+    "text": {
+      "de": {
+        "tagline": "Klein, aber alles drin.",
+        "description": "Muschelförmiges Kosmetiktäschchen aus abwischbarem PU: für die Handtasche oder den Kulturbeutel.",
+        "bullets": [
+          "Kompakte Muschelform",
+          "Abwischbares PU",
+          "Passt in jede Handtasche"
+        ]
+      },
+      "fr": {
+        "tagline": "Petite, mais tout y est.",
+        "description": "Pochette beauté en forme de coquillage, PU lavable : pour le sac à main ou la trousse de toilette.",
+        "bullets": [
+          "Forme coquillage compacte",
+          "PU lavable",
+          "Tient dans tous les sacs"
+        ]
+      },
+      "en": {
+        "tagline": "Small, yet everything fits.",
+        "description": "Shell-shaped beauty pouch in wipe-clean PU: for your handbag or toiletry bag.",
+        "bullets": [
+          "Compact shell shape",
+          "Wipe-clean PU",
+          "Fits any handbag"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Kosmetiktäschchen Muschel",
+        "description": "Muschelförmiges Kosmetiktäschchen aus abwischbarem PU: für die Handtasche oder den Kulturbeutel."
+      },
+      "fr": {
+        "title": "Pochette maquillage coquillage",
+        "description": "Pochette beauté en forme de coquillage, PU lavable : pour le sac à main ou la trousse de toilette."
+      },
+      "en": {
+        "title": "Shell cosmetic pouch",
+        "description": "Shell-shaped beauty pouch in wipe-clean PU: for your handbag or toiletry bag."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Shell Beauty Pouch",
+        "label": {
+          "de": "Shell Beauty Pouch",
+          "fr": "Shell Beauty Pouch",
+          "en": "Shell Beauty Pouch"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/shell-shape-pu-leather-cosmetic-bag-waterproof-letter-makeup-pouch-bag-multifunction-carry-on-makeup-tote-travel-wash-bags-p-1733339387867439104.html",
+          "cjProductId": "1733339387867439104",
+          "cjVid": "",
+          "cjSku": "CJYD191668201AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 810,
+          "weightG": 217,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "travel-beauty-case",
+      "travel-glow-kit"
+    ]
+  },
+  {
+    "id": "dual-concealer-brush",
+    "sku": "GL-S-DUAL-CONCEAL",
+    "active": true,
+    "single": true,
+    "price": 1290,
+    "images": [
+      "dual-concealer-brush-1.webp"
+    ],
+    "name": "Dual Concealer Brush",
+    "text": {
+      "de": {
+        "tagline": "Zwei Enden, ein Handgriff.",
+        "description": "Doppelpinsel mit schräger Spitze und Schwammende: zum Auftragen und Verblenden, in einem Werkzeug.",
+        "bullets": [
+          "Pinsel- und Schwammende",
+          "Präzise schräge Spitze",
+          "Leicht: 18 g"
+        ]
+      },
+      "fr": {
+        "tagline": "Deux bouts, un seul geste.",
+        "description": "Pinceau double à pointe biseautée et embout éponge : pour appliquer et estomper avec un seul outil.",
+        "bullets": [
+          "Embout pinceau et éponge",
+          "Pointe biseautée précise",
+          "Léger : 18 g"
+        ]
+      },
+      "en": {
+        "tagline": "Two ends, one move.",
+        "description": "Dual brush with angled tip and sponge end: to apply and blend with one tool.",
+        "bullets": [
+          "Brush and sponge end",
+          "Precise angled tip",
+          "Light: 18 g"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Doppelseitiger Concealer Pinsel",
+        "description": "Doppelpinsel mit schräger Spitze und Schwammende: zum Auftragen und Verblenden, in einem Werkzeug."
+      },
+      "fr": {
+        "title": "Pinceau anticernes double",
+        "description": "Pinceau double à pointe biseautée et embout éponge : pour appliquer et estomper avec un seul outil."
+      },
+      "en": {
+        "title": "Dual-ended concealer brush",
+        "description": "Dual brush with angled tip and sponge end: to apply and blend with one tool."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Dual Concealer Brush",
+        "label": {
+          "de": "Dual Concealer Brush",
+          "fr": "Dual Concealer Brush",
+          "en": "Dual Concealer Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/double-headed-miter-sponge-concealer-brush-makeup-brush-p-2506010849411614900.html",
+          "cjProductId": "2506010849411614900",
+          "cjVid": "",
+          "cjSku": "CJYD239063401AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 524,
+          "weightG": 18,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "travel-glow-kit",
+      "rotating-brush-holder"
+    ]
+  },
+  {
+    "id": "rotating-brush-holder",
+    "sku": "GL-S-ROTATING-BRU",
+    "active": true,
+    "single": true,
+    "price": 2490,
+    "images": [
+      "rotating-brush-holder-1.webp"
+    ],
+    "name": "Rotating Brush Holder",
+    "text": {
+      "de": {
+        "tagline": "Ein Dreh, alles da.",
+        "description": "Drehbarer Organizer für Pinsel und Make-up: alles aufrecht, sichtbar und mit einem Dreh erreichbar.",
+        "bullets": [
+          "360° drehbar",
+          "Mehrere Fächer",
+          "Für Schminktisch und Bad"
+        ]
+      },
+      "fr": {
+        "tagline": "Un tour, tout est là.",
+        "description": "Organisateur rotatif pour pinceaux et maquillage : tout est debout, visible et accessible d’un tour.",
+        "bullets": [
+          "Rotation à 360°",
+          "Plusieurs compartiments",
+          "Pour coiffeuse et salle de bain"
+        ]
+      },
+      "en": {
+        "tagline": "One turn, all there.",
+        "description": "Rotating organiser for brushes and make-up: everything upright, visible and one turn away.",
+        "bullets": [
+          "360° rotating",
+          "Several compartments",
+          "For vanity and bathroom"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Drehbarer Pinselhalter Organizer",
+        "description": "Drehbarer Organizer für Pinsel und Make-up: alles aufrecht, sichtbar und mit einem Dreh erreichbar."
+      },
+      "fr": {
+        "title": "Pot à pinceaux rotatif",
+        "description": "Organisateur rotatif pour pinceaux et maquillage : tout est debout, visible et accessible d’un tour."
+      },
+      "en": {
+        "title": "Rotating makeup brush holder",
+        "description": "Rotating organiser for brushes and make-up: everything upright, visible and one turn away."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Rotating Brush Holder",
+        "label": {
+          "de": "Rotating Brush Holder",
+          "fr": "Rotating Brush Holder",
+          "en": "Rotating Brush Holder"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/desktop-rotating-cosmetic-brush-storage-container-p-1719987073802838016.html",
+          "cjProductId": "1719987073802838016",
+          "cjVid": "",
+          "cjSku": "CJJT188609601AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1476,
+          "weightG": 530,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "dual-concealer-brush",
+      "half-moon-beauty-bag"
+    ]
+  }
+]

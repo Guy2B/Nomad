@@ -332,3 +332,20 @@ test('an address without a house number is flagged before reaching CJ', async ()
   assert.match(order.attention, /Numéro de rue/);
   assert.ok(!calls.some((u) => String(u).includes('cjdropshipping')));
 });
+
+test('GLOW and KIN: own prefixes, bundles priced and fully mapped to CJ, API open to their sites', () => {
+  for (const [id, prefix, bundleId, cents, parts, origin] of [
+    ['glow', 'GL', 'night-ritual', 4490, 3, 'https://glow.algbr.eu'],
+    ['kin', 'KI', 'hair-control-system', 6990, 4, 'https://kin.algbr.eu'],
+  ]) {
+    const s = store(id);
+    assert.equal(s.site.orderPrefix, prefix);
+    assert.ok(s.products.filter((p) => p.active).length >= 10);
+    const r = priceCart([{ id: bundleId, qty: 1 }], id);
+    assert.equal(r.totalCents, cents);
+    const order = { number: `${prefix}-261007-AB12`, store: id, brand: s.site.brand, totalCents: cents, items: r.items, customer: { email: 'a@b.c' }, shipping: { country: 'DE', name: 'A', line1: 'x 1', city: 'y', postalCode: '1' } };
+    assert.deepEqual(unmapped(order), []);
+    assert.equal(orderPayload(order, {}).products.length, parts);
+    assert.ok(allowedOrigins({}).has(origin));
+  }
+});

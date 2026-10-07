@@ -1,0 +1,38 @@
+/* KIN — forest ink, oat & amber (overrides the base style). */
+:root {
+  --ink: #1f2a24;
+  --ink-2: #33443a;
+  --paper: #f4f0e7;
+  --sand: #e7e0d1;
+  --card: #fffdf8;
+  --text: #1f2a24;
+  --text-2: #3f4842;
+  --muted: #6a716b;
+  --line: #ddd6c6;
+  --accent: #c47f2c;
+  --sage: #a7b99f;
+}
+h1,
+h2,
+.brand {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  line-height: 1.02;
+}
+.card,
+.includes li {
+  border-radius: 24px;
+}
+.promise {
+  background: linear-gradient(135deg, #1f2a24, #33443a);
+}
+.promise-list li::first-letter {
+  color: var(--sage);
+}
+
+.hero-x h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.02; }
+.featured h2, .why-grid h2, .final-cta h2 { letter-spacing: -0.04em; }

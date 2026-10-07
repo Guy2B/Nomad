@@ -1,0 +1,1220 @@
+[
+  {
+    "id": "hair-control-system",
+    "sku": "KI-B-HAIR-CONTROL",
+    "active": true,
+    "price": 6990,
+    "images": [
+      "fur-roller-pro-1.webp",
+      "groomer-brush-1.webp",
+      "grooming-mitt-1.webp",
+      "microfiber-pet-towel-1.webp"
+    ],
+    "name": "Hair Control System",
+    "text": {
+      "de": {
+        "tagline": "Haare dort, wo sie hingehören.",
+        "description": "Tierhaar-Roller, Pflegebürste, Pflegehandschuh und Mikrofaser-Handtuch: das komplette System gegen Haare auf Sofa, Kleidung und Decken.",
+        "bullets": [
+          "Fur Roller Pro",
+          "Groomer Brush",
+          "Grooming Mitt",
+          "Microfibre Pet Towel"
+        ]
+      },
+      "fr": {
+        "tagline": "Les poils, là où ils doivent être.",
+        "description": "Rouleau anti-poils, brosse de toilettage, gant et serviette microfibre : le système complet contre les poils sur le canapé, les vêtements et les plaids.",
+        "bullets": [
+          "Fur Roller Pro",
+          "Groomer Brush",
+          "Grooming Mitt",
+          "Microfibre Pet Towel"
+        ]
+      },
+      "en": {
+        "tagline": "Hair where it belongs.",
+        "description": "Pet hair roller, grooming brush, grooming mitt and microfibre towel: the complete system against hair on sofa, clothes and throws.",
+        "bullets": [
+          "Fur Roller Pro",
+          "Groomer Brush",
+          "Grooming Mitt",
+          "Microfibre Pet Towel"
+        ]
+      }
+    },
+    "components": [
+      {
+        "key": "fur-roller-pro",
+        "name": "Fur Roller Pro",
+        "label": {
+          "de": "Fur Roller Pro",
+          "fr": "Fur Roller Pro",
+          "en": "Fur Roller Pro"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-hair-remover-and-reusable-lint-roller-cat-and-dog-hair-remover-for-furniture-couch-carpet-clothing-and-bedding---portable-multi-surface-fur-removal-tool-p-1820830464652234752.html",
+          "cjProductId": "1820830464652234752",
+          "cjVid": "",
+          "cjSku": "CJMY210365701AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "Yunexpress CN to Multi-Region #4",
+          "costCents": 1830,
+          "weightG": 500,
+          "shippingDays": "5–8",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "groomer-brush",
+        "name": "Groomer Brush",
+        "label": {
+          "de": "Groomer Brush",
+          "fr": "Groomer Brush",
+          "en": "Groomer Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-groomer-pet-hair-removal-brush-cat-grooming-brush-dog-cat-massage-epilator-to-remove-floating-hair-cat-hair-dog-pet-supplies-p-1536932875864649728.html",
+          "cjProductId": "1536932875864649728",
+          "cjVid": "",
+          "cjSku": "CJJT150316801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 678,
+          "weightG": 120,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "grooming-mitt",
+        "name": "Grooming Mitt",
+        "label": {
+          "de": "Grooming Mitt",
+          "fr": "Grooming Mitt",
+          "en": "Grooming Mitt"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-hair-remover-mitt-pet-hair-remover-gloves-deshedding-brush-glove-for-dog-cat-rabbit-with-long-short-curly-hair-p-2503191148021601200.html",
+          "cjProductId": "2503191148021601200",
+          "cjVid": "",
+          "cjSku": "CJYD233200801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 519,
+          "weightG": 40,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "microfiber-pet-towel",
+        "name": "Microfiber Pet Towel",
+        "label": {
+          "de": "Microfibre Pet Towel",
+          "fr": "Microfibre Pet Towel",
+          "en": "Microfibre Pet Towel"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/solid-color-printed-microfiber-pet-towel-p-1708382152414466048.html",
+          "cjProductId": "1708382152414466048",
+          "cjVid": "",
+          "cjSku": "CJGY186013901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 814,
+          "weightG": 195,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "seo": {
+      "de": {
+        "title": "Tierhaare entfernen Set: Roller, Bürste, Handschuh, Handtuch",
+        "description": "Tierhaar-Roller, Pflegebürste, Pflegehandschuh und Mikrofaser-Handtuch: das komplette System gegen Haare auf Sofa, Kleidung und Decken."
+      },
+      "fr": {
+        "title": "Kit anti-poils animaux : rouleau, brosse, gant, serviette",
+        "description": "Rouleau anti-poils, brosse de toilettage, gant et serviette microfibre : le système complet contre les poils sur le canapé, les vêtements et les plaids."
+      },
+      "en": {
+        "title": "Pet hair removal set: roller, brush, mitt, towel",
+        "description": "Pet hair roller, grooming brush, grooming mitt and microfibre towel: the complete system against hair on sofa, clothes and throws."
+      }
+    },
+    "upsells": [
+      "washable-hair-roller",
+      "bath-day-kit"
+    ]
+  },
+  {
+    "id": "bath-day-kit",
+    "sku": "KI-B-BATH-DAY-KIT",
+    "active": true,
+    "price": 3990,
+    "images": [
+      "3-in-1-bath-brush-1.webp",
+      "paw-bath-brush-1.webp",
+      "microfiber-pet-towel-1.webp"
+    ],
+    "name": "Bath Day Kit",
+    "text": {
+      "de": {
+        "tagline": "Badetag ohne Drama.",
+        "description": "Bade- und Massagebürste, Pfotenbürste und Mikrofaser-Handtuch: alles für ein ruhiges Bad und schnelles Trocknen.",
+        "bullets": [
+          "3-in-1 Bath Brush",
+          "Paw Bath Brush",
+          "Microfibre Pet Towel"
+        ]
+      },
+      "fr": {
+        "tagline": "Le jour du bain sans drame.",
+        "description": "Brosse de bain et de massage, brosse à pattes et serviette microfibre : tout pour un bain calme et un séchage rapide.",
+        "bullets": [
+          "3-in-1 Bath Brush",
+          "Paw Bath Brush",
+          "Microfibre Pet Towel"
+        ]
+      },
+      "en": {
+        "tagline": "Bath day without drama.",
+        "description": "Bath and massage brush, paw brush and microfibre towel: everything for a calm bath and quick drying.",
+        "bullets": [
+          "3-in-1 Bath Brush",
+          "Paw Bath Brush",
+          "Microfibre Pet Towel"
+        ]
+      }
+    },
+    "components": [
+      {
+        "key": "bath-brush",
+        "name": "3-in-1 Bath Brush",
+        "label": {
+          "de": "3-in-1 Bath Brush",
+          "fr": "3-in-1 Bath Brush",
+          "en": "3-in-1 Bath Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://www.cjdropshipping.com/product/3-in-1-pets-bath-brush-for-dogs-and-cats-shower-massage-brush-depilation-comb-and-foaming-tool-anti-frizz-beauty-brush-pet-products-p-2501070813491614900.html",
+          "cjProductId": "2501070813491614900",
+          "cjVid": "",
+          "cjSku": "CJYD226358501AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 659,
+          "weightG": 120,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "paw-bath-brush",
+        "name": "Paw Bath Brush",
+        "label": {
+          "de": "Paw Bath Brush",
+          "fr": "Paw Bath Brush",
+          "en": "Paw Bath Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-bath-brush-cat-dog-massage-comb-p-1783438407037890560.html",
+          "cjProductId": "1783438407037890560",
+          "cjVid": "",
+          "cjSku": "CJGY202058901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 588,
+          "weightG": 87,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      },
+      {
+        "key": "microfiber-pet-towel",
+        "name": "Microfiber Pet Towel",
+        "label": {
+          "de": "Microfibre Pet Towel",
+          "fr": "Microfibre Pet Towel",
+          "en": "Microfibre Pet Towel"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/solid-color-printed-microfiber-pet-towel-p-1708382152414466048.html",
+          "cjProductId": "1708382152414466048",
+          "cjVid": "",
+          "cjSku": "CJGY186013901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 814,
+          "weightG": 195,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "seo": {
+      "de": {
+        "title": "Hunde Bade-Set: Badebürste, Pfotenbürste, Handtuch",
+        "description": "Bade- und Massagebürste, Pfotenbürste und Mikrofaser-Handtuch: alles für ein ruhiges Bad und schnelles Trocknen."
+      },
+      "fr": {
+        "title": "Kit bain chien : brosse de bain, brosse pattes, serviette",
+        "description": "Brosse de bain et de massage, brosse à pattes et serviette microfibre : tout pour un bain calme et un séchage rapide."
+      },
+      "en": {
+        "title": "Dog bath kit: bath brush, paw brush, towel",
+        "description": "Bath and massage brush, paw brush and microfibre towel: everything for a calm bath and quick drying."
+      }
+    },
+    "upsells": [
+      "hair-control-system",
+      "groomer-brush"
+    ]
+  },
+  {
+    "id": "fur-roller-pro",
+    "sku": "KI-S-FUR-ROLLER-P",
+    "active": true,
+    "single": true,
+    "price": 3990,
+    "images": [
+      "fur-roller-pro-1.webp"
+    ],
+    "name": "Fur Roller Pro",
+    "text": {
+      "de": {
+        "tagline": "Hin und her, Haare weg.",
+        "description": "Wiederverwendbarer Tierhaar-Entferner für Sofa, Bett, Teppich und Kleidung: hin- und herrollen, Behälter leeren, fertig.",
+        "bullets": [
+          "Wiederverwendbar, ohne Klebeband",
+          "Für Polster, Teppich und Kleidung",
+          "Behälter einfach leeren"
+        ]
+      },
+      "fr": {
+        "tagline": "Aller-retour, poils partis.",
+        "description": "Rouleau anti-poils réutilisable pour canapé, lit, tapis et vêtements : un aller-retour, on vide le bac, c’est fini.",
+        "bullets": [
+          "Réutilisable, sans adhésif",
+          "Pour tissus, tapis et vêtements",
+          "Bac facile à vider"
+        ]
+      },
+      "en": {
+        "tagline": "Back and forth, hair gone.",
+        "description": "Reusable pet hair remover for sofa, bed, carpet and clothes: roll back and forth, empty the bin, done.",
+        "bullets": [
+          "Reusable, no sticky tape",
+          "For upholstery, carpet and clothes",
+          "Easy-empty bin"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Tierhaar Entferner Roller wiederverwendbar",
+        "description": "Wiederverwendbarer Tierhaar-Entferner für Sofa, Bett, Teppich und Kleidung: hin- und herrollen, Behälter leeren, fertig."
+      },
+      "fr": {
+        "title": "Rouleau anti-poils réutilisable",
+        "description": "Rouleau anti-poils réutilisable pour canapé, lit, tapis et vêtements : un aller-retour, on vide le bac, c’est fini."
+      },
+      "en": {
+        "title": "Reusable pet hair remover roller",
+        "description": "Reusable pet hair remover for sofa, bed, carpet and clothes: roll back and forth, empty the bin, done."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Fur Roller Pro",
+        "label": {
+          "de": "Fur Roller Pro",
+          "fr": "Fur Roller Pro",
+          "en": "Fur Roller Pro"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-hair-remover-and-reusable-lint-roller-cat-and-dog-hair-remover-for-furniture-couch-carpet-clothing-and-bedding---portable-multi-surface-fur-removal-tool-p-1820830464652234752.html",
+          "cjProductId": "1820830464652234752",
+          "cjVid": "",
+          "cjSku": "CJMY210365701AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "Yunexpress CN to Multi-Region #4",
+          "costCents": 1830,
+          "weightG": 500,
+          "shippingDays": "5–8",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "hair-control-system",
+      "washable-hair-roller"
+    ]
+  },
+  {
+    "id": "washable-hair-roller",
+    "sku": "KI-S-WASHABLE-HAI",
+    "active": true,
+    "single": true,
+    "price": 2490,
+    "images": [
+      "washable-hair-roller-1.webp"
+    ],
+    "name": "Washable Lint Roller",
+    "text": {
+      "de": {
+        "tagline": "Abspülen statt nachkaufen.",
+        "description": "Waschbarer Fusselroller mit Haftwalze: unter Wasser abspülen, trocknen lassen, wieder benutzen.",
+        "bullets": [
+          "Waschbare Haftwalze",
+          "Mit Schutzdeckel",
+          "Für Kleidung und Autositze"
+        ]
+      },
+      "fr": {
+        "tagline": "On rince au lieu de racheter.",
+        "description": "Rouleau anti-peluches lavable à rouleau adhésif : on rince à l’eau, on laisse sécher, on réutilise.",
+        "bullets": [
+          "Rouleau adhésif lavable",
+          "Avec capot de protection",
+          "Pour vêtements et sièges de voiture"
+        ]
+      },
+      "en": {
+        "tagline": "Rinse instead of rebuy.",
+        "description": "Washable lint roller with sticky roll: rinse under water, let dry, use again.",
+        "bullets": [
+          "Washable sticky roll",
+          "With protective cover",
+          "For clothes and car seats"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Waschbarer Fusselroller Tierhaare",
+        "description": "Waschbarer Fusselroller mit Haftwalze: unter Wasser abspülen, trocknen lassen, wieder benutzen."
+      },
+      "fr": {
+        "title": "Rouleau anti-poils lavable",
+        "description": "Rouleau anti-peluches lavable à rouleau adhésif : on rince à l’eau, on laisse sécher, on réutilise."
+      },
+      "en": {
+        "title": "Washable lint roller for pet hair",
+        "description": "Washable lint roller with sticky roll: rinse under water, let dry, use again."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Washable Hair Roller",
+        "label": {
+          "de": "Washable Lint Roller",
+          "fr": "Washable Lint Roller",
+          "en": "Washable Lint Roller"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/portable-washable-hair-remover-with-adhesive-roller-p-1653949161269637120.html",
+          "cjProductId": "1653949161269637120",
+          "cjVid": "",
+          "cjSku": "CJJT174982701AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 1050,
+          "weightG": 301,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "fur-roller-pro",
+      "hair-control-system"
+    ]
+  },
+  {
+    "id": "grooming-mitt",
+    "sku": "KI-S-GROOMING-MIT",
+    "active": true,
+    "single": true,
+    "price": 1490,
+    "images": [
+      "grooming-mitt-1.webp"
+    ],
+    "name": "Grooming Mitt",
+    "text": {
+      "de": {
+        "tagline": "Pflege, die sich wie Streicheln anfühlt.",
+        "description": "Pflegehandschuh mit weichen Noppen: nimmt lose Haare beim Streicheln auf — ideal für Tiere, die keine Bürste mögen.",
+        "bullets": [
+          "Weiche Gumminoppen",
+          "Für Hund und Katze",
+          "Abwaschbar"
+        ]
+      },
+      "fr": {
+        "tagline": "Un toilettage qui ressemble à une caresse.",
+        "description": "Gant de toilettage à picots souples : récupère les poils morts en caressant — idéal pour les animaux qui n’aiment pas la brosse.",
+        "bullets": [
+          "Picots souples",
+          "Pour chien et chat",
+          "Lavable"
+        ]
+      },
+      "en": {
+        "tagline": "Grooming that feels like stroking.",
+        "description": "Grooming mitt with soft nubs: picks up loose hair while you stroke — ideal for pets who dislike brushes.",
+        "bullets": [
+          "Soft rubber nubs",
+          "For dogs and cats",
+          "Washable"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Fellpflege Handschuh Hund Katze",
+        "description": "Pflegehandschuh mit weichen Noppen: nimmt lose Haare beim Streicheln auf — ideal für Tiere, die keine Bürste mögen."
+      },
+      "fr": {
+        "title": "Gant de toilettage chien chat",
+        "description": "Gant de toilettage à picots souples : récupère les poils morts en caressant — idéal pour les animaux qui n’aiment pas la brosse."
+      },
+      "en": {
+        "title": "Pet grooming glove",
+        "description": "Grooming mitt with soft nubs: picks up loose hair while you stroke — ideal for pets who dislike brushes."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Grooming Mitt",
+        "label": {
+          "de": "Grooming Mitt",
+          "fr": "Grooming Mitt",
+          "en": "Grooming Mitt"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-hair-remover-mitt-pet-hair-remover-gloves-deshedding-brush-glove-for-dog-cat-rabbit-with-long-short-curly-hair-p-2503191148021601200.html",
+          "cjProductId": "2503191148021601200",
+          "cjVid": "",
+          "cjSku": "CJYD233200801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 519,
+          "weightG": 40,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "hair-control-system",
+      "groomer-brush"
+    ]
+  },
+  {
+    "id": "groomer-brush",
+    "sku": "KI-S-GROOMER-BRUS",
+    "active": true,
+    "single": true,
+    "price": 2490,
+    "images": [
+      "groomer-brush-1.webp"
+    ],
+    "name": "Groomer Brush",
+    "text": {
+      "de": {
+        "tagline": "Lose Haare in die Bürste.",
+        "description": "Pflegebürste für die regelmäßige Fellpflege: nimmt lose Unterwolle auf, bevor sie auf dem Sofa landet.",
+        "bullets": [
+          "Für lose Unterwolle",
+          "Ergonomischer Griff",
+          "Für Hund und Katze"
+        ]
+      },
+      "fr": {
+        "tagline": "Les poils morts dans la brosse.",
+        "description": "Brosse de toilettage pour l’entretien régulier : retire le sous-poil mort avant qu’il ne finisse sur le canapé.",
+        "bullets": [
+          "Pour le sous-poil mort",
+          "Poignée ergonomique",
+          "Pour chien et chat"
+        ]
+      },
+      "en": {
+        "tagline": "Loose hair into the brush.",
+        "description": "Grooming brush for regular coat care: picks up loose undercoat before it lands on the sofa.",
+        "bullets": [
+          "For loose undercoat",
+          "Ergonomic handle",
+          "For dogs and cats"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Fellpflege Bürste Unterwolle",
+        "description": "Pflegebürste für die regelmäßige Fellpflege: nimmt lose Unterwolle auf, bevor sie auf dem Sofa landet."
+      },
+      "fr": {
+        "title": "Brosse de toilettage sous-poil",
+        "description": "Brosse de toilettage pour l’entretien régulier : retire le sous-poil mort avant qu’il ne finisse sur le canapé."
+      },
+      "en": {
+        "title": "Undercoat grooming brush",
+        "description": "Grooming brush for regular coat care: picks up loose undercoat before it lands on the sofa."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Groomer Brush",
+        "label": {
+          "de": "Groomer Brush",
+          "fr": "Groomer Brush",
+          "en": "Groomer Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-groomer-pet-hair-removal-brush-cat-grooming-brush-dog-cat-massage-epilator-to-remove-floating-hair-cat-hair-dog-pet-supplies-p-1536932875864649728.html",
+          "cjProductId": "1536932875864649728",
+          "cjVid": "",
+          "cjSku": "CJJT150316801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 678,
+          "weightG": 120,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "hair-control-system",
+      "easy-clean-slicker"
+    ]
+  },
+  {
+    "id": "easy-clean-slicker",
+    "sku": "KI-S-EASY-CLEAN-S",
+    "active": true,
+    "single": true,
+    "price": 2490,
+    "images": [
+      "easy-clean-slicker-1.webp"
+    ],
+    "name": "Easy-Clean Slicker",
+    "text": {
+      "de": {
+        "tagline": "Ein Klick, Bürste sauber.",
+        "description": "Zupfbürste mit Reinigungsknopf: Haare per Knopfdruck abstreifen, ohne sie mit den Fingern herauszuziehen.",
+        "bullets": [
+          "Reinigung per Knopfdruck",
+          "Feine Drahtborsten",
+          "Für kleine und mittlere Tiere"
+        ]
+      },
+      "fr": {
+        "tagline": "Un clic, brosse propre.",
+        "description": "Brosse étrille avec bouton de nettoyage : les poils se retirent d’une pression, sans les arracher à la main.",
+        "bullets": [
+          "Nettoyage par bouton",
+          "Picots métalliques fins",
+          "Pour petits et moyens animaux"
+        ]
+      },
+      "en": {
+        "tagline": "One click, clean brush.",
+        "description": "Slicker brush with a cleaning button: release the hair with one press instead of pulling it out by hand.",
+        "bullets": [
+          "Push-button cleaning",
+          "Fine wire bristles",
+          "For small and medium pets"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Zupfbürste selbstreinigend",
+        "description": "Zupfbürste mit Reinigungsknopf: Haare per Knopfdruck abstreifen, ohne sie mit den Fingern herauszuziehen."
+      },
+      "fr": {
+        "title": "Brosse étrille autonettoyante",
+        "description": "Brosse étrille avec bouton de nettoyage : les poils se retirent d’une pression, sans les arracher à la main."
+      },
+      "en": {
+        "title": "Self-cleaning slicker brush",
+        "description": "Slicker brush with a cleaning button: release the hair with one press instead of pulling it out by hand."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Easy-Clean Slicker",
+        "label": {
+          "de": "Easy-Clean Slicker",
+          "fr": "Easy-Clean Slicker",
+          "en": "Easy-Clean Slicker"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://www.cjdropshipping.com/product/pet-slicker-grooming-brush-comb-for-cats-small-middle-sized-dogs-must-buy-in-fur-shedding-season-easy-clean-p-1377182883625701376.html",
+          "cjProductId": "1377182883625701376",
+          "cjVid": "",
+          "cjSku": "CJMY106113801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 987,
+          "weightG": 161,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "groomer-brush",
+      "self-cleaning-comb"
+    ]
+  },
+  {
+    "id": "self-cleaning-comb",
+    "sku": "KI-S-SELF-CLEANIN",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "images": [
+      "self-cleaning-comb-1.webp"
+    ],
+    "name": "Self-Cleaning Comb",
+    "text": {
+      "de": {
+        "tagline": "Kämmen, drücken, fertig.",
+        "description": "Pflegekamm mit Abstreiffunktion: nach dem Kämmen einmal drücken, die Haare lösen sich am Stück.",
+        "bullets": [
+          "Abstreiffunktion",
+          "Abgerundete Nadeln",
+          "Für die tägliche Pflege"
+        ]
+      },
+      "fr": {
+        "tagline": "On peigne, on appuie, c’est fini.",
+        "description": "Peigne de toilettage avec éjecteur : une pression après le brossage et les poils partent d’un bloc.",
+        "bullets": [
+          "Fonction éjecteur",
+          "Picots arrondis",
+          "Pour l’entretien quotidien"
+        ]
+      },
+      "en": {
+        "tagline": "Comb, press, done.",
+        "description": "Grooming comb with release function: press once after combing and the hair comes off in one go.",
+        "bullets": [
+          "Release function",
+          "Rounded pins",
+          "For daily care"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Selbstreinigender Kamm Hund Katze",
+        "description": "Pflegekamm mit Abstreiffunktion: nach dem Kämmen einmal drücken, die Haare lösen sich am Stück."
+      },
+      "fr": {
+        "title": "Peigne autonettoyant chien chat",
+        "description": "Peigne de toilettage avec éjecteur : une pression après le brossage et les poils partent d’un bloc."
+      },
+      "en": {
+        "title": "Self-cleaning pet comb",
+        "description": "Grooming comb with release function: press once after combing and the hair comes off in one go."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Self-Cleaning Comb",
+        "label": {
+          "de": "Self-Cleaning Comb",
+          "fr": "Self-Cleaning Comb",
+          "en": "Self-Cleaning Comb"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://www.cjdropshipping.com/product/pet-needle-comb-hair-remover-brush-dog-and-cat-pet-comb-self-cleaning-massage-brushes-grooming-supplies-p-2407110256221627600.html",
+          "cjProductId": "2407110256221627600",
+          "cjVid": "",
+          "cjSku": "CJYD208071305EV",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 663,
+          "weightG": 110,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "easy-clean-slicker",
+      "groomer-brush"
+    ]
+  },
+  {
+    "id": "bath-brush",
+    "sku": "KI-S-BATH-BRUSH",
+    "active": true,
+    "single": true,
+    "price": 1790,
+    "images": [
+      "3-in-1-bath-brush-1.webp"
+    ],
+    "name": "3-in-1 Bath Brush",
+    "text": {
+      "de": {
+        "tagline": "Shampoo rein, entspannt baden.",
+        "description": "Bade- und Massagebürste mit Shampoo-Behälter: verteilt das Shampoo gleichmäßig im Fell, angenehm für das Tier.",
+        "bullets": [
+          "Integrierter Shampoo-Behälter",
+          "Weiche Silikonnoppen",
+          "Für Bad und Fellpflege"
+        ]
+      },
+      "fr": {
+        "tagline": "Shampoing dedans, bain détendu.",
+        "description": "Brosse de bain et de massage avec réservoir à shampoing : répartit le shampoing dans le pelage, agréable pour l’animal.",
+        "bullets": [
+          "Réservoir à shampoing intégré",
+          "Picots souples en silicone",
+          "Pour le bain et le toilettage"
+        ]
+      },
+      "en": {
+        "tagline": "Shampoo in, relaxed bath.",
+        "description": "Bath and massage brush with shampoo reservoir: spreads shampoo evenly through the coat, pleasant for your pet.",
+        "bullets": [
+          "Built-in shampoo reservoir",
+          "Soft silicone nubs",
+          "For bath and grooming"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Hunde Badebürste mit Shampoospender",
+        "description": "Bade- und Massagebürste mit Shampoo-Behälter: verteilt das Shampoo gleichmäßig im Fell, angenehm für das Tier."
+      },
+      "fr": {
+        "title": "Brosse de bain chien avec distributeur",
+        "description": "Brosse de bain et de massage avec réservoir à shampoing : répartit le shampoing dans le pelage, agréable pour l’animal."
+      },
+      "en": {
+        "title": "Dog bath brush with shampoo dispenser",
+        "description": "Bath and massage brush with shampoo reservoir: spreads shampoo evenly through the coat, pleasant for your pet."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "3-in-1 Bath Brush",
+        "label": {
+          "de": "3-in-1 Bath Brush",
+          "fr": "3-in-1 Bath Brush",
+          "en": "3-in-1 Bath Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://www.cjdropshipping.com/product/3-in-1-pets-bath-brush-for-dogs-and-cats-shower-massage-brush-depilation-comb-and-foaming-tool-anti-frizz-beauty-brush-pet-products-p-2501070813491614900.html",
+          "cjProductId": "2501070813491614900",
+          "cjVid": "",
+          "cjSku": "CJYD226358501AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 659,
+          "weightG": 120,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "bath-day-kit",
+      "microfiber-pet-towel"
+    ]
+  },
+  {
+    "id": "paw-bath-brush",
+    "sku": "KI-S-PAW-BATH-BRU",
+    "active": true,
+    "single": true,
+    "price": 1490,
+    "images": [
+      "paw-bath-brush-1.webp"
+    ],
+    "name": "Paw Bath Brush",
+    "text": {
+      "de": {
+        "tagline": "Saubere Pfoten nach dem Spaziergang.",
+        "description": "Kleine Silikonbürste für Pfoten und Fell: Schmutz nach dem Spaziergang sanft lösen, bevor er in die Wohnung kommt.",
+        "bullets": [
+          "Weiche Silikonborsten",
+          "Handlich für Pfoten",
+          "Leicht zu reinigen"
+        ]
+      },
+      "fr": {
+        "tagline": "Des pattes propres après la balade.",
+        "description": "Petite brosse en silicone pour pattes et pelage : détache doucement la saleté après la balade, avant qu’elle n’entre à la maison.",
+        "bullets": [
+          "Picots souples en silicone",
+          "Pratique pour les pattes",
+          "Facile à nettoyer"
+        ]
+      },
+      "en": {
+        "tagline": "Clean paws after the walk.",
+        "description": "Small silicone brush for paws and coat: gently loosens dirt after the walk, before it comes inside.",
+        "bullets": [
+          "Soft silicone bristles",
+          "Handy for paws",
+          "Easy to clean"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Pfotenbürste Hund Silikon",
+        "description": "Kleine Silikonbürste für Pfoten und Fell: Schmutz nach dem Spaziergang sanft lösen, bevor er in die Wohnung kommt."
+      },
+      "fr": {
+        "title": "Brosse pattes chien silicone",
+        "description": "Petite brosse en silicone pour pattes et pelage : détache doucement la saleté après la balade, avant qu’elle n’entre à la maison."
+      },
+      "en": {
+        "title": "Silicone dog paw brush",
+        "description": "Small silicone brush for paws and coat: gently loosens dirt after the walk, before it comes inside."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Paw Bath Brush",
+        "label": {
+          "de": "Paw Bath Brush",
+          "fr": "Paw Bath Brush",
+          "en": "Paw Bath Brush"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/pet-bath-brush-cat-dog-massage-comb-p-1783438407037890560.html",
+          "cjProductId": "1783438407037890560",
+          "cjVid": "",
+          "cjSku": "CJGY202058901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 588,
+          "weightG": 87,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "bath-day-kit",
+      "microfiber-pet-towel"
+    ]
+  },
+  {
+    "id": "microfiber-pet-towel",
+    "sku": "KI-S-MICROFIBER-P",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "images": [
+      "microfiber-pet-towel-1.webp"
+    ],
+    "name": "Microfibre Pet Towel",
+    "text": {
+      "de": {
+        "tagline": "Schnell trocken, sofort aufs Sofa.",
+        "description": "Saugstarkes Mikrofaser-Handtuch für Hund und Katze: nach Bad oder Regenspaziergang schnell trocken reiben.",
+        "bullets": [
+          "Saugstarke Mikrofaser",
+          "Schnell trocknend",
+          "Maschinenwaschbar"
+        ]
+      },
+      "fr": {
+        "tagline": "Vite sec, direct sur le canapé.",
+        "description": "Serviette microfibre très absorbante pour chien et chat : on sèche vite après le bain ou une balade sous la pluie.",
+        "bullets": [
+          "Microfibre très absorbante",
+          "Séchage rapide",
+          "Lavable en machine"
+        ]
+      },
+      "en": {
+        "tagline": "Dry fast, straight to the sofa.",
+        "description": "Absorbent microfibre towel for dogs and cats: dry off quickly after a bath or a rainy walk.",
+        "bullets": [
+          "Absorbent microfibre",
+          "Quick-drying",
+          "Machine washable"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Mikrofaser Hundehandtuch saugstark",
+        "description": "Saugstarkes Mikrofaser-Handtuch für Hund und Katze: nach Bad oder Regenspaziergang schnell trocken reiben."
+      },
+      "fr": {
+        "title": "Serviette microfibre chien absorbante",
+        "description": "Serviette microfibre très absorbante pour chien et chat : on sèche vite après le bain ou une balade sous la pluie."
+      },
+      "en": {
+        "title": "Absorbent microfibre dog towel",
+        "description": "Absorbent microfibre towel for dogs and cats: dry off quickly after a bath or a rainy walk."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Microfiber Pet Towel",
+        "label": {
+          "de": "Microfibre Pet Towel",
+          "fr": "Microfibre Pet Towel",
+          "en": "Microfibre Pet Towel"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/solid-color-printed-microfiber-pet-towel-p-1708382152414466048.html",
+          "cjProductId": "1708382152414466048",
+          "cjVid": "",
+          "cjSku": "CJGY186013901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 814,
+          "weightG": 195,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "bath-day-kit",
+      "paw-bath-brush"
+    ]
+  },
+  {
+    "id": "walk-bag-dispenser",
+    "sku": "KI-S-WALK-BAG-DIS",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "images": [
+      "walk-bag-dispenser-1.webp"
+    ],
+    "name": "Walk Bag Dispenser",
+    "text": {
+      "de": {
+        "tagline": "Immer dabei, nie vergessen.",
+        "description": "Kotbeutelspender zum Befestigen an der Leine, mit Beuteln: einhändig abreißen, unterwegs immer griffbereit.",
+        "bullets": [
+          "Befestigung an der Leine",
+          "Mit Beutelrolle",
+          "Einhändig nutzbar"
+        ]
+      },
+      "fr": {
+        "tagline": "Toujours là, jamais oublié.",
+        "description": "Distributeur de sacs à fixer sur la laisse, avec sacs : on déchire d’une main, toujours à portée en balade.",
+        "bullets": [
+          "Fixation sur la laisse",
+          "Avec rouleau de sacs",
+          "Utilisable d’une main"
+        ]
+      },
+      "en": {
+        "tagline": "Always there, never forgotten.",
+        "description": "Poop bag dispenser that clips to the leash, bags included: tear off one-handed, always within reach.",
+        "bullets": [
+          "Clips to the leash",
+          "Bag roll included",
+          "One-handed use"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Kotbeutelspender Leine",
+        "description": "Kotbeutelspender zum Befestigen an der Leine, mit Beuteln: einhändig abreißen, unterwegs immer griffbereit."
+      },
+      "fr": {
+        "title": "Distributeur sacs crottes laisse",
+        "description": "Distributeur de sacs à fixer sur la laisse, avec sacs : on déchire d’une main, toujours à portée en balade."
+      },
+      "en": {
+        "title": "Leash poop bag dispenser",
+        "description": "Poop bag dispenser that clips to the leash, bags included: tear off one-handed, always within reach."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Walk Bag Dispenser",
+        "label": {
+          "de": "Walk Bag Dispenser",
+          "fr": "Walk Bag Dispenser",
+          "en": "Walk Bag Dispenser"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/dog-poop-bag-holder-and-dispenser-with-leash-attachment-pet-supplies-space-capsule-outdoor-biodegradable-dog-poop-bags-dispenser-attachable-to-the-leash-dog-accessories-p-1794575018845163520.html",
+          "cjProductId": "1794575018845163520",
+          "cjVid": "",
+          "cjSku": "CJGY204604801AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "Yunexpress CN to Multi-Region #4",
+          "costCents": 1262,
+          "weightG": 80,
+          "shippingDays": "5–8",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "paw-bath-brush",
+      "microfiber-pet-towel"
+    ]
+  },
+  {
+    "id": "car-seat-cover",
+    "sku": "KI-S-CAR-SEAT-COV",
+    "active": true,
+    "single": true,
+    "price": 4990,
+    "images": [
+      "car-seat-cover-1.webp"
+    ],
+    "name": "Back Seat Cover",
+    "text": {
+      "de": {
+        "tagline": "Rücksitz sauber, Ausflug entspannt.",
+        "description": "Wasserabweisende Rücksitz-Schutzdecke für Hunde: schützt die Polster vor Haaren, Schmutz und nassen Pfoten.",
+        "bullets": [
+          "Wasserabweisend",
+          "Befestigung an den Kopfstützen",
+          "Abwischbar"
+        ]
+      },
+      "fr": {
+        "tagline": "Banquette propre, sortie détendue.",
+        "description": "Housse de protection de banquette arrière déperlante pour chien : protège les sièges des poils, de la saleté et des pattes mouillées.",
+        "bullets": [
+          "Déperlante",
+          "Fixation aux appuie-têtes",
+          "Se nettoie d’un coup d’éponge"
+        ]
+      },
+      "en": {
+        "tagline": "Clean back seat, relaxed trip.",
+        "description": "Water-repellent back seat cover for dogs: protects upholstery from hair, dirt and wet paws.",
+        "bullets": [
+          "Water-repellent",
+          "Attaches to headrests",
+          "Wipe-clean"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Hundedecke Rücksitz wasserabweisend",
+        "description": "Wasserabweisende Rücksitz-Schutzdecke für Hunde: schützt die Polster vor Haaren, Schmutz und nassen Pfoten."
+      },
+      "fr": {
+        "title": "Housse siège arrière chien déperlante",
+        "description": "Housse de protection de banquette arrière déperlante pour chien : protège les sièges des poils, de la saleté et des pattes mouillées."
+      },
+      "en": {
+        "title": "Water-repellent dog back seat cover",
+        "description": "Water-repellent back seat cover for dogs: protects upholstery from hair, dirt and wet paws."
+      }
+    },
+    "components": [
+      {
+        "key": "main",
+        "name": "Car Seat Cover",
+        "label": {
+          "de": "Back Seat Cover",
+          "fr": "Back Seat Cover",
+          "en": "Back Seat Cover"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/dog-car-mats-dog-mats-golden-retriever-pet-dog-cushions-rear-car-mats-waterproof-and-dirt-resistant-car-pet-seat-covers-p-1390562609694117888.html",
+          "cjProductId": "1390562609694117888",
+          "cjVid": "",
+          "cjSku": "CJGY111663901AZ",
+          "fromCountryCode": "CN",
+          "logisticName": "CJPacket Fast Ordinary",
+          "costCents": 2443,
+          "weightG": 1092,
+          "shippingDays": "4–6",
+          "checkedAt": "2026-10-04",
+          "notes": "Variante (vid) à confirmer avant lancement. Aucune allégation santé/soin reprise du fournisseur."
+        }
+      }
+    ],
+    "upsells": [
+      "hair-control-system",
+      "microfiber-pet-towel"
+    ]
+  }
+]

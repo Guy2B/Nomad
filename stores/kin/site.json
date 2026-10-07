@@ -1,0 +1,1266 @@
+{
+  "id": "kin",
+  "brand": "KIN",
+  "orderPrefix": "KI",
+  "themeColor": "#1f2a24",
+  "tagline": {
+    "de": "For the ones at home.",
+    "fr": "For the ones at home.",
+    "en": "For the ones at home."
+  },
+  "seo": {
+    "de": {
+      "title": "KIN — For the ones at home: Tierhaare im Griff, Pflege & Bad",
+      "description": "Tierhaar-Roller, Pflegebürsten, Handschuh, Handtuch und Bad-Zubehör für Hund und Katze — als Sets. Kostenloser Versand, 14 Tage Widerruf."
+    },
+    "fr": {
+      "title": "KIN — For the ones at home : poils maîtrisés, toilettage & bain",
+      "description": "Rouleau anti-poils, brosses de toilettage, gant, serviette et accessoires de bain pour chien et chat — en kits. Livraison offerte, 14 jours de rétractation."
+    },
+    "en": {
+      "title": "KIN — For the ones at home: pet hair control, grooming & bath",
+      "description": "Pet hair roller, grooming brushes, mitt, towel and bath accessories for dogs and cats — in sets. Free shipping, 14-day withdrawal."
+    }
+  },
+  "copy": {
+    "de": {
+      "hero": {
+        "eyebrow": "For the ones at home",
+        "title": "Mehr Kuscheln. Weniger Haare.",
+        "lead": "Einfache Sets gegen Tierhaare auf Sofa und Kleidung — und für eine Pflege, die beide genießen.",
+        "cta": "Die Sets ansehen",
+        "cta2": "Haarwechsel-Ratgeber"
+      },
+      "products": {
+        "title": "Ein Problem. Ein Set.",
+        "lead": "Haare, Pflege, Bad, unterwegs: jedes Set löst eine Sache, jedes Teil gibt es auch einzeln."
+      },
+      "product": {
+        "includes": "Das ist im Set",
+        "photoNote": "Abbildungen können vom Produkt leicht abweichen. Pflegezubehör, kein Tierarzneimittel."
+      },
+      "faqExtra": [
+        [
+          "Für welche Tiere?",
+          "Für Hunde und Katzen mit kurzem bis mittellangem Fell. Bei empfindlicher Haut sanft beginnen und bei Unsicherheit tierärztlich beraten lassen."
+        ],
+        [
+          "Kommt ein Set in mehreren Paketen?",
+          "Das ist möglich: die Teile eines Sets können getrennt ankommen. Den Status sehen Sie unter „Bestellung verfolgen“."
+        ]
+      ]
+    },
+    "fr": {
+      "hero": {
+        "eyebrow": "For the ones at home",
+        "title": "Plus de câlins. Moins de poils.",
+        "lead": "Des kits simples contre les poils sur le canapé et les vêtements — et un toilettage que vous apprécierez tous les deux.",
+        "cta": "Voir les kits",
+        "cta2": "Guide de la mue"
+      },
+      "products": {
+        "title": "Un problème. Un kit.",
+        "lead": "Poils, toilettage, bain, sorties : chaque kit règle une chose, chaque pièce existe aussi à l’unité."
+      },
+      "product": {
+        "includes": "Ce que contient le kit",
+        "photoNote": "Les visuels peuvent légèrement différer du produit. Accessoire de toilettage, pas un médicament vétérinaire."
+      },
+      "faqExtra": [
+        [
+          "Pour quels animaux ?",
+          "Pour les chiens et chats à poil court à mi-long. Sur peau sensible, commencez en douceur et demandez conseil à votre vétérinaire en cas de doute."
+        ],
+        [
+          "Un kit peut-il arriver en plusieurs colis ?",
+          "C’est possible : les éléments d’un kit peuvent arriver séparément. Le statut est visible dans « Suivre ma commande »."
+        ]
+      ]
+    },
+    "en": {
+      "hero": {
+        "eyebrow": "For the ones at home",
+        "title": "More cuddles. Less hair.",
+        "lead": "Simple sets against pet hair on the sofa and your clothes — and grooming you both enjoy.",
+        "cta": "See the sets",
+        "cta2": "Shedding guide"
+      },
+      "products": {
+        "title": "One problem. One set.",
+        "lead": "Hair, grooming, bath, outdoors: each set solves one thing, every piece is also sold on its own."
+      },
+      "product": {
+        "includes": "What’s in the set",
+        "photoNote": "Images may differ slightly from the product. Grooming accessory, not a veterinary medicine."
+      },
+      "faqExtra": [
+        [
+          "Which pets?",
+          "Dogs and cats with short to medium coats. With sensitive skin, start gently and ask your vet if unsure."
+        ],
+        [
+          "Can a set arrive in several parcels?",
+          "Yes, the pieces of a set can arrive separately. You can see the status under “Track my order”."
+        ]
+      ]
+    }
+  },
+  "highlight": {
+    "de": {
+      "eyebrow": "Die KIN Methode",
+      "title": "Für ein Zuhause, das man teilt.",
+      "text": "KIN löst die kleinen Alltagsprobleme mit Tier: Haare, Pflege, Bad, Ausflüge. Ohne Chemie-Versprechen, ohne Gadgets.",
+      "points": [
+        "Ein Set pro Problem",
+        "Wiederverwendbar statt Einweg",
+        "Sanft zu Tier und Möbeln",
+        "Leicht zu reinigen"
+      ]
+    },
+    "fr": {
+      "eyebrow": "La méthode KIN",
+      "title": "Pour une maison qu’on partage.",
+      "text": "KIN règle les petits soucis du quotidien avec un animal : poils, toilettage, bain, sorties. Sans promesse chimique, sans gadget.",
+      "points": [
+        "Un kit par problème",
+        "Réutilisable plutôt que jetable",
+        "Doux pour l’animal et les meubles",
+        "Facile à nettoyer"
+      ]
+    },
+    "en": {
+      "eyebrow": "The KIN method",
+      "title": "For a home you share.",
+      "text": "KIN solves the small everyday issues of living with a pet: hair, grooming, bath, outings. No chemical promises, no gadgets.",
+      "points": [
+        "One set per problem",
+        "Reusable instead of disposable",
+        "Gentle on pets and furniture",
+        "Easy to clean"
+      ]
+    }
+  },
+  "baseUrl": "https://kin.algbr.eu",
+  "currency": "eur",
+  "defaultLang": "de",
+  "languages": [
+    "de",
+    "fr",
+    "en"
+  ],
+  "shipping": {
+    "countries": [
+      "DE",
+      "AT",
+      "FR",
+      "BE",
+      "LU",
+      "NL",
+      "ES",
+      "IT"
+    ],
+    "cents": 0,
+    "deliveryDays": "6–10",
+    "returnDays": 14
+  },
+  "invoice": {
+    "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
+  },
+  "company": {
+    "name": "ALGBr",
+    "owner": "Guy Beaho",
+    "street": "Carlo-Mierendorff-Str. 15",
+    "city": "68623 Lampertheim",
+    "country": "Deutschland",
+    "email": "contact@algbr.de",
+    "phone": "",
+    "taxNote": "Kleinunternehmer gemäß § 19 UStG"
+  },
+  "guides": [
+    {
+      "slug": "haarwechsel-im-griff",
+      "text": {
+        "de": {
+          "title": "Haarwechsel im Griff: die 10-Minuten-Woche",
+          "description": "Tierhaare auf Sofa und Kleidung? Ein einfacher Wochenplan mit Bürste, Handschuh und Roller — 10 Minuten, die das Zuhause spürbar sauberer halten.",
+          "lead": "Haare kommen jeden Tag. Mit einem kleinen Rhythmus landen sie in der Bürste statt auf dem Sofa.",
+          "items": [
+            "Zwei- bis dreimal pro Woche bürsten, am besten draußen oder auf einem Handtuch.",
+            "Mit der Pflegebürste in Wuchsrichtung arbeiten, ruhig und ohne Druck.",
+            "Der Pflegehandschuh ist ideal für Tiere, die Bürsten nicht mögen — wie Streicheln.",
+            "Nach dem Bürsten Sofa und Decken einmal mit dem Tierhaar-Roller abziehen.",
+            "Kleidung vor dem Ausgehen kurz mit dem waschbaren Roller abrollen.",
+            "Nach Spaziergängen bei Regen: Pfoten und Fell mit dem Mikrofaser-Handtuch trocknen.",
+            "Bürsten nach jeder Nutzung reinigen, damit sie gut greifen.",
+            "Bei Hautrötungen oder starkem Haarverlust tierärztlich beraten lassen."
+          ]
+        },
+        "fr": {
+          "title": "Maîtriser la mue : la semaine en 10 minutes",
+          "description": "Des poils sur le canapé et les vêtements ? Un plan simple avec brosse, gant et rouleau — 10 minutes par semaine pour une maison nettement plus propre.",
+          "lead": "Les poils tombent tous les jours. Avec un petit rythme, ils finissent dans la brosse plutôt que sur le canapé.",
+          "items": [
+            "Brossez deux à trois fois par semaine, idéalement dehors ou sur une serviette.",
+            "Avec la brosse de toilettage, suivez le sens du poil, calmement et sans appuyer.",
+            "Le gant de toilettage est idéal pour les animaux qui n’aiment pas la brosse — comme une caresse.",
+            "Après le brossage, passez une fois le rouleau anti-poils sur le canapé et les plaids.",
+            "Avant de sortir, un passage du rouleau lavable sur les vêtements.",
+            "Après une balade sous la pluie : séchez pattes et pelage avec la serviette microfibre.",
+            "Nettoyez les brosses après chaque usage pour qu’elles restent efficaces.",
+            "En cas de rougeurs ou de perte de poils importante, demandez conseil à votre vétérinaire."
+          ]
+        },
+        "en": {
+          "title": "Shedding under control: the 10-minute week",
+          "description": "Pet hair on the sofa and your clothes? A simple weekly plan with brush, mitt and roller — 10 minutes for a noticeably cleaner home.",
+          "lead": "Hair falls every day. With a small rhythm it ends up in the brush instead of on the sofa.",
+          "items": [
+            "Brush two or three times a week, ideally outside or on a towel.",
+            "Work with the grooming brush in the direction of the coat, calmly and without pressure.",
+            "The grooming mitt is ideal for pets who dislike brushes — it feels like stroking.",
+            "After brushing, run the pet hair roller once over the sofa and throws.",
+            "Before going out, a quick pass of the washable roller over your clothes.",
+            "After a rainy walk: dry paws and coat with the microfibre towel.",
+            "Clean the brushes after each use so they keep gripping well.",
+            "If you notice redness or heavy hair loss, ask your vet."
+          ]
+        }
+      }
+    }
+  ],
+  "byAlgbr": "https://algbr-3b4ee.web.app/",
+  "byline": "by ALGBr",
+  "aliases": [],
+  "ui": {
+    "de": {
+      "promo": "Versand mit Sendungsverfolgung · Sichere Zahlung · 14 Tage Widerruf",
+      "nav": {
+        "shop": "Produkte",
+        "guide": "Ratgeber",
+        "why": "Warum KIN",
+        "track": "Bestellung verfolgen"
+      },
+      "hero": {
+        "label": "Für Hund, Katze und ihr Zuhause",
+        "title": [
+          "Mehr Kuscheln.",
+          "Weniger Haare."
+        ],
+        "signature": "For the ones at home.",
+        "text": "Einfache Sets gegen Tierhaare und für eine entspannte Pflege — wiederverwendbar, sanft, leicht zu reinigen.",
+        "cta": "Sets entdecken",
+        "cta2": "Haarwechsel-Ratgeber",
+        "micro": "Kostenloser Versand · Sichere Zahlung · 14 Tage Widerruf",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Versand mit Tracking",
+          "s": "Sie wissen immer, wo Ihre Bestellung ist."
+        },
+        {
+          "t": "Sichere Zahlung",
+          "s": "Karte, Apple Pay und Google Pay über Stripe."
+        },
+        {
+          "t": "14 Tage Widerruf",
+          "s": "Bestellen ohne Druck."
+        },
+        {
+          "t": "Persönlicher Support",
+          "s": "Eine Frage? Wir antworten wirklich."
+        }
+      ],
+      "featured": {
+        "id": "hair-control-system",
+        "label": "Das Haar-System",
+        "pitch": "Roller, Bürste, Handschuh, Handtuch: Haare dort, wo sie hingehören.",
+        "sub": "Vier Teile, die zusammenarbeiten: Haare beim Tier aufnehmen, bevor sie fallen — und den Rest von Sofa und Kleidung holen.",
+        "benefits": [
+          {
+            "t": "Ein System, kein Gadget",
+            "s": "Jedes Teil hat seine Aufgabe."
+          },
+          {
+            "t": "Wiederverwendbar",
+            "s": "Kein Klebeband zum Nachkaufen."
+          },
+          {
+            "t": "Sanft",
+            "s": "Pflege, die sich wie Streicheln anfühlt."
+          }
+        ],
+        "cta": "Hair Control System entdecken",
+        "link": "Alle Sets ansehen"
+      },
+      "collection": {
+        "label": "Nach Problem",
+        "title": [
+          "Ein Problem.",
+          "Ein Set, das passt."
+        ],
+        "text": "Sets für Haare, Pflege, Bad und unterwegs — jedes Teil auch einzeln. Pflegezubehör, keine Tierarzneimittel.",
+        "groups": [
+          {
+            "key": "fur",
+            "title": "Haare im Griff",
+            "ids": [
+              "hair-control-system",
+              "fur-roller-pro",
+              "washable-hair-roller",
+              "grooming-mitt"
+            ]
+          },
+          {
+            "key": "grooming",
+            "title": "Pflege",
+            "ids": [
+              "groomer-brush",
+              "easy-clean-slicker",
+              "self-cleaning-comb"
+            ]
+          },
+          {
+            "key": "bath",
+            "title": "Bad & Pfoten",
+            "ids": [
+              "bath-day-kit",
+              "bath-brush",
+              "paw-bath-brush",
+              "microfiber-pet-towel"
+            ]
+          },
+          {
+            "key": "out",
+            "title": "Unterwegs",
+            "ids": [
+              "walk-bag-dispenser",
+              "car-seat-cover"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Ein Zuhause.",
+          "Zwei, die es teilen."
+        ],
+        "cards": [
+          {
+            "title": "Auf dem Sofa",
+            "text": "Haare weg in zwei Minuten, ohne Klebeband.",
+            "cta": "Haar-Auswahl ansehen",
+            "href": "#g-fur",
+            "img": "fur-roller-pro"
+          },
+          {
+            "title": "Nach dem Spaziergang",
+            "text": "Pfoten sauber, Fell trocken, ab nach drinnen.",
+            "cta": "Bad-Auswahl ansehen",
+            "href": "#g-bath",
+            "img": "microfiber-pet-towel"
+          },
+          {
+            "title": "Pflegezeit",
+            "text": "Zehn ruhige Minuten pro Woche.",
+            "cta": "Den Ratgeber lesen",
+            "href": "GUIDE",
+            "img": "groomer-brush"
+          }
+        ]
+      },
+      "why": {
+        "label": "Wie wir auswählen",
+        "title": [
+          "Keine Wundermittel.",
+          "Werkzeuge, die funktionieren."
+        ],
+        "text": [
+          "Mit Tier zu leben heißt: Haare, Schmutz, nasse Pfoten. KIN verspricht keine Wunder, sondern einfache Werkzeuge für jeden Tag.",
+          "Wir wählen wiederverwendbares, sanftes und leicht zu reinigendes Zubehör."
+        ],
+        "principles": [
+          {
+            "t": "Wiederverwendbar",
+            "s": "Weniger Einweg, weniger Nachkaufen."
+          },
+          {
+            "t": "Sanft",
+            "s": "Für Tier und Möbel."
+          },
+          {
+            "t": "Ehrlich",
+            "s": "Pflegezubehör, nie als Medizin dargestellt."
+          }
+        ]
+      },
+      "how": {
+        "title": "Ein Set in drei Schritten.",
+        "steps": [
+          {
+            "t": "Problem wählen",
+            "s": "Haare, Pflege, Bad oder unterwegs."
+          },
+          {
+            "t": "Bestellen",
+            "s": "Sicher bezahlen mit Karte, Apple Pay oder Google Pay."
+          },
+          {
+            "t": "Verfolgen",
+            "s": "Bestätigung und Sendungsverfolgung kommen per E-Mail."
+          }
+        ],
+        "help": "Zum Einstieg: den Haarwechsel-Ratgeber lesen"
+      },
+      "guides": {
+        "title": "Ein entspanntes Zuhause beginnt mit einer Routine.",
+        "soon": [
+          "Das erste Bad ohne Stress",
+          "Autofahrt mit Hund vorbereiten"
+        ],
+        "soonLabel": "Demnächst",
+        "read": "Ratgeber lesen"
+      },
+      "faq": {
+        "title": "Häufige Fragen",
+        "items": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage. Sie erhalten eine Sendungsnummer, sobald das Paket unterwegs ist."
+          ],
+          [
+            "Was kostet der Versand?",
+            "Der Versand ist kostenlos."
+          ],
+          [
+            "Kann ich zurückgeben?",
+            "Ja: Sie haben 14 Tage Widerrufsrecht ab Erhalt. Die Kosten der Rücksendung tragen Sie. Schreiben Sie uns an contact@algbr.de."
+          ],
+          [
+            "Wie kann ich bezahlen?",
+            "Mit Karte, Apple Pay, Google Pay und weiteren Methoden über Stripe. Wir sehen Ihre Kartendaten nie."
+          ],
+          [
+            "Wie verfolge ich meine Bestellung?",
+            "Mit Bestellnummer und E-Mail auf der Seite „Bestellung verfolgen“."
+          ],
+          [
+            "Für welche Tiere sind die Produkte?",
+            "Für Hunde und Katzen mit kurzem bis mittellangem Fell. Bei Unsicherheit tierärztlich beraten lassen."
+          ],
+          [
+            "Sind das Tierarzneimittel?",
+            "Nein. Es ist Pflege- und Reinigungszubehör ohne medizinische Wirkung."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Bereit für weniger Haare?",
+        "title": [
+          "Mehr Kuscheln.",
+          "Weniger Fusseln."
+        ],
+        "text": "Einfache Sets für ein Zuhause mit Tier.",
+        "cta": "Sets ansehen",
+        "cta2": "Ratgeber lesen"
+      },
+      "footer": {
+        "tagline": "Einfache Sets für ein Zuhause mit Tier.",
+        "rights": "Eine Marke von ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Alle Produkte",
+                "#produkte"
+              ],
+              [
+                "Haare im Griff",
+                "#g-fur"
+              ],
+              [
+                "Pflege",
+                "#g-grooming"
+              ],
+              [
+                "Bad & Pfoten",
+                "#g-bath"
+              ]
+            ]
+          },
+          {
+            "title": "Ratgeber",
+            "links": [
+              [
+                "Haarwechsel-Ratgeber",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Bestellung verfolgen",
+                "bestellung.html"
+              ],
+              [
+                "Versand & Zahlung",
+                "versand.html"
+              ],
+              [
+                "Rückgabe",
+                "widerruf.html"
+              ],
+              [
+                "Kontakt",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informationen",
+            "links": [
+              [
+                "AGB",
+                "agb.html"
+              ],
+              [
+                "Datenschutz",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Widerruf",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Kollektion",
+        "trust": [
+          "🔒 Sichere Zahlung mit Stripe",
+          "🚚 Versand mit Tracking · ca. {days} Werktage",
+          "↩ 14 Tage Widerrufsrecht",
+          "🧾 Rechnung per E-Mail"
+        ],
+        "idealTitle": "Für welchen Moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Warum es bei KIN ist",
+        "whyDefault": "Wir haben es ausgewählt, weil es wiederverwendbar, sanft und leicht zu reinigen ist.",
+        "crossTitle": "Ihr Set vervollständigen",
+        "addAll": "Alle in den Warenkorb",
+        "faqTitle": "Häufige Fragen",
+        "faqDefault": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage, mit Sendungsverfolgung."
+          ],
+          [
+            "Kann ich es zurückgeben?",
+            "Ja, Sie haben 14 Tage Widerrufsrecht ab Erhalt."
+          ],
+          [
+            "Wie bezahle ich?",
+            "Karte, Apple Pay oder Google Pay über Stripe. Die Rechnung kommt per E-Mail."
+          ]
+        ],
+        "finalTitle": "Mehr Kuscheln. Weniger Haare.",
+        "finalMicro": "Sichere Zahlung · Versand mit Tracking · 14 Tage Widerruf"
+      }
+    },
+    "fr": {
+      "promo": "Livraison suivie · Paiement sécurisé · 14 jours pour changer d’avis",
+      "nav": {
+        "shop": "Produits",
+        "guide": "Conseils",
+        "why": "Pourquoi KIN",
+        "track": "Suivre ma commande"
+      },
+      "hero": {
+        "label": "Pour le chien, le chat et leur maison",
+        "title": [
+          "Plus de câlins.",
+          "Moins de poils."
+        ],
+        "signature": "For the ones at home.",
+        "text": "Des kits simples contre les poils et pour un toilettage détendu — réutilisables, doux, faciles à nettoyer.",
+        "cta": "Découvrir les kits",
+        "cta2": "Guide de la mue",
+        "micro": "Livraison offerte · Paiement sécurisé · 14 jours de rétractation",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Livraison suivie",
+          "s": "Vous savez où se trouve votre commande."
+        },
+        {
+          "t": "Paiement sécurisé",
+          "s": "Carte, Apple Pay et Google Pay via Stripe."
+        },
+        {
+          "t": "14 jours pour changer d’avis",
+          "s": "Commandez sans pression."
+        },
+        {
+          "t": "Support humain",
+          "s": "Une question ? Nous répondons vraiment."
+        }
+      ],
+      "featured": {
+        "id": "hair-control-system",
+        "label": "Le système anti-poils",
+        "pitch": "Rouleau, brosse, gant, serviette : les poils là où ils doivent être.",
+        "sub": "Quatre pièces qui travaillent ensemble : récupérer les poils sur l’animal avant qu’ils tombent — et ôter le reste du canapé et des vêtements.",
+        "benefits": [
+          {
+            "t": "Un système, pas un gadget",
+            "s": "Chaque pièce a son rôle."
+          },
+          {
+            "t": "Réutilisable",
+            "s": "Pas d’adhésif à racheter."
+          },
+          {
+            "t": "Doux",
+            "s": "Un toilettage qui ressemble à une caresse."
+          }
+        ],
+        "cta": "Découvrir le Hair Control System",
+        "link": "Voir tous les kits"
+      },
+      "collection": {
+        "label": "Par problème",
+        "title": [
+          "Un problème.",
+          "Un kit qui va avec."
+        ],
+        "text": "Des kits pour les poils, le toilettage, le bain et les sorties — chaque pièce aussi à l’unité. Accessoires de toilettage, pas des médicaments vétérinaires.",
+        "groups": [
+          {
+            "key": "fur",
+            "title": "Poils maîtrisés",
+            "ids": [
+              "hair-control-system",
+              "fur-roller-pro",
+              "washable-hair-roller",
+              "grooming-mitt"
+            ]
+          },
+          {
+            "key": "grooming",
+            "title": "Toilettage",
+            "ids": [
+              "groomer-brush",
+              "easy-clean-slicker",
+              "self-cleaning-comb"
+            ]
+          },
+          {
+            "key": "bath",
+            "title": "Bain & pattes",
+            "ids": [
+              "bath-day-kit",
+              "bath-brush",
+              "paw-bath-brush",
+              "microfiber-pet-towel"
+            ]
+          },
+          {
+            "key": "out",
+            "title": "En sortie",
+            "ids": [
+              "walk-bag-dispenser",
+              "car-seat-cover"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Une maison.",
+          "Deux à la partager."
+        ],
+        "cards": [
+          {
+            "title": "Sur le canapé",
+            "text": "Les poils partis en deux minutes, sans adhésif.",
+            "cta": "Voir la sélection poils",
+            "href": "#g-fur",
+            "img": "fur-roller-pro"
+          },
+          {
+            "title": "Après la balade",
+            "text": "Pattes propres, pelage sec, on rentre.",
+            "cta": "Voir la sélection bain",
+            "href": "#g-bath",
+            "img": "microfiber-pet-towel"
+          },
+          {
+            "title": "Moment toilettage",
+            "text": "Dix minutes calmes par semaine.",
+            "cta": "Lire le guide",
+            "href": "GUIDE",
+            "img": "groomer-brush"
+          }
+        ]
+      },
+      "why": {
+        "label": "Comment nous choisissons",
+        "title": [
+          "Pas de produit miracle.",
+          "Des outils qui marchent."
+        ],
+        "text": [
+          "Vivre avec un animal, c’est des poils, de la saleté, des pattes mouillées. KIN ne promet pas de miracle, mais des outils simples pour chaque jour.",
+          "Nous choisissons des accessoires réutilisables, doux et faciles à nettoyer."
+        ],
+        "principles": [
+          {
+            "t": "Réutilisable",
+            "s": "Moins de jetable, moins de rachats."
+          },
+          {
+            "t": "Doux",
+            "s": "Pour l’animal et les meubles."
+          },
+          {
+            "t": "Honnête",
+            "s": "Des accessoires, jamais présentés comme des soins médicaux."
+          }
+        ]
+      },
+      "how": {
+        "title": "Un kit en trois étapes.",
+        "steps": [
+          {
+            "t": "Choisissez le problème",
+            "s": "Poils, toilettage, bain ou sorties."
+          },
+          {
+            "t": "Commandez",
+            "s": "Paiement sécurisé par carte, Apple Pay ou Google Pay."
+          },
+          {
+            "t": "Suivez",
+            "s": "Confirmation et suivi arrivent par e-mail."
+          }
+        ],
+        "help": "Pour commencer : lire le guide de la mue"
+      },
+      "guides": {
+        "title": "Une maison sereine commence par une routine.",
+        "soon": [
+          "Le premier bain sans stress",
+          "Préparer un trajet en voiture avec son chien"
+        ],
+        "soonLabel": "Bientôt",
+        "read": "Lire le guide"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés. Vous recevez un numéro de suivi dès que le colis part."
+          ],
+          [
+            "Combien coûte la livraison ?",
+            "La livraison est offerte."
+          ],
+          [
+            "Puis-je retourner un article ?",
+            "Oui : vous disposez de 14 jours de rétractation à réception. Les frais de retour sont à votre charge. Écrivez-nous à contact@algbr.de."
+          ],
+          [
+            "Comment puis-je payer ?",
+            "Par carte bancaire, Apple Pay, Google Pay et d’autres moyens via Stripe. Nous ne voyons jamais vos données de carte."
+          ],
+          [
+            "Comment suivre ma commande ?",
+            "Avec votre numéro de commande et votre e-mail, sur la page « Suivre ma commande »."
+          ],
+          [
+            "Pour quels animaux ?",
+            "Pour les chiens et chats à poil court à mi-long. En cas de doute, demandez conseil à votre vétérinaire."
+          ],
+          [
+            "Sont-ce des médicaments vétérinaires ?",
+            "Non. Ce sont des accessoires de toilettage et de nettoyage, sans effet médical."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Prêt pour moins de poils ?",
+        "title": [
+          "Plus de câlins.",
+          "Moins de peluches."
+        ],
+        "text": "Des kits simples pour une maison avec animal.",
+        "cta": "Voir les kits",
+        "cta2": "Lire le guide"
+      },
+      "footer": {
+        "tagline": "Des kits simples pour une maison avec animal.",
+        "rights": "Une marque ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Toute la collection",
+                "#produkte"
+              ],
+              [
+                "Poils maîtrisés",
+                "#g-fur"
+              ],
+              [
+                "Toilettage",
+                "#g-grooming"
+              ],
+              [
+                "Bain & pattes",
+                "#g-bath"
+              ]
+            ]
+          },
+          {
+            "title": "Conseils",
+            "links": [
+              [
+                "Guide de la mue",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Suivre ma commande",
+                "bestellung.html"
+              ],
+              [
+                "Livraison & paiement",
+                "versand.html"
+              ],
+              [
+                "Retours",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informations",
+            "links": [
+              [
+                "CGV",
+                "agb.html"
+              ],
+              [
+                "Confidentialité",
+                "datenschutz.html"
+              ],
+              [
+                "Mentions légales",
+                "impressum.html"
+              ],
+              [
+                "Rétractation",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Paiement sécurisé avec Stripe",
+          "🚚 Livraison suivie · délai estimé {days} jours ouvrés",
+          "↩ 14 jours pour changer d’avis",
+          "🧾 Facture par e-mail"
+        ],
+        "idealTitle": "Pour quel moment ?",
+        "detailsTitle": "Détails",
+        "whyTitle": "Pourquoi il est chez KIN",
+        "whyDefault": "Nous l’avons choisi parce qu’il est réutilisable, doux et facile à nettoyer.",
+        "crossTitle": "Complétez votre kit",
+        "addAll": "Tout ajouter au panier",
+        "faqTitle": "Questions fréquentes",
+        "faqDefault": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés, avec suivi."
+          ],
+          [
+            "Puis-je le retourner ?",
+            "Oui, vous disposez de 14 jours de rétractation à réception."
+          ],
+          [
+            "Comment payer ?",
+            "Carte, Apple Pay ou Google Pay via Stripe. La facture arrive par e-mail."
+          ]
+        ],
+        "finalTitle": "Plus de câlins. Moins de poils.",
+        "finalMicro": "Paiement sécurisé · Livraison suivie · 14 jours de rétractation"
+      }
+    },
+    "en": {
+      "promo": "Tracked shipping · Secure payment · 14 days to change your mind",
+      "nav": {
+        "shop": "Products",
+        "guide": "Guides",
+        "why": "Why KIN",
+        "track": "Track my order"
+      },
+      "hero": {
+        "label": "For dogs, cats and their home",
+        "title": [
+          "More cuddles.",
+          "Less hair."
+        ],
+        "signature": "For the ones at home.",
+        "text": "Simple sets against pet hair and for relaxed grooming — reusable, gentle, easy to clean.",
+        "cta": "Discover the sets",
+        "cta2": "Shedding guide",
+        "micro": "Free shipping · Secure payment · 14-day withdrawal",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Tracked shipping",
+          "s": "You always know where your order is."
+        },
+        {
+          "t": "Secure payment",
+          "s": "Card, Apple Pay and Google Pay via Stripe."
+        },
+        {
+          "t": "14 days to change your mind",
+          "s": "Order without pressure."
+        },
+        {
+          "t": "Human support",
+          "s": "A question? We actually answer."
+        }
+      ],
+      "featured": {
+        "id": "hair-control-system",
+        "label": "The hair system",
+        "pitch": "Roller, brush, mitt, towel: hair where it belongs.",
+        "sub": "Four pieces that work together: catch hair on your pet before it falls — and lift the rest off the sofa and your clothes.",
+        "benefits": [
+          {
+            "t": "A system, not a gadget",
+            "s": "Every piece has a job."
+          },
+          {
+            "t": "Reusable",
+            "s": "No sticky tape to rebuy."
+          },
+          {
+            "t": "Gentle",
+            "s": "Grooming that feels like stroking."
+          }
+        ],
+        "cta": "Discover the Hair Control System",
+        "link": "See all sets"
+      },
+      "collection": {
+        "label": "By problem",
+        "title": [
+          "One problem.",
+          "One set that fits."
+        ],
+        "text": "Sets for hair, grooming, bath and outings — every piece also sold on its own. Grooming accessories, not veterinary medicines.",
+        "groups": [
+          {
+            "key": "fur",
+            "title": "Hair control",
+            "ids": [
+              "hair-control-system",
+              "fur-roller-pro",
+              "washable-hair-roller",
+              "grooming-mitt"
+            ]
+          },
+          {
+            "key": "grooming",
+            "title": "Grooming",
+            "ids": [
+              "groomer-brush",
+              "easy-clean-slicker",
+              "self-cleaning-comb"
+            ]
+          },
+          {
+            "key": "bath",
+            "title": "Bath & paws",
+            "ids": [
+              "bath-day-kit",
+              "bath-brush",
+              "paw-bath-brush",
+              "microfiber-pet-towel"
+            ]
+          },
+          {
+            "key": "out",
+            "title": "Out & about",
+            "ids": [
+              "walk-bag-dispenser",
+              "car-seat-cover"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "One home.",
+          "Two who share it."
+        ],
+        "cards": [
+          {
+            "title": "On the sofa",
+            "text": "Hair gone in two minutes, no sticky tape.",
+            "cta": "See the hair picks",
+            "href": "#g-fur",
+            "img": "fur-roller-pro"
+          },
+          {
+            "title": "After the walk",
+            "text": "Clean paws, dry coat, back inside.",
+            "cta": "See the bath picks",
+            "href": "#g-bath",
+            "img": "microfiber-pet-towel"
+          },
+          {
+            "title": "Grooming time",
+            "text": "Ten calm minutes a week.",
+            "cta": "Read the guide",
+            "href": "GUIDE",
+            "img": "groomer-brush"
+          }
+        ]
+      },
+      "why": {
+        "label": "How we choose",
+        "title": [
+          "No miracle products.",
+          "Tools that work."
+        ],
+        "text": [
+          "Living with a pet means hair, dirt and wet paws. KIN promises no miracles, just simple tools for every day.",
+          "We choose reusable, gentle and easy-to-clean accessories."
+        ],
+        "principles": [
+          {
+            "t": "Reusable",
+            "s": "Less disposable, less rebuying."
+          },
+          {
+            "t": "Gentle",
+            "s": "For pets and furniture."
+          },
+          {
+            "t": "Honest",
+            "s": "Accessories, never presented as medical care."
+          }
+        ]
+      },
+      "how": {
+        "title": "A set in three steps.",
+        "steps": [
+          {
+            "t": "Choose the problem",
+            "s": "Hair, grooming, bath or outings."
+          },
+          {
+            "t": "Order",
+            "s": "Secure payment by card, Apple Pay or Google Pay."
+          },
+          {
+            "t": "Track",
+            "s": "Confirmation and tracking details arrive by e-mail."
+          }
+        ],
+        "help": "To start: read the shedding guide"
+      },
+      "guides": {
+        "title": "A calm home starts with a routine.",
+        "soon": [
+          "The first bath without stress",
+          "Getting ready for a car trip with your dog"
+        ],
+        "soonLabel": "Coming soon",
+        "read": "Read the guide"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days. You get a tracking number as soon as the parcel ships."
+          ],
+          [
+            "How much is shipping?",
+            "Shipping is free."
+          ],
+          [
+            "Can I return an item?",
+            "Yes: you have 14 days to withdraw after delivery. Return shipping is at your cost. Write to contact@algbr.de."
+          ],
+          [
+            "How can I pay?",
+            "Card, Apple Pay, Google Pay and other methods via Stripe. We never see your card details."
+          ],
+          [
+            "How do I track my order?",
+            "With your order number and e-mail on the “Track my order” page."
+          ],
+          [
+            "Which pets are the products for?",
+            "Dogs and cats with short to medium coats. If unsure, ask your vet."
+          ],
+          [
+            "Are these veterinary medicines?",
+            "No. They are grooming and cleaning accessories with no medical effect."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Ready for less hair?",
+        "title": [
+          "More cuddles.",
+          "Less fluff."
+        ],
+        "text": "Simple sets for a home with a pet.",
+        "cta": "See the sets",
+        "cta2": "Read the guide"
+      },
+      "footer": {
+        "tagline": "Simple sets for a home with a pet.",
+        "rights": "An ALGBr brand.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "All products",
+                "#produkte"
+              ],
+              [
+                "Hair control",
+                "#g-fur"
+              ],
+              [
+                "Grooming",
+                "#g-grooming"
+              ],
+              [
+                "Bath & paws",
+                "#g-bath"
+              ]
+            ]
+          },
+          {
+            "title": "Guides",
+            "links": [
+              [
+                "Shedding guide",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Track my order",
+                "bestellung.html"
+              ],
+              [
+                "Shipping & payment",
+                "versand.html"
+              ],
+              [
+                "Returns",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Information",
+            "links": [
+              [
+                "Terms",
+                "agb.html"
+              ],
+              [
+                "Privacy",
+                "datenschutz.html"
+              ],
+              [
+                "Legal notice",
+                "impressum.html"
+              ],
+              [
+                "Withdrawal",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Secure payment with Stripe",
+          "🚚 Tracked shipping · about {days} working days",
+          "↩ 14 days to change your mind",
+          "🧾 Invoice by e-mail"
+        ],
+        "idealTitle": "For which moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Why it’s at KIN",
+        "whyDefault": "We chose it because it is reusable, gentle and easy to clean.",
+        "crossTitle": "Complete your set",
+        "addAll": "Add all to cart",
+        "faqTitle": "Frequently asked questions",
+        "faqDefault": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days, tracked."
+          ],
+          [
+            "Can I return it?",
+            "Yes, you have 14 days to withdraw after delivery."
+          ],
+          [
+            "How do I pay?",
+            "Card, Apple Pay or Google Pay via Stripe. The invoice arrives by e-mail."
+          ]
+        ],
+        "finalTitle": "More cuddles. Less hair.",
+        "finalMicro": "Secure payment · Tracked shipping · 14-day withdrawal"
+      }
+    }
+  },
+  "showCompare": false
+}

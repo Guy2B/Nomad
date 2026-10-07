@@ -1,0 +1,38 @@
+/* GLOW — champagne, rosewood & warm ink (overrides the base style). */
+:root {
+  --ink: #2b2026;
+  --ink-2: #4a3740;
+  --paper: #f8f1ec;
+  --sand: #efe2d9;
+  --card: #fffcf9;
+  --text: #2b2026;
+  --text-2: #4b4046;
+  --muted: #76696f;
+  --line: #e4d6cd;
+  --accent: #b4705f;
+  --sage: #e3c2ae;
+}
+h1,
+h2,
+.brand {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  line-height: 1.02;
+}
+.card,
+.includes li {
+  border-radius: 24px;
+}
+.promise {
+  background: linear-gradient(135deg, #2b2026, #4a3740);
+}
+.promise-list li::first-letter {
+  color: var(--sage);
+}
+
+.hero-x h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.02; }
+.featured h2, .why-grid h2, .final-cta h2 { letter-spacing: -0.04em; }

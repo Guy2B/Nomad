@@ -14,12 +14,18 @@ import appartSite from '../../stores/appart-reset/site.json' with { type: 'json'
 import appartProducts from '../../stores/appart-reset/products.json' with { type: 'json' };
 import bodySite from '../../stores/body-care/site.json' with { type: 'json' };
 import bodyProducts from '../../stores/body-care/products.json' with { type: 'json' };
+import glowSite from '../../stores/glow/site.json' with { type: 'json' };
+import glowProducts from '../../stores/glow/products.json' with { type: 'json' };
+import kinSite from '../../stores/kin/site.json' with { type: 'json' };
+import kinProducts from '../../stores/kin/products.json' with { type: 'json' };
 
 /** The first store is the host: it serves the API and the admin for all of them. */
 const DEFINITIONS = [
   [nomadSite, nomadProducts],
   [appartSite, appartProducts],
   [bodySite, bodyProducts],
+  [glowSite, glowProducts],
+  [kinSite, kinProducts],
 ];
 
 const STORES = new Map(

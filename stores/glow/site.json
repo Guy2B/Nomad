@@ -1,0 +1,1248 @@
+{
+  "id": "glow",
+  "brand": "GLOW",
+  "orderPrefix": "GL",
+  "themeColor": "#2b2026",
+  "tagline": {
+    "de": "Glow while you sleep.",
+    "fr": "Glow while you sleep.",
+    "en": "Glow while you sleep."
+  },
+  "seo": {
+    "de": {
+      "title": "GLOW — Glow while you sleep: Satin-Nachtroutine & Beauty-Taschen",
+      "description": "Satin-Kissenbezug, Schlafhaube, Haarband und Beauty-Taschen für eine einfache Abend- und Reiseroutine. Kostenloser Versand, 14 Tage Widerruf."
+    },
+    "fr": {
+      "title": "GLOW — Glow while you sleep : routine nuit en satin & trousses beauté",
+      "description": "Taie en satin, bonnet de nuit, bandeau et trousses beauté pour une routine du soir et de voyage toute simple. Livraison offerte, 14 jours de rétractation."
+    },
+    "en": {
+      "title": "GLOW — Glow while you sleep: satin night routine & beauty bags",
+      "description": "Satin pillowcase, sleep bonnet, headband and beauty bags for an easy evening and travel routine. Free shipping, 14-day withdrawal."
+    }
+  },
+  "copy": {
+    "de": {
+      "hero": {
+        "eyebrow": "Glow while you sleep",
+        "title": "Die Routine beginnt am Abend.",
+        "lead": "Satin für die Nacht, Ordnung für die Beauty-Sachen: einfache Rituale, die bleiben.",
+        "cta": "Die Rituale ansehen",
+        "cta2": "Die Abendroutine"
+      },
+      "products": {
+        "title": "Weniger Aufwand. Mehr Ritual.",
+        "lead": "Sets für die Nacht und für unterwegs, jedes Teil auch einzeln."
+      },
+      "product": {
+        "includes": "Das ist im Set",
+        "photoNote": "Abbildungen können vom Produkt leicht abweichen. Satin = glattes Polyestergewebe, keine Seide."
+      },
+      "faqExtra": [
+        [
+          "Ist das Seide?",
+          "Nein. Unsere Satin-Produkte bestehen aus glattem Polyester-Satin. Wir nennen es so, wie es ist."
+        ],
+        [
+          "Kommt ein Set in mehreren Paketen?",
+          "Das ist möglich: die Teile eines Sets können getrennt ankommen. Den Status sehen Sie unter „Bestellung verfolgen“."
+        ]
+      ]
+    },
+    "fr": {
+      "hero": {
+        "eyebrow": "Glow while you sleep",
+        "title": "La routine commence le soir.",
+        "lead": "Du satin pour la nuit, de l’ordre pour la trousse : des rituels simples qu’on garde.",
+        "cta": "Voir les rituels",
+        "cta2": "La routine du soir"
+      },
+      "products": {
+        "title": "Moins d’effort. Plus de rituel.",
+        "lead": "Des kits pour la nuit et pour le voyage, chaque pièce aussi à l’unité."
+      },
+      "product": {
+        "includes": "Ce que contient le kit",
+        "photoNote": "Les visuels peuvent légèrement différer du produit. Satin = tissu polyester lisse, pas de la soie."
+      },
+      "faqExtra": [
+        [
+          "Est-ce de la soie ?",
+          "Non. Nos produits satin sont en satin de polyester lisse. Nous l’appelons par son nom."
+        ],
+        [
+          "Un kit peut-il arriver en plusieurs colis ?",
+          "C’est possible : les éléments d’un kit peuvent arriver séparément. Le statut est visible dans « Suivre ma commande »."
+        ]
+      ]
+    },
+    "en": {
+      "hero": {
+        "eyebrow": "Glow while you sleep",
+        "title": "The routine starts at night.",
+        "lead": "Satin for the night, order for your beauty things: simple rituals that stick.",
+        "cta": "See the rituals",
+        "cta2": "The evening routine"
+      },
+      "products": {
+        "title": "Less effort. More ritual.",
+        "lead": "Sets for the night and for travel, every piece also sold on its own."
+      },
+      "product": {
+        "includes": "What’s in the set",
+        "photoNote": "Images may differ slightly from the product. Satin = smooth polyester fabric, not silk."
+      },
+      "faqExtra": [
+        [
+          "Is it silk?",
+          "No. Our satin products are smooth polyester satin. We call it what it is."
+        ],
+        [
+          "Can a set arrive in several parcels?",
+          "Yes, the pieces of a set can arrive separately. You can see the status under “Track my order”."
+        ]
+      ]
+    }
+  },
+  "highlight": {
+    "de": {
+      "eyebrow": "Die GLOW Methode",
+      "title": "Schönheit als Gewohnheit, nicht als Versprechen.",
+      "text": "GLOW verspricht keine kosmetische Wirkung. Wir machen die Abend- und Reiseroutine einfacher, angenehmer und ordentlicher.",
+      "points": [
+        "Satin für die Nacht",
+        "Taschen, in denen alles seinen Platz hat",
+        "Leicht und reisetauglich",
+        "Ehrliche Materialangaben"
+      ]
+    },
+    "fr": {
+      "eyebrow": "La méthode GLOW",
+      "title": "La beauté comme habitude, pas comme promesse.",
+      "text": "GLOW ne promet aucun effet cosmétique. Nous rendons la routine du soir et du voyage plus simple, plus agréable et mieux rangée.",
+      "points": [
+        "Du satin pour la nuit",
+        "Des trousses où tout a sa place",
+        "Léger et facile à emporter",
+        "Des matières décrites honnêtement"
+      ]
+    },
+    "en": {
+      "eyebrow": "The GLOW method",
+      "title": "Beauty as a habit, not a promise.",
+      "text": "GLOW promises no cosmetic effect. We make the evening and travel routine simpler, nicer and tidier.",
+      "points": [
+        "Satin for the night",
+        "Bags where everything has its place",
+        "Light and travel-ready",
+        "Honest material details"
+      ]
+    }
+  },
+  "baseUrl": "https://glow.algbr.eu",
+  "currency": "eur",
+  "defaultLang": "de",
+  "languages": [
+    "de",
+    "fr",
+    "en"
+  ],
+  "shipping": {
+    "countries": [
+      "DE",
+      "AT",
+      "FR",
+      "BE",
+      "LU",
+      "NL",
+      "ES",
+      "IT"
+    ],
+    "cents": 0,
+    "deliveryDays": "6–10",
+    "returnDays": 14
+  },
+  "invoice": {
+    "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
+  },
+  "company": {
+    "name": "ALGBr",
+    "owner": "Guy Beaho",
+    "street": "Carlo-Mierendorff-Str. 15",
+    "city": "68623 Lampertheim",
+    "country": "Deutschland",
+    "email": "contact@algbr.de",
+    "phone": "",
+    "taxNote": "Kleinunternehmer gemäß § 19 UStG"
+  },
+  "guides": [
+    {
+      "slug": "abendroutine-in-5-minuten",
+      "text": {
+        "de": {
+          "title": "Die 5-Minuten-Abendroutine",
+          "description": "Eine ruhige Abendroutine in fünf Minuten: Haare locker, Satin aufs Kissen, Beauty-Sachen geordnet — ohne neue Produkte zu kaufen.",
+          "lead": "Ein gutes Ritual braucht keine zehn Produkte. Fünf ruhige Minuten reichen, um den Tag abzuschließen.",
+          "items": [
+            "Licht dimmen, Handy weg: der Abend beginnt bewusst.",
+            "Haare locker zusammennehmen — mit einem weichen Haarband statt eines engen Gummis.",
+            "Die Kopfhaut kurz mit der Silikonbürste durchgehen, das tut einfach gut.",
+            "Den Satin-Kissenbezug aufziehen: glatt, kühl, angenehm auf der Haut.",
+            "Wer mag: die Schlafhaube aufsetzen, damit die Frisur bis morgen hält.",
+            "Pinsel und Make-up zurück an ihren Platz — so beginnt der Morgen aufgeräumt.",
+            "Für Reisen: die Beauty-Tasche gleich am Abend packen.",
+            "Fünf tiefe Atemzüge. Fertig."
+          ]
+        },
+        "fr": {
+          "title": "La routine du soir en 5 minutes",
+          "description": "Une routine du soir calme en cinq minutes : cheveux libérés, satin sur l’oreiller, trousse rangée — sans acheter de nouveaux produits.",
+          "lead": "Un bon rituel n’a pas besoin de dix produits. Cinq minutes calmes suffisent pour clore la journée.",
+          "items": [
+            "Lumière tamisée, téléphone posé : la soirée commence vraiment.",
+            "Rassemblez vos cheveux sans serrer — avec un bandeau doux plutôt qu’un élastique.",
+            "Passez la brosse en silicone sur le cuir chevelu, juste pour le plaisir.",
+            "Enfilez la taie en satin : lisse, fraîche, agréable au toucher.",
+            "Si vous aimez : le bonnet de nuit garde la coiffure jusqu’au matin.",
+            "Pinceaux et maquillage à leur place — le matin commence rangé.",
+            "En voyage : préparez la trousse dès le soir.",
+            "Cinq respirations profondes. C’est fini."
+          ]
+        },
+        "en": {
+          "title": "The 5-minute evening routine",
+          "description": "A calm five-minute evening routine: hair loose, satin on the pillow, beauty things in order — without buying new products.",
+          "lead": "A good ritual doesn’t need ten products. Five calm minutes are enough to close the day.",
+          "items": [
+            "Dim the lights, put the phone away: the evening starts on purpose.",
+            "Gather your hair loosely — a soft headband instead of a tight elastic.",
+            "Run the silicone brush over your scalp, simply because it feels good.",
+            "Put on the satin pillowcase: smooth, cool, pleasant on the skin.",
+            "If you like: the sleep bonnet keeps your hairstyle until morning.",
+            "Brushes and make-up back in their place — the morning starts tidy.",
+            "Travelling? Pack the beauty bag the evening before.",
+            "Five deep breaths. Done."
+          ]
+        }
+      }
+    }
+  ],
+  "byAlgbr": "https://algbr-3b4ee.web.app/",
+  "byline": "by ALGBr",
+  "aliases": [],
+  "ui": {
+    "de": {
+      "promo": "Versand mit Sendungsverfolgung · Sichere Zahlung · 14 Tage Widerruf",
+      "nav": {
+        "shop": "Produkte",
+        "guide": "Ratgeber",
+        "why": "Warum GLOW",
+        "track": "Bestellung verfolgen"
+      },
+      "hero": {
+        "label": "Satin-Nachtroutine & Beauty-Ordnung",
+        "title": [
+          "Die Routine beginnt",
+          "am Abend."
+        ],
+        "signature": "Glow while you sleep.",
+        "text": "Satin für die Nacht und Taschen, in denen alles seinen Platz hat. Einfache Rituale, ehrlich beschrieben.",
+        "cta": "Rituale entdecken",
+        "cta2": "Die 5-Minuten-Abendroutine",
+        "micro": "Kostenloser Versand · Sichere Zahlung · 14 Tage Widerruf",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Versand mit Tracking",
+          "s": "Sie wissen immer, wo Ihre Bestellung ist."
+        },
+        {
+          "t": "Sichere Zahlung",
+          "s": "Karte, Apple Pay und Google Pay über Stripe."
+        },
+        {
+          "t": "14 Tage Widerruf",
+          "s": "Bestellen ohne Druck."
+        },
+        {
+          "t": "Persönlicher Support",
+          "s": "Eine Frage? Wir antworten wirklich."
+        }
+      ],
+      "featured": {
+        "id": "night-ritual",
+        "label": "Das Nacht-Ritual",
+        "pitch": "Kissenbezug, Schlafhaube, Haarband: die ganze Nacht in Satin.",
+        "sub": "Drei Satin-Teile, die zusammen eine ruhige Abendroutine ergeben — einfacher als jede Zehn-Schritte-Pflege.",
+        "benefits": [
+          {
+            "t": "Drei Teile, ein Ritual",
+            "s": "Abgestimmt und sofort einsatzbereit."
+          },
+          {
+            "t": "Glatter Satin",
+            "s": "Angenehm auf Haut und Haaren."
+          },
+          {
+            "t": "Geschenkidee",
+            "s": "Für alle, die sich abends Zeit nehmen."
+          }
+        ],
+        "cta": "Night Ritual Set entdecken",
+        "link": "Alle Rituale ansehen"
+      },
+      "collection": {
+        "label": "Nach Moment",
+        "title": [
+          "Ein Moment.",
+          "Ein Ritual, das passt."
+        ],
+        "text": "Sets für die Nacht und für unterwegs, jedes Teil auch einzeln.",
+        "groups": [
+          {
+            "key": "night",
+            "title": "Für die Nacht",
+            "ids": [
+              "night-ritual",
+              "night-satin-set",
+              "satin-pillowcase",
+              "satin-nightcap",
+              "satin-headband",
+              "scalp-brush"
+            ]
+          },
+          {
+            "key": "travel",
+            "title": "Unterwegs",
+            "ids": [
+              "travel-glow-kit",
+              "travel-beauty-case",
+              "premium-beauty-case",
+              "half-moon-beauty-bag",
+              "shell-beauty-pouch"
+            ]
+          },
+          {
+            "key": "mirror",
+            "title": "Am Spiegel",
+            "ids": [
+              "dual-concealer-brush",
+              "rotating-brush-holder"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Licht aus.",
+          "Ritual an."
+        ],
+        "cards": [
+          {
+            "title": "Vor dem Schlafen",
+            "text": "Satin aufs Kissen, Haare locker: fünf Minuten für dich.",
+            "cta": "Nacht-Auswahl ansehen",
+            "href": "#g-night",
+            "img": "satin-pillowcase"
+          },
+          {
+            "title": "Im Koffer",
+            "text": "Eine Tasche, in der alles seinen Platz hat.",
+            "cta": "Reise-Auswahl ansehen",
+            "href": "#g-travel",
+            "img": "travel-beauty-case"
+          },
+          {
+            "title": "Am Spiegel",
+            "text": "Pinsel aufrecht, Make-up sortiert.",
+            "cta": "Die Abendroutine lesen",
+            "href": "GUIDE",
+            "img": "rotating-brush-holder"
+          }
+        ]
+      },
+      "why": {
+        "label": "Wie wir auswählen",
+        "title": [
+          "Kein Wunderversprechen.",
+          "Ein Ritual, das bleibt."
+        ],
+        "text": [
+          "Beauty-Werbung verspricht viel. GLOW verspricht keine kosmetische Wirkung — nur angenehmere, einfachere Routinen.",
+          "Wir wählen leichte, schöne Accessoires und beschreiben die Materialien so, wie sie sind."
+        ],
+        "principles": [
+          {
+            "t": "Ehrlich",
+            "s": "Satin ist Polyester-Satin, keine Seide."
+          },
+          {
+            "t": "Einfach",
+            "s": "Weniger Schritte, mehr Ritual."
+          },
+          {
+            "t": "Leicht",
+            "s": "Reisetauglich und schnell verstaut."
+          }
+        ]
+      },
+      "how": {
+        "title": "Ein Ritual in drei Schritten.",
+        "steps": [
+          {
+            "t": "Moment wählen",
+            "s": "Nacht, Reise oder Spiegel."
+          },
+          {
+            "t": "Bestellen",
+            "s": "Sicher bezahlen mit Karte, Apple Pay oder Google Pay."
+          },
+          {
+            "t": "Verfolgen",
+            "s": "Bestätigung und Sendungsverfolgung kommen per E-Mail."
+          }
+        ],
+        "help": "Zum Einstieg: die 5-Minuten-Abendroutine"
+      },
+      "guides": {
+        "title": "Schöne Routinen beginnen klein.",
+        "soon": [
+          "Die Beauty-Tasche in 10 Minuten packen",
+          "Satin richtig pflegen"
+        ],
+        "soonLabel": "Demnächst",
+        "read": "Ratgeber lesen"
+      },
+      "faq": {
+        "title": "Häufige Fragen",
+        "items": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage. Sie erhalten eine Sendungsnummer, sobald das Paket unterwegs ist."
+          ],
+          [
+            "Was kostet der Versand?",
+            "Der Versand ist kostenlos."
+          ],
+          [
+            "Kann ich zurückgeben?",
+            "Ja: Sie haben 14 Tage Widerrufsrecht ab Erhalt. Die Kosten der Rücksendung tragen Sie. Schreiben Sie uns an contact@algbr.de."
+          ],
+          [
+            "Wie kann ich bezahlen?",
+            "Mit Karte, Apple Pay, Google Pay und weiteren Methoden über Stripe. Wir sehen Ihre Kartendaten nie."
+          ],
+          [
+            "Wie verfolge ich meine Bestellung?",
+            "Mit Bestellnummer und E-Mail auf der Seite „Bestellung verfolgen“."
+          ],
+          [
+            "Ist das Seide?",
+            "Nein, es ist glatter Polyester-Satin. Bitte das Pflegeetikett beachten."
+          ],
+          [
+            "Gibt es eine kosmetische Wirkung?",
+            "Wir versprechen keine. GLOW macht Routinen angenehmer und ordentlicher."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Bereit für den Abend?",
+        "title": [
+          "Weniger Schritte.",
+          "Mehr Ritual."
+        ],
+        "text": "Satin für die Nacht, Ordnung für unterwegs.",
+        "cta": "Rituale ansehen",
+        "cta2": "Abendroutine lesen"
+      },
+      "footer": {
+        "tagline": "Einfache Rituale für Abend und Reise.",
+        "rights": "Eine Marke von ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Alle Produkte",
+                "#produkte"
+              ],
+              [
+                "Für die Nacht",
+                "#g-night"
+              ],
+              [
+                "Unterwegs",
+                "#g-travel"
+              ],
+              [
+                "Am Spiegel",
+                "#g-mirror"
+              ]
+            ]
+          },
+          {
+            "title": "Ratgeber",
+            "links": [
+              [
+                "Abendroutine",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Bestellung verfolgen",
+                "bestellung.html"
+              ],
+              [
+                "Versand & Zahlung",
+                "versand.html"
+              ],
+              [
+                "Rückgabe",
+                "widerruf.html"
+              ],
+              [
+                "Kontakt",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informationen",
+            "links": [
+              [
+                "AGB",
+                "agb.html"
+              ],
+              [
+                "Datenschutz",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Widerruf",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Kollektion",
+        "trust": [
+          "🔒 Sichere Zahlung mit Stripe",
+          "🚚 Versand mit Tracking · ca. {days} Werktage",
+          "↩ 14 Tage Widerrufsrecht",
+          "🧾 Rechnung per E-Mail"
+        ],
+        "idealTitle": "Für welchen Moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Warum es bei GLOW ist",
+        "whyDefault": "Wir haben es ausgewählt, weil es leicht, schön und einfach in eine kurze Abend- oder Reiseroutine passt.",
+        "crossTitle": "Ihr Ritual vervollständigen",
+        "addAll": "Alle in den Warenkorb",
+        "faqTitle": "Häufige Fragen",
+        "faqDefault": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage, mit Sendungsverfolgung."
+          ],
+          [
+            "Kann ich es zurückgeben?",
+            "Ja, Sie haben 14 Tage Widerrufsrecht ab Erhalt."
+          ],
+          [
+            "Wie bezahle ich?",
+            "Karte, Apple Pay oder Google Pay über Stripe. Die Rechnung kommt per E-Mail."
+          ]
+        ],
+        "finalTitle": "Licht aus. Ritual an.",
+        "finalMicro": "Sichere Zahlung · Versand mit Tracking · 14 Tage Widerruf"
+      }
+    },
+    "fr": {
+      "promo": "Livraison suivie · Paiement sécurisé · 14 jours pour changer d’avis",
+      "nav": {
+        "shop": "Produits",
+        "guide": "Conseils",
+        "why": "Pourquoi GLOW",
+        "track": "Suivre ma commande"
+      },
+      "hero": {
+        "label": "Routine nuit en satin & trousse rangée",
+        "title": [
+          "La routine commence",
+          "le soir."
+        ],
+        "signature": "Glow while you sleep.",
+        "text": "Du satin pour la nuit et des trousses où tout a sa place. Des rituels simples, décrits honnêtement.",
+        "cta": "Découvrir les rituels",
+        "cta2": "La routine du soir en 5 minutes",
+        "micro": "Livraison offerte · Paiement sécurisé · 14 jours de rétractation",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Livraison suivie",
+          "s": "Vous savez où se trouve votre commande."
+        },
+        {
+          "t": "Paiement sécurisé",
+          "s": "Carte, Apple Pay et Google Pay via Stripe."
+        },
+        {
+          "t": "14 jours pour changer d’avis",
+          "s": "Commandez sans pression."
+        },
+        {
+          "t": "Support humain",
+          "s": "Une question ? Nous répondons vraiment."
+        }
+      ],
+      "featured": {
+        "id": "night-ritual",
+        "label": "Le rituel de nuit",
+        "pitch": "Taie, bonnet, bandeau : toute la nuit en satin.",
+        "sub": "Trois pièces en satin qui forment une routine du soir apaisée — plus simple que n’importe quelle routine en dix étapes.",
+        "benefits": [
+          {
+            "t": "Trois pièces, un rituel",
+            "s": "Assorties et prêtes à l’emploi."
+          },
+          {
+            "t": "Satin lisse",
+            "s": "Agréable pour la peau et les cheveux."
+          },
+          {
+            "t": "Idée cadeau",
+            "s": "Pour celles et ceux qui prennent leur temps le soir."
+          }
+        ],
+        "cta": "Découvrir le Night Ritual Set",
+        "link": "Voir tous les rituels"
+      },
+      "collection": {
+        "label": "Par moment",
+        "title": [
+          "Un moment.",
+          "Un rituel qui va avec."
+        ],
+        "text": "Des kits pour la nuit et le voyage, chaque pièce aussi à l’unité.",
+        "groups": [
+          {
+            "key": "night",
+            "title": "Pour la nuit",
+            "ids": [
+              "night-ritual",
+              "night-satin-set",
+              "satin-pillowcase",
+              "satin-nightcap",
+              "satin-headband",
+              "scalp-brush"
+            ]
+          },
+          {
+            "key": "travel",
+            "title": "En voyage",
+            "ids": [
+              "travel-glow-kit",
+              "travel-beauty-case",
+              "premium-beauty-case",
+              "half-moon-beauty-bag",
+              "shell-beauty-pouch"
+            ]
+          },
+          {
+            "key": "mirror",
+            "title": "Devant le miroir",
+            "ids": [
+              "dual-concealer-brush",
+              "rotating-brush-holder"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Lumière éteinte.",
+          "Rituel allumé."
+        ],
+        "cards": [
+          {
+            "title": "Avant de dormir",
+            "text": "Satin sur l’oreiller, cheveux libres : cinq minutes pour vous.",
+            "cta": "Voir la sélection nuit",
+            "href": "#g-night",
+            "img": "satin-pillowcase"
+          },
+          {
+            "title": "Dans la valise",
+            "text": "Une trousse où tout a sa place.",
+            "cta": "Voir la sélection voyage",
+            "href": "#g-travel",
+            "img": "travel-beauty-case"
+          },
+          {
+            "title": "Devant le miroir",
+            "text": "Pinceaux debout, maquillage trié.",
+            "cta": "Lire la routine du soir",
+            "href": "GUIDE",
+            "img": "rotating-brush-holder"
+          }
+        ]
+      },
+      "why": {
+        "label": "Comment nous choisissons",
+        "title": [
+          "Pas de promesse miracle.",
+          "Un rituel qu’on garde."
+        ],
+        "text": [
+          "La publicité beauté promet beaucoup. GLOW ne promet aucun effet cosmétique — seulement des routines plus agréables et plus simples.",
+          "Nous choisissons des accessoires légers et beaux, et décrivons les matières telles qu’elles sont."
+        ],
+        "principles": [
+          {
+            "t": "Honnête",
+            "s": "Le satin est du satin de polyester, pas de la soie."
+          },
+          {
+            "t": "Simple",
+            "s": "Moins d’étapes, plus de rituel."
+          },
+          {
+            "t": "Léger",
+            "s": "Facile à emporter et à ranger."
+          }
+        ]
+      },
+      "how": {
+        "title": "Un rituel en trois étapes.",
+        "steps": [
+          {
+            "t": "Choisissez le moment",
+            "s": "Nuit, voyage ou miroir."
+          },
+          {
+            "t": "Commandez",
+            "s": "Paiement sécurisé par carte, Apple Pay ou Google Pay."
+          },
+          {
+            "t": "Suivez",
+            "s": "Confirmation et suivi arrivent par e-mail."
+          }
+        ],
+        "help": "Pour commencer : la routine du soir en 5 minutes"
+      },
+      "guides": {
+        "title": "Les belles routines commencent petit.",
+        "soon": [
+          "Préparer sa trousse en 10 minutes",
+          "Bien entretenir le satin"
+        ],
+        "soonLabel": "Bientôt",
+        "read": "Lire le guide"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés. Vous recevez un numéro de suivi dès que le colis part."
+          ],
+          [
+            "Combien coûte la livraison ?",
+            "La livraison est offerte."
+          ],
+          [
+            "Puis-je retourner un article ?",
+            "Oui : vous disposez de 14 jours de rétractation à réception. Les frais de retour sont à votre charge. Écrivez-nous à contact@algbr.de."
+          ],
+          [
+            "Comment puis-je payer ?",
+            "Par carte bancaire, Apple Pay, Google Pay et d’autres moyens via Stripe. Nous ne voyons jamais vos données de carte."
+          ],
+          [
+            "Comment suivre ma commande ?",
+            "Avec votre numéro de commande et votre e-mail, sur la page « Suivre ma commande »."
+          ],
+          [
+            "Est-ce de la soie ?",
+            "Non, c’est du satin de polyester lisse. Suivez l’étiquette d’entretien."
+          ],
+          [
+            "Y a-t-il un effet cosmétique ?",
+            "Nous n’en promettons aucun. GLOW rend les routines plus agréables et mieux rangées."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Prête pour la soirée ?",
+        "title": [
+          "Moins d’étapes.",
+          "Plus de rituel."
+        ],
+        "text": "Du satin pour la nuit, de l’ordre pour le voyage.",
+        "cta": "Voir les rituels",
+        "cta2": "Lire la routine"
+      },
+      "footer": {
+        "tagline": "Des rituels simples pour le soir et le voyage.",
+        "rights": "Une marque ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Toute la collection",
+                "#produkte"
+              ],
+              [
+                "Pour la nuit",
+                "#g-night"
+              ],
+              [
+                "En voyage",
+                "#g-travel"
+              ],
+              [
+                "Devant le miroir",
+                "#g-mirror"
+              ]
+            ]
+          },
+          {
+            "title": "Conseils",
+            "links": [
+              [
+                "Routine du soir",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Suivre ma commande",
+                "bestellung.html"
+              ],
+              [
+                "Livraison & paiement",
+                "versand.html"
+              ],
+              [
+                "Retours",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informations",
+            "links": [
+              [
+                "CGV",
+                "agb.html"
+              ],
+              [
+                "Confidentialité",
+                "datenschutz.html"
+              ],
+              [
+                "Mentions légales",
+                "impressum.html"
+              ],
+              [
+                "Rétractation",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Paiement sécurisé avec Stripe",
+          "🚚 Livraison suivie · délai estimé {days} jours ouvrés",
+          "↩ 14 jours pour changer d’avis",
+          "🧾 Facture par e-mail"
+        ],
+        "idealTitle": "Pour quel moment ?",
+        "detailsTitle": "Détails",
+        "whyTitle": "Pourquoi il est chez GLOW",
+        "whyDefault": "Nous l’avons choisi parce qu’il est léger, beau et facile à intégrer dans une courte routine du soir ou de voyage.",
+        "crossTitle": "Complétez votre rituel",
+        "addAll": "Tout ajouter au panier",
+        "faqTitle": "Questions fréquentes",
+        "faqDefault": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés, avec suivi."
+          ],
+          [
+            "Puis-je le retourner ?",
+            "Oui, vous disposez de 14 jours de rétractation à réception."
+          ],
+          [
+            "Comment payer ?",
+            "Carte, Apple Pay ou Google Pay via Stripe. La facture arrive par e-mail."
+          ]
+        ],
+        "finalTitle": "Lumière éteinte. Rituel allumé.",
+        "finalMicro": "Paiement sécurisé · Livraison suivie · 14 jours de rétractation"
+      }
+    },
+    "en": {
+      "promo": "Tracked shipping · Secure payment · 14 days to change your mind",
+      "nav": {
+        "shop": "Products",
+        "guide": "Guides",
+        "why": "Why GLOW",
+        "track": "Track my order"
+      },
+      "hero": {
+        "label": "Satin night routine & tidy beauty",
+        "title": [
+          "The routine starts",
+          "at night."
+        ],
+        "signature": "Glow while you sleep.",
+        "text": "Satin for the night and bags where everything has its place. Simple rituals, honestly described.",
+        "cta": "Discover the rituals",
+        "cta2": "The 5-minute evening routine",
+        "micro": "Free shipping · Secure payment · 14-day withdrawal",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Tracked shipping",
+          "s": "You always know where your order is."
+        },
+        {
+          "t": "Secure payment",
+          "s": "Card, Apple Pay and Google Pay via Stripe."
+        },
+        {
+          "t": "14 days to change your mind",
+          "s": "Order without pressure."
+        },
+        {
+          "t": "Human support",
+          "s": "A question? We actually answer."
+        }
+      ],
+      "featured": {
+        "id": "night-ritual",
+        "label": "The night ritual",
+        "pitch": "Pillowcase, bonnet, headband: the whole night in satin.",
+        "sub": "Three satin pieces that make a calm evening routine — simpler than any ten-step regimen.",
+        "benefits": [
+          {
+            "t": "Three pieces, one ritual",
+            "s": "Matched and ready to use."
+          },
+          {
+            "t": "Smooth satin",
+            "s": "Pleasant on skin and hair."
+          },
+          {
+            "t": "Gift idea",
+            "s": "For anyone who takes their time at night."
+          }
+        ],
+        "cta": "Discover the Night Ritual Set",
+        "link": "See all rituals"
+      },
+      "collection": {
+        "label": "By moment",
+        "title": [
+          "One moment.",
+          "One ritual that fits."
+        ],
+        "text": "Sets for the night and for travel, every piece also sold on its own.",
+        "groups": [
+          {
+            "key": "night",
+            "title": "For the night",
+            "ids": [
+              "night-ritual",
+              "night-satin-set",
+              "satin-pillowcase",
+              "satin-nightcap",
+              "satin-headband",
+              "scalp-brush"
+            ]
+          },
+          {
+            "key": "travel",
+            "title": "On the go",
+            "ids": [
+              "travel-glow-kit",
+              "travel-beauty-case",
+              "premium-beauty-case",
+              "half-moon-beauty-bag",
+              "shell-beauty-pouch"
+            ]
+          },
+          {
+            "key": "mirror",
+            "title": "At the mirror",
+            "ids": [
+              "dual-concealer-brush",
+              "rotating-brush-holder"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Lights off.",
+          "Ritual on."
+        ],
+        "cards": [
+          {
+            "title": "Before sleep",
+            "text": "Satin on the pillow, hair loose: five minutes for you.",
+            "cta": "See the night picks",
+            "href": "#g-night",
+            "img": "satin-pillowcase"
+          },
+          {
+            "title": "In the suitcase",
+            "text": "One bag where everything has its place.",
+            "cta": "See the travel picks",
+            "href": "#g-travel",
+            "img": "travel-beauty-case"
+          },
+          {
+            "title": "At the mirror",
+            "text": "Brushes upright, make-up sorted.",
+            "cta": "Read the evening routine",
+            "href": "GUIDE",
+            "img": "rotating-brush-holder"
+          }
+        ]
+      },
+      "why": {
+        "label": "How we choose",
+        "title": [
+          "No miracle promise.",
+          "A ritual that sticks."
+        ],
+        "text": [
+          "Beauty ads promise a lot. GLOW promises no cosmetic effect — just nicer, simpler routines.",
+          "We choose light, beautiful accessories and describe materials as they are."
+        ],
+        "principles": [
+          {
+            "t": "Honest",
+            "s": "Satin is polyester satin, not silk."
+          },
+          {
+            "t": "Simple",
+            "s": "Fewer steps, more ritual."
+          },
+          {
+            "t": "Light",
+            "s": "Travel-ready and quick to store."
+          }
+        ]
+      },
+      "how": {
+        "title": "A ritual in three steps.",
+        "steps": [
+          {
+            "t": "Choose the moment",
+            "s": "Night, travel or mirror."
+          },
+          {
+            "t": "Order",
+            "s": "Secure payment by card, Apple Pay or Google Pay."
+          },
+          {
+            "t": "Track",
+            "s": "Confirmation and tracking details arrive by e-mail."
+          }
+        ],
+        "help": "To start: the 5-minute evening routine"
+      },
+      "guides": {
+        "title": "Beautiful routines start small.",
+        "soon": [
+          "Pack your beauty bag in 10 minutes",
+          "Caring for satin"
+        ],
+        "soonLabel": "Coming soon",
+        "read": "Read the guide"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days. You get a tracking number as soon as the parcel ships."
+          ],
+          [
+            "How much is shipping?",
+            "Shipping is free."
+          ],
+          [
+            "Can I return an item?",
+            "Yes: you have 14 days to withdraw after delivery. Return shipping is at your cost. Write to contact@algbr.de."
+          ],
+          [
+            "How can I pay?",
+            "Card, Apple Pay, Google Pay and other methods via Stripe. We never see your card details."
+          ],
+          [
+            "How do I track my order?",
+            "With your order number and e-mail on the “Track my order” page."
+          ],
+          [
+            "Is it silk?",
+            "No, it is smooth polyester satin. Please follow the care label."
+          ],
+          [
+            "Is there a cosmetic effect?",
+            "We promise none. GLOW makes routines nicer and tidier."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Ready for the evening?",
+        "title": [
+          "Fewer steps.",
+          "More ritual."
+        ],
+        "text": "Satin for the night, order for the road.",
+        "cta": "See the rituals",
+        "cta2": "Read the routine"
+      },
+      "footer": {
+        "tagline": "Simple rituals for the evening and travel.",
+        "rights": "An ALGBr brand.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "All products",
+                "#produkte"
+              ],
+              [
+                "For the night",
+                "#g-night"
+              ],
+              [
+                "On the go",
+                "#g-travel"
+              ],
+              [
+                "At the mirror",
+                "#g-mirror"
+              ]
+            ]
+          },
+          {
+            "title": "Guides",
+            "links": [
+              [
+                "Evening routine",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Track my order",
+                "bestellung.html"
+              ],
+              [
+                "Shipping & payment",
+                "versand.html"
+              ],
+              [
+                "Returns",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Information",
+            "links": [
+              [
+                "Terms",
+                "agb.html"
+              ],
+              [
+                "Privacy",
+                "datenschutz.html"
+              ],
+              [
+                "Legal notice",
+                "impressum.html"
+              ],
+              [
+                "Withdrawal",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Secure payment with Stripe",
+          "🚚 Tracked shipping · about {days} working days",
+          "↩ 14 days to change your mind",
+          "🧾 Invoice by e-mail"
+        ],
+        "idealTitle": "For which moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Why it’s at GLOW",
+        "whyDefault": "We chose it because it is light, beautiful and easy to fit into a short evening or travel routine.",
+        "crossTitle": "Complete your ritual",
+        "addAll": "Add all to cart",
+        "faqTitle": "Frequently asked questions",
+        "faqDefault": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days, tracked."
+          ],
+          [
+            "Can I return it?",
+            "Yes, you have 14 days to withdraw after delivery."
+          ],
+          [
+            "How do I pay?",
+            "Card, Apple Pay or Google Pay via Stripe. The invoice arrives by e-mail."
+          ]
+        ],
+        "finalTitle": "Lights off. Ritual on.",
+        "finalMicro": "Secure payment · Tracked shipping · 14-day withdrawal"
+      }
+    }
+  },
+  "showCompare": false
+}
