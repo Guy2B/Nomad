@@ -1,0 +1,26 @@
+# OFF. by ALGBr storefront (off.algbr.eu): pages rendered from D1, photos from KV,
+# static assets in public/ (styles, script, admin). Deploy: npm run deploy:off.
+# Checkout, sourcing requests and the admin API are served by api-algbr.
+name = "off-algbr"
+main = "worker.mjs"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "public"
+binding = "ASSETS"
+run_worker_first = true
+
+[vars]
+API = "https://api.algbr.eu"
+ORIGIN = "https://off.algbr.eu"
+# "true" once Stripe live keys and the legal check are done: opens indexing.
+LAUNCHED = "false"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "algbr-crm"
+database_id = "3ab63107-8a8e-40e2-988d-33edb35f2da5"
+
+[[kv_namespaces]]
+binding = "OFF_MEDIA"
+id = "65b2fd1b06c94a7498c10ba4f77f0eda"

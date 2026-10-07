@@ -21,3 +21,12 @@ crons = ["17 * * * *"]
 binding = "DB"
 database_name = "algbr-crm"
 database_id = "3ab63107-8a8e-40e2-988d-33edb35f2da5"
+
+# OFF. by ALGBr: product photos uploaded from the OFF admin.
+[[kv_namespaces]]
+binding = "OFF_MEDIA"
+id = "65b2fd1b06c94a7498c10ba4f77f0eda"
+
+[vars]
+# Preview addresses of the Worker-served storefronts, allowed to call the API (CORS).
+EXTRA_ORIGINS = "https://glow-algbr.guybeaho.workers.dev,https://kin-algbr.guybeaho.workers.dev,https://off-algbr.guybeaho.workers.dev"

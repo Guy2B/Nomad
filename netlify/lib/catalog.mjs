@@ -97,6 +97,7 @@ export const ORDER_NUMBER = /^[A-Z]{2}-\d{6}-[A-Z0-9]{4}$/;
 /** Origins allowed to call the API from a browser: every store's site (+ this deploy). */
 export function allowedOrigins(env = process.env) {
   const list = allStores().flatMap((s) => [s.site.baseUrl, ...(s.site.aliases ?? [])].map((u) => new URL(u).origin));
+  list.push('https://off.algbr.eu', 'https://off.algbr.de');
   for (const u of [env.URL, env.DEPLOY_PRIME_URL, ...(env.EXTRA_ORIGINS || '').split(',')])
     if (u && /^https?:\/\//.test(u.trim())) list.push(new URL(u.trim()).origin);
   return new Set(list);

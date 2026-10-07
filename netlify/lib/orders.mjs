@@ -11,6 +11,7 @@ import { HOST_STORE, decodeCart, orderNumber, priceCart, store as storeById } fr
 import { CJError, cjConfigured, createSupplierOrder, unmapped } from './cj.mjs';
 import { getOrder, saveOrder, upsertCustomer } from './store.mjs';
 import { euros, notifyOwner } from './notify.mjs';
+import { markSold, offItems } from './off.mjs';
 
 /** Shipping address from a Checkout Session (old and new Stripe API shapes). */
 export function shippingFrom(session) {
@@ -33,14 +34,16 @@ export const hasHouseNumber = (shipping) => /\d/.test(`${shipping.line1} ${shipp
 
 export function orderFromSession(session, now = new Date()) {
   const cart = session.metadata?.cart || '';
+  // OFF. pieces are not in the static catalogues: the session describes the item.
+  const off = session.metadata?.store === 'off';
   // Sessions created before the multi-store platform carry no store: they are Nomad's.
-  const s = storeById(session.metadata?.store || HOST_STORE) ?? storeById(HOST_STORE);
-  const priced = priceCart(decodeCart(cart), s.id);
+  const s = off ? null : (storeById(session.metadata?.store || HOST_STORE) ?? storeById(HOST_STORE));
+  const priced = off ? { items: offItems(session), totalCents: session.amount_total ?? 0 } : priceCart(decodeCart(cart), s.id);
   const cust = session.customer_details ?? {};
   return {
-    number: orderNumber(s.site.orderPrefix, now),
-    store: s.id,
-    brand: s.site.brand,
+    number: orderNumber(off ? 'OF' : s.site.orderPrefix, now),
+    store: off ? 'off' : s.id,
+    brand: off ? 'OFF.' : s.site.brand,
     sessionId: session.id,
     createdAt: now.toISOString(),
     lang: session.metadata?.lang || 'de',
@@ -52,7 +55,7 @@ export function orderFromSession(session, now = new Date()) {
     customer: { email: cust.email || '', name: cust.name || '', phone: cust.phone || '' },
     shipping: shippingFrom(session),
     invoiceId: typeof session.invoice === 'string' ? session.invoice : (session.invoice?.id ?? null),
-    supplier: { provider: 'CJdropshipping', orderId: null, status: null, trackNumber: null, logisticName: null },
+    supplier: { provider: off ? 'own stock' : 'CJdropshipping', orderId: null, status: null, trackNumber: null, logisticName: null },
     history: [{ at: now.toISOString(), event: 'paid' }],
     attention: null,
     // Paid with a Stripe test key: never sent to the supplier.
@@ -63,6 +66,15 @@ export function orderFromSession(session, now = new Date()) {
 /** Sends the order to the supplier, or flags exactly what a human must do. */
 export async function fulfill(store, order) {
   const log = (event) => order.history.push({ at: new Date().toISOString(), event });
+  if (order.store === 'off') {
+    // Our own stock: the piece is marked sold and shipped by hand.
+    await markSold(order);
+    order.attention = `À expédier soi-même (Hermes) : ${order.items.map((i) => `${i.sku} · ${i.name}`).join(', ')}`;
+    if (order.status === 'paid') order.status = 'needs_attention';
+    log('piece marked sold');
+    await saveOrder(store, order);
+    return order;
+  }
   const missing = unmapped(order);
   if (order.test) order.attention = 'Commande test (Stripe en mode test) : non envoyée à CJ';
   else if (!cjConfigured()) order.attention = 'Clé CJ absente (CJ_API_KEY) : commander à la main sur CJ, puis « Traité à la main »';

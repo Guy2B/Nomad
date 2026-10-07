@@ -17,7 +17,7 @@ import { alternatives, auditBatch, supplyAudit } from '../lib/supply.mjs';
 const json = (status, body) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } });
 
-function authorized(req) {
+export function authorized(req) {
   const expected = process.env.ADMIN_PASSWORD || '';
   const given = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
   if (expected.length < 12 || !given) return false;

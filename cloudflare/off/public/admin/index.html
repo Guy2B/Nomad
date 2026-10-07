@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>OFF. · Admin</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="bar">
+        <a class="logo" href="/de/">O<i>F</i>F. <small>admin</small></a>
+        <button class="ghost" id="logout" type="button" hidden>Déconnexion</button>
+      </header>
+
+      <form class="box" id="login">
+        <h1>Connexion</h1>
+        <p class="muted">Même mot de passe que le tableau de bord ALGBr (api.algbr.eu/admin).</p>
+        <label class="field"><span>Mot de passe</span><input name="password" type="password" autocomplete="current-password" required /></label>
+        <button type="submit">Entrer</button>
+        <p class="error" id="loginError" hidden>Mot de passe refusé.</p>
+      </form>
+
+      <main id="app" hidden>
+        <section class="stats" id="stats"></section>
+
+        <section class="box">
+          <div class="boxhead">
+            <h2 id="formTitle">Nouvelle paire</h2>
+            <button class="ghost" id="reset" type="button">Vider le formulaire</button>
+          </div>
+          <form id="f" class="grid">
+            <input type="hidden" name="id" />
+            <label class="field"><span>Marque *</span><input name="brand" value="Timberland" required /></label>
+            <label class="field"><span>Référence *</span><input name="ref" required placeholder="TB0A2R35EM8" /></label>
+            <label class="field full"><span>Nom du produit *</span><input name="name" required placeholder="Cedar Bay Essential Boat Shoe" /></label>
+            <label class="field"><span>Couleur</span><input name="color" placeholder="Light Brown Full Grain" /></label>
+            <label class="field"><span>EAN / GTIN</span><input name="gtin" inputmode="numeric" /></label>
+            <label class="field"><span>Taille EU</span><input name="sizeEU" /></label>
+            <label class="field"><span>Taille US</span><input name="sizeUS" /></label>
+            <label class="field"><span>Taille UK</span><input name="sizeUK" /></label>
+            <label class="field"><span>Longueur (cm)</span><input name="cm" /></label>
+            <label class="field"><span>Prix de vente € *</span><input name="price" type="number" step=".01" min="0" required /></label>
+            <label class="field"><span>Prix conseillé (UVP) €</span><input name="rrp" type="number" step=".01" min="0" /></label>
+            <label class="field"><span>Prix d'achat € (privé)</span><input name="purchasePrice" type="number" step=".01" min="0" /></label>
+            <label class="field"><span>Stock</span><input name="stock" type="number" min="0" value="1" /></label>
+            <label class="field"><span>État</span>
+              <select name="condition">
+                <option value="new">Neuf avec boîte d'origine</option>
+                <option value="new_no_box">Neuf sans boîte</option>
+                <option value="like_new">Comme neuf</option>
+              </select>
+            </label>
+            <label class="field"><span>Statut</span>
+              <select name="status">
+                <option value="live">En ligne</option>
+                <option value="draft">Brouillon (invisible)</option>
+                <option value="sold">Vendu</option>
+              </select>
+            </label>
+            <label class="field full"><span>Description (optionnelle, en allemand de préférence)</span><textarea name="description"></textarea></label>
+            <div class="dropzone full" id="drop" tabindex="0" role="button">
+              <b>Ajouter des photos</b>
+              <span>Depuis le téléphone ou l'ordinateur, ou glisser-déposer. Vos propres photos uniquement (pas d'images du fabricant). La première photo est la photo principale.</span>
+              <input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden />
+            </div>
+            <div class="previews full" id="previews"></div>
+            <p class="muted full" id="uploadState"></p>
+            <div class="row full">
+              <button type="submit" id="save">Publier</button>
+              <p class="muted" id="saveState" role="status"></p>
+            </div>
+          </form>
+        </section>
+
+        <section class="box">
+          <h2>Stock</h2>
+          <div id="list"></div>
+        </section>
+
+        <section class="box">
+          <h2>Demandes Private Sourcing</h2>
+          <div id="requests"></div>
+        </section>
+      </main>
+    </div>
+    <script src="admin.js" defer></script>
+  </body>
+</html>
