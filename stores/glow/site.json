@@ -10,15 +10,15 @@
   },
   "seo": {
     "de": {
-      "title": "GLOW — Glow while you sleep: Satin-Nachtroutine & Beauty-Taschen",
+      "title": "GLOW · Glow while you sleep: Satin-Nachtroutine & Beauty-Taschen",
       "description": "Satin-Kissenbezug, Schlafhaube, Haarband und Beauty-Taschen für eine einfache Abend- und Reiseroutine. Kostenloser Versand, 14 Tage Widerruf."
     },
     "fr": {
-      "title": "GLOW — Glow while you sleep : routine nuit en satin & trousses beauté",
+      "title": "GLOW · Glow while you sleep : routine nuit en satin & trousses beauté",
       "description": "Taie en satin, bonnet de nuit, bandeau et trousses beauté pour une routine du soir et de voyage toute simple. Livraison offerte, 14 jours de rétractation."
     },
     "en": {
-      "title": "GLOW — Glow while you sleep: satin night routine & beauty bags",
+      "title": "GLOW · Glow while you sleep: satin night routine & beauty bags",
       "description": "Satin pillowcase, sleep bonnet, headband and beauty bags for an easy evening and travel routine. Free shipping, 14-day withdrawal."
     }
   },
@@ -182,45 +182,45 @@
       "text": {
         "de": {
           "title": "Die 5-Minuten-Abendroutine",
-          "description": "Eine ruhige Abendroutine in fünf Minuten: Haare locker, Satin aufs Kissen, Beauty-Sachen geordnet — ohne neue Produkte zu kaufen.",
+          "description": "Eine ruhige Abendroutine in fünf Minuten: Haare locker, Satin aufs Kissen, Beauty-Sachen geordnet, ohne neue Produkte zu kaufen.",
           "lead": "Ein gutes Ritual braucht keine zehn Produkte. Fünf ruhige Minuten reichen, um den Tag abzuschließen.",
           "items": [
             "Licht dimmen, Handy weg: der Abend beginnt bewusst.",
-            "Haare locker zusammennehmen — mit einem weichen Haarband statt eines engen Gummis.",
+            "Haare locker zusammennehmen, mit einem weichen Haarband statt eines engen Gummis.",
             "Die Kopfhaut kurz mit der Silikonbürste durchgehen, das tut einfach gut.",
             "Den Satin-Kissenbezug aufziehen: glatt, kühl, angenehm auf der Haut.",
             "Wer mag: die Schlafhaube aufsetzen, damit die Frisur bis morgen hält.",
-            "Pinsel und Make-up zurück an ihren Platz — so beginnt der Morgen aufgeräumt.",
+            "Pinsel und Make-up zurück an ihren Platz, so beginnt der Morgen aufgeräumt.",
             "Für Reisen: die Beauty-Tasche gleich am Abend packen.",
             "Fünf tiefe Atemzüge. Fertig."
           ]
         },
         "fr": {
           "title": "La routine du soir en 5 minutes",
-          "description": "Une routine du soir calme en cinq minutes : cheveux libérés, satin sur l’oreiller, trousse rangée — sans acheter de nouveaux produits.",
+          "description": "Une routine du soir calme en cinq minutes : cheveux libérés, satin sur l’oreiller, trousse rangée, sans acheter de nouveaux produits.",
           "lead": "Un bon rituel n’a pas besoin de dix produits. Cinq minutes calmes suffisent pour clore la journée.",
           "items": [
             "Lumière tamisée, téléphone posé : la soirée commence vraiment.",
-            "Rassemblez vos cheveux sans serrer — avec un bandeau doux plutôt qu’un élastique.",
+            "Rassemblez vos cheveux sans serrer, avec un bandeau doux plutôt qu’un élastique.",
             "Passez la brosse en silicone sur le cuir chevelu, juste pour le plaisir.",
             "Enfilez la taie en satin : lisse, fraîche, agréable au toucher.",
             "Si vous aimez : le bonnet de nuit garde la coiffure jusqu’au matin.",
-            "Pinceaux et maquillage à leur place — le matin commence rangé.",
+            "Pinceaux et maquillage à leur place, le matin commence rangé.",
             "En voyage : préparez la trousse dès le soir.",
             "Cinq respirations profondes. C’est fini."
           ]
         },
         "en": {
           "title": "The 5-minute evening routine",
-          "description": "A calm five-minute evening routine: hair loose, satin on the pillow, beauty things in order — without buying new products.",
+          "description": "A calm five-minute evening routine: hair loose, satin on the pillow, beauty things in order, without buying new products.",
           "lead": "A good ritual doesn’t need ten products. Five calm minutes are enough to close the day.",
           "items": [
             "Dim the lights, put the phone away: the evening starts on purpose.",
-            "Gather your hair loosely — a soft headband instead of a tight elastic.",
+            "Gather your hair loosely, a soft headband instead of a tight elastic.",
             "Run the silicone brush over your scalp, simply because it feels good.",
             "Put on the satin pillowcase: smooth, cool, pleasant on the skin.",
             "If you like: the sleep bonnet keeps your hairstyle until morning.",
-            "Brushes and make-up back in their place — the morning starts tidy.",
+            "Brushes and make-up back in their place, the morning starts tidy.",
             "Travelling? Pack the beauty bag the evening before.",
             "Five deep breaths. Done."
           ]
@@ -275,7 +275,7 @@
         "id": "night-ritual",
         "label": "Das Nacht-Ritual",
         "pitch": "Kissenbezug, Schlafhaube, Haarband: die ganze Nacht in Satin.",
-        "sub": "Drei Satin-Teile, die zusammen eine ruhige Abendroutine ergeben — einfacher als jede Zehn-Schritte-Pflege.",
+        "sub": "Drei Satin-Teile, die zusammen eine ruhige Abendroutine ergeben, einfacher als jede Zehn-Schritte-Pflege.",
         "benefits": [
           {
             "t": "Drei Teile, ein Ritual",
@@ -370,7 +370,7 @@
           "Ein Ritual, das bleibt."
         ],
         "text": [
-          "Beauty-Werbung verspricht viel. GLOW verspricht keine kosmetische Wirkung — nur angenehmere, einfachere Routinen.",
+          "Beauty-Werbung verspricht viel. GLOW verspricht keine kosmetische Wirkung, nur angenehmere, einfachere Routinen.",
           "Wir wählen leichte, schöne Accessoires und beschreiben die Materialien so, wie sie sind."
         ],
         "principles": [
@@ -612,7 +612,7 @@
         "id": "night-ritual",
         "label": "Le rituel de nuit",
         "pitch": "Taie, bonnet, bandeau : toute la nuit en satin.",
-        "sub": "Trois pièces en satin qui forment une routine du soir apaisée — plus simple que n’importe quelle routine en dix étapes.",
+        "sub": "Trois pièces en satin qui forment une routine du soir apaisée, plus simple que n’importe quelle routine en dix étapes.",
         "benefits": [
           {
             "t": "Trois pièces, un rituel",
@@ -707,7 +707,7 @@
           "Un rituel qu’on garde."
         ],
         "text": [
-          "La publicité beauté promet beaucoup. GLOW ne promet aucun effet cosmétique — seulement des routines plus agréables et plus simples.",
+          "La publicité beauté promet beaucoup. GLOW ne promet aucun effet cosmétique, seulement des routines plus agréables et plus simples.",
           "Nous choisissons des accessoires légers et beaux, et décrivons les matières telles qu’elles sont."
         ],
         "principles": [
@@ -949,7 +949,7 @@
         "id": "night-ritual",
         "label": "The night ritual",
         "pitch": "Pillowcase, bonnet, headband: the whole night in satin.",
-        "sub": "Three satin pieces that make a calm evening routine — simpler than any ten-step regimen.",
+        "sub": "Three satin pieces that make a calm evening routine, simpler than any ten-step regimen.",
         "benefits": [
           {
             "t": "Three pieces, one ritual",
@@ -1044,7 +1044,7 @@
           "A ritual that sticks."
         ],
         "text": [
-          "Beauty ads promise a lot. GLOW promises no cosmetic effect — just nicer, simpler routines.",
+          "Beauty ads promise a lot. GLOW promises no cosmetic effect, just nicer, simpler routines.",
           "We choose light, beautiful accessories and describe materials as they are."
         ],
         "principles": [

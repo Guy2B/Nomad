@@ -131,7 +131,7 @@ function product(env, lang, p, others) {
     brand: { '@type': 'Brand', name: p.brand },
     ...(p.color ? { color: p.color } : {}),
     image: images.map((i) => env.ORIGIN + i),
-    description: p.description || `${title(p)} — EU ${p.size_eu}`,
+    description: p.description || `${title(p)}, EU ${p.size_eu}`,
     offers: {
       '@type': 'Offer',
       url,
@@ -159,7 +159,7 @@ ${p.description ? `<div class="desc"><h2>${t.pdp.details}</h2><p>${esc(p.descrip
 ${others.length ? `<section class="section"><h2>${t.pdp.more}</h2><div class="grid">${others.map((o) => card(lang, o)).join('')}</div></section>` : ''}</div>`;
   return layout(env, lang, {
     title: `${title(p)}${p.size_eu ? ` EU ${p.size_eu}` : ''} | OFF.`,
-    description: `${title(p)}${p.size_eu ? `, EU ${p.size_eu}` : ''} — ${money(lang, p.price_cents)}. ${t.pdp.metaTail}`,
+    description: `${title(p)}${p.size_eu ? `, EU ${p.size_eu}` : ''}, ${money(lang, p.price_cents)}. ${t.pdp.metaTail}`,
     body,
     path: `/p/${p.slug}`,
     ogImage: images[0],

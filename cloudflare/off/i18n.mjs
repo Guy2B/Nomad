@@ -20,11 +20,11 @@ export const T = {
   de: {
     top: 'OFF. · Markenware unter UVP · Echter Bestand in Deutschland',
     nav: { shop: 'Shop', archive: 'Archiv', find: 'Private Sourcing', track: 'Bestellung' },
-    seo: { title: 'OFF. by ALGBr — Markenschuhe unter UVP, sofort verfügbar', description: 'Originale Markenschuhe aus dem Outlet, unter UVP, geprüft und aus Deutschland verschickt. Einzelstücke — wenn weg, dann weg. Private Sourcing für Ihre Größe.' },
+    seo: { title: 'OFF. by ALGBr · Markenschuhe unter UVP, sofort verfügbar', description: 'Originale Markenschuhe aus dem Outlet, unter UVP, geprüft und aus Deutschland verschickt. Einzelstücke, wenn weg, dann weg. Private Sourcing für Ihre Größe.' },
     hero: {
       eyebrow: 'Ausgewählt unter UVP',
       title: ['Originale Marken.', 'Unter UVP. Sofort da.'],
-      text: 'Wir kaufen ausgewählte Markenpaare im Outlet, prüfen sie und stellen sie online, sobald sie bei uns in Deutschland auf Lager sind. Einzelstücke — wenn weg, dann weg.',
+      text: 'Wir kaufen ausgewählte Markenpaare im Outlet, prüfen sie und stellen sie online, sobald sie bei uns in Deutschland auf Lager sind. Einzelstücke, wenn weg, dann weg.',
       cta: 'Jetzt verfügbar',
       cta2: 'Ihre Größe suchen lassen',
       live: 'Live-Bestand',
@@ -34,9 +34,9 @@ export const T = {
     shop: {
       eyebrow: 'Jetzt verfügbar', title: 'Neu eingetroffen', search: 'Marke, Modell, Referenz suchen', brand: 'Marke', allBrands: 'Alle Marken', size: 'Größe', allSizes: 'Alle Größen',
       sort: 'Sortierung', newest: 'Neueste zuerst', priceAsc: 'Preis aufsteigend', priceDesc: 'Preis absteigend',
-      count: (n) => `${n} ${n === 1 ? 'Artikel' : 'Artikel'}`, meta: 'Echter Bestand · Begrenzte Stückzahl', empty: 'Gerade ist alles verkauft. Neue Funde kommen bald — oder lassen Sie Ihre Größe suchen.', noMatch: 'Kein Treffer für diese Auswahl.',
+      count: (n) => `${n} ${n === 1 ? 'Artikel' : 'Artikel'}`, meta: 'Echter Bestand · Begrenzte Stückzahl', empty: 'Gerade ist alles verkauft. Neue Funde kommen bald oder lassen Sie Ihre Größe suchen.', noMatch: 'Kein Treffer für diese Auswahl.',
     },
-    archive: { eyebrow: 'Frühere Funde', title: 'Verkauft. Weiter anfragbar.', text: 'Diese Paare sind weg — wir suchen gerne ein ähnliches in Ihrer Größe.' },
+    archive: { eyebrow: 'Frühere Funde', title: 'Verkauft. Weiter anfragbar.', text: 'Diese Paare sind weg. Wir suchen gerne ein ähnliches in Ihrer Größe.' },
     find: {
       eyebrow: 'Private Sourcing', title: 'Ein bestimmtes Paar gesucht?', text: 'Marke, Modell, Farbe, Größe und Budget: wir melden uns innerhalb von 24–48 Stunden, wenn wir es finden.',
       points: ['Unverbindlich und kostenlos', 'Nur Originalware', 'Antwort per E-Mail'],
@@ -47,7 +47,7 @@ export const T = {
       back: 'Zurück zum Shop', photo: 'Foto', rrp: 'UVP des Herstellers', vat: 'Endpreis, keine Umsatzsteuer ausgewiesen (§ 19 UStG), zzgl. 5,79 € Versand.', inStock: '● 1 verfügbar · versandbereit in Deutschland', inStockN: (n) => `● ${n} verfügbar · versandbereit in Deutschland`, soldOut: 'Verkauft · früherer Fund',
       size: 'Größe', condition: 'Zustand', ship: 'Versand', shipText: 'Hermes mit Sendungsverfolgung · 5,79 € · 2–4 Werktage', returns: 'Rückgabe', returnsText: '14 Tage Widerrufsrecht',
       buy: 'Jetzt kaufen', request: 'Ähnliches Paar anfragen', otherSize: 'Andere Größe suchen lassen', details: 'Details', authentic: 'Originalware · aus eigenem Bestand in Deutschland', more: 'Ebenfalls verfügbar',
-      metaTail: 'Originalware unter UVP, Versand aus Deutschland.', reserving: 'Einen Moment — der Artikel wird für Sie reserviert…', reserved: 'Gerade reserviert jemand dieses Paar. Bitte in 30 Minuten erneut versuchen.', soldNow: 'Leider gerade verkauft.', error: 'Die Kasse ist gerade nicht erreichbar. Bitte später erneut versuchen.',
+      metaTail: 'Originalware unter UVP, Versand aus Deutschland.', reserving: 'Einen Moment, der Artikel wird für Sie reserviert…', reserved: 'Gerade reserviert jemand dieses Paar. Bitte in 30 Minuten erneut versuchen.', soldNow: 'Leider gerade verkauft.', error: 'Die Kasse ist gerade nicht erreichbar. Bitte später erneut versuchen.',
     },
     thanks: { title: 'Danke für Ihre Bestellung!', text: 'Sie erhalten die Bestätigung und die Rechnung per E-Mail. Wir verschicken Ihr Paar innerhalb von 1–2 Werktagen.', wait: 'Ihre Bestellnummer erscheint gleich…', back: 'Zurück zum Shop' },
     track: { title: 'Bestellung verfolgen', text: 'Bestellnummer und E-Mail eingeben.', number: 'Bestellnummer', submit: 'Status anzeigen' },
@@ -59,11 +59,11 @@ export const T = {
   fr: {
     top: 'OFF. · Grandes marques sous le prix conseillé · Stock réel en Allemagne',
     nav: { shop: 'Boutique', archive: 'Archive', find: 'Private Sourcing', track: 'Commande' },
-    seo: { title: 'OFF. by ALGBr — Chaussures de marque sous le prix conseillé', description: 'Chaussures de marque authentiques issues d’outlet, sous le prix conseillé, vérifiées et expédiées depuis l’Allemagne. Pièces uniques. Private Sourcing pour votre pointure.' },
+    seo: { title: 'OFF. by ALGBr · Chaussures de marque sous le prix conseillé', description: 'Chaussures de marque authentiques issues d’outlet, sous le prix conseillé, vérifiées et expédiées depuis l’Allemagne. Pièces uniques. Private Sourcing pour votre pointure.' },
     hero: {
       eyebrow: 'Sélectionné sous le prix conseillé',
       title: ['Marques authentiques.', 'Moins chères. Disponibles.'],
-      text: 'Nous achetons des paires de marque choisies en outlet, les vérifions et les mettons en ligne dès qu’elles sont en stock chez nous, en Allemagne. Pièces uniques — une fois parties, c’est fini.',
+      text: 'Nous achetons des paires de marque choisies en outlet, les vérifions et les mettons en ligne dès qu’elles sont en stock chez nous, en Allemagne. Pièces uniques, une fois parties, c’est fini.',
       cta: 'Disponible maintenant',
       cta2: 'Faire chercher ma pointure',
       live: 'Stock en direct',
@@ -73,9 +73,9 @@ export const T = {
     shop: {
       eyebrow: 'Disponible maintenant', title: 'Nouveautés', search: 'Marque, modèle, référence', brand: 'Marque', allBrands: 'Toutes les marques', size: 'Pointure', allSizes: 'Toutes les pointures',
       sort: 'Tri', newest: 'Plus récents', priceAsc: 'Prix croissant', priceDesc: 'Prix décroissant',
-      count: (n) => `${n} article${n > 1 ? 's' : ''}`, meta: 'Stock réel · Quantités limitées', empty: 'Tout est vendu pour le moment. De nouvelles trouvailles arrivent — ou faites chercher votre pointure.', noMatch: 'Aucun résultat pour cette sélection.',
+      count: (n) => `${n} article${n > 1 ? 's' : ''}`, meta: 'Stock réel · Quantités limitées', empty: 'Tout est vendu pour le moment. De nouvelles trouvailles arrivent ou faites chercher votre pointure.', noMatch: 'Aucun résultat pour cette sélection.',
     },
-    archive: { eyebrow: 'Trouvailles passées', title: 'Vendu. Toujours demandable.', text: 'Ces paires sont parties — nous pouvons en chercher une similaire à votre pointure.' },
+    archive: { eyebrow: 'Trouvailles passées', title: 'Vendu. Toujours demandable.', text: 'Ces paires sont parties. Nous pouvons en chercher une similaire à votre pointure.' },
     find: {
       eyebrow: 'Private Sourcing', title: 'Vous cherchez une paire précise ?', text: 'Marque, modèle, couleur, pointure et budget : nous revenons vers vous sous 24–48 heures si nous la trouvons.',
       points: ['Sans engagement et gratuit', 'Uniquement de l’authentique', 'Réponse par e-mail'],
@@ -86,7 +86,7 @@ export const T = {
       back: 'Retour à la boutique', photo: 'Photo', rrp: 'Prix conseillé du fabricant', vat: 'Prix final, TVA non applicable (§ 19 UStG), + 5,79 € de livraison.', inStock: '● 1 disponible · prêt à partir d’Allemagne', inStockN: (n) => `● ${n} disponibles · prêts à partir d’Allemagne`, soldOut: 'Vendu · trouvaille passée',
       size: 'Pointure', condition: 'État', ship: 'Livraison', shipText: 'Hermes suivi · 5,79 € · 2–4 jours ouvrés', returns: 'Retour', returnsText: '14 jours de rétractation',
       buy: 'Acheter', request: 'Demander une paire similaire', otherSize: 'Faire chercher une autre pointure', details: 'Détails', authentic: 'Authentique · issu de notre stock en Allemagne', more: 'Également disponible',
-      metaTail: 'Authentique, sous le prix conseillé, expédié d’Allemagne.', reserving: 'Un instant — l’article vous est réservé…', reserved: 'Quelqu’un est en train de réserver cette paire. Réessayez dans 30 minutes.', soldNow: 'Désolé, elle vient d’être vendue.', error: 'Le paiement est indisponible pour le moment. Réessayez plus tard.',
+      metaTail: 'Authentique, sous le prix conseillé, expédié d’Allemagne.', reserving: 'Un instant, l’article vous est réservé…', reserved: 'Quelqu’un est en train de réserver cette paire. Réessayez dans 30 minutes.', soldNow: 'Désolé, elle vient d’être vendue.', error: 'Le paiement est indisponible pour le moment. Réessayez plus tard.',
     },
     thanks: { title: 'Merci pour votre commande !', text: 'Vous recevez la confirmation et la facture par e-mail. Nous expédions votre paire sous 1–2 jours ouvrés.', wait: 'Votre numéro de commande arrive…', back: 'Retour à la boutique' },
     track: { title: 'Suivre ma commande', text: 'Saisissez votre numéro de commande et votre e-mail.', number: 'Numéro de commande', submit: 'Voir le statut' },
@@ -98,11 +98,11 @@ export const T = {
   en: {
     top: 'OFF. · Branded pieces below RRP · Real stock in Germany',
     nav: { shop: 'Shop', archive: 'Archive', find: 'Private Sourcing', track: 'Order' },
-    seo: { title: 'OFF. by ALGBr — Branded shoes below RRP, available now', description: 'Authentic branded outlet shoes below RRP, checked and shipped from Germany. One-offs — once gone, they’re gone. Private sourcing for your size.' },
+    seo: { title: 'OFF. by ALGBr · Branded shoes below RRP, available now', description: 'Authentic branded outlet shoes below RRP, checked and shipped from Germany. One-offs, once gone, they’re gone. Private sourcing for your size.' },
     hero: {
       eyebrow: 'Selected below retail',
       title: ['Authentic brands.', 'Below RRP. Available now.'],
-      text: 'We buy selected branded pairs at outlets, check them and publish them as soon as they are in stock with us in Germany. One-offs — once gone, they’re gone.',
+      text: 'We buy selected branded pairs at outlets, check them and publish them as soon as they are in stock with us in Germany. One-offs, once gone, they’re gone.',
       cta: 'Available now',
       cta2: 'Find my size',
       live: 'Live inventory',
@@ -112,9 +112,9 @@ export const T = {
     shop: {
       eyebrow: 'Live now', title: 'New arrivals', search: 'Search brand, model, reference', brand: 'Brand', allBrands: 'All brands', size: 'Size', allSizes: 'All sizes',
       sort: 'Sort', newest: 'Newest', priceAsc: 'Price low to high', priceDesc: 'Price high to low',
-      count: (n) => `${n} item${n > 1 ? 's' : ''}`, meta: 'Real stock · Limited quantities', empty: 'Everything is sold right now. New finds are coming — or ask us to find your size.', noMatch: 'No match for this selection.',
+      count: (n) => `${n} item${n > 1 ? 's' : ''}`, meta: 'Real stock · Limited quantities', empty: 'Everything is sold right now. New finds are coming or ask us to find your size.', noMatch: 'No match for this selection.',
     },
-    archive: { eyebrow: 'Past finds', title: 'Sold. Still requestable.', text: 'These pairs are gone — we are happy to look for a similar one in your size.' },
+    archive: { eyebrow: 'Past finds', title: 'Sold. Still requestable.', text: 'These pairs are gone. We are happy to look for a similar one in your size.' },
     find: {
       eyebrow: 'Private sourcing', title: 'Looking for a specific pair?', text: 'Brand, model, colour, size and budget: we get back to you within 24–48 hours if we find it.',
       points: ['Free and non-binding', 'Authentic only', 'Reply by e-mail'],
@@ -125,7 +125,7 @@ export const T = {
       back: 'Back to the shop', photo: 'Photo', rrp: 'Manufacturer’s RRP', vat: 'Final price, no VAT shown (§ 19 UStG), plus €5.79 shipping.', inStock: '● 1 available · ready to ship in Germany', inStockN: (n) => `● ${n} available · ready to ship in Germany`, soldOut: 'Sold · past find',
       size: 'Size', condition: 'Condition', ship: 'Shipping', shipText: 'Hermes tracked · €5.79 · 2–4 working days', returns: 'Returns', returnsText: '14-day right of withdrawal',
       buy: 'Buy now', request: 'Request a similar pair', otherSize: 'Find another size', details: 'Details', authentic: 'Authentic · from our own stock in Germany', more: 'Also available',
-      metaTail: 'Authentic, below RRP, shipped from Germany.', reserving: 'One moment — reserving the item for you…', reserved: 'Someone is checking out this pair right now. Please try again in 30 minutes.', soldNow: 'Sorry, it has just sold.', error: 'Checkout is unavailable right now. Please try again later.',
+      metaTail: 'Authentic, below RRP, shipped from Germany.', reserving: 'One moment, reserving the item for you…', reserved: 'Someone is checking out this pair right now. Please try again in 30 minutes.', soldNow: 'Sorry, it has just sold.', error: 'Checkout is unavailable right now. Please try again later.',
     },
     thanks: { title: 'Thank you for your order!', text: 'You will receive the confirmation and invoice by e-mail. We ship your pair within 1–2 working days.', wait: 'Your order number is on its way…', back: 'Back to the shop' },
     track: { title: 'Track my order', text: 'Enter your order number and e-mail.', number: 'Order number', submit: 'Show status' },

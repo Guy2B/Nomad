@@ -90,26 +90,26 @@ Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag üb
 <p>Lieferländer: ${countries}. ${fee ? `Versandkosten: ${fee}${carrier ? ` (${carrier})` : ''}, mit Sendungsverfolgung.` : 'Der Versand ist kostenlos und erfolgt mit Sendungsverfolgung.'} Lieferzeit: in der Regel ${days} Werktage ab Zahlungseingang. Ihre Sendungsnummer finden Sie unter <a href="bestellung.html">Bestellung verfolgen</a>.</p>
 <h2>Zahlung</h2>
 <p>Die Zahlung erfolgt sicher über Stripe: Kreditkarte, Apple Pay, Google Pay und weitere angezeigte Methoden. Die Rechnung erhalten Sie automatisch per E-Mail.</p>
-${own ? '<h2>Versand aus Deutschland</h2><p>Alle Artikel werden aus unserem Lager in Deutschland verschickt; es fallen keine Zölle oder Einfuhrabgaben an.</p>' : '<h2>Zölle und Einfuhrabgaben</h2><p>[Hinweis zu Einfuhrumsatzsteuer/IOSS je nach Versandlager — à valider, voir docs/LEGAL-CHECKLIST.md.]</p>'}`,
+${own ? '<h2>Versand aus Deutschland</h2><p>Alle Artikel werden aus unserem Lager in Deutschland verschickt; es fallen keine Zölle oder Einfuhrabgaben an.</p>' : '<h2>Zölle und Einfuhrabgaben</h2><p>[Hinweis zu Einfuhrumsatzsteuer/IOSS je nach Versandlager, à valider, voir docs/LEGAL-CHECKLIST.md.]</p>'}`,
   };
 
   const note = (lang) =>
     lang === 'fr'
-      ? '<p class="legal-note">Traduction pour information — la version allemande fait foi.</p>'
-      : '<p class="legal-note">Translation for information — the German version is authoritative.</p>';
+      ? '<p class="legal-note">Traduction pour information. La version allemande fait foi.</p>'
+      : '<p class="legal-note">Translation for information. The German version is authoritative.</p>';
 
   // FR/EN: short translations pointing to the authoritative German text.
   const short = {
     fr: {
       impressum: `<h1>Mentions légales</h1><p>${addr}</p><p>E-mail : ${c.email}</p><p>${c.taxNote} : pas de TVA facturée.</p>`,
-      datenschutz: `<h1>Confidentialité</h1><p>Nous traitons les données nécessaires à votre commande (nom, adresses, e-mail, téléphone, articles). Destinataires : Stripe (paiement et facture), ${own ? '' : 'notre fournisseur/entrepôt CJdropshipping (expédition, possiblement hors UE), '}les transporteurs, Cloudflare (hébergement des pages et de l’API). Aucun cookie de suivi. Vos droits : accès, rectification, effacement, opposition — écrivez à ${c.email}.</p>`,
+      datenschutz: `<h1>Confidentialité</h1><p>Nous traitons les données nécessaires à votre commande (nom, adresses, e-mail, téléphone, articles). Destinataires : Stripe (paiement et facture), ${own ? '' : 'notre fournisseur/entrepôt CJdropshipping (expédition, possiblement hors UE), '}les transporteurs, Cloudflare (hébergement des pages et de l’API). Aucun cookie de suivi. Vos droits : accès, rectification, effacement, opposition, écrivez à ${c.email}.</p>`,
       agb: `<h1>Conditions générales de vente</h1><p>Le contrat est conclu à la confirmation du paiement. Prix finaux, TVA non applicable (§ 19 UStG). Livraison vers ${countries} en ${days} jours ouvrés, ${fee ? `frais de port ${fee}` : 'offerte'}. Droit de rétractation de 14 jours. Droit allemand, sous réserve des règles impératives de votre pays.</p>`,
       widerruf: `<h1>Droit de rétractation</h1><p>Vous pouvez vous rétracter dans les 14 jours suivant la réception, sans motif, par une déclaration claire à ${c.email}. Nous remboursons tous les paiements, livraison standard comprise, au plus tard 14 jours après votre déclaration, une fois les articles reçus ou leur renvoi prouvé. Renvoyez les articles à : ${c.name}, ${c.street}, ${c.city}, ${c.country}. Les frais directs de renvoi sont à votre charge.</p>`,
       versand: `<h1>Livraison & paiement</h1><p>Livraison suivie ${fee ? `(${fee}${carrier ? `, ${carrier}` : ''})` : 'offerte'} vers ${countries}, en ${days} jours ouvrés${own ? ', depuis l’Allemagne' : ''}. Paiement via Stripe ; facture automatique par e-mail.</p>`,
     },
     en: {
       impressum: `<h1>Legal notice</h1><p>${addr}</p><p>E-mail: ${c.email}</p><p>${c.taxNote}: no VAT charged.</p>`,
-      datenschutz: `<h1>Privacy</h1><p>We process the data needed for your order (name, addresses, e-mail, phone, items). Recipients: Stripe (payment and invoice), ${own ? '' : 'our supplier/warehouse CJdropshipping (shipping, possibly outside the EU), '}carriers, Cloudflare (hosting of the pages and the API). No tracking cookies. Your rights: access, rectification, erasure, objection — write to ${c.email}.</p>`,
+      datenschutz: `<h1>Privacy</h1><p>We process the data needed for your order (name, addresses, e-mail, phone, items). Recipients: Stripe (payment and invoice), ${own ? '' : 'our supplier/warehouse CJdropshipping (shipping, possibly outside the EU), '}carriers, Cloudflare (hosting of the pages and the API). No tracking cookies. Your rights: access, rectification, erasure, objection, write to ${c.email}.</p>`,
       agb: `<h1>Terms and conditions</h1><p>The contract is concluded on payment confirmation. Final prices, no VAT (§ 19 UStG). ${fee ? `Delivery to ${countries} for ${fee}` : `Free delivery to ${countries}`} in ${days} working days. 14-day right of withdrawal. German law, without prejudice to mandatory rules of your country.</p>`,
       widerruf: `<h1>Right of withdrawal</h1><p>You may withdraw within 14 days of receipt without giving reasons, by a clear statement to ${c.email}. We refund all payments, including standard delivery, no later than 14 days after your statement, once the goods are back or their return is proven. Send the goods to: ${c.name}, ${c.street}, ${c.city}, ${c.country}. You bear the direct cost of returning the goods.</p>`,
       versand: `<h1>Shipping & payment</h1><p>${fee ? `Tracked shipping (${fee}${carrier ? `, ${carrier}` : ''})` : 'Free tracked shipping'} to ${countries}, in ${days} working days${own ? ', from Germany' : ''}. Payment through Stripe; invoice sent automatically by e-mail.</p>`,

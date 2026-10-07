@@ -10,15 +10,15 @@
   },
   "seo": {
     "de": {
-      "title": "SPACE — Mehr Platz ohne Bohren: Stauraum-Sets für kleine Wohnungen",
+      "title": "SPACE · Mehr Platz ohne Bohren: Stauraum-Sets für kleine Wohnungen",
       "description": "Stauraum-Sets für Mietwohnungen: Spülbecken-Organizer, Duschablage ohne Bohren, Kabelmanagement am Schreibtisch, platzsparende Kleiderbügel und Wand-Wäscheständer."
     },
     "fr": {
-      "title": "SPACE — Plus d’espace sans percer : rangement petit appartement",
+      "title": "SPACE · Plus d’espace sans percer : rangement petit appartement",
       "description": "Kits de rangement pour locataires : organisateur d'évier, étagère de douche sans perçage, rangement de câbles de bureau, cintres gain de place et séchoir mural pliable."
     },
     "en": {
-      "title": "SPACE — More room, no drilling: small apartment storage",
+      "title": "SPACE · More room, no drilling: small apartment storage",
       "description": "Renter-friendly storage bundles: sink organiser, no-drill shower shelf, desk cable management, space-saving hangers and a fold-away wall drying rack."
     }
   },
@@ -249,7 +249,7 @@
           "Ohne Bohren."
         ],
         "signature": "More room. No renovation.",
-        "text": "Stauraum-Sets, Raum für Raum gedacht, für kleine Wohnungen und Mietwohnungen — Küche, Bad, Schreibtisch, Schrank und Wäsche.",
+        "text": "Stauraum-Sets, Raum für Raum gedacht, für kleine Wohnungen und Mietwohnungen, Küche, Bad, Schreibtisch, Schrank und Wäsche.",
         "cta": "Sets entdecken",
         "cta2": "9 Hacks ohne Bohren",
         "cta2Href": "GUIDE",
@@ -276,7 +276,7 @@
       "featured": {
         "id": "kitchen-reset",
         "label": "Das einfachste Set für den Start",
-        "pitch": "Der Spülbereich wird wieder nutzbar — ohne Bohren, ohne Umbau.",
+        "pitch": "Der Spülbereich wird wieder nutzbar, ohne Bohren, ohne Umbau.",
         "sub": "Ein Spülbecken-Organizer aus Aluminium und vier Saughaken: Schwamm, Bürste und Kleinteile verschwinden endlich von der Arbeitsplatte.",
         "benefits": [
           {
@@ -379,7 +379,7 @@
           "Den Raum besser nutzen."
         ],
         "text": [
-          "In einer kleinen Wohnung zählt jeder Zentimeter — und jedes zusätzliche Ding kann neues Chaos werden.",
+          "In einer kleinen Wohnung zählt jeder Zentimeter und jedes zusätzliche Ding kann neues Chaos werden.",
           "SPACE vereint einfache Lösungen, die Flächen frei machen, die Höhe nutzen und ohne Umbau auskommen."
         ],
         "principles": [
@@ -393,7 +393,7 @@
           },
           {
             "t": "Ehrlich bei den Grenzen",
-            "s": "Keine Befestigung hält auf jeder Oberfläche — das sagen wir klar."
+            "s": "Keine Befestigung hält auf jeder Oberfläche, das sagen wir klar."
           }
         ]
       },
@@ -468,7 +468,7 @@
         "cta2": "Hacks lesen"
       },
       "footer": {
-        "tagline": "Mehr Platz in kleinen Wohnungen — ohne Bohren, ohne Umbau.",
+        "tagline": "Mehr Platz in kleinen Wohnungen, ohne Bohren, ohne Umbau.",
         "rights": "Eine Marke von ALGBr.",
         "cols": [
           {
@@ -593,7 +593,7 @@
           "Sans percer."
         ],
         "signature": "More room. No renovation.",
-        "text": "Des kits de rangement pensés pièce par pièce pour les petits appartements et les locations — cuisine, salle de bain, bureau, dressing et linge.",
+        "text": "Des kits de rangement pensés pièce par pièce pour les petits appartements et les locations, cuisine, salle de bain, bureau, dressing et linge.",
         "cta": "Découvrir les kits",
         "cta2": "9 astuces sans perçage",
         "cta2Href": "GUIDE",
@@ -620,7 +620,7 @@
       "featured": {
         "id": "kitchen-reset",
         "label": "Le kit le plus simple pour commencer",
-        "pitch": "Le coin évier redevient une zone utile — sans percer, sans travaux.",
+        "pitch": "Le coin évier redevient une zone utile, sans percer, sans travaux.",
         "sub": "Un rangement d’évier en aluminium et quatre crochets ventouse : éponge, brosse et petit matériel quittent enfin le plan de travail.",
         "benefits": [
           {
@@ -723,7 +723,7 @@
           "Mieux utiliser l’espace."
         ],
         "text": [
-          "Dans un petit logement, chaque centimètre compte — et chaque objet en plus peut devenir un nouveau désordre.",
+          "Dans un petit logement, chaque centimètre compte et chaque objet en plus peut devenir un nouveau désordre.",
           "SPACE réunit des solutions simples qui libèrent les surfaces, utilisent la hauteur et se posent sans travaux."
         ],
         "principles": [
@@ -812,7 +812,7 @@
         "cta2": "Lire les astuces"
       },
       "footer": {
-        "tagline": "Plus d’espace dans les petits appartements — sans percer, sans travaux.",
+        "tagline": "Plus d’espace dans les petits appartements, sans percer, sans travaux.",
         "rights": "Une marque ALGBr.",
         "cols": [
           {
@@ -937,7 +937,7 @@
           "No drilling."
         ],
         "signature": "More room. No renovation.",
-        "text": "Storage bundles designed room by room for small apartments and rentals — kitchen, bathroom, desk, wardrobe and laundry.",
+        "text": "Storage bundles designed room by room for small apartments and rentals, kitchen, bathroom, desk, wardrobe and laundry.",
         "cta": "Discover the bundles",
         "cta2": "9 no-drill hacks",
         "cta2Href": "GUIDE",
@@ -964,7 +964,7 @@
       "featured": {
         "id": "kitchen-reset",
         "label": "The easiest bundle to start with",
-        "pitch": "The sink corner becomes usable again — no drilling, no renovation.",
+        "pitch": "The sink corner becomes usable again, no drilling, no renovation.",
         "sub": "An aluminium sink caddy and four suction hooks: sponge, brush and small tools finally leave the counter.",
         "benefits": [
           {
@@ -1067,7 +1067,7 @@
           "Better use of space."
         ],
         "text": [
-          "In a small home every centimetre counts — and every extra object can become new clutter.",
+          "In a small home every centimetre counts and every extra object can become new clutter.",
           "SPACE brings together simple solutions that clear surfaces, use height and need no renovation."
         ],
         "principles": [
@@ -1081,7 +1081,7 @@
           },
           {
             "t": "Honest about limits",
-            "s": "No mounting holds on every surface — we say so clearly."
+            "s": "No mounting holds on every surface, we say so clearly."
           }
         ]
       },
@@ -1156,7 +1156,7 @@
         "cta2": "Read the hacks"
       },
       "footer": {
-        "tagline": "More room in small apartments — no drilling, no renovation.",
+        "tagline": "More room in small apartments, no drilling, no renovation.",
         "rights": "An ALGBr brand.",
         "cols": [
           {

@@ -10,16 +10,16 @@
   },
   "seo": {
     "de": {
-      "title": "KIN — For the ones at home: Tierhaare im Griff, Pflege & Bad",
-      "description": "Tierhaar-Roller, Pflegebürsten, Handschuh, Handtuch und Bad-Zubehör für Hund und Katze — als Sets. Kostenloser Versand, 14 Tage Widerruf."
+      "title": "KIN · For the ones at home: Tierhaare im Griff, Pflege & Bad",
+      "description": "Tierhaar-Roller, Pflegebürsten, Handschuh, Handtuch und Bad-Zubehör für Hund und Katze, als Sets. Kostenloser Versand, 14 Tage Widerruf."
     },
     "fr": {
-      "title": "KIN — For the ones at home : poils maîtrisés, toilettage & bain",
-      "description": "Rouleau anti-poils, brosses de toilettage, gant, serviette et accessoires de bain pour chien et chat — en kits. Livraison offerte, 14 jours de rétractation."
+      "title": "KIN · For the ones at home : poils maîtrisés, toilettage & bain",
+      "description": "Rouleau anti-poils, brosses de toilettage, gant, serviette et accessoires de bain pour chien et chat, en kits. Livraison offerte, 14 jours de rétractation."
     },
     "en": {
-      "title": "KIN — For the ones at home: pet hair control, grooming & bath",
-      "description": "Pet hair roller, grooming brushes, mitt, towel and bath accessories for dogs and cats — in sets. Free shipping, 14-day withdrawal."
+      "title": "KIN · For the ones at home: pet hair control, grooming & bath",
+      "description": "Pet hair roller, grooming brushes, mitt, towel and bath accessories for dogs and cats, in sets. Free shipping, 14-day withdrawal."
     }
   },
   "copy": {
@@ -27,7 +27,7 @@
       "hero": {
         "eyebrow": "For the ones at home",
         "title": "Mehr Kuscheln. Weniger Haare.",
-        "lead": "Einfache Sets gegen Tierhaare auf Sofa und Kleidung — und für eine Pflege, die beide genießen.",
+        "lead": "Einfache Sets gegen Tierhaare auf Sofa und Kleidung und für eine Pflege, die beide genießen.",
         "cta": "Die Sets ansehen",
         "cta2": "Haarwechsel-Ratgeber"
       },
@@ -54,7 +54,7 @@
       "hero": {
         "eyebrow": "For the ones at home",
         "title": "Plus de câlins. Moins de poils.",
-        "lead": "Des kits simples contre les poils sur le canapé et les vêtements — et un toilettage que vous apprécierez tous les deux.",
+        "lead": "Des kits simples contre les poils sur le canapé et les vêtements et un toilettage que vous apprécierez tous les deux.",
         "cta": "Voir les kits",
         "cta2": "Guide de la mue"
       },
@@ -81,7 +81,7 @@
       "hero": {
         "eyebrow": "For the ones at home",
         "title": "More cuddles. Less hair.",
-        "lead": "Simple sets against pet hair on the sofa and your clothes — and grooming you both enjoy.",
+        "lead": "Simple sets against pet hair on the sofa and your clothes and grooming you both enjoy.",
         "cta": "See the sets",
         "cta2": "Shedding guide"
       },
@@ -182,12 +182,12 @@
       "text": {
         "de": {
           "title": "Haarwechsel im Griff: die 10-Minuten-Woche",
-          "description": "Tierhaare auf Sofa und Kleidung? Ein einfacher Wochenplan mit Bürste, Handschuh und Roller — 10 Minuten, die das Zuhause spürbar sauberer halten.",
+          "description": "Tierhaare auf Sofa und Kleidung? Ein einfacher Wochenplan mit Bürste, Handschuh und Roller: 10 Minuten, die das Zuhause spürbar sauberer halten.",
           "lead": "Haare kommen jeden Tag. Mit einem kleinen Rhythmus landen sie in der Bürste statt auf dem Sofa.",
           "items": [
             "Zwei- bis dreimal pro Woche bürsten, am besten draußen oder auf einem Handtuch.",
             "Mit der Pflegebürste in Wuchsrichtung arbeiten, ruhig und ohne Druck.",
-            "Der Pflegehandschuh ist ideal für Tiere, die Bürsten nicht mögen — wie Streicheln.",
+            "Der Pflegehandschuh ist ideal für Tiere, die Bürsten nicht mögen: fühlt sich an wie Streicheln.",
             "Nach dem Bürsten Sofa und Decken einmal mit dem Tierhaar-Roller abziehen.",
             "Kleidung vor dem Ausgehen kurz mit dem waschbaren Roller abrollen.",
             "Nach Spaziergängen bei Regen: Pfoten und Fell mit dem Mikrofaser-Handtuch trocknen.",
@@ -197,12 +197,12 @@
         },
         "fr": {
           "title": "Maîtriser la mue : la semaine en 10 minutes",
-          "description": "Des poils sur le canapé et les vêtements ? Un plan simple avec brosse, gant et rouleau — 10 minutes par semaine pour une maison nettement plus propre.",
+          "description": "Des poils sur le canapé et les vêtements ? Un plan simple avec brosse, gant et rouleau : 10 minutes par semaine pour une maison nettement plus propre.",
           "lead": "Les poils tombent tous les jours. Avec un petit rythme, ils finissent dans la brosse plutôt que sur le canapé.",
           "items": [
             "Brossez deux à trois fois par semaine, idéalement dehors ou sur une serviette.",
             "Avec la brosse de toilettage, suivez le sens du poil, calmement et sans appuyer.",
-            "Le gant de toilettage est idéal pour les animaux qui n’aiment pas la brosse — comme une caresse.",
+            "Le gant de toilettage est idéal pour les animaux qui n’aiment pas la brosse : comme une caresse.",
             "Après le brossage, passez une fois le rouleau anti-poils sur le canapé et les plaids.",
             "Avant de sortir, un passage du rouleau lavable sur les vêtements.",
             "Après une balade sous la pluie : séchez pattes et pelage avec la serviette microfibre.",
@@ -212,12 +212,12 @@
         },
         "en": {
           "title": "Shedding under control: the 10-minute week",
-          "description": "Pet hair on the sofa and your clothes? A simple weekly plan with brush, mitt and roller — 10 minutes for a noticeably cleaner home.",
+          "description": "Pet hair on the sofa and your clothes? A simple weekly plan with brush, mitt and roller: 10 minutes for a noticeably cleaner home.",
           "lead": "Hair falls every day. With a small rhythm it ends up in the brush instead of on the sofa.",
           "items": [
             "Brush two or three times a week, ideally outside or on a towel.",
             "Work with the grooming brush in the direction of the coat, calmly and without pressure.",
-            "The grooming mitt is ideal for pets who dislike brushes — it feels like stroking.",
+            "The grooming mitt is ideal for pets who dislike brushes: it feels like stroking.",
             "After brushing, run the pet hair roller once over the sofa and throws.",
             "Before going out, a quick pass of the washable roller over your clothes.",
             "After a rainy walk: dry paws and coat with the microfibre towel.",
@@ -247,7 +247,7 @@
           "Weniger Haare."
         ],
         "signature": "For the ones at home.",
-        "text": "Einfache Sets gegen Tierhaare und für eine entspannte Pflege — wiederverwendbar, sanft, leicht zu reinigen.",
+        "text": "Einfache Sets gegen Tierhaare und für eine entspannte Pflege, wiederverwendbar, sanft, leicht zu reinigen.",
         "cta": "Sets entdecken",
         "cta2": "Haarwechsel-Ratgeber",
         "micro": "Kostenloser Versand · Sichere Zahlung · 14 Tage Widerruf",
@@ -275,7 +275,7 @@
         "id": "hair-control-system",
         "label": "Das Haar-System",
         "pitch": "Roller, Bürste, Handschuh, Handtuch: Haare dort, wo sie hingehören.",
-        "sub": "Vier Teile, die zusammenarbeiten: Haare beim Tier aufnehmen, bevor sie fallen — und den Rest von Sofa und Kleidung holen.",
+        "sub": "Vier Teile, die zusammenarbeiten: Haare beim Tier aufnehmen, bevor sie fallen und den Rest von Sofa und Kleidung holen.",
         "benefits": [
           {
             "t": "Ein System, kein Gadget",
@@ -299,7 +299,7 @@
           "Ein Problem.",
           "Ein Set, das passt."
         ],
-        "text": "Sets für Haare, Pflege, Bad und unterwegs — jedes Teil auch einzeln. Pflegezubehör, keine Tierarzneimittel.",
+        "text": "Sets für Haare, Pflege, Bad und unterwegs, jedes Teil auch einzeln. Pflegezubehör, keine Tierarzneimittel.",
         "groups": [
           {
             "key": "fur",
@@ -590,7 +590,7 @@
           "Moins de poils."
         ],
         "signature": "For the ones at home.",
-        "text": "Des kits simples contre les poils et pour un toilettage détendu — réutilisables, doux, faciles à nettoyer.",
+        "text": "Des kits simples contre les poils et pour un toilettage détendu, réutilisables, doux, faciles à nettoyer.",
         "cta": "Découvrir les kits",
         "cta2": "Guide de la mue",
         "micro": "Livraison offerte · Paiement sécurisé · 14 jours de rétractation",
@@ -618,7 +618,7 @@
         "id": "hair-control-system",
         "label": "Le système anti-poils",
         "pitch": "Rouleau, brosse, gant, serviette : les poils là où ils doivent être.",
-        "sub": "Quatre pièces qui travaillent ensemble : récupérer les poils sur l’animal avant qu’ils tombent — et ôter le reste du canapé et des vêtements.",
+        "sub": "Quatre pièces qui travaillent ensemble : récupérer les poils sur l’animal avant qu’ils tombent et ôter le reste du canapé et des vêtements.",
         "benefits": [
           {
             "t": "Un système, pas un gadget",
@@ -642,7 +642,7 @@
           "Un problème.",
           "Un kit qui va avec."
         ],
-        "text": "Des kits pour les poils, le toilettage, le bain et les sorties — chaque pièce aussi à l’unité. Accessoires de toilettage, pas des médicaments vétérinaires.",
+        "text": "Des kits pour les poils, le toilettage, le bain et les sorties, chaque pièce aussi à l’unité. Accessoires de toilettage, pas des médicaments vétérinaires.",
         "groups": [
           {
             "key": "fur",
@@ -933,7 +933,7 @@
           "Less hair."
         ],
         "signature": "For the ones at home.",
-        "text": "Simple sets against pet hair and for relaxed grooming — reusable, gentle, easy to clean.",
+        "text": "Simple sets against pet hair and for relaxed grooming, reusable, gentle, easy to clean.",
         "cta": "Discover the sets",
         "cta2": "Shedding guide",
         "micro": "Free shipping · Secure payment · 14-day withdrawal",
@@ -961,7 +961,7 @@
         "id": "hair-control-system",
         "label": "The hair system",
         "pitch": "Roller, brush, mitt, towel: hair where it belongs.",
-        "sub": "Four pieces that work together: catch hair on your pet before it falls — and lift the rest off the sofa and your clothes.",
+        "sub": "Four pieces that work together: catch hair on your pet before it falls and lift the rest off the sofa and your clothes.",
         "benefits": [
           {
             "t": "A system, not a gadget",
@@ -985,7 +985,7 @@
           "One problem.",
           "One set that fits."
         ],
-        "text": "Sets for hair, grooming, bath and outings — every piece also sold on its own. Grooming accessories, not veterinary medicines.",
+        "text": "Sets for hair, grooming, bath and outings, every piece also sold on its own. Grooming accessories, not veterinary medicines.",
         "groups": [
           {
             "key": "fur",

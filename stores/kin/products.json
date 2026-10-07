@@ -474,7 +474,7 @@
     "text": {
       "de": {
         "tagline": "Pflege, die sich wie Streicheln anfühlt.",
-        "description": "Pflegehandschuh mit weichen Noppen: nimmt lose Haare beim Streicheln auf — ideal für Tiere, die keine Bürste mögen.",
+        "description": "Pflegehandschuh mit weichen Noppen: nimmt lose Haare beim Streicheln auf, ideal für Tiere, die keine Bürste mögen.",
         "bullets": [
           "Weiche Gumminoppen",
           "Für Hund und Katze",
@@ -483,7 +483,7 @@
       },
       "fr": {
         "tagline": "Un toilettage qui ressemble à une caresse.",
-        "description": "Gant de toilettage à picots souples : récupère les poils morts en caressant — idéal pour les animaux qui n’aiment pas la brosse.",
+        "description": "Gant de toilettage à picots souples : récupère les poils morts en caressant, idéal pour les animaux qui n’aiment pas la brosse.",
         "bullets": [
           "Picots souples",
           "Pour chien et chat",
@@ -492,7 +492,7 @@
       },
       "en": {
         "tagline": "Grooming that feels like stroking.",
-        "description": "Grooming mitt with soft nubs: picks up loose hair while you stroke — ideal for pets who dislike brushes.",
+        "description": "Grooming mitt with soft nubs: picks up loose hair while you stroke, ideal for pets who dislike brushes.",
         "bullets": [
           "Soft rubber nubs",
           "For dogs and cats",
@@ -503,15 +503,15 @@
     "seo": {
       "de": {
         "title": "Fellpflege Handschuh Hund Katze",
-        "description": "Pflegehandschuh mit weichen Noppen: nimmt lose Haare beim Streicheln auf — ideal für Tiere, die keine Bürste mögen."
+        "description": "Pflegehandschuh mit weichen Noppen: nimmt lose Haare beim Streicheln auf, ideal für Tiere, die keine Bürste mögen."
       },
       "fr": {
         "title": "Gant de toilettage chien chat",
-        "description": "Gant de toilettage à picots souples : récupère les poils morts en caressant — idéal pour les animaux qui n’aiment pas la brosse."
+        "description": "Gant de toilettage à picots souples : récupère les poils morts en caressant, idéal pour les animaux qui n’aiment pas la brosse."
       },
       "en": {
         "title": "Pet grooming glove",
-        "description": "Grooming mitt with soft nubs: picks up loose hair while you stroke — ideal for pets who dislike brushes."
+        "description": "Grooming mitt with soft nubs: picks up loose hair while you stroke, ideal for pets who dislike brushes."
       }
     },
     "components": [

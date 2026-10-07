@@ -232,7 +232,7 @@ ${
     ];
     write(
       `${lang}/index.html`,
-      layout({ lang, depth: 1, title: seo?.title || `${SITE.brand} — ${u.hero.title}`, description: seo?.description || SITE.tagline[lang], body, page: 'home', alternates: 'index.html', jsonLd }),
+      layout({ lang, depth: 1, title: seo?.title || `${SITE.brand} · ${u.hero.title}`, description: seo?.description || SITE.tagline[lang], body, page: 'home', alternates: 'index.html', jsonLd }),
     );
   }
 
@@ -264,7 +264,7 @@ ${
       <p class="price big"><b>${money(p.price, lang)}</b>${was(p, lang)}</p>
       <p>${esc(rich.lead || x.description)}</p>
       <ul class="bullets">${benefits.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
-      <button class="btn btn-dark btn-lg btn-block" type="button" data-add="${p.id}" data-go-cart>${esc(t.products.add)} — ${money(p.price, lang)}</button>
+      <button class="btn btn-dark btn-lg btn-block" type="button" data-add="${p.id}" data-go-cart>${esc(t.products.add)} · ${money(p.price, lang)}</button>
       ${x.caution ? `<p class="muted small center">${esc(x.caution)}</p>` : ''}
       <ul class="reassure-x">${up_.trust.map((s) => `<li>${esc(fill(s))}</li>`).join('')}</ul>
       ${parts && !p.single ? `<h2 class="small-title">${esc(t.product.includes)}</h2><ul class="includes">${parts.map((c) => `<li><b>${c.qty} ×</b> ${esc(c.label?.[lang] || c.name)}</li>`).join('')}</ul>` : ''}
@@ -304,7 +304,7 @@ ${
 <section class="section soft"><div class="wrap narrow"><header class="head-x"><h2>${esc(up_.faqTitle)}</h2></header>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(fill(a))}</p></details>`).join('')}</div></section>
 <section class="final-cta small-cta"><div class="wrap center">
   <h2>${esc(rich.final || up_.finalTitle)}</h2>
-  <p class="price big"><b>${esc(p.name)} — ${money(p.price, lang)}</b></p>
+  <p class="price big"><b>${esc(p.name)} · ${money(p.price, lang)}</b></p>
   <button class="btn btn-light btn-lg" type="button" data-add="${p.id}" data-go-cart>${esc(t.products.add)}</button>
   <p class="micro">${esc(up_.finalMicro)}</p>
 </div></section>
@@ -354,7 +354,7 @@ ${
       layout({
         lang,
         depth: 2,
-        title: seo ? `${seo.title} | ${SITE.brand}` : `${p.name} — ${SITE.brand}`,
+        title: seo ? `${seo.title} | ${SITE.brand}` : `${p.name} | ${SITE.brand}`,
         description: seo?.description || x.tagline,
         body,
         page: 'product',

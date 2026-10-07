@@ -278,7 +278,7 @@
     "text": {
       "de": {
         "tagline": "Glatt, kühl, angenehm.",
-        "description": "Kissenbezug aus glattem Polyester-Satin mit Hotelverschluss — angenehm auf Haut und Haaren.",
+        "description": "Kissenbezug aus glattem Polyester-Satin mit Hotelverschluss, angenehm auf Haut und Haaren.",
         "bullets": [
           "Glatter Polyester-Satin",
           "Hotelverschluss, kein Reißverschluss",
@@ -287,7 +287,7 @@
       },
       "fr": {
         "tagline": "Lisse, frais, agréable.",
-        "description": "Taie en satin de polyester lisse, fermeture portefeuille — agréable pour la peau et les cheveux.",
+        "description": "Taie en satin de polyester lisse, fermeture portefeuille, agréable pour la peau et les cheveux.",
         "bullets": [
           "Satin de polyester lisse",
           "Fermeture portefeuille, sans zip",
@@ -296,7 +296,7 @@
       },
       "en": {
         "tagline": "Smooth, cool, pleasant.",
-        "description": "Smooth polyester satin pillowcase with envelope closure — pleasant on skin and hair.",
+        "description": "Smooth polyester satin pillowcase with envelope closure, pleasant on skin and hair.",
         "bullets": [
           "Smooth polyester satin",
           "Envelope closure, no zip",
@@ -307,15 +307,15 @@
     "seo": {
       "de": {
         "title": "Satin Kissenbezug glatt",
-        "description": "Kissenbezug aus glattem Polyester-Satin mit Hotelverschluss — angenehm auf Haut und Haaren."
+        "description": "Kissenbezug aus glattem Polyester-Satin mit Hotelverschluss, angenehm auf Haut und Haaren."
       },
       "fr": {
         "title": "Taie d’oreiller en satin",
-        "description": "Taie en satin de polyester lisse, fermeture portefeuille — agréable pour la peau et les cheveux."
+        "description": "Taie en satin de polyester lisse, fermeture portefeuille, agréable pour la peau et les cheveux."
       },
       "en": {
         "title": "Satin pillowcase",
-        "description": "Smooth polyester satin pillowcase with envelope closure — pleasant on skin and hair."
+        "description": "Smooth polyester satin pillowcase with envelope closure, pleasant on skin and hair."
       }
     },
     "components": [
@@ -530,7 +530,7 @@
     "text": {
       "de": {
         "tagline": "Vier Teile, ein Abend.",
-        "description": "Satin-Set mit Schlafmaske, Kissenbezug und Haargummis — das kleine Komplettpaket für die Nacht.",
+        "description": "Satin-Set mit Schlafmaske, Kissenbezug und Haargummis, das kleine Komplettpaket für die Nacht.",
         "bullets": [
           "Schlafmaske, Kissenbezug, Haargummis",
           "Abgestimmte Farben",
@@ -539,7 +539,7 @@
       },
       "fr": {
         "tagline": "Quatre pièces, une soirée.",
-        "description": "Set satin avec masque de nuit, taie et chouchous — le petit ensemble complet pour la nuit.",
+        "description": "Set satin avec masque de nuit, taie et chouchous, le petit ensemble complet pour la nuit.",
         "bullets": [
           "Masque, taie, chouchous",
           "Couleurs assorties",
@@ -548,7 +548,7 @@
       },
       "en": {
         "tagline": "Four pieces, one evening.",
-        "description": "Satin set with sleep mask, pillowcase and scrunchies — the small complete set for the night.",
+        "description": "Satin set with sleep mask, pillowcase and scrunchies, the small complete set for the night.",
         "bullets": [
           "Sleep mask, pillowcase, scrunchies",
           "Matching colours",
@@ -559,15 +559,15 @@
     "seo": {
       "de": {
         "title": "Satin Schlaf-Set mit Schlafmaske",
-        "description": "Satin-Set mit Schlafmaske, Kissenbezug und Haargummis — das kleine Komplettpaket für die Nacht."
+        "description": "Satin-Set mit Schlafmaske, Kissenbezug und Haargummis, das kleine Komplettpaket für die Nacht."
       },
       "fr": {
         "title": "Set de nuit satin avec masque",
-        "description": "Set satin avec masque de nuit, taie et chouchous — le petit ensemble complet pour la nuit."
+        "description": "Set satin avec masque de nuit, taie et chouchous, le petit ensemble complet pour la nuit."
       },
       "en": {
         "title": "Satin sleep set with eye mask",
-        "description": "Satin set with sleep mask, pillowcase and scrunchies — the small complete set for the night."
+        "description": "Satin set with sleep mask, pillowcase and scrunchies, the small complete set for the night."
       }
     },
     "components": [

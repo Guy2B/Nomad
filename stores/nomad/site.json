@@ -10,15 +10,15 @@
   },
   "seo": {
     "de": {
-      "title": "GO — Reisezubehör & Handgepäck-Organizer | Pack less. Go more.",
+      "title": "GO · Reisezubehör & Handgepäck-Organizer | Pack less. Go more.",
       "description": "Handgepäck clever packen: Vakuum-Rucksack, Packwürfel mit Kompression, Kulturbeutel zum Aufhängen, Handyhalterung fürs Flugzeug und Schmuckrolle. Kostenloser Versand."
     },
     "fr": {
-      "title": "GO — Accessoires de voyage et organisateurs cabine | Pack less. Go more.",
+      "title": "GO · Accessoires de voyage et organisateurs cabine | Pack less. Go more.",
       "description": "Voyager léger en bagage cabine : sac à dos sous vide, cubes de rangement compressibles, trousse de toilette à suspendre, support téléphone avion, pochette à bijoux. Livraison offerte."
     },
     "en": {
-      "title": "GO — Travel accessories & carry-on organisers | Pack less. Go more.",
+      "title": "GO · Travel accessories & carry-on organisers | Pack less. Go more.",
       "description": "Pack smarter for carry-on travel: vacuum backpack, compression packing cubes, hanging toiletry bag, airplane phone holder and jewellery roll. Free shipping."
     }
   },
@@ -64,8 +64,8 @@
       "text": {
         "de": {
           "title": "Handgepäck richtig packen: 9 Tipps für mehr Platz",
-          "description": "Nur mit Handgepäck reisen: Packliste, Rolltechnik, Packwürfel mit Kompression und Flüssigkeiten-Regel — einfach erklärt.",
-          "lead": "Nur mit Handgepäck reisen spart Zeit, Geld und Nerven. So passt mehr hinein — ohne Chaos.",
+          "description": "Nur mit Handgepäck reisen: Packliste, Rolltechnik, Packwürfel mit Kompression und Flüssigkeiten-Regel, einfach erklärt.",
+          "lead": "Nur mit Handgepäck reisen spart Zeit, Geld und Nerven. So passt mehr hinein, ohne Chaos.",
           "items": [
             "Packliste schreiben: drei Oberteile pro Woche reichen, wenn alles kombinierbar ist.",
             "Kleidung rollen statt falten: weniger Falten, weniger Volumen.",
@@ -73,14 +73,14 @@
             "Schwere Teile (Schuhe, Laptop) unten und nah am Rücken packen.",
             "Flüssigkeiten: max. 100 ml pro Behälter, alles in einem 1-Liter-Beutel.",
             "Einen Kulturbeutel zum Aufhängen wählen: im Hotelbad ist sofort alles griffbereit.",
-            "Schmuck und Kabel separat in einer Rolle oder Tasche — nichts verheddert sich.",
+            "Schmuck und Kabel separat in einer Rolle oder Tasche: nichts verheddert sich.",
             "Die schwerste Kleidung und die Jacke im Flugzeug tragen.",
             "Gewicht und Maße Ihrer Airline vor dem Packen prüfen."
           ]
         },
         "fr": {
           "title": "Bien faire son bagage cabine : 9 astuces pour gagner de la place",
-          "description": "Voyager en bagage cabine uniquement : liste, technique du roulé, cubes de rangement compressibles, règle des liquides — expliqués simplement.",
+          "description": "Voyager en bagage cabine uniquement : liste, technique du roulé, cubes de rangement compressibles, règle des liquides, expliqués simplement.",
           "lead": "Voyager avec un seul bagage cabine fait gagner du temps, de l'argent et des nerfs. Voici comment tout faire tenir, sans chaos.",
           "items": [
             "Faites une liste : trois hauts par semaine suffisent si tout se combine.",
@@ -96,8 +96,8 @@
         },
         "en": {
           "title": "How to pack a carry-on: 9 tips for more space",
-          "description": "Travel with hand luggage only: packing list, rolling technique, compression packing cubes and the liquids rule — explained simply.",
-          "lead": "Travelling carry-on only saves time, money and nerves. Here is how to fit more in — without the chaos.",
+          "description": "Travel with hand luggage only: packing list, rolling technique, compression packing cubes and the liquids rule, explained simply.",
+          "lead": "Travelling carry-on only saves time, money and nerves. Here is how to fit more in, without the chaos.",
           "items": [
             "Write a packing list: three tops per week are enough when everything matches.",
             "Roll clothes instead of folding: fewer creases, less volume.",
@@ -105,7 +105,7 @@
             "Pack heavy items (shoes, laptop) at the bottom, close to your back.",
             "Liquids: 100 ml max per container, all in one 1-litre bag.",
             "Choose a hanging toiletry bag: everything within reach in the hotel bathroom.",
-            "Keep jewellery and cables separate in a roll or pouch — nothing tangles.",
+            "Keep jewellery and cables separate in a roll or pouch: nothing tangles.",
             "Wear your heaviest clothes and jacket on the plane.",
             "Check your airline's weight and size limits before packing."
           ]
@@ -151,7 +151,7 @@
           "Gardez l’essentiel."
         ],
         "signature": "Pack less. Go more.",
-        "text": "Des accessoires utiles pour mieux organiser, transporter et profiter de vos voyages — sans remplir votre valise de gadgets.",
+        "text": "Des accessoires utiles pour mieux organiser, transporter et profiter de vos voyages, sans remplir votre valise de gadgets.",
         "cta": "Découvrir la collection",
         "cta2": "Préparer mon bagage cabine",
         "cta2Href": "GUIDE",
@@ -488,7 +488,7 @@
           "Das Wesentliche dabei."
         ],
         "signature": "Pack less. Go more.",
-        "text": "Nützliche Begleiter, um auf Reisen besser zu packen, zu tragen und mehr davon zu haben — ohne den Koffer mit Gadgets zu füllen.",
+        "text": "Nützliche Begleiter, um auf Reisen besser zu packen, zu tragen und mehr davon zu haben, ohne den Koffer mit Gadgets zu füllen.",
         "cta": "Kollektion entdecken",
         "cta2": "Handgepäck richtig packen",
         "cta2Href": "GUIDE",
@@ -515,7 +515,7 @@
       "featured": {
         "id": "vacuum-backpack",
         "label": "Das GO-Essential",
-        "pitch": "Der Handgepäck-Rucksack, in den mehr hineinpasst — ohne dass die Reise zum Umzug wird.",
+        "pitch": "Der Handgepäck-Rucksack, in den mehr hineinpasst, ohne dass die Reise zum Umzug wird.",
         "sub": "Kofferöffnung, separates Laptopfach und ein komprimierbarer Bereich, damit Kleidung geordnet bleibt.",
         "benefits": [
           {
@@ -788,7 +788,7 @@
         "idealTitle": "Ein Begleiter, viele Arten zu reisen.",
         "detailsTitle": "Details",
         "whyTitle": "Warum es bei GO ist",
-        "whyDefault": "Wir haben es ausgewählt, weil es ein konkretes Reiseproblem einfach löst — ohne die Tasche zu füllen.",
+        "whyDefault": "Wir haben es ausgewählt, weil es ein konkretes Reiseproblem einfach löst, ohne die Tasche zu füllen.",
         "crossTitle": "Ihr Reise-Setup vervollständigen",
         "addAll": "Alle in den Warenkorb",
         "faqTitle": "Häufige Fragen",
@@ -825,7 +825,7 @@
           "Keep what matters."
         ],
         "signature": "Pack less. Go more.",
-        "text": "Useful accessories to pack, carry and enjoy your trips better — without filling your suitcase with gadgets.",
+        "text": "Useful accessories to pack, carry and enjoy your trips better, without filling your suitcase with gadgets.",
         "cta": "Discover the collection",
         "cta2": "Prepare my carry-on",
         "cta2Href": "GUIDE",
@@ -852,7 +852,7 @@
       "featured": {
         "id": "vacuum-backpack",
         "label": "The GO essential",
-        "pitch": "The carry-on backpack built to fit more — without turning your trip into a house move.",
+        "pitch": "The carry-on backpack built to fit more, without turning your trip into a house move.",
         "sub": "A suitcase-style opening, a separate laptop compartment and a compressible section to keep clothes organised.",
         "benefits": [
           {

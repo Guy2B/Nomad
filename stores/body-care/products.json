@@ -17,7 +17,7 @@
         "tagline": "Auch deine Füße haben Feierabend.",
         "description": "Eine kleine Routine unter dem Schreibtisch oder nach der Arbeit: rollen, Zehen bewegen, kurz abschalten.",
         "bullets": [
-          "Beide Füße gleichzeitig rollen — in der Pause oder nach Feierabend",
+          "Beide Füße gleichzeitig rollen, in der Pause oder nach Feierabend",
           "Weiche Zehentrenner aus Silikon für eine ruhige Routine",
           "Kompakt, passt unter jeden Schreibtisch",
           "Rein manuell: kein Akku, keine App"
@@ -41,7 +41,7 @@
         "tagline": "Your feet need an end-of-day routine too.",
         "description": "A small under-desk or after-work ritual: roll, move the toes and change how the day feels.",
         "bullets": [
-          "Roll both feet at once — on a break or after work",
+          "Roll both feet at once, on a break or after work",
           "Soft silicone toe separators for a calm routine",
           "Compact enough for under any desk",
           "Fully manual: no battery, no app"
@@ -705,15 +705,15 @@
     "costCents": 6006,
     "seo": {
       "de": {
-        "title": "Wellness Geschenkset Homeoffice — 6 Teile",
+        "title": "Wellness Geschenkset Homeoffice · 6 Teile",
         "description": "Das komplette Set: Fußroller, Zehentrenner, Nackenroller, Handballenauflage, Handtrainer und Stretchband. Ideal als Geschenk für Homeoffice-Menschen."
       },
       "fr": {
-        "title": "Coffret bien-être télétravail — 6 accessoires",
+        "title": "Coffret bien-être télétravail · 6 accessoires",
         "description": "Le kit complet : rouleau pieds, séparateurs d’orteils, rouleau nuque, repose-poignet, grip et bande élastique. Idée cadeau pour télétravailleurs."
       },
       "en": {
-        "title": "Home office wellness gift set — 6 pieces",
+        "title": "Home office wellness gift set · 6 pieces",
         "description": "The complete set: foot roller, toe separators, neck roller, wrist rest, hand grip and stretch band. A gift idea for home-office people."
       }
     },
@@ -823,7 +823,7 @@
     "text": {
       "de": {
         "tagline": "Weiches Silikon für eine ruhige Pause.",
-        "description": "Weiche Zehentrenner aus Silikon im Paar: waschbar, wiederverwendbar — für Yoga, Feierabend oder Pediküre.",
+        "description": "Weiche Zehentrenner aus Silikon im Paar: waschbar, wiederverwendbar, für Yoga, Feierabend oder Pediküre.",
         "bullets": [
           "Zehentrenner aus weichem Silikon (Paar)",
           "Waschbar und wiederverwendbar",
@@ -852,7 +852,7 @@
     "seo": {
       "de": {
         "title": "Zehentrenner Silikon",
-        "description": "Weiche Zehentrenner aus Silikon im Paar: waschbar, wiederverwendbar — für Yoga, Feierabend oder Pediküre."
+        "description": "Weiche Zehentrenner aus Silikon im Paar: waschbar, wiederverwendbar, für Yoga, Feierabend oder Pediküre."
       },
       "fr": {
         "title": "Séparateurs d’orteils silicone",
@@ -908,7 +908,7 @@
     "text": {
       "de": {
         "tagline": "Weicher tippen, den ganzen Tag.",
-        "description": "Ergonomische Handballenauflage für die Tastatur aus Memory-Schaum, rutschfest — für Homeoffice und Gaming.",
+        "description": "Ergonomische Handballenauflage für die Tastatur aus Memory-Schaum, rutschfest, für Homeoffice und Gaming.",
         "bullets": [
           "Handballenauflage aus Memory-Schaum",
           "Rutschfeste Unterseite",
@@ -926,7 +926,7 @@
       },
       "en": {
         "tagline": "Type softer, all day.",
-        "description": "Ergonomic memory foam keyboard wrist rest with non-slip base — for home office and gaming.",
+        "description": "Ergonomic memory foam keyboard wrist rest with non-slip base, for home office and gaming.",
         "bullets": [
           "Memory foam wrist rest",
           "Non-slip base",
@@ -937,7 +937,7 @@
     "seo": {
       "de": {
         "title": "Handballenauflage Tastatur Memory Foam",
-        "description": "Ergonomische Handballenauflage für die Tastatur aus Memory-Schaum, rutschfest — für Homeoffice und Gaming."
+        "description": "Ergonomische Handballenauflage für die Tastatur aus Memory-Schaum, rutschfest, für Homeoffice und Gaming."
       },
       "fr": {
         "title": "Repose-poignet clavier mousse mémoire",
@@ -945,7 +945,7 @@
       },
       "en": {
         "title": "Memory foam keyboard wrist rest",
-        "description": "Ergonomic memory foam keyboard wrist rest with non-slip base — for home office and gaming."
+        "description": "Ergonomic memory foam keyboard wrist rest with non-slip base, for home office and gaming."
       }
     },
     "components": [
@@ -1079,7 +1079,7 @@
     "text": {
       "de": {
         "tagline": "Du bestimmst den Druck.",
-        "description": "Manueller Nacken- und Schulterroller mit 6 Rollen: den Druck bestimmen Sie selbst — ohne Akku, ohne App.",
+        "description": "Manueller Nacken- und Schulterroller mit 6 Rollen: den Druck bestimmen Sie selbst, ohne Akku, ohne App.",
         "bullets": [
           "Manueller Roller mit 6 Rollen",
           "Für Nacken und Schultern",
@@ -1097,7 +1097,7 @@
       },
       "en": {
         "tagline": "You control the pressure.",
-        "description": "Manual 6-wheel neck and shoulder roller: you control the pressure — no battery, no app.",
+        "description": "Manual 6-wheel neck and shoulder roller: you control the pressure, no battery, no app.",
         "bullets": [
           "Manual 6-wheel roller",
           "For neck and shoulders",
@@ -1108,7 +1108,7 @@
     "seo": {
       "de": {
         "title": "Nackenmassage Roller manuell 6 Rollen",
-        "description": "Manueller Nacken- und Schulterroller mit 6 Rollen: den Druck bestimmen Sie selbst — ohne Akku, ohne App."
+        "description": "Manueller Nacken- und Schulterroller mit 6 Rollen: den Druck bestimmen Sie selbst, ohne Akku, ohne App."
       },
       "fr": {
         "title": "Rouleau massage nuque manuel 6 roues",
@@ -1116,7 +1116,7 @@
       },
       "en": {
         "title": "Manual 6-wheel neck massage roller",
-        "description": "Manual 6-wheel neck and shoulder roller: you control the pressure — no battery, no app."
+        "description": "Manual 6-wheel neck and shoulder roller: you control the pressure, no battery, no app."
       }
     },
     "components": [
@@ -1254,7 +1254,7 @@
       "de": {
         "badge": "Dein Platz am Boden",
         "tagline": "Matte ausrollen, zehn Minuten, fertig.",
-        "description": "NBR-Matte, Yoga-Block und Stretch-Gurt: alles für eine ruhige Routine am Boden — günstiger als einzeln.",
+        "description": "NBR-Matte, Yoga-Block und Stretch-Gurt: alles für eine ruhige Routine am Boden, günstiger als einzeln.",
         "bullets": [
           "Dicke NBR-Matte mit Tragegurt",
           "EVA-Block für mehr Halt",
@@ -1264,7 +1264,7 @@
       "fr": {
         "badge": "Votre coin au sol",
         "tagline": "Dérouler le tapis, dix minutes, terminé.",
-        "description": "Tapis NBR, brique et sangle : tout pour une routine calme au sol — moins cher qu’à l’unité.",
+        "description": "Tapis NBR, brique et sangle : tout pour une routine calme au sol, moins cher qu’à l’unité.",
         "bullets": [
           "Tapis NBR épais avec sangle",
           "Brique EVA pour plus de stabilité",
@@ -1274,7 +1274,7 @@
       "en": {
         "badge": "Your spot on the floor",
         "tagline": "Roll out the mat, ten minutes, done.",
-        "description": "NBR mat, yoga block and stretch strap: all you need for a calm floor routine — cheaper than separately.",
+        "description": "NBR mat, yoga block and stretch strap: all you need for a calm floor routine, cheaper than separately.",
         "bullets": [
           "Thick NBR mat with carry strap",
           "EVA block for more support",
@@ -1285,7 +1285,7 @@
     "seo": {
       "de": {
         "title": "Yoga Set: Matte, Block & Gurt",
-        "description": "Yoga- und Stretching-Set mit dicker NBR-Matte, EVA-Block und Gurt mit Schlaufen — für 10 Minuten Bewegung am Tag zu Hause."
+        "description": "Yoga- und Stretching-Set mit dicker NBR-Matte, EVA-Block und Gurt mit Schlaufen, für 10 Minuten Bewegung am Tag zu Hause."
       },
       "fr": {
         "title": "Kit yoga : tapis, brique et sangle",
@@ -1293,7 +1293,7 @@
       },
       "en": {
         "title": "Yoga set: mat, block & strap",
-        "description": "Yoga and stretching set with a thick NBR mat, EVA block and looped strap — 10 minutes of movement a day at home."
+        "description": "Yoga and stretching set with a thick NBR mat, EVA block and looped strap, 10 minutes of movement a day at home."
       }
     },
     "components": [
@@ -1450,15 +1450,15 @@
     },
     "seo": {
       "de": {
-        "title": "Rückenstrecker zum Dehnen — 3 Stufen",
+        "title": "Rückenstrecker zum Dehnen · 3 Stufen",
         "description": "Gewölbter Rückenstrecker mit 3 Höhenstufen für eine entspannte Dehnpause auf dem Boden nach langen Bürotagen. Allgemeines Wellness-Accessoire."
       },
       "fr": {
-        "title": "Étireur de dos en arc — 3 niveaux",
+        "title": "Étireur de dos en arc · 3 niveaux",
         "description": "Étireur de dos en arc à 3 hauteurs pour une pause étirement au sol après les longues journées de bureau. Accessoire de bien-être général."
       },
       "en": {
-        "title": "Back stretcher — 3 levels",
+        "title": "Back stretcher · 3 levels",
         "description": "Arched back stretcher with 3 heights for a relaxing floor stretch after long office days. General wellness accessory."
       }
     },
@@ -1518,7 +1518,7 @@
     "text": {
       "de": {
         "tagline": "Weich genug für jeden Boden.",
-        "description": "Dicke NBR-Yogamatte mit Tragegurt: weich, rutschfest und leicht — für Yoga, Stretching und Mobility zu Hause.",
+        "description": "Dicke NBR-Yogamatte mit Tragegurt: weich, rutschfest und leicht, für Yoga, Stretching und Mobility zu Hause.",
         "bullets": [
           "Dickes NBR, weich unter Knien und Rücken",
           "Mit Tragegurt zum Mitnehmen",
@@ -1536,7 +1536,7 @@
       },
       "en": {
         "tagline": "Soft enough for any floor.",
-        "description": "Thick NBR yoga mat with carry strap: soft, non-slip and light — for yoga, stretching and mobility at home.",
+        "description": "Thick NBR yoga mat with carry strap: soft, non-slip and light, for yoga, stretching and mobility at home.",
         "bullets": [
           "Thick NBR, soft under knees and back",
           "With carry strap",
@@ -1547,7 +1547,7 @@
     "seo": {
       "de": {
         "title": "Yogamatte NBR dick mit Tragegurt",
-        "description": "Dicke NBR-Yogamatte mit Tragegurt: weich, rutschfest und leicht — für Yoga, Stretching und Mobility zu Hause."
+        "description": "Dicke NBR-Yogamatte mit Tragegurt: weich, rutschfest und leicht, für Yoga, Stretching und Mobility zu Hause."
       },
       "fr": {
         "title": "Tapis de yoga NBR épais avec sangle",
@@ -1555,7 +1555,7 @@
       },
       "en": {
         "title": "Thick NBR yoga mat with carry strap",
-        "description": "Thick NBR yoga mat with carry strap: soft, non-slip and light — for yoga, stretching and mobility at home."
+        "description": "Thick NBR yoga mat with carry strap: soft, non-slip and light, for yoga, stretching and mobility at home."
       }
     },
     "single": true,
@@ -1616,7 +1616,7 @@
     "text": {
       "de": {
         "tagline": "Weiter dehnen, ohne zu ziehen.",
-        "description": "Yoga-Gurt mit mehreren Schlaufen: Beine, Schultern und Rücken entspannt dehnen — leicht und überall dabei.",
+        "description": "Yoga-Gurt mit mehreren Schlaufen: Beine, Schultern und Rücken entspannt dehnen, leicht und überall dabei.",
         "bullets": [
           "Gurt mit Schlaufen für jede Länge",
           "Für Beine, Schultern und Rücken",
@@ -1634,7 +1634,7 @@
       },
       "en": {
         "tagline": "Stretch further, without forcing.",
-        "description": "Yoga strap with several loops: stretch legs, shoulders and back gently — light and always with you.",
+        "description": "Yoga strap with several loops: stretch legs, shoulders and back gently, light and always with you.",
         "bullets": [
           "Strap with loops for any length",
           "For legs, shoulders and back",
@@ -1644,8 +1644,8 @@
     },
     "seo": {
       "de": {
-        "title": "Yoga Gurt mit Schlaufen — Stretching Band",
-        "description": "Yoga-Gurt mit mehreren Schlaufen: Beine, Schultern und Rücken entspannt dehnen — leicht und überall dabei."
+        "title": "Yoga Gurt mit Schlaufen · Stretching Band",
+        "description": "Yoga-Gurt mit mehreren Schlaufen: Beine, Schultern und Rücken entspannt dehnen, leicht und überall dabei."
       },
       "fr": {
         "title": "Sangle de yoga à boucles",
@@ -1653,7 +1653,7 @@
       },
       "en": {
         "title": "Yoga strap with loops",
-        "description": "Yoga strap with several loops: stretch legs, shoulders and back gently — light and always with you."
+        "description": "Yoga strap with several loops: stretch legs, shoulders and back gently, light and always with you."
       }
     },
     "single": true,
@@ -1838,7 +1838,7 @@
     },
     "seo": {
       "de": {
-        "title": "Massage Kegel Silikon — Triggerpunkt Massagehilfe",
+        "title": "Massage Kegel Silikon · Triggerpunkt Massagehilfe",
         "description": "Massage-Kegel aus festem Silikon für Schultern, Rücken und Füße: gezielte Selbstmassage an der Wand oder auf dem Boden, ohne Akku."
       },
       "fr": {
@@ -1908,7 +1908,7 @@
     "text": {
       "de": {
         "tagline": "Rollen statt sitzen.",
-        "description": "Faszienrollen-Set mit 3 Teilen für Rücken, Beine und Füße: fester Schaum, leicht zu reinigen — für Aufwärmen und Feierabend.",
+        "description": "Faszienrollen-Set mit 3 Teilen für Rücken, Beine und Füße: fester Schaum, leicht zu reinigen, für Aufwärmen und Feierabend.",
         "bullets": [
           "3-teiliges Set für Rücken, Beine und Füße",
           "Fester Schaum, leicht zu reinigen",
@@ -1926,7 +1926,7 @@
       },
       "en": {
         "tagline": "Roll instead of sit.",
-        "description": "3-piece foam roller set for back, legs and feet: firm, easy-clean foam — for warm-ups and after work.",
+        "description": "3-piece foam roller set for back, legs and feet: firm, easy-clean foam, for warm-ups and after work.",
         "bullets": [
           "3-piece set for back, legs and feet",
           "Firm foam, easy to clean",
@@ -1937,7 +1937,7 @@
     "seo": {
       "de": {
         "title": "Faszienrolle Set 3 in 1",
-        "description": "Faszienrollen-Set mit 3 Teilen für Rücken, Beine und Füße: fester Schaum, leicht zu reinigen — für Aufwärmen und Feierabend."
+        "description": "Faszienrollen-Set mit 3 Teilen für Rücken, Beine und Füße: fester Schaum, leicht zu reinigen, für Aufwärmen und Feierabend."
       },
       "fr": {
         "title": "Kit rouleau de massage 3 en 1",
@@ -1945,7 +1945,7 @@
       },
       "en": {
         "title": "Foam roller set 3-in-1",
-        "description": "3-piece foam roller set for back, legs and feet: firm, easy-clean foam — for warm-ups and after work."
+        "description": "3-piece foam roller set for back, legs and feet: firm, easy-clean foam, for warm-ups and after work."
       }
     },
     "single": true,
@@ -2006,7 +2006,7 @@
     "text": {
       "de": {
         "tagline": "Ein Block mehr Halt.",
-        "description": "Yoga-Block aus EVA-Schaum mit hoher Dichte: leicht, rutschfest und griffig — für Yoga, Stretching und Mobility.",
+        "description": "Yoga-Block aus EVA-Schaum mit hoher Dichte: leicht, rutschfest und griffig, für Yoga, Stretching und Mobility.",
         "bullets": [
           "EVA-Schaum mit hoher Dichte",
           "Leicht, rutschfest, griffig",
@@ -2024,7 +2024,7 @@
       },
       "en": {
         "tagline": "One block more support.",
-        "description": "High-density EVA foam yoga block: light, non-slip and grippy — for yoga, stretching and mobility.",
+        "description": "High-density EVA foam yoga block: light, non-slip and grippy, for yoga, stretching and mobility.",
         "bullets": [
           "High-density EVA foam",
           "Light, non-slip, good grip",
@@ -2035,7 +2035,7 @@
     "seo": {
       "de": {
         "title": "Yoga Block EVA rutschfest",
-        "description": "Yoga-Block aus EVA-Schaum mit hoher Dichte: leicht, rutschfest und griffig — für Yoga, Stretching und Mobility."
+        "description": "Yoga-Block aus EVA-Schaum mit hoher Dichte: leicht, rutschfest und griffig, für Yoga, Stretching und Mobility."
       },
       "fr": {
         "title": "Brique de yoga EVA antidérapante",
@@ -2043,7 +2043,7 @@
       },
       "en": {
         "title": "Non-slip EVA yoga block",
-        "description": "High-density EVA foam yoga block: light, non-slip and grippy — for yoga, stretching and mobility."
+        "description": "High-density EVA foam yoga block: light, non-slip and grippy, for yoga, stretching and mobility."
       }
     },
     "single": true,
