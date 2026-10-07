@@ -51,7 +51,7 @@
     var s = d.stores.filter(function (x) {
       return x.id === id;
     })[0];
-    return s ? s.brand : id;
+    return s ? s.brand : id === 'off' ? 'OFF.' : id;
   }
 
   function renderTabs(d) {
