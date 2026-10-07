@@ -3,6 +3,7 @@
  *   GET  /api/admin            → stores, setup, overview (all stores and per store), orders
  *   POST /api/admin {action:'retry', sessionId}      → send to the supplier again
  *   POST /api/admin {action:'resolve', sessionId}    → clear the attention flag (done by hand)
+ *   POST /api/admin {action:'ship', sessionId, trackNumber, carrier} → mark shipped by hand, tracking for the customer
  *   POST /api/admin {action:'auditSupply', cursor, kind} → next batch of the CJ stock & delivery audit (kind 'alternatives': same products stocked in Germany)
  */
 import crypto from 'node:crypto';
@@ -72,6 +73,8 @@ export default async (req) => {
             vid: c.supplier.cjVid || '',
             url: c.supplier.url,
             sourcing: c.supplier.sourcing ?? null,
+            logisticName: c.supplier.logisticName || null,
+            shippingDays: c.supplier.shippingDays || null,
           })),
         })),
       };
@@ -95,7 +98,7 @@ export default async (req) => {
     });
   }
   if (req.method === 'POST') {
-    const { action, sessionId, reviewId, cursor, kind } = await req.json().catch(() => ({}));
+    const { action, sessionId, reviewId, cursor, kind, trackNumber, carrier } = await req.json().catch(() => ({}));
     if (action === 'auditSupply') {
       if (!cjConfigured()) return json(400, { error: 'cj-not-configured' });
       return json(200, await auditBatch(store, Math.max(0, Number(cursor) || 0), kind === 'alternatives' ? 'alternatives' : 'stock'));
@@ -106,7 +109,20 @@ export default async (req) => {
     }
     const order = sessionId ? await getOrder(store, sessionId) : null;
     if (!order) return json(404, { error: 'not-found' });
+    // Own stock (OFF.): never re-run fulfilment, it would take the piece out of stock twice.
+    if (action === 'retry' && order.store === 'off') return json(400, { error: 'own-stock' });
     if (action === 'retry') return json(200, await fulfill(store, { ...order, attention: null }));
+    if (action === 'ship') {
+      // Shipped by hand (own stock or ordered manually): tracking shown to the customer.
+      const { saveOrder } = await import('../lib/store.mjs');
+      order.status = 'shipped';
+      order.attention = null;
+      order.supplier.trackNumber = String(trackNumber || '').trim().slice(0, 60) || order.supplier.trackNumber || null;
+      order.supplier.logisticName = String(carrier || '').trim().slice(0, 40) || order.supplier.logisticName || null;
+      order.history.push({ at: new Date().toISOString(), event: `shipped by hand${order.supplier.trackNumber ? ` · ${order.supplier.trackNumber}` : ''}` });
+      await saveOrder(store, order);
+      return json(200, order);
+    }
     if (action === 'resolve') {
       order.attention = null;
       if (order.status === 'needs_attention') order.status = 'supplier_ordered';
