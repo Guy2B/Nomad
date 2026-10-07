@@ -141,7 +141,7 @@ function guidePage(g, lang) {
 function simplePage(lang, file, page, title, inner, noindex = false) {
   write(
     `${lang}/${file}`,
-    layout({ lang, depth: 1, title: `${title} — ${SITE.brand}`, description: SITE.tagline[lang], body: inner, page, alternates: file, noindex }),
+    layout({ lang, depth: 1, title: `${title} · ${SITE.brand}`, description: SITE.tagline[lang], body: inner, page, alternates: file, noindex }),
   );
 }
 
