@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 
 process.env.NOMAD_MEMORY_STORE = '1';
 const { agingDays, altItems, auditItems, auditOne, findAlternatives, bestQuotes, originsFor, pickVariant, stockByCountry, verdictOf } = await import(
-  '../netlify/lib/supply.mjs'
+  '../engine/lib/supply.mjs'
 );
 
 test('audit list: every active catalogue product once per CJ product, plus the GLOW/KIN prospects', () => {

@@ -1,6 +1,6 @@
 # ALGBr shared backend on Cloudflare Workers: /api/* for every store + the
 # /admin/ dashboard (static assets from dist/), hourly CJ sync (cron).
-# Kept in cloudflare/ so the storefront Pages builds (repo root) ignore it.
+# Kept in backend/ so the storefront Pages builds (repo root) ignore it.
 # Build + deploy: npm run deploy:api.
 # Secrets (ADMIN_PASSWORD, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, CJ_API_KEY,
 # optional CJ_AUTO_PAY, NTFY_TOPIC) are set in the Cloudflare dashboard, never here.

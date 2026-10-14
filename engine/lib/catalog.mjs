@@ -3,21 +3,22 @@
  * server is the only authority on prices: the browser sends a store id, product
  * ids and quantities, never amounts.
  *
- * A store = stores/<id>/site.json + stores/<id>/products.json. A product is
+ * A store = shops/<folder>/site.json + products.json (folder go = store id nomad,
+ * space = appart-reset, ease = body-care: ids are kept, orders refer to them). A product is
  * either one supplier item (`supplier`) or a bundle of several (`components`).
- * Adding a store = a folder in stores/ + one line below (static imports, so the
+ * Adding a store = a folder in shops/ + one line below (static imports, so the
  * catalogues are bundled into the functions).
  */
-import nomadSite from '../../stores/nomad/site.json' with { type: 'json' };
-import nomadProducts from '../../stores/nomad/products.json' with { type: 'json' };
-import appartSite from '../../stores/appart-reset/site.json' with { type: 'json' };
-import appartProducts from '../../stores/appart-reset/products.json' with { type: 'json' };
-import bodySite from '../../stores/body-care/site.json' with { type: 'json' };
-import bodyProducts from '../../stores/body-care/products.json' with { type: 'json' };
-import glowSite from '../../stores/glow/site.json' with { type: 'json' };
-import glowProducts from '../../stores/glow/products.json' with { type: 'json' };
-import kinSite from '../../stores/kin/site.json' with { type: 'json' };
-import kinProducts from '../../stores/kin/products.json' with { type: 'json' };
+import nomadSite from '../../shops/go/site.json' with { type: 'json' };
+import nomadProducts from '../../shops/go/products.json' with { type: 'json' };
+import appartSite from '../../shops/space/site.json' with { type: 'json' };
+import appartProducts from '../../shops/space/products.json' with { type: 'json' };
+import bodySite from '../../shops/ease/site.json' with { type: 'json' };
+import bodyProducts from '../../shops/ease/products.json' with { type: 'json' };
+import glowSite from '../../shops/glow/site.json' with { type: 'json' };
+import glowProducts from '../../shops/glow/products.json' with { type: 'json' };
+import kinSite from '../../shops/kin/site.json' with { type: 'json' };
+import kinProducts from '../../shops/kin/products.json' with { type: 'json' };
 
 /** The first store is the host: it serves the API and the admin for all of them. */
 const DEFINITIONS = [

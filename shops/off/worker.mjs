@@ -6,7 +6,7 @@
  * (api.algbr.eu). Static files: /assets/*, /admin/*.
  */
 import { legalPages } from '../../scripts/legal.mjs';
-import platform from '../../stores/platform.json' with { type: 'json' };
+import platform from '../../shared/platform.json' with { type: 'json' };
 import { T, LANGS, CONDITION, money } from './i18n.mjs';
 
 const SITE = {

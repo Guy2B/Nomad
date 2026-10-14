@@ -1,7 +1,7 @@
 /**
  * Premium storefront templates: page layout (header, NEXT banner, footer),
  * product cards, editorial home page and benefit-led product page.
- * All copy comes from stores/<id>/site.json → ui.<lang> (and optional
+ * All copy comes from shops/<shop>/site.json → ui.<lang> (and optional
  * products.json → rich.<lang>), so every brand shares one design system.
  */
 export function createTemplates(ctx) {

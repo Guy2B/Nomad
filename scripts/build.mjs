@@ -2,11 +2,11 @@
 /**
  * Generates one storefront of the Nomad platform in dist/:
  *   node scripts/build.mjs [store]        (default: the host store, "nomad")
- * from stores/<store>/site.json + products.json + assets/:
+ * from shops/<shop>/site.json + products.json + assets/:
  *   /<lang>/index.html, /<lang>/produkt/<id>.html, /<lang>/ratgeber/<slug>.html,
  *   warenkorb, danke, bestellung, legal pages, sitemap, robots, _headers.
  * Every storefront is static (Cloudflare Pages) and calls the shared API
- * (stores/platform.json → api) cross-origin. The backend itself is built with
+ * (shared/platform.json → api) cross-origin. The backend itself is built with
  *   node scripts/build.mjs backend   → dist/ = /admin/ only (Netlify, with the functions).
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -18,16 +18,19 @@ import { createTemplates } from './premium.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const dist = join(root, 'dist');
-const STORE = process.argv[2] || process.env.STORE || 'nomad';
+// Shop folder (go, space, ease, glow, kin) or its store id (nomad, appart-reset, body-care).
+const FOLDER = { nomad: 'go', 'appart-reset': 'space', 'body-care': 'ease' };
+const STORE = process.argv[2] || process.env.STORE || 'go';
+const SHOP = FOLDER[STORE] ?? STORE;
 const readJson = (f) => JSON.parse(readFileSync(f, 'utf8'));
-const API = readJson(join(root, 'stores', 'platform.json')).api.replace(/\/$/, '');
+const API = readJson(join(root, 'shared', 'platform.json')).api.replace(/\/$/, '');
 
 if (STORE === 'backend') {
-  // Shared backend: the admin dashboard (the API itself lives in netlify/functions).
+  // Shared backend: the admin dashboard (the API itself lives in engine/functions, served by backend/).
   rmSync(dist, { recursive: true, force: true });
   cpSync(join(root, 'public', 'admin'), join(dist, 'admin'), { recursive: true });
   for (const f of ['style.css', 'algbr.svg']) cpSync(join(root, 'public', 'assets', f), join(dist, 'assets', f));
-  cpSync(join(root, 'stores', 'nomad', 'assets', 'favicon.svg'), join(dist, 'assets', 'favicon.svg'));
+  cpSync(join(root, 'shops', 'go', 'assets', 'favicon.svg'), join(dist, 'assets', 'favicon.svg'));
   writeFileSync(join(dist, 'index.html'), '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/admin/"><title>ALGBr</title>');
   writeFileSync(join(dist, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
   writeFileSync(
@@ -49,8 +52,8 @@ if (STORE === 'backend') {
   process.exit(0);
 }
 
-const storeDir = join(root, 'stores', STORE);
-if (!existsSync(join(storeDir, 'site.json'))) throw new Error(`Unknown store "${STORE}" (no stores/${STORE}/site.json)`);
+const storeDir = join(root, 'shops', SHOP);
+if (!existsSync(join(storeDir, 'site.json'))) throw new Error(`Unknown shop "${STORE}" (no shops/${SHOP}/site.json)`);
 const PRODUCTS = readJson(join(storeDir, 'products.json'));
 const SITE = readJson(join(storeDir, 'site.json'));
 const ACTIVE = PRODUCTS.filter((p) => p.active);
@@ -103,7 +106,7 @@ function write(path, html) {
 /** Relative prefix from a page to the site root (pages live at /<lang>/ or /<lang>/<folder>/). */
 const up = (depth) => '../'.repeat(depth);
 
-const NEXT_AD = readJson(join(root, 'stores', 'platform.json')).next;
+const NEXT_AD = readJson(join(root, 'shared', 'platform.json')).next;
 const { layout, card, home, productPage } = createTemplates({ SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, shopDataTag: (l) => shopDataTag(l), BASE, pub, esc, money, fill, ldJson, write, up });
 
 function guidePage(g, lang) {

@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 
 process.env.NOMAD_MEMORY_STORE = '1';
-const { priceCart, decodeCart, encodeCart, orderNumber, store, allowedOrigins } = await import('../netlify/lib/catalog.mjs');
-const { sessionPayload, verifySignature, formEncode } = await import('../netlify/lib/stripe.mjs');
-const { orderPayload, unmapped } = await import('../netlify/lib/cj.mjs');
-const { processPaidSession } = await import('../netlify/lib/orders.mjs');
-const { crm, listOrders, resetMemoryStore } = await import('../netlify/lib/store.mjs');
-const { default: checkout } = await import('../netlify/functions/checkout.mjs');
+const { priceCart, decodeCart, encodeCart, orderNumber, store, allowedOrigins } = await import('../engine/lib/catalog.mjs');
+const { sessionPayload, verifySignature, formEncode } = await import('../engine/lib/stripe.mjs');
+const { orderPayload, unmapped } = await import('../engine/lib/cj.mjs');
+const { processPaidSession } = await import('../engine/lib/orders.mjs');
+const { crm, listOrders, resetMemoryStore } = await import('../engine/lib/store.mjs');
+const { default: checkout } = await import('../engine/functions/checkout.mjs');
 
 const realFetch = globalThis.fetch;
 let calls = [];
@@ -261,7 +261,7 @@ test('secondary .de domains are allowed origins too', () => {
 });
 
 test('anonymous funnel: only our storefronts count, events add up, rates computed', async () => {
-  const { parseEvent, recordEvent, funnel } = await import('../netlify/lib/metrics.mjs');
+  const { parseEvent, recordEvent, funnel } = await import('../engine/lib/metrics.mjs');
   const blobs = crm();
   assert.equal(parseEvent('{"store":"nomad","type":"view"}', 'https://evil.example'), null);
   assert.equal(parseEvent('{"store":"nomad","type":"hack"}', 'https://go.algbr.eu'), null);
@@ -283,8 +283,8 @@ test('anonymous funnel: only our storefronts count, events add up, rates compute
 });
 
 test('reviews: only buyers of the product, once, moderated, private data never published', async () => {
-  const { submitReview, moderate, publicReviews, pendingReviews, displayName } = await import('../netlify/lib/reviews.mjs');
-  const { saveOrder } = await import('../netlify/lib/store.mjs');
+  const { submitReview, moderate, publicReviews, pendingReviews, displayName } = await import('../engine/lib/reviews.mjs');
+  const { saveOrder } = await import('../engine/lib/store.mjs');
   const blobs = crm();
   await saveOrder(blobs, { sessionId: 'cs_r1', number: 'GO-261002-REV1', store: 'nomad', createdAt: new Date().toISOString(), status: 'delivered', items: [{ id: 'packing-cubes', qty: 1 }], customer: { email: 'lea@example.com', name: 'Léa Muster' }, totalCents: 2990, supplier: {}, history: [] });
   const base = { order: 'go-261002-rev1', email: 'Lea@Example.com', product: 'packing-cubes', rating: 5, text: 'Tout rentre enfin dans ma valise.', consent: true };

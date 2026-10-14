@@ -5,17 +5,17 @@
   "type": "module",
   "description": "ALGBr \u2014 multi-store dropshipping platform: storefront, Stripe checkout & invoices, CRM, automatic supplier orders (CJdropshipping). by Al.G.B.r.",
   "scripts": {
-    "build:go": "node scripts/build.mjs nomad",
-    "build:space": "node scripts/build.mjs appart-reset",
-    "build:ease": "node scripts/build.mjs body-care",
+    "build:go": "node scripts/build.mjs go",
+    "build:space": "node scripts/build.mjs space",
+    "build:ease": "node scripts/build.mjs ease",
     "images": "node scripts/optimize-images.mjs",
     "test": "node --test tests/flow.test.mjs tests/supply.test.mjs tests/off.test.mjs tests/radar.test.mjs",
     "build:api": "node scripts/build.mjs backend",
-    "deploy:api": "npm run build:api && cd cloudflare && npx wrangler deploy",
+    "deploy:api": "npm run build:api && cd backend && npx wrangler deploy",
     "build:glow": "node scripts/build.mjs glow",
     "build:kin": "node scripts/build.mjs kin",
-    "deploy:glow": "npm run build:glow && npx wrangler deploy --config cloudflare/stores/glow.toml",
-    "deploy:kin": "npm run build:kin && npx wrangler deploy --config cloudflare/stores/kin.toml",
+    "deploy:glow": "npm run build:glow && npx wrangler deploy --config shops/glow/wrangler.toml",
+    "deploy:kin": "npm run build:kin && npx wrangler deploy --config shops/kin/wrangler.toml",
     "deploy:off": "node scripts/deploy-off.mjs"
   },
   "devDependencies": {

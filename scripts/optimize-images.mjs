@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
  * Product photos → WebP (max 1400 px, quality 80), next to the originals, which
- * are then removed. Run after adding new photos to stores/<store>/assets/products/.
+ * are then removed. Run after adding new photos to shops/<shop>/assets/products/.
  */
 import { existsSync, readdirSync, rmSync, statSync } from 'node:fs';
 import { extname, join, resolve } from 'node:path';
 import sharp from 'sharp';
 
-const stores = resolve(import.meta.dirname, '..', 'stores');
+const stores = resolve(import.meta.dirname, '..', 'shops');
 const dirs = readdirSync(stores).map((s) => join(stores, s, 'assets', 'products')).filter(existsSync);
 for (const dir of dirs) for (const file of readdirSync(dir)) {
   const ext = extname(file).toLowerCase();

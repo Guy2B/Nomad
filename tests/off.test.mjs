@@ -2,9 +2,9 @@ import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 
 process.env.NOMAD_MEMORY_STORE = '1';
-const { OffError, productFromInput, offSessionPayload, offItems, useOff, checkout, createRequest } = await import('../netlify/lib/off.mjs');
-const { processPaidSession } = await import('../netlify/lib/orders.mjs');
-const { crm, resetMemoryStore } = await import('../netlify/lib/store.mjs');
+const { OffError, productFromInput, offSessionPayload, offItems, useOff, checkout, createRequest } = await import('../engine/lib/off.mjs');
+const { processPaidSession } = await import('../engine/lib/orders.mjs');
+const { crm, resetMemoryStore } = await import('../engine/lib/store.mjs');
 
 /** Minimal D1 double: records SQL and returns scripted results. */
 function fakeDb(script = {}) {

@@ -10,8 +10,8 @@
  */
 import { allStores, supplierLines } from './catalog.mjs';
 import { CJError, accessToken } from './cj.mjs';
-import prospects from '../../stores/prospects.json' with { type: 'json' };
-import keywords from '../../stores/alt-keywords.json' with { type: 'json' };
+import prospects from '../../shared/prospects.json' with { type: 'json' };
+import keywords from '../../shared/alt-keywords.json' with { type: 'json' };
 
 const API = 'https://developers.cjdropshipping.com/api2.0/v1';
 const KEY = 'audit/supply';
@@ -151,7 +151,7 @@ export async function auditOne(item, token) {
   };
 }
 
-/** Same product stocked in Germany: CJ search per keyword (stores/alt-keywords.json), plus products still to source. */
+/** Same product stocked in Germany: CJ search per keyword (shared/alt-keywords.json), plus products still to source. */
 export function altItems() {
   const items = auditItems()
     .filter((i) => keywords.byPid[i.pid])

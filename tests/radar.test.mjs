@@ -2,8 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 process.env.NOMAD_MEMORY_STORE = '1';
-const { slimRadar, slimPulse, setFollow, followedMarkets } = await import('../netlify/lib/radar.mjs');
-const { crm } = await import('../netlify/lib/store.mjs');
+const { slimRadar, slimPulse, setFollow, followedMarkets } = await import('../engine/lib/radar.mjs');
+const { crm } = await import('../engine/lib/store.mjs');
 
 test('radar snapshot carries the market pulse, bounded and with nulls kept', () => {
   const pulse = {

@@ -1,98 +1,95 @@
-# Nomad — plateforme dropshipping multi-boutiques « zéro action » · by Al.G.B.r.
+# ALGBr Shops — les 6 boutiques, un seul moteur · by Al.G.B.r.
 
-**Un seul backend, un seul dashboard, plusieurs marques.** Aujourd'hui :
-
-| Partie | Dossier | Hébergement | Rôle |
-|---|---|---|---|
-| **GO** · go.algbr.eu | `stores/nomad/` | Cloudflare Pages (build `node scripts/build.mjs nomad`, sortie `dist`) | boutique statique |
-| **SPACE** · space.algbr.eu | `stores/appart-reset/` | Cloudflare Pages (build `node scripts/build.mjs appart-reset`) | boutique statique |
-| **EASE** · ease.algbr.eu | `stores/body-care/` | Cloudflare Pages (build `node scripts/build.mjs body-care`) | boutique statique |
-| **Backend** · api.algbr.eu | `netlify/`, `public/admin/` | Netlify (build `node scripts/build.mjs backend`) | API commune (paiement, webhook Stripe, suivi, CJ) + dashboard `/admin/` |
-
-Les boutiques appellent l'API définie dans `stores/platform.json`. Netlify facture des crédits par déploiement : il ne reconstruit le backend que si l'API, le dashboard ou un catalogue change (règle `ignore` de `netlify.toml`). Les domaines `.de` sont redirigés vers les `.eu` chez Porkbun.
-
-Ajouter une marque : copier un dossier `stores/<id>/` (site.json, products.json, assets/), l'ajouter dans `netlify/lib/catalog.mjs`, puis un projet Cloudflare Pages (build `node scripts/build.mjs <id>`, sortie `dist`) et ajouter son domaine dans `site.json` (baseUrl, utilisé aussi pour autoriser l’API). Les commandes de toutes les marques arrivent dans le même CRM et le même admin (filtre par boutique), avec leur propre préfixe de commande (GO-…, SP-…, EA-…).
-
-Un produit peut être un **kit** (`components`) : à la commande, chaque élément part chez CJ avec sa quantité (ex. Laundry Reset = 1 séchoir + 1 sac + 4 crochets).
-
-**SEO** : titres et descriptions Google par produit et par langue (`seo` dans products.json / site.json), données structurées Product/FAQ/HowTo, hreflang, canonical, sitemap, et un guide par boutique (`guides`). Le site reste en `noindex` tant que `"launched": true` n'est pas mis dans site.json (après les pages légales).
-
-Le client commande → Stripe encaisse **et envoie la facture** → le CRM enregistre le client et la commande → la commande part **automatiquement chez CJdropshipping** avec l'adresse de livraison → CJ expédie et vous facture dans votre compte CJ → le numéro de suivi remonte tout seul. Vous recevez une notification sur le téléphone à chaque commande ; vous n'intervenez que si une commande est marquée **« Action requise »**.
+**Un dépôt, six dossiers de boutique identiques, un moteur commun** (panier, paiement Stripe,
+commande CJ automatique, pages légales, CRM et dashboard). Une correction du moteur vaut
+pour les six boutiques.
 
 ```
-Client ──► Boutique (Netlify) ──► Stripe Checkout ──► paiement + facture client (e-mail, PDF)
-                                        │
-                                        ▼ webhook
-                          CRM (Netlify Blobs) : client + commande
-                                        │
-                                        ▼
-                    CJdropshipping createOrderV2 (adresse, produits)
-                    payé depuis votre solde CJ si CJ_AUTO_PAY=true
-                    → facture fournisseur dans votre compte CJ
-                                        │
-                     toutes les heures : statut + numéro de suivi
-                                        ▼
-                  Page « Suivre ma commande » · Admin · notification ntfy
+shops/                 ← une boutique = un dossier, même architecture partout
+  go/      GO     · go.algbr.eu      voyage
+  space/   SPACE  · space.algbr.eu   rangement
+  ease/    EASE   · ease.algbr.eu    bien-être
+  glow/    GLOW   · glow.algbr.eu    beauté
+  kin/     KIN    · kin.algbr.eu     animaux
+  off/     OFF.   · off.algbr.eu     outlet (votre propre stock)
+shared/                données communes : adresse de l'API, prospects et mots-clés du sourcing
+engine/                le moteur : functions/ (API) + lib/ (prix, Stripe, CJ, CRM, Radar)
+backend/               le serveur api.algbr.eu (Cloudflare Worker) qui fait tourner engine/
+public/                gabarits communs : style et script des boutiques, dashboard /admin/
+scripts/               construction (build.mjs), pages légales, images, publication d'OFF.
+tests/                 npm test : prix, paiement, commande CJ, OFF., Radar
+docs/                  checklist légale
 ```
 
-## Structure
+## Une boutique (GO, SPACE, EASE, GLOW, KIN)
 
-| Dossier | Rôle |
+| Fichier | Contenu |
 |---|---|
-| `stores/<id>/products.json` | **Le catalogue d'une marque** : prix, textes FR/DE/EN, SEO, photos, correspondance fournisseur CJ (produit simple ou kit). |
-| `stores/<id>/site.json` | Marque, préfixe de commande, SEO, textes propres, guide, livraison, facture (§ 19 UStG), **vos coordonnées légales**. |
-| `stores/<id>/assets/` | Photos, favicon, `theme.css` (couleurs de la marque). |
-| `scripts/build.mjs <store>` | Génère une boutique dans `dist/` (3 langues, pages produit, panier, suivi, pages légales). |
-| `netlify/functions/` | `checkout` (Stripe), `stripe-webhook` (CRM + commande CJ), `track` (suivi client), `admin`, `cj-sync` (toutes les heures). |
-| `netlify/lib/` | Logique partagée (prix, Stripe, CJ, CRM, notifications). |
-| `public/` | Style, script de la boutique, admin, photos produits. |
-| `tests/` | `npm test` : prix, facture, signature Stripe, commande CJ, idempotence. |
+| `shops/<boutique>/products.json` | **Le catalogue** : prix, textes FR/DE/EN, SEO, photos, produit CJ (simple ou kit). |
+| `shops/<boutique>/site.json` | Marque, textes de la page d'accueil, FAQ, livraison, coordonnées légales, `"launched"`. |
+| `shops/<boutique>/assets/` | Photos (`products/`), logo, favicon, `theme.css` (couleurs de la marque). |
+| `shops/<boutique>/README.md` | Adresse, hébergement, comment modifier et publier cette boutique. |
 
-## Mise en route (une seule fois)
+OFF. est différent : ses paires, prix et photos sont dans la base de données et se gèrent sur
+**off.algbr.eu/admin** (aussi depuis le téléphone). Le dossier `shops/off/` contient seulement la
+mise en page du site (voir `shops/off/README.md`).
 
-### 1. Stripe — paiement et facture client
-1. Compte Stripe activé (vérification d'identité, IBAN).
-2. **Paramètres → Facturation → Factures** : nom, adresse, e-mail, et la mention *Kleinunternehmer* (déjà ajoutée automatiquement en pied de facture par la boutique).
-3. **Paramètres → E-mails clients** : activer « Paiements réussis » et l'envoi des factures.
-4. **Développeurs → Webhooks → Ajouter un endpoint** : `https://api.algbr.eu/api/stripe/webhook`, événements `checkout.session.completed` et `checkout.session.async_payment_succeeded`. Copier le **secret de signature** (`whsec_…`).
-5. Copier la **clé secrète** (`sk_live_…`, ou `sk_test_…` pour tester).
+Les noms internes des boutiques restent `nomad` (GO), `appart-reset` (SPACE) et `body-care`
+(EASE) : les commandes et les clients déjà enregistrés y font référence. Les dossiers portent
+le nom de la marque ; `node scripts/build.mjs` accepte les deux.
 
-### 2. CJdropshipping — commande fournisseur automatique
-1. Compte CJ → **Paramètres → API** → générer la **clé API** (format `CJ…@api@…`).
-2. Pour chaque produit : commander un **échantillon**, choisir la variante exacte, puis renseigner `cjVid` (ID de variante) dans `stores/<id>/products.json` (pour un kit : chaque élément de `components`). Le `cjSku` est déjà rempli et suffit en attendant.
-3. Vérifier le mode de livraison (`logisticName`, par défaut « CJPacket Ordinary ») et privilégier un **entrepôt UE** quand il existe (`fromCountryCode`).
-4. Approvisionner le **solde CJ**, puis mettre `CJ_AUTO_PAY=true` : les commandes fournisseur sont alors payées automatiquement. Sans cela, elles sont créées et il faut les payer à la main dans CJ (la boutique vous le signale).
+## Où tout est hébergé
 
-### 3. Variables Netlify (Site → Configuration → Environment variables)
-| Variable | Valeur |
-|---|---|
-| `STRIPE_SECRET_KEY` | clé secrète Stripe |
-| `STRIPE_WEBHOOK_SECRET` | `whsec_…` |
-| `CJ_API_KEY` | clé API CJ |
-| `CJ_AUTO_PAY` | `true` quand le solde CJ est approvisionné |
-| `CJ_IOSS_TYPE` | `3` = IOSS de CJ (le client ne paie pas de TVA à l'import) — à valider, voir la checklist |
-| `ADMIN_PASSWORD` | mot de passe de l'admin (12 caractères minimum) |
-| `NTFY_TOPIC` | sujet ntfy pour les notifications (peut être le même que pour Σ ou un nouveau) |
+| Partie | Hébergement | Publication |
+|---|---|---|
+| GO, SPACE, EASE | Cloudflare Pages (go-algbr, space-algbr, ease-algbr) | automatique à chaque envoi sur GitHub (`main`) |
+| GLOW, KIN | Cloudflare Workers (glow-algbr, kin-algbr) | `npm run deploy:glow` · `npm run deploy:kin` |
+| OFF. | Cloudflare Worker off-algbr | `npm run deploy:off` |
+| API + dashboard (api.algbr.eu) | Cloudflare Worker api-algbr, base D1 `algbr-crm` | `npm run deploy:api` |
 
-**Ces valeurs sont des secrets : saisissez-les vous-même dans Netlify, jamais dans le code.**
+Les domaines `.de` redirigent vers les `.eu` (Porkbun). Les secrets (Stripe, CJ, mot de passe
+admin, RADAR_KEY) sont saisis dans le tableau de bord Cloudflare du Worker api-algbr, jamais
+dans le code.
 
-### 4. Vos informations légales
-Compléter `stores/<id>/site.json` → `company` (pour chaque marque) (nom, adresse, e-mail), puis `npm run build`. Les pages Impressum, Datenschutz, AGB, Widerruf et Versand sont générées à partir de là. **À faire relire** (voir `docs/LEGAL-CHECKLIST.md`).
+## Le parcours d'une commande
 
-## Au quotidien
-- **Admin** : `https://api.algbr.eu/admin/` — chiffre d'affaires, marge estimée, clients, commandes, check-list de configuration, bouton « Renvoyer au fournisseur » ou « Traité à la main » sur les commandes en « Action requise ».
-- **Notifications** : une notification par commande, prioritaire si une action est requise.
-- **Factures** : clients → Stripe (Paiements / Factures) ; fournisseur → compte CJ (Commandes / Factures).
+```
+Client ──► Boutique ──► Stripe Checkout ──► paiement + facture client
+                              │ webhook
+                              ▼
+                 CRM (D1) : client + commande
+                              │
+                              ▼
+          CJdropshipping (adresse, produits), payé depuis le solde CJ si CJ_AUTO_PAY=true
+                              │ toutes les heures : statut + numéro de suivi
+                              ▼
+          « Suivre ma commande » · dashboard · notification ntfy
+```
+Une commande test (Stripe en mode test) n'est jamais envoyée à CJ. Les commandes OFF. ne
+partent pas chez CJ : elles sont à expédier soi-même (Hermes).
 
-## Ajouter un produit
-1. Ajouter l'entrée dans `stores/<id>/products.json` (copier un produit existant).
-2. Déposer les photos dans `stores/<id>/assets/products/` puis `npm run images` (conversion WebP).
-3. `npm test && npm run build`, puis pousser : Netlify republie.
+## Modifier une boutique
+
+1. Modifier `shops/<boutique>/products.json`, `site.json` ou une image dans `assets/`.
+   Nouvelles photos : les déposer dans `assets/products/` puis `npm run images` (WebP).
+2. `npm test`, puis aperçu local : `node scripts/build.mjs <boutique>` (résultat dans `dist/`).
+3. Valider (« commit ») et envoyer (« push ») avec GitHub Desktop.
+   GO, SPACE et EASE se republient seules ; GLOW, KIN et OFF. avec leur commande `deploy`.
+
+## Ajouter une boutique
+
+Copier un dossier de `shops/` (site.json, products.json, assets/, README.md), l'ajouter dans
+`engine/lib/catalog.mjs`, créer son hébergement (Worker comme GLOW : copier
+`shops/glow/wrangler.toml`), et mettre son domaine dans `site.json` (baseUrl, sert aussi à
+autoriser l'API). Les commandes arrivent dans le même CRM et le même dashboard.
 
 ## Développement
+
 ```bash
 npm install
-npm test          # tests du flux de commande
-npm run build     # génère dist/
-npx netlify dev   # boutique + fonctions en local
+npm test                       # tests du moteur
+node scripts/build.mjs go      # construit une boutique dans dist/
+npm run deploy:api             # publie l'API et le dashboard
 ```
+
+Légal : `docs/LEGAL-CHECKLIST.md` (pages générées depuis `site.json` → `company`, à faire relire).

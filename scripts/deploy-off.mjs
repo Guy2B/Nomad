@@ -5,6 +5,6 @@ import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
 const h = createHash('sha256');
-for (const f of ['off.css', 'off.js']) h.update(readFileSync(new URL(`../cloudflare/off/public/assets/${f}`, import.meta.url)));
+for (const f of ['off.css', 'off.js']) h.update(readFileSync(new URL(`../shops/off/public/assets/${f}`, import.meta.url)));
 const v = h.digest('hex').slice(0, 10);
-execFileSync('npx', ['wrangler', 'deploy', '--config', 'cloudflare/off/wrangler.toml', '--var', `ASSET_V:${v}`], { stdio: 'inherit', shell: true });
+execFileSync('npx', ['wrangler', 'deploy', '--config', 'shops/off/wrangler.toml', '--var', `ASSET_V:${v}`], { stdio: 'inherit', shell: true });

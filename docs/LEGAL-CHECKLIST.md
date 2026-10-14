@@ -10,7 +10,7 @@ Ce n'est pas un conseil juridique : à valider avec un **Steuerberater** et, pou
 | 4 | **LUCID (VerpackG)** | Obligatoire avant de vendre des produits emballés à des particuliers en Allemagne, et adhésion à un système dual (licence d'emballage). Valable aussi en dropshipping. | ☐ |
 | 5 | **GPSR (règlement UE 2023/988)** | Pour chaque produit : opérateur économique responsable **dans l'UE**, informations de sécurité, coordonnées du fabricant sur la fiche. À obtenir de CJ / du fabricant. | ☐ |
 | 6 | **Steam Mini (appareil électrique)** | Marquage CE, déclaration de conformité, prise UE, et **enregistrement ElektroG (stiftung ear / WEEE)** avant toute vente. Le produit est **désactivé** (`"active": false`) tant que ce n'est pas fait. | ☐ |
-| 7 | **Impressum, Datenschutz, AGB, Widerruf** | Pages générées avec vos coordonnées (`stores/<id>/site.json`). Les modèles sont une base : à faire relire. Compléter l'adresse de retour dans la page Widerruf. | ☐ |
+| 7 | **Impressum, Datenschutz, AGB, Widerruf** | Pages générées avec vos coordonnées (`shops/<boutique>/site.json`). Les modèles sont une base : à faire relire. Compléter l'adresse de retour dans la page Widerruf. | ☐ |
 | 8 | **Bouton de commande** | Stripe affiche « Payer » ; vérifier que la mention « zahlungspflichtig bestellen » est respectée (Stripe Checkout en allemand l'affiche). | ☐ |
 | 9 | **Photos produit** | Photos issues des fiches CJ : CJ autorise leur usage par ses dropshippers, mais vérifier les droits et remplacer par vos propres photos après réception des échantillons. | ☐ |
 | 10 | **Prix barrés** | Un prix barré doit correspondre à un prix réellement pratiqué (règle des 30 jours, PAngV § 11). À défaut, retirer `compare` du catalogue. | ☐ |
