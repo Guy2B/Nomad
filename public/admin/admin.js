@@ -96,6 +96,7 @@
       .then(function (d) {
         radar = d;
         renderRadar();
+        renderPulse();
         renderTodo();
       })
       .catch(function () {
@@ -243,6 +244,7 @@
     renderCatalog();
     renderAudit();
     renderRadar();
+    renderPulse();
     renderSetup();
     $('updated').textContent = 'Mis à jour ' + loadedAt.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
   }
@@ -863,6 +865,416 @@
       tbody.append(tr);
     });
   }
+  // ---------- Market Pulse (weekly): shop priorities and market map ----------
+  var SHOP_NAME = { GO: 'GO', SPACE: 'SPACE', EASE: 'EASE', GLOW: 'GLOW', KIN: 'KIN', OFF: 'OFF.', NEW: 'Nouveau' };
+  var UNIVERSE_SHOP = { GO: 'GO', SPACE: 'SPACE', EASE: 'EASE', BEAUTY: 'GLOW', PET: 'KIN', DRIVE: 'NEW' };
+  var SOURCE_LABEL = { wikipedia: 'Wikipedia', google_suggest: 'Google Suggest', ebay: 'eBay.de', merchant_bestsellers: 'Bestseller Google', cj: 'CJ' };
+  var ACTIONABLE = ['SCALE_CANDIDATE', 'TEST', 'VALIDATE_PRICE', 'SOURCE_NOW'];
+  var marketFilter = 'all';
+  var signed = function (x) {
+    var v = Math.round(x * 100);
+    return (v > 0 ? '+' : '') + v + ' %';
+  };
+  var eur = function (v) {
+    return v === null || v === undefined ? '—' : v.toFixed(2).replace('.', ',') + ' €';
+  };
+  function meter(v) {
+    var m = el('span', 'meter');
+    var i = el('i');
+    i.style.width = Math.max(0, Math.min(100, v || 0)) + '%';
+    m.append(i);
+    return m;
+  }
+  function spark(index) {
+    var NS = 'http://www.w3.org/2000/svg';
+    if (!index || index.length !== 12) return el('span', 'muted small', '—');
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 84 24');
+    svg.setAttribute('class', 'spark');
+    var max = Math.max.apply(null, index) || 1;
+    var now = new Date().getMonth();
+    var peak = index.indexOf(Math.max.apply(null, index));
+    index.forEach(function (v, i) {
+      var h = Math.max(2, Math.round((v / max) * 22));
+      var r = document.createElementNS(NS, 'rect');
+      r.setAttribute('x', i * 7);
+      r.setAttribute('y', 24 - h);
+      r.setAttribute('width', 5);
+      r.setAttribute('height', h);
+      r.setAttribute('rx', 1);
+      if (i === now) r.setAttribute('class', 'now');
+      else if (i === peak) r.setAttribute('class', 'peak');
+      svg.append(r);
+    });
+    var t = document.createElementNS(NS, 'title');
+    t.textContent = 'Janvier à décembre. Bleu : ce mois-ci · orange : pic de l’année';
+    svg.append(t);
+    return svg;
+  }
+  // The engine files "pet accessories organizer" under SPACE (organizer); the target customer decides the shop.
+  var SHOP_WORDS = [
+    ['KIN', /\b(pet|dog|cat|puppy|kitten|fur|paw|grooming|leash)\b/],
+    ['GLOW', /\b(beauty|hair|makeup|cosmetic|bonnet|scrunchie|scalp|satin|silk|curl)\b/],
+    ['NEW', /\b(car|vehicle|trunk|seat gap)\b/],
+    ['GO', /\b(travel|packing|luggage|toiletry|passport|flight)\b/],
+    ['EASE', /\b(stretch|massage|mobility|yoga|foam roller|posture)\b/],
+  ];
+  function shopOfConcept(s) {
+    var c = String(s.concept || '').toLowerCase();
+    for (var i = 0; i < SHOP_WORDS.length; i++) if (SHOP_WORDS[i][1].test(c)) return SHOP_WORDS[i][0];
+    return UNIVERSE_SHOP[s.universe] || 'NEW';
+  }
+  function shopConcepts(shop) {
+    return ((radar && radar.scores) || [])
+      .filter(function (s) {
+        return shopOfConcept(s) === shop && ACTIONABLE.indexOf(s.decision) >= 0;
+      })
+      .sort(function (a, b) {
+        return (b.opportunity || 0) - (a.opportunity || 0);
+      })
+      .slice(0, 3);
+  }
+  function renderPulse() {
+    var info = $('pulse-info');
+    if (!info) return;
+    var alerts = $('pulse-alerts');
+    var shops = $('pulse-shops');
+    alerts.textContent = '';
+    shops.textContent = '';
+    var p = radar && radar.pulse;
+    if (!p) {
+      info.textContent = 'Market Pulse : en attente du prochain scan (mis à jour chaque semaine par la tâche « ALGBr Radar »).';
+      renderMarkets();
+      return;
+    }
+    var src = Object.keys(p.sources || {}).map(function (k) {
+      var v = p.sources[k];
+      var label = SOURCE_LABEL[k] || k;
+      if (v === 'ok') return label + ' ✓';
+      if (v === 'locked') return label + ' : pas encore ouvert par Google (au lancement)';
+      return label + ' : ' + v;
+    });
+    info.textContent = 'Marchés mis à jour ' + ago(p.generatedAt) + ' · ' + src.join(' · ');
+
+    (p.alerts || []).forEach(function (a) {
+      alerts.append(el('div', 'alert ' + a.level, a.text));
+    });
+
+    (p.shops || []).forEach(function (s) {
+      var card = el('article', 'card shop-pulse');
+      var head = el('div', 'card-head');
+      head.append(el('h2', '', SHOP_NAME[s.shop] || s.shop), el('b', 'score', String(Math.round(s.pulse))));
+      var stats = el('p', 'muted small', 'Élan ' + Math.round(s.momentum) + '/100' + (s.seasonNext ? ' · saison des 2 prochains mois ' + signed(s.seasonNext - 1) : ''));
+      var ul = el('ul', 'actions');
+      (s.actions || []).forEach(function (a) {
+        ul.append(el('li', '', a));
+      });
+      var links = el('p', 'small market-links');
+      (p.markets || [])
+        .filter(function (m) {
+          return m.shop === s.shop;
+        })
+        .forEach(function (m) {
+          var a = el('a', '', m.label + ' ›');
+          a.href = '#radar';
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            openMarket(m);
+          });
+          links.append(a);
+        });
+      card.append(head, meter(s.pulse), stats, ul, links);
+      var picks = shopConcepts(s.shop);
+      if (picks.length) {
+        card.append(el('p', 'side-title', 'Produits repérés à tester'));
+        var pl = el('ul', 'picks');
+        picks.forEach(function (c) {
+          var li = el('li');
+          li.append(el('span', '', c.concept), el('span', 'chip chip-radar-' + c.decision, DECISION[c.decision] || c.decision));
+          if (c.explanation) li.title = c.explanation;
+          pl.append(li);
+        });
+        card.append(pl);
+      }
+      shops.append(card);
+    });
+
+    var fresh = (p.markets || [])
+      .filter(function (m) {
+        return m.shop === 'NEW';
+      })
+      .slice(0, 3);
+    if (fresh.length) {
+      var card = el('article', 'card shop-pulse diversify');
+      var head = el('div', 'card-head');
+      head.append(el('h2', '', 'Diversification'), el('span', 'muted small', 'marchés hors boutiques'));
+      card.append(head);
+      var ul = el('ul', 'picks');
+      fresh.forEach(function (m) {
+        var li = el('li');
+        var txt = el('span');
+        txt.append(el('b', '', m.label + ' '), el('span', 'muted small', m.season.peakMonth ? 'pic en ' + m.season.peakMonth : ''));
+        if (m.cj) txt.append(el('span', 'muted small block', 'CJ : ' + m.cj.product + ' · coût livré ' + eur(m.cj.landedEur) + (m.cj.marginAtMarketPrice !== null ? ' · marge au prix eBay ' + eur(m.cj.marginAtMarketPrice) : '')));
+        li.append(txt, el('b', 'score sm', String(Math.round(m.pulse))));
+        clickable(li, m);
+        ul.append(li);
+      });
+      card.append(ul, el('a', 'small', 'Voir la carte des marchés →'));
+      card.lastChild.href = '#radar';
+      card.lastChild.addEventListener('click', function (e) {
+        e.preventDefault();
+        marketFilter = 'new';
+        syncMarketFilter();
+        showRadarTab('markets');
+      });
+      shops.append(card);
+    }
+    renderMarkets();
+  }
+  function syncMarketFilter() {
+    document.querySelectorAll('#market-filter button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.f === marketFilter);
+    });
+    renderMarkets();
+  }
+  function renderMarkets() {
+    var tbody = $('markets');
+    if (!tbody) return;
+    tbody.textContent = '';
+    var p = radar && radar.pulse;
+    if (!p || !p.markets || !p.markets.length) return emptyRow(tbody, 8, 'En attente du premier scan des marchés.');
+    p.markets
+      .filter(function (m) {
+        return marketFilter === 'all' || (marketFilter === 'new' ? m.shop === 'NEW' : m.shop !== 'NEW');
+      })
+      .forEach(function (m) {
+        var tr = el('tr');
+        var name = el('td');
+        name.append(el('b', '', m.label), document.createTextNode(' '), el('span', 'chip ' + (m.shop === 'NEW' ? 'warn' : 'brand'), SHOP_NAME[m.shop] || m.shop));
+        var sc = el('td', 'num');
+        sc.append(el('b', '', String(Math.round(m.pulse))), meter(m.pulse));
+        var mo = el('td', 'num', String(Math.round(m.momentum)));
+        mo.title =
+          'Sources : ' +
+          (m.momentumSources || [])
+            .map(function (s) {
+              return SOURCE_LABEL[s] || s;
+            })
+            .join(', ') +
+          (m.interestYoy !== null ? ' · intérêt sur un an ' + signed(m.interestYoy) + ' par rapport à la moyenne' : '');
+        var se = el('td', 'season');
+        se.append(spark(m.season.index));
+        if (m.season.next !== null) se.append(el('span', 'small block ' + (m.season.next >= 1.15 ? 'up' : m.season.next <= 0.88 ? 'down' : 'muted'), signed(m.season.next - 1) + ' · pic ' + m.season.peakMonth));
+        var listings = el('td', 'num', m.listings !== null ? m.listings.toLocaleString('fr-FR') : '—');
+        if (m.listingGrowth !== null) listings.append(el('span', 'small block muted', signed(m.listingGrowth) + ' / sem.'));
+        var fit = el('td', 'small');
+        fit.append(el('b', '', Math.round(m.fit) + ' '), el('span', 'muted', m.fitNote));
+        var sig = el('td', 'small signals');
+        if (m.bestSellers) sig.append(el('div', '', 'Bestseller : ' + m.bestSellers.n + ' produits' + (m.bestSellers.risers ? ', ' + m.bestSellers.risers + ' en hausse' : '')));
+        if (m.newQueries && m.newQueries.length) sig.append(el('div', '', 'Nouvelles recherches : ' + m.newQueries.slice(0, 3).join(', ')));
+        if (m.cj) sig.append(el('div', '', 'CJ : ' + m.cj.product + ' · ' + eur(m.cj.landedEur) + ' livré' + (m.cj.marketPriceEur ? ' · eBay ' + eur(m.cj.marketPriceEur) : '') + (m.cj.marginAtMarketPrice !== null ? ' · marge ' + eur(m.cj.marginAtMarketPrice) : '')));
+        if (!sig.childNodes.length) sig.append(el('span', 'muted', '—'));
+        if (isFollowed(m)) name.append(document.createTextNode(' '), el('span', 'chip ok', 'Suivi'));
+        tr.append(name, sc, mo, se, el('td', 'num', eur(m.priceMedian)), listings, fit, sig);
+        clickable(tr, m);
+        tbody.append(tr);
+      });
+  }
+  function clickable(node, m) {
+    node.classList.add('rowlink');
+    node.tabIndex = 0;
+    node.setAttribute('role', 'button');
+    node.setAttribute('aria-label', 'Fiche marché : ' + m.label);
+    node.addEventListener('click', function () {
+      openMarket(m);
+    });
+    node.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openMarket(m);
+      }
+    });
+  }
+  function ext(href, text, cls) {
+    var a = el('a', cls || '', text);
+    if (href) {
+      a.href = href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+    return a;
+  }
+  function thumb(src) {
+    var img = el('img', 'thumb');
+    img.alt = '';
+    img.loading = 'lazy';
+    img.referrerPolicy = 'no-referrer';
+    if (src) img.src = src;
+    return img;
+  }
+  var ebaySearch = function (q) {
+    return 'https://www.ebay.de/sch/i.html?_nkw=' + encodeURIComponent(q);
+  };
+  function section(title) {
+    var s = el('section');
+    s.append(el('h3', '', title));
+    return s;
+  }
+  function isFollowed(m) {
+    return ((radar && radar.follow) || []).indexOf(m.key) >= 0;
+  }
+  function openMarket(m) {
+    $('drawer-title').textContent = m.label;
+    var body = $('drawer-body');
+    body.textContent = '';
+
+    // Summary and follow
+    var top = el('section', 'market-top');
+    var chips = el('p');
+    chips.append(el('span', 'chip ' + (m.shop === 'NEW' ? 'warn' : 'brand'), m.shop === 'NEW' ? 'Nouveau marché' : 'Boutique ' + (SHOP_NAME[m.shop] || m.shop)), document.createTextNode(' '), el('b', 'score sm', 'Score ' + Math.round(m.pulse) + '/100'));
+    var follow = button(isFollowed(m) ? 'Ne plus suivre' : 'Suivre ce marché', isFollowed(m) ? 'btn sm' : 'btn sm primary', function (b) {
+      var on = !isFollowed(m);
+      b.disabled = true;
+      fetch('/api/radar', { method: 'POST', headers: { authorization: 'Bearer ' + password, 'content-type': 'application/json' }, body: JSON.stringify({ follow: m.key, on: on }) })
+        .then(function (r) {
+          if (!r.ok) throw new Error(String(r.status));
+          return r.json();
+        })
+        .then(function (d) {
+          radar.follow = d.follow;
+          toast(on ? 'Suivi : analyse plus poussée (8 produits CJ) au prochain scan du matin' : 'Marché retiré du suivi');
+          b.textContent = on ? 'Ne plus suivre' : 'Suivre ce marché';
+          b.className = on ? 'btn sm' : 'btn sm primary';
+        })
+        .catch(function (e) {
+          toast('Impossible : ' + e.message);
+        })
+        .then(function () {
+          b.disabled = false;
+        });
+    });
+    top.append(chips, follow);
+    body.append(top);
+
+    // Verdict
+    if (m.verdict) {
+      var v = section('Verdict');
+      v.append(el('p', 'verdict', m.verdict.headline));
+      var ul = el('ul', 'plain');
+      (m.verdict.points || []).forEach(function (t) {
+        ul.append(el('li', '', t));
+      });
+      v.append(ul);
+      body.append(v);
+    }
+
+    // Season
+    var s = section('Saison');
+    var big = spark(m.season.index);
+    if (big.classList) big.classList.add('big');
+    s.append(big);
+    if (m.season.peakMonth) s.append(el('p', 'small muted', 'Pic en ' + m.season.peakMonth + (m.season.next !== null ? ' · 2 prochains mois ' + signed(m.season.next - 1) + ' par rapport à un mois normal' : '') + '. Source : consultations Wikipedia sur 3 ans (intérêt, pas ventes).'));
+    body.append(s);
+
+    // CJ candidates (or OFF models)
+    if (m.models && m.models.length) {
+      var mo = section('Modèles à chercher pour OFF. (eBay.de)');
+      var t = el('table', 'mini');
+      var hr = el('tr');
+      ['Modèle', 'Occasion', 'Neuf', 'Annonces'].forEach(function (h, i) {
+        hr.append(el('th', i ? 'num' : '', h));
+      });
+      t.append(hr);
+      m.models.forEach(function (x) {
+        var tr = el('tr');
+        var c = el('td');
+        c.append(ext(ebaySearch(x.model), x.model));
+        tr.append(c, el('td', 'num', eur(x.usedMedian)), el('td', 'num', eur(x.newMedian)), el('td', 'num', (x.usedCount || 0) + ' occ. · ' + (x.newCount || 0) + ' neuf'));
+        t.append(tr);
+      });
+      mo.append(t, el('p', 'small muted', 'Prix médians des annonces en cours. Une annonce n’est pas une vente : regarder aussi les ventes réussies sur eBay avant d’acheter du stock.'));
+      body.append(mo);
+    }
+    if (m.candidates && m.candidates.length) {
+      var cj = section('Produits CJ à tester');
+      m.candidates.forEach(function (c) {
+        var row = el('div', 'cand');
+        row.append(thumb(c.image));
+        var info = el('div');
+        info.append(ext(c.url, c.product, 'cand-name'));
+        var facts = el('div', 'small muted');
+        facts.textContent = 'Coût livré DE ' + eur(c.landedEur) + (c.delivery ? ' · ' + c.delivery + ' j' : '') + (c.listedBy ? ' · déjà listé par ' + c.listedBy + ' vendeurs CJ' : '');
+        var price = el('div', 'small');
+        if (c.marketPriceEur) {
+          price.append(document.createTextNode('eBay ' + eur(c.marketPriceEur) + ' (' + c.ebaySample + ' annonces, '), ext(ebaySearch(c.ebayQuery), 'voir'), document.createTextNode(')'));
+        } else price.append(el('span', 'muted', 'Pas assez d’annonces eBay comparables. '), ext(ebaySearch(c.ebayQuery), 'chercher'));
+        var days = (String(c.delivery || '').match(/\d+/g) || []).map(Number);
+        if (days.length && Math.max.apply(null, days) > 15) info.append(el('div', 'small warn-text', 'Livraison trop lente pour la promesse 6–10 jours : demander un stock UE à CJ ou écarter.'));
+        info.append(facts, price);
+        var mg = el('b', 'margin ' + (c.margin === null ? 'muted' : c.margin >= 10 ? 'up' : c.margin >= 5 ? '' : 'down'), c.margin === null ? '—' : eur(c.margin));
+        mg.title = 'Marge = prix eBay − coût livré − frais Stripe − 3 % retours, avant publicité';
+        row.append(info, mg);
+        cj.append(row);
+      });
+      cj.append(el('p', 'small muted', 'Marge avant publicité. Cible pour la pub : 25 € de contribution, sinon prévoir un set ou un prix plus haut. Mot-clé CJ : « ' + m.cjKeyword + ' ».'));
+      body.append(cj);
+    } else if (m.cjKeyword) {
+      body.append(el('p', 'small muted', 'Pas encore de produit CJ analysé pour ce marché. « Suivre ce marché » lance une recherche plus poussée au prochain scan.'));
+    }
+
+    // Google searches
+    if (m.queries && m.queries.length) {
+      var q = section('Ce que les gens tapent dans Google (Allemagne)');
+      var wrap = el('div', 'tags');
+      var fresh = m.newQueries || [];
+      m.queries.forEach(function (term) {
+        var t = ext(ebaySearch(term), term, 'tag' + (fresh.indexOf(term) >= 0 ? ' new' : ''));
+        t.title = 'Chercher sur eBay.de';
+        wrap.append(t);
+      });
+      q.append(wrap, el('p', 'small muted', fresh.length ? 'En vert : apparues depuis le scan précédent.' : 'Les nouvelles recherches seront signalées à partir du prochain relevé hebdomadaire.'));
+      body.append(q);
+    }
+
+    // eBay listings
+    if (m.ebayTop && m.ebayTop.length) {
+      var e = section('Ce qui se vend déjà sur eBay.de');
+      m.ebayTop.forEach(function (x) {
+        var row = el('div', 'cand');
+        row.append(thumb(x.image));
+        var info = el('div');
+        info.append(ext(x.url, x.title, 'cand-name'), el('div', 'small muted', 'Recherche « ' + x.query + ' »' + (x.shipping ? ' · port ' + eur(x.shipping) : x.shipping === 0 ? ' · port offert' : '')));
+        row.append(info, el('b', 'margin', eur(x.price)));
+        e.append(row);
+      });
+      e.append(el('p', 'small muted', m.listings ? m.listings.toLocaleString('fr-FR') + ' annonces neuves au total, prix médian ' + eur(m.priceMedian) + '.' : ''));
+      body.append(e);
+    }
+
+    var d = section('Données');
+    var dl = el('dl');
+    [
+      ['Élan', Math.round(m.momentum) + '/100 (' + (m.momentumSources || []).map(function (x) { return SOURCE_LABEL[x] || x; }).join(', ') + ')'],
+      ['Intérêt sur un an', m.interestYoy !== null ? signed(m.interestYoy) + ' par rapport à la moyenne des marchés' : '—'],
+      ['Compatibilité', Math.round(m.fit) + '/100 · ' + m.fitNote],
+      ['Bestseller Google', m.bestSellers ? m.bestSellers.n + ' produits classés' : 'pas encore ouvert par Google'],
+    ].forEach(function (r) {
+      dl.append(el('dt', '', r[0]), el('dd', '', r[1]));
+    });
+    d.append(dl);
+    body.append(d);
+    openDrawer();
+  }
+  function showRadarTab(t) {
+    document.querySelectorAll('#radar-tabs button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.t === t);
+      b.setAttribute('aria-selected', b.dataset.t === t ? 'true' : 'false');
+    });
+    document.querySelectorAll('[data-view="radar"] .pane').forEach(function (p) {
+      p.hidden = p.dataset.pane !== t;
+    });
+  }
+
   function fillSelect(sel, values, labels) {
     if (sel.options.length > 1) return;
     Array.from(new Set(values))
@@ -924,6 +1336,17 @@
     $(id).addEventListener('change', renderRadar);
   });
   $('radar-search').addEventListener('input', renderRadar);
+  document.querySelectorAll('#radar-tabs button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      showRadarTab(b.dataset.t);
+    });
+  });
+  document.querySelectorAll('#market-filter button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      marketFilter = b.dataset.f;
+      syncMarketFilter();
+    });
+  });
   $('audit-run').addEventListener('click', function (e) {
     runAudit(e.currentTarget, 'stock');
   });

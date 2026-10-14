@@ -123,9 +123,31 @@
 
           <section class="view" data-view="radar" hidden>
             <div class="view-head">
-              <h1>Radar d’opportunités</h1>
-              <p class="muted">Scan quotidien de l’Opportunity Engine sur votre PC : tendances, prix marché, coûts CJ. Des indices, pas des ventes.</p>
+              <h1>Radar</h1>
+              <p class="muted">Où va la demande : priorités par boutique, marchés qui montent, produits à tester. Sources gratuites (Wikipedia, Google Suggest, eBay.de, CJ, bientôt les Bestseller Google). Ce sont des indices, pas des ventes.</p>
             </div>
+            <div class="seg" id="radar-tabs" role="tablist" aria-label="Vue du radar">
+              <button type="button" data-t="trends" class="on" role="tab">Tendances</button>
+              <button type="button" data-t="markets" role="tab">Carte des marchés</button>
+              <button type="button" data-t="concepts" role="tab">Produits repérés</button>
+            </div>
+            <p class="muted small" id="pulse-info"></p>
+            <div data-pane="trends" class="pane">
+              <div id="pulse-alerts" class="pulse-alerts"></div>
+              <div id="pulse-shops" class="pulse-shops"></div>
+            </div>
+            <div data-pane="markets" class="pane" hidden>
+              <div class="toolbar">
+                <div class="seg" id="market-filter" role="group" aria-label="Filtre marchés">
+                  <button type="button" data-f="all" class="on">Tous</button>
+                  <button type="button" data-f="ours">Nos boutiques</button>
+                  <button type="button" data-f="new">Diversification</button>
+                </div>
+                <span class="muted small">Score = 30 % élan + 25 % saison à venir + 20 % niveau de prix + 25 % compatibilité avec notre modèle.</span>
+              </div>
+              <div class="card flush"><div class="table-wrap"><table class="markets"><thead><tr><th>Marché</th><th class="num">Score</th><th class="num">Élan</th><th>Saison (12 mois)</th><th class="num">Prix eBay</th><th class="num">Annonces eBay</th><th>Compatibilité</th><th>Signaux</th></tr></thead><tbody id="markets"></tbody></table></div></div>
+            </div>
+            <div data-pane="concepts" class="pane" hidden>
             <div class="toolbar">
               <select id="radar-universe" aria-label="Univers"><option value="">Tous univers</option></select>
               <select id="radar-decision" aria-label="Décision"><option value="">Toutes décisions</option></select>
@@ -133,6 +155,7 @@
             </div>
             <p class="muted small" id="radar-info"></p>
             <div class="card flush"><div class="table-wrap"><table><thead><tr><th>Concept</th><th>Univers</th><th>Cycle</th><th class="num">Tendance</th><th class="num">Cash</th><th class="num">Risque</th><th>Prix marché / coût</th><th class="num">Score</th><th>Décision</th></tr></thead><tbody id="radar"></tbody></table></div></div>
+            </div>
           </section>
 
           <section class="view" data-view="settings" hidden>

@@ -9,7 +9,7 @@
     "build:space": "node scripts/build.mjs appart-reset",
     "build:ease": "node scripts/build.mjs body-care",
     "images": "node scripts/optimize-images.mjs",
-    "test": "node --test tests/flow.test.mjs tests/supply.test.mjs tests/off.test.mjs",
+    "test": "node --test tests/flow.test.mjs tests/supply.test.mjs tests/off.test.mjs tests/radar.test.mjs",
     "build:api": "node scripts/build.mjs backend",
     "deploy:api": "npm run build:api && cd cloudflare && npx wrangler deploy",
     "build:glow": "node scripts/build.mjs glow",
