@@ -67,7 +67,8 @@ jobs:
       needs.changes.outputs.kin == 'true' || needs.changes.outputs.off == 'true'
     runs-on: ubuntu-latest
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      # Raw secret; the cleaned token is exported as CLOUDFLARE_API_TOKEN by the check step.
+      CF_TOKEN_RAW: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: c7b9d85bb7d0ec8a475ad015364fa460
       npm_config_yes: 'true'
       ALL: ${{ github.event_name == 'workflow_dispatch' }}
@@ -81,11 +82,20 @@ jobs:
       - name: Tests (nothing is published if they fail)
         run: npm test
       - name: Check the Cloudflare token is set
+        # Tolerates a pasted secret with extra lines or spaces around the token:
+        # keeps the first token-like word (Cloudflare tokens are 40+ letters, digits, - or _).
         run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+          if [ -z "$CF_TOKEN_RAW" ]; then
             echo "::error::Secret CLOUDFLARE_API_TOKEN missing (Settings → Secrets and variables → Actions)."
             exit 1
           fi
+          token=$(printf '%s' "$CF_TOKEN_RAW" | grep -oE '[A-Za-z0-9_-]{40,}' | head -n1 || true)
+          if [ -z "$token" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN does not contain a Cloudflare token. Paste only the token shown after 'Create Token'."
+            exit 1
+          fi
+          echo "::add-mask::$token"
+          echo "CLOUDFLARE_API_TOKEN=$token" >> "$GITHUB_ENV"
       - name: API + dashboard (api.algbr.eu)
         if: env.ALL == 'true' || needs.changes.outputs.api == 'true'
         run: npm run deploy:api
