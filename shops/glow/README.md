@@ -10,7 +10,7 @@ Boutique GLOW d'ALGBr (13 produits actifs). Même architecture que les autres bo
 
 - **Adresse** : https://glow.algbr.eu (le `.de` redirige ici)
 - **Hébergement** : Cloudflare Worker glow-algbr (config : `wrangler.toml` de ce dossier)
-- **Publier une modification** : envoyer sur GitHub, puis `npm run deploy:glow` à la racine du dépôt.
+- **Publier une modification** : automatique : envoyer la modification sur GitHub (GitHub Desktop → Commit → Push).
 - **Aperçu local** : `node scripts/build.mjs glow` à la racine du dépôt, puis ouvrir `dist/`.
 - **Nom interne** : `glow` (préfixe des commandes et clé du CRM, à ne pas changer).
 

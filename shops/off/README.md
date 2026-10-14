@@ -15,5 +15,5 @@ Ce dossier contient la mise en page du site :
 | `public/admin/` | L'admin OFF. (ajout de paires, photos depuis le téléphone). |
 | `wrangler.toml` | Hébergement : Cloudflare Worker off-algbr, base D1 `algbr-crm`, photos dans KV `OFF_MEDIA`. `LAUNCHED = "false"` = invisible pour Google. |
 
-- **Publier une modification de mise en page** : envoyer sur GitHub, puis `npm run deploy:off` à la racine du dépôt.
+- **Publier une modification de mise en page** : automatique, envoyer la modification sur GitHub (GitHub Desktop → Commit → Push).
 - Le paiement et les commandes passent par le moteur commun (`engine/lib/off.mjs`) ; les commandes OFF. ne partent jamais chez CJ.

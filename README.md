@@ -43,9 +43,14 @@ le nom de la marque ; `node scripts/build.mjs` accepte les deux.
 | Partie | Hébergement | Publication |
 |---|---|---|
 | GO, SPACE, EASE | Cloudflare Pages (go-algbr, space-algbr, ease-algbr) | automatique à chaque envoi sur GitHub (`main`) |
-| GLOW, KIN | Cloudflare Workers (glow-algbr, kin-algbr) | `npm run deploy:glow` · `npm run deploy:kin` |
-| OFF. | Cloudflare Worker off-algbr | `npm run deploy:off` |
-| API + dashboard (api.algbr.eu) | Cloudflare Worker api-algbr, base D1 `algbr-crm` | `npm run deploy:api` |
+| GLOW, KIN | Cloudflare Workers (glow-algbr, kin-algbr) | automatique à chaque envoi sur GitHub (GitHub Actions) |
+| OFF. | Cloudflare Worker off-algbr | automatique à chaque envoi sur GitHub (GitHub Actions) |
+| API + dashboard (api.algbr.eu) | Cloudflare Worker api-algbr, base D1 `algbr-crm` | automatique à chaque envoi sur GitHub (GitHub Actions), aussi quand un prix change |
+
+La publication automatique des Workers est dans `.github/workflows/deploy-cloudflare.yml` : elle ne
+publie que ce qui a changé, après `npm test`. Les commandes `npm run deploy:api`, `deploy:glow`,
+`deploy:kin` et `deploy:off` restent disponibles à la main. Elle utilise le secret GitHub
+`CLOUDFLARE_API_TOKEN` (Settings → Secrets and variables → Actions).
 
 Les domaines `.de` redirigent vers les `.eu` (Porkbun). Les secrets (Stripe, CJ, mot de passe
 admin, RADAR_KEY) sont saisis dans le tableau de bord Cloudflare du Worker api-algbr, jamais
@@ -73,8 +78,8 @@ partent pas chez CJ : elles sont à expédier soi-même (Hermes).
 1. Modifier `shops/<boutique>/products.json`, `site.json` ou une image dans `assets/`.
    Nouvelles photos : les déposer dans `assets/products/` puis `npm run images` (WebP).
 2. `npm test`, puis aperçu local : `node scripts/build.mjs <boutique>` (résultat dans `dist/`).
-3. Valider (« commit ») et envoyer (« push ») avec GitHub Desktop.
-   GO, SPACE et EASE se republient seules ; GLOW, KIN et OFF. avec leur commande `deploy`.
+3. Valider (« commit ») et envoyer (« push ») avec GitHub Desktop : les six boutiques se
+   republient seules en 1 à 3 minutes (suivi : onglet Actions du dépôt sur GitHub).
 
 ## Ajouter une boutique
 

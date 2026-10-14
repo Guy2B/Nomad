@@ -10,7 +10,7 @@ Boutique KIN d'ALGBr (13 produits actifs). Même architecture que les autres bou
 
 - **Adresse** : https://kin.algbr.eu (le `.de` redirige ici)
 - **Hébergement** : Cloudflare Worker kin-algbr (config : `wrangler.toml` de ce dossier)
-- **Publier une modification** : envoyer sur GitHub, puis `npm run deploy:kin` à la racine du dépôt.
+- **Publier une modification** : automatique : envoyer la modification sur GitHub (GitHub Desktop → Commit → Push).
 - **Aperçu local** : `node scripts/build.mjs kin` à la racine du dépôt, puis ouvrir `dist/`.
 - **Nom interne** : `kin` (préfixe des commandes et clé du CRM, à ne pas changer).
 
