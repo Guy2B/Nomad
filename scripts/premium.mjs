@@ -5,7 +5,7 @@
  * products.json → rich.<lang>), so every brand shares one design system.
  */
 export function createTemplates(ctx) {
-  const { SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, shopDataTag, BASE, pub, esc, money, fill, ldJson, write, up } = ctx;
+  const { SITE, ACTIVE, GUIDES, STR, NEXT_AD, FAMILY, API, HAS_THEME, ASSET_V, shopDataTag, BASE, pub, esc, money, fill, ldJson, write, up } = ctx;
   const byId = new Map(ACTIVE.map((p) => [p.id, p]));
   const U = (lang) => SITE.ui[lang];
   const lines = (arr) => (Array.isArray(arr) ? arr.map(esc).join('<br>') : esc(arr));
@@ -25,6 +25,33 @@ export function createTemplates(ctx) {
     ${nsxt('nsxt-lg')}
     <div class="next-copy"><p class="next-title">${esc(n.title)} <small>by ALGBr</small></p><p class="next-text">${esc(n.text)}</p></div>
     <a class="btn next-btn" href="${href}" target="_blank" rel="noopener">${esc(n.cta)} ↗</a>
+  </div>
+</aside>`;
+  }
+
+  /** « La famille ALGBr »: 2–3 sister shops, premium cards, on home, product and guide pages only. */
+  function familyBlock(lang, r) {
+    const x = FAMILY?.texts?.[lang];
+    if (!x) return '';
+    const cards = FAMILY.shops
+      .map((f) => {
+        const l = f.languages.includes(lang) ? lang : f.defaultLang;
+        const href = `${f.url}/${l}/?ref=${encodeURIComponent(SITE.id)}`;
+        return `<a class="fam-card fam-${esc(f.folder)}" href="${href}" target="_blank" rel="noopener">
+      <span class="fam-img"><img src="${r}assets/family/${f.img}" alt="" loading="lazy" width="220" height="220"></span>
+      <span class="fam-copy">
+        <span class="fam-label">${esc(f.label[lang] ?? f.label.en)}</span>
+        <span class="fam-brand">${esc(f.brand)}<small>by ALGBr</small></span>
+        <span class="fam-tagline">${esc(f.tagline[l] ?? f.tagline.en)}</span>
+        <span class="fam-cta">${esc(x.cta)} <span aria-hidden="true">↗</span></span>
+      </span>
+    </a>`;
+      })
+      .join('');
+    return `<aside class="family" aria-label="${esc(x.eyebrow)}">
+  <div class="wrap">
+    <header class="family-head"><p class="eyebrow">${esc(x.eyebrow)}</p><h2>${esc(x.title)}</h2></header>
+    <div class="family-grid fam-n${FAMILY.shops.length}">${cards}</div>
   </div>
 </aside>`;
   }
@@ -93,6 +120,7 @@ ${jsonLd.map(ldJson).join('\n')}
 ${body}
 </main>
 ${body.includes('id="shop-data"') ? '' : shopDataTag(lang)}
+${['home', 'product', 'guide'].includes(page) ? familyBlock(lang, r) : ''}
 ${nextBanner(lang, r)}
 <footer class="foot">
   <div class="wrap foot-grid">

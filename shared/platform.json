@@ -18,5 +18,113 @@
       "text": "Mail, calendar and tasks become three clear decisions a day. nΣxt LifeOS: try it free.",
       "cta": "Discover nΣxt"
     }
+  },
+  "family": {
+    "note": "Encart « La famille ALGBr » en bas des pages accueil, produit et conseils : 3 autres boutiques par boutique (clé = dossier shops/<x>). 'until' retire une boutique saisonnière après cette date (au build). 'url' remplace baseUrl tant que le domaine n'est pas rattaché (JOY : à retirer une fois joy.algbr.eu actif).",
+    "texts": {
+      "de": {
+        "eyebrow": "Die ALGBr Familie",
+        "title": "Mehr aus unserem Haus.",
+        "cta": "Entdecken"
+      },
+      "fr": {
+        "eyebrow": "La famille ALGBr",
+        "title": "D’autres adresses de la maison.",
+        "cta": "Découvrir"
+      },
+      "en": {
+        "eyebrow": "The ALGBr family",
+        "title": "More from our house.",
+        "cta": "Discover"
+      }
+    },
+    "shops": {
+      "go": {
+        "img": "vacuum-backpack-1.webp",
+        "label": {
+          "de": "Reisen",
+          "fr": "Voyage",
+          "en": "Travel"
+        }
+      },
+      "space": {
+        "img": "desk-drawer-1.webp",
+        "label": {
+          "de": "Ordnung zuhause",
+          "fr": "Rangement",
+          "en": "Home organisation"
+        }
+      },
+      "ease": {
+        "img": "full-body-care-1.webp",
+        "label": {
+          "de": "Wohlbefinden",
+          "fr": "Bien-être",
+          "en": "Wellbeing"
+        }
+      },
+      "glow": {
+        "img": "satin-nightcap-1.webp",
+        "label": {
+          "de": "Schönheit & Schlaf",
+          "fr": "Beauté & sommeil",
+          "en": "Beauty & sleep"
+        }
+      },
+      "kin": {
+        "img": "microfiber-pet-towel-1.webp",
+        "label": {
+          "de": "Für Hund & Katze",
+          "fr": "Pour chien & chat",
+          "en": "For dogs & cats"
+        }
+      },
+      "joy": {
+        "img": "lichterhaus-1.webp",
+        "label": {
+          "de": "Weihnachten",
+          "fr": "Noël",
+          "en": "Christmas"
+        },
+        "until": "2026-12-24",
+        "url": "https://joy-algbr.guybeaho.workers.dev"
+      }
+    },
+    "pick": {
+      "go": [
+        "space",
+        "glow",
+        "joy",
+        "kin"
+      ],
+      "space": [
+        "kin",
+        "joy",
+        "go",
+        "ease"
+      ],
+      "ease": [
+        "glow",
+        "go",
+        "space"
+      ],
+      "glow": [
+        "joy",
+        "ease",
+        "go",
+        "kin"
+      ],
+      "kin": [
+        "space",
+        "joy",
+        "go",
+        "glow"
+      ],
+      "joy": [
+        "glow",
+        "kin",
+        "space"
+      ]
+    }
   }
 }

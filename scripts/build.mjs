@@ -107,7 +107,22 @@ function write(path, html) {
 const up = (depth) => '../'.repeat(depth);
 
 const NEXT_AD = readJson(join(root, 'shared', 'platform.json')).next;
-const { layout, card, home, productPage } = createTemplates({ SITE, ACTIVE, GUIDES, STR, NEXT_AD, API, HAS_THEME, ASSET_V, shopDataTag: (l) => shopDataTag(l), BASE, pub, esc, money, fill, ldJson, write, up });
+/** Cross-promotion « La famille ALGBr »: up to 3 sister shops (shared/platform.json → family). */
+const FAMILY_CFG = readJson(join(root, 'shared', 'platform.json')).family;
+const FAMILY = (() => {
+  if (!FAMILY_CFG) return null;
+  const today = new Date().toISOString().slice(0, 10);
+  const shops = (FAMILY_CFG.pick?.[SHOP] ?? [])
+    .filter((f) => f !== SHOP && FAMILY_CFG.shops[f] && !(FAMILY_CFG.shops[f].until && FAMILY_CFG.shops[f].until < today))
+    .filter((f) => existsSync(join(root, 'shops', f, 'site.json')) && existsSync(join(root, 'shops', f, 'assets', 'products', FAMILY_CFG.shops[f].img)))
+    .slice(0, 3)
+    .map((f) => {
+      const s = readJson(join(root, 'shops', f, 'site.json'));
+      return { folder: f, brand: s.brand, url: (FAMILY_CFG.shops[f].url ?? s.baseUrl).replace(/\/$/, ''), languages: s.languages, defaultLang: s.defaultLang, tagline: s.tagline, label: FAMILY_CFG.shops[f].label, img: `family-${f}.webp`, src: join(root, 'shops', f, 'assets', 'products', FAMILY_CFG.shops[f].img) };
+    });
+  return shops.length >= 2 ? { texts: FAMILY_CFG.texts, shops } : null;
+})();
+const { layout, card, home, productPage } = createTemplates({ SITE, ACTIVE, GUIDES, STR, NEXT_AD, FAMILY, API, HAS_THEME, ASSET_V, shopDataTag: (l) => shopDataTag(l), BASE, pub, esc, money, fill, ldJson, write, up });
 
 function guidePage(g, lang) {
   const x = g.text[lang];
@@ -289,6 +304,7 @@ ${SITE.launched ? '' : '  # PRE-LAUNCH: search engines kept out until the legal 
 rmSync(dist, { recursive: true, force: true });
 cpSync(join(root, 'public'), dist, { recursive: true, filter: (src) => !src.includes(join(root, 'public', 'admin')) });
 cpSync(join(storeDir, 'assets'), join(dist, 'assets'), { recursive: true });
+for (const f of FAMILY?.shops ?? []) cpSync(f.src, join(dist, 'assets', 'family', f.img));
 for (const lang of SITE.languages) {
   home(lang);
   for (const p of ACTIVE) productPage(p, lang);
