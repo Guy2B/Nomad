@@ -80,7 +80,7 @@
     "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
   },
   "company": {
-    "name": "ALGBr",
+    "name": "AlGBr",
     "owner": "Guy Beaho",
     "street": "Carlo-Mierendorff-Str. 15",
     "city": "68623 Lampertheim",
@@ -142,7 +142,7 @@
     }
   ],
   "byAlgbr": "https://algbr.eu/",
-  "byline": "by ALGBr",
+  "byline": "by AlGBr",
   "aliases": [],
   "ui": {
     "de": {
@@ -361,7 +361,7 @@
       },
       "footer": {
         "tagline": "Weihnachtsboxen aus Deutschland.",
-        "rights": "Eine Marke von ALGBr.",
+        "rights": "Eine Marke von AlGBr.",
         "cols": [
           {
             "title": "Shop",
@@ -682,7 +682,7 @@
       },
       "footer": {
         "tagline": "Des box de Noël depuis l'Allemagne.",
-        "rights": "Une marque ALGBr.",
+        "rights": "Une marque AlGBr.",
         "cols": [
           {
             "title": "Shop",
@@ -1003,7 +1003,7 @@
       },
       "footer": {
         "tagline": "Christmas boxes from Germany.",
-        "rights": "An ALGBr brand.",
+        "rights": "An AlGBr brand.",
         "cols": [
           {
             "title": "Shop",

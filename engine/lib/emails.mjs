@@ -17,7 +17,7 @@ export function brandOf(order) {
   const s = storeById(order.store)?.site;
   const company = s?.company ?? storeById('nomad')?.site?.company ?? {};
   return {
-    brand: s?.brand || order.brand || 'ALGBr',
+    brand: s?.brand || order.brand || 'AlGBr',
     color: s?.themeColor || '#1d1d1f',
     baseUrl: (s?.baseUrl || 'https://off.algbr.eu').replace(/\/$/, ''),
     from: s?.shipping?.from === 'DE' ? 'DE' : 'CN',
@@ -231,7 +231,7 @@ export function customerEmail(kind, order, extra = {}) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f1ec"><tr><td align="center" style="padding:32px 16px">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
 <tr><td style="padding:28px 32px 8px;border-bottom:1px solid #eee">
-<span style="font-family:Georgia,'Times New Roman',serif;font-size:24px;letter-spacing:.06em;font-weight:700;color:${esc(b.color)}">${esc(b.brand)}</span><span style="font-size:12px;color:#8a8a8a"> by ALGBr</span>
+<span style="font-family:Georgia,'Times New Roman',serif;font-size:24px;letter-spacing:.06em;font-weight:700;color:${esc(b.color)}">${esc(b.brand)}</span><span style="font-size:12px;color:#8a8a8a"> by AlGBr</span>
 </td></tr>
 <tr><td style="padding:28px 32px 8px">
 ${p(t.hello(firstName(order)))}

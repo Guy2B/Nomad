@@ -49,7 +49,7 @@
     "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
   },
   "company": {
-    "name": "ALGBr",
+    "name": "AlGBr",
     "owner": "Guy Beaho",
     "street": "Carlo-Mierendorff-Str. 15",
     "city": "68623 Lampertheim",
@@ -114,7 +114,7 @@
     }
   ],
   "byAlgbr": "https://algbr.eu/",
-  "byline": "by ALGBr",
+  "byline": "by AlGBr",
   "aliases": [
     "https://go.algbr.de"
   ],
@@ -364,7 +364,7 @@
       },
       "footer": {
         "tagline": "Des accessoires choisis pour voyager plus léger.",
-        "rights": "Une marque ALGBr.",
+        "rights": "Une marque AlGBr.",
         "cols": [
           {
             "title": "Boutique",
@@ -701,7 +701,7 @@
       },
       "footer": {
         "tagline": "Ausgewähltes Zubehör, um leichter zu reisen.",
-        "rights": "Eine Marke von ALGBr.",
+        "rights": "Eine Marke von AlGBr.",
         "cols": [
           {
             "title": "Shop",
@@ -1038,7 +1038,7 @@
       },
       "footer": {
         "tagline": "Accessories chosen to travel lighter.",
-        "rights": "An ALGBr brand.",
+        "rights": "An AlGBr brand.",
         "cols": [
           {
             "title": "Shop",

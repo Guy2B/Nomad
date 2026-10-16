@@ -31,7 +31,7 @@ if (STORE === 'backend') {
   cpSync(join(root, 'public', 'admin'), join(dist, 'admin'), { recursive: true });
   for (const f of ['style.css', 'algbr.svg']) cpSync(join(root, 'public', 'assets', f), join(dist, 'assets', f));
   cpSync(join(root, 'shops', 'go', 'assets', 'favicon.svg'), join(dist, 'assets', 'favicon.svg'));
-  writeFileSync(join(dist, 'index.html'), '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/admin/"><title>ALGBr</title>');
+  writeFileSync(join(dist, 'index.html'), '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/admin/"><title>AlGBr</title>');
   writeFileSync(join(dist, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
   writeFileSync(
     join(dist, '_headers'),
@@ -107,7 +107,7 @@ function write(path, html) {
 const up = (depth) => '../'.repeat(depth);
 
 const NEXT_AD = readJson(join(root, 'shared', 'platform.json')).next;
-/** Cross-promotion « La famille ALGBr »: up to 3 sister shops (shared/platform.json → family). */
+/** Cross-promotion « La famille AlGBr »: up to 3 sister shops (shared/platform.json → family). */
 const FAMILY_CFG = readJson(join(root, 'shared', 'platform.json')).family;
 const FAMILY = (() => {
   if (!FAMILY_CFG) return null;

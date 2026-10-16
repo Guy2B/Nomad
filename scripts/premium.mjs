@@ -20,16 +20,16 @@ export function createTemplates(ctx) {
     const n = NEXT_AD?.[lang];
     if (!n) return '';
     const href = `${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}`;
-    return `<aside class="next-ad" aria-label="NEXT by ALGBr">
+    return `<aside class="next-ad" aria-label="NEXT by AlGBr">
   <div class="wrap next-ad-row">
     ${nsxt('nsxt-lg')}
-    <div class="next-copy"><p class="next-title">${esc(n.title)} <small>by ALGBr</small></p><p class="next-text">${esc(n.text)}</p></div>
+    <div class="next-copy"><p class="next-title">${esc(n.title)} <small>by AlGBr</small></p><p class="next-text">${esc(n.text)}</p></div>
     <a class="btn next-btn" href="${href}" target="_blank" rel="noopener">${esc(n.cta)} ↗</a>
   </div>
 </aside>`;
   }
 
-  /** « La famille ALGBr »: 2–3 sister shops, premium cards, on home, product and guide pages only. */
+  /** « La famille AlGBr »: 2–3 sister shops, premium cards, on home, product and guide pages only. */
   function familyBlock(lang, r) {
     const x = FAMILY?.texts?.[lang];
     if (!x) return '';
@@ -41,7 +41,7 @@ export function createTemplates(ctx) {
       <span class="fam-img"><img src="${r}assets/family/${f.img}" alt="" loading="lazy" width="220" height="220"></span>
       <span class="fam-copy">
         <span class="fam-label">${esc(f.label[lang] ?? f.label.en)}</span>
-        <span class="fam-brand">${esc(f.brand)}<small>by ALGBr</small></span>
+        <span class="fam-brand">${esc(f.brand)}<small>by AlGBr</small></span>
         <span class="fam-tagline">${esc(f.tagline[l] ?? f.tagline.en)}</span>
         <span class="fam-cta">${esc(x.cta)} <span aria-hidden="true">↗</span></span>
       </span>
@@ -107,7 +107,7 @@ ${jsonLd.map(ldJson).join('\n')}
       <a href="${L}bestellung.html">${esc(u.nav.track)}</a>
     </nav>
     <div class="top-actions">
-      ${NEXT_AD ? `<a class="next-pill" href="${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}" target="_blank" rel="noopener" title="NEXT by ALGBr">${nsxt()}</a>` : ''}
+      ${NEXT_AD ? `<a class="next-pill" href="${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}" target="_blank" rel="noopener" title="NEXT by AlGBr">${nsxt()}</a>` : ''}
       <nav class="langs" aria-label="${lang === 'de' ? 'Sprache' : lang === 'fr' ? 'Langue' : 'Language'}">${langLinks}</nav>
       <a class="cart-link" href="${L}warenkorb.html" aria-label="${esc(t.nav.cart)}">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Zm3 0a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>

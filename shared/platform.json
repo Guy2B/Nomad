@@ -20,20 +20,20 @@
     }
   },
   "family": {
-    "note": "Encart « La famille ALGBr » en bas des pages accueil, produit et conseils : 3 autres boutiques par boutique (clé = dossier shops/<x>). 'until' retire une boutique saisonnière après cette date (au build). 'url' remplace baseUrl tant que le domaine n'est pas rattaché (JOY : à retirer une fois joy.algbr.eu actif).",
+    "note": "Encart « La famille AlGBr » en bas des pages accueil, produit et conseils : 3 autres boutiques par boutique (clé = dossier shops/<x>). 'until' retire une boutique saisonnière après cette date (au build). 'url' remplace baseUrl tant que le domaine n'est pas rattaché (JOY : à retirer une fois joy.algbr.eu actif).",
     "texts": {
       "de": {
-        "eyebrow": "Die ALGBr Familie",
+        "eyebrow": "Die AlGBr Familie",
         "title": "Mehr aus unserem Haus.",
         "cta": "Entdecken"
       },
       "fr": {
-        "eyebrow": "La famille ALGBr",
+        "eyebrow": "La famille AlGBr",
         "title": "D’autres adresses de la maison.",
         "cta": "Découvrir"
       },
       "en": {
-        "eyebrow": "The ALGBr family",
+        "eyebrow": "The AlGBr family",
         "title": "More from our house.",
         "cta": "Discover"
       }

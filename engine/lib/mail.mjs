@@ -13,7 +13,7 @@ const testing = () => process.env.NOMAD_MEMORY_STORE === '1' && !process.env.RES
 export const mailConfigured = () => testing() || Boolean(process.env.RESEND_API_KEY);
 
 /** Sender address: "<Brand> <service@algbr.eu>" unless MAIL_FROM says otherwise. */
-export const senderFor = (brand) => `${String(brand || 'ALGBr').replace(/[<>"]/g, '')} <${process.env.MAIL_FROM || 'service@algbr.eu'}>`;
+export const senderFor = (brand) => `${String(brand || 'AlGBr').replace(/[<>"]/g, '')} <${process.env.MAIL_FROM || 'service@algbr.eu'}>`;
 
 /** { to, from, replyTo, subject, html, text, key } → { ok, id } | { ok: false, error } */
 export async function sendMail(m) {

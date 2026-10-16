@@ -1,5 +1,5 @@
 /**
- * OFF. by ALGBr — the storefront (off.algbr.eu). Pages are rendered on request
+ * OFF. by AlGBr — the storefront (off.algbr.eu). Pages are rendered on request
  * from D1 (off_products), so a piece published in the admin is live at once and
  * a sold piece moves to the archive. Photos come from KV (OFF_MEDIA). Checkout,
  * sourcing requests and the admin API are served by the shared backend
@@ -12,7 +12,7 @@ import { T, LANGS, CONDITION, money } from './i18n.mjs';
 const SITE = {
   brand: 'OFF.',
   company: {
-    name: 'ALGBr',
+    name: 'AlGBr',
     owner: 'Guy Beaho',
     street: 'Carlo-Mierendorff-Str. 15',
     city: '68623 Lampertheim',
@@ -59,7 +59,7 @@ ${ogImage ? `<meta property="og:image" content="${esc(origin + ogImage)}">` : ''
 <link rel="stylesheet" href="/assets/off.css?v=${env.ASSET_V}">${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, '\\u003c')}</script>` : ''}
 </head><body data-api="${esc(env.API)}" data-lang="${lang}">
 <div class="top">${esc(t.top)}</div>
-<header class="wrap head"><a class="logo" href="/${lang}/" aria-label="OFF. by ALGBr">O<i>F</i>F.<small>by ALGBr</small></a>
+<header class="wrap head"><a class="logo" href="/${lang}/" aria-label="OFF. by AlGBr">O<i>F</i>F.<small>by AlGBr</small></a>
 <nav class="nav"><a href="/${lang}/#shop">${t.nav.shop}</a><a href="/${lang}/#archive">${t.nav.archive}</a><a href="/${lang}/#find">${t.nav.find}</a><a href="/${lang}/bestellung">${t.nav.track}</a></nav>
 <span class="langs">${nav}</span></header>
 <main>${body}</main>
@@ -178,7 +178,7 @@ function feed(env, products) {
       return `<item><g:id>${x(p.ref)}-${x(p.size_eu)}</g:id><g:title>${x(`${title(p)} EU ${p.size_eu}`)}</g:title><g:description>${x(p.description || title(p))}</g:description><g:link>${env.ORIGIN}/de/p/${encodeURIComponent(p.slug)}</g:link>${i[0] ? `<g:image_link>${x(env.ORIGIN + i[0])}</g:image_link>` : ''}${i.slice(1, 10).map((u) => `<g:additional_image_link>${x(env.ORIGIN + u)}</g:additional_image_link>`).join('')}<g:availability>in_stock</g:availability><g:condition>${p.condition === 'like_new' ? 'used' : 'new'}</g:condition><g:price>${(p.price_cents / 100).toFixed(2)} EUR</g:price><g:brand>${x(p.brand)}</g:brand>${p.gtin ? `<g:gtin>${x(p.gtin)}</g:gtin>` : `<g:identifier_exists>no</g:identifier_exists>`}<g:mpn>${x(p.ref)}</g:mpn>${p.color ? `<g:color>${x(p.color)}</g:color>` : ''}${p.size_eu ? `<g:size>${x(p.size_eu)}</g:size><g:size_system>EU</g:size_system>` : ''}<g:shipping><g:country>DE</g:country><g:service>Hermes</g:service><g:price>5.79 EUR</g:price></g:shipping></item>`;
     })
     .join('');
-  return `<?xml version="1.0" encoding="UTF-8"?><rss xmlns:g="http://base.google.com/ns/1.0" version="2.0"><channel><title>OFF. by ALGBr</title><link>${env.ORIGIN}</link><description>Live inventory</description>${items}</channel></rss>`;
+  return `<?xml version="1.0" encoding="UTF-8"?><rss xmlns:g="http://base.google.com/ns/1.0" version="2.0"><channel><title>OFF. by AlGBr</title><link>${env.ORIGIN}</link><description>Live inventory</description>${items}</channel></rss>`;
 }
 
 async function allProducts(env) {

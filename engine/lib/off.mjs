@@ -1,5 +1,5 @@
 /**
- * OFF. by ALGBr — outlet pieces held in our own stock in Germany (not
+ * OFF. by AlGBr — outlet pieces held in our own stock in Germany (not
  * dropshipped). Products live in D1 (off_products), photos in KV (OFF_MEDIA),
  * private sourcing requests in off_requests. Each piece is unique or nearly:
  * a checkout reserves it for 30 minutes, the paid webhook marks it sold, and
@@ -231,10 +231,10 @@ export function offSessionPayload(p, lang, site = OFF_SITE, now = Date.now()) {
     },
     invoice_creation: {
       enabled: true,
-      invoice_data: { description: 'OFF. by ALGBr', footer: 'Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.', metadata: { store: 'off', ref: p.ref } },
+      invoice_data: { description: 'OFF. by AlGBr', footer: 'Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.', metadata: { store: 'off', ref: p.ref } },
     },
     metadata: { store: 'off', lang, item: JSON.stringify(item) },
-    payment_intent_data: { metadata: { store: 'off', ref: p.ref }, description: 'OFF. by ALGBr' },
+    payment_intent_data: { metadata: { store: 'off', ref: p.ref }, description: 'OFF. by AlGBr' },
   };
 }
 

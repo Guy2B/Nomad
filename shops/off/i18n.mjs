@@ -20,7 +20,7 @@ export const T = {
   de: {
     top: 'OFF. · Markenware unter UVP · Echter Bestand in Deutschland',
     nav: { shop: 'Shop', archive: 'Archiv', find: 'Private Sourcing', track: 'Bestellung' },
-    seo: { title: 'OFF. by ALGBr · Markenschuhe unter UVP, sofort verfügbar', description: 'Originale Markenschuhe aus dem Outlet, unter UVP, geprüft und aus Deutschland verschickt. Einzelstücke, wenn weg, dann weg. Private Sourcing für Ihre Größe.' },
+    seo: { title: 'OFF. by AlGBr · Markenschuhe unter UVP, sofort verfügbar', description: 'Originale Markenschuhe aus dem Outlet, unter UVP, geprüft und aus Deutschland verschickt. Einzelstücke, wenn weg, dann weg. Private Sourcing für Ihre Größe.' },
     hero: {
       eyebrow: 'Ausgewählt unter UVP',
       title: ['Originale Marken.', 'Unter UVP. Sofort da.'],
@@ -53,13 +53,13 @@ export const T = {
     track: { title: 'Bestellung verfolgen', text: 'Bestellnummer und E-Mail eingeben.', number: 'Bestellnummer', submit: 'Status anzeigen' },
     notFound: 'Seite nicht gefunden',
     sold: 'VERKAUFT', one: '1 VERFÜGBAR', left: (n) => `${n} VERFÜGBAR`,
-    footer: 'Originale Markenschuhe unter UVP, aus Deutschland verschickt.', rights: 'Eine Marke von ALGBr.', service: 'Service', contact: 'Kontakt', legal: legal.de,
+    footer: 'Originale Markenschuhe unter UVP, aus Deutschland verschickt.', rights: 'Eine Marke von AlGBr.', service: 'Service', contact: 'Kontakt', legal: legal.de,
     status: { processing: 'In Bearbeitung', supplier_ordered: 'Wird verpackt', shipped: 'Verschickt', delivered: 'Zugestellt', cancelled: 'Storniert' }, trackNotFound: 'Keine Bestellung mit diesen Angaben gefunden.',
   },
   fr: {
     top: 'OFF. · Grandes marques sous le prix conseillé · Stock réel en Allemagne',
     nav: { shop: 'Boutique', archive: 'Archive', find: 'Private Sourcing', track: 'Commande' },
-    seo: { title: 'OFF. by ALGBr · Chaussures de marque sous le prix conseillé', description: 'Chaussures de marque authentiques issues d’outlet, sous le prix conseillé, vérifiées et expédiées depuis l’Allemagne. Pièces uniques. Private Sourcing pour votre pointure.' },
+    seo: { title: 'OFF. by AlGBr · Chaussures de marque sous le prix conseillé', description: 'Chaussures de marque authentiques issues d’outlet, sous le prix conseillé, vérifiées et expédiées depuis l’Allemagne. Pièces uniques. Private Sourcing pour votre pointure.' },
     hero: {
       eyebrow: 'Sélectionné sous le prix conseillé',
       title: ['Marques authentiques.', 'Moins chères. Disponibles.'],
@@ -92,13 +92,13 @@ export const T = {
     track: { title: 'Suivre ma commande', text: 'Saisissez votre numéro de commande et votre e-mail.', number: 'Numéro de commande', submit: 'Voir le statut' },
     notFound: 'Page introuvable',
     sold: 'VENDU', one: '1 DISPONIBLE', left: (n) => `${n} DISPONIBLES`,
-    footer: 'Chaussures de marque authentiques sous le prix conseillé, expédiées d’Allemagne.', rights: 'Une marque ALGBr.', service: 'Service', contact: 'Contact', legal: legal.fr,
+    footer: 'Chaussures de marque authentiques sous le prix conseillé, expédiées d’Allemagne.', rights: 'Une marque AlGBr.', service: 'Service', contact: 'Contact', legal: legal.fr,
     status: { processing: 'En préparation', supplier_ordered: 'En cours d’emballage', shipped: 'Expédiée', delivered: 'Livrée', cancelled: 'Annulée' }, trackNotFound: 'Aucune commande trouvée avec ces informations.',
   },
   en: {
     top: 'OFF. · Branded pieces below RRP · Real stock in Germany',
     nav: { shop: 'Shop', archive: 'Archive', find: 'Private Sourcing', track: 'Order' },
-    seo: { title: 'OFF. by ALGBr · Branded shoes below RRP, available now', description: 'Authentic branded outlet shoes below RRP, checked and shipped from Germany. One-offs, once gone, they’re gone. Private sourcing for your size.' },
+    seo: { title: 'OFF. by AlGBr · Branded shoes below RRP, available now', description: 'Authentic branded outlet shoes below RRP, checked and shipped from Germany. One-offs, once gone, they’re gone. Private sourcing for your size.' },
     hero: {
       eyebrow: 'Selected below retail',
       title: ['Authentic brands.', 'Below RRP. Available now.'],
@@ -131,7 +131,7 @@ export const T = {
     track: { title: 'Track my order', text: 'Enter your order number and e-mail.', number: 'Order number', submit: 'Show status' },
     notFound: 'Page not found',
     sold: 'SOLD', one: '1 AVAILABLE', left: (n) => `${n} AVAILABLE`,
-    footer: 'Authentic branded shoes below RRP, shipped from Germany.', rights: 'An ALGBr brand.', service: 'Service', contact: 'Contact', legal: legal.en,
+    footer: 'Authentic branded shoes below RRP, shipped from Germany.', rights: 'An AlGBr brand.', service: 'Service', contact: 'Contact', legal: legal.en,
     status: { processing: 'Processing', supplier_ordered: 'Being packed', shipped: 'Shipped', delivered: 'Delivered', cancelled: 'Cancelled' }, trackNotFound: 'No order found with these details.',
   },
 };

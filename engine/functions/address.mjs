@@ -59,7 +59,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const clean = (s, max) => String(s ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
 
 function page(order, lang, body, status = 200) {
-  const b = order ? brandOf(order) : { brand: 'ALGBr', color: '#1d1d1f' };
+  const b = order ? brandOf(order) : { brand: 'AlGBr', color: '#1d1d1f' };
   const t = T[lang];
   const html = `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(t.title)} · ${esc(b.brand)}</title>
 <style>
@@ -70,7 +70,7 @@ h1{font-size:20px;margin:18px 0 6px}p{margin:0 0 16px}label{display:block;font-s
 input{width:100%;padding:12px;border:1px solid #d6d2cb;border-radius:10px;font:inherit}input[readonly]{background:#f7f5f1}
 .row{display:flex;gap:10px}.row>div:first-child{flex:0 0 38%}.err{color:#b3261e;font-size:14px}
 button{margin-top:20px;width:100%;padding:14px;border:0;border-radius:999px;background:var(--c);color:#fff;font:600 16px sans-serif;cursor:pointer}
-</style></head><body><main><div class="card"><div class="brand">${esc(b.brand)} <small>by ALGBr</small></div>${body}</div></main></body></html>`;
+</style></head><body><main><div class="card"><div class="brand">${esc(b.brand)} <small>by AlGBr</small></div>${body}</div></main></body></html>`;
   return new Response(html, {
     status,
     headers: {

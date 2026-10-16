@@ -164,7 +164,7 @@
     "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
   },
   "company": {
-    "name": "ALGBr",
+    "name": "AlGBr",
     "owner": "Guy Beaho",
     "street": "Carlo-Mierendorff-Str. 15",
     "city": "68623 Lampertheim",
@@ -229,7 +229,7 @@
     }
   ],
   "byAlgbr": "https://algbr.eu/",
-  "byline": "by ALGBr",
+  "byline": "by AlGBr",
   "aliases": [
     "https://space.algbr.de"
   ],
@@ -469,7 +469,7 @@
       },
       "footer": {
         "tagline": "Mehr Platz in kleinen Wohnungen, ohne Bohren, ohne Umbau.",
-        "rights": "Eine Marke von ALGBr.",
+        "rights": "Eine Marke von AlGBr.",
         "cols": [
           {
             "title": "Shop",
@@ -813,7 +813,7 @@
       },
       "footer": {
         "tagline": "Plus d’espace dans les petits appartements, sans percer, sans travaux.",
-        "rights": "Une marque ALGBr.",
+        "rights": "Une marque AlGBr.",
         "cols": [
           {
             "title": "Boutique",
@@ -1157,7 +1157,7 @@
       },
       "footer": {
         "tagline": "More room in small apartments, no drilling, no renovation.",
-        "rights": "An ALGBr brand.",
+        "rights": "An AlGBr brand.",
         "cols": [
           {
             "title": "Shop",
