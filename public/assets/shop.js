@@ -396,6 +396,10 @@
   if (revForm && data) {
     var pre = new URLSearchParams(location.search).get('p');
     if (pre && revForm.product.querySelector('option[value="' + pre + '"]')) revForm.product.value = pre;
+    // Link from the review e-mail: order number and e-mail already known.
+    var qs = new URLSearchParams(location.search);
+    if (qs.get('o') && revForm.order) revForm.order.value = qs.get('o');
+    if (qs.get('e') && revForm.email) revForm.email.value = qs.get('e');
     revForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var err = document.querySelector('[data-review-error]');

@@ -6,6 +6,7 @@
 import { verifySignature } from '../lib/stripe.mjs';
 import { processPaidSession } from '../lib/orders.mjs';
 import { crm } from '../lib/store.mjs';
+import { onDispute, onRefunded } from '../lib/aftersale.mjs';
 
 export default async (req) => {
   if (req.method !== 'POST') return new Response('method', { status: 405 });
@@ -15,6 +16,10 @@ export default async (req) => {
   const event = JSON.parse(raw);
   if (event.type === 'checkout.session.completed' || event.type === 'checkout.session.async_payment_succeeded') {
     await processPaidSession(crm(), event.data.object);
+  } else if (event.type === 'charge.dispute.created') {
+    await onDispute(crm(), event.data.object);
+  } else if (event.type === 'charge.refunded') {
+    await onRefunded(crm(), event.data.object);
   }
   return new Response(JSON.stringify({ received: true }), { headers: { 'content-type': 'application/json' } });
 };

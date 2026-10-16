@@ -3,6 +3,7 @@
  * /admin/ dashboard (static assets), and the hourly CJ status sync (cron).
  * Storage is the D1 database bound as DB; OFF. photos are in the KV namespace OFF_MEDIA.
  */
+import address from '../engine/functions/address.mjs';
 import admin from '../engine/functions/admin.mjs';
 import checkout from '../engine/functions/checkout.mjs';
 import cjSync from '../engine/functions/cj-sync.mjs';
@@ -17,6 +18,7 @@ import { useStore } from '../engine/lib/store.mjs';
 import { d1Store } from './d1-store.mjs';
 
 const ROUTES = {
+  '/api/address': address,
   '/api/admin': admin,
   '/api/checkout': checkout,
   '/api/event': event,

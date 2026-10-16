@@ -3,7 +3,8 @@
  *   GET  /api/admin            → stores, setup, overview (all stores and per store), orders
  *   POST /api/admin {action:'retry', sessionId}      → send to the supplier again
  *   POST /api/admin {action:'resolve', sessionId}    → clear the attention flag (done by hand)
- *   POST /api/admin {action:'ship', sessionId, trackNumber, carrier} → mark shipped by hand, tracking for the customer
+ *   POST /api/admin {action:'ship', sessionId, trackNumber, carrier} → mark shipped by hand, tracking for the customer (+ e-mail)
+ *   POST /api/admin {action:'refund', sessionId}   → full Stripe refund + apology e-mail to the customer
  *   POST /api/admin {action:'auditSupply', cursor, kind} → next batch of the CJ stock & delivery audit (kind 'alternatives': same products stocked in Germany)
  */
 import crypto from 'node:crypto';
@@ -14,6 +15,8 @@ import { cjConfigured } from '../lib/cj.mjs';
 import { funnel } from '../lib/metrics.mjs';
 import { moderate, pendingReviews } from '../lib/reviews.mjs';
 import { alternatives, auditBatch, supplyAudit } from '../lib/supply.mjs';
+import { mailOnce, refundOrder } from '../lib/aftersale.mjs';
+import { mailConfigured } from '../lib/mail.mjs';
 
 const json = (status, body) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } });
@@ -86,6 +89,7 @@ export default async (req) => {
         cj: cjConfigured(),
         cjAutoPay: process.env.CJ_AUTO_PAY === 'true',
         notifications: Boolean(process.env.NTFY_TOPIC),
+        mail: mailConfigured(),
         mappedProducts: stores.reduce((a, s) => a + s.mappedProducts, 0),
         activeProducts: stores.reduce((a, s) => a + s.activeProducts, 0),
       },
@@ -117,14 +121,27 @@ export default async (req) => {
       const { saveOrder } = await import('../lib/store.mjs');
       order.status = 'shipped';
       order.attention = null;
+      order.issue = null;
+      order.shippedBy = 'hand';
+      order.shippedAt ??= new Date().toISOString();
       order.supplier.trackNumber = String(trackNumber || '').trim().slice(0, 60) || order.supplier.trackNumber || null;
       order.supplier.logisticName = String(carrier || '').trim().slice(0, 40) || order.supplier.logisticName || null;
       order.history.push({ at: new Date().toISOString(), event: `shipped by hand${order.supplier.trackNumber ? ` · ${order.supplier.trackNumber}` : ''}` });
+      await mailOnce(order, 'shipped');
       await saveOrder(store, order);
       return json(200, order);
     }
+    if (action === 'refund') {
+      if (order.test === false && !process.env.STRIPE_SECRET_KEY) return json(400, { error: 'stripe-not-configured' });
+      try {
+        return json(200, await refundOrder(store, order));
+      } catch (err) {
+        return json(400, { error: err.message });
+      }
+    }
     if (action === 'resolve') {
       order.attention = null;
+      order.issue = null;
       if (order.status === 'needs_attention') order.status = 'supplier_ordered';
       order.history.push({ at: new Date().toISOString(), event: 'resolved by hand' });
       const { saveOrder } = await import('../lib/store.mjs');

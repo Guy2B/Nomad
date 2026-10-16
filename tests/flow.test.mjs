@@ -350,7 +350,7 @@ test('an address without a house number is flagged before reaching CJ', async ()
   const session = paidSession({ id: 'cs_test_h1' });
   session.collected_information.shipping_details.address = { line1: 'Hauptstraße', line2: '', postal_code: '10115', city: 'Berlin', state: '', country: 'DE' };
   const { order } = await processPaidSession(crm(), session);
-  assert.match(order.attention, /Numéro de rue/);
+  assert.match(order.attention, /numéro de rue/i);
   assert.ok(!calls.some((u) => String(u).includes('cjdropshipping')));
 });
 

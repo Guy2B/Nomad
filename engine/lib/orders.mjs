@@ -12,6 +12,7 @@ import { CJError, cjConfigured, createSupplierOrder, unmapped } from './cj.mjs';
 import { getOrder, saveOrder, upsertCustomer } from './store.mjs';
 import { euros, notifyOwner } from './notify.mjs';
 import { markSold, offItems } from './off.mjs';
+import { mailOnce } from './aftersale.mjs';
 
 /** Shipping address from a Checkout Session (old and new Stripe API shapes). */
 export function shippingFrom(session) {
@@ -55,9 +56,13 @@ export function orderFromSession(session, now = new Date()) {
     customer: { email: cust.email || '', name: cust.name || '', phone: cust.phone || '' },
     shipping: shippingFrom(session),
     invoiceId: typeof session.invoice === 'string' ? session.invoice : (session.invoice?.id ?? null),
+    paymentIntent: typeof session.payment_intent === 'string' ? session.payment_intent : (session.payment_intent?.id ?? null),
     supplier: { provider: off ? 'own stock' : 'CJdropshipping', orderId: null, status: null, trackNumber: null, logisticName: null },
     history: [{ at: now.toISOString(), event: 'paid' }],
     attention: null,
+    issue: null,
+    mails: {},
+    alerts: {},
     // Paid with a Stripe test key: never sent to the supplier.
     test: session.livemode === false,
   };
@@ -76,12 +81,18 @@ export async function fulfill(store, order) {
     return order;
   }
   const missing = unmapped(order);
+  order.issue = null;
   if (order.test) order.attention = 'Commande test (Stripe en mode test) : non envoyée à CJ';
   else if (!cjConfigured()) order.attention = 'Clé CJ absente (CJ_API_KEY) : commander à la main sur CJ, puis « Traité à la main »';
   else if (missing.length) order.attention = `Variante CJ manquante pour : ${missing.map((i) => i.name).join(', ')}`;
-  else if (!order.shipping.line1 || !order.shipping.city || !order.shipping.country) order.attention = 'Adresse de livraison incomplète';
-  else if (!hasHouseNumber(order.shipping))
-    order.attention = 'Numéro de rue manquant (exigé par CJ) : demander l’adresse complète au client, commander à la main sur CJ';
+  else if (!order.shipping.line1 || !order.shipping.city || !order.shipping.country || !hasHouseNumber(order.shipping)) {
+    // The customer gets a signed link to complete the address; the order goes to CJ as soon as it is fixed.
+    order.issue = 'address';
+    const sent = await mailOnce(order, 'address');
+    order.attention = sent || order.mails?.address
+      ? 'Adresse incomplète (numéro de rue) : e-mail envoyé au client avec un lien pour la compléter, la commande partira toute seule chez CJ'
+      : 'Adresse incomplète (numéro de rue exigé par CJ) : demander l’adresse complète au client, commander à la main sur CJ';
+  }
   else {
     try {
       const r = await createSupplierOrder(order, store);
@@ -90,6 +101,7 @@ export async function fulfill(store, order) {
       order.status = 'supplier_ordered';
       order.attention =
         process.env.CJ_AUTO_PAY === 'true' ? null : 'Payer la commande fournisseur dans CJ (CJ_AUTO_PAY désactivé)';
+      if (order.attention) order.issue = 'pay';
       log(`supplier order ${r.cjOrderId ?? ''}`.trim());
     } catch (err) {
       order.attention = `CJ: ${err instanceof CJError ? err.message : 'unreachable'}`;

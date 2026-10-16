@@ -39,7 +39,7 @@
     return 'il y a ' + Math.round(h / 24) + ' j';
   };
 
-  var STATUS = { paid: 'Payée', supplier_ordered: 'Chez le fournisseur', shipped: 'Expédiée', delivered: 'Livrée', needs_attention: 'À traiter', cancelled: 'Annulée' };
+  var STATUS = { paid: 'Payée', supplier_ordered: 'Chez le fournisseur', shipped: 'Expédiée', delivered: 'Livrée', needs_attention: 'À traiter', cancelled: 'Annulée / remboursée' };
   var DECISION = { SCALE_CANDIDATE: 'À scaler', TEST: 'À tester', VALIDATE_PRICE: 'Valider le prix', SOURCE_NOW: 'Sourcer', WATCH: 'Surveiller', LOW_PRIORITY: 'Faible priorité', REJECT: 'Rejeté' };
   var VERDICT = { DE: 'Stock Allemagne', EU: 'Stock UE', CN: 'Chine seulement' };
 
@@ -198,6 +198,7 @@
       [s.cj, 'Clé API CJdropshipping', 'CJ_API_KEY : envoi automatique des commandes au fournisseur.'],
       [s.cjAutoPay, 'Paiement automatique des commandes CJ', 'CJ_AUTO_PAY=true, avec un solde CJ approvisionné. Facultatif.'],
       [s.notifications, 'Notifications sur le téléphone', 'NTFY_TOPIC : une alerte à chaque commande ou problème. Facultatif.'],
+      [s.mail, 'E-mails clients (expédié, livré, adresse, remboursement, avis)', 'RESEND_API_KEY, domaine algbr.eu vérifié dans Resend.'],
       [radar && radar.scores && radar.scores.length, 'Radar d’opportunités', 'Tâche Windows « ALGBr Radar » (scan quotidien) + RADAR_KEY.'],
     ];
     data.stores.forEach(function (st) {
@@ -490,7 +491,16 @@
     if (o.attention) actions.append(button('Traité à la main', 'btn', function (b) {
       act({ action: 'resolve', sessionId: o.sessionId }, b, 'Marquée comme traitée');
     }));
+    if (o.store !== 'off' && !o.refund && ['cancelled', 'delivered'].indexOf(o.status) < 0) actions.append(button('Rembourser + e-mail', 'btn danger', function (b) {
+      if (!window.confirm('Rembourser ' + euros(o.totalCents) + ' à ' + (o.customer.name || o.customer.email) + ' et lui envoyer un e-mail d’excuse ?')) return;
+      act({ action: 'refund', sessionId: o.sessionId }, b, 'Client remboursé et prévenu');
+    }));
     if (actions.childNodes.length) body.append(actions);
+    if (o.refund) body.append(el('div', 'notice', 'Remboursée ' + euros(o.refund.cents) + ' le ' + date(o.refund.at, true)));
+    if (o.mails && Object.keys(o.mails).length) {
+      var MAILS = { shipped: 'expédiée', delivered: 'livrée', address: 'adresse à compléter', cancelled: 'remboursement', review: 'demande d’avis' };
+      body.append(el('p', 'muted small', 'E-mails envoyés : ' + Object.keys(o.mails).map(function (k) { return (MAILS[k] || k) + ' (' + date(o.mails[k]) + ')'; }).join(', ')));
+    }
 
     if (['shipped', 'delivered', 'cancelled'].indexOf(o.status) < 0) {
       var ship = el('section');

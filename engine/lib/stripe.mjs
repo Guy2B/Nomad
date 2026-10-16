@@ -96,6 +96,13 @@ export function sessionPayload({ site, priced, lang, baseUrl, cart, images }) {
 }
 
 export const createCheckoutSession = (payload) => stripe('/checkout/sessions', { method: 'POST', body: payload });
+/** Full refund of a payment (Stripe sends the money back to the card used). */
+export const refundPayment = (paymentIntent, metadata = {}) =>
+  stripe('/refunds', { method: 'POST', body: { payment_intent: paymentIntent, reason: 'requested_by_customer', metadata } });
+/** The Checkout Session that created a PaymentIntent (to find the CRM order of a dispute). */
+export const sessionsForPaymentIntent = (pi) => stripe(`/checkout/sessions?payment_intent=${encodeURIComponent(pi)}&limit=1`);
+/** Saves dispute evidence; with submit=false it stays a draft the owner reviews in Stripe. */
+export const updateDispute = (id, body) => stripe(`/disputes/${encodeURIComponent(id)}`, { method: 'POST', body });
 export const getSession = (id) =>
   stripe(`/checkout/sessions/${encodeURIComponent(id)}?expand[]=line_items&expand[]=invoice`);
 

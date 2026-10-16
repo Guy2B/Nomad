@@ -66,6 +66,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .btn.icon svg { width: 18px; height: 18px; fill: currentColor; }
 .btn.sm { padding: 5px 10px; font-size: 12px; border-radius: 8px; }
 .btn.block { width: 100%; }
+.btn.danger { color: #b3261e; border-color: #e6bdb9; }
+.btn.danger:hover { background: #fbeceb; border-color: #b3261e; }
 .btn[disabled] { opacity: 0.5; cursor: wait; }
 .field { display: flex; flex-direction: column; gap: 6px; margin: 14px 0; }
 .field span { font-size: 12px; font-weight: 600; color: var(--muted); }
