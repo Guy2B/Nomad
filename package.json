@@ -16,6 +16,8 @@
     "build:kin": "node scripts/build.mjs kin",
     "deploy:glow": "npm run build:glow && npx wrangler deploy --config shops/glow/wrangler.toml",
     "deploy:kin": "npm run build:kin && npx wrangler deploy --config shops/kin/wrangler.toml",
+    "build:joy": "node scripts/build.mjs joy",
+    "deploy:joy": "npm run build:joy && npx wrangler deploy --config shops/joy/wrangler.toml",
     "deploy:off": "node scripts/deploy-off.mjs"
   },
   "devDependencies": {

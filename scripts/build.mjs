@@ -18,7 +18,7 @@ import { createTemplates } from './premium.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const dist = join(root, 'dist');
-// Shop folder (go, space, ease, glow, kin) or its store id (nomad, appart-reset, body-care).
+// Shop folder (go, space, ease, glow, kin, joy) or its store id (nomad, appart-reset, body-care).
 const FOLDER = { nomad: 'go', 'appart-reset': 'space', 'body-care': 'ease' };
 const STORE = process.argv[2] || process.env.STORE || 'go';
 const SHOP = FOLDER[STORE] ?? STORE;

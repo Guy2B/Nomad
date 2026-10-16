@@ -1,0 +1,1184 @@
+{
+  "id": "joy",
+  "brand": "JOY",
+  "orderPrefix": "JO",
+  "themeColor": "#1d3a2f",
+  "tagline": {
+    "de": "Weihnachten, wie es sein soll.",
+    "fr": "Noël, comme il doit être.",
+    "en": "Make Christmas feel like Christmas."
+  },
+  "seo": {
+    "de": {
+      "title": "JOY · Weihnachten, wie es sein soll: Weihnachtsboxen für Advent, Baum & Geschenke",
+      "description": "Fertige Weihnachtsboxen: Adventskerzenhalter, Lichterhäuser, Kissenhüllen, Holzanhänger, Geschenkboxen und Geschenkpapier. Versand aus Deutschland, kostenlos."
+    },
+    "fr": {
+      "title": "JOY · Noël, comme il doit être : box de Noël pour l'Avent, le sapin et les cadeaux",
+      "description": "Des box de Noël prêtes : bougeoirs de l'Avent, village lumineux, housses de coussin, suspensions en bois, boîtes et papier cadeau. Expédiées d'Allemagne, livraison offerte."
+    },
+    "en": {
+      "title": "JOY · Make Christmas feel like Christmas: boxes for Advent, the tree & gifts",
+      "description": "Ready-made Christmas boxes: Advent candle holders, house silhouette, cushion covers, wooden ornaments, gift boxes and gift wrap. Shipped from Germany, free."
+    }
+  },
+  "highlight": {
+    "de": {
+      "eyebrow": "Die JOY Idee",
+      "title": "Weihnachten ohne Suchen.",
+      "text": "JOY stellt Weihnachtsdeko zu Boxen zusammen, die aus einem Lager in Deutschland kommen.",
+      "points": [
+        "Eine Box pro Moment",
+        "Versand aus Deutschland",
+        "Ehrliche Lieferzeit",
+        "Zum Aufbewahren"
+      ]
+    },
+    "fr": {
+      "eyebrow": "L'idée JOY",
+      "title": "Noël sans chercher.",
+      "text": "JOY compose des box de déco de Noël qui partent d'un entrepôt en Allemagne.",
+      "points": [
+        "Une box par moment",
+        "Expédié d'Allemagne",
+        "Délai honnête",
+        "À garder"
+      ]
+    },
+    "en": {
+      "eyebrow": "The JOY idea",
+      "title": "Christmas without the search.",
+      "text": "JOY puts Christmas decor together in boxes that ship from a warehouse in Germany.",
+      "points": [
+        "One box per moment",
+        "Shipped from Germany",
+        "Honest delivery time",
+        "Made to keep"
+      ]
+    }
+  },
+  "baseUrl": "https://joy.algbr.eu",
+  "currency": "eur",
+  "defaultLang": "de",
+  "languages": [
+    "de",
+    "fr",
+    "en"
+  ],
+  "launched": false,
+  "shipping": {
+    "countries": [
+      "DE"
+    ],
+    "cents": 0,
+    "deliveryDays": "5–7",
+    "returnDays": 14,
+    "carrier": "DHL",
+    "from": "DE"
+  },
+  "invoice": {
+    "footer": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. / Conformément au § 19 UStG, pas de TVA facturée (régime des petites entreprises)."
+  },
+  "company": {
+    "name": "ALGBr",
+    "owner": "Guy Beaho",
+    "street": "Carlo-Mierendorff-Str. 15",
+    "city": "68623 Lampertheim",
+    "country": "Deutschland",
+    "email": "contact@algbr.de",
+    "phone": "",
+    "taxNote": "Kleinunternehmer gemäß § 19 UStG"
+  },
+  "guides": [
+    {
+      "slug": "advent-entspannt",
+      "text": {
+        "de": {
+          "title": "Advent entspannt: der 4-Wochen-Plan",
+          "description": "Ein einfacher Plan für die vier Adventswochen: dekorieren, verpacken, genießen. Ohne Last-Minute-Stress.",
+          "lead": "Vier Wochen reichen, wenn jede Woche nur eine Aufgabe hat.",
+          "items": [
+            "Ende November: Adventskerzenhalter aufstellen, LED-Kerzen bereitlegen.",
+            "Erster Advent: die erste Kerze, die Lichterhäuser ins Fenster.",
+            "Woche 1: Geschenkliste schreiben, Budget festlegen.",
+            "Woche 2: Kissenhüllen wechseln, das Wohnzimmer wird Weihnachtsstube.",
+            "Woche 2: Plätzchen backen und in Geschenkboxen verteilen.",
+            "Woche 3: Baum schmücken, Holzanhänger aufhängen.",
+            "Woche 3: Geschenke verpacken, mit Anhänger und Schleife.",
+            "Woche 4: nichts mehr kaufen, nur noch genießen."
+          ]
+        },
+        "fr": {
+          "title": "Un Avent serein : le plan en 4 semaines",
+          "description": "Un plan simple pour les quatre semaines de l'Avent : décorer, emballer, profiter. Sans stress de dernière minute.",
+          "lead": "Quatre semaines suffisent si chaque semaine n'a qu'une tâche.",
+          "items": [
+            "Fin novembre : installer les bougeoirs de l'Avent, préparer des bougies LED.",
+            "Premier dimanche de l'Avent : la première bougie, le village lumineux à la fenêtre.",
+            "Semaine 1 : écrire la liste de cadeaux, fixer le budget.",
+            "Semaine 2 : changer les housses de coussin, le salon passe en mode Noël.",
+            "Semaine 2 : faire les biscuits et les répartir dans les boîtes cadeaux.",
+            "Semaine 3 : décorer le sapin, accrocher les suspensions en bois.",
+            "Semaine 3 : emballer les cadeaux, avec étiquette et ruban.",
+            "Semaine 4 : ne plus rien acheter, juste profiter."
+          ]
+        },
+        "en": {
+          "title": "A relaxed Advent: the 4-week plan",
+          "description": "A simple plan for the four weeks of Advent: decorate, wrap, enjoy. No last-minute stress.",
+          "lead": "Four weeks are enough when each week has just one job.",
+          "items": [
+            "End of November: set up the Advent candle holders, get LED candles ready.",
+            "First Advent Sunday: the first candle, the house silhouette in the window.",
+            "Week 1: write the gift list, set the budget.",
+            "Week 2: swap the cushion covers, the living room goes Christmas.",
+            "Week 2: bake cookies and share them in gift boxes.",
+            "Week 3: decorate the tree, hang the wooden ornaments.",
+            "Week 3: wrap the gifts, with tag and ribbon.",
+            "Week 4: stop buying, just enjoy."
+          ]
+        }
+      }
+    }
+  ],
+  "byAlgbr": "https://algbr-3b4ee.web.app/",
+  "byline": "by ALGBr",
+  "aliases": [],
+  "ui": {
+    "de": {
+      "promo": "Versand aus Deutschland · Sichere Zahlung · 14 Tage Widerruf",
+      "nav": {
+        "shop": "Boxen",
+        "guide": "Ratgeber",
+        "why": "Warum JOY",
+        "track": "Bestellung verfolgen"
+      },
+      "hero": {
+        "label": "Weihnachtsboxen, fertig zusammengestellt",
+        "title": [
+          "Weihnachten,",
+          "wie es sein soll."
+        ],
+        "signature": "Make Christmas feel like Christmas.",
+        "text": "Advent, Baumschmuck, Kissen und Geschenkverpackung in fertigen Boxen. Aus einem Lager in Deutschland, mit Sendungsverfolgung.",
+        "cta": "Boxen entdecken",
+        "cta2": "Advents-Ratgeber",
+        "micro": "Kostenloser Versand · Sichere Zahlung · 14 Tage Widerruf",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Versand aus Deutschland",
+          "s": "Mit DHL und Sendungsverfolgung."
+        },
+        {
+          "t": "Sichere Zahlung",
+          "s": "Karte, Apple Pay und Google Pay über Stripe."
+        },
+        {
+          "t": "14 Tage Widerruf",
+          "s": "Bestellen ohne Druck."
+        },
+        {
+          "t": "Persönlicher Support",
+          "s": "Eine Frage? Wir antworten wirklich."
+        }
+      ],
+      "featured": {
+        "id": "das-ganze-fest",
+        "label": "Die große Box",
+        "pitch": "Sechs Teile, ein Weihnachten.",
+        "sub": "Advent, Licht, Kissen, Baumschmuck, Boxen und Papier: einmal bestellt, alles da.",
+        "benefits": [
+          {
+            "t": "Alles in einer Bestellung",
+            "s": "Kein Zusammensuchen."
+          },
+          {
+            "t": "Aus Deutschland",
+            "s": "Kein Warten auf Übersee-Pakete."
+          },
+          {
+            "t": "Jedes Jahr wieder",
+            "s": "Holz, Plüsch, Kraftpapier: zum Aufbewahren."
+          }
+        ],
+        "cta": "Das ganze Fest ansehen",
+        "link": "Alle Boxen ansehen"
+      },
+      "collection": {
+        "label": "Nach Anlass",
+        "title": [
+          "Eine Box.",
+          "Ein Moment."
+        ],
+        "text": "Boxen für Advent, Wohnzimmer, Baum und Geschenke, dazu zwei Einzelteile. Alles aus einem Lager in Deutschland.",
+        "groups": [
+          {
+            "key": "boxen",
+            "title": "Weihnachtsboxen",
+            "ids": [
+              "das-ganze-fest",
+              "advent-zuhause",
+              "gemuetliche-stube",
+              "baum-und-sofa",
+              "geschenke-werkstatt"
+            ]
+          },
+          {
+            "key": "einzeln",
+            "title": "Einzeln",
+            "ids": [
+              "kissenhuellen",
+              "geschenkboxen"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Vier Wochen.",
+          "Ein warmes Zuhause."
+        ],
+        "cards": [
+          {
+            "title": "Am Adventssonntag",
+            "text": "Eine Kerze mehr jede Woche.",
+            "cta": "Advent zuhause ansehen",
+            "href": "produkt/advent-zuhause.html",
+            "img": "advent-zuhause"
+          },
+          {
+            "title": "Auf dem Sofa",
+            "text": "Grüne Kissen, warmes Licht.",
+            "cta": "Gemütliche Stube ansehen",
+            "href": "produkt/gemuetliche-stube.html",
+            "img": "gemuetliche-stube"
+          },
+          {
+            "title": "Am Geschenketisch",
+            "text": "Alles schön verpackt.",
+            "cta": "Geschenke-Werkstatt ansehen",
+            "href": "produkt/geschenke-werkstatt.html",
+            "img": "geschenke-werkstatt"
+          }
+        ]
+      },
+      "why": {
+        "label": "Wie wir auswählen",
+        "title": [
+          "Weniger suchen.",
+          "Mehr Weihnachten."
+        ],
+        "text": [
+          "Weihnachtsdeko heißt oft: zehn Shops, zehn Pakete, zehn Lieferzeiten. JOY stellt Boxen zusammen, die aus einem Lager in Deutschland kommen.",
+          "Wir zeigen Ihnen ehrlich, was drin ist, wie groß es ist und wann es ankommt."
+        ],
+        "principles": [
+          {
+            "t": "Ehrliche Lieferzeit",
+            "s": "Wir nennen die echte Lieferzeit."
+          },
+          {
+            "t": "Zum Aufbewahren",
+            "s": "Holz, Plüsch, Kraftpapier statt Wegwerfdeko."
+          },
+          {
+            "t": "Sicher",
+            "s": "Kerzenhinweise bei jedem Produkt, LED empfohlen."
+          }
+        ]
+      },
+      "how": {
+        "title": "Eine Box in drei Schritten.",
+        "steps": [
+          {
+            "t": "Moment wählen",
+            "s": "Advent, Wohnzimmer, Baum oder Geschenke."
+          },
+          {
+            "t": "Bestellen",
+            "s": "Sicher bezahlen mit Karte, Apple Pay oder Google Pay."
+          },
+          {
+            "t": "Verfolgen",
+            "s": "Bestätigung und Sendungsverfolgung kommen per E-Mail."
+          }
+        ],
+        "help": "Zum Einstieg: den Advents-Ratgeber lesen"
+      },
+      "guides": {
+        "title": "Ein entspannter Advent beginnt mit einem Plan.",
+        "soon": [
+          "Geschenke schön verpacken",
+          "Der Baum in 30 Minuten"
+        ],
+        "soonLabel": "Demnächst",
+        "read": "Ratgeber lesen"
+      },
+      "faq": {
+        "title": "Häufige Fragen",
+        "items": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage, mit DHL aus einem Lager in Deutschland. Sie erhalten eine Sendungsnummer, sobald das Paket unterwegs ist."
+          ],
+          [
+            "Bis wann für Weihnachten bestellen?",
+            "Für eine Lieferung vor Heiligabend: bis Freitag, 11. Dezember."
+          ],
+          [
+            "Wohin liefern Sie?",
+            "Innerhalb Deutschlands."
+          ],
+          [
+            "Was kostet der Versand?",
+            "Der Versand ist kostenlos."
+          ],
+          [
+            "Kann ich zurückgeben?",
+            "Ja: Sie haben 14 Tage Widerrufsrecht ab Erhalt. Die Kosten der Rücksendung tragen Sie. Schreiben Sie uns an contact@algbr.de."
+          ],
+          [
+            "Sind Kerzen dabei?",
+            "Nein. Wir empfehlen LED-Kerzen und LED-Teelichter."
+          ],
+          [
+            "Wie bezahle ich?",
+            "Mit Karte, Apple Pay, Google Pay und weiteren Methoden über Stripe. Wir sehen Ihre Kartendaten nie."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Bereit für Weihnachten?",
+        "title": [
+          "Weihnachten,",
+          "wie es sein soll."
+        ],
+        "text": "Fertige Boxen für Advent, Baum und Geschenke.",
+        "cta": "Boxen ansehen",
+        "cta2": "Ratgeber lesen"
+      },
+      "footer": {
+        "tagline": "Weihnachtsboxen aus Deutschland.",
+        "rights": "Eine Marke von ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Alle Boxen",
+                "#produkte"
+              ],
+              [
+                "Weihnachtsboxen",
+                "#g-boxen"
+              ],
+              [
+                "Einzeln",
+                "#g-einzeln"
+              ]
+            ]
+          },
+          {
+            "title": "Ratgeber",
+            "links": [
+              [
+                "Advents-Ratgeber",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Bestellung verfolgen",
+                "bestellung.html"
+              ],
+              [
+                "Versand & Zahlung",
+                "versand.html"
+              ],
+              [
+                "Rückgabe",
+                "widerruf.html"
+              ],
+              [
+                "Kontakt",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informationen",
+            "links": [
+              [
+                "AGB",
+                "agb.html"
+              ],
+              [
+                "Datenschutz",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Widerruf",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Kollektion",
+        "trust": [
+          "🔒 Sichere Zahlung mit Stripe",
+          "🚚 Versand aus Deutschland · ca. {days} Werktage",
+          "↩ 14 Tage Widerrufsrecht",
+          "🧾 Rechnung per E-Mail"
+        ],
+        "idealTitle": "Für welchen Moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Warum es bei JOY ist",
+        "whyDefault": "Wir haben es ausgewählt, weil es Weihnachten spürbar macht und Jahr für Jahr wieder hervorgeholt werden kann.",
+        "crossTitle": "Passt dazu",
+        "addAll": "Alle in den Warenkorb",
+        "faqTitle": "Häufige Fragen",
+        "faqDefault": [
+          [
+            "Wie lange dauert die Lieferung?",
+            "In der Regel {days} Werktage, mit Sendungsverfolgung."
+          ],
+          [
+            "Bis wann für Weihnachten bestellen?",
+            "Bis Freitag, 11. Dezember."
+          ],
+          [
+            "Kann ich es zurückgeben?",
+            "Ja, Sie haben 14 Tage Widerrufsrecht ab Erhalt."
+          ]
+        ],
+        "finalTitle": "Weihnachten, wie es sein soll.",
+        "finalMicro": "Sichere Zahlung · Versand aus Deutschland · 14 Tage Widerruf"
+      }
+    },
+    "fr": {
+      "promo": "Expédié depuis l'Allemagne · Paiement sécurisé · 14 jours de rétractation",
+      "nav": {
+        "shop": "Box",
+        "guide": "Conseils",
+        "why": "Pourquoi JOY",
+        "track": "Suivre ma commande"
+      },
+      "hero": {
+        "label": "Box de Noël, prêtes à offrir",
+        "title": [
+          "Noël,",
+          "comme il doit être."
+        ],
+        "signature": "Make Christmas feel like Christmas.",
+        "text": "Avent, décorations du sapin, coussins et emballage cadeau en box prêtes. Depuis un entrepôt en Allemagne, avec suivi.",
+        "cta": "Découvrir les box",
+        "cta2": "Guide de l'Avent",
+        "micro": "Livraison offerte · Paiement sécurisé · 14 jours de rétractation",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Expédié d'Allemagne",
+          "s": "Avec DHL et numéro de suivi."
+        },
+        {
+          "t": "Paiement sécurisé",
+          "s": "Carte, Apple Pay et Google Pay via Stripe."
+        },
+        {
+          "t": "14 jours de rétractation",
+          "s": "Commandez sans pression."
+        },
+        {
+          "t": "Support humain",
+          "s": "Une question ? On répond vraiment."
+        }
+      ],
+      "featured": {
+        "id": "das-ganze-fest",
+        "label": "La grande box",
+        "pitch": "Six pièces, un Noël.",
+        "sub": "Avent, lumière, coussins, décorations, boîtes et papier : une commande, tout est là.",
+        "benefits": [
+          {
+            "t": "Tout en une commande",
+            "s": "Plus besoin de chercher."
+          },
+          {
+            "t": "Depuis l'Allemagne",
+            "s": "Pas d'attente de colis d'outre-mer."
+          },
+          {
+            "t": "Chaque année",
+            "s": "Bois, peluche, kraft : à garder."
+          }
+        ],
+        "cta": "Voir « Das ganze Fest »",
+        "link": "Voir toutes les box"
+      },
+      "collection": {
+        "label": "Par moment",
+        "title": [
+          "Une box.",
+          "Un moment."
+        ],
+        "text": "Des box pour l'Avent, le salon, le sapin et les cadeaux, plus deux pièces à l'unité. Tout depuis un entrepôt en Allemagne.",
+        "groups": [
+          {
+            "key": "boxen",
+            "title": "Box de Noël",
+            "ids": [
+              "das-ganze-fest",
+              "advent-zuhause",
+              "gemuetliche-stube",
+              "baum-und-sofa",
+              "geschenke-werkstatt"
+            ]
+          },
+          {
+            "key": "einzeln",
+            "title": "À l'unité",
+            "ids": [
+              "kissenhuellen",
+              "geschenkboxen"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Quatre semaines.",
+          "Une maison chaleureuse."
+        ],
+        "cards": [
+          {
+            "title": "Le dimanche de l'Avent",
+            "text": "Une bougie de plus chaque semaine.",
+            "cta": "Voir « Advent zuhause »",
+            "href": "produkt/advent-zuhause.html",
+            "img": "advent-zuhause"
+          },
+          {
+            "title": "Sur le canapé",
+            "text": "Coussins verts, lumière douce.",
+            "cta": "Voir « Gemütliche Stube »",
+            "href": "produkt/gemuetliche-stube.html",
+            "img": "gemuetliche-stube"
+          },
+          {
+            "title": "À la table des cadeaux",
+            "text": "Tout joliment emballé.",
+            "cta": "Voir « Geschenke-Werkstatt »",
+            "href": "produkt/geschenke-werkstatt.html",
+            "img": "geschenke-werkstatt"
+          }
+        ]
+      },
+      "why": {
+        "label": "Comment nous choisissons",
+        "title": [
+          "Moins chercher.",
+          "Plus de Noël."
+        ],
+        "text": [
+          "La déco de Noël, c'est souvent dix boutiques, dix colis, dix délais. JOY compose des box qui partent d'un seul entrepôt en Allemagne.",
+          "Nous disons honnêtement ce qu'il y a dedans, la taille et quand ça arrive."
+        ],
+        "principles": [
+          {
+            "t": "Délai honnête",
+            "s": "Nous annonçons le vrai délai."
+          },
+          {
+            "t": "À garder",
+            "s": "Bois, peluche, kraft plutôt que du jetable."
+          },
+          {
+            "t": "Sûr",
+            "s": "Consignes bougies sur chaque produit, LED recommandées."
+          }
+        ]
+      },
+      "how": {
+        "title": "Une box en trois étapes.",
+        "steps": [
+          {
+            "t": "Choisissez le moment",
+            "s": "Avent, salon, sapin ou cadeaux."
+          },
+          {
+            "t": "Commandez",
+            "s": "Paiement sécurisé par carte, Apple Pay ou Google Pay."
+          },
+          {
+            "t": "Suivez",
+            "s": "Confirmation et suivi arrivent par e-mail."
+          }
+        ],
+        "help": "Pour commencer : lire le guide de l'Avent"
+      },
+      "guides": {
+        "title": "Un Avent serein commence par un plan.",
+        "soon": [
+          "Bien emballer ses cadeaux",
+          "Le sapin en 30 minutes"
+        ],
+        "soonLabel": "Bientôt",
+        "read": "Lire le guide"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés, avec DHL depuis un entrepôt en Allemagne. Vous recevez un numéro de suivi dès que le colis part."
+          ],
+          [
+            "Jusqu'à quand commander pour Noël ?",
+            "Pour une livraison avant le réveillon : jusqu'au vendredi 11 décembre."
+          ],
+          [
+            "Où livrez-vous ?",
+            "En Allemagne."
+          ],
+          [
+            "Combien coûte la livraison ?",
+            "La livraison est offerte."
+          ],
+          [
+            "Puis-je retourner ?",
+            "Oui : vous avez 14 jours de rétractation à compter de la réception. Les frais de retour sont à votre charge. Écrivez-nous à contact@algbr.de."
+          ],
+          [
+            "Les bougies sont-elles fournies ?",
+            "Non. Nous recommandons des bougies et chauffe-plats LED."
+          ],
+          [
+            "Comment payer ?",
+            "Par carte, Apple Pay, Google Pay et d'autres moyens via Stripe. Nous ne voyons jamais vos données de carte."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Prêt pour Noël ?",
+        "title": [
+          "Noël,",
+          "comme il doit être."
+        ],
+        "text": "Des box prêtes pour l'Avent, le sapin et les cadeaux.",
+        "cta": "Voir les box",
+        "cta2": "Lire le guide"
+      },
+      "footer": {
+        "tagline": "Des box de Noël depuis l'Allemagne.",
+        "rights": "Une marque ALGBr.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "Toutes les box",
+                "#produkte"
+              ],
+              [
+                "Box de Noël",
+                "#g-boxen"
+              ],
+              [
+                "À l'unité",
+                "#g-einzeln"
+              ]
+            ]
+          },
+          {
+            "title": "Conseils",
+            "links": [
+              [
+                "Guide de l'Avent",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Suivre ma commande",
+                "bestellung.html"
+              ],
+              [
+                "Livraison & paiement",
+                "versand.html"
+              ],
+              [
+                "Retours",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Informations",
+            "links": [
+              [
+                "CGV",
+                "agb.html"
+              ],
+              [
+                "Confidentialité",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Rétractation",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Paiement sécurisé avec Stripe",
+          "🚚 Expédié d'Allemagne · env. {days} jours ouvrés",
+          "↩ 14 jours de rétractation",
+          "🧾 Facture par e-mail"
+        ],
+        "idealTitle": "Pour quel moment ?",
+        "detailsTitle": "Détails",
+        "whyTitle": "Pourquoi il est chez JOY",
+        "whyDefault": "Nous l'avons choisi parce qu'il fait vraiment Noël et se ressort d'année en année.",
+        "crossTitle": "Va bien avec",
+        "addAll": "Tout ajouter au panier",
+        "faqTitle": "Questions fréquentes",
+        "faqDefault": [
+          [
+            "Quel est le délai de livraison ?",
+            "En général {days} jours ouvrés, avec suivi."
+          ],
+          [
+            "Jusqu'à quand commander pour Noël ?",
+            "Jusqu'au vendredi 11 décembre."
+          ],
+          [
+            "Puis-je le retourner ?",
+            "Oui, vous avez 14 jours de rétractation à compter de la réception."
+          ]
+        ],
+        "finalTitle": "Noël, comme il doit être.",
+        "finalMicro": "Paiement sécurisé · Expédié d'Allemagne · 14 jours de rétractation"
+      }
+    },
+    "en": {
+      "promo": "Shipped from Germany · Secure payment · 14-day withdrawal",
+      "nav": {
+        "shop": "Boxes",
+        "guide": "Guide",
+        "why": "Why JOY",
+        "track": "Track my order"
+      },
+      "hero": {
+        "label": "Christmas boxes, ready to go",
+        "title": [
+          "Make Christmas",
+          "feel like Christmas."
+        ],
+        "signature": "Make Christmas feel like Christmas.",
+        "text": "Advent, tree ornaments, cushions and gift wrap in ready-made boxes. From a warehouse in Germany, with tracking.",
+        "cta": "Discover the boxes",
+        "cta2": "Advent guide",
+        "micro": "Free shipping · Secure payment · 14-day withdrawal",
+        "cta2Href": "GUIDE"
+      },
+      "trust": [
+        {
+          "t": "Shipped from Germany",
+          "s": "With DHL and tracking."
+        },
+        {
+          "t": "Secure payment",
+          "s": "Card, Apple Pay and Google Pay through Stripe."
+        },
+        {
+          "t": "14-day withdrawal",
+          "s": "Order without pressure."
+        },
+        {
+          "t": "Personal support",
+          "s": "A question? We really answer."
+        }
+      ],
+      "featured": {
+        "id": "das-ganze-fest",
+        "label": "The big box",
+        "pitch": "Six pieces, one Christmas.",
+        "sub": "Advent, light, cushions, ornaments, boxes and paper: order once, everything's there.",
+        "benefits": [
+          {
+            "t": "All in one order",
+            "s": "No hunting around."
+          },
+          {
+            "t": "From Germany",
+            "s": "No waiting for overseas parcels."
+          },
+          {
+            "t": "Year after year",
+            "s": "Wood, plush, kraft paper: made to keep."
+          }
+        ],
+        "cta": "See the big box",
+        "link": "See all boxes"
+      },
+      "collection": {
+        "label": "By moment",
+        "title": [
+          "One box.",
+          "One moment."
+        ],
+        "text": "Boxes for Advent, the living room, the tree and gifts, plus two single items. All from one warehouse in Germany.",
+        "groups": [
+          {
+            "key": "boxen",
+            "title": "Christmas boxes",
+            "ids": [
+              "das-ganze-fest",
+              "advent-zuhause",
+              "gemuetliche-stube",
+              "baum-und-sofa",
+              "geschenke-werkstatt"
+            ]
+          },
+          {
+            "key": "einzeln",
+            "title": "Single items",
+            "ids": [
+              "kissenhuellen",
+              "geschenkboxen"
+            ]
+          }
+        ]
+      },
+      "usages": {
+        "title": [
+          "Four weeks.",
+          "One warm home."
+        ],
+        "cards": [
+          {
+            "title": "On Advent Sunday",
+            "text": "One more candle each week.",
+            "cta": "See Advent at home",
+            "href": "produkt/advent-zuhause.html",
+            "img": "advent-zuhause"
+          },
+          {
+            "title": "On the sofa",
+            "text": "Green cushions, warm light.",
+            "cta": "See the cosy box",
+            "href": "produkt/gemuetliche-stube.html",
+            "img": "gemuetliche-stube"
+          },
+          {
+            "title": "At the wrapping table",
+            "text": "Everything beautifully wrapped.",
+            "cta": "See the wrapping box",
+            "href": "produkt/geschenke-werkstatt.html",
+            "img": "geschenke-werkstatt"
+          }
+        ]
+      },
+      "why": {
+        "label": "How we choose",
+        "title": [
+          "Less searching.",
+          "More Christmas."
+        ],
+        "text": [
+          "Christmas decor often means ten shops, ten parcels, ten delivery times. JOY puts together boxes that ship from one warehouse in Germany.",
+          "We tell you honestly what's inside, how big it is and when it arrives."
+        ],
+        "principles": [
+          {
+            "t": "Honest delivery time",
+            "s": "We state the real delivery time."
+          },
+          {
+            "t": "Made to keep",
+            "s": "Wood, plush, kraft paper, not throwaway decor."
+          },
+          {
+            "t": "Safe",
+            "s": "Candle advice on every product, LED recommended."
+          }
+        ]
+      },
+      "how": {
+        "title": "A box in three steps.",
+        "steps": [
+          {
+            "t": "Pick the moment",
+            "s": "Advent, living room, tree or gifts."
+          },
+          {
+            "t": "Order",
+            "s": "Pay securely by card, Apple Pay or Google Pay."
+          },
+          {
+            "t": "Track",
+            "s": "Confirmation and tracking arrive by e-mail."
+          }
+        ],
+        "help": "To start: read the Advent guide"
+      },
+      "guides": {
+        "title": "A relaxed Advent starts with a plan.",
+        "soon": [
+          "Wrapping gifts beautifully",
+          "The tree in 30 minutes"
+        ],
+        "soonLabel": "Coming soon",
+        "read": "Read the guide"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days, with DHL from a warehouse in Germany. You get a tracking number as soon as the parcel ships."
+          ],
+          [
+            "Order by when for Christmas?",
+            "For delivery before Christmas Eve: by Friday 11 December."
+          ],
+          [
+            "Where do you deliver?",
+            "Within Germany."
+          ],
+          [
+            "What does shipping cost?",
+            "Shipping is free."
+          ],
+          [
+            "Can I return?",
+            "Yes: you have 14 days to withdraw from receipt. Return shipping is at your cost. Write to contact@algbr.de."
+          ],
+          [
+            "Are candles included?",
+            "No. We recommend LED candles and tea lights."
+          ],
+          [
+            "How do I pay?",
+            "By card, Apple Pay, Google Pay and other methods through Stripe. We never see your card details."
+          ]
+        ]
+      },
+      "final": {
+        "label": "Ready for Christmas?",
+        "title": [
+          "Make Christmas",
+          "feel like Christmas."
+        ],
+        "text": "Ready-made boxes for Advent, the tree and gifts.",
+        "cta": "See the boxes",
+        "cta2": "Read the guide"
+      },
+      "footer": {
+        "tagline": "Christmas boxes from Germany.",
+        "rights": "An ALGBr brand.",
+        "cols": [
+          {
+            "title": "Shop",
+            "links": [
+              [
+                "All boxes",
+                "#produkte"
+              ],
+              [
+                "Christmas boxes",
+                "#g-boxen"
+              ],
+              [
+                "Single items",
+                "#g-einzeln"
+              ]
+            ]
+          },
+          {
+            "title": "Guide",
+            "links": [
+              [
+                "Advent guide",
+                "GUIDE"
+              ]
+            ]
+          },
+          {
+            "title": "Service",
+            "links": [
+              [
+                "Track my order",
+                "bestellung.html"
+              ],
+              [
+                "Shipping & payment",
+                "versand.html"
+              ],
+              [
+                "Returns",
+                "widerruf.html"
+              ],
+              [
+                "Contact",
+                "mailto:contact@algbr.de"
+              ]
+            ]
+          },
+          {
+            "title": "Information",
+            "links": [
+              [
+                "Terms",
+                "agb.html"
+              ],
+              [
+                "Privacy",
+                "datenschutz.html"
+              ],
+              [
+                "Impressum",
+                "impressum.html"
+              ],
+              [
+                "Withdrawal",
+                "widerruf.html"
+              ]
+            ]
+          }
+        ]
+      },
+      "product": {
+        "crumb": "Collection",
+        "trust": [
+          "🔒 Secure payment with Stripe",
+          "🚚 Shipped from Germany · about {days} working days",
+          "↩ 14-day right of withdrawal",
+          "🧾 Invoice by e-mail"
+        ],
+        "idealTitle": "For which moment?",
+        "detailsTitle": "Details",
+        "whyTitle": "Why it's at JOY",
+        "whyDefault": "We chose it because it makes Christmas feel real and comes out again year after year.",
+        "crossTitle": "Goes well with",
+        "addAll": "Add all to cart",
+        "faqTitle": "Frequently asked questions",
+        "faqDefault": [
+          [
+            "How long does delivery take?",
+            "Usually {days} working days, with tracking."
+          ],
+          [
+            "Order by when for Christmas?",
+            "By Friday 11 December."
+          ],
+          [
+            "Can I return it?",
+            "Yes, you have 14 days to withdraw from receipt."
+          ]
+        ],
+        "finalTitle": "Make Christmas feel like Christmas.",
+        "finalMicro": "Secure payment · Shipped from Germany · 14-day withdrawal"
+      }
+    }
+  },
+  "copy": {
+    "de": {
+      "hero": {
+        "eyebrow": "Make Christmas feel like Christmas",
+        "title": "Weihnachten, wie es sein soll.",
+        "lead": "Fertige Weihnachtsboxen für Advent, Baum und Geschenke, versandt aus Deutschland.",
+        "cta": "Die Boxen ansehen",
+        "cta2": "Advents-Ratgeber"
+      },
+      "products": {
+        "title": "Ein Moment. Eine Box.",
+        "lead": "Advent, Wohnzimmer, Baum, Geschenke: jede Box deckt einen Moment ab."
+      },
+      "product": {
+        "includes": "Das ist in der Box",
+        "photoNote": "Abbildungen sind Dekorationsbeispiele; Kerzen, Füllungen und Deko-Zubehör sind nicht enthalten."
+      },
+      "faqExtra": [
+        [
+          "Kommt eine Box in mehreren Paketen?",
+          "Das ist möglich: die Teile einer Box können getrennt ankommen. Den Status sehen Sie unter „Bestellung verfolgen“."
+        ]
+      ]
+    },
+    "fr": {
+      "hero": {
+        "eyebrow": "Make Christmas feel like Christmas",
+        "title": "Noël, comme il doit être.",
+        "lead": "Des box de Noël prêtes pour l'Avent, le sapin et les cadeaux, expédiées depuis l'Allemagne.",
+        "cta": "Voir les box",
+        "cta2": "Guide de l'Avent"
+      },
+      "products": {
+        "title": "Un moment. Une box.",
+        "lead": "Avent, salon, sapin, cadeaux : chaque box couvre un moment."
+      },
+      "product": {
+        "includes": "Dans la box",
+        "photoNote": "Photos d'ambiance ; bougies, rembourrages et accessoires de déco non fournis."
+      },
+      "faqExtra": [
+        [
+          "Une box arrive-t-elle en plusieurs colis ?",
+          "C'est possible : les pièces d'une box peuvent arriver séparément. Le statut est visible dans « Suivre ma commande »."
+        ]
+      ]
+    },
+    "en": {
+      "hero": {
+        "eyebrow": "Make Christmas feel like Christmas",
+        "title": "Make Christmas feel like Christmas.",
+        "lead": "Ready-made Christmas boxes for Advent, the tree and gifts, shipped from Germany.",
+        "cta": "See the boxes",
+        "cta2": "Advent guide"
+      },
+      "products": {
+        "title": "One moment. One box.",
+        "lead": "Advent, living room, tree, gifts: each box covers one moment."
+      },
+      "product": {
+        "includes": "In the box",
+        "photoNote": "Photos are styling examples; candles, inserts and props are not included."
+      },
+      "faqExtra": [
+        [
+          "Does a box arrive in several parcels?",
+          "It can happen: the pieces of a box may arrive separately. You can see the status under “Track my order”."
+        ]
+      ]
+    }
+  },
+  "showCompare": false
+}

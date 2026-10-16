@@ -1,0 +1,8 @@
+# JOY storefront: static pages built by scripts/build.mjs (joy), served by Cloudflare (assets only).
+# Deploy: npm run deploy:joy. Custom domain joy.algbr.eu is attached in the Cloudflare dashboard.
+name = "joy-algbr"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "../../dist"
+html_handling = "auto-trailing-slash"

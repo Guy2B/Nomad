@@ -1,0 +1,38 @@
+/* JOY — fir green, cranberry & warm gold (overrides the base style). */
+:root {
+  --ink: #1d3a2f;
+  --ink-2: #2c5242;
+  --paper: #f7f2e8;
+  --sand: #ece3d2;
+  --card: #fffdf8;
+  --text: #1d2a24;
+  --text-2: #3e4a43;
+  --muted: #6b726c;
+  --line: #e0d6c3;
+  --accent: #a8323e;
+  --sage: #d9b46a;
+}
+h1,
+h2,
+.brand {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  line-height: 1.02;
+}
+.card,
+.includes li {
+  border-radius: 24px;
+}
+.promise {
+  background: linear-gradient(135deg, #1d3a2f, #2c5242);
+}
+.promise-list li::first-letter {
+  color: var(--sage);
+}
+
+.hero-x h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.02; }
+.featured h2, .why-grid h2, .final-cta h2 { letter-spacing: -0.04em; }

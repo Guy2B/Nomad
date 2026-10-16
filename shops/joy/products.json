@@ -1,0 +1,913 @@
+[
+  {
+    "id": "das-ganze-fest",
+    "sku": "JO-B-GANZES-FEST",
+    "active": true,
+    "price": 6990,
+    "costCents": 4180,
+    "images": [
+      "holzanhaenger-2.webp",
+      "lichterhaus-1.webp",
+      "adventsleuchter-1.webp",
+      "kissenhuellen-1.webp",
+      "geschenkboxen-1.webp",
+      "geschenkpapier-1.webp"
+    ],
+    "name": "Das ganze Fest",
+    "text": {
+      "de": {
+        "badge": "Die große Box",
+        "tagline": "Alles für Advent, Baum und Bescherung.",
+        "short": "Sechs Teile, ein Weihnachten.",
+        "description": "Adventskerzenhalter, Lichterhäuser, zwei Kissenhüllen, 45 Holzanhänger, 24 Geschenkboxen und Geschenkpapier: die ganze Weihnachtsdeko in einer Bestellung, versandt aus Deutschland.",
+        "bullets": [
+          "4 Adventskerzenhalter aus Holz, 1–4",
+          "Lichterhäuser auf Holzsockel",
+          "2 Plüsch-Kissenhüllen Tannenbaum, 45 × 45 cm",
+          "45 Holzanhänger Weihnachtsmann",
+          "24 Geschenkboxen aus Kraftpapier",
+          "12 Bögen Geschenkpapier + 4 Sticker"
+        ],
+        "caution": "Brennende Kerzen nie unbeaufsichtigt lassen und Abstand zu brennbaren Materialien halten. Wir empfehlen LED-Kerzen bzw. LED-Teelichter. Kerzen sind nicht im Lieferumfang."
+      },
+      "fr": {
+        "badge": "La grande box",
+        "tagline": "Tout pour l'Avent, le sapin et les cadeaux.",
+        "short": "Six pièces, un Noël.",
+        "description": "Bougeoirs de l'Avent, village lumineux, deux housses de coussin, 45 suspensions en bois, 24 boîtes cadeaux et papier cadeau : toute la déco de Noël en une commande, expédiée depuis l'Allemagne.",
+        "bullets": [
+          "4 bougeoirs de l'Avent en bois, 1 à 4",
+          "Village lumineux sur socle en bois",
+          "2 housses de coussin sapin en peluche, 45 × 45 cm",
+          "45 suspensions Père Noël en bois",
+          "24 boîtes cadeaux en kraft",
+          "12 feuilles de papier cadeau + 4 stickers"
+        ],
+        "caution": "Ne laissez jamais une bougie allumée sans surveillance et tenez-la éloignée des matières inflammables. Nous recommandons des bougies ou chauffe-plats LED. Bougies non fournies."
+      },
+      "en": {
+        "badge": "The big box",
+        "tagline": "Everything for Advent, the tree and the gifts.",
+        "short": "Six pieces, one Christmas.",
+        "description": "Advent candle holders, a house silhouette, two cushion covers, 45 wooden ornaments, 24 gift boxes and gift wrap: all your Christmas decor in one order, shipped from Germany.",
+        "bullets": [
+          "4 wooden Advent candle holders, 1–4",
+          "House silhouette on a wooden base",
+          "2 plush fir-tree cushion covers, 45 × 45 cm",
+          "45 wooden Santa ornaments",
+          "24 kraft paper gift boxes",
+          "12 gift-wrap sheets + 4 stickers"
+        ],
+        "caution": "Never leave a burning candle unattended and keep it away from flammable materials. We recommend LED candles or tea lights. Candles not included."
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Weihnachtsdeko Set komplett: Advent, Baumschmuck, Kissen, Geschenkverpackung",
+        "description": "Sechsteilige Weihnachtsbox: Adventskerzenhalter, Lichterhäuser, Kissenhüllen, 45 Holzanhänger, Geschenkboxen und Geschenkpapier. Versand aus Deutschland."
+      },
+      "fr": {
+        "title": "Box déco de Noël complète : Avent, sapin, coussins, emballage cadeau",
+        "description": "Box de Noël en six pièces : bougeoirs de l'Avent, village lumineux, housses de coussin, 45 suspensions en bois, boîtes et papier cadeau. Expédiée depuis l'Allemagne."
+      },
+      "en": {
+        "title": "Complete Christmas decor box: Advent, tree, cushions, gift wrap",
+        "description": "Six-piece Christmas box: Advent candle holders, house silhouette, cushion covers, 45 wooden ornaments, gift boxes and gift wrap. Shipped from Germany."
+      }
+    },
+    "components": [
+      {
+        "key": "advent",
+        "name": "4 Adventskerzenhalter Holz",
+        "label": {
+          "de": "4 Adventskerzenhalter aus Holz, 1–4",
+          "fr": "4 bougeoirs de l'Avent en bois, 1 à 4",
+          "en": "4 wooden Advent candle holders, 1–4"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079047949537812481.html",
+          "cjProductId": "2079047949537812481",
+          "cjVid": "2079047949839802370",
+          "cjSku": "CJSD29940540001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 543,
+          "weightG": 294,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "licht",
+        "name": "Lichterhäuser auf Holzsockel",
+        "label": {
+          "de": "Lichterhäuser auf Holzsockel",
+          "fr": "Village lumineux sur socle en bois",
+          "en": "House silhouette on a wooden base"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048619277811714.html",
+          "cjProductId": "2079048619277811714",
+          "cjVid": "2079048619424612353",
+          "cjSku": "CJSD29940770001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 431,
+          "weightG": 196,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "kissen",
+        "name": "2 Kissenhüllen Tannenbaum",
+        "label": {
+          "de": "2 Plüsch-Kissenhüllen Tannenbaum, 45 × 45 cm",
+          "fr": "2 housses de coussin sapin en peluche, 45 × 45 cm",
+          "en": "2 plush fir-tree cushion covers, 45 × 45 cm"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048001421352961.html",
+          "cjProductId": "2079048001421352961",
+          "cjVid": "2079048001563959297",
+          "cjSku": "CJSD29940550001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 582,
+          "weightG": 364,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "holz",
+        "name": "45 Holzanhänger Weihnachtsmann",
+        "label": {
+          "de": "45 Holzanhänger Weihnachtsmann",
+          "fr": "45 suspensions Père Noël en bois",
+          "en": "45 wooden Santa ornaments"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079047684421431298.html",
+          "cjProductId": "2079047684421431298",
+          "cjVid": "2079047684559843329",
+          "cjSku": "CJSD29940440001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 701,
+          "weightG": 318,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "boxen",
+        "name": "24 Geschenkboxen Kraftpapier",
+        "label": {
+          "de": "24 Geschenkboxen aus Kraftpapier",
+          "fr": "24 boîtes cadeaux en kraft",
+          "en": "24 kraft paper gift boxes"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048184114032641.html",
+          "cjProductId": "2079048184114032641",
+          "cjVid": "2079048184231473154",
+          "cjSku": "CJSD29940600001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 663,
+          "weightG": 562,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "papier",
+        "name": "Geschenkpapier-Set 12 Bögen",
+        "label": {
+          "de": "12 Bögen Geschenkpapier + 4 Sticker",
+          "fr": "12 feuilles de papier cadeau + 4 stickers",
+          "en": "12 gift-wrap sheets + 4 stickers"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048391508402177.html",
+          "cjProductId": "2079048391508402177",
+          "cjVid": "2079048391663591426",
+          "cjSku": "CJSD29940690001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 497,
+          "weightG": 420,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      }
+    ],
+    "upsells": [
+      "gemuetliche-stube",
+      "geschenke-werkstatt"
+    ]
+  },
+  {
+    "id": "advent-zuhause",
+    "sku": "JO-B-ADVENT-ZUHAUSE",
+    "active": true,
+    "price": 2990,
+    "costCents": 1613,
+    "images": [
+      "adventsleuchter-1.webp",
+      "adventsleuchter-2.webp",
+      "lichterhaus-1.webp",
+      "lichterhaus-2.webp"
+    ],
+    "name": "Advent zuhause",
+    "text": {
+      "de": {
+        "badge": "Advent",
+        "tagline": "Vier Sonntage, ein warmes Licht.",
+        "short": "Adventskerzen und Lichterhäuser.",
+        "description": "Vier nummerierte Kerzenhalter aus Holz für Stabkerzen und eine Häuser-Silhouette auf Holzsockel für ein Teelicht: der Adventstisch, fertig zusammengestellt.",
+        "bullets": [
+          "4 Adventskerzenhalter aus Holz, nummeriert 1–4",
+          "Edelstahleinsätze für Stabkerzen, Löcher für Tannengrün",
+          "Lichterhäuser auf Holzsockel für ein Teelicht",
+          "Kerzen nicht im Lieferumfang"
+        ],
+        "caution": "Brennende Kerzen nie unbeaufsichtigt lassen und Abstand zu brennbaren Materialien halten. Wir empfehlen LED-Kerzen bzw. LED-Teelichter. Kerzen sind nicht im Lieferumfang."
+      },
+      "fr": {
+        "badge": "Avent",
+        "tagline": "Quatre dimanches, une lumière douce.",
+        "short": "Bougeoirs de l'Avent et village lumineux.",
+        "description": "Quatre bougeoirs numérotés en bois pour bougies bâton et une silhouette de maisons sur socle en bois pour un chauffe-plat : la table de l'Avent, prête.",
+        "bullets": [
+          "4 bougeoirs de l'Avent en bois, numérotés de 1 à 4",
+          "Inserts inox pour bougies, trous pour branches de sapin",
+          "Village lumineux sur socle en bois pour un chauffe-plat",
+          "Bougies non fournies"
+        ],
+        "caution": "Ne laissez jamais une bougie allumée sans surveillance et tenez-la éloignée des matières inflammables. Nous recommandons des bougies ou chauffe-plats LED. Bougies non fournies."
+      },
+      "en": {
+        "badge": "Advent",
+        "tagline": "Four Sundays, one warm light.",
+        "short": "Advent candle holders and house silhouette.",
+        "description": "Four numbered wooden holders for taper candles and a house silhouette on a wooden base for a tea light: your Advent table, ready to go.",
+        "bullets": [
+          "4 wooden Advent candle holders, numbered 1–4",
+          "Stainless inserts for taper candles, holes for fir sprigs",
+          "House silhouette on a wooden base for a tea light",
+          "Candles not included"
+        ],
+        "caution": "Never leave a burning candle unattended and keep it away from flammable materials. We recommend LED candles or tea lights. Candles not included."
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Adventskerzenhalter Holz 1–4 und Lichterhäuser",
+        "description": "Vier nummerierte Adventskerzenhalter aus Holz und Lichterhäuser auf Holzsockel. Versand aus Deutschland."
+      },
+      "fr": {
+        "title": "Bougeoirs de l'Avent en bois 1 à 4 et village lumineux",
+        "description": "Quatre bougeoirs de l'Avent numérotés en bois et un village lumineux sur socle. Expédiés depuis l'Allemagne."
+      },
+      "en": {
+        "title": "Wooden Advent candle holders 1–4 and house silhouette",
+        "description": "Four numbered wooden Advent candle holders and a house silhouette on a wooden base. Shipped from Germany."
+      }
+    },
+    "components": [
+      {
+        "key": "advent",
+        "name": "4 Adventskerzenhalter Holz",
+        "label": {
+          "de": "4 Adventskerzenhalter aus Holz, 1–4",
+          "fr": "4 bougeoirs de l'Avent en bois, 1 à 4",
+          "en": "4 wooden Advent candle holders, 1–4"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079047949537812481.html",
+          "cjProductId": "2079047949537812481",
+          "cjVid": "2079047949839802370",
+          "cjSku": "CJSD29940540001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 543,
+          "weightG": 294,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "licht",
+        "name": "Lichterhäuser auf Holzsockel",
+        "label": {
+          "de": "Lichterhäuser auf Holzsockel",
+          "fr": "Village lumineux sur socle en bois",
+          "en": "House silhouette on a wooden base"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048619277811714.html",
+          "cjProductId": "2079048619277811714",
+          "cjVid": "2079048619424612353",
+          "cjSku": "CJSD29940770001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 431,
+          "weightG": 196,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      }
+    ],
+    "upsells": [
+      "gemuetliche-stube",
+      "das-ganze-fest"
+    ]
+  },
+  {
+    "id": "gemuetliche-stube",
+    "sku": "JO-B-GEMUETLICHE-STUBE",
+    "active": true,
+    "price": 3990,
+    "costCents": 2223,
+    "images": [
+      "kissenhuellen-1.webp",
+      "kissenhuellen-2.webp",
+      "adventsleuchter-1.webp",
+      "lichterhaus-1.webp"
+    ],
+    "name": "Gemütliche Stube",
+    "text": {
+      "de": {
+        "badge": "Wohnzimmer",
+        "tagline": "Das Wohnzimmer wird Weihnachtsstube.",
+        "short": "Advent, Licht und Kissen.",
+        "description": "Adventskerzenhalter, Lichterhäuser und zwei Plüsch-Kissenhüllen mit Tannenbaum-Muster: drei Handgriffe, und das Wohnzimmer ist bereit für Weihnachten.",
+        "bullets": [
+          "4 Adventskerzenhalter aus Holz, 1–4",
+          "Lichterhäuser auf Holzsockel",
+          "2 Plüsch-Kissenhüllen Tannenbaum, 45 × 45 cm (ohne Füllung)"
+        ],
+        "caution": "Brennende Kerzen nie unbeaufsichtigt lassen und Abstand zu brennbaren Materialien halten. Wir empfehlen LED-Kerzen bzw. LED-Teelichter. Kerzen sind nicht im Lieferumfang."
+      },
+      "fr": {
+        "badge": "Salon",
+        "tagline": "Le salon passe en mode Noël.",
+        "short": "Avent, lumière et coussins.",
+        "description": "Bougeoirs de l'Avent, village lumineux et deux housses de coussin en peluche motif sapin : trois gestes et le salon est prêt pour Noël.",
+        "bullets": [
+          "4 bougeoirs de l'Avent en bois, 1 à 4",
+          "Village lumineux sur socle en bois",
+          "2 housses de coussin sapin en peluche, 45 × 45 cm (sans rembourrage)"
+        ],
+        "caution": "Ne laissez jamais une bougie allumée sans surveillance et tenez-la éloignée des matières inflammables. Nous recommandons des bougies ou chauffe-plats LED. Bougies non fournies."
+      },
+      "en": {
+        "badge": "Living room",
+        "tagline": "Your living room, in Christmas mode.",
+        "short": "Advent, light and cushions.",
+        "description": "Advent candle holders, a house silhouette and two plush fir-tree cushion covers: three easy steps and the living room is ready for Christmas.",
+        "bullets": [
+          "4 wooden Advent candle holders, 1–4",
+          "House silhouette on a wooden base",
+          "2 plush fir-tree cushion covers, 45 × 45 cm (no inserts)"
+        ],
+        "caution": "Never leave a burning candle unattended and keep it away from flammable materials. We recommend LED candles or tea lights. Candles not included."
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Weihnachtsdeko Wohnzimmer: Adventskerzenhalter, Lichterhäuser, Kissenhüllen",
+        "description": "Adventskerzenhalter aus Holz, Lichterhäuser und zwei Plüsch-Kissenhüllen Tannenbaum 45 × 45 cm. Versand aus Deutschland."
+      },
+      "fr": {
+        "title": "Déco de Noël salon : bougeoirs de l'Avent, village lumineux, housses de coussin",
+        "description": "Bougeoirs de l'Avent en bois, village lumineux et deux housses de coussin sapin 45 × 45 cm. Expédiés depuis l'Allemagne."
+      },
+      "en": {
+        "title": "Christmas living room decor: Advent holders, house silhouette, cushion covers",
+        "description": "Wooden Advent candle holders, a house silhouette and two plush fir-tree cushion covers 45 × 45 cm. Shipped from Germany."
+      }
+    },
+    "components": [
+      {
+        "key": "advent",
+        "name": "4 Adventskerzenhalter Holz",
+        "label": {
+          "de": "4 Adventskerzenhalter aus Holz, 1–4",
+          "fr": "4 bougeoirs de l'Avent en bois, 1 à 4",
+          "en": "4 wooden Advent candle holders, 1–4"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079047949537812481.html",
+          "cjProductId": "2079047949537812481",
+          "cjVid": "2079047949839802370",
+          "cjSku": "CJSD29940540001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 543,
+          "weightG": 294,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "licht",
+        "name": "Lichterhäuser auf Holzsockel",
+        "label": {
+          "de": "Lichterhäuser auf Holzsockel",
+          "fr": "Village lumineux sur socle en bois",
+          "en": "House silhouette on a wooden base"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048619277811714.html",
+          "cjProductId": "2079048619277811714",
+          "cjVid": "2079048619424612353",
+          "cjSku": "CJSD29940770001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 431,
+          "weightG": 196,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "kissen",
+        "name": "2 Kissenhüllen Tannenbaum",
+        "label": {
+          "de": "2 Plüsch-Kissenhüllen Tannenbaum, 45 × 45 cm",
+          "fr": "2 housses de coussin sapin en peluche, 45 × 45 cm",
+          "en": "2 plush fir-tree cushion covers, 45 × 45 cm"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048001421352961.html",
+          "cjProductId": "2079048001421352961",
+          "cjVid": "2079048001563959297",
+          "cjSku": "CJSD29940550001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 582,
+          "weightG": 364,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      }
+    ],
+    "upsells": [
+      "das-ganze-fest",
+      "kissenhuellen"
+    ]
+  },
+  {
+    "id": "baum-und-sofa",
+    "sku": "JO-B-BAUM-UND-SOFA",
+    "active": true,
+    "price": 3490,
+    "costCents": 1937,
+    "images": [
+      "holzanhaenger-1.webp",
+      "holzanhaenger-2.webp",
+      "kissenhuellen-1.webp",
+      "holzanhaenger-3.webp"
+    ],
+    "name": "Baum & Sofa",
+    "text": {
+      "de": {
+        "badge": "Klassisch",
+        "tagline": "Nostalgischer Baumschmuck, grüne Kissen.",
+        "short": "Holzanhänger und Kissenhüllen.",
+        "description": "45 Holzanhänger mit Weihnachtsmann-Motiven im Vintage-Stil (15 Motive, je 3, mit Hanfschnur) und zwei Plüsch-Kissenhüllen mit Tannenbaum-Muster.",
+        "bullets": [
+          "45 Holzanhänger Weihnachtsmann, 15 Motive × 3",
+          "Hanfschnur zum Aufhängen",
+          "2 Plüsch-Kissenhüllen Tannenbaum, 45 × 45 cm (ohne Füllung)"
+        ]
+      },
+      "fr": {
+        "badge": "Classique",
+        "tagline": "Suspensions rétro, coussins verts.",
+        "short": "Suspensions en bois et housses de coussin.",
+        "description": "45 suspensions en bois motifs Père Noël style vintage (15 motifs, 3 de chaque, avec cordon de chanvre) et deux housses de coussin en peluche motif sapin.",
+        "bullets": [
+          "45 suspensions Père Noël en bois, 15 motifs × 3",
+          "Cordon de chanvre pour les accrocher",
+          "2 housses de coussin sapin en peluche, 45 × 45 cm (sans rembourrage)"
+        ]
+      },
+      "en": {
+        "badge": "Classic",
+        "tagline": "Vintage ornaments, green cushions.",
+        "short": "Wooden ornaments and cushion covers.",
+        "description": "45 vintage-style wooden Santa ornaments (15 designs, 3 of each, with hemp cord) and two plush fir-tree cushion covers.",
+        "bullets": [
+          "45 wooden Santa ornaments, 15 designs × 3",
+          "Hemp cord for hanging",
+          "2 plush fir-tree cushion covers, 45 × 45 cm (no inserts)"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Holz Christbaumschmuck Weihnachtsmann 45 Stück und Kissenhüllen Tannenbaum",
+        "description": "45 Holzanhänger im Vintage-Stil und zwei Plüsch-Kissenhüllen Tannenbaum 45 × 45 cm. Versand aus Deutschland."
+      },
+      "fr": {
+        "title": "45 suspensions Père Noël en bois et housses de coussin sapin",
+        "description": "45 suspensions en bois style vintage et deux housses de coussin sapin 45 × 45 cm. Expédiées depuis l'Allemagne."
+      },
+      "en": {
+        "title": "45 wooden Santa ornaments and fir-tree cushion covers",
+        "description": "45 vintage-style wooden ornaments and two plush fir-tree cushion covers 45 × 45 cm. Shipped from Germany."
+      }
+    },
+    "components": [
+      {
+        "key": "holz",
+        "name": "45 Holzanhänger Weihnachtsmann",
+        "label": {
+          "de": "45 Holzanhänger Weihnachtsmann",
+          "fr": "45 suspensions Père Noël en bois",
+          "en": "45 wooden Santa ornaments"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079047684421431298.html",
+          "cjProductId": "2079047684421431298",
+          "cjVid": "2079047684559843329",
+          "cjSku": "CJSD29940440001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 701,
+          "weightG": 318,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "kissen",
+        "name": "2 Kissenhüllen Tannenbaum",
+        "label": {
+          "de": "2 Plüsch-Kissenhüllen Tannenbaum, 45 × 45 cm",
+          "fr": "2 housses de coussin sapin en peluche, 45 × 45 cm",
+          "en": "2 plush fir-tree cushion covers, 45 × 45 cm"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048001421352961.html",
+          "cjProductId": "2079048001421352961",
+          "cjVid": "2079048001563959297",
+          "cjSku": "CJSD29940550001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 582,
+          "weightG": 364,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      }
+    ],
+    "upsells": [
+      "das-ganze-fest",
+      "gemuetliche-stube"
+    ]
+  },
+  {
+    "id": "geschenke-werkstatt",
+    "sku": "JO-B-GESCHENKE-WERKSTATT",
+    "active": true,
+    "price": 2990,
+    "costCents": 1836,
+    "images": [
+      "geschenkpapier-1.webp",
+      "geschenkboxen-2.webp",
+      "geschenkboxen-1.webp",
+      "geschenkpapier-2.webp"
+    ],
+    "name": "Geschenke-Werkstatt",
+    "text": {
+      "de": {
+        "badge": "Verpacken",
+        "tagline": "Schön verpackt, ohne Stress.",
+        "short": "24 Boxen und 12 Bögen Papier.",
+        "description": "24 Geschenkboxen aus Kraftpapier mit weißen Anhängern und roter Schleife, dazu 12 Bögen Geschenkpapier mit Weihnachtsmotiven und 4 Sticker: genug für alle Geschenke, Plätzchen und Wichtelpäckchen.",
+        "bullets": [
+          "24 Geschenkboxen aus Kraftpapier, 6 Motive",
+          "Weiße Papieranhänger und rote Schleifen",
+          "12 Bögen Geschenkpapier mit Weihnachtsmotiven",
+          "4 Siegel-Sticker"
+        ]
+      },
+      "fr": {
+        "badge": "Emballer",
+        "tagline": "De beaux paquets, sans stress.",
+        "short": "24 boîtes et 12 feuilles de papier.",
+        "description": "24 boîtes cadeaux en kraft avec étiquettes blanches et ruban rouge, plus 12 feuilles de papier cadeau à motifs de Noël et 4 stickers : de quoi emballer tous les cadeaux, biscuits et petites surprises.",
+        "bullets": [
+          "24 boîtes cadeaux en kraft, 6 motifs",
+          "Étiquettes en papier blanc et rubans rouges",
+          "12 feuilles de papier cadeau à motifs de Noël",
+          "4 stickers de fermeture"
+        ]
+      },
+      "en": {
+        "badge": "Wrapping",
+        "tagline": "Beautifully wrapped, no stress.",
+        "short": "24 boxes and 12 sheets of paper.",
+        "description": "24 kraft paper gift boxes with white tags and red ribbon, plus 12 sheets of Christmas gift wrap and 4 stickers: enough for every present, cookie gift and Secret Santa.",
+        "bullets": [
+          "24 kraft paper gift boxes, 6 designs",
+          "White paper tags and red ribbons",
+          "12 sheets of Christmas gift wrap",
+          "4 sealing stickers"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Geschenkverpackung Weihnachten: 24 Geschenkboxen Kraftpapier und Geschenkpapier",
+        "description": "24 Geschenkboxen aus Kraftpapier und 12 Bögen Geschenkpapier mit 4 Stickern. Versand aus Deutschland."
+      },
+      "fr": {
+        "title": "Emballage cadeau de Noël : 24 boîtes kraft et papier cadeau",
+        "description": "24 boîtes cadeaux en kraft et 12 feuilles de papier cadeau avec 4 stickers. Expédiés depuis l'Allemagne."
+      },
+      "en": {
+        "title": "Christmas gift wrapping: 24 kraft gift boxes and gift wrap",
+        "description": "24 kraft paper gift boxes and 12 sheets of gift wrap with 4 stickers. Shipped from Germany."
+      }
+    },
+    "components": [
+      {
+        "key": "boxen",
+        "name": "24 Geschenkboxen Kraftpapier",
+        "label": {
+          "de": "24 Geschenkboxen aus Kraftpapier",
+          "fr": "24 boîtes cadeaux en kraft",
+          "en": "24 kraft paper gift boxes"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048184114032641.html",
+          "cjProductId": "2079048184114032641",
+          "cjVid": "2079048184231473154",
+          "cjSku": "CJSD29940600001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 663,
+          "weightG": 562,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      },
+      {
+        "key": "papier",
+        "name": "Geschenkpapier-Set 12 Bögen",
+        "label": {
+          "de": "12 Bögen Geschenkpapier + 4 Sticker",
+          "fr": "12 feuilles de papier cadeau + 4 stickers",
+          "en": "12 gift-wrap sheets + 4 stickers"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048391508402177.html",
+          "cjProductId": "2079048391508402177",
+          "cjVid": "2079048391663591426",
+          "cjSku": "CJSD29940690001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 497,
+          "weightG": 420,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      }
+    ],
+    "upsells": [
+      "geschenkboxen",
+      "das-ganze-fest"
+    ]
+  },
+  {
+    "id": "kissenhuellen",
+    "sku": "JO-S-KISSENHUELLEN",
+    "active": true,
+    "single": true,
+    "price": 2190,
+    "costCents": 1213,
+    "images": [
+      "kissenhuellen-1.webp",
+      "kissenhuellen-2.webp",
+      "kissenhuellen-3.webp"
+    ],
+    "name": "Kissenhüllen Tannenbaum (2 Stück)",
+    "text": {
+      "de": {
+        "tagline": "Grün, weich, festlich.",
+        "short": "2 Plüsch-Hüllen, 45 × 45 cm.",
+        "description": "Zwei Plüsch-Kissenhüllen in Tannengrün mit Tannenbaum-Muster, 45 × 45 cm, ohne Füllung.",
+        "bullets": [
+          "2 Kissenhüllen, 45 × 45 cm",
+          "Weicher Plüsch, Tannenbaum-Muster",
+          "Ohne Füllung"
+        ]
+      },
+      "fr": {
+        "tagline": "Vertes, douces, festives.",
+        "short": "2 housses en peluche, 45 × 45 cm.",
+        "description": "Deux housses de coussin en peluche vert sapin à motif sapins, 45 × 45 cm, sans rembourrage.",
+        "bullets": [
+          "2 housses, 45 × 45 cm",
+          "Peluche douce, motif sapins",
+          "Sans rembourrage"
+        ]
+      },
+      "en": {
+        "tagline": "Green, soft, festive.",
+        "short": "2 plush covers, 45 × 45 cm.",
+        "description": "Two fir-green plush cushion covers with a fir-tree pattern, 45 × 45 cm, no inserts.",
+        "bullets": [
+          "2 covers, 45 × 45 cm",
+          "Soft plush, fir-tree pattern",
+          "No inserts"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Kissenhüllen Weihnachten Tannenbaum 45x45 grün, 2 Stück",
+        "description": "Zwei Plüsch-Kissenhüllen Tannenbaum 45 × 45 cm. Versand aus Deutschland."
+      },
+      "fr": {
+        "title": "Housses de coussin de Noël sapin 45x45 vert, lot de 2",
+        "description": "Deux housses de coussin en peluche motif sapin 45 × 45 cm. Expédiées depuis l'Allemagne."
+      },
+      "en": {
+        "title": "Christmas fir-tree cushion covers 45x45 green, set of 2",
+        "description": "Two plush fir-tree cushion covers 45 × 45 cm. Shipped from Germany."
+      }
+    },
+    "components": [
+      {
+        "key": "kissen",
+        "name": "2 Kissenhüllen Tannenbaum",
+        "label": {
+          "de": "2 Plüsch-Kissenhüllen Tannenbaum, 45 × 45 cm",
+          "fr": "2 housses de coussin sapin en peluche, 45 × 45 cm",
+          "en": "2 plush fir-tree cushion covers, 45 × 45 cm"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048001421352961.html",
+          "cjProductId": "2079048001421352961",
+          "cjVid": "2079048001563959297",
+          "cjSku": "CJSD29940550001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 582,
+          "weightG": 364,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      }
+    ],
+    "upsells": [
+      "gemuetliche-stube",
+      "baum-und-sofa"
+    ]
+  },
+  {
+    "id": "geschenkboxen",
+    "sku": "JO-S-GESCHENKBOXEN",
+    "active": true,
+    "single": true,
+    "price": 1990,
+    "costCents": 1308,
+    "images": [
+      "geschenkboxen-1.webp",
+      "geschenkboxen-2.webp",
+      "geschenkboxen-3.webp"
+    ],
+    "name": "24 Geschenkboxen Kraftpapier",
+    "text": {
+      "de": {
+        "tagline": "Für Plätzchen, Wichteln und kleine Geschenke.",
+        "short": "24 Boxen, 6 Motive.",
+        "description": "24 faltbare Geschenkboxen aus Kraftpapier mit weißen Anhängern und roter Schleife, sechs Weihnachtsmotive.",
+        "bullets": [
+          "24 Boxen aus Kraftpapier",
+          "6 Motive mit weißem Papieranhänger",
+          "Rote Schleifen inklusive"
+        ]
+      },
+      "fr": {
+        "tagline": "Pour les biscuits, les surprises et les petits cadeaux.",
+        "short": "24 boîtes, 6 motifs.",
+        "description": "24 boîtes cadeaux pliables en kraft avec étiquettes blanches et ruban rouge, six motifs de Noël.",
+        "bullets": [
+          "24 boîtes en kraft",
+          "6 motifs avec étiquette en papier blanc",
+          "Rubans rouges inclus"
+        ]
+      },
+      "en": {
+        "tagline": "For cookies, Secret Santa and small gifts.",
+        "short": "24 boxes, 6 designs.",
+        "description": "24 foldable kraft paper gift boxes with white tags and red ribbon, six Christmas designs.",
+        "bullets": [
+          "24 kraft paper boxes",
+          "6 designs with white paper tags",
+          "Red ribbons included"
+        ]
+      }
+    },
+    "seo": {
+      "de": {
+        "title": "Geschenkboxen Weihnachten Kraftpapier 24 Stück",
+        "description": "24 Geschenkboxen aus Kraftpapier mit Anhängern und Schleifen. Versand aus Deutschland."
+      },
+      "fr": {
+        "title": "Boîtes cadeaux de Noël en kraft, lot de 24",
+        "description": "24 boîtes cadeaux en kraft avec étiquettes et rubans. Expédiées depuis l'Allemagne."
+      },
+      "en": {
+        "title": "Christmas kraft paper gift boxes, set of 24",
+        "description": "24 kraft paper gift boxes with tags and ribbons. Shipped from Germany."
+      }
+    },
+    "components": [
+      {
+        "key": "boxen",
+        "name": "24 Geschenkboxen Kraftpapier",
+        "label": {
+          "de": "24 Geschenkboxen aus Kraftpapier",
+          "fr": "24 boîtes cadeaux en kraft",
+          "en": "24 kraft paper gift boxes"
+        },
+        "qty": 1,
+        "supplier": {
+          "name": "CJdropshipping",
+          "url": "https://cjdropshipping.com/product/x-p-2079048184114032641.html",
+          "cjProductId": "2079048184114032641",
+          "cjVid": "2079048184231473154",
+          "cjSku": "CJSD29940600001",
+          "fromCountryCode": "DE",
+          "logisticName": "DHL DE to DE",
+          "costCents": 663,
+          "weightG": 562,
+          "shippingDays": "5–7",
+          "checkedAt": "2026-10-16",
+          "notes": "Stock CJ Allemagne (même vendeur CJSD2994…). Prix hors port ; port CJ ~7 $ par commande (7,60 $ pour 1,1 kg)."
+        }
+      }
+    ],
+    "upsells": [
+      "geschenke-werkstatt",
+      "das-ganze-fest"
+    ]
+  }
+]

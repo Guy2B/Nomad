@@ -1,13 +1,13 @@
 # Publishes the Cloudflare Workers on every push to main, only what changed:
-#   api.algbr.eu (backend + dashboard) · GLOW · KIN · OFF.
+#   api.algbr.eu (backend + dashboard) · GLOW · KIN · JOY · OFF.
 # GO, SPACE and EASE are Cloudflare Pages projects: Cloudflare rebuilds them itself.
 #
 # The API embeds every shop's catalogue (prices are checked at checkout), so a change
 # in any shops/*/products.json or site.json republishes the API too.
 #
 # Needs one repository secret: CLOUDFLARE_API_TOKEN (Cloudflare → My Profile → API Tokens,
-# template "Edit Cloudflare Workers"). Actions → this workflow → "Run workflow" publishes all four.
-name: Deploy Cloudflare (API, GLOW, KIN, OFF)
+# template "Edit Cloudflare Workers"). Actions → this workflow → "Run workflow" publishes all five.
+name: Deploy Cloudflare (API, GLOW, KIN, JOY, OFF)
 
 on:
   push:
@@ -28,6 +28,7 @@ jobs:
       api: ${{ steps.f.outputs.api }}
       glow: ${{ steps.f.outputs.glow }}
       kin: ${{ steps.f.outputs.kin }}
+      joy: ${{ steps.f.outputs.joy }}
       off: ${{ steps.f.outputs.off }}
     steps:
       - uses: actions/checkout@v4
@@ -54,6 +55,11 @@ jobs:
               - 'public/**'
               - 'shared/platform.json'
               - 'scripts/**'
+            joy:
+              - 'shops/joy/**'
+              - 'public/**'
+              - 'shared/platform.json'
+              - 'scripts/**'
             off:
               - 'shops/off/**'
               - 'shared/platform.json'
@@ -64,7 +70,8 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       needs.changes.outputs.api == 'true' || needs.changes.outputs.glow == 'true' ||
-      needs.changes.outputs.kin == 'true' || needs.changes.outputs.off == 'true'
+      needs.changes.outputs.kin == 'true' || needs.changes.outputs.joy == 'true' ||
+      needs.changes.outputs.off == 'true'
     runs-on: ubuntu-latest
     env:
       # Raw secret; the cleaned token is exported as CLOUDFLARE_API_TOKEN by the check step.
@@ -105,6 +112,9 @@ jobs:
       - name: KIN (kin.algbr.eu)
         if: env.ALL == 'true' || needs.changes.outputs.kin == 'true'
         run: npm run deploy:kin
+      - name: JOY (joy.algbr.eu)
+        if: env.ALL == 'true' || needs.changes.outputs.joy == 'true'
+        run: npm run deploy:joy
       - name: OFF. (off.algbr.eu)
         if: env.ALL == 'true' || needs.changes.outputs.off == 'true'
         run: npm run deploy:off

@@ -19,6 +19,8 @@ import glowSite from '../../shops/glow/site.json' with { type: 'json' };
 import glowProducts from '../../shops/glow/products.json' with { type: 'json' };
 import kinSite from '../../shops/kin/site.json' with { type: 'json' };
 import kinProducts from '../../shops/kin/products.json' with { type: 'json' };
+import joySite from '../../shops/joy/site.json' with { type: 'json' };
+import joyProducts from '../../shops/joy/products.json' with { type: 'json' };
 
 /** The first store is the host: it serves the API and the admin for all of them. */
 const DEFINITIONS = [
@@ -27,6 +29,7 @@ const DEFINITIONS = [
   [bodySite, bodyProducts],
   [glowSite, glowProducts],
   [kinSite, kinProducts],
+  [joySite, joyProducts],
 ];
 
 const STORES = new Map(

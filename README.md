@@ -1,4 +1,4 @@
-# ALGBr Shops — les 6 boutiques, un seul moteur · by Al.G.B.r.
+# ALGBr Shops — les 7 boutiques, un seul moteur · by Al.G.B.r.
 
 **Un dépôt, six dossiers de boutique identiques, un moteur commun** (panier, paiement Stripe,
 commande CJ automatique, pages légales, CRM et dashboard). Une correction du moteur vaut
@@ -11,6 +11,7 @@ shops/                 ← une boutique = un dossier, même architecture partout
   ease/    EASE   · ease.algbr.eu    bien-être
   glow/    GLOW   · glow.algbr.eu    beauté
   kin/     KIN    · kin.algbr.eu     animaux
+  joy/     JOY    · joy.algbr.eu     Noël (saisonnier, stock CJ Allemagne)
   off/     OFF.   · off.algbr.eu     outlet (votre propre stock)
 shared/                données communes : adresse de l'API, prospects et mots-clés du sourcing
 engine/                le moteur : functions/ (API) + lib/ (prix, Stripe, CJ, CRM, Radar)
@@ -43,7 +44,7 @@ le nom de la marque ; `node scripts/build.mjs` accepte les deux.
 | Partie | Hébergement | Publication |
 |---|---|---|
 | GO, SPACE, EASE | Cloudflare Pages (go-algbr, space-algbr, ease-algbr) | automatique à chaque envoi sur GitHub (`main`) |
-| GLOW, KIN | Cloudflare Workers (glow-algbr, kin-algbr) | automatique à chaque envoi sur GitHub (GitHub Actions) |
+| GLOW, KIN, JOY | Cloudflare Workers (glow-algbr, kin-algbr, joy-algbr) | automatique à chaque envoi sur GitHub (GitHub Actions) |
 | OFF. | Cloudflare Worker off-algbr | automatique à chaque envoi sur GitHub (GitHub Actions) |
 | API + dashboard (api.algbr.eu) | Cloudflare Worker api-algbr, base D1 `algbr-crm` | automatique à chaque envoi sur GitHub (GitHub Actions), aussi quand un prix change |
 
