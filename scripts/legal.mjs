@@ -3,10 +3,15 @@
  * authoritative version. Fields in [brackets] come from shops/<shop>/site.json and
  * must be completed; have the texts checked before launch (see docs/LEGAL-CHECKLIST.md).
  */
-export function legalPages(site) {
+export function legalPages(site, products = []) {
   const c = site.company;
   const addr = `${c.name}<br>Inhaber: ${c.owner}<br>${c.street}<br>${c.city}<br>${c.country}`;
   const days = site.shipping.deliveryDays;
+  // Products that ship slower than the store (e.g. battery items sent as sensitive goods).
+  const longer = products.filter((p) => p.deliveryDays && p.deliveryDays !== days);
+  const exDe = longer.length ? ` Abweichend davon: ${longer.map((p) => `${p.name} ${p.deliveryDays} Werktage`).join(', ')} (siehe Produktseite).` : '';
+  const exFr = longer.length ? ` (sauf ${longer.map((p) => `${p.name} : ${p.deliveryDays} jours ouvrés`).join(', ')})` : '';
+  const exEn = longer.length ? ` (except ${longer.map((p) => `${p.name}: ${p.deliveryDays} working days`).join(', ')})` : '';
   const countries = site.shipping.countries.join(', ');
   // OFF. ships its own stock from Germany, with paid shipping; the other stores dropship for free.
   const own = site.fulfilment === 'own';
@@ -62,7 +67,7 @@ ${own ? `<h2>6. Suchanfragen (Private Sourcing)</h2>
 <h2>§ 3 Preise und Zahlung</h2>
 <p>Alle Preise sind Endpreise. ${c.taxNote}; daher wird keine Umsatzsteuer berechnet. Die Zahlung erfolgt über Stripe (Karte, Apple Pay, Google Pay u. a.). ${fee ? `Für den Versand innerhalb Deutschlands berechnen wir ${fee}${carrier ? ` (${carrier})` : ''}; die Versandkosten werden vor Abschluss der Bestellung angezeigt.` : 'Der Versand ist kostenlos, sofern nicht anders angegeben.'}</p>
 <h2>§ 4 Lieferung</h2>
-<p>Wir liefern nach: ${countries}. Die Lieferzeit beträgt in der Regel ${days} Werktage ab Zahlungseingang. ${own ? 'Die Ware wird aus unserem Lager in Deutschland versendet. Jeder Artikel ist nur in der angegebenen Menge vorrätig.' : (fromDE ? 'Die Ware wird direkt von unserem Versandlager in Deutschland an Sie geschickt.' : 'Die Ware wird direkt von unserem Versandlager an Sie geschickt.')}</p>
+<p>Wir liefern nach: ${countries}. Die Lieferzeit beträgt in der Regel ${days} Werktage ab Zahlungseingang.${exDe} ${own ? 'Die Ware wird aus unserem Lager in Deutschland versendet. Jeder Artikel ist nur in der angegebenen Menge vorrätig.' : (fromDE ? 'Die Ware wird direkt von unserem Versandlager in Deutschland an Sie geschickt.' : 'Die Ware wird direkt von unserem Versandlager an Sie geschickt.')}</p>
 <h2>§ 5 Eigentumsvorbehalt</h2>
 <p>Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum.</p>
 <h2>§ 6 Widerrufsrecht</h2>
@@ -89,10 +94,10 @@ Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag üb
     versand: `
 <h1>Versand & Zahlung</h1>
 <h2>Versand</h2>
-<p>Lieferländer: ${countries}. ${fee ? `Versandkosten: ${fee}${carrier ? ` (${carrier})` : ''}, mit Sendungsverfolgung.` : 'Der Versand ist kostenlos und erfolgt mit Sendungsverfolgung.'} Lieferzeit: in der Regel ${days} Werktage ab Zahlungseingang. Ihre Sendungsnummer finden Sie unter <a href="bestellung.html">Bestellung verfolgen</a>.</p>
+<p>Lieferländer: ${countries}. ${fee ? `Versandkosten: ${fee}${carrier ? ` (${carrier})` : ''}, mit Sendungsverfolgung.` : 'Der Versand ist kostenlos und erfolgt mit Sendungsverfolgung.'} Lieferzeit: in der Regel ${days} Werktage ab Zahlungseingang.${exDe} Ihre Sendungsnummer finden Sie unter <a href="bestellung.html">Bestellung verfolgen</a>.</p>
 <h2>Zahlung</h2>
 <p>Die Zahlung erfolgt sicher über Stripe: Kreditkarte, Apple Pay, Google Pay und weitere angezeigte Methoden. Die Rechnung erhalten Sie automatisch per E-Mail.</p>
-${own ? '<h2>Versand aus Deutschland</h2><p>Alle Artikel werden aus unserem Lager in Deutschland verschickt; es fallen keine Zölle oder Einfuhrabgaben an.</p>' : (fromDE ? '<h2>Versand aus Deutschland</h2><p>Alle Artikel werden aus einem Lager in Deutschland verschickt; es fallen keine Zölle oder Einfuhrabgaben an.</p>' : '<h2>Zölle und Einfuhrabgaben</h2><p>[Hinweis zu Einfuhrumsatzsteuer/IOSS je nach Versandlager, à valider, voir docs/LEGAL-CHECKLIST.md.]</p>')}`,
+${own ? '<h2>Versand aus Deutschland</h2><p>Alle Artikel werden aus unserem Lager in Deutschland verschickt; es fallen keine Zölle oder Einfuhrabgaben an.</p>' : (fromDE ? '<h2>Versand aus Deutschland</h2><p>Alle Artikel werden aus einem Lager in Deutschland verschickt; es fallen keine Zölle oder Einfuhrabgaben an.</p>' : '<h2>Zölle und Einfuhrabgaben</h2><p>Die Ware wird aus einem Lager außerhalb der EU versendet. Bei Bestellungen bis 150 € wird die Einfuhrumsatzsteuer bereits beim Versand abgeführt (IOSS-Verfahren): Bei der Zustellung zahlen Sie nichts extra. Bei Bestellungen über 150 € können bei der Zustellung Einfuhrumsatzsteuer und Zoll anfallen; diese trägt der Empfänger.</p>')}`,
   };
 
   const note = (lang) =>
@@ -105,16 +110,16 @@ ${own ? '<h2>Versand aus Deutschland</h2><p>Alle Artikel werden aus unserem Lage
     fr: {
       impressum: `<h1>Mentions légales</h1><p>${addr}</p><p>E-mail : ${c.email}</p><p>${c.taxNote} : pas de TVA facturée.</p>`,
       datenschutz: `<h1>Confidentialité</h1><p>Nous traitons les données nécessaires à votre commande (nom, adresses, e-mail, téléphone, articles). Destinataires : Stripe (paiement et facture), ${own ? '' : (fromDE ? 'notre fournisseur/entrepôt CJdropshipping (expédition depuis l’Allemagne), ' : 'notre fournisseur/entrepôt CJdropshipping (expédition, possiblement hors UE), ')}les transporteurs, Cloudflare (hébergement des pages et de l’API). Aucun cookie de suivi. Vos droits : accès, rectification, effacement, opposition, écrivez à ${c.email}.</p>`,
-      agb: `<h1>Conditions générales de vente</h1><p>Le contrat est conclu à la confirmation du paiement. Prix finaux, TVA non applicable (§ 19 UStG). Livraison vers ${countries} en ${days} jours ouvrés, ${fee ? `frais de port ${fee}` : 'offerte'}. Droit de rétractation de 14 jours. Droit allemand, sous réserve des règles impératives de votre pays.</p>`,
+      agb: `<h1>Conditions générales de vente</h1><p>Le contrat est conclu à la confirmation du paiement. Prix finaux, TVA non applicable (§ 19 UStG). Livraison vers ${countries} en ${days} jours ouvrés${exFr}, ${fee ? `frais de port ${fee}` : 'offerte'}. Droit de rétractation de 14 jours. Droit allemand, sous réserve des règles impératives de votre pays.</p>`,
       widerruf: `<h1>Droit de rétractation</h1><p>Vous pouvez vous rétracter dans les 14 jours suivant la réception, sans motif, par une déclaration claire à ${c.email}. Nous remboursons tous les paiements, livraison standard comprise, au plus tard 14 jours après votre déclaration, une fois les articles reçus ou leur renvoi prouvé. Renvoyez les articles à : ${c.name}, ${c.street}, ${c.city}, ${c.country}. Les frais directs de renvoi sont à votre charge.</p>`,
-      versand: `<h1>Livraison & paiement</h1><p>Livraison suivie ${fee ? `(${fee}${carrier ? `, ${carrier}` : ''})` : 'offerte'} vers ${countries}, en ${days} jours ouvrés${own || fromDE ? ', depuis l’Allemagne, sans frais de douane' : ''}. Paiement via Stripe ; facture automatique par e-mail.</p>`,
+      versand: `<h1>Livraison & paiement</h1><p>Livraison suivie ${fee ? `(${fee}${carrier ? `, ${carrier}` : ''})` : 'offerte'} vers ${countries}, en ${days} jours ouvrés${exFr}${own || fromDE ? ', depuis l’Allemagne, sans frais de douane' : ', depuis un entrepôt hors UE : jusqu’à 150 €, la TVA à l’importation est déjà acquittée à l’expédition (IOSS), rien à payer à la livraison ; au-delà de 150 €, TVA à l’importation et droits de douane éventuels à la charge du destinataire'}. Paiement via Stripe ; facture automatique par e-mail.</p>`,
     },
     en: {
       impressum: `<h1>Legal notice</h1><p>${addr}</p><p>E-mail: ${c.email}</p><p>${c.taxNote}: no VAT charged.</p>`,
       datenschutz: `<h1>Privacy</h1><p>We process the data needed for your order (name, addresses, e-mail, phone, items). Recipients: Stripe (payment and invoice), ${own ? '' : (fromDE ? 'our supplier/warehouse CJdropshipping (shipping from Germany), ' : 'our supplier/warehouse CJdropshipping (shipping, possibly outside the EU), ')}carriers, Cloudflare (hosting of the pages and the API). No tracking cookies. Your rights: access, rectification, erasure, objection, write to ${c.email}.</p>`,
-      agb: `<h1>Terms and conditions</h1><p>The contract is concluded on payment confirmation. Final prices, no VAT (§ 19 UStG). ${fee ? `Delivery to ${countries} for ${fee}` : `Free delivery to ${countries}`} in ${days} working days. 14-day right of withdrawal. German law, without prejudice to mandatory rules of your country.</p>`,
+      agb: `<h1>Terms and conditions</h1><p>The contract is concluded on payment confirmation. Final prices, no VAT (§ 19 UStG). ${fee ? `Delivery to ${countries} for ${fee}` : `Free delivery to ${countries}`} in ${days} working days${exEn}. 14-day right of withdrawal. German law, without prejudice to mandatory rules of your country.</p>`,
       widerruf: `<h1>Right of withdrawal</h1><p>You may withdraw within 14 days of receipt without giving reasons, by a clear statement to ${c.email}. We refund all payments, including standard delivery, no later than 14 days after your statement, once the goods are back or their return is proven. Send the goods to: ${c.name}, ${c.street}, ${c.city}, ${c.country}. You bear the direct cost of returning the goods.</p>`,
-      versand: `<h1>Shipping & payment</h1><p>${fee ? `Tracked shipping (${fee}${carrier ? `, ${carrier}` : ''})` : 'Free tracked shipping'} to ${countries}, in ${days} working days${own || fromDE ? ', from Germany, no customs duties' : ''}. Payment through Stripe; invoice sent automatically by e-mail.</p>`,
+      versand: `<h1>Shipping & payment</h1><p>${fee ? `Tracked shipping (${fee}${carrier ? `, ${carrier}` : ''})` : 'Free tracked shipping'} to ${countries}, in ${days} working days${exEn}${own || fromDE ? ', from Germany, no customs duties' : ', from a warehouse outside the EU: up to €150, import VAT is already paid at dispatch (IOSS), nothing to pay on delivery; above €150, import VAT and any customs duties are paid by the recipient'}. Payment through Stripe; invoice sent automatically by e-mail.</p>`,
     },
   };
 

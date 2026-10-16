@@ -67,7 +67,7 @@ export function priceCart(cart, storeId = HOST_STORE) {
     const qty = Math.max(1, Math.min(9, Math.floor(Number(line.qty) || 1)));
     const existing = items.find((i) => i.id === p.id);
     if (existing) existing.qty = Math.min(9, existing.qty + qty);
-    else items.push({ id: p.id, sku: p.sku, name: p.name, unitCents: p.price, qty });
+    else items.push({ id: p.id, sku: p.sku, name: p.name, unitCents: p.price, qty, ...(p.deliveryDays ? { deliveryDays: p.deliveryDays } : {}) });
   }
   for (const i of items) i.lineCents = i.unitCents * i.qty;
   const subtotalCents = items.reduce((a, i) => a + i.lineCents, 0);

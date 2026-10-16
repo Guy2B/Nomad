@@ -1,6 +1,7 @@
 [
   {
     "id": "vacuum-backpack",
+    "deliveryDays": "8–14",
     "sku": "NOM-VAC-01",
     "active": true,
     "price": 9990,
@@ -602,7 +603,7 @@
     "name": "Packing Cubes ×8",
     "text": {
       "de": {
-        "tagline": "Acht Würfel. Ein Koffer, in dem du alles findest.",
+        "tagline": "Acht Würfel. Ein Koffer, in dem Sie alles finden.",
         "description": "Packwürfel Set mit 8 Teilen: Kleidung, Schuhe und Unterwäsche getrennt verstaut, Koffer-Organizer für Handgepäck und Koffer. Kostenloser Versand.",
         "bullets": [
           "8-teiliges Set: Kleidung, Unterwäsche, Schuhe, Kabel",
@@ -1132,7 +1133,7 @@
     "text": {
       "de": {
         "badge": "Schlafen im Flugzeug",
-        "tagline": "Kissen und Maske: ankommen ausgeruht.",
+        "tagline": "Kissen und Maske: ausgeruht ankommen.",
         "description": "Das Kapuzen-Reisekissen und die 3D-Schlafmaske im Set, günstiger als einzeln.",
         "bullets": [
           "Aufblasbares H-Kissen mit Kapuze",

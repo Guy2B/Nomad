@@ -58,7 +58,7 @@ const PRODUCTS = readJson(join(storeDir, 'products.json'));
 const SITE = readJson(join(storeDir, 'site.json'));
 const ACTIVE = PRODUCTS.filter((p) => p.active);
 const GUIDES = SITE.guides ?? [];
-const LEGAL = legalPages(SITE);
+const LEGAL = legalPages(SITE, ACTIVE);
 const HAS_THEME = existsSync(join(storeDir, 'assets', 'theme.css'));
 const BASE = SITE.baseUrl.replace(/\/$/, '');
 /** Content hash of the shared assets: ?v= on CSS/JS so browsers never keep a stale design. */
@@ -94,7 +94,7 @@ const money = (cents, lang) =>
   new Intl.NumberFormat({ de: 'de-DE', fr: 'fr-FR', en: 'en-IE' }[lang], { style: 'currency', currency: 'EUR' }).format(
     cents / 100,
   );
-const fill = (s) => s.replace('{days}', SITE.shipping.deliveryDays).replace('{prefix}', SITE.orderPrefix);
+const fill = (s, days = SITE.shipping.deliveryDays) => s.replace('{days}', days).replace('{prefix}', SITE.orderPrefix);
 const ldJson = (o) => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`;
 
 function write(path, html) {

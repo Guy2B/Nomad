@@ -14,11 +14,11 @@
       "de": {
         "badge": "Küche ohne Chaos",
         "tagline": "Endlich Platz rund um die Spüle.",
-        "description": "Mach aus dem Spülbereich eine nutzbare Zone, ohne die Küche umzubauen.",
+        "description": "Machen Sie aus dem Spülbereich eine nutzbare Zone, ohne die Küche umzubauen.",
         "bullets": [
           "Schwamm, Bürste und Kleinteile liegen nicht mehr auf der Arbeitsplatte",
           "4 Haken schaffen vertikalen Stauraum auf geeigneten Flächen",
-          "Der Aluminium-Rack lässt Wasser schnell ablaufen",
+          "Das Aluminium-Rack lässt Wasser schnell ablaufen",
           "Schnelle Montage ohne große Arbeiten"
         ],
         "caution": "Untergrund und Belastung vor der Montage immer prüfen."
@@ -252,7 +252,7 @@
     "text": {
       "de": {
         "badge": "Desk Space in 10 Min",
-        "tagline": "Ein Desk, an dem du wieder gerne sitzt.",
+        "tagline": "Ein Schreibtisch, an dem Sie wieder gerne sitzen.",
         "description": "Kabel führen, Kleinteile verstauen, Oberfläche ruhig halten.",
         "bullets": [
           "Kabelclips verhindern, dass Leitungen hinter den Tisch fallen",
@@ -397,7 +397,7 @@
       "de": {
         "badge": "Mehr Platz im Schrank",
         "tagline": "Mehr Kapazität ohne neuen Schrank.",
-        "description": "Nutze die Höhe besser und mach aus Saisonkleidung stapelbare Einheiten.",
+        "description": "Nutzen Sie die Höhe besser und machen Sie aus Saisonkleidung stapelbare Einheiten.",
         "bullets": [
           "Mehrfach-Bügel nutzen vertikalen Platz",
           "2 faltbare Taschen für Kleidung, Pullover oder Bettwäsche",
@@ -517,13 +517,13 @@
     "text": {
       "de": {
         "badge": "Wäsche ohne Umbau",
-        "tagline": "Mach eine Mini-Wäschezone aus ungenutztem Raum.",
+        "tagline": "Eine Mini-Wäschezone aus ungenutztem Raum.",
         "description": "Klappbarer Wandtrockner, Textil-Stauraum und Haken für schmale Räume.",
         "bullets": [
           "Trockner klappt weg, wenn er nicht gebraucht wird",
           "Aufbewahrungstasche für Wäsche oder Zubehör",
           "4 Haken für leichte Textilien und Kleinteile",
-          "Für Wohnung, Balkon, Bad oder Utility-Ecke"
+          "Für Wohnung, Balkon, Bad oder Abstellecke"
         ],
         "caution": "Untergrund und Belastung vor der Montage immer prüfen."
       },
@@ -630,7 +630,7 @@
     "seo": {
       "de": {
         "title": "Wäscheständer Wand klappbar · Wäsche-Set ohne Bohren",
-        "description": "Klappbarer Wand-Wäscheständer, Aufbewahrungstasche und 4 Haken: eine Mini-Waschzone in Bad, Flur oder auf dem Balkon, klappt weg, wenn nicht gebraucht."
+        "description": "Klappbarer Wand-Wäscheständer, Aufbewahrungstasche und 4 Haken: eine Mini-Wäschezone in Bad, Flur oder auf dem Balkon, klappt weg, wenn nicht gebraucht."
       },
       "fr": {
         "title": "Séchoir mural pliable · kit linge petit espace",
@@ -912,7 +912,7 @@
     "name": "Magnetic Cable Clips",
     "text": {
       "de": {
-        "tagline": "Kabel bleiben, wo du sie brauchst.",
+        "tagline": "Kabel bleiben, wo Sie sie brauchen.",
         "description": "Magnetische Kabelclips für Schreibtisch und Nachttisch: Ladekabel immer griffbereit, selbstklebend, ohne Werkzeug.",
         "bullets": [
           "Magnetische Kabelhalter für den Schreibtisch",

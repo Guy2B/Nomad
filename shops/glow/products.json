@@ -715,7 +715,7 @@
     "images": [
       "night-satin-set-1.webp"
     ],
-    "name": "Night Satin Set (4 pieces)",
+    "name": "Night Satin Set ×4",
     "text": {
       "de": {
         "tagline": "Vier Teile, ein Abend.",
@@ -764,9 +764,9 @@
         "key": "main",
         "name": "Night Satin Set",
         "label": {
-          "de": "Night Satin Set (4 pieces)",
-          "fr": "Night Satin Set (4 pieces)",
-          "en": "Night Satin Set (4 pieces)"
+          "de": "Night Satin Set ×4",
+          "fr": "Night Satin Set ×4",
+          "en": "Night Satin Set ×4"
         },
         "qty": 1,
         "supplier": {

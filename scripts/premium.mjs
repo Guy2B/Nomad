@@ -100,7 +100,7 @@ ${jsonLd.map(ldJson).join('\n')}
 <header class="top">
   <div class="wrap top-row">
     <a class="brand" href="${L}index.html">${esc(SITE.brand)}${SITE.byline ? ` <small class="byline">${esc(SITE.byline)}</small>` : ''}</a>
-    <nav class="menu" aria-label="Menu">
+    <nav class="menu" aria-label="${lang === 'de' ? 'Menü' : 'Menu'}">
       <a href="${L}index.html#produkte">${esc(u.nav.shop)}</a>
       <a href="${guideHref}">${esc(u.nav.guide)}</a>
       <a href="${L}index.html#warum">${esc(u.nav.why)}</a>
@@ -108,7 +108,7 @@ ${jsonLd.map(ldJson).join('\n')}
     </nav>
     <div class="top-actions">
       ${NEXT_AD ? `<a class="next-pill" href="${NEXT_AD.url}?ref=${encodeURIComponent(SITE.id)}" target="_blank" rel="noopener" title="NEXT by ALGBr">${nsxt()}</a>` : ''}
-      <nav class="langs" aria-label="Language">${langLinks}</nav>
+      <nav class="langs" aria-label="${lang === 'de' ? 'Sprache' : lang === 'fr' ? 'Langue' : 'Language'}">${langLinks}</nav>
       <a class="cart-link" href="${L}warenkorb.html" aria-label="${esc(t.nav.cart)}">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Zm3 0a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
         <span class="cart-count" data-cart-count hidden>0</span>
@@ -294,7 +294,7 @@ ${
       <ul class="bullets">${benefits.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
       <button class="btn btn-dark btn-lg btn-block" type="button" data-add="${p.id}" data-go-cart>${esc(t.products.add)} · ${money(p.price, lang)}</button>
       ${x.caution ? `<p class="muted small center">${esc(x.caution)}</p>` : ''}
-      <ul class="reassure-x">${up_.trust.map((s) => `<li>${esc(fill(s))}</li>`).join('')}</ul>
+      <ul class="reassure-x">${up_.trust.map((s) => `<li>${esc(fill(s, p.deliveryDays || SITE.shipping.deliveryDays))}</li>`).join('')}</ul>
       ${parts && !p.single ? `<h2 class="small-title">${esc(t.product.includes)}</h2><ul class="includes">${parts.map((c) => `<li><b>${c.qty} ×</b> ${esc(c.label?.[lang] || c.name)}</li>`).join('')}</ul>` : ''}
     </div>
   </div>
@@ -329,7 +329,7 @@ ${
   <div class="reviews-list" data-reviews-list></div>
   <p class="muted small">${esc(t.reviews.note)}</p>
 </div></section>
-<section class="section soft"><div class="wrap narrow"><header class="head-x"><h2>${esc(up_.faqTitle)}</h2></header>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(fill(a))}</p></details>`).join('')}</div></section>
+<section class="section soft"><div class="wrap narrow"><header class="head-x"><h2>${esc(up_.faqTitle)}</h2></header>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(fill(a, p.deliveryDays || SITE.shipping.deliveryDays))}</p></details>`).join('')}</div></section>
 <section class="final-cta small-cta"><div class="wrap center">
   <h2>${esc(rich.final || up_.finalTitle)}</h2>
   <p class="price big"><b>${esc(p.name)} · ${money(p.price, lang)}</b></p>

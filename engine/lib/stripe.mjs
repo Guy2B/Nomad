@@ -34,6 +34,9 @@ async function stripe(path, { method = 'GET', body } = {}) {
 /** `site` is the store's site.json: currency, shipping countries, invoice footer. */
 export function sessionPayload({ site, priced, lang, baseUrl, cart, images }) {
   const names = { de: 'de', fr: 'fr', en: 'en' };
+  // The slowest item sets the delivery time announced at checkout ("6–10" < "8–14").
+  const upper = (d) => Number(String(d).match(/\d+/g)?.pop() ?? 0);
+  const days = priced.items.reduce((d, i) => (i.deliveryDays && upper(i.deliveryDays) > upper(d) ? i.deliveryDays : d), site.shipping.deliveryDays);
   return {
     mode: 'payment',
     locale: names[lang] ?? 'auto',
@@ -74,9 +77,9 @@ export function sessionPayload({ site, priced, lang, baseUrl, cart, images }) {
       },
       submit: {
         message: {
-          de: `Versand mit Sendungsverfolgung in ${site.shipping.deliveryDays} Werktagen · 14 Tage Widerrufsrecht · Rechnung per E-Mail`,
-          fr: `Livraison suivie en ${site.shipping.deliveryDays} jours ouvrés · 14 jours de rétractation · Facture par e-mail`,
-          en: `Tracked shipping in ${site.shipping.deliveryDays} working days · 14-day withdrawal · Invoice by e-mail`,
+          de: `Versand mit Sendungsverfolgung in ${days} Werktagen · 14 Tage Widerrufsrecht · Rechnung per E-Mail`,
+          fr: `Livraison suivie en ${days} jours ouvrés · 14 jours de rétractation · Facture par e-mail`,
+          en: `Tracked shipping in ${days} working days · 14-day withdrawal · Invoice by e-mail`,
         }[lang] ?? '',
       },
     },
