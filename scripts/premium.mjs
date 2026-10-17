@@ -7,6 +7,13 @@
 export function createTemplates(ctx) {
   const { SITE, ACTIVE, GUIDES, STR, NEXT_AD, FAMILY, API, HAS_THEME, ASSET_V, shopDataTag, BASE, pub, esc, money, fill, ldJson, write, up } = ctx;
   const byId = new Map(ACTIVE.map((p) => [p.id, p]));
+  /** "6–10" working days → handling 1–2 days + transit, as schema.org ShippingDeliveryTime. */
+  const deliveryTime = (days) => {
+    const [a, b] = String(days).match(/\d+/g)?.map(Number) ?? [5, 10];
+    const max = b ?? a;
+    const q = (min, mx) => ({ '@type': 'QuantitativeValue', minValue: min, maxValue: mx, unitCode: 'DAY' });
+    return { '@type': 'ShippingDeliveryTime', handlingTime: q(1, 2), transitTime: q(Math.max(1, a - 1), Math.max(1, max - 2)) };
+  };
   const U = (lang) => SITE.ui[lang];
   const lines = (arr) => (Array.isArray(arr) ? arr.map(esc).join('<br>') : esc(arr));
   const img = (r, src) => `${r}assets/products/${src}`;
@@ -255,7 +262,7 @@ ${
   </div>
 </section>`;
     const jsonLd = [
-      { '@context': 'https://schema.org', '@type': 'OnlineStore', name: SITE.brand, url: `${BASE}/`, description: SITE.tagline[lang], logo: `${BASE}/assets/favicon.svg` },
+      { '@context': 'https://schema.org', '@type': 'OnlineStore', name: `${SITE.brand} by AlGBr`, alternateName: SITE.brand, url: `${BASE}/`, description: SITE.seo?.[lang]?.description || SITE.tagline[lang], slogan: SITE.tagline[lang], logo: `${BASE}/assets/favicon.svg`, email: SITE.company?.email || undefined, brand: { '@type': 'Brand', name: SITE.brand }, parentOrganization: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' } },
       { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: u.faq.items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: fill(a) } })) },
     ];
     write(
@@ -354,10 +361,12 @@ ${
           availability: 'https://schema.org/InStock',
           itemCondition: 'https://schema.org/NewCondition',
           url,
+          seller: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' },
           shippingDetails: {
             '@type': 'OfferShippingDetails',
             shippingRate: { '@type': 'MonetaryAmount', value: (SITE.shipping.cents / 100).toFixed(2), currency: 'EUR' },
             shippingDestination: SITE.shipping.countries.map((c) => ({ '@type': 'DefinedRegion', addressCountry: c })),
+            deliveryTime: deliveryTime(p.deliveryDays || SITE.shipping.deliveryDays),
           },
           hasMerchantReturnPolicy: {
             '@type': 'MerchantReturnPolicy',
@@ -365,6 +374,8 @@ ${
             returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
             merchantReturnDays: SITE.shipping.returnDays,
             returnMethod: 'https://schema.org/ReturnByMail',
+            returnFees: 'https://schema.org/ReturnFeesCustomerResponsibility',
+            returnPolicyCountry: 'DE',
           },
         },
       },

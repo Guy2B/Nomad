@@ -328,12 +328,29 @@ write(
     .flatMap((l) =>
       pages.map(
         (u) =>
-          `<url><loc>${pub(`${l}/${u}`)}</loc><lastmod>${today}</lastmod>${SITE.languages.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${pub(`${x}/${u}`)}"/>`).join('')}</url>`,
+          `<url><loc>${pub(`${l}/${u}`)}</loc>${SITE.languages.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${pub(`${x}/${u}`)}"/>`).join('')}</url>`,
       ),
     )
     .join('\n')}\n</urlset>\n`,
 );
 write('robots.txt', `User-agent: *\nDisallow: /admin/\nDisallow: /api/\nSitemap: ${BASE}/sitemap.xml\n`);
+// Google Merchant Center feed (RSS 2.0, g: namespace): what the product pages show, nothing more.
+// Own-brand products: no GTIN exists, so identifier_exists=no (never invent one).
+{
+  const x = (s) => String(s ?? '').replace(/[<>&'"]/g, (m) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[m]);
+  const L = SITE.defaultLang;
+  const items = ACTIVE.map((p) => {
+    const seo = p.seo?.[L] ?? {};
+    const txt = p.text?.[L] ?? {};
+    const imgs = p.images.map((i) => `${BASE}/assets/products/${i}`);
+    const days = String(p.deliveryDays || SITE.shipping.deliveryDays).match(/\d+/g)?.map(Number) ?? [];
+    const ship = SITE.shipping.countries
+      .map((c) => `<g:shipping><g:country>${c}</g:country><g:price>${(SITE.shipping.cents / 100).toFixed(2)} EUR</g:price>${days.length ? `<g:min_transit_time>${Math.max(1, days[0] - 1)}</g:min_transit_time><g:max_transit_time>${Math.max(1, (days[1] ?? days[0]) - 2)}</g:max_transit_time>` : ''}</g:shipping>`)
+      .join('');
+    return `<item><g:id>${x(p.sku)}</g:id><g:title>${x(seo.title || p.name)}</g:title><g:description>${x(seo.description || txt.description || p.name)}</g:description><g:link>${pub(`${L}/produkt/${p.id}.html`)}</g:link>${imgs[0] ? `<g:image_link>${x(imgs[0])}</g:image_link>` : ''}${imgs.slice(1, 10).map((u) => `<g:additional_image_link>${x(u)}</g:additional_image_link>`).join('')}<g:availability>in_stock</g:availability><g:condition>new</g:condition><g:price>${(p.price / 100).toFixed(2)} EUR</g:price><g:brand>${x(SITE.brand)}</g:brand><g:identifier_exists>no</g:identifier_exists>${Array.isArray(p.components) && p.components.length > 1 ? '<g:is_bundle>yes</g:is_bundle>' : ''}<g:min_handling_time>1</g:min_handling_time><g:max_handling_time>2</g:max_handling_time>${ship}</item>`;
+  }).join('\n');
+  write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0"><channel><title>${x(SITE.brand)} by AlGBr</title><link>${BASE}/</link><description>${x(SITE.seo?.[L]?.description || SITE.tagline[L])}</description>\n${items}\n</channel></rss>\n`);
+}
 write('_headers', headers());
 // Secondary domains (go.algbr.de…) are forwarded to the primary one at the registrar (Porkbun).
 console.log(

@@ -8,6 +8,7 @@
 import { legalPages } from '../../scripts/legal.mjs';
 import platform from '../../shared/platform.json' with { type: 'json' };
 import { T, LANGS, CONDITION, money } from './i18n.mjs';
+import { FAQ } from './faq.mjs';
 
 const SITE = {
   brand: 'OFF.',
@@ -45,18 +46,18 @@ function headers(env, type = 'text/html; charset=utf-8', cache = 'public, max-ag
   };
 }
 
-function layout(env, lang, { title: pageTitle, description, body, path, ogImage, jsonld }) {
+function layout(env, lang, { title: pageTitle, description, body, path, ogImage, jsonld, noindex = false, ogType = 'website' }) {
   const t = T[lang];
   const origin = env.ORIGIN;
-  const alt = LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${origin}/${l}${path}">`).join('');
+  const alt = LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${origin}/${l}${path}">`).join('') + `<link rel="alternate" hreflang="x-default" href="${origin}/de${path}">`;
   const n = platform.next[lang];
   const nav = LANGS.map((l) => `<a href="/${l}${path}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a>`).join('');
   return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(pageTitle)}</title><meta name="description" content="${esc(description)}">
+<title>${esc(pageTitle)}</title><meta name="description" content="${esc(description)}">${noindex ? '<meta name="robots" content="noindex">' : ''}${noindex ? '<meta name="robots" content="noindex">' : ''}
 <link rel="canonical" href="${origin}/${lang}${path}">${alt}<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="${esc(pageTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${origin}/${lang}${path}">
+<meta property="og:type" content="${ogType}"><meta property="og:site_name" content="OFF. by AlGBr"><meta property="og:type" content="${ogType}"><meta property="og:site_name" content="OFF. by AlGBr"><meta property="og:title" content="${esc(pageTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${origin}/${lang}${path}">
 ${ogImage ? `<meta property="og:image" content="${esc(origin + ogImage)}">` : ''}<meta name="theme-color" content="#0b0b0a">
-<link rel="stylesheet" href="/assets/off.css?v=${env.ASSET_V}">${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, '\\u003c')}</script>` : ''}
+<link rel="stylesheet" href="/assets/off.css?v=${env.ASSET_V}">${(Array.isArray(jsonld) ? jsonld : jsonld ? [jsonld] : []).map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('')}
 </head><body data-api="${esc(env.API)}" data-lang="${lang}">
 <div class="top">${esc(t.top)}</div>
 <header class="wrap head"><a class="logo" href="/${lang}/" aria-label="OFF. by AlGBr">O<i>F</i>F.<small>by AlGBr</small></a>
@@ -100,6 +101,7 @@ function home(env, lang, products) {
 <div class="grid" id="liveGrid">${live.map((p) => card(lang, p)).join('') || `<p class="empty">${t.shop.empty}</p>`}</div>
 <p class="empty" id="noMatch" hidden>${t.shop.noMatch}</p></section>
 ${archive.length ? `<section class="wrap section" id="archive"><span class="ey">${t.archive.eyebrow}</span><h2>${t.archive.title}</h2><p class="lead">${t.archive.text}</p><div class="grid">${archive.map((p) => card(lang, p)).join('')}</div></section>` : ''}
+<section class="wrap section" id="faq"><h2>${FAQ[lang].title}</h2>${FAQ[lang].items.map(([q, a]) => `<details class="faq"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</section>
 <section class="wrap section" id="find"><div class="find"><div><span class="ey">${t.find.eyebrow}</span><h2>${t.find.title}</h2><p>${t.find.text}</p><ul class="ticks">${t.find.points.map((x) => `<li>${x}</li>`).join('')}</ul></div>
 <form class="form" id="sourceForm" novalidate>
 <label class="field"><span>${t.find.brand}</span><input name="brand" maxlength="60" placeholder="Timberland, Clarks, Lacoste…"></label>
@@ -112,7 +114,18 @@ ${archive.length ? `<section class="wrap section" id="archive"><span class="ey">
 <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
 <p class="full fine">${t.find.privacy} <a href="/${lang}/datenschutz">${t.legal.datenschutz}</a>.</p>
 <button class="btn full" type="submit">${t.find.submit}</button><p class="notice full" id="notice" role="status" hidden></p></form></div></section>`;
-  return layout(env, lang, { title: t.seo.title, description: t.seo.description, body, path: '/', ogImage: live[0] ? imgs(live[0])[0] : null });
+  const store = {
+    '@context': 'https://schema.org',
+    '@type': 'OnlineStore',
+    name: 'OFF. by AlGBr',
+    alternateName: 'OFF.',
+    url: `${env.ORIGIN}/${lang}/`,
+    description: t.seo.description,
+    email: SITE.company.email,
+    address: { '@type': 'PostalAddress', streetAddress: SITE.company.street, postalCode: '68623', addressLocality: 'Lampertheim', addressCountry: 'DE' },
+    parentOrganization: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' },
+  };
+  return layout(env, lang, { title: t.seo.title, description: t.seo.description, body, path: '/', ogImage: live[0] ? imgs(live[0])[0] : null, jsonld: [store, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ[lang].items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] });
 }
 
 function product(env, lang, p, others) {
@@ -139,13 +152,43 @@ function product(env, lang, p, others) {
       price: (p.price_cents / 100).toFixed(2),
       availability: isSold ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
       itemCondition: p.condition === 'like_new' ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
-      shippingDetails: { '@type': 'OfferShippingDetails', shippingRate: { '@type': 'MonetaryAmount', value: '5.79', currency: 'EUR' }, shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'DE' } },
+      seller: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' },
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: { '@type': 'MonetaryAmount', value: '5.79', currency: 'EUR' },
+        shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'DE' },
+        // "2–4 Werktage": packed within 1 day, Hermes 1–3 days.
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },
+          transitTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 3, unitCode: 'DAY' },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'DE',
+        returnPolicyCountry: 'DE',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 14,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/ReturnFeesCustomerResponsibility',
+      },
     },
+    ...(p.size_eu ? { size: { '@type': 'SizeSpecification', name: `EU ${p.size_eu}`, sizeSystem: 'https://schema.org/WearableSizeSystemEurope' } } : {}),
+  };
+  const crumbs = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'OFF.', item: `${env.ORIGIN}/${lang}/` },
+      { '@type': 'ListItem', position: 2, name: p.brand, item: `${env.ORIGIN}/${lang}/#shop` },
+      { '@type': 'ListItem', position: 3, name: `${title(p)}${p.size_eu ? ` EU ${p.size_eu}` : ''}`, item: url },
+    ],
   };
   const sizes = [p.size_eu && `EU ${p.size_eu}`, p.size_us && `US ${p.size_us}`, p.size_uk && `UK ${p.size_uk}`, p.cm && `${p.cm} cm`].filter(Boolean).join(' · ');
   const body = `<div class="wrap pdp"><a class="back" href="/${lang}/#shop">← ${t.pdp.back}</a><div class="pgrid">
-<div class="gallery"><div class="hero-img">${images[0] ? `<img id="mainImg" src="${esc(images[0])}" alt="${esc(title(p))}">` : ''}</div>
-${images.length > 1 ? `<div class="thumbs">${images.map((i, n) => `<button type="button" data-img="${esc(i)}" aria-label="${t.pdp.photo} ${n + 1}"><img src="${esc(i)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}</div>
+<div class="gallery"><div class="hero-img">${images[0] ? `<img id="mainImg" src="${esc(images[0])}" alt="${esc(`${title(p)}${p.size_eu ? ` EU ${p.size_eu}` : ''}`)}">` : ''}</div>
+${images.length > 1 ? `<div class="thumbs">${images.map((i, n) => `<button type="button" data-img="${esc(i)}" aria-label="${t.pdp.photo} ${n + 1}"><img src="${esc(i)}" alt="${esc(`${title(p)} ${n + 1}`)}" loading="lazy"></button>`).join('')}</div>` : ''}</div>
 <aside class="panel"><span class="ey">${esc(p.brand)} · ${esc(p.ref)}</span><h1>${esc(p.name)}</h1>${p.color ? `<p class="color">${esc(p.color)}</p>` : ''}
 <div class="pricebox"><span class="price">${money(lang, p.price_cents)}</span>${off ? `<span class="rrp">${t.pdp.rrp} ${money(lang, p.rrp_cents)} · −${off} %</span>` : ''}</div>
 <p class="fine">${t.pdp.vat}</p>
@@ -163,11 +206,16 @@ ${others.length ? `<section class="section"><h2>${t.pdp.more}</h2><div class="gr
     body,
     path: `/p/${p.slug}`,
     ogImage: images[0],
-    jsonld,
+    ogType: 'product',
+    jsonld: [jsonld, crumbs],
   });
 }
 
-const page = (env, lang, path, h1, inner) => layout(env, lang, { title: `${h1} | OFF.`, description: h1, body: `<div class="wrap prose">${inner}</div>`, path });
+const page = (env, lang, path, h1, noindexOrInner, maybeInner) => {
+  const noindex = maybeInner !== undefined ? noindexOrInner === true : false;
+  const inner = maybeInner !== undefined ? maybeInner : noindexOrInner;
+  return layout(env, lang, { title: `${h1} | OFF.`, description: h1, body: `<div class="wrap prose">${inner}</div>`, path, noindex });
+};
 
 function feed(env, products) {
   const x = (s) => String(s ?? '').replace(/[<>&'"]/g, (m) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[m]);
@@ -201,8 +249,11 @@ export default {
       return new Response(env.LAUNCHED === 'true' ? `User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: ${env.ORIGIN}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n', { headers: headers(env, 'text/plain; charset=utf-8') });
     if (path === '/sitemap.xml') {
       const ps = await allProducts(env);
-      const urls = LANGS.flatMap((l) => [`/${l}/`, ...ps.map((p) => `/${l}/p/${p.slug}`)]);
-      return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((u) => `<url><loc>${env.ORIGIN}${u}</loc></url>`).join('')}</urlset>`, { headers: headers(env, 'application/xml; charset=utf-8', 'public, max-age=300') });
+      const last = (p) => String(p.updated_at || p.created_at || '').slice(0, 10);
+      const entries = [{ path: '/', mod: ps.map(last).sort().pop() || '' }, ...ps.map((p) => ({ path: `/p/${p.slug}`, mod: last(p) }))];
+      const alts = (path) => LANGS.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${env.ORIGIN}/${x}${path}"/>`).join('');
+      const urls = LANGS.flatMap((l) => entries.map((e) => `<url><loc>${env.ORIGIN}/${l}${e.path}</loc>${/^\d{4}-\d\d-\d\d$/.test(e.mod) ? `<lastmod>${e.mod}</lastmod>` : ''}${alts(e.path)}</url>`));
+      return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls.join('')}</urlset>`, { headers: headers(env, 'application/xml; charset=utf-8', 'public, max-age=300') });
     }
     if (path === '/feed.xml') return new Response(feed(env, await allProducts(env)), { headers: headers(env, 'application/xml; charset=utf-8', 'public, max-age=300') });
     if (path === '/' || path === '') {
@@ -226,9 +277,9 @@ export default {
     }
     const key = rest.slice(1);
     if (LEGAL_PAGES.includes(key)) return html(page(env, lang, rest, t.legal[key], LEGAL[lang][key].replace(/href="([a-z]+)\.html"/g, `href="/${lang}/$1"`)));
-    if (key === 'danke') return html(page(env, lang, rest, t.thanks.title, `<h1>${t.thanks.title}</h1><p>${t.thanks.text}</p><p class="ordernum" id="orderNum" data-wait="${esc(t.thanks.wait)}"></p><p><a class="btn" href="/${lang}/">${t.thanks.back}</a></p>`));
+    if (key === 'danke') return html(page(env, lang, rest, t.thanks.title, true, true, `<h1>${t.thanks.title}</h1><p>${t.thanks.text}</p><p class="ordernum" id="orderNum" data-wait="${esc(t.thanks.wait)}"></p><p><a class="btn" href="/${lang}/">${t.thanks.back}</a></p>`));
     if (key === 'bestellung')
-      return html(page(env, lang, rest, t.track.title, `<h1>${t.track.title}</h1><p>${t.track.text}</p><form class="form" id="trackForm"><label class="field"><span>${t.track.number}</span><input name="order" required placeholder="OF-261007-AB12"></label><label class="field"><span>${t.find.email}</span><input name="email" type="email" required></label><button class="btn full" type="submit">${t.track.submit}</button><div class="full" id="trackOut" role="status"></div></form>`));
+      return html(page(env, lang, rest, t.track.title, true, `<h1>${t.track.title}</h1><p>${t.track.text}</p><form class="form" id="trackForm"><label class="field"><span>${t.track.number}</span><input name="order" required placeholder="OF-261007-AB12"></label><label class="field"><span>${t.find.email}</span><input name="email" type="email" required></label><button class="btn full" type="submit">${t.track.submit}</button><div class="full" id="trackOut" role="status"></div></form>`));
     return html(page(env, lang, rest, t.notFound, `<h1>${t.notFound}</h1><p><a href="/${lang}/">${t.thanks.back}</a></p>`), 404);
   },
 };
