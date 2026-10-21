@@ -3,6 +3,7 @@
   "brand": "SPACE",
   "orderPrefix": "SP",
   "themeColor": "#1c2925",
+  "launched": true,
   "tagline": {
     "de": "Mehr Platz. Ohne Bohren.",
     "fr": "Plus d’espace. Sans percer.",

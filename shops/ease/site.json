@@ -3,6 +3,7 @@
   "brand": "EASE",
   "orderPrefix": "EA",
   "themeColor": "#1e1e24",
+  "launched": true,
   "tagline": {
     "de": "Move with ease.",
     "fr": "Move with ease.",

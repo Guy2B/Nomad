@@ -3,6 +3,7 @@
   "brand": "GLOW",
   "orderPrefix": "GL",
   "themeColor": "#2b2026",
+  "launched": true,
   "tagline": {
     "de": "Glow while you sleep.",
     "fr": "Glow while you sleep.",

@@ -14,7 +14,7 @@ run_worker_first = true
 API = "https://api.algbr.eu"
 ORIGIN = "https://off.algbr.eu"
 # "true" once Stripe live keys and the legal check are done: opens indexing.
-LAUNCHED = "false"
+LAUNCHED = "true"
 
 [[d1_databases]]
 binding = "DB"

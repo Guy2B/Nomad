@@ -3,6 +3,7 @@
   "brand": "GO",
   "orderPrefix": "GO",
   "themeColor": "#16181d",
+  "launched": true,
   "tagline": {
     "de": "Leichter reisen.",
     "fr": "Voyager plus léger.",

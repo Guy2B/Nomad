@@ -3,6 +3,7 @@
   "brand": "KIN",
   "orderPrefix": "KI",
   "themeColor": "#1f2a24",
+  "launched": true,
   "tagline": {
     "de": "For the ones at home.",
     "fr": "For the ones at home.",
