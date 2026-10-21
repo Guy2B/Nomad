@@ -29,7 +29,7 @@ function mock() {
     if (url.includes('createOrderV2')) return json({ result: true, data: { orderId: 'CJ-1' } });
     if (url.includes('getOrderDetail'))
       return json({ data: { orderStatus: cj.status, trackNumber: cj.trackNumber, logisticName: cj.logistic ?? 'CJPacket' } });
-    if (url.includes('/v1/refunds')) return json({ id: 're_1', amount: 6990 });
+    if (url.includes('/v1/refunds')) return json({ id: 're_1', amount: 3490 });
     if (url.includes('/v1/checkout/sessions?payment_intent=')) return json({ data: [{ id: 'cs_live_joy' }] });
     if (url.includes('/v1/disputes/')) return json({ id: 'dp_1' });
     if (url.includes('ntfy.sh')) return new Response('ok');
@@ -43,9 +43,9 @@ const session = (over = {}) => ({
   livemode: true,
   payment_status: 'paid',
   payment_intent: 'pi_joy',
-  amount_total: 6990,
+  amount_total: 3490,
   currency: 'eur',
-  metadata: { cart: 'das-ganze-fest:1', lang: 'de', store: 'joy' },
+  metadata: { cart: 'baum-und-sofa:1', lang: 'de', store: 'joy' },
   customer_details: { email: 'anna@example.com', name: 'Anna Schmidt', phone: '+49 151 1' },
   collected_information: {
     shipping_details: { name: 'Anna Schmidt', address: { line1: 'Lindenweg 4', line2: '', postal_code: '60311', city: 'Frankfurt', state: '', country: 'DE' } },
@@ -125,7 +125,7 @@ test('shipped and delivered e-mails go out once, with the DHL link for the Germa
   await cjSync(new Date(t1.getTime() + 5 * DAY + 1000));
   const review = testOutbox().filter((m) => m.subject.startsWith('Wie gefällt'));
   assert.equal(review.length, 1);
-  assert.match(review[0].html, /joy\.algbr\.eu\/de\/bewertung\.html\?p=das-ganze-fest&amp;o=JO-\d{6}-[A-Z0-9]{4}&amp;e=anna%40example\.com/);
+  assert.match(review[0].html, /joy\.algbr\.eu\/de\/bewertung\.html\?p=baum-und-sofa&amp;o=JO-\d{6}-[A-Z0-9]{4}&amp;e=anna%40example\.com/);
   o = await getOrder(crm(), 'cs_live_joy');
   assert.deepEqual(Object.keys(o.mails).sort(), ['delivered', 'review', 'shipped']);
 });
@@ -175,7 +175,7 @@ test('China stores wait 7 days before the late alert; test-mode and old orders a
 
 test('refund in one click from the admin: Stripe refund, order cancelled, apology e-mail in the customer language', async () => {
   mock();
-  await processPaidSession(crm(), session({ metadata: { cart: 'das-ganze-fest:1', lang: 'fr', store: 'joy' } }));
+  await processPaidSession(crm(), session({ metadata: { cart: 'baum-und-sofa:1', lang: 'fr', store: 'joy' } }));
   const res = await admin(
     new Request('https://api.algbr.eu/api/admin', {
       method: 'POST',
@@ -191,7 +191,7 @@ test('refund in one click from the admin: Stripe refund, order cancelled, apolog
   assert.equal(o.refund.id, 're_1');
   const mail = testOutbox().find((m) => m.subject.includes('remboursement intégral'));
   assert.ok(mail);
-  assert.match(mail.text, /69,90 €/);
+  assert.match(mail.text, /34,90 €/);
   // A second click does not refund twice.
   await admin(new Request('https://api.algbr.eu/api/admin', { method: 'POST', headers: { authorization: 'Bearer test-admin-password-123' }, body: JSON.stringify({ action: 'refund', sessionId: 'cs_live_joy' }) }));
   assert.equal(calls.filter((c) => c.url.endsWith('/v1/refunds')).length, 1);
@@ -203,7 +203,7 @@ test('dispute opened: urgent alert and evidence pre-filled in Stripe with the tr
   await processPaidSession(crm(), session());
   cj = { status: 'SHIPPED', trackNumber: '00340434', logistic: 'DHL DE to DE' };
   await cjSync(new Date());
-  const event = { type: 'charge.dispute.created', data: { object: { id: 'dp_1', payment_intent: 'pi_joy', amount: 6990, reason: 'product_not_received' } } };
+  const event = { type: 'charge.dispute.created', data: { object: { id: 'dp_1', payment_intent: 'pi_joy', amount: 3490, reason: 'product_not_received' } } };
   const raw = JSON.stringify(event);
   const t = Math.floor(Date.now() / 1000);
   const sig = crypto.createHmac('sha256', 'whsec_test').update(`${t}.${raw}`).digest('hex');

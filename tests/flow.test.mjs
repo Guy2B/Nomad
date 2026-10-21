@@ -256,18 +256,20 @@ test('third store EASE: own prefix, 6-part bundle mapped, API open to its site',
   assert.ok(allowedOrigins({}).has('https://ease.algbr.eu'));
 });
 
-test('JOY (Christmas): ships from the CJ Germany warehouse by DHL, one order for a 6-part box, honest delivery time', () => {
-  const r = priceCart([{ id: 'das-ganze-fest', qty: 1 }], 'joy');
-  assert.equal(r.totalCents, 6990);
+test('JOY (Christmas): ships from the CJ Germany warehouse by DHL, one order per box, honest delivery time', () => {
+  // Boxes with candle holders are withdrawn (GPSR): they can no longer be bought.
+  assert.equal(priceCart([{ id: 'das-ganze-fest', qty: 1 }], 'joy').totalCents, 0);
+  const r = priceCart([{ id: 'baum-und-sofa', qty: 1 }], 'joy');
+  assert.equal(r.totalCents, 3490);
   assert.equal(r.shippingCents, 0);
   const s = store('joy').site;
   assert.equal(s.orderPrefix, 'JO');
   assert.deepEqual(s.shipping.countries, ['DE']);
   assert.equal(s.shipping.deliveryDays, '5–7');
-  const order = { number: 'JO-261016-AB12', store: 'joy', brand: 'JOY', totalCents: 6990, items: r.items, customer: { email: 'a@b.c' }, shipping: { country: 'DE', name: 'A', line1: 'x', city: 'y', postalCode: '1' } };
+  const order = { number: 'JO-261016-AB12', store: 'joy', brand: 'JOY', totalCents: 3490, items: r.items, customer: { email: 'a@b.c' }, shipping: { country: 'DE', name: 'A', line1: 'x', city: 'y', postalCode: '1' } };
   assert.deepEqual(unmapped(order), []);
   const payload = orderPayload(order, {});
-  assert.equal(payload.products.length, 6);
+  assert.equal(payload.products.length, 2);
   assert.equal(payload.fromCountryCode, 'DE');
   assert.equal(payload.logisticName, 'DHL DE to DE');
   for (const p of store('joy').products) {

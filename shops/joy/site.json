@@ -11,15 +11,15 @@
   "seo": {
     "de": {
       "title": "JOY · Weihnachten, wie es sein soll: Weihnachtsboxen für Advent, Baum & Geschenke",
-      "description": "Fertige Weihnachtsboxen: Adventskerzenhalter, Lichterhäuser, Kissenhüllen, Holzanhänger, Geschenkboxen und Geschenkpapier. Versand aus Deutschland, kostenlos."
+      "description": "Weihnachtsdeko aus Deutschland: Holzanhänger, Plüsch-Kissenhüllen, Geschenkboxen und Geschenkpapier, auch als fertige Box. Kostenloser Versand."
     },
     "fr": {
       "title": "JOY · Noël, comme il doit être : box de Noël pour l'Avent, le sapin et les cadeaux",
-      "description": "Des box de Noël prêtes : bougeoirs de l'Avent, village lumineux, housses de coussin, suspensions en bois, boîtes et papier cadeau. Expédiées d'Allemagne, livraison offerte."
+      "description": "Déco de Noël expédiée d'Allemagne : suspensions en bois, housses de coussin en peluche, boîtes et papier cadeau, aussi en box. Livraison offerte."
     },
     "en": {
       "title": "JOY · Make Christmas feel like Christmas: boxes for Advent, the tree & gifts",
-      "description": "Ready-made Christmas boxes: Advent candle holders, house silhouette, cushion covers, wooden ornaments, gift boxes and gift wrap. Shipped from Germany, free."
+      "description": "Christmas decor shipped from Germany: wooden ornaments, plush cushion covers, gift boxes and gift wrap, also as ready-made boxes. Free shipping."
     }
   },
   "highlight": {
@@ -98,11 +98,11 @@
           "description": "Ein einfacher Plan für die vier Adventswochen: dekorieren, verpacken, genießen. Ohne Last-Minute-Stress.",
           "lead": "Vier Wochen reichen, wenn jede Woche nur eine Aufgabe hat.",
           "items": [
-            "Ende November: Adventskerzenhalter aufstellen, LED-Kerzen bereitlegen.",
-            "Erster Advent: die erste Kerze, die Lichterhäuser ins Fenster.",
+            "Ende November: LED-Lichterketten und frische Zweige für die Deko besorgen.",
+            "Erster Advent: Holzanhänger an Zweige oder Fenster hängen.",
             "Woche 1: Geschenkliste schreiben, Budget festlegen.",
             "Woche 2: Kissenhüllen wechseln, das Wohnzimmer wird Weihnachtsstube.",
-            "Woche 2: Plätzchen backen und in Geschenkboxen verteilen.",
+            "Woche 2: Plätzchen backen, in Dosen oder Tüten füllen und in Geschenkboxen verschenken.",
             "Woche 3: Baum schmücken, Holzanhänger aufhängen.",
             "Woche 3: Geschenke verpacken, mit Anhänger und Schleife.",
             "Woche 4: nichts mehr kaufen, nur noch genießen."
@@ -113,11 +113,11 @@
           "description": "Un plan simple pour les quatre semaines de l'Avent : décorer, emballer, profiter. Sans stress de dernière minute.",
           "lead": "Quatre semaines suffisent si chaque semaine n'a qu'une tâche.",
           "items": [
-            "Fin novembre : installer les bougeoirs de l'Avent, préparer des bougies LED.",
-            "Premier dimanche de l'Avent : la première bougie, le village lumineux à la fenêtre.",
+            "Fin novembre : prévoir des guirlandes LED et quelques branches fraîches pour la déco.",
+            "Premier dimanche de l'Avent : suspendre les décorations en bois aux branches ou à la fenêtre.",
             "Semaine 1 : écrire la liste de cadeaux, fixer le budget.",
             "Semaine 2 : changer les housses de coussin, le salon passe en mode Noël.",
-            "Semaine 2 : faire les biscuits et les répartir dans les boîtes cadeaux.",
+            "Semaine 2 : faire les biscuits, les mettre en boîtes ou sachets et les offrir dans les boîtes cadeaux.",
             "Semaine 3 : décorer le sapin, accrocher les suspensions en bois.",
             "Semaine 3 : emballer les cadeaux, avec étiquette et ruban.",
             "Semaine 4 : ne plus rien acheter, juste profiter."
@@ -128,11 +128,11 @@
           "description": "A simple plan for the four weeks of Advent: decorate, wrap, enjoy. No last-minute stress.",
           "lead": "Four weeks are enough when each week has just one job.",
           "items": [
-            "End of November: set up the Advent candle holders, get LED candles ready.",
-            "First Advent Sunday: the first candle, the house silhouette in the window.",
+            "End of November: get LED fairy lights and a few fresh branches for the decor.",
+            "First Advent Sunday: hang the wooden ornaments on branches or in the window.",
             "Week 1: write the gift list, set the budget.",
             "Week 2: swap the cushion covers, the living room goes Christmas.",
-            "Week 2: bake cookies and share them in gift boxes.",
+            "Week 2: bake cookies, pack them in tins or bags and give them in gift boxes.",
             "Week 3: decorate the tree, hang the wooden ornaments.",
             "Week 3: wrap the gifts, with tag and ribbon.",
             "Week 4: stop buying, just enjoy."
@@ -160,7 +160,7 @@
           "wie es sein soll."
         ],
         "signature": "Make Christmas feel like Christmas.",
-        "text": "Advent, Baumschmuck, Kissen und Geschenkverpackung in fertigen Boxen. Aus einem Lager in Deutschland, mit Sendungsverfolgung.",
+        "text": "Baumschmuck, Kissen und Geschenkverpackung, einzeln oder als fertige Box. Aus einem Lager in Deutschland, mit Sendungsverfolgung.",
         "cta": "Boxen entdecken",
         "cta2": "Advents-Ratgeber",
         "micro": "Kostenloser Versand · Sichere Zahlung · 14 Tage Widerruf",
@@ -185,10 +185,10 @@
         }
       ],
       "featured": {
-        "id": "das-ganze-fest",
-        "label": "Die große Box",
-        "pitch": "Sechs Teile, ein Weihnachten.",
-        "sub": "Advent, Licht, Kissen, Baumschmuck, Boxen und Papier: einmal bestellt, alles da.",
+        "id": "baum-und-sofa",
+        "label": "Baum & Sofa",
+        "pitch": "Baum und Sofa, festlich in einer Box.",
+        "sub": "45 Holzanhänger in 15 Motiven für den Baum, zwei Plüsch-Kissenhüllen fürs Sofa.",
         "benefits": [
           {
             "t": "Alles in einer Bestellung",
@@ -203,7 +203,7 @@
             "s": "Holz, Plüsch, Kraftpapier: zum Aufbewahren."
           }
         ],
-        "cta": "Das ganze Fest ansehen",
+        "cta": "Baum & Sofa ansehen",
         "link": "Alle Boxen ansehen"
       },
       "collection": {
@@ -212,15 +212,12 @@
           "Eine Box.",
           "Ein Moment."
         ],
-        "text": "Boxen für Advent, Wohnzimmer, Baum und Geschenke, dazu zwei Einzelteile. Alles aus einem Lager in Deutschland.",
+        "text": "Boxen für Baum, Sofa und Geschenke, dazu zwei Einzelteile. Alles aus einem Lager in Deutschland.",
         "groups": [
           {
             "key": "boxen",
             "title": "Weihnachtsboxen",
             "ids": [
-              "das-ganze-fest",
-              "advent-zuhause",
-              "gemuetliche-stube",
               "baum-und-sofa",
               "geschenke-werkstatt"
             ]
@@ -242,18 +239,18 @@
         ],
         "cards": [
           {
-            "title": "Am Adventssonntag",
-            "text": "Eine Kerze mehr jede Woche.",
-            "cta": "Advent zuhause ansehen",
-            "href": "produkt/advent-zuhause.html",
-            "img": "advent-zuhause"
+            "title": "Am Baum",
+            "text": "45 Holzanhänger, 15 Motive.",
+            "cta": "Baum & Sofa ansehen",
+            "href": "produkt/baum-und-sofa.html",
+            "img": "baum-und-sofa"
           },
           {
             "title": "Auf dem Sofa",
-            "text": "Grüne Kissen, warmes Licht.",
-            "cta": "Gemütliche Stube ansehen",
-            "href": "produkt/gemuetliche-stube.html",
-            "img": "gemuetliche-stube"
+            "text": "Grüne Kissen für die Weihnachtszeit.",
+            "cta": "Kissenhüllen ansehen",
+            "href": "produkt/kissenhuellen.html",
+            "img": "kissenhuellen"
           },
           {
             "title": "Am Geschenketisch",
@@ -285,7 +282,7 @@
           },
           {
             "t": "Sicher",
-            "s": "Kerzenhinweise bei jedem Produkt, LED empfohlen."
+            "s": "Sicherheitshinweise und Herstellerangaben bei jedem Produkt."
           }
         ]
       },
@@ -294,7 +291,7 @@
         "steps": [
           {
             "t": "Moment wählen",
-            "s": "Advent, Wohnzimmer, Baum oder Geschenke."
+            "s": "Baum, Wohnzimmer oder Geschenke."
           },
           {
             "t": "Bestellen",
@@ -340,8 +337,8 @@
             "Ja: Sie haben 14 Tage Widerrufsrecht ab Erhalt. Die Kosten der Rücksendung tragen Sie. Schreiben Sie uns an contact@algbr.de."
           ],
           [
-            "Sind Kerzen dabei?",
-            "Nein. Wir empfehlen LED-Kerzen und LED-Teelichter."
+            "Sind Kerzen oder Lichter dabei?",
+            "Nein. Für Kerzenlicht empfehlen wir LED-Kerzen und LED-Teelichter."
           ],
           [
             "Wie bezahle ich?",
@@ -481,7 +478,7 @@
           "comme il doit être."
         ],
         "signature": "Make Christmas feel like Christmas.",
-        "text": "Avent, décorations du sapin, coussins et emballage cadeau en box prêtes. Depuis un entrepôt en Allemagne, avec suivi.",
+        "text": "Décorations du sapin, coussins et emballage cadeau, à l'unité ou en box. Depuis un entrepôt en Allemagne, avec suivi.",
         "cta": "Découvrir les box",
         "cta2": "Guide de l'Avent",
         "micro": "Livraison offerte · Paiement sécurisé · 14 jours de rétractation",
@@ -506,10 +503,10 @@
         }
       ],
       "featured": {
-        "id": "das-ganze-fest",
-        "label": "La grande box",
-        "pitch": "Six pièces, un Noël.",
-        "sub": "Avent, lumière, coussins, décorations, boîtes et papier : une commande, tout est là.",
+        "id": "baum-und-sofa",
+        "label": "Baum & Sofa",
+        "pitch": "Le sapin et le canapé, en une box.",
+        "sub": "45 suspensions en bois (15 motifs) pour le sapin, deux housses de coussin en peluche pour le canapé.",
         "benefits": [
           {
             "t": "Tout en une commande",
@@ -524,7 +521,7 @@
             "s": "Bois, peluche, kraft : à garder."
           }
         ],
-        "cta": "Voir « Das ganze Fest »",
+        "cta": "Voir « Baum & Sofa »",
         "link": "Voir toutes les box"
       },
       "collection": {
@@ -533,15 +530,12 @@
           "Une box.",
           "Un moment."
         ],
-        "text": "Des box pour l'Avent, le salon, le sapin et les cadeaux, plus deux pièces à l'unité. Tout depuis un entrepôt en Allemagne.",
+        "text": "Des box pour le sapin, le canapé et les cadeaux, plus deux pièces à l'unité. Tout depuis un entrepôt en Allemagne.",
         "groups": [
           {
             "key": "boxen",
             "title": "Box de Noël",
             "ids": [
-              "das-ganze-fest",
-              "advent-zuhause",
-              "gemuetliche-stube",
               "baum-und-sofa",
               "geschenke-werkstatt"
             ]
@@ -563,18 +557,18 @@
         ],
         "cards": [
           {
-            "title": "Le dimanche de l'Avent",
-            "text": "Une bougie de plus chaque semaine.",
-            "cta": "Voir « Advent zuhause »",
-            "href": "produkt/advent-zuhause.html",
-            "img": "advent-zuhause"
+            "title": "Au sapin",
+            "text": "45 suspensions en bois, 15 motifs.",
+            "cta": "Voir « Baum & Sofa »",
+            "href": "produkt/baum-und-sofa.html",
+            "img": "baum-und-sofa"
           },
           {
             "title": "Sur le canapé",
-            "text": "Coussins verts, lumière douce.",
-            "cta": "Voir « Gemütliche Stube »",
-            "href": "produkt/gemuetliche-stube.html",
-            "img": "gemuetliche-stube"
+            "text": "Des coussins verts pour les fêtes.",
+            "cta": "Voir les housses",
+            "href": "produkt/kissenhuellen.html",
+            "img": "kissenhuellen"
           },
           {
             "title": "À la table des cadeaux",
@@ -606,7 +600,7 @@
           },
           {
             "t": "Sûr",
-            "s": "Consignes bougies sur chaque produit, LED recommandées."
+            "s": "Consignes de sécurité et fabricant indiqués sur chaque produit."
           }
         ]
       },
@@ -615,7 +609,7 @@
         "steps": [
           {
             "t": "Choisissez le moment",
-            "s": "Avent, salon, sapin ou cadeaux."
+            "s": "Sapin, salon ou cadeaux."
           },
           {
             "t": "Commandez",
@@ -661,8 +655,8 @@
             "Oui : vous avez 14 jours de rétractation à compter de la réception. Les frais de retour sont à votre charge. Écrivez-nous à contact@algbr.de."
           ],
           [
-            "Les bougies sont-elles fournies ?",
-            "Non. Nous recommandons des bougies et chauffe-plats LED."
+            "Des bougies ou lumières sont-elles fournies ?",
+            "Non. Pour la lumière des bougies, nous recommandons des bougies et chauffe-plats LED."
           ],
           [
             "Comment payer ?",
@@ -802,7 +796,7 @@
           "feel like Christmas."
         ],
         "signature": "Make Christmas feel like Christmas.",
-        "text": "Advent, tree ornaments, cushions and gift wrap in ready-made boxes. From a warehouse in Germany, with tracking.",
+        "text": "Tree ornaments, cushions and gift wrap, single or as ready-made boxes. From a warehouse in Germany, with tracking.",
         "cta": "Discover the boxes",
         "cta2": "Advent guide",
         "micro": "Free shipping · Secure payment · 14-day withdrawal",
@@ -827,10 +821,10 @@
         }
       ],
       "featured": {
-        "id": "das-ganze-fest",
-        "label": "The big box",
-        "pitch": "Six pieces, one Christmas.",
-        "sub": "Advent, light, cushions, ornaments, boxes and paper: order once, everything's there.",
+        "id": "baum-und-sofa",
+        "label": "Tree & sofa",
+        "pitch": "Tree and sofa, festive in one box.",
+        "sub": "45 wooden ornaments in 15 designs for the tree, two plush cushion covers for the sofa.",
         "benefits": [
           {
             "t": "All in one order",
@@ -845,7 +839,7 @@
             "s": "Wood, plush, kraft paper: made to keep."
           }
         ],
-        "cta": "See the big box",
+        "cta": "See tree & sofa",
         "link": "See all boxes"
       },
       "collection": {
@@ -854,15 +848,12 @@
           "One box.",
           "One moment."
         ],
-        "text": "Boxes for Advent, the living room, the tree and gifts, plus two single items. All from one warehouse in Germany.",
+        "text": "Boxes for the tree, the sofa and gifts, plus two single items. All from one warehouse in Germany.",
         "groups": [
           {
             "key": "boxen",
             "title": "Christmas boxes",
             "ids": [
-              "das-ganze-fest",
-              "advent-zuhause",
-              "gemuetliche-stube",
               "baum-und-sofa",
               "geschenke-werkstatt"
             ]
@@ -884,18 +875,18 @@
         ],
         "cards": [
           {
-            "title": "On Advent Sunday",
-            "text": "One more candle each week.",
-            "cta": "See Advent at home",
-            "href": "produkt/advent-zuhause.html",
-            "img": "advent-zuhause"
+            "title": "On the tree",
+            "text": "45 wooden ornaments, 15 designs.",
+            "cta": "See tree & sofa",
+            "href": "produkt/baum-und-sofa.html",
+            "img": "baum-und-sofa"
           },
           {
             "title": "On the sofa",
-            "text": "Green cushions, warm light.",
-            "cta": "See the cosy box",
-            "href": "produkt/gemuetliche-stube.html",
-            "img": "gemuetliche-stube"
+            "text": "Green cushions for the season.",
+            "cta": "See the cushion covers",
+            "href": "produkt/kissenhuellen.html",
+            "img": "kissenhuellen"
           },
           {
             "title": "At the wrapping table",
@@ -927,7 +918,7 @@
           },
           {
             "t": "Safe",
-            "s": "Candle advice on every product, LED recommended."
+            "s": "Safety information and manufacturer details on every product."
           }
         ]
       },
@@ -936,7 +927,7 @@
         "steps": [
           {
             "t": "Pick the moment",
-            "s": "Advent, living room, tree or gifts."
+            "s": "Tree, living room or gifts."
           },
           {
             "t": "Order",
@@ -982,8 +973,8 @@
             "Yes: you have 14 days to withdraw from receipt. Return shipping is at your cost. Write to contact@algbr.de."
           ],
           [
-            "Are candles included?",
-            "No. We recommend LED candles and tea lights."
+            "Are candles or lights included?",
+            "No. For candlelight we recommend LED candles and tea lights."
           ],
           [
             "How do I pay?",

@@ -271,6 +271,25 @@ ${
     );
   }
 
+  /** Product safety information (EU GPSR 2023/988): responsible operator in the EU, identifier, material, warnings. */
+  const GPSR = {
+    de: { title: 'Produktsicherheit', who: 'Hersteller / verantwortliche Person in der EU', id: 'Produktkennung', material: 'Material', warn: 'Sicherheitshinweise' },
+    fr: { title: 'Sécurité du produit', who: 'Fabricant / personne responsable dans l’UE', id: 'Référence produit', material: 'Matière', warn: 'Consignes de sécurité' },
+    en: { title: 'Product safety', who: 'Manufacturer / responsible person in the EU', id: 'Product identifier', material: 'Material', warn: 'Safety information' },
+  };
+  function gpsr(p, lang) {
+    const g = GPSR[lang] || GPSR.de;
+    const c = SITE.company || {};
+    const warn = [...(p.safety?.[lang] ?? []), ...(p.text[lang]?.caution ? [p.text[lang].caution] : [])];
+    const addr = [c.name, c.street, c.city, c.country].filter(Boolean).map(esc).join(', ');
+    return `<details class="gpsr"><summary>${esc(g.title)}</summary><dl>
+<dt>${esc(g.who)}</dt><dd>${addr}${c.email ? ` · <a href="mailto:${esc(c.email)}">${esc(c.email)}</a>` : ''}</dd>
+<dt>${esc(g.id)}</dt><dd>${esc(p.sku || p.id)}</dd>
+${p.material?.[lang] ? `<dt>${esc(g.material)}</dt><dd>${esc(p.material[lang])}</dd>` : ''}
+${warn.length ? `<dt>${esc(g.warn)}</dt><dd><ul>${warn.map((w) => `<li>${esc(w)}</li>`).join('')}</ul></dd>` : ''}
+</dl></details>`;
+  }
+
   function productPage(p, lang) {
     const t = STR[lang];
     const u = U(lang);
@@ -303,6 +322,7 @@ ${
       ${x.caution ? `<p class="muted small center">${esc(x.caution)}</p>` : ''}
       <ul class="reassure-x">${up_.trust.map((s) => `<li>${esc(fill(s, p.deliveryDays || SITE.shipping.deliveryDays))}</li>`).join('')}</ul>
       ${parts && !p.single ? `<h2 class="small-title">${esc(t.product.includes)}</h2><ul class="includes">${parts.map((c) => `<li><b>${c.qty} ×</b> ${esc(c.label?.[lang] || c.name)}</li>`).join('')}</ul>` : ''}
+      ${gpsr(p, lang)}
     </div>
   </div>
 </section>

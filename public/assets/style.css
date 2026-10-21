@@ -1129,3 +1129,11 @@ details p {
 .fam-go { --c: #16181d; } .fam-space { --c: #1c2925; } .fam-ease { --c: #3b3b48; } .fam-glow { --c: #8a4b3d; } .fam-kin { --c: #2f4a3b; } .fam-joy { --c: #a8323e; }
 @media (max-width: 960px) { .family-grid, .family-grid.fam-n2 { grid-template-columns: 1fr; } }
 @media (max-width: 420px) { .fam-card { grid-template-columns: 88px 1fr; } .fam-img { width: 88px; height: 88px; } .fam-brand { font-size: 1.3rem; } }
+
+/* Product safety (GPSR) */
+.gpsr { margin-top: 18px; border-top: 1px solid rgba(127,127,127,.25); padding-top: 12px; font-size: 13px; }
+.gpsr summary { cursor: pointer; font-weight: 600; }
+.gpsr dl { margin: 10px 0 0; }
+.gpsr dt { font-weight: 600; margin-top: 8px; }
+.gpsr dd { margin: 2px 0 0; opacity: .85; }
+.gpsr ul { margin: 2px 0 0; padding-left: 18px; }

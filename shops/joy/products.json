@@ -2,7 +2,7 @@
   {
     "id": "das-ganze-fest",
     "sku": "JO-B-GANZES-FEST",
-    "active": true,
+    "active": false,
     "price": 6990,
     "costCents": 4180,
     "images": [
@@ -222,14 +222,15 @@
       }
     ],
     "upsells": [
-      "gemuetliche-stube",
-      "geschenke-werkstatt"
-    ]
+      "geschenke-werkstatt",
+      "baum-und-sofa"
+    ],
+    "inactiveReason": "GPSR: bougeoirs (bois + flamme), fabricant sans documents (CJ, 21.10.2026)"
   },
   {
     "id": "advent-zuhause",
     "sku": "JO-B-ADVENT-ZUHAUSE",
-    "active": true,
+    "active": false,
     "price": 2990,
     "costCents": 1613,
     "images": [
@@ -345,14 +346,15 @@
       }
     ],
     "upsells": [
-      "gemuetliche-stube",
-      "das-ganze-fest"
-    ]
+      "baum-und-sofa",
+      "geschenke-werkstatt"
+    ],
+    "inactiveReason": "GPSR: bougeoirs (bois + flamme), fabricant sans documents (CJ, 21.10.2026)"
   },
   {
     "id": "gemuetliche-stube",
     "sku": "JO-B-GEMUETLICHE-STUBE",
-    "active": true,
+    "active": false,
     "price": 3990,
     "costCents": 2223,
     "images": [
@@ -489,9 +491,10 @@
       }
     ],
     "upsells": [
-      "das-ganze-fest",
-      "kissenhuellen"
-    ]
+      "kissenhuellen",
+      "baum-und-sofa"
+    ],
+    "inactiveReason": "GPSR: bougeoirs (bois + flamme), fabricant sans documents (CJ, 21.10.2026)"
   },
   {
     "id": "baum-und-sofa",
@@ -606,9 +609,23 @@
       }
     ],
     "upsells": [
-      "das-ganze-fest",
-      "gemuetliche-stube"
-    ]
+      "geschenke-werkstatt",
+      "kissenhuellen"
+    ],
+    "safety": {
+      "de": [
+        "Dekoration, kein Spielzeug. Kleinteile: für Kinder unter 3 Jahren nicht geeignet (Erstickungsgefahr).",
+        "Nicht in der Nähe von Kerzen oder offenem Feuer aufhängen."
+      ],
+      "fr": [
+        "Décoration, ceci n’est pas un jouet. Petites pièces : ne convient pas aux enfants de moins de 3 ans (risque d’étouffement).",
+        "Ne pas suspendre près de bougies ou de flammes."
+      ],
+      "en": [
+        "Decoration, not a toy. Small parts: not suitable for children under 3 (choking hazard).",
+        "Do not hang near candles or open flames."
+      ]
+    }
   },
   {
     "id": "geschenke-werkstatt",
@@ -727,8 +744,30 @@
     ],
     "upsells": [
       "geschenkboxen",
-      "das-ganze-fest"
-    ]
+      "baum-und-sofa"
+    ],
+    "material": {
+      "de": "Kraftpapier, Geschenkpapier, Papier-Sticker",
+      "fr": "Papier kraft, papier cadeau, stickers en papier",
+      "en": "Kraft paper, gift wrap, paper stickers"
+    },
+    "safety": {
+      "de": [
+        "Kein Spielzeug. Sticker sind Kleinteile: für Kinder unter 3 Jahren nicht geeignet (Erstickungsgefahr).",
+        "Von offenem Feuer und Kerzen fernhalten.",
+        "Lebensmittel (z. B. Plätzchen) nur verpackt hineinlegen, nicht für direkten Lebensmittelkontakt bestimmt."
+      ],
+      "fr": [
+        "Ceci n’est pas un jouet. Les stickers sont de petites pièces : ne convient pas aux enfants de moins de 3 ans (risque d’étouffement).",
+        "Tenir éloigné des flammes et des bougies.",
+        "Placer les aliments (biscuits…) uniquement emballés : non destiné au contact direct avec les aliments."
+      ],
+      "en": [
+        "Not a toy. Stickers are small parts: not suitable for children under 3 (choking hazard).",
+        "Keep away from open flames and candles.",
+        "Put food (e.g. cookies) inside only when wrapped: not intended for direct food contact."
+      ]
+    }
   },
   {
     "id": "kissenhuellen",
@@ -816,9 +855,20 @@
       }
     ],
     "upsells": [
-      "gemuetliche-stube",
-      "baum-und-sofa"
-    ]
+      "baum-und-sofa",
+      "geschenke-werkstatt"
+    ],
+    "safety": {
+      "de": [
+        "Von offenem Feuer fernhalten."
+      ],
+      "fr": [
+        "Tenir éloigné des flammes."
+      ],
+      "en": [
+        "Keep away from open flames."
+      ]
+    }
   },
   {
     "id": "geschenkboxen",
@@ -907,7 +957,29 @@
     ],
     "upsells": [
       "geschenke-werkstatt",
-      "das-ganze-fest"
-    ]
+      "baum-und-sofa"
+    ],
+    "material": {
+      "de": "Kraftpapier",
+      "fr": "Papier kraft",
+      "en": "Kraft paper"
+    },
+    "safety": {
+      "de": [
+        "Kein Spielzeug.",
+        "Von offenem Feuer und Kerzen fernhalten.",
+        "Lebensmittel (z. B. Plätzchen) nur verpackt hineinlegen, nicht für direkten Lebensmittelkontakt bestimmt."
+      ],
+      "fr": [
+        "Ceci n’est pas un jouet.",
+        "Tenir éloigné des flammes et des bougies.",
+        "Placer les aliments (biscuits…) uniquement emballés : non destiné au contact direct avec les aliments."
+      ],
+      "en": [
+        "Not a toy.",
+        "Keep away from open flames and candles.",
+        "Put food (e.g. cookies) inside only when wrapped: not intended for direct food contact."
+      ]
+    }
   }
 ]
