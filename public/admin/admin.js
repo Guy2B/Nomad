@@ -1,9 +1,9 @@
-/* ALGBr admin: one dashboard for GO, SPACE, EASE, GLOW, KIN and OFF. — to-do inbox, orders with details and
+/* AlGBr admin: one dashboard for GO, SPACE, EASE, GLOW, KIN, JOY and OFF. — to-do inbox, orders with details and
    actions, customers, reviews, catalogue, CJ stock & delivery audit, opportunity radar, setup. Hash routing. */
 (function () {
   'use strict';
   var KEY = 'nomad-admin';
-  var VIEWS = ['overview', 'orders', 'customers', 'reviews', 'catalog', 'supply', 'radar', 'settings'];
+  var VIEWS = ['overview', 'traffic', 'orders', 'customers', 'reviews', 'catalog', 'supply', 'radar', 'settings'];
   var store = function (k, v) {
     try {
       if (v === undefined) return sessionStorage.getItem(k);
@@ -49,6 +49,9 @@
   var data = null;
   var radar = null;
   var loadedAt = null;
+  var traffic = null;
+  var trafficKey = '';
+  var trafficDays = Number(store('nomad-admin-days')) || 30;
 
   // ---------- API ----------
   function api(method, body) {
@@ -247,6 +250,7 @@
     renderRadar();
     renderPulse();
     renderSetup();
+    loadTraffic(false);
     $('updated').textContent = 'Mis à jour ' + loadedAt.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
   }
 
@@ -365,7 +369,7 @@
     var box = $('funnel');
     box.textContent = '';
     if (current === 'off') {
-      box.append(el('p', 'muted', 'OFF. ne compte pas les visites (pas de mesure sur ce site).'));
+      box.append(el('p', 'muted', 'OFF. vend des pièces uniques : voir l’onglet Audience pour les visites.'));
     } else {
       var steps = [
         ['Pages vues', f.view, null],
@@ -398,6 +402,171 @@
       tbody.append(tr);
     });
   }
+
+
+  // ---------- Audience ----------
+  var COUNTRY = (function () {
+    try {
+      return new Intl.DisplayNames(['fr'], { type: 'region' });
+    } catch (e) {
+      return null;
+    }
+  })();
+  var DEVICE = { mobile: 'Smartphone', desktop: 'Ordinateur', tablet: 'Tablette' };
+  var num = function (n) {
+    return (n || 0).toLocaleString('fr-FR');
+  };
+  function change(v) {
+    if (v === null || v === undefined) return '';
+    return (v > 0 ? '+' : '') + v.toLocaleString('fr-FR') + ' % vs période précédente';
+  }
+  function loadTraffic(force) {
+    var key = current + '|' + trafficDays;
+    if (!force && traffic && trafficKey === key && Date.now() - traffic._at < 60000) return renderTraffic();
+    trafficKey = key;
+    fetch('/api/admin?traffic=1&days=' + trafficDays + '&store=' + encodeURIComponent(current), { headers: { authorization: 'Bearer ' + password } })
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .then(function (d) {
+        if (!d || trafficKey !== key) return;
+        d._at = Date.now();
+        traffic = d;
+        renderTraffic();
+      })
+      .catch(function () {
+        /* the rest of the dashboard keeps working */
+      });
+  }
+  function ordersIn(from, storeId) {
+    return data.orders.filter(function (o) {
+      return o.items && o.items.length && !o.test && (storeId === 'all' || o.store === storeId) && o.createdAt && o.createdAt.slice(0, 10) >= from;
+    }).length;
+  }
+  function barRow(tbody, label, n, max, sub) {
+    var tr = el('tr');
+    var td = el('td', 'bar-cell');
+    var fill = el('i', 'bar-fill');
+    fill.style.width = Math.max(1, (n / Math.max(1, max)) * 100) + '%';
+    td.append(fill, el('span', '', label));
+    if (sub) td.append(el('span', 'muted small', ' · ' + sub));
+    tr.append(td, el('td', 'num', num(n)));
+    tbody.append(tr);
+  }
+  function chart(series, monthly) {
+    var W = 720, H = 220, P = 28, B = 18;
+    var max = Math.max(1, Math.max.apply(null, series.map(function (x) { return Math.max(x.pageviews, x.visitors); })));
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + (H + B));
+    svg.setAttribute('class', 'tc');
+    svg.setAttribute('role', 'img');
+    var step = (W - P) / series.length;
+    var bw = Math.max(2, Math.min(26, step * 0.7));
+    [0, 0.5, 1].forEach(function (g) {
+      var y = H - g * (H - 10);
+      var l = document.createElementNS(ns, 'line');
+      l.setAttribute('x1', P); l.setAttribute('x2', W); l.setAttribute('y1', y); l.setAttribute('y2', y);
+      l.setAttribute('class', 'grid');
+      svg.append(l);
+      var t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', 0); t.setAttribute('y', y + 4); t.setAttribute('class', 'ax');
+      t.textContent = String(Math.round(g * max));
+      svg.append(t);
+    });
+    var every = Math.ceil(series.length / 10);
+    series.forEach(function (x, i) {
+      var cx = P + step * i + step / 2;
+      var hp = (x.pageviews / max) * (H - 10);
+      var hv = (x.visitors / max) * (H - 10);
+      var rp = document.createElementNS(ns, 'rect');
+      rp.setAttribute('x', cx - bw / 2); rp.setAttribute('width', bw); rp.setAttribute('y', H - hp); rp.setAttribute('height', hp); rp.setAttribute('rx', 2);
+      rp.setAttribute('class', 'pv');
+      var rv = document.createElementNS(ns, 'rect');
+      rv.setAttribute('x', cx - bw / 4); rv.setAttribute('width', bw / 2); rv.setAttribute('y', H - hv); rv.setAttribute('height', hv); rv.setAttribute('rx', 2);
+      rv.setAttribute('class', 'vi');
+      var label = monthly ? new Date(x.d + '-01T12:00:00Z').toLocaleDateString('fr-FR', { month: 'short', year: '2-digit' }) : new Date(x.d + 'T12:00:00Z').toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' });
+      var tip = document.createElementNS(ns, 'title');
+      tip.textContent = label + ' : ' + x.visitors + ' visiteurs, ' + x.visits + ' visites, ' + x.pageviews + ' pages vues';
+      var g = document.createElementNS(ns, 'g');
+      g.append(tip, rp, rv);
+      svg.append(g);
+      if (i % every === 0 || i === series.length - 1) {
+        var t = document.createElementNS(ns, 'text');
+        t.setAttribute('x', cx); t.setAttribute('y', H + 14); t.setAttribute('class', 'ax mid');
+        t.textContent = label;
+        svg.append(t);
+      }
+    });
+    return svg;
+  }
+  function renderTraffic() {
+    document.querySelectorAll('#traffic-period button').forEach(function (b) {
+      b.classList.toggle('on', Number(b.dataset.days) === trafficDays);
+    });
+    var t = traffic;
+    var kp = $('traffic-kpis');
+    if (!t || !data) return;
+    var scopeName = current === 'all' ? 'Toutes les boutiques' : brandOf(current);
+    $('traffic-sub').textContent = scopeName + ' · ' + (t.days === 1 ? 'aujourd’hui' : 'du ' + date(t.from + 'T12:00:00Z') + ' au ' + date(t.to + 'T12:00:00Z')) + ' · sans cookie, adresse IP jamais conservée.';
+    kp.textContent = '';
+    var tot = t.totals || {};
+    var orders = t.from ? ordersIn(t.from, current) : 0;
+    [
+      ['Visiteurs', num(tot.visitors), change(t.change && t.change.visitors)],
+      ['Visites', num(tot.visits), change(t.change && t.change.visits)],
+      ['Pages vues', num(tot.pageviews), change(t.change && t.change.pageviews)],
+      ['Pages / visite', tot.visits ? (Math.round((tot.pageviews / tot.visits) * 10) / 10).toLocaleString('fr-FR') : '—', ''],
+      ['Commandes', String(orders), ''],
+      ['Conversion', pct(orders, tot.visitors), 'commandes / visiteurs'],
+    ].forEach(function (k) {
+      var d = el('div', 'kpi');
+      d.append(el('span', '', k[0]), el('b', '', k[1]));
+      if (k[2]) d.append(el('small', 'muted', k[2]));
+      kp.append(d);
+    });
+    $('traffic-chart-title').textContent = t.monthly ? 'Par mois' : t.days === 1 ? 'Aujourd’hui' : 'Par jour';
+    var ch = $('traffic-chart');
+    ch.textContent = '';
+    if (!t.ready) ch.append(el('p', 'muted', 'Statistiques pas encore disponibles (déploiement en cours).'));
+    else if (!tot.pageviews) ch.append(el('p', 'muted', 'Pas encore de visite mesurée sur cette période.'));
+    else ch.append(chart(t.series || [], t.monthly));
+    $('traffic-stores-card').hidden = current !== 'all';
+    var sb = $('traffic-stores');
+    sb.textContent = '';
+    var rows = (t.byStore || []).slice();
+    brands().forEach(function (b) {
+      if (!rows.some(function (r) { return r.store === b.id; })) rows.push({ store: b.id, visitors: 0, visits: 0, pageviews: 0 });
+    });
+    rows.forEach(function (r) {
+      var o = t.from ? ordersIn(t.from, r.store) : 0;
+      var tr = el('tr');
+      tr.append(el('td', '', brandOf(r.store)), el('td', 'num', num(r.visitors)), el('td', 'num', num(r.visits)), el('td', 'num', num(r.pageviews)), el('td', 'num', r.visits ? (Math.round((r.pageviews / r.visits) * 10) / 10).toLocaleString('fr-FR') : '—'), el('td', 'num', String(o)), el('td', 'num', pct(o, r.visitors)));
+      sb.append(tr);
+    });
+    var top = t.top || {};
+    var fill = function (id, list, label, sub) {
+      var tb = $(id);
+      tb.textContent = '';
+      if (!list || !list.length) return emptyRow(tb, 2, 'Rien sur cette période.');
+      var max = list[0].n;
+      list.forEach(function (x) {
+        barRow(tb, label(x), x.n, max, sub ? sub(x) : '');
+      });
+    };
+    fill('traffic-pages', top.page, function (x) { return x.key; }, current === 'all' ? function (x) { return brandOf(x.store); } : null);
+    fill('traffic-refs', top.ref, function (x) { return x.key === 'Direct' ? 'Accès direct / favoris' : x.key; });
+    fill('traffic-countries', top.country, function (x) { return x.key === 'XX' ? 'Inconnu' : (COUNTRY && COUNTRY.of(x.key)) || x.key; });
+    fill('traffic-devices', top.device, function (x) { return DEVICE[x.key] || x.key; });
+  }
+  document.querySelectorAll('#traffic-period button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      trafficDays = Number(b.dataset.days);
+      store('nomad-admin-days', String(trafficDays));
+      loadTraffic(true);
+      renderTraffic();
+    });
+  });
 
   function emptyRow(tbody, cols, text) {
     var tr = el('tr');
@@ -876,7 +1045,7 @@
     });
   }
   // ---------- Market Pulse (weekly): shop priorities and market map ----------
-  var SHOP_NAME = { GO: 'GO', SPACE: 'SPACE', EASE: 'EASE', GLOW: 'GLOW', KIN: 'KIN', OFF: 'OFF.', NEW: 'Nouveau' };
+  var SHOP_NAME = { GO: 'GO', SPACE: 'SPACE', EASE: 'EASE', GLOW: 'GLOW', KIN: 'KIN', JOY: 'JOY', OFF: 'OFF.', NEW: 'Nouveau' };
   var UNIVERSE_SHOP = { GO: 'GO', SPACE: 'SPACE', EASE: 'EASE', BEAUTY: 'GLOW', PET: 'KIN', DRIVE: 'NEW' };
   var SOURCE_LABEL = { wikipedia: 'Wikipedia', google_suggest: 'Google Suggest', ebay: 'eBay.de', merchant_bestsellers: 'Bestseller Google', cj: 'CJ' };
   var ACTIONABLE = ['SCALE_CANDIDATE', 'TEST', 'VALIDATE_PRICE', 'SOURCE_NOW'];
@@ -923,6 +1092,7 @@
   }
   // The engine files "pet accessories organizer" under SPACE (organizer); the target customer decides the shop.
   var SHOP_WORDS = [
+    ['JOY', /\b(christmas|xmas|advent|ornament|gift wrap|wrapping|tinsel|nativity|santa)\b/],
     ['KIN', /\b(pet|dog|cat|puppy|kitten|fur|paw|grooming|leash)\b/],
     ['GLOW', /\b(beauty|hair|makeup|cosmetic|bonnet|scrunchie|scalp|satin|silk|curl)\b/],
     ['NEW', /\b(car|vehicle|trunk|seat gap)\b/],

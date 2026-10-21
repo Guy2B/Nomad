@@ -26,6 +26,7 @@
         <p class="logo">AlGBr<span>admin</span></p>
         <nav class="nav" id="nav" aria-label="Sections">
           <a href="#overview" data-view="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4zm0 7h6v-5H4zm10 0h6v-9h-6zm0-16v5h6V4z" /></svg><span>Aperçu</span></a>
+          <a href="#traffic" data-view="traffic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h3v10zm6.5 0V4h3v16zM17 20v-7h3v7z" /></svg><span>Audience</span></a>
           <a href="#orders" data-view="orders"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18l-2 12H5zm5-4h8v3H8z" /></svg><span>Commandes</span><b class="badge" id="badge-orders" hidden></b></a>
           <a href="#customers" data-view="customers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-8 8c0-3.3 3.6-6 8-6s8 2.7 8 6z" /></svg><span>Clients</span></a>
           <a href="#reviews" data-view="reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z" /></svg><span>Avis</span><b class="badge" id="badge-reviews" hidden></b></a>
@@ -72,6 +73,37 @@
               <div class="card-head"><h2>Produits les plus vus</h2><span class="muted small">30 jours</span></div>
               <div class="table-wrap"><table><thead><tr><th>Produit</th><th class="num">Vues</th><th class="num">Ajouts</th><th class="num">Taux d’ajout</th><th class="num">Vendus</th></tr></thead><tbody id="top-products"></tbody></table></div>
             </section>
+          </section>
+
+          <section class="view" data-view="traffic" hidden>
+            <div class="view-head"><h1>Audience</h1><p class="muted" id="traffic-sub">Visiteurs, visites et pages vues · sans cookie, adresse IP jamais conservée.</p></div>
+            <div class="toolbar">
+              <div class="seg" id="traffic-period" role="group" aria-label="Période">
+                <button type="button" data-days="1">Aujourd’hui</button>
+                <button type="button" data-days="7">7 jours</button>
+                <button type="button" data-days="30">30 jours</button>
+                <button type="button" data-days="90">3 mois</button>
+                <button type="button" data-days="365">12 mois</button>
+              </div>
+            </div>
+            <div class="kpis" id="traffic-kpis"></div>
+            <section class="card">
+              <div class="card-head"><h2 id="traffic-chart-title">Évolution</h2><span class="legend small"><i class="lg lg-v"></i>Visiteurs <i class="lg lg-p"></i>Pages vues</span></div>
+              <div class="t-chart" id="traffic-chart"></div>
+            </section>
+            <section class="card" id="traffic-stores-card">
+              <div class="card-head"><h2>Par boutique</h2></div>
+              <div class="table-wrap"><table><thead><tr><th>Boutique</th><th class="num">Visiteurs</th><th class="num">Visites</th><th class="num">Pages vues</th><th class="num">Pages / visite</th><th class="num">Commandes</th><th class="num">Conversion</th></tr></thead><tbody id="traffic-stores"></tbody></table></div>
+            </section>
+            <div class="cols">
+              <section class="card"><div class="card-head"><h2>Pages les plus vues</h2></div><div class="table-wrap"><table><thead><tr><th>Page</th><th class="num">Vues</th></tr></thead><tbody id="traffic-pages"></tbody></table></div></section>
+              <section class="card"><div class="card-head"><h2>Provenance des visites</h2></div><div class="table-wrap"><table><thead><tr><th>Source</th><th class="num">Visites</th></tr></thead><tbody id="traffic-refs"></tbody></table></div></section>
+            </div>
+            <div class="cols">
+              <section class="card"><div class="card-head"><h2>Pays</h2></div><div class="table-wrap"><table><thead><tr><th>Pays</th><th class="num">Visiteurs</th></tr></thead><tbody id="traffic-countries"></tbody></table></div></section>
+              <section class="card"><div class="card-head"><h2>Appareils</h2></div><div class="table-wrap"><table><thead><tr><th>Appareil</th><th class="num">Visiteurs</th></tr></thead><tbody id="traffic-devices"></tbody></table></div></section>
+            </div>
+            <p class="muted small">Visiteurs : personnes différentes par jour (sur plusieurs jours, la même personne compte une fois par jour). Visites : arrivées depuis l’extérieur (moteur de recherche, lien, accès direct). Robots exclus. Jours en heure de Berlin. Données à partir du 21.10.2026.</p>
           </section>
 
           <section class="view" data-view="orders" hidden>

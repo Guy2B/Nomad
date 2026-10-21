@@ -307,3 +307,20 @@ tr.rowlink:hover td, .picks li.rowlink:hover { background: var(--panel-2); }
 .mini th, .mini td { padding: 6px 4px; border-bottom: 1px solid var(--line); text-align: left; }
 .mini .num { text-align: right; }
 .warn-text { color: var(--warn); font-weight: 600; }
+
+/* Audience */
+.t-chart { overflow-x: auto; }
+.t-chart .tc { width: 100%; min-width: 520px; height: auto; display: block; }
+.t-chart .grid { stroke: var(--line); stroke-width: 1; }
+.t-chart .ax { fill: var(--muted); font-size: 10px; }
+.t-chart .ax.mid { text-anchor: middle; }
+.t-chart .pv { fill: var(--accent-soft); }
+.t-chart .vi { fill: var(--accent); }
+.legend { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.legend .lg { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-left: 8px; }
+.legend .lg-v { background: var(--accent); }
+.legend .lg-p { background: var(--accent-soft); border: 1px solid var(--line); }
+.kpi small { display: block; font-size: 11px; margin-top: 2px; }
+.bar-cell { position: relative; }
+.bar-cell .bar-fill { position: absolute; left: 0; top: 4px; bottom: 4px; background: var(--accent-soft); border-radius: 6px; z-index: 0; }
+.bar-cell span { position: relative; z-index: 1; word-break: break-all; }

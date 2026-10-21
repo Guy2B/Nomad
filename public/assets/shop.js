@@ -30,7 +30,13 @@
       /* private mode: the cart lives for this page only */
     }
     count();
-  track('view');
+  var utm = '';
+  try {
+    utm = new URLSearchParams(location.search).get('utm_source') || '';
+  } catch (e) {
+    /* old browser */
+  }
+  track('view', null, { path: location.pathname, ref: document.referrer, utm: utm });
   if (page === 'product') {
     var pid = (document.querySelector('.buy [data-add]') || {}).getAttribute && document.querySelector('.buy [data-add]').getAttribute('data-add');
     if (pid) track('product', pid);
@@ -49,9 +55,17 @@
     var loc = { de: 'de-DE', fr: 'fr-FR', en: 'en-IE' }[lang] || 'de-DE';
     return new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR' }).format(cents / 100);
   }
-  function track(type, product) {
+  /** Anonymous counter (no cookie, nothing stored on the device): funnel + audience statistics. */
+  function track(type, product, extra) {
     try {
-      var payload = JSON.stringify({ store: STORE, type: type, product: product || null });
+      if (navigator.webdriver) return;
+      var body = { store: STORE, type: type, product: product || null };
+      if (extra) {
+        body.path = extra.path;
+        body.ref = extra.ref;
+        body.utm = extra.utm;
+      }
+      var payload = JSON.stringify(body);
       var url = API + '/api/event';
       if (navigator.sendBeacon) navigator.sendBeacon(url, new Blob([payload], { type: 'text/plain' }));
       else fetch(url, { method: 'POST', body: payload, keepalive: true, headers: { 'content-type': 'text/plain' } });

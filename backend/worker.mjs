@@ -15,6 +15,7 @@ import off from '../engine/functions/off.mjs';
 import radar from '../engine/functions/radar.mjs';
 import { useOff } from '../engine/lib/off.mjs';
 import { useStore } from '../engine/lib/store.mjs';
+import { useTraffic } from '../engine/lib/traffic.mjs';
 import { d1Store } from './d1-store.mjs';
 
 const ROUTES = {
@@ -37,6 +38,7 @@ function setup(env) {
   for (const [k, v] of Object.entries(env)) if (typeof v === 'string') process.env[k] = v;
   useStore(d1Store(env.DB));
   useOff({ db: env.DB, media: env.OFF_MEDIA });
+  useTraffic(env.DB);
 }
 
 export default {

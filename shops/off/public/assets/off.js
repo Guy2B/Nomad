@@ -12,6 +12,17 @@
   var $ = function (id) {
     return document.getElementById(id);
   };
+
+  // Audience statistics (anonymous, no cookie, nothing stored on the device), shared with the other AlGBr shops.
+  try {
+    if (API && !navigator.webdriver) {
+      var utm = new URLSearchParams(location.search).get('utm_source') || '';
+      var hit = JSON.stringify({ store: 'off', type: 'view', path: location.pathname, ref: document.referrer, utm: utm });
+      if (navigator.sendBeacon) navigator.sendBeacon(API + '/api/event', new Blob([hit], { type: 'text/plain' }));
+    }
+  } catch (e) {
+    /* measurement must never break the shop */
+  }
   var post = function (path, body) {
     return fetch(API + path, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(function (r) {
       return r.json().then(function (d) {

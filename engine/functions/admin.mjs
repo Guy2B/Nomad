@@ -1,6 +1,7 @@
 /**
  * Admin API (Authorization: Bearer <ADMIN_PASSWORD>):
  *   GET  /api/admin            → stores, setup, overview (all stores and per store), orders
+ *   GET  /api/admin?traffic=1&days=30&store=all → audience statistics (engine/lib/traffic.mjs)
  *   POST /api/admin {action:'retry', sessionId}      → send to the supplier again
  *   POST /api/admin {action:'resolve', sessionId}    → clear the attention flag (done by hand)
  *   POST /api/admin {action:'ship', sessionId, trackNumber, carrier} → mark shipped by hand, tracking for the customer (+ e-mail)
@@ -17,6 +18,7 @@ import { moderate, pendingReviews } from '../lib/reviews.mjs';
 import { alternatives, auditBatch, supplyAudit } from '../lib/supply.mjs';
 import { mailOnce, refundOrder } from '../lib/aftersale.mjs';
 import { mailConfigured } from '../lib/mail.mjs';
+import { report } from '../lib/traffic.mjs';
 
 const json = (status, body) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } });
@@ -34,6 +36,12 @@ export default async (req) => {
   if (!authorized(req)) return json(401, { error: 'unauthorized' });
   const store = crm();
   if (req.method === 'GET') {
+    const q = new URL(req.url).searchParams;
+    if (q.get('traffic')) {
+      const id = q.get('store') || 'all';
+      const known = id === 'all' || id === 'off' || allStores().some((s) => s.id === id);
+      return json(200, await report({ store: known ? id : 'all', days: Number(q.get('days')) || 30 }));
+    }
     const orders = await listOrders(store, 500);
     const storeOf = (o) => o.store || HOST_STORE;
     const stats = (list) => {
