@@ -463,7 +463,8 @@
     svg.setAttribute('role', 'img');
     var step = (W - P) / series.length;
     var bw = Math.max(2, Math.min(26, step * 0.7));
-    [0, 0.5, 1].forEach(function (g) {
+    max = max < 4 ? Math.max(1, max) : max;
+    (max < 4 ? [0, 1] : [0, 0.5, 1]).forEach(function (g) {
       var y = H - g * (H - 10);
       var l = document.createElementNS(ns, 'line');
       l.setAttribute('x1', P); l.setAttribute('x2', W); l.setAttribute('y1', y); l.setAttribute('y2', y);

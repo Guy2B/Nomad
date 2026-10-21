@@ -15,6 +15,19 @@
   var dataEl = document.getElementById('shop-data');
   var data = dataEl ? JSON.parse(dataEl.textContent) : null;
 
+  // Every page view counts once (funnel + audience statistics); track() is defined below.
+  var utm = '';
+  try {
+    utm = new URLSearchParams(location.search).get('utm_source') || '';
+  } catch (e) {
+    /* old browser */
+  }
+  track('view', null, { path: location.pathname, ref: document.referrer, utm: utm });
+  if (page === 'product') {
+    var pid = (document.querySelector('.buy [data-add]') || {}).getAttribute && document.querySelector('.buy [data-add]').getAttribute('data-add');
+    if (pid) track('product', pid);
+  }
+
   function read() {
     try {
       var v = JSON.parse(localStorage.getItem(KEY) || '[]');
@@ -30,17 +43,6 @@
       /* private mode: the cart lives for this page only */
     }
     count();
-  var utm = '';
-  try {
-    utm = new URLSearchParams(location.search).get('utm_source') || '';
-  } catch (e) {
-    /* old browser */
-  }
-  track('view', null, { path: location.pathname, ref: document.referrer, utm: utm });
-  if (page === 'product') {
-    var pid = (document.querySelector('.buy [data-add]') || {}).getAttribute && document.querySelector('.buy [data-add]').getAttribute('data-add');
-    if (pid) track('product', pid);
-  }
   }
   function count() {
     var n = read().reduce(function (a, l) {
