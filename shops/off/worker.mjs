@@ -157,10 +157,10 @@ function product(env, lang, p, others) {
         '@type': 'OfferShippingDetails',
         shippingRate: { '@type': 'MonetaryAmount', value: '5.79', currency: 'EUR' },
         shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'DE' },
-        // "2–4 Werktage": packed within 1 day, Hermes 1–3 days.
+        // "2–4 Werktage": packed in 1 day, Hermes 1–3 days (same as Merchant Center).
         deliveryTime: {
           '@type': 'ShippingDeliveryTime',
-          handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },
+          handlingTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 1, unitCode: 'DAY' },
           transitTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 3, unitCode: 'DAY' },
         },
       },
@@ -223,7 +223,7 @@ function feed(env, products) {
     .filter((p) => p.status === 'live' && p.stock > 0)
     .map((p) => {
       const i = imgs(p);
-      return `<item><g:id>${x(p.ref)}-${x(p.size_eu)}</g:id><g:title>${x(`${title(p)} EU ${p.size_eu}`)}</g:title><g:description>${x(p.description || title(p))}</g:description><g:link>${env.ORIGIN}/de/p/${encodeURIComponent(p.slug)}</g:link>${i[0] ? `<g:image_link>${x(env.ORIGIN + i[0])}</g:image_link>` : ''}${i.slice(1, 10).map((u) => `<g:additional_image_link>${x(env.ORIGIN + u)}</g:additional_image_link>`).join('')}<g:availability>in_stock</g:availability><g:condition>${p.condition === 'like_new' ? 'used' : 'new'}</g:condition><g:price>${(p.price_cents / 100).toFixed(2)} EUR</g:price><g:brand>${x(p.brand)}</g:brand>${p.gtin ? `<g:gtin>${x(p.gtin)}</g:gtin>` : `<g:identifier_exists>no</g:identifier_exists>`}<g:mpn>${x(p.ref)}</g:mpn>${p.color ? `<g:color>${x(p.color)}</g:color>` : ''}${p.size_eu ? `<g:size>${x(p.size_eu)}</g:size><g:size_system>EU</g:size_system>` : ''}<g:shipping><g:country>DE</g:country><g:service>Hermes</g:service><g:price>5.79 EUR</g:price></g:shipping></item>`;
+      return `<item><g:id>${x(p.ref)}-${x(p.size_eu)}</g:id><g:title>${x(`${title(p)} EU ${p.size_eu}`)}</g:title><g:description>${x(p.description || title(p))}</g:description><g:link>${env.ORIGIN}/de/p/${encodeURIComponent(p.slug)}</g:link>${i[0] ? `<g:image_link>${x(env.ORIGIN + i[0])}</g:image_link>` : ''}${i.slice(1, 10).map((u) => `<g:additional_image_link>${x(env.ORIGIN + u)}</g:additional_image_link>`).join('')}<g:availability>in_stock</g:availability><g:condition>${p.condition === 'like_new' ? 'used' : 'new'}</g:condition><g:price>${(p.price_cents / 100).toFixed(2)} EUR</g:price><g:brand>${x(p.brand)}</g:brand>${p.gtin ? `<g:gtin>${x(p.gtin)}</g:gtin>` : `<g:identifier_exists>no</g:identifier_exists>`}<g:mpn>${x(p.ref)}</g:mpn>${p.color ? `<g:color>${x(p.color)}</g:color>` : ''}${p.size_eu ? `<g:size>${x(p.size_eu)}</g:size><g:size_system>EU</g:size_system>` : ''}<g:shipping><g:country>DE</g:country><g:service>Hermes</g:service><g:price>5.79 EUR</g:price><g:min_handling_time>1</g:min_handling_time><g:max_handling_time>1</g:max_handling_time><g:min_transit_time>1</g:min_transit_time><g:max_transit_time>3</g:max_transit_time></g:shipping></item>`;
     })
     .join('');
   return `<?xml version="1.0" encoding="UTF-8"?><rss xmlns:g="http://base.google.com/ns/1.0" version="2.0"><channel><title>OFF. by AlGBr</title><link>${env.ORIGIN}</link><description>Live inventory</description>${items}</channel></rss>`;

@@ -33,3 +33,20 @@ Contenu : id (SKU ; OFF : référence + pointure), titre et description de la pa
 - OFF : une paire unique vendue doit disparaître vite. Le flux est en direct, mais Merchant Center ne le relit qu'à sa fréquence de récupération. Pour les paires très demandées, utiliser « Mettre à jour maintenant » après une vente.
 - Ne jamais ajouter de prix barré qui n'est pas un vrai prix précédent. L'UVP d'OFF n'est affichée que si elle est saisie.
 - JOY : ne pas soumettre le flux avant le lancement (GPSR en attente).
+
+## État au 21.10.2026 (configuré)
+
+Compte avancé (multi-boutiques) « AlGBr » : **5877475143**. Un sous-compte par boutique, site revendiqué et validé via Search Console.
+
+| Sous-compte | ID | Flux | Pays | Livraison | Retours |
+|---|---|---|---|---|---|
+| GO by AlGBr | 5871245719 | go.algbr.eu/feed.xml (libellé GO_DE) | DE, AT, FR, BE, LU, NL, ES, IT | gratuite, prép. 1–2 j, transit 5–8 j | 14 j |
+| SPACE by AlGBr | 5878225460 | space.algbr.eu/feed.xml (SPACE_DE) | 8 pays | gratuite, 1–2 + 5–8 j | 14 j |
+| EASE by AlGBr | 5877703216 | ease.algbr.eu/feed.xml (EASE_DE) | 8 pays | gratuite, 1–2 + 5–8 j | 14 j |
+| GLOW by AlGBr | 5878225958 | glow.algbr.eu/feed.xml (GLOW_DE) | 8 pays | gratuite, 1–2 + 5–8 j | 14 j |
+| KIN by AlGBr | 5877703567 | kin.algbr.eu/feed.xml (KIN_DE) | 8 pays | gratuite, 1–2 + 5–8 j | 14 j |
+| OFF. by AlGBr | 5877483777 | off.algbr.eu/feed.xml | DE | 5,79 € forfait Hermes, prép. 1 j, transit 1–3 j | 14 j |
+| JOY | à créer | après la réponse GPSR de CJ | | | |
+
+Commun : adresse Lampertheim, langue allemande, récupération toutes les 24 h, cut-off 14:00 Europe/Berlin, retour par courrier à la charge du client, pas de frais de reprise, remboursement sous 14 jours, règles de retour : `https://<boutique>.algbr.eu/de/widerruf`.
+Ajouter un pays de livraison dans `site.json` = l'ajouter aussi dans le sous-compte (Sources de données → Pays, et la règle de livraison), sinon les produits sont refusés (« Versandinformationen fehlen »).
