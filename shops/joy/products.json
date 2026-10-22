@@ -625,6 +625,11 @@
         "Decoration, not a toy. Small parts: not suitable for children under 3 (choking hazard).",
         "Do not hang near candles or open flames."
       ]
+    },
+    "material": {
+      "de": "Kissenhüllen: 100 % Polyester · Anhänger: Holz, Hanfschnur",
+      "fr": "Housses : 100 % polyester · Suspensions : bois, ficelle de chanvre",
+      "en": "Cushion covers: 100% polyester · Ornaments: wood, hemp string"
     }
   },
   {
@@ -868,6 +873,11 @@
       "en": [
         "Keep away from open flames."
       ]
+    },
+    "material": {
+      "de": "100 % Polyester",
+      "fr": "100 % polyester",
+      "en": "100% polyester"
     }
   },
   {

@@ -4,7 +4,7 @@
  * One plain layout for every store: brand name, a few lines, one button, legal footer.
  */
 import platform from '../../shared/platform.json' with { type: 'json' };
-import { store as storeById } from './catalog.mjs';
+import { product as productOf, store as storeById } from './catalog.mjs';
 import { euros } from './notify.mjs';
 
 export const API_BASE = String(platform.api || 'https://api.algbr.eu').replace(/\/$/, '');
@@ -213,6 +213,34 @@ function ctaUrl(kind, order, b, extra) {
   return `${b.baseUrl}/${lang}/`;
 }
 
+const SAFETY = {
+  de: { title: 'Produktsicherheit', who: 'Hersteller / verantwortliche Person in der EU', material: 'Material' },
+  fr: { title: 'Sécurité du produit', who: 'Fabricant / personne responsable dans l’UE', material: 'Matière' },
+  en: { title: 'Product safety', who: 'Manufacturer / responsible person in the EU', material: 'Material' },
+};
+
+/**
+ * Product safety information (EU GPSR) for the items of the order that carry warnings:
+ * responsible operator in the EU, product identifier, material, warnings. Sent with the
+ * shipping and delivery e-mails, because the supplier's warehouse cannot add a leaflet.
+ */
+export function safetyLines(order) {
+  const lang = langOf(order);
+  const items = (order.items || [])
+    .map((i) => productOf(order.store, i.id))
+    .filter((p, i, a) => p && (p.safety || p.material) && a.indexOf(p) === i);
+  if (!items.length) return [];
+  const c = brandOf(order).company;
+  const t = SAFETY[lang];
+  const out = [`${t.title}`, `${t.who}: ${[c.name, c.street, c.city, c.country].filter(Boolean).join(', ')}${c.email ? `, ${c.email}` : ''}`];
+  for (const p of items) {
+    const name = p.name || p.id;
+    const bits = [p.material?.[lang] ? `${t.material}: ${p.material[lang]}.` : '', ...(p.safety?.[lang] ?? [])].filter(Boolean);
+    out.push(`${name} (${p.sku || p.id}): ${bits.join(' ')}`);
+  }
+  return out;
+}
+
 /** Builds { subject, html, text } for one kind of customer e-mail. */
 export function customerEmail(kind, order, extra = {}) {
   const t = T[langOf(order)];
@@ -224,7 +252,8 @@ export function customerEmail(kind, order, extra = {}) {
   const c = b.company;
   const legal = [c.name, c.street, c.city, c.email].filter(Boolean).join(' · ');
   const subject = k.subject(order);
-  const text = [t.hello(firstName(order)), '', ...lines, '', `${k.cta}: ${url}`, '', t.bye(b.brand), '', '—', t.footer(order.number), legal].join('\n');
+  const safety = kind === 'shipped' || kind === 'delivered' ? safetyLines(order) : [];
+  const text = [t.hello(firstName(order)), '', ...lines, '', `${k.cta}: ${url}`, '', t.bye(b.brand), ...(safety.length ? ['', ...safety] : []), '', '—', t.footer(order.number), legal].join('\n');
   const p = (s) => `<p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:#2b2b2b">${esc(s)}</p>`;
   const html = `<!doctype html><html lang="${langOf(order)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(subject)}</title></head>
 <body style="margin:0;padding:0;background:#f4f1ec">
@@ -245,6 +274,14 @@ ${t
   .map((l, i) => `<p style="margin:0;font-size:15px;line-height:1.6;color:#2b2b2b">${i ? `<b>${esc(l)}</b>` : esc(l)}</p>`)
   .join('')}
 </td></tr>
+${
+  safety.length
+    ? `<tr><td style="padding:18px 32px 0"><p style="margin:0 0 6px;font-size:13px;font-weight:600;color:#2b2b2b">${esc(safety[0])}</p>${safety
+        .slice(1)
+        .map((l) => `<p style="margin:0 0 6px;font-size:12px;line-height:1.5;color:#555">${esc(l)}</p>`)
+        .join('')}</td></tr>`
+    : ''
+}
 <tr><td style="padding:24px 32px 28px">
 <p style="margin:0 0 6px;font-size:12px;color:#8a8a8a">${esc(t.footer(order.number))}</p>
 <p style="margin:0;font-size:12px;color:#8a8a8a">${esc(legal)}</p>

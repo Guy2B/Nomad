@@ -65,7 +65,7 @@
     "fr",
     "en"
   ],
-  "launched": false,
+  "launched": true,
   "shipping": {
     "countries": [
       "DE"

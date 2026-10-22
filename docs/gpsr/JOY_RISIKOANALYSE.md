@@ -15,7 +15,7 @@ Bezugsquelle: CJdropshipping, Lager Deutschland (Ware des Lieferanten Shenzhen K
 | Lichterhäuser auf Holzsockel (Teelicht) | erhöht: Holz und offene Flamme | **nicht angeboten** |
 | Boxen „Das ganze Fest“, „Advent zuhause“, „Gemütliche Stube“ | enthalten diese Artikel | **deaktiviert** (`active: false`) |
 | 45 Holzanhänger Weihnachtsmann | gering | angeboten (Box „Baum & Sofa“), Warnhinweise |
-| 2 Plüsch-Kissenhüllen 45 × 45 cm | gering | angeboten, **Faserzusammensetzung beim Lieferanten anzufragen; erst danach online** (Textilkennzeichnungs-VO (EU) 1007/2011) |
+| 2 Plüsch-Kissenhüllen 45 × 45 cm | gering | angeboten, 100 % Polyester (Angabe CJ/Lieferant vom 22.10.2026, Textilkennzeichnungs-VO (EU) 1007/2011) |
 | 24 Geschenkboxen Kraftpapier | gering | angeboten, Warnhinweise |
 | Geschenkpapier 12 Bögen + 4 Sticker | gering | angeboten (Box „Geschenke-Werkstatt“), Warnhinweise |
 
@@ -36,7 +36,7 @@ Auf jeder Produktseite (Block „Produktsicherheit“): verantwortlicher Wirtsch
 
 ## Angaben am Produkt / in der Sendung (Art. 9 Abs. 5–7)
 
-Anfrage an CJ (Ticket T202610160827247691): Beilage in jeder Sendung mit Name und Anschrift von AlGBr, Produktkennung und den Sicherheitshinweisen.
+Anfrage an CJ (Ticket T202610160827247691): Beilage in jeder Sendung mit Name und Anschrift von AlGBr, Produktkennung und den Sicherheitshinweisen. Antwort CJ vom 22.10.2026: für Bestellungen aus dem Lager Deutschland nicht möglich. Entscheidung 22.10.2026 (Inhaber): Verkauf ab Lager Deutschland ohne Beilage. Angaben zum Wirtschaftsakteur, Produktkennung, Material und Sicherheitshinweise stehen auf der Produktseite, in der Versand- und in der Zustell-E-Mail (engine/lib/emails.mjs, safetyLines) und in der Rechnung (Anschrift). Restrisiko: keine Angaben physisch in der Sendung. Für die Saison 2027 Lieferanten mit Kennzeichnung am Produkt wählen.
 
 ## Unfälle, Rückrufe, Beschwerden (Art. 20 GPSR)
 

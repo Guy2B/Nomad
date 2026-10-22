@@ -231,3 +231,15 @@ test('e-mail texts: three languages, 17TRACK outside the German warehouse, escap
   assert.equal(customerEmail('shipped', { ...o, lang: 'fr' }).subject, 'Votre commande KI-261016-ABCD est en route');
   assert.equal(customerEmail('delivered', { ...o, lang: 'de' }).subject, 'Ihre Bestellung KI-261016-ABCD wurde zugestellt');
 });
+
+test('JOY shipping e-mail carries the product safety information (GPSR), other shops do not', async () => {
+  const { customerEmail } = await import('../engine/lib/emails.mjs');
+  const base = { number: 'JO-261022-GPSR', lang: 'de', customer: { email: 'a@b.c', name: 'Anna' }, shipping: { country: 'DE' }, supplier: { trackNumber: '0034', logisticName: 'DHL DE to DE' } };
+  const joy = customerEmail('shipped', { ...base, store: 'joy', items: [{ id: 'kissenhuellen', qty: 1 }] });
+  assert.match(joy.text, /Produktsicherheit/);
+  assert.match(joy.text, /verantwortliche Person in der EU: AlGBr, Carlo-Mierendorff-Str\. 15/);
+  assert.match(joy.text, /JO-S-KISSENHUELLEN\): Material: 100 % Polyester\./);
+  assert.match(joy.html, /Produktsicherheit/);
+  const go = customerEmail('shipped', { ...base, store: 'nomad', number: 'GO-1', items: [{ id: 'vacuum-backpack', qty: 1 }] });
+  assert.doesNotMatch(go.text, /Produktsicherheit/);
+});
