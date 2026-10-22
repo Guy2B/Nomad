@@ -8,6 +8,8 @@ name = "api-algbr"
 main = "worker.mjs"
 compatibility_date = "2026-09-01"
 compatibility_flags = ["nodejs_compat"]
+# Keep variables added in the Cloudflare dashboard on every deploy (keys must still be added as type "Secret").
+keep_vars = true
 
 [assets]
 directory = "../dist"
