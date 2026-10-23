@@ -52,6 +52,12 @@ const abs = (p) => site.origin + p;
 const mathHtml = (s) => esc(s).replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>').replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
 const symbolSvg = (cls = 'sym', label = '') =>
   `<svg class="${cls}" viewBox="0 0 100 100" ${label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"'} focusable="false"><path fill="currentColor" d="${brand.symbol}"/></svg>`;
+/** Primary brand: one wordmark, the signature A set as its first letter (brand/wordmark-signature.svg). */
+const sigSvg = (cls = 'wm') => {
+  const g = brand.signature;
+  const m = `matrix(${g.symbol.s} 0 0 ${g.symbol.s} ${g.symbol.tx} ${g.symbol.ty})`;
+  return `<svg class="${cls}" viewBox="0 0 ${g.width} ${g.height}" role="img" aria-label="Algebra" focusable="false"><path fill="currentColor" transform="${m}" d="${brand.symbol}"/><path fill="currentColor" transform="translate(${g.rest.dx} 0)" d="${g.rest.d}"/></svg>`;
+};
 const wordmarkSvg = (cls = 'wm') =>
   `<svg class="${cls}" viewBox="0 0 ${brand.wordmark.width} ${brand.wordmark.height}" role="img" aria-label="Algebra" focusable="false"><path fill="currentColor" d="${brand.wordmark.d}"/></svg>`;
 
@@ -159,7 +165,7 @@ ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</sc
   <div class="hdr__top">
     <button class="hdr__menu" type="button" aria-expanded="false" aria-controls="nav"><span class="burger" aria-hidden="true"></span><span class="vh">${L.nav.menu}</span></button>
     <div class="hdr__lang" aria-label="${esc(L.nav.language)}">${langs}</div>
-    <a class="hdr__logo" href="${r(`/${lang}/`)}" aria-label="Algebra">${symbolSvg('sym', '')}${wordmarkSvg('wm')}</a>
+    <a class="hdr__logo" href="${r(`/${lang}/`)}" aria-label="Algebra">${sigSvg('wm')}</a>
     <div class="hdr__tools">
       <a class="hdr__search" href="${r(`/${lang}/search/`)}">${L.nav.search}</a>
       <a class="hdr__bag" href="${r(`/${lang}/cart/`)}" data-open-bag>${L.nav.bag} (<span class="bag-count" aria-live="polite">0</span>)</a>
@@ -173,7 +179,7 @@ ${body}
 </main>
 <footer class="ftr">
   <div class="ftr__in">
-    <div class="ftr__brand">${wordmarkSvg('wm wm--ftr')}<p class="ftr__sig">${site.signature}</p>
+    <div class="ftr__brand">${sigSvg('wm wm--ftr')}<p class="ftr__sig">${site.signature}</p>
       <form class="ftr__nl" data-newsletter novalidate>
         <label for="ftr-email">${L.newsletter.title}</label>
         <div class="ftr__nlrow"><input id="ftr-email" name="email" type="email" autocomplete="email" required placeholder="${esc(L.newsletter.label)}"><button type="submit">${L.newsletter.button}</button></div>
@@ -225,7 +231,7 @@ const ED = {
   de: {
     cta: 'Kollektion entdecken',
     story: ['Herbst / Winter 2026', 'Form. Struktur. Balance.'],
-    knit: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen, ruhige Formen. Die erste Knitwear von Algebra erscheint in Kürze.', 'Knitwear entdecken', 'Demnächst'],
+    knit: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen, ruhige Formen. Die erste Knitwear von Algebra erscheint in Kürze.', 'Benachrichtigen', 'Demnächst'],
     graphic: ['Graphic Series', 'Die großen Gleichungen der Welt.', 'Neun Studien über Form, Bewegung und Materie.', 'Zur Graphic Series'],
     ess: ['The Essentials', 'Alle Essentials'],
     statement: ['Built on proportion.', 'Form. Structure. Balance.'],
@@ -236,7 +242,7 @@ const ED = {
   en: {
     cta: 'Discover the collection',
     story: ['Autumn / Winter 2026', 'Form. Structure. Balance.'],
-    knit: ['Knitwear', 'Structure, softened.', 'Fine gauge, quiet shapes. Algebra’s first knitwear arrives soon.', 'Explore knitwear', 'Coming soon'],
+    knit: ['Knitwear', 'Structure, softened.', 'Fine gauge, quiet shapes. Algebra’s first knitwear arrives soon.', 'Get notified', 'Coming soon'],
     graphic: ['Graphic Series', 'The great equations of the world.', 'Nine studies of form, motion and matter.', 'Explore the Graphic Series'],
     ess: ['The Essentials', 'All essentials'],
     statement: ['Built on proportion.', 'Form. Structure. Balance.'],
@@ -247,7 +253,7 @@ const ED = {
   fr: {
     cta: 'Découvrir la collection',
     story: ['Automne / Hiver 2026', 'Forme. Structure. Équilibre.'],
-    knit: ['Knitwear', 'La structure, adoucie.', 'Maille fine, formes calmes. La première maille Algebra arrive bientôt.', 'Découvrir la maille', 'Bientôt'],
+    knit: ['Knitwear', 'La structure, adoucie.', 'Maille fine, formes calmes. La première maille Algebra arrive bientôt.', 'Être prévenu', 'Bientôt'],
     graphic: ['Graphic Series', 'Les grandes équations du monde.', 'Neuf études sur la forme, le mouvement et la matière.', 'Découvrir la Graphic Series'],
     ess: ['The Essentials', 'Tous les essentiels'],
     statement: ['Built on proportion.', 'Form. Structure. Balance.'],
@@ -258,7 +264,7 @@ const ED = {
 };
 
 // ------------------------------------------------------------------ components
-function card(lang, from, p, { eager = false, color } = {}) {
+function card(lang, from, p, { eager = false, color, crop = false } = {}) {
   const L = t[lang];
   const first = color || p.colors[0];
   const sizes = [...new Set((p.cuts ? p.cuts.flatMap((x) => x.sizes) : p.sizes))];
@@ -273,7 +279,7 @@ function card(lang, from, p, { eager = false, color } = {}) {
     .join('');
   const sw = p.colors.map((k) => `<button type="button" class="sw-btn" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(colors[k].name[lang])}" title="${esc(colors[k].name[lang])}"><span class="sw" style="--c:${colors[k].hex}"></span></button>`).join('');
   const soon = p.status !== 'PREVIEW';
-  return `<li class="card" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${color || p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
+  return `<li class="card${crop ? ' card--crop' : ''}" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${color || p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
   <a href="${color ? `${href}?color=${color}` : href}" class="card__a" data-track="select_item" data-id="${p.id}" data-href="${href}">
     <div class="card__img">${sets}</div>
     <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>
@@ -456,9 +462,9 @@ function home(lang) {
 <section class="hero">
   ${photo(path, 'campaign-graphic', `Algebra · ${E.story[0]}`, { w: 1122, h: 1030, eager: true, cls: 'hero__img' })}
   <div class="hero__txt">
-    <h1 class="hero__brand">Algebra</h1>
+    <h1 class="hero__brand">${sigSvg('wm wm--hero')}</h1>
     <p class="hero__season">${esc(E.story[0])}</p>
-    <p class="hero__links"><a href="${r(`/${lang}/shop/`)}">${esc(E.cta)}</a></p>
+    <p class="hero__links"><a class="more more--inv" href="${r(`/${lang}/shop/`)}">${esc(E.cta)}</a></p>
   </div>
 </section>
 
@@ -476,9 +482,9 @@ function home(lang) {
     <p class="kicker">${esc(E.knit[0])} · ${esc(E.knit[4])}</p>
     <h2 class="knitfeat__h">${esc(E.knit[1])}</h2>
     <p class="knitfeat__p">${esc(E.knit[2])}</p>
-    <p><a class="more" href="${r(`/${lang}/knitwear/`)}">${esc(E.knit[3])}</a></p>
+    <p><a class="more" href="${r(`/${lang}/knitwear/`)}#notify">${esc(E.knit[3])}</a></p>
   </div>
-  <a class="knitfeat__img" href="${r(`/${lang}/knitwear/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'tile-women', '', { w: 800, h: 1000, sizes: '(min-width: 1024px) 50vw, 100vw' })}</a>
+  <a class="knitfeat__img" href="${r(`/${lang}/knitwear/`)}#notify" tabindex="-1" aria-hidden="true">${photo(path, 'tile-women', '', { w: 800, h: 1000, sizes: '(min-width: 1024px) 50vw, 100vw' })}</a>
 </section>
 
 <section class="gsfeat">
@@ -491,7 +497,7 @@ function home(lang) {
 </section>
 
 <section class="rail rail--gs">
-  <ul class="grid grid--rail wrap">${rail.map((p, i) => card(lang, path, p, { color: railColors[i] })).join('')}</ul>
+  <ul class="grid grid--rail wrap">${rail.map((p, i) => card(lang, path, p, { color: railColors[i], crop: i === 2 })).join('')}</ul>
   <p class="rail__more wrap"><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(E.graphic[3])}</a></p>
 </section>
 
@@ -534,7 +540,7 @@ function knitwear(lang) {
     <p class="kicker">${esc(K[0])} · ${esc(ED[lang].knit[4])}</p>
     <h1 class="knitpage__h">${esc(K[1])}</h1>
     <p class="knitpage__p">${esc(K[2])}</p>
-    <form class="knitpage__nl" data-newsletter novalidate>
+    <form class="knitpage__nl" id="notify" data-newsletter novalidate>
       <label for="knit-email">${esc(K[3])}</label>
       <div class="ftr__nlrow"><input id="knit-email" name="email" type="email" autocomplete="email" required placeholder="${esc(L.newsletter.label)}"><button type="submit">${L.newsletter.button}</button></div>
       <p class="small" data-ok hidden role="status">${L.newsletter.ok}</p><p class="small form-err" data-err hidden role="alert">${L.newsletter.err}</p>

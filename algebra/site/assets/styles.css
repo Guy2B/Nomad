@@ -419,3 +419,98 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .rail, .selection, .gsfeat, .edstory, .knitfeat { overflow-x: clip; }
 @media (max-width: 479px) { .hero__brand { font-size: 2.15rem; letter-spacing: .3em; text-indent: .3em; } .hero__season { letter-spacing: .34em; text-indent: .34em; } }
 .hero { overflow-x: clip; }
+
+/* ================================================================ final editorial pass
+   One wordmark (signature A integrated), calmer header, tighter section rhythm:
+   impact → breath → editorial → density → breath → product → silence.
+   Wide imagery, narrow copy. */
+:root { --hdr: 56px; }
+@media (min-width: 1024px) { :root { --hdr: 64px; } }
+@media (min-width: 1280px) { :root { --hdr: 68px; } }
+
+/* header: a single wordmark, no stacked monogram */
+.hdr { transition: box-shadow var(--base) var(--ease); }
+.hdr__top { transition: height .35s var(--ease); }
+.hdr__logo { display: block; line-height: 0; color: var(--navy); }
+.hdr__logo .wm { height: 21px; width: auto; display: block; transition: height .35s var(--ease); }
+@media (min-width: 1024px) { .hdr__logo .wm { height: 25px; } .nav ul { gap: 28px; height: 44px; } }
+@media (min-width: 1280px) { .hdr__logo .wm { height: 27px; } .nav ul { gap: 40px; } }
+@media (min-width: 1024px) {
+  .hdr.is-stuck .hdr__top { height: 54px; }
+  .hdr.is-stuck .hdr__logo .wm { height: 22px; }
+  .hdr.is-stuck { box-shadow: 0 1px 0 var(--line); }
+  .nav li a { padding: 16px 0 14px; }
+}
+
+/* one CTA language: uppercase, same tracking, hairline underline, same hover */
+.more, p a.more { font: 500 11px/1.2 var(--text); letter-spacing: .22em; text-decoration: none; padding-bottom: 5px; border-bottom: 1px solid currentColor; transition: opacity var(--base) var(--ease); }
+.more:hover { opacity: .55; }
+.hero__links a.more, p a.more { font: 500 11px/1.2 var(--text); letter-spacing: .22em; text-decoration: none; padding-bottom: 5px; border-bottom-color: currentColor; }
+
+/* hero: the wordmark replaces the spaced capitals; composition unchanged */
+.hero__txt { padding-bottom: 52px; }
+.hero__brand { margin: 0; line-height: 0; letter-spacing: 0; text-indent: 0; }
+.wm--hero { display: block; margin: 0 auto; width: clamp(200px, 27vw, 460px); height: auto; color: #F6F2EA; filter: drop-shadow(0 1px 18px rgba(0,0,0,.25)); }
+.hero__season { margin: 22px 0 30px; }
+@media (max-width: 479px) { .wm--hero { width: 200px; } .hero__brand { font-size: inherit; letter-spacing: 0; text-indent: 0; } }
+
+/* Form. Struktur. Balance.: image dominant, text column closer and larger, section ~30% lower */
+.edstory__txt { padding: 40px var(--gutter) 48px; }
+.edstory__h { font-size: clamp(2.4rem, 5.2vw, 5.6rem); line-height: 1; margin-bottom: 28px; max-width: 9ch; }
+@media (min-width: 1024px) {
+  .edstory { grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr); min-height: 0; }
+  .edstory__img img { height: clamp(560px, 80vh, 900px); }
+  .edstory__txt { padding: 0 5vw 0 6vw; justify-content: center; }
+}
+
+/* Knitwear: partial editorial crop (neck, collar, knit), not a full garment that reads as a SKU */
+.knitfeat__img img { aspect-ratio: 5 / 4; object-position: 50% 100%; }
+.knitfeat__txt { padding: 44px var(--gutter) 48px; }
+@media (min-width: 1024px) {
+  .knitfeat__img img { aspect-ratio: 5 / 4; min-height: 0; height: auto; }
+  .knitfeat__txt { padding: 0 6vw; }
+}
+
+/* Graphic Series: less air above the stage, one card framed tight on the print */
+.gsfeat__txt { padding: 36px var(--gutter) 4px; }
+@media (min-width: 1024px) { .gsfeat__txt { padding-top: 64px; } }
+.rail { padding-block: 32px 56px; }
+.rail--gs { padding-top: 20px; }
+.rail__more { margin-top: 28px; }
+.card--crop .card__set { transform: none !important; transition: none; }
+.card--crop .card__set > .card__alt { display: none; }
+.card--crop .card__set > picture:first-child img { transform: scale(1.75); transform-origin: 50% 44%; transition: transform 1.1s cubic-bezier(.2, .7, .15, 1); }
+@media (hover: hover) { .card--crop .card__a:hover .card__set > picture:first-child img { transform: scale(1); } }
+
+/* product cards: quiet, aligned */
+.card__txt { padding-top: 12px; min-height: 44px; }
+.card__name { margin-bottom: 3px; }
+.card__meta { margin-top: 2px; opacity: .85; }
+.sw-btn { width: 20px; height: 20px; }
+.sw-btn .sw { width: 8px; height: 8px; }
+.sw-btn[aria-pressed="true"] .sw { box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px var(--ink-2); }
+.sws { margin-left: -6px; gap: 0; }
+
+/* The Essentials (macro trio): same ratio, closer to the rail above */
+.selection { padding-block: 8px 0; }
+.selection__t { margin-bottom: 26px; }
+
+/* Built on proportion.: ceremonial, ~30% lower */
+.statement { padding-block: 80px; }
+.statement__sym { width: 28px; margin-bottom: 22px; }
+@media (max-width: 767px) { .statement { padding-block: 56px; } }
+
+/* service strip: reassurance, not a section */
+.trust { padding-block: 26px; gap: 12px; }
+.trust h3 { font-size: 10px; letter-spacing: .22em; margin-bottom: 4px; color: var(--ink-2); }
+.trust p { font-size: 11.5px; }
+
+/* footer: calmer, more institutional; the signature line is already said by the statement on the home page */
+.ftr__in { padding-top: 72px; padding-bottom: 48px; }
+.wm--ftr { height: 30px; }
+.is-home .ftr__sig { display: none; }
+.is-home .ftr__brand .wm--ftr { margin-bottom: 26px; }
+.ftr h2 { font-size: 10px; letter-spacing: .22em; color: var(--ink-2); margin-bottom: 16px; }
+.ftr ul { gap: 9px; font-size: 12.5px; }
+@media (min-width: 1024px) { .ftr__cols { gap: 48px; } }
+@media (max-width: 767px) { .ftr__in { padding-top: 48px; padding-bottom: 32px; gap: 32px; } .ftr ul { gap: 7px; } }

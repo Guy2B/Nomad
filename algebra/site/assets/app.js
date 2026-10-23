@@ -372,3 +372,13 @@ if (num) {
       .catch(() => (num.textContent = '—'));
   } else num.textContent = '—';
 }
+
+// ------------------------------------------------------------ header: compact once the page scrolls
+(() => {
+  const hdr = document.querySelector('.hdr');
+  if (!hdr) return;
+  let on = false;
+  const tick = () => { const s = window.scrollY > 80; if (s !== on) { on = s; hdr.classList.toggle('is-stuck', s); } };
+  window.addEventListener('scroll', tick, { passive: true });
+  tick();
+})();
