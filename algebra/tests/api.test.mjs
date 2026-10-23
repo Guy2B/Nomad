@@ -7,9 +7,11 @@ import { hmacHex, verifyStripeSignature } from '../worker/src/stripe.js';
 import { mockSupplier } from '../worker/src/supplier.js';
 import { allVariants } from '../data/catalog.mjs';
 import { memoryD1 } from './d1.mjs';
+import { SCHEMA } from '../worker/src/schema.js';
 
 const schema = join(import.meta.dirname, '..', 'worker', 'migrations', '0001_init.sql');
-const env = (extra = {}) => ({ DB: memoryD1(schema), SITE_ORIGIN: 'https://algebra.test', SITE_MODE: 'preview', SUPPLIER_MODE: 'mock', ...extra });
+const freshDb = () => { const d = memoryD1(null); for (const q of SCHEMA) d.raw.exec(q); return d; };
+const env = (extra = {}) => ({ DB: freshDb(), SITE_ORIGIN: 'https://algebra.test', SITE_MODE: 'preview', SUPPLIER_MODE: 'mock', ...extra });
 const ctx = { waitUntil: () => {} };
 const post = (path, data, headers = {}) => new Request(`https://algebra.test${path}`, { method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: typeof data === 'string' ? data : JSON.stringify(data) });
 const sku = (pred) => allVariants().find(pred).sku;
@@ -77,7 +79,7 @@ test('address error → needs_attention, supplier outage → retried then fulfil
   assert.equal(sa.status, 'needs_attention');
   const b = await (await worker.fetch(post('/api/checkout', { lang: 'de', country: 'DE', items: [{ sku: POLO, qty: 1 }], mockAddress: { line1: 'test-api-down 1', postal_code: '1', city: 'X', country: 'DE' } }), e, ctx)).json();
   const sid = new URL(b.url).searchParams.get('session_id');
-  let o = await e.DB.prepare('SELECT * FROM orders WHERE stripe_session_id = ?').bind(sid).first();
+  let o = await e.DB.prepare('SELECT * FROM alg_orders WHERE stripe_session_id = ?').bind(sid).first();
   assert.equal(o.status, 'paid', 'stays paid for a retry');
   for (let i = 0; i < 5; i++) await sweep(e, mockSupplier());
   o = await getOrder(e.DB, o.id);
@@ -88,7 +90,7 @@ test('nothing reaches the supplier before payment', async () => {
   const e = env();
   let called = 0;
   const spy = { ...mockSupplier(), name: 'spy', createOrder: async () => { called++; return { supplierOrderId: 'x', status: 'received' }; } };
-  await e.DB.prepare("INSERT INTO orders (id, number, status, lang, country, items_json, subtotal, shipping, total, created_at, updated_at) VALUES ('o1','ALG-1','pending_payment','de','DE','[]',1,0,1,'2026','2026')").run();
+  await e.DB.prepare("INSERT INTO alg_orders (id, number, status, lang, country, items_json, subtotal, shipping, total, created_at, updated_at) VALUES ('o1','ALG-1','pending_payment','de','DE','[]',1,0,1,'2026','2026')").run();
   await fulfill(e, await getOrder(e.DB, 'o1'), spy);
   await sweep(e, spy);
   assert.equal(called, 0);
@@ -102,7 +104,7 @@ test('state machine refuses illegal jumps', () => {
 
 test('Stripe webhook: signature checked, paid order fulfilled once, duplicates ignored', async () => {
   const e = env({ STRIPE_WEBHOOK_SECRET: 'whsec_test' });
-  await e.DB.prepare("INSERT INTO orders (id, number, status, lang, country, items_json, subtotal, shipping, total, stripe_session_id, created_at, updated_at) VALUES ('o2','ALG-2','pending_payment','de','DE',?,89,4.9,93.9,'cs_1','2026','2026')").bind(JSON.stringify([{ sku: POLO, qty: 1, supplierArticleId: 8757 }])).run();
+  await e.DB.prepare("INSERT INTO alg_orders (id, number, status, lang, country, items_json, subtotal, shipping, total, stripe_session_id, created_at, updated_at) VALUES ('o2','ALG-2','pending_payment','de','DE',?,89,4.9,93.9,'cs_1','2026','2026')").bind(JSON.stringify([{ sku: POLO, qty: 1, supplierArticleId: 8757 }])).run();
   const evt = { id: 'evt_1', type: 'checkout.session.completed', data: { object: { id: 'cs_1', metadata: { order_id: 'o2' }, payment_status: 'paid', amount_total: 9390, customer_details: { email: 'k@x.de' }, shipping_details: { name: 'K', address: { line1: 'Weg 1', postal_code: '1', city: 'B', country: 'DE' } } } } };
   const payload = JSON.stringify(evt);
   const t = Math.floor(Date.now() / 1000);
@@ -119,7 +121,7 @@ test('Stripe webhook: signature checked, paid order fulfilled once, duplicates i
 
 test('amount mismatch holds the order for a human', async () => {
   const e = env({ STRIPE_WEBHOOK_SECRET: 's' });
-  await e.DB.prepare("INSERT INTO orders (id, number, status, lang, country, items_json, subtotal, shipping, total, created_at, updated_at) VALUES ('o3','ALG-3','pending_payment','de','DE','[]',89,4.9,93.9,'2026','2026')").run();
+  await e.DB.prepare("INSERT INTO alg_orders (id, number, status, lang, country, items_json, subtotal, shipping, total, created_at, updated_at) VALUES ('o3','ALG-3','pending_payment','de','DE','[]',89,4.9,93.9,'2026','2026')").run();
   const payload = JSON.stringify({ id: 'evt_2', type: 'checkout.session.completed', data: { object: { id: 'cs_3', metadata: { order_id: 'o3' }, payment_status: 'paid', amount_total: 100, customer_details: {} } } });
   const t = Math.floor(Date.now() / 1000);
   await handleStripeWebhook(post('/api/stripe/webhook', payload, { 'stripe-signature': `t=${t},v1=${await hmacHex('s', `${t}.${payload}`)}` }), e);
@@ -129,7 +131,7 @@ test('amount mismatch holds the order for a human', async () => {
 test('refund before production cancels at the supplier and marks refunded', async () => {
   const e = env({ STRIPE_WEBHOOK_SECRET: 's', MOCK_PAYMENTS: '1' });
   const j = await (await worker.fetch(post('/api/checkout', { lang: 'de', country: 'DE', items: [{ sku: TEE, qty: 2 }] }), e, ctx)).json();
-  const o = await e.DB.prepare('SELECT * FROM orders WHERE number = ?').bind(j.number).first();
+  const o = await e.DB.prepare('SELECT * FROM alg_orders WHERE number = ?').bind(j.number).first();
   const payload = JSON.stringify({ id: 'evt_3', type: 'charge.refunded', data: { object: { refunded: true, metadata: { order_id: o.id } } } });
   const t = Math.floor(Date.now() / 1000);
   await handleStripeWebhook(post('/api/stripe/webhook', payload, { 'stripe-signature': `t=${t},v1=${await hmacHex('s', `${t}.${payload}`)}` }), e);
@@ -140,11 +142,11 @@ test('newsletter is double opt-in', async () => {
   const e = env();
   const r = await worker.fetch(post('/api/newsletter', { email: 'n@x.de', lang: 'fr' }), e, ctx);
   assert.equal(r.status, 200);
-  const s = await e.DB.prepare('SELECT * FROM subscribers').first();
+  const s = await e.DB.prepare('SELECT * FROM alg_subscribers').first();
   assert.equal(s.status, 'pending');
   const c = await worker.fetch(new Request(`https://algebra.test/api/newsletter/confirm?token=${s.token}`), e, ctx);
   assert.equal(c.status, 302);
-  assert.equal((await e.DB.prepare('SELECT status FROM subscribers').first()).status, 'confirmed');
+  assert.equal((await e.DB.prepare('SELECT status FROM alg_subscribers').first()).status, 'confirmed');
   const bad = await worker.fetch(post('/api/newsletter', { email: 'nope' }), e, ctx);
   assert.equal(bad.status, 400);
 });
@@ -158,4 +160,10 @@ test('admin routes need the token', async () => {
 
 test('order numbers look like ALG-YYMMDD-XXXX', () => {
   assert.match(orderNumber(new Date('2026-10-22T10:00:00Z'), 12345), /^ALG-261022-[0-9A-Z]{4}$/);
+});
+
+test('runtime schema matches the readable migration file', async () => {
+  const { readFileSync } = await import('node:fs');
+  const flat = readFileSync(schema, 'utf8').split('\n').map((l) => l.replace(/--.*$/, '')).join('\n').split(';').map((x) => x.split(/\s+/).join(' ').trim()).filter(Boolean);
+  assert.deepEqual(SCHEMA, flat);
 });

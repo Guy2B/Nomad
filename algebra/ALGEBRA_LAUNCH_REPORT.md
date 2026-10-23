@@ -21,7 +21,7 @@ Nothing here is "ready" or "live": the shop is a complete **preview**, verified 
 | Supplier integration | MOCKED · A61 adapter NEEDS SUPPLIER APPROVAL (API docs) |
 | E-mails (confirmation, shipping, delivery, opt-in, owner alerts) | IMPLEMENTED, MOCKED until Resend key |
 | Legal pages | IMPLEMENTED with the AlGBr operator data and the same texts as the AlGBr shops (not lawyer-reviewed, see docs/LEGAL_REVIEW.md) |
-| Deployment: one Worker `algebra` (shop + API) on algebra.algbr.eu, D1 created by CI, job "algebra" in the Nomad deploy workflow (same account, token and pattern as GLOW/KIN/JOY/OFF) | IMPLEMENTED · not yet run |
+| Deployment: one Worker `algebra` (shop + API) on algebra.algbr.eu, shared D1 algbr-crm (tables alg_*), job "algebra" in the Nomad deploy workflow (same account, token and pattern as GLOW/KIN/JOY/OFF) | IMPLEMENTED · not yet run |
 
 ## 2. What is verified
 
@@ -93,7 +93,7 @@ Start with fewer colours if samples disappoint: Ivory, Deep Navy, Black first.
 ## 11. Next 10 priority actions
 1. Register at A61, ask the 12 open questions in docs/SUPPLIERS.md (API, print area, women's cuts, oversized, times, returns).
 2. Order samples: Polo navy, Heavy Tee ivory, Crew black, Premium Tee ivory, Black Hole black, Navier–Stokes ivory (≈ 190 € gross incl. digitizing and shipping, from the A61 list).
-3. Push the Nomad repo: the existing CLOUDFLARE_API_TOKEN deploys the preview on algebra.algbr.eu (check the token also has D1 edit rights); check the VAT question with the tax adviser.
+3. Push the Nomad repo: the existing CLOUDFLARE_API_TOKEN deploys the preview on algebra.algbr.eu; check the VAT question with the tax adviser.
 4. Create the Stripe test key and webhook; run the checkout once in test mode on a deployed preview.
 5. Deploy preview: Cloudflare Pages + Worker + D1 on algebra.algbr.eu (noindex stays on).
 6. Photograph the samples (packshot, detail, back print, embroidery close-up) and replace MOCKUP images.

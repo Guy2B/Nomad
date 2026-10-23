@@ -122,7 +122,8 @@ jobs:
         if: env.ALL == 'true' || needs.changes.outputs.off == 'true'
         run: npm run deploy:off
 
-  # ALGEBRA (algebra.algbr.eu): its own package in algebra/, one Worker for shop + API, own D1 database "algebra".
+  # ALGEBRA (algebra.algbr.eu): its own package in algebra/, one Worker for shop + API.
+  # Uses the shared D1 database algbr-crm (tables alg_*, created by the Worker itself): no D1 rights needed.
   algebra:
     needs: changes
     if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.algebra == 'true'
@@ -158,14 +159,6 @@ jobs:
           fi
           echo "::add-mask::$token"
           echo "CLOUDFLARE_API_TOKEN=$token" >> "$GITHUB_ENV"
-      - name: D1 database "algebra" (created once, then reused) + migrations
-        working-directory: algebra/worker
-        run: |
-          find_id() { npx wrangler d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const d=JSON.parse(s).find(x=>x.name==='algebra');process.stdout.write(d?d.uuid:'')})"; }
-          ID=$(find_id)
-          if [ -z "$ID" ]; then npx wrangler d1 create algebra; ID=$(find_id); fi
-          sed -i "s/REPLACED_BY_CI/$ID/" wrangler.toml
-          npx wrangler d1 migrations apply algebra --remote
       - name: ALGEBRA (algebra.algbr.eu)
         working-directory: algebra/worker
         run: npx wrangler deploy

@@ -1,5 +1,6 @@
--- Algebra D1 schema. Apply: npx wrangler d1 migrations apply algebra --remote
-CREATE TABLE IF NOT EXISTS orders (
+-- Algebra schema in the shared AlGBr D1 database (algbr-crm), tables prefixed alg_.
+-- Applied automatically by the Worker (worker/src/schema.js); this file is the readable reference.
+CREATE TABLE IF NOT EXISTS alg_orders (
   id TEXT PRIMARY KEY,                 -- internal id (uuid)
   number TEXT NOT NULL UNIQUE,         -- customer-facing, ALG-YYMMDD-XXXX
   status TEXT NOT NULL,                -- see worker/src/orders.js STATUSES
@@ -26,25 +27,25 @@ CREATE TABLE IF NOT EXISTS orders (
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL
 );
-CREATE INDEX IF NOT EXISTS orders_status ON orders(status);
+CREATE INDEX IF NOT EXISTS alg_orders_status ON alg_orders(status);
 
-CREATE TABLE IF NOT EXISTS order_events (
+CREATE TABLE IF NOT EXISTS alg_order_events (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   order_id TEXT NOT NULL,
   type TEXT NOT NULL,
   data TEXT,
   created_at TEXT NOT NULL
 );
-CREATE INDEX IF NOT EXISTS order_events_order ON order_events(order_id);
+CREATE INDEX IF NOT EXISTS alg_order_events_order ON alg_order_events(order_id);
 
 -- processed Stripe events (idempotency)
-CREATE TABLE IF NOT EXISTS stripe_events (
+CREATE TABLE IF NOT EXISTS alg_stripe_events (
   id TEXT PRIMARY KEY,
   type TEXT NOT NULL,
   created_at TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS subscribers (
+CREATE TABLE IF NOT EXISTS alg_subscribers (
   email TEXT PRIMARY KEY,
   lang TEXT NOT NULL,
   status TEXT NOT NULL,                -- pending | confirmed | unsubscribed

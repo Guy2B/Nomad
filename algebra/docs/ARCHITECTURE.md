@@ -25,7 +25,7 @@ Browser ──► Cloudflare Pages (dist/: static HTML per language, AVIF/WebP, 
           ├─ POST /stripe/webhook ◄── Stripe (signature checked, idempotent)
           │       paid ─► supplier adapter (mock | a61) ─► A61 production & shipping
           ├─ cron */30: retry fulfillment, poll supplier status, tracking e-mail, expire unpaid orders
-          ├─ D1: orders, order_events, stripe_events, subscribers
+          ├─ D1 (shared algbr-crm): alg_orders, alg_order_events, alg_stripe_events, alg_subscribers
           └─ Resend: confirmation, shipping, delivery, newsletter double opt-in, owner alerts
 ```
 
@@ -63,8 +63,8 @@ sample approval: same file names in `site/assets/products/` and switch the flag.
 
 Same Cloudflare account and pattern as GLOW / KIN / JOY / OFF: one Worker (`worker/wrangler.toml`, name `algebra`) serves the
 static shop from `dist/` and runs `/api/*`; custom domain `algebra.algbr.eu`, preview at `algebra.<account>.workers.dev`.
-`.github/workflows/deploy-cloudflare.yml (job "algebra", repo Nomad)` runs on every push to main: `npm ci`, tests, build, creates the D1 database `algebra` once,
-applies migrations, deploys. Uses the repository secret `CLOUDFLARE_API_TOKEN` already set for the AlGBr shops (it must also allow D1 edit).
+The "algebra" job of `.github/workflows/deploy-cloudflare.yml` (repo Nomad) runs on every push touching `algebra/`: `npm ci`, tests, build, deploy.
+Data lives in the shared D1 database `algbr-crm`, tables prefixed `alg_`, created by the Worker on first use. Uses the repository secret `CLOUDFLARE_API_TOKEN` already set for the AlGBr shops.
 
 Worker secrets (Cloudflare dashboard → Workers → algebra → Settings → Variables, type **Secret**, never in Git or chat):
 `STRIPE_SECRET_KEY` (test key while SITE_MODE=preview: live keys are refused), `STRIPE_WEBHOOK_SECRET` (new endpoint

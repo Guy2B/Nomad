@@ -76,7 +76,7 @@ export async function createPendingOrder(db, { lang, country, priced }) {
   const number = orderNumber();
   const t = now();
   await db
-    .prepare('INSERT INTO orders (id, number, status, lang, country, items_json, subtotal, shipping, total, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)')
+    .prepare('INSERT INTO alg_orders (id, number, status, lang, country, items_json, subtotal, shipping, total, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)')
     .bind(id, number, 'pending_payment', lang, country, JSON.stringify(priced.lines), priced.subtotal, priced.shipping, priced.total, t, t)
     .run();
   await event(db, id, 'created', { total: priced.total });
@@ -84,18 +84,18 @@ export async function createPendingOrder(db, { lang, country, priced }) {
 }
 
 export async function event(db, orderId, type, data) {
-  await db.prepare('INSERT INTO order_events (order_id, type, data, created_at) VALUES (?,?,?,?)').bind(orderId, type, data ? JSON.stringify(data) : null, now()).run();
+  await db.prepare('INSERT INTO alg_order_events (order_id, type, data, created_at) VALUES (?,?,?,?)').bind(orderId, type, data ? JSON.stringify(data) : null, now()).run();
 }
 
-export const getOrder = (db, id) => db.prepare('SELECT * FROM orders WHERE id = ?').bind(id).first();
-export const getBySession = (db, sid) => db.prepare('SELECT * FROM orders WHERE stripe_session_id = ?').bind(sid).first();
+export const getOrder = (db, id) => db.prepare('SELECT * FROM alg_orders WHERE id = ?').bind(id).first();
+export const getBySession = (db, sid) => db.prepare('SELECT * FROM alg_orders WHERE stripe_session_id = ?').bind(sid).first();
 
 export async function setStatus(db, order, to, fields = {}) {
   if (order.status === to && !Object.keys(fields).length) return order;
   if (order.status !== to && !canMove(order.status, to)) throw new Error(`Illegal transition ${order.status} → ${to} (${order.number})`);
   const cols = { status: to, updated_at: now(), ...fields };
   const keys = Object.keys(cols);
-  await db.prepare(`UPDATE orders SET ${keys.map((k) => `${k} = ?`).join(', ')} WHERE id = ?`).bind(...keys.map((k) => cols[k] ?? null), order.id).run();
+  await db.prepare(`UPDATE alg_orders SET ${keys.map((k) => `${k} = ?`).join(', ')} WHERE id = ?`).bind(...keys.map((k) => cols[k] ?? null), order.id).run();
   await event(db, order.id, `status:${to}`, fields.last_error ? { error: fields.last_error } : null);
   return { ...order, ...cols };
 }
@@ -136,7 +136,7 @@ export async function fulfill(env, order, supplier) {
     const kind = e instanceof SupplierError ? e.kind : 'api';
     const attempts = order.fulfillment_attempts + 1;
     if (kind === 'api' && attempts < MAX_ATTEMPTS) {
-      await env.DB.prepare('UPDATE orders SET fulfillment_attempts = ?, last_error = ?, updated_at = ? WHERE id = ?').bind(attempts, e.message, now(), order.id).run();
+      await env.DB.prepare('UPDATE alg_orders SET fulfillment_attempts = ?, last_error = ?, updated_at = ? WHERE id = ?').bind(attempts, e.message, now(), order.id).run();
       await event(env.DB, order.id, 'fulfillment_retry', { attempts, error: e.message });
       return getOrder(env.DB, order.id);
     }
@@ -154,7 +154,7 @@ export async function syncStatus(env, order, supplier) {
   const s = await supplier.getStatus(order);
   const to = SUPPLIER_TO_ORDER[s.status];
   if (!to || to === order.status) {
-    if (s.status !== order.supplier_status) await env.DB.prepare('UPDATE orders SET supplier_status = ?, updated_at = ? WHERE id = ?').bind(s.status, now(), order.id).run();
+    if (s.status !== order.supplier_status) await env.DB.prepare('UPDATE alg_orders SET supplier_status = ?, updated_at = ? WHERE id = ?').bind(s.status, now(), order.id).run();
     return getOrder(env.DB, order.id);
   }
   let o = order;
@@ -174,12 +174,12 @@ export async function syncStatus(env, order, supplier) {
 /** Cron: retry paid orders, poll open ones, expire stale pending ones. */
 export async function sweep(env, supplier) {
   const out = { retried: 0, synced: 0, expired: 0, errors: 0 };
-  const paid = await env.DB.prepare("SELECT * FROM orders WHERE status = 'paid' LIMIT 50").all();
+  const paid = await env.DB.prepare("SELECT * FROM alg_orders WHERE status = 'paid' LIMIT 50").all();
   for (const o of paid.results) {
     await fulfill(env, o, supplier);
     out.retried++;
   }
-  const open = await env.DB.prepare("SELECT * FROM orders WHERE status IN ('submitted','in_production','shipped') LIMIT 100").all();
+  const open = await env.DB.prepare("SELECT * FROM alg_orders WHERE status IN ('submitted','in_production','shipped') LIMIT 100").all();
   for (const o of open.results) {
     try {
       await syncStatus(env, o, supplier);
@@ -190,7 +190,7 @@ export async function sweep(env, supplier) {
     }
   }
   const cutoff = new Date(Date.now() - 48 * 3600e3).toISOString();
-  const stale = await env.DB.prepare("SELECT * FROM orders WHERE status = 'pending_payment' AND created_at < ? LIMIT 200").bind(cutoff).all();
+  const stale = await env.DB.prepare("SELECT * FROM alg_orders WHERE status = 'pending_payment' AND created_at < ? LIMIT 200").bind(cutoff).all();
   for (const o of stale.results) {
     await setStatus(env.DB, o, 'expired');
     out.expired++;

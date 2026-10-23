@@ -27,10 +27,11 @@ OWNER_EMAIL = "contact@algbr.de"
 STRIPE_REQUIRE_TERMS = "0"
 
 [[d1_databases]]
+# Same database as the AlGBr shops (algbr-crm). Algebra's tables are prefixed alg_ and created by the Worker itself
+# (worker/src/schema.js), so the deploy token needs no D1 rights.
 binding = "DB"
-database_name = "algebra"
-database_id = "REPLACED_BY_CI"   # the deploy workflow creates the database if needed and writes its id here
-migrations_dir = "migrations"
+database_name = "algbr-crm"
+database_id = "3ab63107-8a8e-40e2-988d-33edb35f2da5"
 
 [triggers]
 crons = ["*/30 * * * *"]       # sweep: retry fulfillment, poll supplier status, expire unpaid orders

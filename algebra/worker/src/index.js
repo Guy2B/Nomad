@@ -11,6 +11,7 @@
  *   GET  /api/health
  * Cron (wrangler.toml): sweep() retries fulfillment, polls supplier status, expires unpaid orders.
  */
+import { ensureSchema } from './schema.js';
 import { stripeRequest, timingSafeEqual, verifyStripeSignature } from './stripe.js';
 import { supplierFor } from './supplier.js';
 import { sendMail, template } from './email.js';
@@ -45,7 +46,7 @@ export async function handleCheckout(req, env, fetchImpl = fetch) {
     // Local end-to-end tests only: no Stripe, the order is paid immediately.
     const { id, number } = await createPendingOrder(env.DB, { lang, country: b.country, priced });
     const sid = `mock_${id}`;
-    await env.DB.prepare('UPDATE orders SET stripe_session_id = ? WHERE id = ?').bind(sid, id).run();
+    await env.DB.prepare('UPDATE alg_orders SET stripe_session_id = ? WHERE id = ?').bind(sid, id).run();
     const o = await getOrder(env.DB, id);
     await markPaid(env, o, { amount_total: Math.round(priced.total * 100), customer_details: { email: b.mockEmail || 'test@example.com', name: 'Test Kunde' }, shipping_details: { name: 'Test Kunde', address: b.mockAddress || { line1: 'Teststraße 1', postal_code: '10115', city: 'Berlin', country: b.country } }, payment_intent: 'pi_mock' });
     await fulfill(env, await getOrder(env.DB, id), supplierFor(env));
@@ -77,7 +78,7 @@ export async function handleCheckout(req, env, fetchImpl = fetch) {
     },
     fetchImpl,
   );
-  await env.DB.prepare('UPDATE orders SET stripe_session_id = ? WHERE id = ?').bind(session.id, id).run();
+  await env.DB.prepare('UPDATE alg_orders SET stripe_session_id = ? WHERE id = ?').bind(session.id, id).run();
   return json({ url: session.url, number });
 }
 
@@ -86,7 +87,7 @@ export async function handleStripeWebhook(req, env, fetchImpl = fetch) {
   const ok = await verifyStripeSignature(payload, req.headers.get('stripe-signature'), env.STRIPE_WEBHOOK_SECRET);
   if (!ok) return json({ error: 'bad signature' }, 400);
   const evt = JSON.parse(payload);
-  const seen = await env.DB.prepare('SELECT id FROM stripe_events WHERE id = ?').bind(evt.id).first();
+  const seen = await env.DB.prepare('SELECT id FROM alg_stripe_events WHERE id = ?').bind(evt.id).first();
   if (seen) return json({ received: true, duplicate: true });
   const supplier = supplierFor(env);
   const obj = evt.data.object;
@@ -121,7 +122,7 @@ export async function handleStripeWebhook(req, env, fetchImpl = fetch) {
     default:
       break;
   }
-  await env.DB.prepare('INSERT INTO stripe_events (id, type, created_at) VALUES (?,?,?)').bind(evt.id, evt.type, new Date().toISOString()).run();
+  await env.DB.prepare('INSERT INTO alg_stripe_events (id, type, created_at) VALUES (?,?,?)').bind(evt.id, evt.type, new Date().toISOString()).run();
   void fetchImpl;
   return json({ received: true });
 }
@@ -143,7 +144,7 @@ async function route(req, env, ctx) {
   }
   if (p === '/api/orders/lookup' && m === 'POST') {
     const b = await body(req, 2000);
-    const o = typeof b.order === 'string' ? await env.DB.prepare('SELECT * FROM orders WHERE number = ?').bind(b.order.trim().toUpperCase()).first() : null;
+    const o = typeof b.order === 'string' ? await env.DB.prepare('SELECT * FROM alg_orders WHERE number = ?').bind(b.order.trim().toUpperCase()).first() : null;
     const ok = o && o.email && typeof b.email === 'string' && timingSafeEqual(o.email.toLowerCase(), b.email.trim().toLowerCase());
     if (!ok) return json({ error: 'not found' }, 404);
     return json({ number: o.number, status: o.status, carrier: o.carrier, trackingNumber: o.tracking_number, trackingUrl: o.tracking_url });
@@ -154,9 +155,9 @@ async function route(req, env, ctx) {
     const lang = LANGS.includes(b.lang) ? b.lang : 'de';
     const email = b.email.trim().toLowerCase();
     const token = crypto.randomUUID();
-    const ex = await env.DB.prepare('SELECT status FROM subscribers WHERE email = ?').bind(email).first();
+    const ex = await env.DB.prepare('SELECT status FROM alg_subscribers WHERE email = ?').bind(email).first();
     if (ex?.status === 'confirmed') return json({ ok: true });
-    await env.DB.prepare('INSERT INTO subscribers (email, lang, status, token, created_at) VALUES (?,?,?,?,?) ON CONFLICT(email) DO UPDATE SET token = excluded.token, lang = excluded.lang, status = \'pending\'').bind(email, lang, 'pending', token, new Date().toISOString()).run();
+    await env.DB.prepare('INSERT INTO alg_subscribers (email, lang, status, token, created_at) VALUES (?,?,?,?,?) ON CONFLICT(email) DO UPDATE SET token = excluded.token, lang = excluded.lang, status = \'pending\'').bind(email, lang, 'pending', token, new Date().toISOString()).run();
     const link = `${env.API_ORIGIN || url.origin}/api/newsletter/confirm?token=${token}`;
     const sending = sendMail(env, { to: email, ...template('newsletter', lang, link) });
     if (ctx?.waitUntil) ctx.waitUntil(sending);
@@ -165,9 +166,9 @@ async function route(req, env, ctx) {
   }
   if (p === '/api/newsletter/confirm' && m === 'GET') {
     const token = url.searchParams.get('token') || '';
-    const s = await env.DB.prepare('SELECT * FROM subscribers WHERE token = ?').bind(token).first();
+    const s = await env.DB.prepare('SELECT * FROM alg_subscribers WHERE token = ?').bind(token).first();
     if (!s) return new Response('Link expired', { status: 404 });
-    await env.DB.prepare("UPDATE subscribers SET status = 'confirmed', confirmed_at = ? WHERE email = ?").bind(new Date().toISOString(), s.email).run();
+    await env.DB.prepare("UPDATE alg_subscribers SET status = 'confirmed', confirmed_at = ? WHERE email = ?").bind(new Date().toISOString(), s.email).run();
     return Response.redirect(`${env.SITE_ORIGIN}/${s.lang}/?newsletter=confirmed`, 302);
   }
   if (p === '/api/contact' && m === 'POST') {
@@ -180,7 +181,7 @@ async function route(req, env, ctx) {
   if (p === '/api/supplier/webhook' && m === 'POST') {
     if (!env.SUPPLIER_WEBHOOK_SECRET || !timingSafeEqual(req.headers.get('x-algebra-secret') || '', env.SUPPLIER_WEBHOOK_SECRET)) return json({ error: 'forbidden' }, 403);
     const b = await body(req);
-    const o = b.supplierOrderId ? await env.DB.prepare('SELECT * FROM orders WHERE supplier_order_id = ?').bind(b.supplierOrderId).first() : null;
+    const o = b.supplierOrderId ? await env.DB.prepare('SELECT * FROM alg_orders WHERE supplier_order_id = ?').bind(b.supplierOrderId).first() : null;
     if (!o) return json({ error: 'not found' }, 404);
     await syncStatus(env, o, supplierFor(env));
     return json({ ok: true });
@@ -189,7 +190,7 @@ async function route(req, env, ctx) {
     const auth = req.headers.get('authorization') || '';
     if (!env.ADMIN_TOKEN || !timingSafeEqual(auth, `Bearer ${env.ADMIN_TOKEN}`)) return json({ error: 'forbidden' }, 403);
     if (p === '/api/admin/orders' && m === 'GET') {
-      const r = await env.DB.prepare('SELECT id, number, status, email, total, supplier_order_id, last_error, created_at FROM orders ORDER BY created_at DESC LIMIT 200').all();
+      const r = await env.DB.prepare('SELECT id, number, status, email, total, supplier_order_id, last_error, created_at FROM alg_orders ORDER BY created_at DESC LIMIT 200').all();
       return json(r.results);
     }
     const mm = p.match(/^\/api\/admin\/orders\/([\w-]+)\/retry$/);
@@ -208,6 +209,7 @@ async function route(req, env, ctx) {
 export default {
   async fetch(req, env, ctx) {
     try {
+      if (new URL(req.url).pathname.startsWith('/api')) await ensureSchema(env.DB);
       const res = await route(req, env, ctx);
       for (const [k, v] of Object.entries(cors(env, req))) res.headers.set(k, v);
       return res;
@@ -218,6 +220,6 @@ export default {
     }
   },
   async scheduled(_event, env, ctx) {
-    ctx.waitUntil(sweep(env, supplierFor(env)).then((r) => console.log('[sweep]', JSON.stringify(r))));
+    ctx.waitUntil(ensureSchema(env.DB).then(() => sweep(env, supplierFor(env))).then((r) => console.log('[sweep]', JSON.stringify(r))));
   },
 };

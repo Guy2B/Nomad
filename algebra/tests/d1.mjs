@@ -4,7 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 
 export function memoryD1(schemaPath) {
   const db = new DatabaseSync(':memory:');
-  db.exec(readFileSync(schemaPath, 'utf8'));
+  if (schemaPath) db.exec(readFileSync(schemaPath, 'utf8'));
   const stmt = (sql, args = []) => ({
     bind: (...a) => stmt(sql, a),
     first: async () => db.prepare(sql).get(...args) ?? null,
