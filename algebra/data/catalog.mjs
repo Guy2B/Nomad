@@ -112,7 +112,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'prepster',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 18 mm', file: 'brand/symbol-embroidery.svg' },
-    colors: ['deep-navy'], // photo available in navy only (owner's moodboard); more colours with new photos
+    colors: ['deep-navy', 'black', 'ivory'],
     sizes: sizesMen,
     copy: {
       lead: {
@@ -131,9 +131,9 @@ export const products = [
         fr: 'Piqué épais en coton bio, 240 g/m².',
       },
       detail: {
-        de: 'Symbol gestickt, rund 18 mm, Ton in Ton oder im Kontrast je nach Farbe.',
-        en: 'Embroidered symbol, about 18 mm, tonal or contrast depending on the colour.',
-        fr: 'Symbole brodé, environ 18 mm, ton sur ton ou en contraste selon la couleur.',
+        de: 'Symbol gestickt, rund 18 mm, Elfenbein auf Dunkel, Navy auf Elfenbein.',
+        en: 'Embroidered symbol, about 18 mm, ivory on dark, navy on ivory.',
+        fr: 'Symbole brodé, environ 18 mm, ivoire sur foncé, navy sur ivoire.',
       },
       design: {
         de: 'Ein A, dessen zweiter Balken zum Gleichheitszeichen wird. Proportion statt Logo-Fläche.',
@@ -189,20 +189,20 @@ export const products = [
     id: 'ALG-M-CREW',
     slug: 'the-crew-men',
     line: 'essentials',
-    gender: 'unisex', // Changer 2.0 is a unisex sweatshirt
+    gender: 'men', // Changer 2.0 (unisex blank), shown in the men's range; women have The Crew in Alma
     category: 'sweaters',
     name: { de: 'The Crew', en: 'The Crew', fr: 'The Crew' },
     price: 109,
     status: 'PREVIEW',
     blank: 'changer',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 20 mm, tone on tone', file: 'brand/symbol-embroidery.svg' },
-    colors: ['ivory'], // photo available in ivory only; more colours with new photos
+    colors: ['black', 'deep-navy', 'ivory'],
     sizes: sizesMen,
     copy: {
       lead: {
-        de: 'Schweres Sweatshirt mit Rundhals. Das Symbol Ton in Ton gestickt.',
-        en: 'A heavy crewneck sweatshirt. The symbol embroidered tone on tone.',
-        fr: 'Sweat col rond épais. Le symbole brodé ton sur ton.',
+        de: 'Schweres Sweatshirt mit Rundhals. Das Symbol klein auf der Brust gestickt.',
+        en: 'A heavy crewneck sweatshirt. The symbol embroidered small on the chest.',
+        fr: 'Sweat col rond épais. Le symbole brodé discrètement sur la poitrine.',
       },
       fit: {
         de: 'Regulär, leicht kastig. Unisex-Größen, für Herren normal ausfallend.',
@@ -215,14 +215,14 @@ export const products = [
         fr: 'Molleton, 350 g/m², gratté à l’intérieur.',
       },
       detail: {
-        de: 'Ton-in-Ton-Stickerei, rund 20 mm. Rippbündchen an Kragen, Ärmeln und Saum.',
-        en: 'Tonal embroidery, about 20 mm. Rib at collar, cuffs and hem.',
-        fr: 'Broderie ton sur ton, environ 20 mm. Bord côte au col, aux poignets et à l’ourlet.',
+        de: 'Symbol gestickt, rund 20 mm, Elfenbein auf Dunkel, Navy auf Elfenbein. Rippbündchen an Kragen, Ärmeln und Saum.',
+        en: 'Embroidered symbol, about 20 mm, ivory on dark, navy on ivory. Rib at collar, cuffs and hem.',
+        fr: 'Symbole brodé, environ 20 mm, ivoire sur foncé, navy sur ivoire. Bord côte au col, aux poignets et à l’ourlet.',
       },
       design: {
-        de: 'Fast unsichtbar, bis das Licht darauf fällt.',
-        en: 'Almost invisible, until the light catches it.',
-        fr: 'Presque invisible, jusqu’à ce que la lumière l’accroche.',
+        de: 'Ruhig getragen, präzise gemacht.',
+        en: 'Worn quietly, made precisely.',
+        fr: 'Porté calmement, fait avec précision.',
       },
     },
     care: careEssential,
@@ -243,9 +243,9 @@ export const products = [
     sizes: sizesWomen,
     copy: {
       lead: {
-        de: 'Der Polo im Damenschnitt. Kommt, sobald unser Produktionspartner den Schnitt bestätigt.',
-        en: 'The polo in a women’s cut. Arrives as soon as our production partner confirms the cut.',
-        fr: 'Le polo en coupe femme. Disponible dès que notre partenaire de production confirme la coupe.',
+        de: 'Der Polo im Damenschnitt, Piqué, das Symbol auf der Brust gestickt. Bald erhältlich.',
+        en: 'The polo in a women’s cut, piqué, the symbol embroidered on the chest. Coming soon.',
+        fr: 'Le polo en coupe femme, piqué, le symbole brodé sur la poitrine. Bientôt disponible.',
       },
       fit: { de: 'Taillierter Damenschnitt (wird bestätigt).', en: 'Shaped women’s cut (to be confirmed).', fr: 'Coupe femme cintrée (à confirmer).' },
       fabric: { de: 'Wird mit dem Muster veröffentlicht.', en: 'Published with the approved sample.', fr: 'Publié avec l’échantillon validé.' },
@@ -307,13 +307,13 @@ export const products = [
     status: 'NEEDS_SUPPLIER_APPROVAL',
     blank: 'alma',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 18 mm, tone on tone', file: 'brand/symbol-embroidery.svg' },
-    colors: ['ivory', 'deep-navy', 'taupe'],
+    colors: ['ivory', 'deep-navy', 'black'],
     sizes: sizesWomen,
     copy: {
       lead: {
-        de: 'Das Sweatshirt im Damenschnitt, Ton-in-Ton-Symbol. Freigabe der Stickerei beim Partner ausstehend.',
-        en: 'The crewneck in a women’s cut, tonal symbol. Embroidery approval pending with our partner.',
-        fr: 'Le sweat en coupe femme, symbole ton sur ton. Validation de la broderie en attente chez notre partenaire.',
+        de: 'Das Sweatshirt im Damenschnitt, 300 g/m², das Symbol auf der Brust. Bald erhältlich.',
+        en: 'The crewneck in a women’s cut, 300 g/m², the symbol on the chest. Coming soon.',
+        fr: 'Le sweat en coupe femme, 300 g/m², le symbole sur la poitrine. Bientôt disponible.',
       },
       fit: { de: 'Damenschnitt, leicht verkürzt (wird bestätigt).', en: 'Women’s cut, slightly cropped (to be confirmed).', fr: 'Coupe femme, légèrement raccourcie (à confirmer).' },
       fabric: {
@@ -321,11 +321,11 @@ export const products = [
         en: 'Sweat fabric, 300 g/m².',
         fr: 'Molleton, 300 g/m².',
       },
-      detail: { de: 'Ton-in-Ton-Stickerei, rund 18 mm.', en: 'Tonal embroidery, about 18 mm.', fr: 'Broderie ton sur ton, environ 18 mm.' },
+      detail: { de: 'Symbol auf der Brust, rund 18 mm.', en: 'Symbol on the chest, about 18 mm.', fr: 'Symbole sur la poitrine, environ 18 mm.' },
       design: {
-        de: 'Fast unsichtbar, bis das Licht darauf fällt.',
-        en: 'Almost invisible, until the light catches it.',
-        fr: 'Presque invisible, jusqu’à ce que la lumière l’accroche.',
+        de: 'Ruhig getragen, präzise gemacht.',
+        en: 'Worn quietly, made precisely.',
+        fr: 'Porté calmement, fait avec précision.',
       },
     },
     care: careEssential,
@@ -335,6 +335,7 @@ export const products = [
   ...[
     {
       key: 'navier-stokes',
+      hidden: true, // no drawing in the AW26 series yet
       id: 'ALG-G-01-NAVIERSTOKES',
       name: 'Navier–Stokes 01',
       field: { de: 'Strömungsmechanik', en: 'Fluid dynamics', fr: 'Mécanique des fluides' },
@@ -349,6 +350,7 @@ export const products = [
     },
     {
       key: 'black-hole',
+      hidden: true, // no drawing in the AW26 series yet
       id: 'ALG-G-02-BLACKHOLE',
       name: 'Black Hole 02',
       field: { de: 'Gravitation', en: 'Gravitation', fr: 'Gravitation' },
@@ -366,7 +368,7 @@ export const products = [
       id: 'ALG-G-03-ENTANGLEMENT',
       name: 'Entanglement 03',
       field: { de: 'Quantenphysik', en: 'Quantum physics', fr: 'Physique quantique' },
-      colors: ['ivory', 'black', 'deep-navy'],
+      colors: ['black', 'deep-navy', 'ivory'],
       symbol: {
         glyph: '∞',
         de: 'Zwei verschränkte Teilchen teilen sich einen gemeinsamen Zustand. Misst man das eine, kennt man das Ergebnis des anderen, egal wie weit es entfernt ist. Nachrichten lassen sich so nicht schneller als Licht senden.',
@@ -377,6 +379,7 @@ export const products = [
     },
     {
       key: 'curvature',
+      hidden: true, // no drawing in the AW26 series yet
       id: 'ALG-G-04-CURVATURE',
       name: 'Curvature 04',
       field: { de: 'Allgemeine Relativitätstheorie', en: 'General relativity', fr: 'Relativité générale' },
@@ -391,6 +394,7 @@ export const products = [
     },
     {
       key: 'epr-er',
+      hidden: true, // no drawing in the AW26 series yet
       id: 'ALG-G-05-EPRER',
       name: 'EPR = ER 05',
       field: { de: 'Quantengravitation', en: 'Quantum gravity', fr: 'Gravité quantique' },
@@ -440,20 +444,30 @@ export const products = [
         en: 'The universe has been expanding for about 13.8 billion years from an extremely hot, dense state. The Friedmann equation describes how that expansion depends on matter, curvature and the cosmological constant.',
         fr: 'L’Univers est en expansion depuis environ 13,8 milliards d’années, à partir d’un état extrêmement chaud et dense. L’équation de Friedmann décrit comment cette expansion dépend de la matière, de la courbure et de la constante cosmologique.',
       }],
-    ].map(([key, id, name, field, colors, glyph, equation, text]) => ({ key, id, name, field, colors, equation, capsule: 'Capsule 02 · Pure Forms', symbol: { glyph, ...text } })),
+      ['feynman', 'ALG-G-13-FEYNMAN', 'Feynman 13', { de: 'Quantenelektrodynamik', en: 'Quantum electrodynamics', fr: 'Électrodynamique quantique' }, ['black', 'deep-navy', 'ivory'], 'γ', 'ℒ = ψ̄(iγ^{μ}D_{μ} − m)ψ − ¼F_{μν}F^{μν}', {
+        de: 'Richard Feynman zeichnete Teilchenprozesse als einfache Diagramme: gerade Linien für Elektronen, Wellenlinien für Photonen. Jedes Diagramm steht für einen Term der Rechnung. Die Quantenelektrodynamik gehört zu den am genauesten bestätigten Theorien der Physik.',
+        en: 'Richard Feynman drew particle processes as simple diagrams: straight lines for electrons, wavy lines for photons. Each diagram stands for one term of the calculation. Quantum electrodynamics is among the most precisely confirmed theories in physics.',
+        fr: 'Richard Feynman dessinait les processus entre particules comme de simples diagrammes : des lignes droites pour les électrons, des lignes ondulées pour les photons. Chaque diagramme correspond à un terme du calcul. L’électrodynamique quantique est l’une des théories les mieux vérifiées de la physique.',
+      }],
+      ['mobius', 'ALG-G-14-MOBIUS', 'Möbius 14', { de: 'Topologie', en: 'Topology', fr: 'Topologie' }, ['black', 'deep-navy', 'ivory'], '∞', 'χ = 0', {
+        de: 'Ein Band, einmal verdreht und geschlossen: Es hat nur eine Seite und nur eine Kante. August Ferdinand Möbius beschrieb es 1858. Seine Euler-Charakteristik ist null.',
+        en: 'A strip, twisted once and closed: it has only one side and only one edge. August Ferdinand Möbius described it in 1858. Its Euler characteristic is zero.',
+        fr: 'Une bande, tordue une fois puis refermée : elle n’a qu’une seule face et un seul bord. August Ferdinand Möbius l’a décrite en 1858. Sa caractéristique d’Euler vaut zéro.',
+      }],
+    ].map(([key, id, name, field, colors, glyph, equation, text]) => ({ key, id, name, field, colors, equation, hidden: key === 'tesseract', symbol: { glyph, ...text } })),
   ].map((g) => ({
     id: g.id,
     slug: g.key,
     line: 'graphic',
     gender: 'unisex',
     category: 't-shirts',
-    capsule: g.capsule || 'Capsule 01 · Physics in Ink',
+    capsule: 'Graphic Series · AW 2026',
     graphic: g.key,
     field: g.field,
     equation: g.equation,
     name: { de: g.name, en: g.name, fr: g.name },
     price: 69,
-    status: 'PREVIEW',
+    status: g.hidden ? 'DRAFT' : 'PREVIEW',
     // Two cuts: unisex oversized (Blaster 2.0, confirmed on the A61 list 23.10.2026) or women's (Muser).
     // Price of a ~30 × 40 cm three-colour back print inside the "2-sided" price: asked to A61, TO VERIFY.
     cuts: [
@@ -464,8 +478,8 @@ export const products = [
     decoration: {
       method: 'print',
       option: 'print2',
-      placement: 'front: icon 70 × 70 mm, left chest · back: 300 × 400 mm',
-      file: `capsule/${g.key}/front-<tone>.svg + capsule/${g.key}/back-<tone>.svg`,
+      placement: 'front: Algebra symbol ~20 mm, left chest · back: full-back print ~350 × 500 mm (max print area TO VERIFY with A61)',
+      file: `design/prints/${g.key}.png (owner drawing 1024 × 1536: upscale to ≥ 3500 px before production) + brand/symbol`,
       technique: TV,
     },
     colors: g.colors,
@@ -473,9 +487,9 @@ export const products = [
     symbol: g.symbol,
     copy: {
       lead: {
-        de: `${g.name.replace(/ \d{2}$/, '')}: eine Zeichnung in Tusche auf dem Rücken, mit der echten Gleichung. Vorne ein kleines Zeichen.`,
-        en: `${g.name.replace(/ \d{2}$/, '')}: an ink drawing on the back, with the real equation. A small sign on the chest.`,
-        fr: `${g.name.replace(/ \d{2}$/, '')} : un dessin à l’encre au dos, avec la vraie équation. Un petit signe sur la poitrine.`,
+        de: `${g.name.replace(/ \d{2}$/, '')}: ein großer Rückendruck in Tusche, Kupfer und Petrol, mit der echten Gleichung. Vorne das Algebra-Symbol.`,
+        en: `${g.name.replace(/ \d{2}$/, '')}: a full back print in ink, copper and teal, with the real equation. The Algebra symbol on the chest.`,
+        fr: `${g.name.replace(/ \d{2}$/, '')} : un grand imprimé dos à l’encre, cuivre et pétrole, avec la vraie équation. Le symbole Algebra sur la poitrine.`,
       },
       fit: {
         de: 'Zwei Schnitte: Unisex Oversize (kastig, überschnittene Schultern) oder Damenschnitt.',
@@ -488,14 +502,14 @@ export const products = [
         fr: 'Unisexe oversize 200 g/m², femme 180 g/m².',
       },
       detail: {
-        de: 'Rückendruck bis 30 × 40 cm, Zeichen auf der Brust 7 × 7 cm. Drei Tintenfarben, auf helle und dunkle Stoffe abgestimmt.',
-        en: 'Back print up to 30 × 40 cm, chest sign 7 × 7 cm. Three ink colours, matched to light or dark fabric.',
-        fr: 'Impression dos jusqu’à 30 × 40 cm, signe poitrine 7 × 7 cm. Trois couleurs d’encre, adaptées au tissu clair ou foncé.',
+        de: 'Druck über fast den ganzen Rücken. Das Symbol klein auf der linken Brust.',
+        en: 'A print across almost the whole back. The symbol small on the left chest.',
+        fr: 'Un imprimé sur presque tout le dos. Le symbole discret sur la poitrine gauche.',
       },
       design: {
-        de: 'Originalgrafik von Algebra: Tusche, Hilfslinien, Notizen von Hand. Physik als Zeichnung, nicht als Schulbuch.',
-        en: 'Original Algebra artwork: ink, construction lines, handwritten notes. Physics as a drawing, not a textbook.',
-        fr: 'Graphisme original Algebra : encre, lignes de construction, notes à la main. La physique comme un dessin, pas comme un manuel.',
+        de: 'Originalgrafik von Algebra: Tusche, Sternenstaub, Hilfslinien. Die großen Gleichungen der Welt, als Bild getragen.',
+        en: 'Original Algebra artwork: ink, stardust, construction lines. The great equations of the world, worn as an image.',
+        fr: 'Graphisme original Algebra : encre, poussière d’étoiles, lignes de construction. Les grandes équations du monde, portées comme une image.',
       },
     },
     care: careGraphic,
@@ -537,7 +551,7 @@ export function variantsOf(p) {
           supplierArticleId: option ? option.id : TV,
           supplierVariantId: TV,
           decoration: p.decoration.method,
-          printFile: p.line === 'graphic' ? { front: `capsule/${p.graphic}/front-${colors[c].tone}.svg`, back: `capsule/${p.graphic}/back-${colors[c].tone}.svg` } : null,
+          printFile: p.line === 'graphic' ? { front: `brand/symbol${colors[c].tone === 'light' ? '' : '-ivory'}.svg`, back: `design/prints/${p.graphic}.png` } : null,
           embroideryFile: p.decoration.method === 'embroidery' ? 'brand/symbol-embroidery.svg (digitized DST: TO VERIFY)' : null,
           purchasable: p.status === 'PREVIEW',
         });

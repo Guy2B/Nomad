@@ -12,7 +12,8 @@ import { readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { blanks, colors, products as allProducts, shipping, variantsOf } from '../data/catalog.mjs';
 // Pieces waiting for supplier approval are not shown on the site (no 'coming soon' clutter).
-const products = allProducts.filter((p) => p.status === 'PREVIEW');
+// Shown: orderable pieces, plus pieces waiting for supplier approval (shown as 'coming soon', not orderable).
+const products = allProducts.filter((p) => p.status === 'PREVIEW' || p.status === 'NEEDS_SUPPLIER_APPROVAL');
 import { site } from '../site/config.mjs';
 import { legalTitles, pages } from '../site/content.mjs';
 import { t } from '../site/i18n.mjs';
@@ -84,11 +85,11 @@ const DETAIL = {
   front: { de: 'Detail vorne', en: 'Front detail', fr: 'Détail avant' },
   print: { de: 'Print-Detail', en: 'Print detail', fr: 'Détail du print' },
   fabric: { de: 'Stoff', en: 'Fabric', fr: 'Matière' },
-  label: { de: 'Nackenlabel', en: 'Neck label', fr: 'Étiquette de col' },
+  label: { de: 'Kragen', en: 'Collar', fr: 'Col' },
   frontView: { de: 'Vorderseite', en: 'Front', fr: 'Face avant' },
   backView: { de: 'Rückseite', en: 'Back', fr: 'Face arrière' },
 };
-const viewsOf = (p, color) => (p.line === 'graphic' ? ['back', 'front'] : ['front', 'back']).filter((v) => hasImg(p, color, v));
+const viewsOf = (p, color) => ['front', 'back'].filter((v) => hasImg(p, color, v));
 const displayName = (p, lang) => {
   const g = { men: { de: 'Herren', en: 'Men', fr: 'Homme' }, women: { de: 'Damen', en: 'Women', fr: 'Femme' } }[p.gender];
   return g && p.line === 'essentials' ? `${p.name[lang]} · ${g[lang]}` : p.name[lang];
@@ -232,11 +233,12 @@ function card(lang, from, p, { eager = false, color } = {}) {
     })
     .join('');
   const sw = p.colors.map((k) => `<button type="button" class="sw-btn" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(colors[k].name[lang])}" title="${esc(colors[k].name[lang])}"><span class="sw" style="--c:${colors[k].hex}"></span></button>`).join('');
-  return `<li class="card" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
-  <a href="${href}" class="card__a" data-track="select_item" data-id="${p.id}" data-href="${href}">
+  const soon = p.status !== 'PREVIEW';
+  return `<li class="card" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${color || p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
+  <a href="${color ? `${href}?color=${color}` : href}" class="card__a" data-track="select_item" data-id="${p.id}" data-href="${href}">
     <div class="card__img">${sets}</div>
     <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>
-    <p class="card__price">${money(p.price, lang)}</p></div>
+    <p class="card__price">${soon ? `<span class="muted">${esc(L.product.unavailable)}</span>` : money(p.price, lang)}</p></div>
   </a>
   <p class="card__meta"><span class="sws">${sw}</span><span>${L.premium.colorsCount(p.colors.length)}</span></p></li>`;
 }
@@ -250,6 +252,8 @@ function collectionPage(lang, key) {
   const [title, desc] = L.meta[key];
   const h1 = key === 'shop' ? L.nav.all : L.nav[collections[key].nav];
   const C = L.collection;
+  // essentials: one card per colour (polo navy, polo black, polo ivory …); graphic tees: one card each
+  const entries = list.flatMap((p) => (p.line === 'essentials' ? p.colors.map((c) => [p, c]) : [[p, null]]));
   const intro = key === 'graphic-series' ? `<p class="lead">${L.graphic.body}</p>` : key === 'women' ? `<p class="lead">${L.menwomen.body}</p>` : '';
   const body = `<section class="coll">
   <header class="coll__hd wrap"><h1 class="coll__h">${esc(h1)}</h1>${intro}</header>
@@ -259,9 +263,9 @@ function collectionPage(lang, key) {
     <fieldset><legend>${C.size}</legend><div class="chips">${allSizes.map((s) => `<label class="chip"><input type="checkbox" name="size" value="${s}">${s}</label>`).join('')}</div></fieldset>
     <label class="sort">${C.sort} <select name="sort"><option value="">${C.sortDefault}</option><option value="asc">${C.sortAsc}</option><option value="desc">${C.sortDesc}</option></select></label>
     <button type="reset" class="linkish">${C.reset}</button>
-    <p class="count" aria-live="polite" data-count data-template="${esc(C.count(0)).replace('0', '{n}')}">${C.count(list.length)}</p>
+    <p class="count" aria-live="polite" data-count data-template="${esc(C.count(0)).replace('0', '{n}')}">${C.count(entries.length)}</p>
   </form>
-  <ul class="grid" data-grid>${list.map((p, i) => card(lang, path, p, { eager: i < 4 })).join('')}</ul>
+  <ul class="grid" data-grid>${entries.map(([p, c], i) => card(lang, path, p, { eager: i < 4, color: c || undefined })).join('')}</ul>
   <p class="empty" data-empty hidden>${C.empty}</p>
   </div>
 </section>`;
@@ -290,9 +294,9 @@ function productPage(lang, p) {
       const stage = `${p.slug}-${c}-stage`;
       let inner;
       if (hasPhoto(stage)) {
-        const mid = hasPhoto(`${p.slug}-${c}-d-print`) ? fig(`${p.slug}-${c}-d-print`, `${name}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang]) : fig(`detail-fabric-${c}`, `${name}, ${DETAIL.fabric[lang]}, ${cn}`, DETAIL.fabric[lang]);
+        const mid = hasPhoto(`${p.slug}-${c}-d-print`) ? fig(`${p.slug}-${c}-d-print`, `${name}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang]) : fig(`${p.slug}-${c}-d-fabric`, `${name}, ${DETAIL.fabric[lang]}, ${cn}`, DETAIL.fabric[lang]);
         inner = `${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: ci === 0, sizes: '(min-width: 1024px) 60vw, 100vw' })}
-        <div class="sheet__details">${fig(`detail-front-${c}`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`detail-label-${c}`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>`;
+        <div class="sheet__details">${fig(`${p.slug}-${c}-d-front`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`${p.slug}-${c}-d-collar`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>`;
       } else {
         inner = `<div class="sheet__views">${viewsOf(p, c)
           .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${name}, ${cn}`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 30vw, 100vw' })}</figure>`)
@@ -390,26 +394,35 @@ function home(lang) {
   const path = `/${lang}/`;
   const r = (to) => rel(path, to);
   const byId = (id) => products.find((p) => p.id === id);
-  const ess = ['ALG-M-POLO', 'ALG-M-TEE', 'ALG-M-CREW', 'ALG-W-TEE'].map(byId).filter(Boolean);
   const gfx = products.filter((p) => p.line === 'graphic');
-  const rail = ['ALG-G-02-BLACKHOLE', 'ALG-G-01-NAVIERSTOKES', 'ALG-G-11-HIGGS', 'ALG-G-12-BIGBANG'].map(byId).filter(Boolean);
-  const tile = (href, name, label, alt) => `<a class="tile" href="${r(href)}">${photo(path, name, alt, { w: 800, h: 1000, sizes: '(min-width: 768px) 33vw, 100vw' })}<span class="tile__label">${esc(label)}<span class="tile__cta">${esc(M.tiles.shop)}</span></span></a>`;
+  const rail = ['ALG-G-09-MANDELBROT', 'ALG-G-11-HIGGS', 'ALG-G-13-FEYNMAN', 'ALG-G-12-BIGBANG'].map(byId).filter(Boolean);
+  const essCards = [['ALG-M-POLO', 'deep-navy'], ['ALG-M-TEE', 'black'], ['ALG-M-CREW', 'ivory'], ['ALG-W-TEE', 'deep-navy']].map(([id, c]) => [byId(id), c]).filter(([p]) => p);
+  const E = M.edit;
+  const edit = (href, img, [k, h, txt, cta]) => `<a class="edit" href="${r(href)}">${photo(path, img, h, { w: 800, h: 1000, sizes: '(min-width: 768px) 50vw, 100vw', cls: 'edit__img' })}<span class="edit__txt"><span class="edit__k">${esc(k)}</span><span class="edit__h">${esc(h)}</span><span class="edit__p">${esc(txt)}</span><span class="edit__cta">${esc(cta)}</span></span></a>`;
   const T = L.trust;
   const body = `
 <section class="hero">
-  ${photo(path, 'campaign-graphic', M.campaign[1], { w: 1122, h: 1030, eager: true, cls: 'hero__img' })}
+  ${photo(path, 'campaign-graphic', `${M.campaign[0]} ${M.campaign[1]}`, { w: 1122, h: 1030, eager: true, cls: 'hero__img' })}
   <div class="hero__txt">
-    <p class="hero__kicker">${esc(M.campaign[0])}</p>
-    <h1 class="hero__h">${esc(M.campaign[1])}</h1>
-    <p class="hero__line">${esc(M.campaign[2])}</p>
-    <p class="hero__links"><a href="${r(`/${lang}/graphic-series/`)}">${esc(M.campaign[3])}</a></p>
+    <h1 class="hero__brand">${esc(M.campaign[0])}</h1>
+    <p class="hero__season">${esc(M.campaign[1])}</p>
+    <p class="hero__links"><a href="${r(`/${lang}/shop/`)}">${esc(M.campaign[2])}</a></p>
   </div>
 </section>
 
-<section class="tiles wrap" aria-label="${esc(L.nav.menu)}">
-  ${tile(`/${lang}/men/`, 'the-polo-men-deep-navy-front', M.tiles.men, M.tiles.men)}
-  ${tile(`/${lang}/women/`, 'the-crew-men-ivory-front', M.tiles.women, M.tiles.women)}
-  ${tile(`/${lang}/graphic-series/`, 'black-hole-black-back', M.tiles.graphic, M.tiles.graphic)}
+<section class="edits" aria-label="${esc(L.nav.men)} / ${esc(L.nav.women)}">
+  ${edit(`/${lang}/men/`, 'tile-men', E.men)}
+  ${edit(`/${lang}/women/`, 'tile-women', E.women)}
+</section>
+
+<section class="feature">
+  <a class="feature__img" href="${r(`/${lang}/graphic-series/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'mandelbrot-black-stage', '', { w: 1600, h: 900, sizes: '(min-width: 1024px) 60vw, 100vw' })}</a>
+  <div class="feature__txt">
+    <p class="kicker">${esc(E.graphic[0])}</p>
+    <h2 class="feature__h">${esc(E.graphic[1])}</h2>
+    <p>${esc(E.graphic[2])}</p>
+    <p><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(E.graphic[3])}</a></p>
+  </div>
 </section>
 
 <section class="rail">
@@ -417,19 +430,9 @@ function home(lang) {
   <ul class="grid grid--rail wrap">${rail.map((p) => card(lang, path, p)).join('')}</ul>
 </section>
 
-<section class="split">
-  <div class="split__img">${photo(path, 'campaign-essentials', M.essentials[0], { w: 780, h: 810, sizes: '(min-width: 1024px) 50vw, 100vw' })}</div>
-  <div class="split__txt">
-    <p class="kicker">${esc(M.essentials[0])}</p>
-    <h2 class="split__h">${esc(M.essentials[1])}</h2>
-    <p>${esc(M.essentials[2])}</p>
-    <p><a class="btn btn--solid" href="${r(`/${lang}/shop/`)}">${esc(M.essentials[3])}</a></p>
-  </div>
-</section>
-
 <section class="rail">
-  <header class="rail__hd wrap"><h2 class="sec-t">${esc(L.essentials.title)}</h2><a class="more" href="${r(`/${lang}/shop/`)}">${esc(L.nav.all)}</a></header>
-  <ul class="grid grid--rail wrap">${ess.map((p) => card(lang, path, p)).join('')}</ul>
+  <header class="rail__hd wrap"><h2 class="sec-t">${esc(M.essentials[0])}</h2><a class="more" href="${r(`/${lang}/shop/`)}">${esc(L.nav.all)}</a></header>
+  <ul class="grid grid--rail wrap">${essCards.map(([p, c]) => card(lang, path, p, { color: c })).join('')}</ul>
 </section>
 
 <section class="story">
@@ -439,11 +442,6 @@ function home(lang) {
     <p>${esc(M.story[1])}</p>
     <p><a class="more more--inv" href="${r(`/${lang}/about/`)}">${esc(M.story[2])}</a></p>
   </div>
-</section>
-
-<section class="gs-all wrap">
-  <header class="rail__hd"><h2 class="sec-t">${esc(L.graphic.title)}</h2><p class="muted">${esc(L.graphic.body)}</p></header>
-  <ul class="grid">${gfx.map((p) => card(lang, path, p)).join('')}</ul>
 </section>
 
 <section class="trust wrap" aria-label="Service">

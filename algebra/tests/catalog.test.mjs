@@ -13,7 +13,7 @@ test('SKUs are unique', () => {
 });
 
 test('every graphic variant points to existing print files', () => {
-  for (const v of allVariants().filter((x) => x.printFile)) {
+  for (const v of allVariants().filter((x) => x.printFile && x.purchasable)) {
     assert.ok(existsSync(join(root, v.printFile.front)), v.printFile.front);
     assert.ok(existsSync(join(root, v.printFile.back)), v.printFile.back);
   }

@@ -102,7 +102,7 @@ async function page(w = 390, h = 844) {
 
 // responsive: no horizontal overflow
 const widths = [320, 375, 390, 430, 768, 1024, 1440];
-const urls = ['/de/', '/en/men/', '/fr/women/', '/de/graphic-series/', '/de/product/the-polo-men/', '/en/product/black-hole/', '/de/cart/', '/de/faq/', '/de/size-guide/', '/de/info/imprint/', '/de/search/?q=polo', '/de/tracking/'];
+const urls = ['/de/', '/en/men/', '/fr/women/', '/de/graphic-series/', '/de/product/the-polo-men/', '/en/product/mandelbrot/', '/de/cart/', '/de/faq/', '/de/size-guide/', '/de/info/imprint/', '/de/search/?q=polo', '/de/tracking/'];
 const overflow = [];
 for (const w of widths) {
   const p = await page(w, 900);
@@ -113,7 +113,7 @@ for (const w of widths) {
   }
   await p.goto(BASE + '/de/', { waitUntil: 'networkidle' });
   await p.screenshot({ path: join(root, 'qa', 'screens', `home-${w}.png`) });
-  await p.goto(BASE + '/de/product/black-hole/', { waitUntil: 'networkidle' });
+  await p.goto(BASE + '/de/product/mandelbrot/', { waitUntil: 'networkidle' });
   await p.screenshot({ path: join(root, 'qa', 'screens', `pdp-${w}.png`) });
   await p.context().close();
 }
@@ -176,10 +176,10 @@ check('responsive', `No horizontal overflow at ${widths.join('/')} px on ${urls.
   await p.selectOption('.filters select', 'desc');
   const prices = await p.$$eval('[data-grid] .card:not([hidden])', (e) => e.map((c) => +c.dataset.price));
   check('collection', 'Sort by price descending', prices.every((v, i) => !i || prices[i - 1] >= v));
-  await p.goto(BASE + '/en/search/?q=black%20hole', { waitUntil: 'networkidle' });
+  await p.goto(BASE + '/en/search/?q=mandelbrot', { waitUntil: 'networkidle' });
   await p.waitForTimeout(300);
   const hits = await p.$$eval('[data-search-grid] .card:not([hidden])', (e) => e.length);
-  check('search', `Search "black hole" finds the product (${hits})`, hits >= 1 && hits <= 3);
+  check('search', `Search "mandelbrot" finds the product (${hits})`, hits >= 1 && hits <= 3);
   const r = await p.goto(BASE + '/de/gibt-es-nicht/');
   check('404', '404 status and page', r.status() === 404 && (await p.textContent('h1')).includes('gibt es nicht'));
   await p.goto(BASE + '/fr/', { waitUntil: 'networkidle' });
