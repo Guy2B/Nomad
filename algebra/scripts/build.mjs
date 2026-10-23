@@ -8,7 +8,9 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { blanks, colors, products, shipping, variantsOf } from '../data/catalog.mjs';
+import { blanks, colors, products as allProducts, shipping, variantsOf } from '../data/catalog.mjs';
+// Pieces waiting for supplier approval are not shown on the site (no 'coming soon' clutter).
+const products = allProducts.filter((p) => p.status === 'PREVIEW');
 import { site } from '../site/config.mjs';
 import { legalTitles, pages } from '../site/content.mjs';
 import { t } from '../site/i18n.mjs';
@@ -51,17 +53,19 @@ const collections = {
 };
 
 const productPath = (lang, p) => `/${lang}/product/${p.slug}/`;
-const img = (p, color, view) => `assets/mockups/${p.slug}-${color}-${view}`;
+const img = (p, color, view) => `assets/photos/${p.slug}-${color}-${view}`;
+const hasImg = (p, color, view) => existsSync(join(root, 'site', `${img(p, color, view)}.webp`));
+const viewsOf = (p, color) => (p.line === 'graphic' ? ['back', 'front'] : ['front', 'back']).filter((v) => hasImg(p, color, v));
 const displayName = (p, lang) => {
   const g = { men: { de: 'Herren', en: 'Men', fr: 'Homme' }, women: { de: 'Damen', en: 'Women', fr: 'Femme' } }[p.gender];
   return g && p.line === 'essentials' ? `${p.name[lang]} · ${g[lang]}` : p.name[lang];
 };
 
 /** <picture> with AVIF/WebP, relative to the page. */
-function picture(from, file, alt, { sizes = '(min-width: 1024px) 33vw, 50vw', eager = false, w = 800, h = 960, small = true, cls = '' } = {}) {
+function picture(from, file, alt, { sizes = '(min-width: 1024px) 25vw, 50vw', eager = false, w = 800, h = 1000, small = true, cls = '' } = {}) {
   const r = (x) => rel(from, '/' + x);
   const srcset = small ? `${r(file + '-400.webp')} 400w, ${r(file + '.webp')} ${w}w` : `${r(file + '.webp')} ${w}w`;
-  return `<picture class="${cls}"><source type="image/avif" srcset="${r(file + '.avif')}"><source type="image/webp" srcset="${srcset}" sizes="${sizes}"><img src="${r(file + (small ? '.webp' : '.jpg'))}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
+  return `<picture class="${cls}"><source type="image/avif" srcset="${r(file + '.avif')}"><source type="image/webp" srcset="${srcset}" sizes="${sizes}"><img src="${r(file + '.jpg')}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
 const conceptPic = (from, key, alt, opts = {}) => {
   const dims = { 'editorial-pair': [678, 585], 'detail-polo': [355, 325], 'detail-tee': [360, 325], 'detail-crew': [359, 325], 'detail-label': [353, 145], 'detail-button': [167, 130], 'gs-navier-stokes': [372, 425], 'gs-black-hole': [372, 425], 'gs-entanglement': [372, 425], 'gs-curvature': [372, 425], 'gs-epr-er': [800, 630], 'lifestyle-graphic': [1000, 891], 'gs-euler': [800, 542], 'gs-lorenz': [800, 542], 'gs-maxwell': [800, 542], 'gs-mandelbrot': [800, 542], 'gs-tesseract': [800, 542], 'gs-higgs': [800, 542], 'gs-big-bang': [800, 542] }[key];
@@ -114,40 +118,48 @@ ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</sc
 </head>
 <body class="${bodyClass}" data-lang="${lang}" data-root="${r('/')}" data-api="${esc(site.apiBase)}" data-mode="${site.mode}">
 <a class="skip" href="#main">${L.nav.skip}</a>
-${PREVIEW ? `<div class="preview" role="note">${esc(L.preview)}</div>` : ''}
+<div class="announce" role="note">${esc(L.preview)}</div>
 <header class="hdr">
-  <div class="hdr__in">
-    <button class="hdr__menu" type="button" aria-expanded="false" aria-controls="nav">${L.nav.menu}</button>
-    <a class="hdr__logo" href="${r(`/${lang}/`)}">${symbolSvg('sym', '')}${wordmarkSvg('wm')}</a>
-    <nav id="nav" class="nav" aria-label="${esc(L.nav.menu)}"><ul>${navHtml}</ul>
-      <div class="nav__lang" aria-label="${esc(L.nav.language)}">${langs}</div></nav>
+  <div class="hdr__top">
+    <button class="hdr__menu" type="button" aria-expanded="false" aria-controls="nav"><span class="burger" aria-hidden="true"></span><span class="vh">${L.nav.menu}</span></button>
+    <div class="hdr__lang" aria-label="${esc(L.nav.language)}">${langs}</div>
+    <a class="hdr__logo" href="${r(`/${lang}/`)}" aria-label="Algebra">${symbolSvg('sym', '')}${wordmarkSvg('wm')}</a>
     <div class="hdr__tools">
       <a class="hdr__search" href="${r(`/${lang}/search/`)}">${L.nav.search}</a>
-      <a class="hdr__bag" href="${r(`/${lang}/cart/`)}" data-open-bag>${L.nav.bag} <span class="bag-count" aria-live="polite">0</span></a>
+      <a class="hdr__bag" href="${r(`/${lang}/cart/`)}" data-open-bag>${L.nav.bag} (<span class="bag-count" aria-live="polite">0</span>)</a>
     </div>
   </div>
+  <nav id="nav" class="nav" aria-label="${esc(L.nav.menu)}"><ul>${navHtml}<li class="nav__all"><a href="${r(`/${lang}/shop/`)}">${L.nav.all}</a></li></ul>
+    <div class="nav__lang">${langs}</div></nav>
 </header>
 <main id="main" tabindex="-1">
 ${body}
 </main>
 <footer class="ftr">
-  <div class="ftr__brand">${wordmarkSvg('wm wm--ftr')}<p class="ftr__sig">${site.signature}</p></div>
-  <div class="ftr__cols">
-    <div><h2>${f.shop}</h2><ul>
-      <li><a href="${r(`/${lang}/men/`)}">${L.nav.men}</a></li><li><a href="${r(`/${lang}/women/`)}">${L.nav.women}</a></li>
-      <li><a href="${r(`/${lang}/graphic-series/`)}">${L.nav.graphic}</a></li><li><a href="${r(`/${lang}/shop/`)}">${L.nav.all}</a></li>
-      <li><a href="${r(`/${lang}/about/`)}">${L.nav.about}</a></li></ul></div>
-    <div><h2>${f.help}</h2><ul>
-      <li><a href="${r(`/${lang}/faq/`)}">${f.faq}</a></li><li><a href="${r(`/${lang}/size-guide/`)}">${f.size}</a></li>
-      <li><a href="${info('shipping')}">${f.shipping}</a></li><li><a href="${info('returns')}">${f.returns}</a></li>
-      <li><a href="${r(`/${lang}/tracking/`)}">${f.tracking}</a></li><li><a href="${r(`/${lang}/contact/`)}">${f.contact}</a></li></ul></div>
-    <div><h2>${f.legal}</h2><ul>
-      <li><a href="${info('imprint')}">${f.imprint}</a></li><li><a href="${info('privacy')}">${f.privacy}</a></li>
-      <li><a href="${info('terms')}">${f.terms}</a></li><li><a href="${info('withdrawal')}">${f.withdrawal}</a></li>
-      <li><a href="${info('cookies')}">${f.cookies}</a></li><li><a href="${info('accessibility')}">${f.a11y}</a></li>
-      <li><button type="button" class="linkish" data-consent-open>${f.cookieSettings}</button></li></ul></div>
+  <div class="ftr__in">
+    <div class="ftr__brand">${wordmarkSvg('wm wm--ftr')}<p class="ftr__sig">${site.signature}</p>
+      <form class="ftr__nl" data-newsletter novalidate>
+        <label for="ftr-email">${L.newsletter.title}</label>
+        <div class="ftr__nlrow"><input id="ftr-email" name="email" type="email" autocomplete="email" required placeholder="${esc(L.newsletter.label)}"><button type="submit">${L.newsletter.button}</button></div>
+        <p class="small" data-ok hidden role="status">${L.newsletter.ok}</p><p class="small form-err" data-err hidden role="alert">${L.newsletter.err}</p>
+      </form></div>
+    <div class="ftr__cols">
+      <div><h2>${f.shop}</h2><ul>
+        <li><a href="${r(`/${lang}/men/`)}">${L.nav.men}</a></li><li><a href="${r(`/${lang}/women/`)}">${L.nav.women}</a></li>
+        <li><a href="${r(`/${lang}/graphic-series/`)}">${L.nav.graphic}</a></li><li><a href="${r(`/${lang}/shop/`)}">${L.nav.all}</a></li></ul></div>
+      <div><h2>${f.help}</h2><ul>
+        <li><a href="${r(`/${lang}/faq/`)}">${f.faq}</a></li><li><a href="${r(`/${lang}/size-guide/`)}">${f.size}</a></li>
+        <li><a href="${info('shipping')}">${f.shipping}</a></li><li><a href="${info('returns')}">${f.returns}</a></li>
+        <li><a href="${r(`/${lang}/tracking/`)}">${f.tracking}</a></li><li><a href="${r(`/${lang}/contact/`)}">${f.contact}</a></li></ul></div>
+      <div><h2>${f.company}</h2><ul>
+        <li><a href="${r(`/${lang}/about/`)}">${L.nav.about}</a></li>
+        <li><a href="${info('imprint')}">${f.imprint}</a></li><li><a href="${info('privacy')}">${f.privacy}</a></li>
+        <li><a href="${info('terms')}">${f.terms}</a></li><li><a href="${info('withdrawal')}">${f.withdrawal}</a></li>
+        <li><a href="${info('cookies')}">${f.cookies}</a></li><li><a href="${info('accessibility')}">${f.a11y}</a></li>
+        <li><button type="button" class="linkish" data-consent-open>${f.cookieSettings}</button></li></ul></div>
+    </div>
   </div>
-  <p class="ftr__small">© ${new Date().getFullYear()} Algebra · ${esc(site.operator.name)} · ${f.rights}</p>
+  <div class="ftr__base"><span>© ${new Date().getFullYear()} Algebra</span><span>${langs}</span></div>
 </footer>
 <div class="drawer" id="bag" role="dialog" aria-modal="true" aria-labelledby="bag-title" hidden>
   <div class="drawer__scrim" data-close-bag></div>
@@ -173,17 +185,18 @@ function write(path, html) {
 }
 
 // ------------------------------------------------------------------ components
-function card(lang, from, p, { eager = false } = {}) {
+function card(lang, from, p, { eager = false, color } = {}) {
   const L = t[lang];
-  const c = p.colors[0];
-  const views = p.line === 'graphic' ? ['back', 'front'] : ['front', 'back'];
-  const sw = p.colors.map((k) => `<span class="sw" style="--c:${colors[k].hex}" title="${esc(colors[k].name[lang])}"></span>`).join('');
+  const c = color || p.colors[0];
+  const views = viewsOf(p, c);
   const sizes = [...new Set((p.cuts ? p.cuts.flatMap((x) => x.sizes) : p.sizes))];
+  const sw = p.colors.map((k) => `<span class="sw" style="--c:${colors[k].hex}" title="${esc(colors[k].name[lang])}"></span>`).join('');
   return `<li class="card" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
   <a href="${rel(from, productPath(lang, p))}" class="card__a" data-track="select_item" data-id="${p.id}">
-    <div class="card__img">${picture(from, img(p, c, views[0]), `${displayName(p, lang)}, ${colors[c].name[lang]} (${L.product.mockup})`, { eager })}${picture(from, img(p, c, views[1]), '', { cls: 'card__alt' })}<span class="tag">MOCKUP</span></div>
-    <h3 class="card__name">${esc(displayName(p, lang))}</h3>
-    <p class="card__meta"><span>${p.status === 'PREVIEW' ? money(p.price, lang) : L.product.unavailable}</span><span class="sws" aria-label="${p.colors.length} ${esc(L.product.color)}">${sw}</span></p>
+    <div class="card__img">${picture(from, img(p, c, views[0]), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager })}${views[1] ? picture(from, img(p, c, views[1]), '', { cls: 'card__alt' }) : ''}</div>
+    <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>
+    <p class="card__price">${money(p.price, lang)}</p>
+    <p class="card__meta"><span class="sws" aria-hidden="true">${sw}</span><span>${L.premium.colorsCount(p.colors.length)}</span></p></div>
   </a></li>`;
 }
 
@@ -197,9 +210,9 @@ function collectionPage(lang, key) {
   const h1 = key === 'shop' ? L.nav.all : L.nav[collections[key].nav];
   const C = L.collection;
   const intro = key === 'graphic-series' ? `<p class="lead">${L.graphic.body}</p>` : key === 'women' ? `<p class="lead">${L.menwomen.body}</p>` : '';
-  const body = `<section class="wrap coll">
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="${rel(path, `/${lang}/`)}">${L.product.breadcrumbHome}</a> / <span aria-current="page">${esc(h1)}</span></nav>
-  <h1 class="h1">${esc(h1)}</h1>${intro}
+  const body = `<section class="coll">
+  <header class="coll__hd wrap"><h1 class="coll__h">${esc(h1)}</h1>${intro}</header>
+  <div class="wrap">
   <form class="filters" data-filters aria-label="${esc(C.filter)}">
     <fieldset><legend>${C.color}</legend><div class="chips">${allColors.map((c) => `<label class="chip"><input type="checkbox" name="color" value="${c}"><span class="sw" style="--c:${colors[c].hex}"></span>${esc(colors[c].name[lang])}</label>`).join('')}</div></fieldset>
     <fieldset><legend>${C.size}</legend><div class="chips">${allSizes.map((s) => `<label class="chip"><input type="checkbox" name="size" value="${s}">${s}</label>`).join('')}</div></fieldset>
@@ -207,8 +220,9 @@ function collectionPage(lang, key) {
     <button type="reset" class="linkish">${C.reset}</button>
     <p class="count" aria-live="polite" data-count data-template="${esc(C.count(0)).replace('0', '{n}')}">${C.count(list.length)}</p>
   </form>
-  <ul class="grid" data-grid>${list.map((p, i) => card(lang, path, p, { eager: i < 2 })).join('')}</ul>
+  <ul class="grid" data-grid>${list.map((p, i) => card(lang, path, p, { eager: i < 4 })).join('')}</ul>
   <p class="empty" data-empty hidden>${C.empty}</p>
+  </div>
 </section>`;
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: L.product.breadcrumbHome, item: abs(`/${lang}/`) }, { '@type': 'ListItem', position: 2, name: h1, item: abs(path) }] },
@@ -224,22 +238,22 @@ function productPage(lang, p) {
   const r = (to) => rel(path, to);
   const cuts = p.cuts || [{ id: '', blank: p.blank, sizes: p.sizes, name: null }];
   const variants = variantsOf(p).map((v) => ({ sku: v.sku, cut: v.cut || '', color: v.color, size: v.size, ok: v.purchasable }));
-  const views = p.line === 'graphic' ? ['back', 'front'] : ['front', 'back'];
   const gallery = p.colors
     .map(
-      (c, ci) => `<div class="gal__set" data-color="${c}"${ci ? ' hidden' : ''}>${views
-        .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${displayName(p, lang)}, ${colors[c].name[lang]}, ${v === 'front' ? 'front' : 'back'} (${P.mockup})`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 50vw, 100vw' })}<figcaption>MOCKUP · ${esc(P.mockup)}</figcaption></figure>`)
+      (c, ci) => `<div class="gal__set" data-color="${c}"${ci ? ' hidden' : ''}>${viewsOf(p, c)
+        .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 33vw, 100vw' })}</figure>`)
         .join('')}</div>`,
     )
     .join('');
-  const conceptKey = p.line === 'graphic' ? `gs-${p.graphic}` : { polos: 'detail-polo', 't-shirts': 'detail-tee', sweaters: 'detail-crew' }[p.category];
-  const concept = conceptKey ? `<figure class="gal__fig gal__fig--concept">${conceptPic(path, conceptKey, `${P.concept}`)}<figcaption>CONCEPT · ${esc(P.concept)}</figcaption></figure>` : '';
+  // no reference/AI image on product pages: only images of the actual design
+  const conceptKey = null;
+  const concept = conceptKey && existsSync(join(root, 'site', 'assets', 'concept', `${conceptKey}.webp`)) ? `<figure class="gal__fig gal__fig--wide">${conceptPic(path, conceptKey, displayName(p, lang))}</figure>` : '';
   const b = blanks[p.blank];
   const composition = p.cuts ? p.cuts.map((c) => `${c.name[lang]}: ${blanks[c.blank].composition[lang]}, ${blanks[c.blank].gsm} g/m²`).join(' · ') : `${b.composition[lang]}${typeof b.gsm === 'number' ? `, ${b.gsm} g/m²` : ''}`;
   const blankLabel = p.cuts ? p.cuts.map((c) => blanks[c.blank].label).join(' · ') : b.label;
   const buyable = p.status === 'PREVIEW';
   const acc = (title, html, open = false) => `<details${open ? ' open' : ''}><summary>${esc(title)}</summary><div class="acc__bd">${html}</div></details>`;
-  const related = products.filter((x) => x.id !== p.id && x.status === 'PREVIEW' && (x.gender === p.gender || x.gender === 'unisex' || p.gender === 'unisex') && x.category !== p.category).slice(0, 3);
+  const related = [...products.filter((x) => x.id !== p.id && x.line !== p.line), ...products.filter((x) => x.id !== p.id && x.line === p.line)].slice(0, 4);
   const vat = P.vat[site.vatMode];
   const body = `<article class="pdp wrap" data-product="${p.id}" data-name="${esc(displayName(p, lang))}" data-price="${p.price}" data-cat="${p.category}">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="${r(`/${lang}/`)}">${P.breadcrumbHome}</a> / <a href="${r(`/${lang}/${p.gender === 'women' ? 'women' : p.line === 'graphic' ? 'graphic-series' : 'men'}/`)}">${p.gender === 'women' ? L.nav.women : p.line === 'graphic' ? L.nav.graphic : L.nav.men}</a> / <span aria-current="page">${esc(displayName(p, lang))}</span></nav>
@@ -247,7 +261,7 @@ function productPage(lang, p) {
     <div class="gal" data-gallery>${gallery}${concept}</div>
     <div class="buy">
       <div class="buy__sticky">
-        ${p.capsule ? `<p class="kicker">Graphic Series · ${p.capsule}</p>` : `<p class="kicker">The Essentials</p>`}
+        ${p.capsule ? `<p class="kicker">${esc(p.capsule)}</p>` : `<p class="kicker">The Essentials</p>`}
         <h1 class="h1 buy__name">${esc(displayName(p, lang))}</h1>
         <p class="buy__price">${buyable ? money(p.price, lang) : P.unavailable}</p>
         ${buyable ? `<p class="small muted">${esc(vat)} <a href="${r(`/${lang}/info/shipping/`)}">${P.plusShip}</a></p>` : ''}
@@ -260,15 +274,11 @@ function productPage(lang, p) {
           <p class="form-err" data-err role="alert" hidden>${P.chooseSize}</p>
           ${buyable ? `<button class="btn btn--solid btn--block" type="submit">${P.add}</button>` : `<p class="notice">${esc(P.notifyBody)}</p><a class="btn btn--line btn--block" href="${r(`/${lang}/#newsletter`)}">Newsletter</a>`}
         </form>
-        <dl class="facts">
-          <div><dt>${P.delivery}</dt><dd>${esc(shipping.zones.DE.deliveryDays === 'TO VERIFY' ? P.deliveryText : shipping.zones.DE.deliveryDays)}</dd></div>
-          <div><dt>${P.model}</dt><dd>${esc(P.modelText)}</dd></div>
-          <div><dt>${P.composition}</dt><dd>${esc(composition)}</dd></div>
-        </dl>
+        <ul class="perks"><li>${esc(P.deliveryText)}</li><li>${esc(L.trust.returns[0])}</li><li>${esc(L.premium.germany[0])}</li></ul>
         <div class="acc">
           ${p.symbol ? acc(P.symbol, `<p class="symbol-eq">${mathHtml(p.equation || p.symbol.glyph)}</p><p>${mathHtml(p.symbol[lang])}</p>`, true) : ''}
           ${acc(P.fit, `<p>${esc(p.copy.fit[lang])}</p><p><a href="${r(`/${lang}/size-guide/`)}">${P.sizeGuide}</a></p>`, !p.symbol)}
-          ${acc(P.fabric, `<p>${esc(p.copy.fabric[lang])}</p><p class="small muted">${P.blank}: ${esc(blankLabel)}</p>`)}
+          ${acc(P.fabric, `<p>${esc(p.copy.fabric[lang])}</p><p>${P.composition}: ${esc(composition)}</p><p class="small muted">${esc(L.premium.similar)}</p>`)}
           ${acc(P.detail, `<p>${esc(p.copy.detail[lang])}</p>`)}
           ${acc(P.design, `<p>${esc(p.copy.design[lang])}</p>`)}
           ${acc(P.care, `<p>${esc(p.care[lang])}</p>`)}
@@ -278,7 +288,7 @@ function productPage(lang, p) {
       </div>
     </div>
   </div>
-  ${related.length ? `<section class="related"><h2 class="h2">${P.also}</h2><ul class="grid grid--3">${related.map((x) => card(lang, path, x)).join('')}</ul></section>` : ''}
+  ${related.length ? `<section class="related"><h2 class="h2">${P.also}</h2><ul class="grid">${related.map((x) => card(lang, path, x)).join('')}</ul></section>` : ''}
   <script type="application/json" data-variants>${JSON.stringify(variants)}</script>
 </article>`;
   const offers = buyable
@@ -303,7 +313,7 @@ function productPage(lang, p) {
       description: p.copy.lead[lang],
       material: composition,
       color: p.colors.map((c) => colors[c].name[lang]).join(', '),
-      image: [abs(`/${img(p, p.colors[0], views[0])}.webp`)],
+      image: viewsOf(p, p.colors[0]).map((v) => abs(`/${img(p, p.colors[0], v)}.jpg`)),
       ...(offers ? { offers } : {}),
     },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: P.breadcrumbHome, item: abs(`/${lang}/`) }, { '@type': 'ListItem', position: 2, name: displayName(p, lang), item: abs(path) }] },
@@ -311,96 +321,76 @@ function productPage(lang, p) {
   write(path, layout(lang, { path, key: 'product', title: `${displayName(p, lang)} · Algebra`, desc: p.copy.lead[lang], body, jsonld }));
 }
 
+/** A photo from site/assets/photos (no -400 variant needed). */
+function photo(from, name, alt, { w, h, eager = false, cls = '', sizes = '100vw' } = {}) {
+  const r = (x) => rel(from, '/' + x);
+  return `<picture class="${cls}"><source type="image/avif" srcset="${r(`assets/photos/${name}.avif`)}"><source type="image/webp" srcset="${r(`assets/photos/${name}.webp`)}" sizes="${sizes}"><img src="${r(`assets/photos/${name}.jpg`)}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
+}
+
 function home(lang) {
   const L = t[lang];
+  const M = L.premium;
   const path = `/${lang}/`;
   const r = (to) => rel(path, to);
-  const ess = ['ALG-M-POLO', 'ALG-M-TEE', 'ALG-M-CREW'].map((id) => products.find((p) => p.id === id));
+  const byId = (id) => products.find((p) => p.id === id);
+  const ess = ['ALG-M-POLO', 'ALG-M-TEE', 'ALG-M-CREW', 'ALG-W-TEE'].map(byId).filter(Boolean);
   const gfx = products.filter((p) => p.line === 'graphic');
-  const det = [
-    ['detail-polo', L.details.items[0]],
-    ['detail-button', L.details.items[2]],
-    ['detail-tee', L.details.items[4]],
-    ['detail-crew', L.details.items[3]],
-    ['detail-label', L.details.items[5]],
-  ];
+  const rail = ['ALG-G-02-BLACKHOLE', 'ALG-G-01-NAVIERSTOKES', 'ALG-G-11-HIGGS', 'ALG-G-12-BIGBANG'].map(byId).filter(Boolean);
+  const tile = (href, name, label, alt) => `<a class="tile" href="${r(href)}">${photo(path, name, alt, { w: 800, h: 1000, sizes: '(min-width: 768px) 33vw, 100vw' })}<span class="tile__label">${esc(label)}<span class="tile__cta">${esc(M.tiles.shop)}</span></span></a>`;
   const T = L.trust;
   const body = `
 <section class="hero">
-  ${conceptPic(path, 'editorial-pair', L.product.concept, { eager: true, cls: 'hero__img' })}
+  ${photo(path, 'campaign-graphic', M.campaign[1], { w: 1122, h: 1030, eager: true, cls: 'hero__img' })}
   <div class="hero__txt">
-    <h1 class="hero__h">${wordmarkSvg('wm wm--hero')}<span class="vh">Algebra</span></h1>
-    <p class="hero__sig">${site.signature}</p>
-    <p class="hero__line">${esc(L.hero.line)}</p>
-    <div class="hero__cta"><a class="btn btn--solid" href="${r(`/${lang}/men/`)}">${L.hero.men}</a><a class="btn btn--line" href="${r(`/${lang}/women/`)}">${L.hero.women}</a></div>
-  </div>
-  <p class="hero__flag">CONCEPT · ${esc(L.product.concept)}</p>
-</section>
-
-<section class="eq wrap">
-  <p class="kicker">${L.equation.kicker}</p>
-  <div class="eq__grid">
-    <div class="eq__sym">${symbolSvg('sym sym--xl', 'Algebra symbol')}</div>
-    <div><h2 class="h2">${L.equation.title}</h2>${L.equation.body.map((x) => `<p>${esc(x)}</p>`).join('')}</div>
+    <p class="hero__kicker">${esc(M.campaign[0])}</p>
+    <h1 class="hero__h">${esc(M.campaign[1])}</h1>
+    <p class="hero__line">${esc(M.campaign[2])}</p>
+    <p class="hero__links"><a href="${r(`/${lang}/graphic-series/`)}">${esc(M.campaign[3])}</a></p>
   </div>
 </section>
 
-<section class="wrap ess">
-  <header class="sec-hd"><p class="kicker">${L.essentials.kicker}</p><h2 class="h2">${L.essentials.title}</h2><p class="muted">${L.essentials.body}</p></header>
-  <ul class="grid grid--3">${ess.map((p) => card(lang, path, p)).join('')}</ul>
+<section class="tiles wrap" aria-label="${esc(L.nav.menu)}">
+  ${tile(`/${lang}/men/`, 'the-polo-men-deep-navy-front', M.tiles.men, M.tiles.men)}
+  ${tile(`/${lang}/women/`, 'the-crew-men-ivory-front', M.tiles.women, M.tiles.women)}
+  ${tile(`/${lang}/graphic-series/`, 'black-hole-black-back', M.tiles.graphic, M.tiles.graphic)}
 </section>
 
-<section class="mw">
-  <a class="mw__half mw__half--men" href="${r(`/${lang}/men/`)}"><span class="kicker">${L.menwomen.kicker}</span><span class="mw__t">${L.menwomen.men}</span></a>
-  <a class="mw__half mw__half--women" href="${r(`/${lang}/women/`)}"><span class="kicker">&nbsp;</span><span class="mw__t">${L.menwomen.women}</span></a>
-  <p class="mw__note wrap">${esc(L.menwomen.title)} ${esc(L.menwomen.body)}</p>
+<section class="rail">
+  <header class="rail__hd wrap"><h2 class="sec-t">${esc(M.rail)}</h2><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(L.graphic.cta)}</a></header>
+  <ul class="grid grid--rail wrap">${rail.map((p) => card(lang, path, p)).join('')}</ul>
 </section>
 
-<section class="gs">
-  <div class="wrap">
-    <header class="sec-hd sec-hd--inv"><p class="kicker">${L.graphic.kicker}</p><h2 class="h2">${L.graphic.title}</h2><p>${L.graphic.body}</p></header>
-    <ul class="gs__list">${gfx
-      .map(
-        (p) => `<li><a href="${r(productPath(lang, p))}" data-track="graphic_series_view" data-id="${p.id}">${picture(path, img(p, p.colors[0], 'back'), `${p.name[lang]} (${L.product.mockup})`)}<span class="gs__name">${p.name[lang]}</span><span class="gs__field">${esc(p.field[lang])}</span></a></li>`,
-      )
-      .join('')}</ul>
-    <p><a class="btn btn--ivory" href="${r(`/${lang}/graphic-series/`)}">${L.graphic.cta}</a></p>
+<section class="split">
+  <div class="split__img">${photo(path, 'campaign-essentials', M.essentials[0], { w: 780, h: 810, sizes: '(min-width: 1024px) 50vw, 100vw' })}</div>
+  <div class="split__txt">
+    <p class="kicker">${esc(M.essentials[0])}</p>
+    <h2 class="split__h">${esc(M.essentials[1])}</h2>
+    <p>${esc(M.essentials[2])}</p>
+    <p><a class="btn btn--solid" href="${r(`/${lang}/shop/`)}">${esc(M.essentials[3])}</a></p>
   </div>
 </section>
 
-<section class="wrap det">
-  <header class="sec-hd"><p class="kicker">${L.details.kicker}</p><h2 class="h2">${L.details.title}</h2></header>
-  <ul class="det__grid">${det.map(([k, label]) => `<li><figure>${conceptPic(path, k, `${label}. ${L.product.concept}`)}<figcaption>${esc(label)}</figcaption></figure></li>`).join('')}
-    <li><figure class="det__sym">${symbolSvg('sym', '')}<figcaption>${esc(L.details.items[1])}</figcaption></figure></li></ul>
-  <p class="small muted">CONCEPT · ${esc(L.product.concept)}</p>
+<section class="rail">
+  <header class="rail__hd wrap"><h2 class="sec-t">${esc(L.essentials.title)}</h2><a class="more" href="${r(`/${lang}/shop/`)}">${esc(L.nav.all)}</a></header>
+  <ul class="grid grid--rail wrap">${ess.map((p) => card(lang, path, p)).join('')}</ul>
 </section>
 
-<section class="life">
-  <div class="life__in wrap">
-    <figure class="life__fig">${conceptPic(path, 'lifestyle-graphic', L.product.concept)}<figcaption>CONCEPT · ${esc(L.product.concept)}</figcaption></figure>
-    <blockquote class="life__q"><p>${esc(L.lifestyle.quote)}</p></blockquote>
+<section class="story">
+  <div class="story__in">
+    ${symbolSvg('sym story__sym', '')}
+    <h2 class="story__h">${esc(M.story[0])}</h2>
+    <p>${esc(M.story[1])}</p>
+    <p><a class="more more--inv" href="${r(`/${lang}/about/`)}">${esc(M.story[2])}</a></p>
   </div>
 </section>
 
-<section class="wrap next">
-  <p class="kicker">${L.next.kicker}</p><h2 class="h2">${L.next.title}</h2><p class="muted">${L.next.body}</p>
-  <p class="next__glyphs" aria-hidden="true"><span>ψ</span><span>γ</span><span>∞</span></p>
+<section class="gs-all wrap">
+  <header class="rail__hd"><h2 class="sec-t">${esc(L.graphic.title)}</h2><p class="muted">${esc(L.graphic.body)}</p></header>
+  <ul class="grid">${gfx.map((p) => card(lang, path, p)).join('')}</ul>
 </section>
 
 <section class="trust wrap" aria-label="Service">
-  ${[T.made, T.ship, T.returns, T.pay].map(([h, b]) => `<div><h3>${esc(h)}</h3><p>${esc(b)}</p></div>`).join('')}
-</section>
-
-<section class="nl" id="newsletter">
-  <div class="wrap nl__in">
-    <h2 class="h2">${L.newsletter.title}</h2><p>${L.newsletter.body}</p>
-    <form class="nl__form" data-newsletter novalidate>
-      <label for="nl-email">${L.newsletter.label}</label>
-      <div class="nl__row"><input id="nl-email" name="email" type="email" autocomplete="email" required><button class="btn btn--solid" type="submit">${L.newsletter.button}</button></div>
-      <p class="small muted">${L.newsletter.consent}</p>
-      <p class="small" data-ok hidden role="status">${L.newsletter.ok}</p><p class="small form-err" data-err hidden role="alert">${L.newsletter.err}</p>
-    </form>
-  </div>
+  ${[M.germany, T.ship, T.returns, T.pay].map(([h, b]) => `<div><h3>${esc(h)}</h3><p>${esc(b)}</p></div>`).join('')}
 </section>`;
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'Organization', name: 'Algebra', url: abs('/'), logo: abs('/favicon.svg'), slogan: site.signature },
@@ -535,7 +525,7 @@ writeFileSync(join(dist, 'robots.txt'), PREVIEW ? `# Preview: pages carry noinde
 }
 
 // static assets
-cpSync(join(root, 'site', 'assets'), join(dist, 'assets'), { recursive: true, filter: (s) => !s.endsWith('.svg') || !s.includes('/mockups/') });
+cpSync(join(root, 'site', 'assets'), join(dist, 'assets'), { recursive: true, filter: (s) => !s.includes('/mockups') });
 cpSync(join(root, 'brand', 'favicon.svg'), join(dist, 'favicon.svg'));
 mkdirSync(join(dist, 'assets', 'fonts'), { recursive: true });
 for (const [pkg, file] of [
@@ -546,5 +536,5 @@ for (const [pkg, file] of [
 ]) {
   cpSync(join(root, 'node_modules', '@fontsource', pkg, 'files', file), join(dist, 'assets', 'fonts', file));
 }
-if (!existsSync(join(dist, 'assets', 'og.jpg'))) cpSync(join(root, 'site', 'assets', 'concept', 'editorial-pair.jpg'), join(dist, 'assets', 'og.jpg'));
+cpSync(join(root, 'site', 'assets', 'photos', 'hero.jpg'), join(dist, 'assets', 'og.jpg'));
 console.log(`build ok · mode=${site.mode} · ${LANGS.length} languages · ${products.length} products → dist/`);

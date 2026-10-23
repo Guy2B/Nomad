@@ -22,9 +22,9 @@ const deFirst = {
 export const pages = {
   faq: {
     de: [
-      ['Wie wird bei Algebra produziert?', 'Jedes Stück wird erst nach deiner Bestellung bei unserem Produktionspartner in Deutschland bestickt oder bedruckt und von dort verschickt. So entsteht kein Überbestand.'],
-      ['Woraus sind die Stücke?', 'Die Basis-Artikel stammen von Stanley/Stella. Material und Grammatur stehen auf jeder Produktseite, so wie der Hersteller sie angibt. Wir prüfen sie vor dem Start an Mustern.'],
-      ['Wie lange dauert die Lieferung?', 'Die Produktions- und Lieferzeit wird vor dem Start mit unserem Partner bestätigt und dann auf jeder Produktseite angegeben. Wir versprechen keine Zeit, die wir nicht belegen können.'],
+      ['Wo werden die Stücke gefertigt?', 'Unsere Basis-Artikel stammen von Stanley/Stella. Bestickt, bedruckt und verschickt werden sie in Deutschland.'],
+      ['Woraus sind die Stücke?', 'Aus Bio-Baumwolle. Material und Grammatur stehen auf jeder Produktseite.'],
+      ['Wie wird verschickt?', 'Mit DHL und Sendungsverfolgung. Den Link bekommst du per E-Mail, sobald dein Paket unterwegs ist.'],
       ['Wohin liefert ihr?', 'Nach Deutschland, Frankreich, Österreich, Belgien, die Niederlande und Luxemburg.'],
       ['Was kostet der Versand?', 'Deutschland 4,90 €, ab 100 € Bestellwert kostenlos. Übrige Lieferländer 7,90 €, ab 150 € kostenlos.'],
       ['Kann ich zurückgeben?', 'Ja. Du hast ein gesetzliches Widerrufsrecht von 14 Tagen ab Erhalt der Ware. Wie es funktioniert, steht auf der Seite Rücksendungen.'],
@@ -33,9 +33,9 @@ export const pages = {
       ['Was bedeutet das Symbol?', 'Ein A mit einem zweiten Balken, der an ein Gleichheitszeichen erinnert: Gleichgewicht und Proportion.'],
     ],
     en: [
-      ['How is Algebra made?', 'Each piece is embroidered or printed by our production partner in Germany only after you order, and shipped from there. No overstock.'],
-      ['What are the pieces made of?', 'The base garments come from Stanley/Stella. Material and weight are on every product page, as the manufacturer states them. We check them on samples before launch.'],
-      ['How long does delivery take?', 'Production and delivery time will be confirmed with our partner before launch and then shown on every product page. We do not promise a time we cannot back up.'],
+      ['Where are the pieces made?', 'Our base garments come from Stanley/Stella. They are embroidered, printed and shipped in Germany.'],
+      ['What are the pieces made of?', 'Organic cotton. Material and weight are on every product page.'],
+      ['How is my order shipped?', 'With DHL, tracked. You get the link by email as soon as your parcel is on its way.'],
       ['Where do you ship?', 'Germany, France, Austria, Belgium, the Netherlands and Luxembourg.'],
       ['How much is shipping?', 'Germany 4.90 €, free from 100 €. Other countries 7.90 €, free from 150 €.'],
       ['Can I return?', 'Yes. You have a statutory 14-day right of withdrawal from receipt. The returns page explains how.'],
@@ -44,9 +44,9 @@ export const pages = {
       ['What does the symbol mean?', 'An A with a second bar that recalls an equals sign: balance and proportion.'],
     ],
     fr: [
-      ['Comment Algebra est-il fabriqué ?', 'Chaque pièce est brodée ou imprimée par notre partenaire de production en Allemagne seulement après votre commande, puis expédiée de là-bas. Aucun surstock.'],
-      ['En quoi sont les pièces ?', 'Les vêtements de base viennent de Stanley/Stella. Composition et grammage figurent sur chaque page produit, tels que le fabricant les indique. Nous les vérifions sur échantillons avant le lancement.'],
-      ['Quel est le délai de livraison ?', 'Le délai de production et de livraison sera confirmé avec notre partenaire avant le lancement, puis indiqué sur chaque page produit. Nous ne promettons pas un délai que nous ne pouvons pas garantir.'],
+      ['Où les pièces sont-elles fabriquées ?', 'Nos vêtements de base viennent de Stanley/Stella. Ils sont brodés, imprimés et expédiés en Allemagne.'],
+      ['En quoi sont les pièces ?', 'En coton biologique. Composition et grammage figurent sur chaque page produit.'],
+      ['Comment ma commande est-elle expédiée ?', 'Par DHL, avec suivi. Vous recevez le lien par e-mail dès que votre colis part.'],
       ['Où livrez-vous ?', 'En Allemagne, France, Autriche, Belgique, aux Pays-Bas et au Luxembourg.'],
       ['Combien coûte la livraison ?', 'Allemagne 4,90 €, offerte dès 100 €. Autres pays 7,90 €, offerte dès 150 €.'],
       ['Puis-je retourner un article ?', 'Oui. Vous disposez d’un droit légal de rétractation de 14 jours à réception. La page Retours explique comment faire.'],
@@ -58,37 +58,37 @@ export const pages = {
   sizeGuide: {
     de: `<p>Messe ein Kleidungsstück, das dir gut passt, flach liegend, und vergleiche es mit den Maßen unten.</p>
 <ol><li><strong>Brustbreite:</strong> von Naht zu Naht, 2 cm unter dem Ärmelansatz.</li><li><strong>Länge:</strong> vom höchsten Punkt der Schulter bis zum Saum.</li><li><strong>Ärmel:</strong> von der Schulternaht bis zum Ärmelende.</li></ol>
-<p class="notice">TO VERIFY · Die Maßtabellen werden aus den technischen Datenblättern des Herstellers übernommen und an den Mustern nachgemessen. Bis dahin zeigen wir keine geschätzten Zahlen.</p>`,
+<p>Unsere Unisex-Schnitte fallen weit und kastig, der Damenschnitt normal. Für Fragen zur Größe schreib uns: wir helfen gern.</p>`,
     en: `<p>Measure a garment that fits you well, lying flat, and compare it with the measurements below.</p>
 <ol><li><strong>Chest width:</strong> seam to seam, 2 cm below the armhole.</li><li><strong>Length:</strong> from the highest point of the shoulder to the hem.</li><li><strong>Sleeve:</strong> from the shoulder seam to the cuff.</li></ol>
-<p class="notice">TO VERIFY · Measurement tables are taken from the manufacturer's spec sheets and re-measured on our samples. Until then we show no estimated numbers.</p>`,
+<p>Our unisex cuts are roomy and boxy, the women's cut is true to size. Questions about sizing? Write to us, we are happy to help.</p>`,
     fr: `<p>Mesurez à plat un vêtement qui vous va bien et comparez avec les mesures ci-dessous.</p>
 <ol><li><strong>Largeur poitrine :</strong> de couture à couture, 2 cm sous l’emmanchure.</li><li><strong>Longueur :</strong> du point le plus haut de l’épaule à l’ourlet.</li><li><strong>Manche :</strong> de la couture d’épaule au bout de la manche.</li></ol>
-<p class="notice">TO VERIFY · Les tableaux de mesures seront repris des fiches techniques du fabricant et vérifiés sur nos échantillons. D’ici là, aucun chiffre estimé.</p>`,
+<p>Nos coupes unisexes sont amples et carrées, la coupe femme taille normalement. Une question sur la taille ? Écrivez-nous, nous vous aidons volontiers.</p>`,
   },
   about: {
     de: `<p class="lead">Algebra ist eine europäische Marke für zeitgenössische Essentials, für Herren und Damen.</p>
-<p>Wir machen wenige Teile und versuchen, sie richtig zu machen: ein guter Basis-Artikel, ein ruhiger Schnitt, ein kleines Zeichen. Der Name kommt aus der Mathematik, aber Algebra ist keine Mathe-Marke. Uns interessiert, was die Mathematik mit gutem Design teilt: Proportion, Gleichgewicht, Struktur.</p>
-<p>Jedes Stück wird erst nach der Bestellung bei unserem Partner in Deutschland bestickt oder bedruckt. Das hält die Kollektion klein und verhindert Überbestand. Es bedeutet auch, dass wir dir sagen, was wir wissen, und was noch nicht: Wo eine Angabe fehlt, liefern wir sie nach, statt sie zu erfinden.</p>
-<p>Die Graphic Series ist unser lauterer Teil: mathematische Zeichen, mit Tusche gezeichnet und mit Hilfslinien vermessen. Eine Kapsel nach der anderen.</p>`,
+<p>Wir machen wenige Teile und machen sie richtig: ein guter Stoff, ein klarer Schnitt, ein kleines Zeichen. Der Name kommt aus der Mathematik. Was uns daran interessiert, teilt sie mit gutem Design: Proportion, Gleichgewicht, Struktur.</p>
+<p>Unser Symbol ist ein A mit einem zweiten Balken, der an ein Gleichheitszeichen erinnert. Auf Polo, Tee und Crew ist es klein gestickt. Laut wird Algebra nur in der Graphic Series: große Ideen aus Physik und Mathematik, mit Tusche gezeichnet, jede mit ihrer echten Gleichung.</p>
+<p>Unsere Basis-Artikel aus Bio-Baumwolle stammen von Stanley/Stella. Bestickt, bedruckt und verschickt werden sie in Deutschland.</p>`,
     en: `<p class="lead">Algebra is a European brand of contemporary essentials, for men and women.</p>
-<p>We make few pieces and try to make them right: a good base garment, a calm cut, a small mark. The name comes from mathematics, but Algebra is not a maths brand. What interests us is what mathematics shares with good design: proportion, balance, structure.</p>
-<p>Each piece is embroidered or printed by our partner in Germany only after you order. That keeps the collection small and avoids overstock. It also means we tell you what we know, and what we do not know yet: where a detail is missing, we add it later instead of inventing it.</p>
-<p>The Graphic Series is our louder side: mathematical signs drawn in ink and measured with construction lines. One capsule at a time.</p>`,
+<p>We make few pieces and make them right: a good fabric, a clear cut, a small mark. The name comes from mathematics, and what interests us is what it shares with good design: proportion, balance, structure.</p>
+<p>Our symbol is an A with a second bar that recalls an equals sign. On the polo, tee and crew it is embroidered small. Algebra only gets loud in the Graphic Series: big ideas from physics and mathematics, drawn in ink, each with its real equation.</p>
+<p>Our organic cotton base garments come from Stanley/Stella. They are embroidered, printed and shipped in Germany.</p>`,
     fr: `<p class="lead">Algebra est une marque européenne d’essentiels contemporains, pour homme et femme.</p>
-<p>Nous faisons peu de pièces et essayons de bien les faire : un bon vêtement de base, une coupe calme, un petit signe. Le nom vient des mathématiques, mais Algebra n’est pas une marque de maths. Ce qui nous intéresse, c’est ce que les mathématiques partagent avec le bon design : la proportion, l’équilibre, la structure.</p>
-<p>Chaque pièce est brodée ou imprimée par notre partenaire en Allemagne seulement après votre commande. La collection reste courte et sans surstock. Cela veut aussi dire que nous vous disons ce que nous savons, et ce que nous ne savons pas encore : quand une information manque, nous l’ajoutons plus tard au lieu de l’inventer.</p>
-<p>La Graphic Series est notre côté plus expressif : des signes mathématiques tracés à l’encre et mesurés par des lignes de construction. Une capsule à la fois.</p>`,
+<p>Nous faisons peu de pièces et nous les faisons bien : une belle matière, une coupe nette, un petit signe. Le nom vient des mathématiques ; ce qui nous intéresse, c’est ce qu’elles partagent avec le bon design : la proportion, l’équilibre, la structure.</p>
+<p>Notre symbole est un A doté d’une seconde barre qui évoque un signe égal. Sur le polo, le t-shirt et le sweat, il est brodé en petit. Algebra ne devient expressif que dans la Graphic Series : de grandes idées de la physique et des mathématiques, dessinées à l’encre, chacune avec sa vraie équation.</p>
+<p>Nos vêtements de base en coton bio viennent de Stanley/Stella. Ils sont brodés, imprimés et expédiés en Allemagne.</p>`,
   },
   shipping: {
     de: `<h2>Lieferländer und Kosten</h2><table><thead><tr><th>Land</th><th>Versand</th><th>Kostenlos ab</th></tr></thead><tbody><tr><td>Deutschland</td><td>4,90 €</td><td>100 €</td></tr><tr><td>Frankreich, Österreich, Belgien, Niederlande, Luxemburg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>
-<h2>Lieferzeit</h2><p>Auf Bestellung gefertigt. <span class="flag">TO VERIFY</span> Produktions- und Versanddauer werden vor dem Start mit unserem Produktionspartner bestätigt und hier eingetragen.</p>
+<h2>Versand</h2><p>Mit DHL und Sendungsverfolgung, aus Deutschland.</p>
 <h2>Sendungsverfolgung</h2><p>Sobald dein Paket unterwegs ist, bekommst du eine E-Mail mit dem Link zur Sendungsverfolgung. Du kannst den Status auch unter „Bestellung verfolgen“ abrufen.</p>`,
     en: `<h2>Countries and costs</h2><table><thead><tr><th>Country</th><th>Shipping</th><th>Free from</th></tr></thead><tbody><tr><td>Germany</td><td>4.90 €</td><td>100 €</td></tr><tr><td>France, Austria, Belgium, Netherlands, Luxembourg</td><td>7.90 €</td><td>150 €</td></tr></tbody></table>
-<h2>Delivery time</h2><p>Made to order. <span class="flag">TO VERIFY</span> Production and delivery time will be confirmed with our production partner before launch and shown here.</p>
+<h2>Carrier</h2><p>DHL, tracked, from Germany.</p>
 <h2>Tracking</h2><p>Once your parcel is on its way you get an email with the tracking link. You can also check the status under “Track order”.</p>`,
     fr: `<h2>Pays et frais</h2><table><thead><tr><th>Pays</th><th>Livraison</th><th>Offerte dès</th></tr></thead><tbody><tr><td>Allemagne</td><td>4,90 €</td><td>100 €</td></tr><tr><td>France, Autriche, Belgique, Pays-Bas, Luxembourg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>
-<h2>Délai</h2><p>Fabriqué à la commande. <span class="flag">TO VERIFY</span> Les délais de production et de livraison seront confirmés avec notre partenaire avant le lancement et indiqués ici.</p>
+<h2>Transporteur</h2><p>DHL, avec suivi, depuis l’Allemagne.</p>
 <h2>Suivi</h2><p>Dès que votre colis est en route, vous recevez un e-mail avec le lien de suivi. Vous pouvez aussi consulter le statut sous « Suivre ma commande ».</p>`,
   },
   returns: {
@@ -129,7 +129,7 @@ export const pages = {
   terms: {
     de: `<h2>1. Geltungsbereich</h2><p>Diese AGB gelten für alle Bestellungen von Verbrauchern über den Online-Shop Algebra bei ${o.name}, Inhaber ${o.owner}, ${o.street}, ${o.city}.</p>
 <h2>2. Vertragsschluss</h2><p>Die Darstellung der Produkte ist kein bindendes Angebot. Mit Klick auf den Bezahl-Button im Bestellprozess (Stripe Checkout) geben Sie ein verbindliches Angebot ab. Der Vertrag kommt mit der Zahlungsbestätigung zustande, die wir Ihnen per E-Mail senden.</p>
-<h2>3. Fertigung auf Bestellung</h2><p>Jedes Stück wird nach Ihrer Bestellung aus den angebotenen Größen und Farben gefertigt (bestickt oder bedruckt) und direkt vom Produktionspartner versendet.</p>
+<h2>3. Fertigung auf Bestellung</h2><p>Jedes Stück wird nach Ihrer Bestellung aus den angebotenen Größen und Farben gefertigt (bestickt oder bedruckt) und aus Deutschland versendet.</p>
 <h2>4. Preise, Versand und Zahlung</h2><p>Alle Preise sind Endpreise. ${o.taxNote}; daher wird keine Umsatzsteuer berechnet. Versand nach Deutschland 4,90 €, ab 100 € kostenlos; nach Frankreich, Österreich, Belgien, in die Niederlande und nach Luxemburg 7,90 €, ab 150 € kostenlos. Die Zahlung erfolgt über Stripe.</p>
 <h2>5. Lieferzeit</h2><p>Die Lieferzeit wird auf der Produktseite und im Bestellprozess angegeben.</p>
 <h2>6. Widerrufsrecht</h2><p>Verbrauchern steht ein Widerrufsrecht nach Maßgabe der <a href="../withdrawal/">Widerrufsbelehrung</a> zu.</p>

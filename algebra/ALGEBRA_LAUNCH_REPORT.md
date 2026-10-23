@@ -21,7 +21,7 @@ Nothing here is "ready" or "live": the shop is a complete **preview**, verified 
 | Supplier integration | MOCKED · A61 adapter NEEDS SUPPLIER APPROVAL (API docs) |
 | E-mails (confirmation, shipping, delivery, opt-in, owner alerts) | IMPLEMENTED, MOCKED until Resend key |
 | Legal pages | IMPLEMENTED with the AlGBr operator data and the same texts as the AlGBr shops (not lawyer-reviewed, see docs/LEGAL_REVIEW.md) |
-| Deployment: one Worker `algebra` (shop + API) on algebra.algbr.eu, shared D1 algbr-crm (tables alg_*), job "algebra" in the Nomad deploy workflow (same account, token and pattern as GLOW/KIN/JOY/OFF) | IMPLEMENTED · not yet run |
+| Deployment: one Worker `algebra` (shop + API) on algebra.algbr.eu, D1 created by CI, GitHub Actions on push (same account and pattern as GLOW/KIN/JOY/OFF) | IMPLEMENTED · NEEDS CREDENTIALS (repo secret CLOUDFLARE_API_TOKEN) |
 
 ## 2. What is verified
 
@@ -45,7 +45,7 @@ ADMIN_TOKEN (any long random string) · Cloudflare D1 database id · OWNER_EMAIL
 2. Stripe: same account as the AlGBr shops (owner decision). For the preview, a test key (sk_test_…) as Secret on the Worker `algebra`; a new webhook endpoint https://algebra.algbr.eu/api/stripe/webhook gives its own STRIPE_WEBHOOK_SECRET.
 3. Cloudflare: Pages project `algebra-shop`, Worker `algebra-api`, D1 `algebra`, DNS `algebra.algbr.eu`.
 4. Resend: same key and verified domain as the AlGBr shops (sender Algebra <service@algbr.eu>).
-5. GitHub: Algebra lives in the Nomad repository (`algbr-shops/algebra/`), owner decision 23.10.2026.
+5. GitHub repository `algebra-shop`: published by the owner's request (22.10.2026).
 6. Optional: analytics provider; legal-text service.
 
 ## 6. Known costs (A61 published list, gross incl. 19 % VAT; net in docs/SUPPLIERS.md)
@@ -86,17 +86,17 @@ Start with fewer colours if samples disappoint: Ivory, Deep Navy, Black first.
 2. **Print quality and area** for the large three-colour backs (DTG on dark garments): must be judged on samples.
 3. **Returns of made-to-order pieces**: right of withdrawal applies; return costs and resale of returns are assumptions (15 % rate).
 4. **Legal**: VAT regime across shops, organic claim proof, GPSR data, legal texts.
-5. **Imagery**: until real photos exist, the shop shows mockups and AI concept images; conversion will suffer if launched like that.
+5. **Imagery**: the storefront now uses studio packshots composited from real tee photos with our artwork blended in (scripts/photos.py, list in data/photos.json, flag COMPOSITE). The home hero, the three category tiles, the polo (navy only) and the crew (ivory only) use AI campaign images whose logo and print are not exactly ours. Colours of polo and crew are limited to the colour we have an image for. Replace all of these with real shots before scaling ads.
 6. **Brand name**: "Algebra" is a common word; trademark search pending.
 7. **Ads cost**: break-even CAC 25–65 € per order; tees alone leave little room, polo/crew/bundles carry acquisition.
 
 ## 11. Next 10 priority actions
 1. Register at A61, ask the 12 open questions in docs/SUPPLIERS.md (API, print area, women's cuts, oversized, times, returns).
 2. Order samples: Polo navy, Heavy Tee ivory, Crew black, Premium Tee ivory, Black Hole black, Navier–Stokes ivory (≈ 190 € gross incl. digitizing and shipping, from the A61 list).
-3. Push the Nomad repo: the existing CLOUDFLARE_API_TOKEN deploys the preview on algebra.algbr.eu; check the VAT question with the tax adviser.
+3. Add the repo secret CLOUDFLARE_API_TOKEN in GitHub (same token as Nomad) so the preview deploys on algebra.algbr.eu; check the VAT question with the tax adviser.
 4. Create the Stripe test key and webhook; run the checkout once in test mode on a deployed preview.
 5. Deploy preview: Cloudflare Pages + Worker + D1 on algebra.algbr.eu (noindex stays on).
-6. Photograph the samples (packshot, detail, back print, embroidery close-up) and replace MOCKUP images.
+6. Photograph the samples (packshot front/back on #ECE8E1, detail, back print, embroidery close-up, one on-body shot per product) and replace the COMPOSITE and AI images; then re-enable the extra polo and crew colours.
 7. Fill the size guide from the Stanley/Stella spec sheets and sample measurements.
 8. Order the legal texts (AGB, Widerruf, Datenschutz) and replace the placeholders.
 9. Connect A61 (adapter) or decide the manual/Shopify fallback; run one real end-to-end order to yourself.

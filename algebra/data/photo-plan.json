@@ -1,0 +1,16 @@
+[
+  {"slug": "navier-stokes", "kind": "graphic", "design": "navier-stokes", "colors": ["ivory", "black", "deep-navy"]},
+  {"slug": "black-hole", "kind": "graphic", "design": "black-hole", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "entanglement", "kind": "graphic", "design": "entanglement", "colors": ["ivory", "black", "deep-navy"]},
+  {"slug": "curvature", "kind": "graphic", "design": "curvature", "colors": ["deep-navy", "black", "ivory"]},
+  {"slug": "epr-er", "kind": "graphic", "design": "epr-er", "colors": ["black", "ivory", "deep-navy"]},
+  {"slug": "euler", "kind": "graphic", "design": "euler", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "lorenz", "kind": "graphic", "design": "lorenz", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "maxwell", "kind": "graphic", "design": "maxwell", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "mandelbrot", "kind": "graphic", "design": "mandelbrot", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "tesseract", "kind": "graphic", "design": "tesseract", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "higgs", "kind": "graphic", "design": "higgs", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "big-bang", "kind": "graphic", "design": "big-bang", "colors": ["black", "deep-navy", "ivory"]},
+  {"slug": "the-heavy-tee", "kind": "essential", "colors": ["ivory", "black", "deep-navy"]},
+  {"slug": "the-premium-tee", "kind": "essential", "colors": ["ivory", "black", "deep-navy"]}
+]

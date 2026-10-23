@@ -13,3 +13,4 @@ site/assets/mockups/*.svg
 capsule/*/*.png
 capsule/_sheet*
 capsule/_archive/
+scripts/__pycache__/

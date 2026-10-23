@@ -89,7 +89,7 @@ function totals() {
 
 function itemImg(i) {
   const p = CAT.products[i.id];
-  return `${ROOT}assets/mockups/${p.k}-${i.color}-${p.gfx ? 'back' : 'front'}-400.webp`;
+  return `${ROOT}assets/photos/${p.k}-${i.color}-${p.gfx ? 'back' : 'front'}-400.webp`;
 }
 
 function renderBag() {
@@ -107,7 +107,7 @@ function renderBag() {
     el.innerHTML = `
       <ul class="bag__list">${bag
         .map(
-          (i, idx) => `<li class="bag__item"><img src="${itemImg(i)}" alt="" width="84" height="101" loading="lazy">
+          (i, idx) => `<li class="bag__item"><img src="${itemImg(i)}" alt="" width="92" height="115" loading="lazy">
           <div><h3><a href="${ROOT}${CAT.products[i.id].u.slice(1)}">${CAT.products[i.id].n}</a></h3>
           <p>${CAT.colors[i.color]} · ${i.size}${i.cut ? ` · ${CAT.cuts[i.cut]}` : ''}</p><p>${fmt(CAT.products[i.id].p)}</p>
           <div class="bag__row"><div class="qty" role="group" aria-label="${t.qty}"><button type="button" data-q="-1" data-i="${idx}" aria-label="−">−</button><output aria-live="polite">${i.qty}</output><button type="button" data-q="1" data-i="${idx}" aria-label="+">+</button></div>

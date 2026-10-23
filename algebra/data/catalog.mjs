@@ -112,7 +112,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'prepster',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 18 mm', file: 'brand/symbol-embroidery.svg' },
-    colors: ['deep-navy', 'ivory', 'black', 'sage'],
+    colors: ['deep-navy'], // photo available in navy only (owner's moodboard); more colours with new photos
     sizes: sizesMen,
     copy: {
       lead: {
@@ -126,9 +126,9 @@ export const products = [
         fr: "Coupe droite et décontractée. Taillant unisexe, normal pour un homme. Entre deux tailles : la plus petite pour une ligne nette, la plus grande pour plus d'aisance.",
       },
       fabric: {
-        de: 'Piqué, 240 g/m². Angaben des Herstellers, vor dem Start am Muster geprüft.',
-        en: 'Piqué, 240 g/m². Manufacturer data, checked on a sample before launch.',
-        fr: 'Piqué, 240 g/m². Données du fabricant, vérifiées sur échantillon avant le lancement.',
+        de: 'Schwerer Piqué aus Bio-Baumwolle, 240 g/m².',
+        en: 'Heavy organic cotton piqué, 240 g/m².',
+        fr: 'Piqué épais en coton bio, 240 g/m².',
       },
       detail: {
         de: 'Symbol gestickt, rund 18 mm, Ton in Ton oder im Kontrast je nach Farbe.',
@@ -154,7 +154,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'sparker',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 16 mm', file: 'brand/symbol-embroidery.svg' },
-    colors: ['ivory', 'deep-navy', 'black', 'taupe'],
+    colors: ['ivory', 'black', 'deep-navy'],
     sizes: sizesMen,
     copy: {
       lead: {
@@ -168,9 +168,9 @@ export const products = [
         fr: 'Droit, légèrement ample. Taillant unisexe, normal pour un homme.',
       },
       fabric: {
-        de: 'Jersey, 220 g/m². Angaben des Herstellers, vor dem Start am Muster geprüft.',
-        en: 'Jersey, 220 g/m². Manufacturer data, checked on a sample before launch.',
-        fr: 'Jersey, 220 g/m². Données du fabricant, vérifiées sur échantillon avant le lancement.',
+        de: 'Jersey, 220 g/m².',
+        en: 'Jersey, 220 g/m².',
+        fr: 'Jersey, 220 g/m².',
       },
       detail: {
         de: 'Symbol gestickt, rund 16 mm, auf Brusthöhe.',
@@ -189,14 +189,14 @@ export const products = [
     id: 'ALG-M-CREW',
     slug: 'the-crew-men',
     line: 'essentials',
-    gender: 'men',
+    gender: 'unisex', // Changer 2.0 is a unisex sweatshirt
     category: 'sweaters',
     name: { de: 'The Crew', en: 'The Crew', fr: 'The Crew' },
     price: 109,
     status: 'PREVIEW',
     blank: 'changer',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 20 mm, tone on tone', file: 'brand/symbol-embroidery.svg' },
-    colors: ['deep-navy', 'black', 'ivory', 'sage'],
+    colors: ['ivory'], // photo available in ivory only; more colours with new photos
     sizes: sizesMen,
     copy: {
       lead: {
@@ -210,9 +210,9 @@ export const products = [
         fr: 'Coupe régulière, légèrement carrée. Taillant unisexe, normal pour un homme.',
       },
       fabric: {
-        de: 'Sweat, 350 g/m², innen angeraut. Angaben des Herstellers, vor dem Start am Muster geprüft.',
-        en: 'Sweat fabric, 350 g/m², brushed inside. Manufacturer data, checked on a sample before launch.',
-        fr: 'Molleton, 350 g/m², gratté à l’intérieur. Données du fabricant, vérifiées sur échantillon avant le lancement.',
+        de: 'Sweat, 350 g/m², innen angeraut.',
+        en: 'Sweat fabric, 350 g/m², brushed inside.',
+        fr: 'Molleton, 350 g/m², gratté à l’intérieur.',
       },
       detail: {
         de: 'Ton-in-Ton-Stickerei, rund 20 mm. Rippbündchen an Kragen, Ärmeln und Saum.',
@@ -269,7 +269,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'muser',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 14 mm', file: 'brand/symbol-embroidery.svg' },
-    colors: ['ivory', 'black', 'deep-navy', 'sage'],
+    colors: ['ivory', 'black', 'deep-navy'],
     sizes: sizesWomen,
     copy: {
       lead: {
@@ -283,9 +283,9 @@ export const products = [
         fr: 'Coupe femme, droite avec une ligne légèrement cintrée. Taille normalement.',
       },
       fabric: {
-        de: 'Jersey, 180 g/m². Angaben des Herstellers, vor dem Start am Muster geprüft.',
-        en: 'Jersey, 180 g/m². Manufacturer data, checked on a sample before launch.',
-        fr: 'Jersey, 180 g/m². Données du fabricant, vérifiées sur échantillon avant le lancement.',
+        de: 'Jersey, 180 g/m².',
+        en: 'Jersey, 180 g/m².',
+        fr: 'Jersey, 180 g/m².',
       },
       detail: { de: 'Symbol gestickt, rund 14 mm.', en: 'Embroidered symbol, about 14 mm.', fr: 'Symbole brodé, environ 14 mm.' },
       design: {
@@ -317,9 +317,9 @@ export const products = [
       },
       fit: { de: 'Damenschnitt, leicht verkürzt (wird bestätigt).', en: 'Women’s cut, slightly cropped (to be confirmed).', fr: 'Coupe femme, légèrement raccourcie (à confirmer).' },
       fabric: {
-        de: 'Sweat, 300 g/m². Angaben des Herstellers, vor dem Start am Muster geprüft.',
-        en: 'Sweat fabric, 300 g/m². Manufacturer data, checked on a sample before launch.',
-        fr: 'Molleton, 300 g/m². Données du fabricant, vérifiées sur échantillon avant le lancement.',
+        de: 'Sweat, 300 g/m².',
+        en: 'Sweat fabric, 300 g/m².',
+        fr: 'Molleton, 300 g/m².',
       },
       detail: { de: 'Ton-in-Ton-Stickerei, rund 18 mm.', en: 'Tonal embroidery, about 18 mm.', fr: 'Broderie ton sur ton, environ 18 mm.' },
       design: {
@@ -338,7 +338,7 @@ export const products = [
       id: 'ALG-G-01-NAVIERSTOKES',
       name: 'Navier–Stokes 01',
       field: { de: 'Strömungsmechanik', en: 'Fluid dynamics', fr: 'Mécanique des fluides' },
-      colors: ['ivory', 'black', 'deep-navy', 'sage'],
+      colors: ['ivory', 'black', 'deep-navy'],
       symbol: {
         glyph: '≈',
         de: 'Die Navier-Stokes-Gleichungen beschreiben, wie sich zähe Flüssigkeiten und Gase bewegen: Wasser, Luft, Rauch. Ob ihre Lösungen in drei Dimensionen immer glatt bleiben, ist bis heute unbewiesen und eines der Millennium-Probleme des Clay Institute.',
@@ -352,7 +352,7 @@ export const products = [
       id: 'ALG-G-02-BLACKHOLE',
       name: 'Black Hole 02',
       field: { de: 'Gravitation', en: 'Gravitation', fr: 'Gravitation' },
-      colors: ['black', 'ivory', 'deep-navy', 'burgundy'],
+      colors: ['black', 'deep-navy', 'ivory'],
       symbol: {
         glyph: '○',
         de: 'Ein Schwarzes Loch ist ein Bereich, aus dem nicht einmal Licht entkommt. rₛ = 2GM/c² ist der Schwarzschild-Radius: Wird eine Masse M auf diesen Radius verdichtet, entsteht ein Schwarzes Loch.',
@@ -366,7 +366,7 @@ export const products = [
       id: 'ALG-G-03-ENTANGLEMENT',
       name: 'Entanglement 03',
       field: { de: 'Quantenphysik', en: 'Quantum physics', fr: 'Physique quantique' },
-      colors: ['ivory', 'burgundy', 'black', 'sage'],
+      colors: ['ivory', 'black', 'deep-navy'],
       symbol: {
         glyph: '∞',
         de: 'Zwei verschränkte Teilchen teilen sich einen gemeinsamen Zustand. Misst man das eine, kennt man das Ergebnis des anderen, egal wie weit es entfernt ist. Nachrichten lassen sich so nicht schneller als Licht senden.',
@@ -380,7 +380,7 @@ export const products = [
       id: 'ALG-G-04-CURVATURE',
       name: 'Curvature 04',
       field: { de: 'Allgemeine Relativitätstheorie', en: 'General relativity', fr: 'Relativité générale' },
-      colors: ['deep-navy', 'black', 'ivory', 'taupe'],
+      colors: ['deep-navy', 'black', 'ivory'],
       symbol: {
         glyph: 'Δ',
         de: 'Einsteins Feldgleichungen (1915) verbinden die Krümmung der Raumzeit mit Masse und Energie. Masse sagt dem Raum, wie er sich krümmt, und der gekrümmte Raum sagt der Masse, wie sie sich bewegt.',
@@ -405,27 +405,27 @@ export const products = [
     },
     // ---- Capsule 02 "Pure Forms" (owner's boards, 22.10.2026 22:29–22:34). Chest: Algebra symbol.
     ...[
-      ['euler', 'ALG-G-06-EULER', 'Euler 06', { de: 'Mathematik', en: 'Mathematics', fr: 'Mathématiques' }, ['black', 'ivory', 'deep-navy'], 'e', 'e^{iπ} + 1 = 0', {
+      ['euler', 'ALG-G-06-EULER', 'Euler 06', { de: 'Mathematik', en: 'Mathematics', fr: 'Mathématiques' }, ['black', 'deep-navy', 'ivory'], 'e', 'e^{iπ} + 1 = 0', {
         de: 'Eulers Identität verbindet fünf Grundzahlen der Mathematik in einer Zeile: e, i, π, 1 und 0. Sie folgt aus der Formel e^{iθ} = cos θ + i sin θ für θ = π.',
         en: 'Euler’s identity links five fundamental numbers in one line: e, i, π, 1 and 0. It follows from the formula e^{iθ} = cos θ + i sin θ with θ = π.',
         fr: 'L’identité d’Euler relie cinq nombres fondamentaux en une ligne : e, i, π, 1 et 0. Elle découle de la formule e^{iθ} = cos θ + i sin θ pour θ = π.',
       }],
-      ['lorenz', 'ALG-G-07-LORENZ', 'Lorenz 07', { de: 'Chaostheorie', en: 'Chaos theory', fr: 'Théorie du chaos' }, ['black', 'ivory', 'sage'], '∿', 'dx/dt = σ(y − x)', {
+      ['lorenz', 'ALG-G-07-LORENZ', 'Lorenz 07', { de: 'Chaostheorie', en: 'Chaos theory', fr: 'Théorie du chaos' }, ['black', 'deep-navy', 'ivory'], '∿', 'dx/dt = σ(y − x)', {
         de: 'Edward Lorenz’ vereinfachtes Wettermodell von 1963. Winzige Unterschiede am Anfang führen zu völlig anderen Bahnen: der Ursprung des Begriffs Schmetterlingseffekt.',
         en: 'Edward Lorenz’s simplified weather model from 1963. Tiny differences at the start lead to completely different paths: where the idea of the butterfly effect comes from.',
         fr: 'Le modèle météo simplifié d’Edward Lorenz, en 1963. D’infimes différences au départ mènent à des trajectoires totalement différentes : l’origine de l’« effet papillon ».',
       }],
-      ['maxwell', 'ALG-G-08-MAXWELL', 'Maxwell 08', { de: 'Elektromagnetismus', en: 'Electromagnetism', fr: 'Électromagnétisme' }, ['deep-navy', 'black', 'ivory'], '∇', '∇×B = μ_{0}J + μ_{0}ε_{0} ∂E/∂t', {
+      ['maxwell', 'ALG-G-08-MAXWELL', 'Maxwell 08', { de: 'Elektromagnetismus', en: 'Electromagnetism', fr: 'Électromagnétisme' }, ['black', 'deep-navy', 'ivory'], '∇', '∇×B = μ_{0}J + μ_{0}ε_{0} ∂E/∂t', {
         de: 'Vier Gleichungen von James Clerk Maxwell beschreiben elektrische und magnetische Felder. Aus ihnen folgen Wellen, die sich mit Lichtgeschwindigkeit ausbreiten: Licht selbst.',
         en: 'Four equations by James Clerk Maxwell describe electric and magnetic fields. They predict waves that travel at the speed of light: light itself.',
         fr: 'Quatre équations de James Clerk Maxwell décrivent les champs électriques et magnétiques. Elles prédisent des ondes qui voyagent à la vitesse de la lumière : la lumière elle-même.',
       }],
-      ['mandelbrot', 'ALG-G-09-MANDELBROT', 'Mandelbrot 09', { de: 'Fraktale Geometrie', en: 'Fractal geometry', fr: 'Géométrie fractale' }, ['black', 'ivory', 'burgundy'], '✳', 'z_{n+1} = z_{n}^{2} + c', {
+      ['mandelbrot', 'ALG-G-09-MANDELBROT', 'Mandelbrot 09', { de: 'Fraktale Geometrie', en: 'Fractal geometry', fr: 'Géométrie fractale' }, ['black', 'deep-navy', 'ivory'], '✳', 'z_{n+1} = z_{n}^{2} + c', {
         de: 'Alle Zahlen c, für die z → z² + c ab z = 0 beschränkt bleibt. Eine Regel aus einer Zeile, ein Rand mit unendlich vielen Details.',
         en: 'All numbers c for which z → z² + c, starting at z = 0, stays bounded. A one-line rule, an edge with endless detail.',
         fr: 'Tous les nombres c pour lesquels z → z² + c, en partant de z = 0, reste borné. Une règle d’une ligne, un bord aux détails infinis.',
       }],
-      ['tesseract', 'ALG-G-10-TESSERACT', 'Tesseract 10', { de: 'Vierte Dimension', en: 'Fourth dimension', fr: 'Quatrième dimension' }, ['black', 'sage', 'ivory'], '⧈', '16 · 32 · 24 · 8', {
+      ['tesseract', 'ALG-G-10-TESSERACT', 'Tesseract 10', { de: 'Vierte Dimension', en: 'Fourth dimension', fr: 'Quatrième dimension' }, ['black', 'deep-navy', 'ivory'], '⧈', '16 · 32 · 24 · 8', {
         de: 'Der Würfel in vier Dimensionen. Was man sieht, ist sein Schatten im Raum: 16 Ecken, 32 Kanten, 24 Quadrate, 8 Würfel.',
         en: 'The cube in four dimensions. What you see is its shadow in space: 16 vertices, 32 edges, 24 squares, 8 cubes.',
         fr: 'Le cube en quatre dimensions. Ce que l’on voit est son ombre dans l’espace : 16 sommets, 32 arêtes, 24 carrés, 8 cubes.',
@@ -435,7 +435,7 @@ export const products = [
         en: 'The Higgs field gives elementary particles their mass. Its potential is shaped like a hat: the top is unstable, the field settles in the valley. The Higgs boson was observed at CERN in 2012.',
         fr: 'Le champ de Higgs donne leur masse aux particules élémentaires. Son potentiel a la forme d’un chapeau : le sommet est instable, le champ se stabilise dans la vallée. Le boson de Higgs a été observé au CERN en 2012.',
       }],
-      ['big-bang', 'ALG-G-12-BIGBANG', 'Big Bang 12', { de: 'Kosmologie', en: 'Cosmology', fr: 'Cosmologie' }, ['black', 'deep-navy', 'burgundy'], '✶', 'H^{2} = 8πGρ/3 − kc^{2}/a^{2} + Λc^{2}/3', {
+      ['big-bang', 'ALG-G-12-BIGBANG', 'Big Bang 12', { de: 'Kosmologie', en: 'Cosmology', fr: 'Cosmologie' }, ['black', 'deep-navy', 'ivory'], '✶', 'H^{2} = 8πGρ/3 − kc^{2}/a^{2} + Λc^{2}/3', {
         de: 'Das Universum dehnt sich seit rund 13,8 Milliarden Jahren aus einem extrem heißen, dichten Zustand aus. Die Friedmann-Gleichung beschreibt, wie diese Ausdehnung von Materie, Krümmung und kosmologischer Konstante abhängt.',
         en: 'The universe has been expanding for about 13.8 billion years from an extremely hot, dense state. The Friedmann equation describes how that expansion depends on matter, curvature and the cosmological constant.',
         fr: 'L’Univers est en expansion depuis environ 13,8 milliards d’années, à partir d’un état extrêmement chaud et dense. L’équation de Friedmann décrit comment cette expansion dépend de la matière, de la courbure et de la constante cosmologique.',
@@ -483,9 +483,9 @@ export const products = [
         fr: 'Deux coupes : unisexe oversize (carré, épaules tombantes) ou coupe femme.',
       },
       fabric: {
-        de: 'Unisex Oversize 200 g/m², Damen 180 g/m². Angaben des Herstellers, vor dem Start am Muster geprüft.',
-        en: 'Unisex oversized 200 g/m², women 180 g/m². Manufacturer data, checked on a sample before launch.',
-        fr: 'Unisexe oversize 200 g/m², femme 180 g/m². Données du fabricant, vérifiées sur échantillon avant le lancement.',
+        de: 'Unisex Oversize 200 g/m², Damen 180 g/m².',
+        en: 'Unisex oversized 200 g/m², women 180 g/m².',
+        fr: 'Unisexe oversize 200 g/m², femme 180 g/m².',
       },
       detail: {
         de: 'Rückendruck bis 30 × 40 cm, Zeichen auf der Brust 7 × 7 cm. Drei Tintenfarben, auf helle und dunkle Stoffe abgestimmt.',

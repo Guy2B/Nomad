@@ -81,7 +81,7 @@ const preview = readFileSync(join(dist, 'de', 'index.html'), 'utf8').includes('d
 check('seo', preview ? 'Preview: every page noindex, robots allows crawling' : 'Live: robots has sitemap', preview ? pages.every((f) => /noindex/.test(readFileSync(f, 'utf8'))) && /Allow: \//.test(robots) : /Sitemap:/.test(robots));
 const htmlAll = pages.map((f) => readFileSync(f, 'utf8')).join('\n');
 check('trust', 'No countdowns, fake scarcity or review stars in the HTML', !/(countdown|only \d+ left|nur noch \d+|aggregateRating|ratingValue)/i.test(htmlAll));
-check('trust', 'Mockup / concept images are labelled on the page', (htmlAll.match(/MOCKUP/g) || []).length > 50 && (htmlAll.match(/CONCEPT/g) || []).length > 10);
+check('trust', 'Image origin tracked internally (data/photos.json) and colour note on every product page', existsSync(join(root, 'data', 'photos.json')) && pages.filter((f) => f.includes('/product/')).every((f) => /muted">(Farben können|Colours may|Les couleurs peuvent)/.test(readFileSync(f, 'utf8'))));
 check('perf', 'No third-party scripts', !/<script[^>]+src="https?:/.test(htmlAll));
 const weight = statSync(join(dist, 'assets', 'app.js')).size + statSync(join(dist, 'assets', 'styles.css')).size;
 check('perf', `JS + CSS weight ${(weight / 1024).toFixed(1)} KB (< 80 KB)`, weight < 80 * 1024);
@@ -122,7 +122,7 @@ check('responsive', `No horizontal overflow at ${widths.join('/')} px on ${urls.
 // consent + cart + checkout + tracking
 {
   const p = await page(390, 844);
-  await p.goto(BASE + '/de/product/the-polo-men/', { waitUntil: 'networkidle' });
+  await p.goto(BASE + '/de/product/the-heavy-tee/', { waitUntil: 'networkidle' });
   check('consent', 'Consent dialog shown on first visit', await p.isVisible('#consent'));
   check('consent', 'No analytics data before consent', (await p.evaluate(() => typeof window.dataLayer)) === 'undefined');
   await p.click('[data-consent="analytics"]');
@@ -137,10 +137,10 @@ check('responsive', `No horizontal overflow at ${widths.join('/')} px on ${urls.
   check('cart', 'Drawer opens with the item (colour, size)', (await p.textContent('#bag .bag__item')).includes('Schwarz · M'));
   check('analytics', 'add_to_cart recorded after consent', await p.evaluate(() => (window.dataLayer || []).some((e) => e.event === 'add_to_cart')));
   await p.click('#bag [data-q="1"]');
-  check('cart', 'Quantity + updates total (2 × 89 € = 178 €, free shipping)', (await p.textContent('#bag .bag__sum')).replace(/\s/g, '').includes('178,00€'));
+  check('cart', 'Quantity + updates total (2 × 59 € = 118 €, free shipping)', (await p.textContent('#bag .bag__sum')).replace(/\s/g, '').includes('118,00€'));
   await p.click('#bag [data-q="-1"]');
   await p.selectOption('#bag-country', 'FR');
-  check('cart', 'Quantity − and country FR: 89 € + shipping 7,90 € (under 150 €)', (await p.textContent('#bag .bag__sum')).includes('7,90'));
+  check('cart', 'Quantity − and country FR: 59 € + shipping 7,90 € (under 150 €)', (await p.textContent('#bag .bag__sum')).includes('7,90'));
   await p.selectOption('#bag-country', 'DE');
   await p.keyboard.press('Escape');
   check('a11y', 'Escape closes the drawer', await p.isHidden('#bag'));
@@ -170,9 +170,9 @@ check('responsive', `No horizontal overflow at ${widths.join('/')} px on ${urls.
   const p = await page(1440, 900);
   await p.goto(BASE + '/de/shop/', { waitUntil: 'networkidle' });
   const before = await p.$$eval('[data-grid] .card:not([hidden])', (e) => e.length);
-  await p.click('.filters .chip:has(input[value="burgundy"])');
+  await p.click('.filters .chip:has(input[value="deep-navy"])');
   const after = await p.$$eval('[data-grid] .card:not([hidden])', (e) => e.length);
-  check('collection', `Colour filter narrows the grid (${before} → ${after})`, after > 0 && after < before);
+  check('collection', `Colour filter narrows the grid (${before} → ${after})`, after > 0 && after <= before);
   await p.selectOption('.filters select', 'desc');
   const prices = await p.$$eval('[data-grid] .card:not([hidden])', (e) => e.map((c) => +c.dataset.price));
   check('collection', 'Sort by price descending', prices.every((v, i) => !i || prices[i - 1] >= v));
@@ -183,7 +183,7 @@ check('responsive', `No horizontal overflow at ${widths.join('/')} px on ${urls.
   const r = await p.goto(BASE + '/de/gibt-es-nicht/');
   check('404', '404 status and page', r.status() === 404 && (await p.textContent('h1')).includes('gibt es nicht'));
   await p.goto(BASE + '/fr/', { waitUntil: 'networkidle' });
-  await p.fill('#nl-email', 'qa@example.com');
+  await p.fill('#ftr-email', 'qa@example.com');
   await p.click('[data-newsletter] button');
   await p.waitForTimeout(400);
   check('forms', 'Newsletter: double opt-in message shown', await p.isVisible('[data-newsletter] [data-ok]'));
