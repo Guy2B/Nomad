@@ -53,6 +53,21 @@ export const blanks = {
     source: A61,
     a61: { embroidery: { id: 7867, gross: 30.85, net: 25.92 }, print1: { id: 7727, gross: 27.3, net: 22.94 }, print2: { id: 7727, gross: 32.1, net: 26.97 } },
   },
+  blaster: {
+    label: 'Stanley/Stella BLASTER 2.0 Oversized T-Shirt STTU959',
+    composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
+    gsm: 200,
+    source: A61 + ' (re-read 23.10.2026)',
+    a61: { embroidery: { id: 8897, gross: 19.8, net: 16.64 }, print1: { id: 8896, gross: 12.3, net: 10.34 }, print2: { id: 8896, gross: 17.1, net: 14.37 } },
+  },
+  asher: {
+    // heavier "premium" option for a later capsule; not used by a product yet
+    label: 'Stanley/Stella ASHER Heavyweight Boxy T-Shirt STTU078',
+    composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
+    gsm: 280,
+    source: A61 + ' (re-read 23.10.2026)',
+    a61: { embroidery: { id: 9071, gross: 25.1, net: 21.09 }, print1: { id: 9030, gross: 18.7, net: 15.71 }, print2: { id: 9030, gross: 23.5, net: 19.75 } },
+  },
   alma: {
     label: 'Stella ALMA Women Sweatshirt STSW212',
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
@@ -439,12 +454,13 @@ export const products = [
     name: { de: g.name, en: g.name, fr: g.name },
     price: 69,
     status: 'PREVIEW',
-    // Two cuts: unisex heavy (Sparker 2.0) or women's (Muser). Oversized blank for the boxy look of the references: TO VERIFY with A61.
+    // Two cuts: unisex oversized (Blaster 2.0, confirmed on the A61 list 23.10.2026) or women's (Muser).
+    // Price of a ~30 × 40 cm three-colour back print inside the "2-sided" price: asked to A61, TO VERIFY.
     cuts: [
-      { id: 'unisex', blank: 'sparker', sizes: sizesMen, name: { de: 'Unisex, schwer', en: 'Unisex heavy', fr: 'Unisexe épais' } },
+      { id: 'unisex', blank: 'blaster', sizes: sizesMen, name: { de: 'Unisex Oversize', en: 'Unisex oversized', fr: 'Unisexe oversize' } },
       { id: 'women', blank: 'muser', sizes: sizesWomen, name: { de: 'Damenschnitt', en: 'Women’s cut', fr: 'Coupe femme' } },
     ],
-    blank: 'sparker',
+    blank: 'blaster',
     decoration: {
       method: 'print',
       option: 'print2',
@@ -462,14 +478,14 @@ export const products = [
         fr: `${g.name.replace(/ \d{2}$/, '')} : un dessin à l’encre au dos, avec la vraie équation. Un petit signe sur la poitrine.`,
       },
       fit: {
-        de: 'Zwei Schnitte: Unisex schwer (gerade, leicht weit) oder Damenschnitt. Für einen Oversize-Look eine Größe größer wählen.',
-        en: 'Two cuts: unisex heavy (straight, slightly roomy) or women’s cut. For an oversized look, size up once.',
-        fr: 'Deux coupes : unisexe épais (droit, légèrement ample) ou coupe femme. Pour un effet oversize, prenez une taille au-dessus.',
+        de: 'Zwei Schnitte: Unisex Oversize (kastig, überschnittene Schultern) oder Damenschnitt.',
+        en: 'Two cuts: unisex oversized (boxy, dropped shoulders) or women’s cut.',
+        fr: 'Deux coupes : unisexe oversize (carré, épaules tombantes) ou coupe femme.',
       },
       fabric: {
-        de: 'Unisex 220 g/m², Damen 180 g/m². Angaben des Herstellers, vor dem Start am Muster geprüft.',
-        en: 'Unisex 220 g/m², women 180 g/m². Manufacturer data, checked on a sample before launch.',
-        fr: 'Unisexe 220 g/m², femme 180 g/m². Données du fabricant, vérifiées sur échantillon avant le lancement.',
+        de: 'Unisex Oversize 200 g/m², Damen 180 g/m². Angaben des Herstellers, vor dem Start am Muster geprüft.',
+        en: 'Unisex oversized 200 g/m², women 180 g/m². Manufacturer data, checked on a sample before launch.',
+        fr: 'Unisexe oversize 200 g/m², femme 180 g/m². Données du fabricant, vérifiées sur échantillon avant le lancement.',
       },
       detail: {
         de: 'Rückendruck bis 30 × 40 cm, Zeichen auf der Brust 7 × 7 cm. Drei Tintenfarben, auf helle und dunkle Stoffe abgestimmt.',

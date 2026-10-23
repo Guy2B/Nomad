@@ -72,3 +72,14 @@ A61 also lists Stella IDA STSW214 (women's zip hoodie) and Gamechanger Hoodie ST
 - Gelato: https://gelato.com/embroidered-clothing
 - Valadio: https://www.valadio.com/
 - Stanley/Stella women's polo ELLISER (exists): https://www.spreadshop.com/products/detail/stanley-stella-womens-organic-polo-shirt-elliser/2476/eu
+
+## Update 23.10.2026 (owner check + A61 pages re-read)
+- **API: confirmed.** A61 offers an internal API to transmit orders from a custom shop, with product/colour IDs from the B2B list,
+  plus Shopify / WooCommerce / Shopware connectors. Documentation is sent on request ("Request Documentation" → contact page).
+  Source: https://www.a61partner.de/integrate-your-custom-e-commerce-platform-with-a61partner-via-our-internal-api
+- **Oversized: confirmed.** Stanley/Stella BLASTER 2.0 Oversized STTU959, 100 % organic cotton, 200 g/m²: print 1-sided 12,30 € gross
+  (10,34 € net), 2-sided 17,10 € (14,37 €), embroidery 19,80 € (16,64 €). Now the unisex cut of the Graphic Series.
+  ASHER Heavyweight Boxy STTU078, 280 g/m²: print 18,70 € / 23,50 € gross (15,71 € / 19,75 € net), embroidery 25,10 €: premium option later.
+  STELLA Collider rolled sleeve oversized, 155 g/m²: 15,30 € / 20,10 € (not labelled as women's on the list).
+- **Still open:** whether a ~30 × 40 cm back print with ~3 colours is covered by the "2-sided" price, colour/complexity surcharge,
+  recommended technique (DTG/DTF), Blaster 2.0 via API. Question prepared for the A61 contact form (owner wording, 23.10.2026).

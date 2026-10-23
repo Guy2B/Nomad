@@ -90,6 +90,26 @@ function md(rows, title) {
   return `### ${title}\n\n${head}\n${lines.join('\n')}\n`;
 }
 
+/** Graphic tee at 59 / 69 / 79 €, both cuts, DE, Kleinunternehmer. Valid only if A61's "2-sided" price covers the large back print. */
+export function sensitivity(prices = [59, 69, 79]) {
+  const g = products.find((p) => p.line === 'graphic');
+  const rows = g.cuts.flatMap((c) =>
+    prices.map((price) => {
+      const r = unit({ ...g, price }, c, 'K', 'DE');
+      return `| ${c.name.en} (${blanks[c.blank].label.replace(/^Stanley\/Stella |^Stella /, '')}) | ${eur(price)} | ${eur(r.shipFee)} | ${eur(r.product)} | **${eur(r.contribution)}** | ${pct(r.contributionPct)} | ${eur(r.contributionWorst)} |`;
+    }),
+  );
+  return `### Graphic tee: price test 59 / 69 / 79 € (DE, Kleinunternehmer)
+
+Condition: A61 confirms that a ~30 × 40 cm three-colour back print + small chest print is covered by the published "2-sided print" price
+(question to A61, 23.10.2026). If not, add the surcharge they quote to "Product + deco".
+
+| Cut | Price | Ship fee | Product + deco | **Contribution** | % | Worst pay mix |
+|---|---|---|---|---|---|---|
+${rows.join('\n')}
+`;
+}
+
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 if (isMain) {
   const K = table('K', 'DE');
@@ -132,6 +152,7 @@ everything else is labelled POLICY, ASSUMPTION or TO VERIFY. A SKU whose supplie
 ${md(K, 'Kleinunternehmer, delivery to Germany (current regime of the owner, LEGAL REVIEW)')}
 ${md(V, 'Regular VAT 19 %, delivery to Germany (if Algebra leaves § 19 or exceeds the threshold)')}
 ${md(KEU, 'Kleinunternehmer, delivery to FR / AT / BE / NL / LU (A61 EU example rate)')}
+${sensitivity()}
 
 ## One-off costs before launch
 
