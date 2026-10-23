@@ -5,6 +5,7 @@
  * All internal links are relative, so the build works on any host or sub-path.
  * Run: npm run build   (SITE_MODE=live only after the launch checklist is PASS)
  */
+import { readMaster } from './brand-master.mjs';
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, posix } from 'node:path';
 import { createHash } from 'node:crypto';
@@ -22,6 +23,14 @@ import { t } from '../site/i18n.mjs';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const brand = JSON.parse(readFileSync(join(root, 'brand', 'paths.json'), 'utf8'));
+// Brand lock: the build refuses to run if paths.json drifted from the locked master A (run `npm run brand` after a validated change)
+{
+  const m = readMaster();
+  if (m.d !== brand.master.d || JSON.stringify(m.bars) !== JSON.stringify(brand.master.bars)) {
+    console.error('BRAND LOCK: brand/paths.json does not match brand/algebra-a-signature-master.svg. Run: npm run brand');
+    process.exit(1);
+  }
+}
 const LANGS = site.languages;
 const PREVIEW = site.mode !== 'live';
 // Cache-busting: every asset URL carries ?v=<hash of the shipped files>, so a deploy is never hidden by a browser cache.
@@ -50,16 +59,17 @@ function rel(from, to) {
 const abs = (p) => site.origin + p;
 /** escaped text with ^{sup} and _{sub} markup → HTML */
 const mathHtml = (s) => esc(s).replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>').replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
+// The brand: ONE A (brand/algebra-a-signature-master.svg, locked), copied into every use; only size and colour vary.
+const aMark = (transform = '') => `<g${transform ? ` transform="${transform}"` : ''}><path d="${brand.master.d}"/>${brand.master.bars.map(([x, y, w, h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}</g>`;
+const [MX0, MY0, MX1, MY1] = brand.master.box;
+/** Secondary mark: the A alone (statement, about, 404). viewBox = the A's own box, so CSS sizes it exactly. */
 const symbolSvg = (cls = 'sym', label = '') =>
-  `<svg class="${cls}" viewBox="0 0 100 100" ${label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"'} focusable="false"><path fill="currentColor" d="${brand.symbol}"/></svg>`;
-/** Primary brand: one wordmark, the signature A set as its first letter (brand/wordmark-signature.svg). */
+  `<svg class="${cls}" viewBox="${MX0} ${MY0} ${+(MX1 - MX0).toFixed(1)} ${+(MY1 - MY0).toFixed(1)}" ${label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"'} focusable="false" fill="currentColor">${aMark()}</svg>`;
+/** Primary brand: the wordmark "Algebra", the master A as its first letter (brand/wordmark-signature.svg). */
 const sigSvg = (cls = 'wm') => {
   const g = brand.signature;
-  const m = `matrix(${g.symbol.s} 0 0 ${g.symbol.s} ${g.symbol.tx} ${g.symbol.ty})`;
-  return `<svg class="${cls}" viewBox="0 0 ${g.width} ${g.height}" role="img" aria-label="Algebra" focusable="false"><path fill="currentColor" transform="${m}" d="${brand.symbol}"/><path fill="currentColor" transform="translate(${g.rest.dx} 0)" d="${g.rest.d}"/></svg>`;
+  return `<svg class="${cls}" viewBox="0 0 ${g.width} ${g.height}" role="img" aria-label="Algebra" focusable="false" fill="currentColor">${aMark(g.matrix)}<path transform="translate(${g.rest.dx} 0)" d="${g.rest.d}"/></svg>`;
 };
-const wordmarkSvg = (cls = 'wm') =>
-  `<svg class="${cls}" viewBox="0 0 ${brand.wordmark.width} ${brand.wordmark.height}" role="img" aria-label="Algebra" focusable="false"><path fill="currentColor" d="${brand.wordmark.d}"/></svg>`;
 
 const collections = {
   shop: { filter: () => true, nav: 'all' },
@@ -108,11 +118,6 @@ function picture(from, file, alt, { sizes = '(min-width: 1024px) 25vw, 50vw', ea
   const srcset = small ? `${vq(r(file + '-400.webp'))} 400w, ${vq(r(file + '.webp'))} ${w}w` : `${vq(r(file + '.webp'))} ${w}w`;
   return `<picture class="${cls}"><source type="image/avif" srcset="${vq(r(file + '.avif'))}"><source type="image/webp" srcset="${srcset}" sizes="${sizes}"><img src="${vq(r(file + '.jpg'))}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
-const conceptPic = (from, key, alt, opts = {}) => {
-  const dims = { 'editorial-pair': [678, 585], 'detail-polo': [355, 325], 'detail-tee': [360, 325], 'detail-crew': [359, 325], 'detail-label': [353, 145], 'detail-button': [167, 130], 'gs-navier-stokes': [372, 425], 'gs-black-hole': [372, 425], 'gs-entanglement': [372, 425], 'gs-curvature': [372, 425], 'gs-epr-er': [800, 630], 'lifestyle-graphic': [1000, 891], 'gs-euler': [800, 542], 'gs-lorenz': [800, 542], 'gs-maxwell': [800, 542], 'gs-mandelbrot': [800, 542], 'gs-tesseract': [800, 542], 'gs-higgs': [800, 542], 'gs-big-bang': [800, 542] }[key];
-  const r = (x) => rel(from, '/' + x);
-  return `<picture class="${opts.cls || ''}"><source type="image/avif" srcset="${r(`assets/concept/${key}.avif`)}"><source type="image/webp" srcset="${r(`assets/concept/${key}.webp`)}"><img src="${r(`assets/concept/${key}.jpg`)}" alt="${esc(alt)}" width="${dims[0]}" height="${dims[1]}" ${opts.eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" data-flag="CONCEPT"></picture>`;
-};
 
 // ------------------------------------------------------------------ layout
 function layout(lang, { path, key, title, desc, body, noindex = false, jsonld = [], alternates = true, bodyClass = '', absLinks = false }) {
@@ -354,8 +359,6 @@ function productPage(lang, p) {
     .join('');
   const spaced = esc(p.name[lang].replace(/\s+\d+$/, ''));
   // no reference/AI image on product pages: only images of the actual design
-  const conceptKey = null;
-  const concept = conceptKey && existsSync(join(root, 'site', 'assets', 'concept', `${conceptKey}.webp`)) ? `<figure class="gal__fig gal__fig--wide">${conceptPic(path, conceptKey, displayName(p, lang))}</figure>` : '';
   const b = blanks[p.blank];
   const composition = p.cuts ? p.cuts.map((c) => `${c.name[lang]}: ${blanks[c.blank].composition[lang]}, ${blanks[c.blank].gsm} g/m²`).join(' · ') : `${b.composition[lang]}${typeof b.gsm === 'number' ? `, ${b.gsm} g/m²` : ''}`;
   const buyable = p.status === 'PREVIEW';
@@ -378,7 +381,7 @@ function productPage(lang, p) {
   const body = `<article class="pdp wrap" data-product="${p.id}" data-name="${esc(displayName(p, lang))}" data-price="${p.price}" data-cat="${p.category}">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="${r(`/${lang}/`)}">${P.breadcrumbHome}</a> / <a href="${r(`/${lang}/${p.gender === 'women' ? 'women' : p.line === 'graphic' ? 'graphic-series' : 'men'}/`)}">${p.gender === 'women' ? L.nav.women : p.line === 'graphic' ? L.nav.graphic : L.nav.men}</a> / <span aria-current="page">${esc(displayName(p, lang))}</span></nav>
   <div class="pdp__grid">
-    <div class="gal sheet" data-gallery><p class="sheet__title" aria-hidden="true">${spaced}</p><span class="sheet__rule" aria-hidden="true"></span>${gallery}${concept}</div>
+    <div class="gal sheet" data-gallery><p class="sheet__title" aria-hidden="true">${spaced}</p><span class="sheet__rule" aria-hidden="true"></span>${gallery}</div>
     <div class="buy">
       <div class="buy__sticky">
         ${p.capsule ? `<p class="kicker">${esc(p.capsule)}</p>` : `<p class="kicker">The Essentials</p>`}
@@ -679,7 +682,7 @@ writeFileSync(join(dist, 'robots.txt'), PREVIEW ? `# Preview: pages carry noinde
 }
 
 // static assets
-cpSync(join(root, 'site', 'assets'), join(dist, 'assets'), { recursive: true, filter: (s) => !s.includes('/mockups') });
+cpSync(join(root, 'site', 'assets'), join(dist, 'assets'), { recursive: true, });
 cpSync(join(root, 'brand', 'favicon.svg'), join(dist, 'favicon.svg'));
 mkdirSync(join(dist, 'assets', 'fonts'), { recursive: true });
 for (const [pkg, file] of [
@@ -690,7 +693,7 @@ for (const [pkg, file] of [
 ]) {
   cpSync(join(root, 'node_modules', '@fontsource', pkg, 'files', file), join(dist, 'assets', 'fonts', file));
 }
-cpSync(join(root, 'site', 'assets', 'photos', 'hero.jpg'), join(dist, 'assets', 'og.jpg'));
+cpSync(join(root, 'site', 'assets', 'photos', 'mandelbrot-black-stage.jpg'), join(dist, 'assets', 'og.jpg'));
 
 // ------------------------------------------------------------------ live guard: no unverified product facts
 if (!PREVIEW) {
@@ -714,6 +717,26 @@ if (!PREVIEW) {
   }
   if (leaks.length) {
     console.error('SUPPLIER DATA IN THE PUBLIC BUILD:\n' + leaks.slice(0, 20).join('\n'));
+    process.exit(1);
+  }
+}
+// Brand lock: one A. The public build may only contain the master geometry; no older symbol, no font A as logo,
+// and brand/ may only hold the master and the files generated from it.
+{
+  const LEGACY = [/M45\.60 8\.00/, /M17\.90 53\.50L19\.20 51/, /symbol-embroidery|symbol-ivory|lockup-horizontal|wordmark-italic/];
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(dir, e.name)) : [join(dir, e.name)]));
+  const hits = [];
+  for (const f of walk(dist)) {
+    if (!/\.(html|json|js|css|svg)$/.test(f)) continue;
+    const t = readFileSync(f, 'utf8');
+    for (const re of LEGACY) if (re.test(t)) hits.push(`${f.slice(dist.length)}: ${re}`);
+  }
+  const allowed = new Set(['README.md', 'algebra-a-signature-master.svg', 'algebra-a-signature-master-ivory.svg', 'wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'favicon.svg', 'paths.json', 'production']);
+  const extra = readdirSync(join(root, 'brand')).filter((f) => !allowed.has(f));
+  if (extra.length) hits.push(`brand/ holds files outside the master set: ${extra.join(', ')}`);
+  if (!readFileSync(join(dist, 'favicon.svg'), 'utf8').includes(brand.master.d)) hits.push('favicon.svg is not built from the master A');
+  if (hits.length) {
+    console.error('BRAND LOCK: competing A found:\n' + hits.slice(0, 20).join('\n'));
     process.exit(1);
   }
 }

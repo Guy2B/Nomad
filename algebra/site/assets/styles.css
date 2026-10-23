@@ -432,12 +432,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .hdr { transition: box-shadow var(--base) var(--ease); }
 .hdr__top { transition: height .35s var(--ease); }
 .hdr__logo { display: block; line-height: 0; color: var(--navy); }
-.hdr__logo .wm { height: 21px; width: auto; display: block; transition: height .35s var(--ease); }
-@media (min-width: 1024px) { .hdr__logo .wm { height: 25px; } .nav ul { gap: 28px; height: 44px; } }
-@media (min-width: 1280px) { .hdr__logo .wm { height: 27px; } .nav ul { gap: 40px; } }
+.hdr__logo .wm { height: 22px; width: auto; display: block; transition: height .35s var(--ease); }
+@media (min-width: 1024px) { .hdr__logo .wm { height: 28px; } .nav ul { gap: 28px; height: 44px; } }
+@media (min-width: 1280px) { .hdr__logo .wm { height: 29px; } .nav ul { gap: 40px; } }
 @media (min-width: 1024px) {
   .hdr.is-stuck .hdr__top { height: 54px; }
-  .hdr.is-stuck .hdr__logo .wm { height: 22px; }
+  .hdr.is-stuck .hdr__logo .wm { height: 24px; }
   .hdr.is-stuck { box-shadow: 0 1px 0 var(--line); }
   .nav li a { padding: 16px 0 14px; }
 }
@@ -497,7 +497,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* Built on proportion.: ceremonial, ~30% lower */
 .statement { padding-block: 80px; }
-.statement__sym { width: 28px; margin-bottom: 22px; }
+.statement__sym { width: 48px; margin-bottom: 22px; } /* the A alone stays ≥ 24 px high so both bars of the = read */
 @media (max-width: 767px) { .statement { padding-block: 56px; } }
 
 /* service strip: reassurance, not a section */

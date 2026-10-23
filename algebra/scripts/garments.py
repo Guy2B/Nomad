@@ -4,7 +4,7 @@ each board has the blank garment front (left) and back (right) on a plain cream 
 (fabric, collar, and on the women's boards the sleeve).
 
 On top of the boards we place what Algebra actually produces:
-  - the embroidered Algebra symbol on the left chest (every garment),
+  - the official A (brand/algebra-a-signature-master.svg) embroidered on the left chest (printed on Graphic Series tees),
   - the back print from capsule/<design>/back-*.png (Graphic Series T-shirts only).
 
   python3 scripts/garments.py [slug ...]
@@ -20,11 +20,12 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFilter
 
+import brandmark  # the official A, from brand/algebra-a-signature-master.svg
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "site" / "assets" / "photos"
 BASES = ROOT / "design" / "bases"
 CAP = ROOT / "capsule"
-BRAND = json.loads((ROOT / "brand" / "paths.json").read_text())
 THREAD = {"black": (233, 226, 211), "deep-navy": (233, 226, 211), "ivory": (24, 33, 56)}
 DW, DH = 690, 796
 
@@ -44,7 +45,8 @@ COLORS = ["black", "deep-navy", "ivory"]
 
 # chest position of the symbol (fraction of the garment box) and back print box, per garment type
 CHEST = {"tee": (0.655, 0.255), "polo": (0.665, 0.285), "sweat": (0.655, 0.265)}
-SYMBOL = {"tee": 0.052, "polo": 0.05, "sweat": 0.048}  # symbol size / garment width
+# width of the A / width of the garment box (sleeves included): about 25 mm on a size M chest
+SYMBOL = {"tee": 0.036, "polo": 0.036, "sweat": 0.040}
 
 
 # ------------------------------------------------------------------ board analysis
@@ -90,47 +92,29 @@ def analyse(board):
 
 
 # ------------------------------------------------------------------ marks
-def symbol_mask(size):
-    from PIL import ImageDraw
-
-    s = 8
-    big = Image.new("L", (100 * s, 100 * s), 0)
-    d = ImageDraw.Draw(big)
-    for sub in BRAND["symbolEmbroidery"].split("Z"):
-        if "H" in sub:
-            t = sub.replace("M", "").replace("H", " ").replace("V", " ").split()
-            x0, y0, x1, y1 = (float(v) for v in t[:4])
-            d.rectangle((x0 * s, y0 * s, x1 * s, y1 * s), fill=255)
-            continue
-        nums = [float(n) for n in sub.replace("M", " ").replace("L", " ").split()]
-        pts = [(nums[i] * s, nums[i + 1] * s) for i in range(0, len(nums) - 1, 2)]
-        if len(pts) >= 3:
-            d.polygon(pts, fill=255)
-    return np.asarray(big.resize((size, size), Image.LANCZOS)).astype(np.float32) / 255
-
-
-def embroider(img, color, size, centre, relief=1.0, printed=False):
-    """Satin-stitch embroidery of the symbol: thread colour, stitch direction, light relief and a soft shadow."""
-    S = max(8, int(size))
-    m = symbol_mask(S)
-    yy, xx = np.mgrid[0:S, 0:S].astype(np.float32)
+def embroider(img, color, width, centre, relief=1.0, printed=False):
+    """The official A (brand/algebra-a-signature-master.svg via brandmark.mask) as satin-stitch embroidery:
+    thread colour, stitch direction, light relief and a soft shadow. width = width of the A in px."""
+    m = brandmark.mask(width)
+    H, W = m.shape
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
     ang = np.deg2rad(62)
-    period = max(1.6, S / 70)
+    period = max(1.6, W / 62)
     stitch = 0.84 + 0.16 * (0.5 + 0.5 * np.sin((xx * np.cos(ang) + yy * np.sin(ang)) * 2 * np.pi / period))
-    blur = np.asarray(Image.fromarray((m * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(max(0.8, S / 90)))).astype(np.float32) / 255
+    blur = np.asarray(Image.fromarray((m * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(max(0.6, W / 110)))).astype(np.float32) / 255
     gy, gx = np.gradient(blur)
     shade = np.clip(1 - (gx + gy) * 5 * relief, 0.7, 1.25)
     if printed:  # screen/DTG print: flat ink, no stitches, no relief
         stitch = np.ones_like(stitch)
         shade = np.ones_like(shade)
     thread = np.array(THREAD[color], np.float32)
-    rgb = np.clip(thread * stitch[..., None] * shade[..., None] + np.random.default_rng(5).normal(0, 4, (S, S, 1)), 0, 255)
+    rgb = np.clip(thread * stitch[..., None] * shade[..., None] + np.random.default_rng(5).normal(0, 4, (H, W, 1)), 0, 255)
     out = img.copy()
-    x, y = int(centre[0] - S / 2), int(centre[1] - S / 2)
-    sh = Image.fromarray((m * 110).astype(np.uint8)).filter(ImageFilter.GaussianBlur(max(1, S / 60)))
-    off = max(1, S // 70)
+    x, y = int(centre[0] - W / 2), int(centre[1] - H / 2)
+    sh = Image.fromarray((m * 110).astype(np.uint8)).filter(ImageFilter.GaussianBlur(max(1, W / 70)))
+    off = max(1, W // 80)
     if not printed:
-        out.paste(Image.new("RGB", (S, S), (0, 0, 0)), (x + off, y + off * 2), sh)
+        out.paste(Image.new("RGB", (W, H), (0, 0, 0)), (x + off, y + off * 2), sh)
     out.paste(Image.fromarray(rgb.astype(np.uint8)), (x, y), Image.fromarray((m * 255).astype(np.uint8)))
     return out
 
@@ -337,7 +321,7 @@ def make(slug, color, spec):
     raw = Image.open(path).convert("RGB")  # details from the untouched board
     fabric = tile(raw, tiles[0])
     collar = tile(raw, tiles[1])
-    save(embroider(fabric, color, 230, (DW / 2, DH / 2 + 10), relief=1.4, printed=printed), f"{slug}-{color}-d-front")
+    save(embroider(fabric, color, 210, (DW / 2, DH / 2 + 10), relief=1.4, printed=printed), f"{slug}-{color}-d-front")
     if spec.get("design"):
         im = drawing(spec["design"])
         al = np.asarray(im.split()[3].resize((im.width // 16, im.height // 16))).astype(np.float32)

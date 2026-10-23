@@ -4,8 +4,6 @@
   "description": "Algebra: European contemporary essentials. Static shop + Cloudflare Worker (Stripe, D1, POD supplier adapter).",
   "scripts": {
     "brand": "node scripts/brand.mjs",
-    "capsule": "node scripts/physics.mjs",
-    "mockups": "node scripts/mockups.mjs",
     "economics": "node scripts/economics.mjs",
     "build": "node scripts/build.mjs",
     "dev": "node --no-warnings scripts/dev.mjs",
@@ -15,7 +13,7 @@
     "worker:deploy": "cd worker && wrangler deploy",
     "pages:deploy": "wrangler pages deploy dist --project-name algebra-shop"
   },
-  "author": "Al.G.B.r",
+  "author": "AlGBr",
   "license": "UNLICENSED",
   "dependencies": {
     "@fontsource/caveat": "^5.1.0",

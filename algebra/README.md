@@ -19,9 +19,9 @@ PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs npm run qa   # 36 browser checks
 Regenerate assets (needs Playwright for PNG/WebP/AVIF):
 
 ```bash
-npm run brand       # brand/ symbol, wordmark, lockup, favicon
-npm run capsule     # capsule/<design>/ print files (SVG + 300 dpi PNG)
-npm run mockups     # site/assets/mockups/ flat garment mockups (MOCKUP)
+npm run brand       # wordmark, favicon, paths.json from the locked master A (brand/README.md)
+python3 scripts/garments.py  # product images: owner's blank boards + official A + owner's drawings
+python3 scripts/retouch.py   # campaign images: generated marks removed, official A and real artwork composited
 npm run economics   # docs/ECONOMICS.md + data/economics.json
 ```
 
@@ -30,11 +30,11 @@ npm run economics   # docs/ECONOMICS.md + data/economics.json
 | Path | What |
 |---|---|
 | `data/catalog.mjs` | the catalogue: products, blanks with A61 prices, colours, sizes, variants, shipping policy. Single source of truth for site, checkout and supplier |
-| `site/` | config, copy (i18n, long pages), CSS, client JS, images (concept crops, mockups) |
-| `scripts/` | build, dev server, QA, brand, Graphic Series artwork, mockups, economics |
+| `site/` | config, copy (i18n, long pages), CSS, client JS, images (products, campaign) |
+| `scripts/` | build, dev server, QA, brand (from the locked master A), product images, campaign retouch, economics |
 | `worker/` | Cloudflare Worker API (checkout, webhook, orders, supplier adapter, e-mail), D1 migration, wrangler.toml |
 | `brand/`, `design/` | logo files, design tokens, art fonts with licences |
-| `capsule/` | Graphic Series print files (`_archive/` = first concept) |
+| `capsule/` | archive of the first capsule studies (not published; Graphic Series artwork lives in `design/prints/`) |
 | `docs/` | suppliers, economics, architecture, brand, Graphic Series, legal review, analytics, e-mail flows, launch checklist |
 | `tests/` | node:test suites + in-memory D1 |
 

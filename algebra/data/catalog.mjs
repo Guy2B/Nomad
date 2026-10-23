@@ -84,7 +84,7 @@ export const products = [
     price: 89,
     status: 'PREVIEW',
     blank: 'polo-m',
-    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 18 mm', file: 'brand/symbol-embroidery.svg' },
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['deep-navy', 'black', 'ivory'],
     sizes: sizesMen,
     copy: {
@@ -104,9 +104,9 @@ export const products = [
         fr: 'Piqué épais en coton bio, 240 g/m².',
       },
       detail: {
-        de: 'Symbol gestickt, rund 18 mm, Elfenbein auf Dunkel, Navy auf Elfenbein.',
-        en: 'Embroidered symbol, about 18 mm, ivory on dark, navy on ivory.',
-        fr: 'Symbole brodé, environ 18 mm, ivoire sur foncé, navy sur ivoire.',
+        de: 'Symbol gestickt, rund 18 mm hoch, Elfenbein auf Dunkel, Navy auf Elfenbein.',
+        en: 'Embroidered symbol, about 18 mm high, ivory on dark, navy on ivory.',
+        fr: 'Symbole brodé, environ 18 mm de haut, ivoire sur foncé, navy sur ivoire.',
       },
       design: {
         de: 'Ein A, dessen zweiter Balken zum Gleichheitszeichen wird. Proportion statt Logo-Fläche.',
@@ -126,7 +126,7 @@ export const products = [
     price: 59,
     status: 'PREVIEW',
     blank: 'tee-m',
-    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 16 mm', file: 'brand/symbol-embroidery.svg' },
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['ivory', 'black', 'deep-navy'],
     sizes: sizesMen,
     copy: {
@@ -146,9 +146,9 @@ export const products = [
         fr: 'Jersey, 220 g/m².',
       },
       detail: {
-        de: 'Symbol gestickt, rund 16 mm, auf Brusthöhe.',
-        en: 'Embroidered symbol, about 16 mm, at chest height.',
-        fr: 'Symbole brodé, environ 16 mm, à hauteur de poitrine.',
+        de: 'Symbol gestickt, rund 18 mm hoch, auf Brusthöhe.',
+        en: 'Embroidered symbol, about 18 mm high, at chest height.',
+        fr: 'Symbole brodé, environ 18 mm de haut, à hauteur de poitrine.',
       },
       design: {
         de: 'Kein Spruch, keine Fläche. Nur das Zeichen.',
@@ -168,7 +168,7 @@ export const products = [
     price: 109,
     status: 'PREVIEW',
     blank: 'sweat-m',
-    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 20 mm, tone on tone', file: 'brand/symbol-embroidery.svg' },
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high), tone on tone', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['black', 'deep-navy', 'ivory'],
     sizes: sizesMen,
     copy: {
@@ -188,9 +188,9 @@ export const products = [
         fr: 'Molleton, 350 g/m², gratté à l’intérieur.',
       },
       detail: {
-        de: 'Symbol gestickt, rund 20 mm, Elfenbein auf Dunkel, Navy auf Elfenbein. Rippbündchen an Kragen, Ärmeln und Saum.',
-        en: 'Embroidered symbol, about 20 mm, ivory on dark, navy on ivory. Rib at collar, cuffs and hem.',
-        fr: 'Symbole brodé, environ 20 mm, ivoire sur foncé, navy sur ivoire. Bord côte au col, aux poignets et à l’ourlet.',
+        de: 'Symbol gestickt, rund 18 mm hoch, Elfenbein auf Dunkel, Navy auf Elfenbein. Rippbündchen an Kragen, Ärmeln und Saum.',
+        en: 'Embroidered symbol, about 18 mm high, ivory on dark, navy on ivory. Rib at collar, cuffs and hem.',
+        fr: 'Symbole brodé, environ 18 mm de haut, ivoire sur foncé, navy sur ivoire. Bord côte au col, aux poignets et à l’ourlet.',
       },
       design: {
         de: 'Ruhig getragen, präzise gemacht.',
@@ -211,7 +211,7 @@ export const products = [
     price: 89,
     status: 'NEEDS_SUPPLIER_APPROVAL',
     blank: 'polo-w',
-    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 16 mm', file: 'brand/symbol-embroidery.svg' },
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['ivory', 'deep-navy', 'black'],
     sizes: sizesWomen,
     copy: {
@@ -222,7 +222,7 @@ export const products = [
       },
       fit: { de: 'Taillierter Damenschnitt (wird bestätigt).', en: 'Shaped women’s cut (to be confirmed).', fr: 'Coupe femme cintrée (à confirmer).' },
       fabric: { de: 'Wird mit dem Muster veröffentlicht.', en: 'Published with the approved sample.', fr: 'Publié avec l’échantillon validé.' },
-      detail: { de: 'Symbol gestickt, rund 16 mm.', en: 'Embroidered symbol, about 16 mm.', fr: 'Symbole brodé, environ 16 mm.' },
+      detail: { de: 'Symbol gestickt, rund 18 mm hoch.', en: 'Embroidered symbol, about 18 mm high.', fr: 'Symbole brodé, environ 18 mm de haut.' },
       design: {
         de: 'Gleiche Welt, eigener Schnitt. Wir nennen nichts Damenmodell, was nur verkleinert ist.',
         en: 'Same world, its own cut. We do not call something a women’s piece if it is only smaller.',
@@ -241,7 +241,7 @@ export const products = [
     price: 55,
     status: 'PREVIEW',
     blank: 'tee-w',
-    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 14 mm', file: 'brand/symbol-embroidery.svg' },
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['ivory', 'black', 'deep-navy'],
     sizes: sizesWomen,
     copy: {
@@ -260,7 +260,7 @@ export const products = [
         en: 'Jersey, 180 g/m².',
         fr: 'Jersey, 180 g/m².',
       },
-      detail: { de: 'Symbol gestickt, rund 14 mm.', en: 'Embroidered symbol, about 14 mm.', fr: 'Symbole brodé, environ 14 mm.' },
+      detail: { de: 'Symbol gestickt, rund 18 mm hoch.', en: 'Embroidered symbol, about 18 mm high.', fr: 'Symbole brodé, environ 18 mm de haut.' },
       design: {
         de: 'Leise genug für das Büro, klar genug für alles danach.',
         en: 'Quiet enough for the office, clear enough for everything after.',
@@ -279,7 +279,7 @@ export const products = [
     price: 105,
     status: 'NEEDS_SUPPLIER_APPROVAL',
     blank: 'sweat-w',
-    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 18 mm, tone on tone', file: 'brand/symbol-embroidery.svg' },
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high), tone on tone', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['ivory', 'deep-navy', 'black'],
     sizes: sizesWomen,
     copy: {
@@ -294,7 +294,7 @@ export const products = [
         en: 'Sweat fabric, 300 g/m².',
         fr: 'Molleton, 300 g/m².',
       },
-      detail: { de: 'Symbol auf der Brust, rund 18 mm.', en: 'Symbol on the chest, about 18 mm.', fr: 'Symbole sur la poitrine, environ 18 mm.' },
+      detail: { de: 'Symbol auf der Brust, rund 18 mm hoch.', en: 'Symbol on the chest, about 18 mm high.', fr: 'Symbole sur la poitrine, environ 18 mm de haut.' },
       design: {
         de: 'Ruhig getragen, präzise gemacht.',
         en: 'Worn quietly, made precisely.',
@@ -316,7 +316,7 @@ export const products = [
     status: 'DRAFT',
     needs_verification: true,
     blank: null,
-    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, tone on tone (to confirm on knit)', file: 'brand/symbol-embroidery.svg' },
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high), tone on tone (to confirm on knit)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['black', 'deep-navy', 'ivory'],
     sizes: g === 'men' ? sizesMen : sizesWomen,
     copy: { lead: { de: '', en: '', fr: '' } },
@@ -462,15 +462,15 @@ export const products = [
     status: g.hidden ? 'DRAFT' : 'PREVIEW',
     // Two cuts: unisex oversized or women's. Base garments and print price: fulfillment mapping (Valadio, TO CONFIRM).
     cuts: [
-      { id: 'unisex', blank: 'tee-oversize', sizes: sizesMen, name: { de: 'Unisex Oversize', en: 'Unisex oversized', fr: 'Unisexe oversize' } },
+      { id: 'unisex', blank: 'tee-oversize', sizes: sizesMen, name: { de: 'Unisex', en: 'Unisex', fr: 'Unisexe' } },
       { id: 'women', blank: 'tee-w', sizes: sizesWomen, name: { de: 'Damenschnitt', en: 'Women’s cut', fr: 'Coupe femme' } },
     ],
     blank: 'tee-oversize',
     decoration: {
       method: 'print',
       option: 'print2',
-      placement: 'front: Algebra symbol ~20 mm, left chest · back: full-back print ~350 × 500 mm (max print area: see fulfillment mapping)',
-      file: `design/prints/${g.key}.png (owner drawing 1024 × 1536: upscale to ≥ 3500 px before production) + brand/symbol`,
+      placement: 'front: official A, 25 mm wide (≈ 18 mm high), left chest · back: full-back print ~350 × 500 mm (max print area: see fulfillment mapping)',
+      file: `design/prints/${g.key}.png (owner drawing 1024 × 1536: upscale to ≥ 3500 px before production) + brand/algebra-a-signature-master.svg`,
       technique: TV,
     },
     colors: g.colors,
@@ -483,14 +483,14 @@ export const products = [
         fr: `${g.name.replace(/ \d{2}$/, '')} : un grand imprimé dos à l’encre, cuivre et pétrole, avec la vraie équation. Le symbole Algebra sur la poitrine.`,
       },
       fit: {
-        de: 'Zwei Schnitte: Unisex Oversize (kastig, überschnittene Schultern) oder Damenschnitt.',
-        en: 'Two cuts: unisex oversized (boxy, dropped shoulders) or women’s cut.',
-        fr: 'Deux coupes : unisexe oversize (carré, épaules tombantes) ou coupe femme.',
+        de: 'Zwei Schnitte: Unisex oder Damenschnitt.',
+        en: 'Two cuts: unisex or women’s cut.',
+        fr: 'Deux coupes : unisexe ou coupe femme.',
       },
       fabric: {
-        de: 'Unisex Oversize 200 g/m², Damen 180 g/m².',
-        en: 'Unisex oversized 200 g/m², women 180 g/m².',
-        fr: 'Unisexe oversize 200 g/m², femme 180 g/m².',
+        de: 'Unisex 200 g/m², Damen 180 g/m².',
+        en: 'Unisex 200 g/m², women 180 g/m².',
+        fr: 'Unisexe 200 g/m², femme 180 g/m².',
       },
       detail: {
         de: 'Druck über fast den ganzen Rücken. Das Symbol klein auf der linken Brust.',
@@ -537,8 +537,8 @@ export function variantsOf(p) {
           size: s,
           decoration: p.decoration.method,
           // graphic: design-source (design/prints) is never sent; production needs a print-master (worker/src/fulfillment PRINT_MASTER)
-          printFile: p.line === 'graphic' ? { design: p.graphic, front: `brand/symbol${colors[c].tone === 'light' ? '' : '-ivory'}.svg`, source: `design/prints/${p.graphic}.png` } : null,
-          embroideryFile: p.decoration.method === 'embroidery' ? 'brand/symbol-embroidery.svg (digitized DST: TO VERIFY)' : null,
+          printFile: p.line === 'graphic' ? { design: p.graphic, front: `brand/algebra-a-signature-master${colors[c].tone === 'light' ? '' : '-ivory'}.svg`, source: `design/prints/${p.graphic}.png` } : null,
+          embroideryFile: p.decoration.method === 'embroidery' ? 'brand/algebra-a-signature-master.svg (embroidery file to be digitized from the master: TO VERIFY)' : null,
           purchasable: p.status === 'PREVIEW',
         });
       }
