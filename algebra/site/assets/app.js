@@ -197,6 +197,18 @@ async function checkout(btn) {
   btn.disabled = false;
 }
 
+// ------------------------------------------------------------ product cards: colour swatches
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-swatch]');
+  if (!b) return;
+  const card = b.closest('.card');
+  const c = b.dataset.swatch;
+  $$('.card__set', card).forEach((s) => (s.hidden = s.dataset.color !== c));
+  $$('[data-swatch]', card).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  const a = $('.card__a', card);
+  a.href = `${a.dataset.href}?color=${encodeURIComponent(c)}`;
+});
+
 // ------------------------------------------------------------ product page
 const pdp = $('[data-product]');
 if (pdp) {
@@ -220,6 +232,10 @@ if (pdp) {
     const lbl = form.querySelector('[name="color"]:checked')?.dataset.label;
     if (lbl) $('[data-color-name]').textContent = lbl;
   };
+  // colour chosen on a product card (?color=…) or a shared link
+  const want = new URLSearchParams(location.search).get('color');
+  const pre = want && form.querySelector(`[name="color"][value="${CSS.escape(want)}"]`);
+  if (pre) pre.checked = true;
   form.addEventListener('change', (e) => {
     if (e.target.name === 'color') track('color_selected', { item_id: id, color: e.target.value });
     if (e.target.name === 'size') { track('size_selected', { item_id: id, size: e.target.value }); $('[data-err]', form).hidden = true; }

@@ -43,7 +43,7 @@ for (const file of pages) {
   }
   for (const m of html.matchAll(/srcset="([^"]+)"/g)) {
     for (const part of m[1].split(',')) {
-      const u = part.trim().split(/\s+/)[0];
+      const u = part.trim().split(/\s+/)[0].split('?')[0];
       const target = u.startsWith('/') ? join(dist, u) : resolve(dirname(file), u);
       if (!existsSync(target)) broken.push(`${rel} → ${u} (srcset)`);
     }

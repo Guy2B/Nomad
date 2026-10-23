@@ -7,6 +7,8 @@
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, posix } from 'node:path';
+import { createHash } from 'node:crypto';
+import { readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { blanks, colors, products as allProducts, shipping, variantsOf } from '../data/catalog.mjs';
 // Pieces waiting for supplier approval are not shown on the site (no 'coming soon' clutter).
@@ -20,6 +22,15 @@ const dist = join(root, 'dist');
 const brand = JSON.parse(readFileSync(join(root, 'brand', 'paths.json'), 'utf8'));
 const LANGS = site.languages;
 const PREVIEW = site.mode !== 'live';
+// Cache-busting: every asset URL carries ?v=<hash of the shipped files>, so a deploy is never hidden by a browser cache.
+const V = (() => {
+  const h = createHash('sha1');
+  for (const f of ['site/assets/styles.css', 'site/assets/app.js', 'data/photos.json']) if (existsSync(join(root, f))) h.update(readFileSync(join(root, f)));
+  const pd = join(root, 'site', 'assets', 'photos');
+  if (existsSync(pd)) for (const f of readdirSync(pd).sort()) h.update(f + statSync(join(pd, f)).size);
+  return h.digest('hex').slice(0, 10);
+})();
+const vq = (u) => `${u}?v=${V}`;
 
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist, { recursive: true });
@@ -55,6 +66,28 @@ const collections = {
 const productPath = (lang, p) => `/${lang}/product/${p.slug}/`;
 const img = (p, color, view) => `assets/photos/${p.slug}-${color}-${view}`;
 const hasImg = (p, color, view) => existsSync(join(root, 'site', `${img(p, color, view)}.webp`));
+/** width/height of a baseline or progressive JPEG (reads the SOF marker) */
+function jpgSize(file) {
+  const b = readFileSync(file);
+  let i = 2;
+  while (i < b.length) {
+    const m = b[i + 1];
+    const len = b.readUInt16BE(i + 2);
+    if (m >= 0xc0 && m <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(m)) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)];
+    i += 2 + len;
+  }
+  return [1600, 1100];
+}
+const photoFile = (name) => join(root, 'site', 'assets', 'photos', `${name}.jpg`);
+const hasPhoto = (name) => existsSync(photoFile(name));
+const DETAIL = {
+  front: { de: 'Detail vorne', en: 'Front detail', fr: 'Détail avant' },
+  print: { de: 'Print-Detail', en: 'Print detail', fr: 'Détail du print' },
+  fabric: { de: 'Stoff', en: 'Fabric', fr: 'Matière' },
+  label: { de: 'Nackenlabel', en: 'Neck label', fr: 'Étiquette de col' },
+  frontView: { de: 'Vorderseite', en: 'Front', fr: 'Face avant' },
+  backView: { de: 'Rückseite', en: 'Back', fr: 'Face arrière' },
+};
 const viewsOf = (p, color) => (p.line === 'graphic' ? ['back', 'front'] : ['front', 'back']).filter((v) => hasImg(p, color, v));
 const displayName = (p, lang) => {
   const g = { men: { de: 'Herren', en: 'Men', fr: 'Homme' }, women: { de: 'Damen', en: 'Women', fr: 'Femme' } }[p.gender];
@@ -64,8 +97,8 @@ const displayName = (p, lang) => {
 /** <picture> with AVIF/WebP, relative to the page. */
 function picture(from, file, alt, { sizes = '(min-width: 1024px) 25vw, 50vw', eager = false, w = 800, h = 1000, small = true, cls = '' } = {}) {
   const r = (x) => rel(from, '/' + x);
-  const srcset = small ? `${r(file + '-400.webp')} 400w, ${r(file + '.webp')} ${w}w` : `${r(file + '.webp')} ${w}w`;
-  return `<picture class="${cls}"><source type="image/avif" srcset="${r(file + '.avif')}"><source type="image/webp" srcset="${srcset}" sizes="${sizes}"><img src="${r(file + '.jpg')}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
+  const srcset = small ? `${vq(r(file + '-400.webp'))} 400w, ${vq(r(file + '.webp'))} ${w}w` : `${vq(r(file + '.webp'))} ${w}w`;
+  return `<picture class="${cls}"><source type="image/avif" srcset="${vq(r(file + '.avif'))}"><source type="image/webp" srcset="${srcset}" sizes="${sizes}"><img src="${vq(r(file + '.jpg'))}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
 const conceptPic = (from, key, alt, opts = {}) => {
   const dims = { 'editorial-pair': [678, 585], 'detail-polo': [355, 325], 'detail-tee': [360, 325], 'detail-crew': [359, 325], 'detail-label': [353, 145], 'detail-button': [167, 130], 'gs-navier-stokes': [372, 425], 'gs-black-hole': [372, 425], 'gs-entanglement': [372, 425], 'gs-curvature': [372, 425], 'gs-epr-er': [800, 630], 'lifestyle-graphic': [1000, 891], 'gs-euler': [800, 542], 'gs-lorenz': [800, 542], 'gs-maxwell': [800, 542], 'gs-mandelbrot': [800, 542], 'gs-tesseract': [800, 542], 'gs-higgs': [800, 542], 'gs-big-bang': [800, 542] }[key];
@@ -113,7 +146,7 @@ ${alt}
 <meta name="theme-color" content="#F3EFE7">
 <link rel="icon" href="${r('/favicon.svg')}" type="image/svg+xml">
 <link rel="preload" href="${r('/assets/fonts/cormorant-garamond-latin-500-normal.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${r('/assets/styles.css')}">
+<link rel="stylesheet" href="${vq(r('/assets/styles.css'))}">
 ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n')}
 </head>
 <body class="${bodyClass}" data-lang="${lang}" data-root="${r('/')}" data-api="${esc(site.apiBase)}" data-mode="${site.mode}">
@@ -172,7 +205,7 @@ ${body}
   <h2 id="consent-title">${L.consent.title}</h2><p>${L.consent.body} <a href="${info('cookies')}">${L.consent.more}</a></p>
   <div class="consent__btns"><button type="button" class="btn btn--line" data-consent="necessary">${L.consent.reject}</button><button type="button" class="btn btn--line" data-consent="analytics">${L.consent.accept}</button></div>
 </div>
-<script type="module" src="${r('/assets/app.js')}"></script>
+<script type="module" src="${vq(r('/assets/app.js'))}"></script>
 </body>
 </html>
 `;
@@ -187,17 +220,25 @@ function write(path, html) {
 // ------------------------------------------------------------------ components
 function card(lang, from, p, { eager = false, color } = {}) {
   const L = t[lang];
-  const c = color || p.colors[0];
-  const views = viewsOf(p, c);
+  const first = color || p.colors[0];
   const sizes = [...new Set((p.cuts ? p.cuts.flatMap((x) => x.sizes) : p.sizes))];
-  const sw = p.colors.map((k) => `<span class="sw" style="--c:${colors[k].hex}" title="${esc(colors[k].name[lang])}"></span>`).join('');
+  const href = rel(from, productPath(lang, p));
+  // one image pair per colour; the swatches below switch them (hidden sets are not loaded: lazy + display:none)
+  const sets = p.colors
+    .map((c) => {
+      const v = viewsOf(p, c);
+      if (!v.length) return '';
+      return `<div class="card__set" data-color="${c}"${c === first ? '' : ' hidden'}>${picture(from, img(p, c, v[0]), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager: eager && c === first })}${v[1] ? picture(from, img(p, c, v[1]), '', { cls: 'card__alt' }) : ''}</div>`;
+    })
+    .join('');
+  const sw = p.colors.map((k) => `<button type="button" class="sw-btn" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(colors[k].name[lang])}" title="${esc(colors[k].name[lang])}"><span class="sw" style="--c:${colors[k].hex}"></span></button>`).join('');
   return `<li class="card" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
-  <a href="${rel(from, productPath(lang, p))}" class="card__a" data-track="select_item" data-id="${p.id}">
-    <div class="card__img">${picture(from, img(p, c, views[0]), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager })}${views[1] ? picture(from, img(p, c, views[1]), '', { cls: 'card__alt' }) : ''}</div>
+  <a href="${href}" class="card__a" data-track="select_item" data-id="${p.id}" data-href="${href}">
+    <div class="card__img">${sets}</div>
     <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>
-    <p class="card__price">${money(p.price, lang)}</p>
-    <p class="card__meta"><span class="sws" aria-hidden="true">${sw}</span><span>${L.premium.colorsCount(p.colors.length)}</span></p></div>
-  </a></li>`;
+    <p class="card__price">${money(p.price, lang)}</p></div>
+  </a>
+  <p class="card__meta"><span class="sws">${sw}</span><span>${L.premium.colorsCount(p.colors.length)}</span></p></li>`;
 }
 
 function collectionPage(lang, key) {
@@ -238,13 +279,29 @@ function productPage(lang, p) {
   const r = (to) => rel(path, to);
   const cuts = p.cuts || [{ id: '', blank: p.blank, sizes: p.sizes, name: null }];
   const variants = variantsOf(p).map((v) => ({ sku: v.sku, cut: v.cut || '', color: v.color, size: v.size, ok: v.purchasable }));
+  const fig = (name, alt, cap, opts = {}) => {
+    const [w, h] = jpgSize(photoFile(name));
+    return `<figure class="${opts.cls || 'sheet__fig'}">${picture(path, `assets/photos/${name}`, alt, { w, h, small: false, eager: opts.eager, sizes: opts.sizes || '(min-width: 1024px) 20vw, 33vw' })}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
+  };
   const gallery = p.colors
-    .map(
-      (c, ci) => `<div class="gal__set" data-color="${c}"${ci ? ' hidden' : ''}>${viewsOf(p, c)
-        .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 33vw, 100vw' })}</figure>`)
-        .join('')}</div>`,
-    )
+    .map((c, ci) => {
+      const cn = colors[c].name[lang];
+      const name = displayName(p, lang);
+      const stage = `${p.slug}-${c}-stage`;
+      let inner;
+      if (hasPhoto(stage)) {
+        const mid = hasPhoto(`${p.slug}-${c}-d-print`) ? fig(`${p.slug}-${c}-d-print`, `${name}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang]) : fig(`detail-fabric-${c}`, `${name}, ${DETAIL.fabric[lang]}, ${cn}`, DETAIL.fabric[lang]);
+        inner = `${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: ci === 0, sizes: '(min-width: 1024px) 60vw, 100vw' })}
+        <div class="sheet__details">${fig(`detail-front-${c}`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`detail-label-${c}`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>`;
+      } else {
+        inner = `<div class="sheet__views">${viewsOf(p, c)
+          .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${name}, ${cn}`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 30vw, 100vw' })}</figure>`)
+          .join('')}</div>`;
+      }
+      return `<div class="gal__set" data-color="${c}"${ci ? ' hidden' : ''}>${inner}</div>`;
+    })
     .join('');
+  const spaced = esc(p.name[lang].replace(/\s+\d+$/, ''));
   // no reference/AI image on product pages: only images of the actual design
   const conceptKey = null;
   const concept = conceptKey && existsSync(join(root, 'site', 'assets', 'concept', `${conceptKey}.webp`)) ? `<figure class="gal__fig gal__fig--wide">${conceptPic(path, conceptKey, displayName(p, lang))}</figure>` : '';
@@ -258,7 +315,7 @@ function productPage(lang, p) {
   const body = `<article class="pdp wrap" data-product="${p.id}" data-name="${esc(displayName(p, lang))}" data-price="${p.price}" data-cat="${p.category}">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="${r(`/${lang}/`)}">${P.breadcrumbHome}</a> / <a href="${r(`/${lang}/${p.gender === 'women' ? 'women' : p.line === 'graphic' ? 'graphic-series' : 'men'}/`)}">${p.gender === 'women' ? L.nav.women : p.line === 'graphic' ? L.nav.graphic : L.nav.men}</a> / <span aria-current="page">${esc(displayName(p, lang))}</span></nav>
   <div class="pdp__grid">
-    <div class="gal" data-gallery>${gallery}${concept}</div>
+    <div class="gal sheet" data-gallery><p class="sheet__title" aria-hidden="true">${spaced}</p><span class="sheet__rule" aria-hidden="true"></span>${gallery}${concept}</div>
     <div class="buy">
       <div class="buy__sticky">
         ${p.capsule ? `<p class="kicker">${esc(p.capsule)}</p>` : `<p class="kicker">The Essentials</p>`}
@@ -313,7 +370,7 @@ function productPage(lang, p) {
       description: p.copy.lead[lang],
       material: composition,
       color: p.colors.map((c) => colors[c].name[lang]).join(', '),
-      image: viewsOf(p, p.colors[0]).map((v) => abs(`/${img(p, p.colors[0], v)}.jpg`)),
+      image: [...(hasPhoto(`${p.slug}-${p.colors[0]}-stage`) ? [abs(`/assets/photos/${p.slug}-${p.colors[0]}-stage.jpg`)] : []), ...viewsOf(p, p.colors[0]).map((v) => abs(`/${img(p, p.colors[0], v)}.jpg`))],
       ...(offers ? { offers } : {}),
     },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: P.breadcrumbHome, item: abs(`/${lang}/`) }, { '@type': 'ListItem', position: 2, name: displayName(p, lang), item: abs(path) }] },
@@ -324,7 +381,7 @@ function productPage(lang, p) {
 /** A photo from site/assets/photos (no -400 variant needed). */
 function photo(from, name, alt, { w, h, eager = false, cls = '', sizes = '100vw' } = {}) {
   const r = (x) => rel(from, '/' + x);
-  return `<picture class="${cls}"><source type="image/avif" srcset="${r(`assets/photos/${name}.avif`)}"><source type="image/webp" srcset="${r(`assets/photos/${name}.webp`)}" sizes="${sizes}"><img src="${r(`assets/photos/${name}.jpg`)}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
+  return `<picture class="${cls}"><source type="image/avif" srcset="${vq(r(`assets/photos/${name}.avif`))}"><source type="image/webp" srcset="${vq(r(`assets/photos/${name}.webp`))}" sizes="${sizes}"><img src="${vq(r(`assets/photos/${name}.jpg`))}" alt="${esc(alt)}" width="${w}" height="${h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
 
 function home(lang) {
@@ -505,14 +562,16 @@ writeFileSync(
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: SAMEORIGIN
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' ${site.apiBase.startsWith('http') ? new URL(site.apiBase).origin : ''}; form-action 'self' https://checkout.stripe.com; frame-ancestors 'self'; base-uri 'self'
-${PREVIEW ? '  X-Robots-Tag: noindex, nofollow\n' : ''}/assets/*
+${PREVIEW ? '  X-Robots-Tag: noindex, nofollow\n' : ''}/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+/assets/photos/*
+  Cache-Control: public, max-age=86400
 /assets/catalog.*
   Cache-Control: public, max-age=300
 /assets/styles.css
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=86400
 /assets/app.js
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=86400
 `,
 );
 writeFileSync(join(dist, 'robots.txt'), PREVIEW ? `# Preview: pages carry noindex. Crawling stays allowed so the noindex is seen.\nUser-agent: *\nAllow: /\n` : `User-agent: *\nAllow: /\nDisallow: /*/cart/\nDisallow: /*/search/\nDisallow: /*/order/\nDisallow: /*/tracking/\n\nSitemap: ${abs('/sitemap.xml')}\n`);

@@ -180,11 +180,15 @@ def make(slug, color, kind, design=None):
     The artwork is blended at source resolution, then the tee is cut out onto the studio background."""
     B = BASES[color]
     src = retouch(load(B["file"]), B["logo"], B["logo_r"])
+    from sheets import STAGE, fix_label  # lazy: sheets imports this module
+
+    if STAGE[color]["label"]:
+        src = fix_label(src, STAGE[color]["label"])
     lx, ly = B["logo"]
     nx, ny = B["neck"]
     out = {}
     front = src.copy()
-    if kind == "graphic" and design in GRAPHIC_ICON:
+    if False:  # the Algebra symbol on every chest (product sheets show the same)
         icon = resize_art(CAP / design / f"front-{tone(color)}.png", 46)
         front = fabric_blend(front, icon, (lx - 23, ly - 23))
     else:
@@ -193,7 +197,7 @@ def make(slug, color, kind, design=None):
     out["front"] = front
     back = src.copy()
     if kind == "graphic":
-        width = round(B["body"] * 0.52)
+        width = round(B["body"] * 0.55)
         art = resize_art(CAP / design / f"back-{tone(color)}.png", width)
         back = fabric_blend(back, art, (nx - width // 2, ny + round(B["body"] * 0.09)))
     out["back"] = back
