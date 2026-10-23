@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS alg_orders (
   currency TEXT NOT NULL DEFAULT 'EUR',
   stripe_session_id TEXT UNIQUE,
   stripe_payment_intent TEXT,
-  supplier TEXT NOT NULL DEFAULT 'a61',
+  supplier TEXT NOT NULL DEFAULT 'valadio',
   supplier_order_id TEXT,
   supplier_status TEXT,
   fulfillment_attempts INTEGER NOT NULL DEFAULT 0,
@@ -42,6 +42,15 @@ CREATE INDEX IF NOT EXISTS alg_order_events_order ON alg_order_events(order_id);
 CREATE TABLE IF NOT EXISTS alg_stripe_events (
   id TEXT PRIMARY KEY,
   type TEXT NOT NULL,
+  created_at TEXT NOT NULL
+);
+
+-- processed fulfillment provider webhooks (idempotency)
+CREATE TABLE IF NOT EXISTS alg_provider_events (
+  id TEXT PRIMARY KEY,
+  provider TEXT NOT NULL,
+  order_id TEXT,
+  status TEXT,                         -- Algebra status: received | production | shipped | delivered | cancelled | error
   created_at TEXT NOT NULL
 );
 

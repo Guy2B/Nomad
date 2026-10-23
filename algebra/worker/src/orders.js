@@ -10,7 +10,8 @@
  */
 import { productById, shipping, variantBySku, zoneOf } from '../../data/catalog.mjs';
 import { notifyOwner, sendMail, template } from './email.js';
-import { SupplierError } from './supplier.js';
+import { FulfillmentError } from './fulfillment/provider.js';
+import { isConfirmed } from './fulfillment/mapping.js';
 
 export const STATUSES = ['pending_payment', 'payment_failed', 'expired', 'paid', 'submitted', 'in_production', 'shipped', 'delivered', 'needs_attention', 'fulfillment_failed', 'cancelled', 'refunded'];
 const NEXT = {
@@ -40,7 +41,7 @@ export class HttpError extends Error {
 }
 
 /** Validate a cart against the catalogue and price it. Throws HttpError(400) on anything suspicious. */
-export function priceCart(input) {
+export function priceCart(input, { live = false } = {}) {
   const { items, country } = input || {};
   if (!Array.isArray(items) || !items.length || items.length > 20) throw new HttpError(400, 'BAD_CART');
   if (!shipping.countries.includes(country)) throw new HttpError(400, 'BAD_COUNTRY');
@@ -55,9 +56,11 @@ export function priceCart(input) {
     const v = variantBySku(sku);
     if (!v) throw new HttpError(400, 'UNKNOWN_SKU', sku);
     if (!v.purchasable) throw new HttpError(409, 'NOT_PURCHASABLE', sku);
+    // live shop: only variants whose exact supplier SKU is confirmed can be sold (worker/src/fulfillment/mapping.js)
+    if (live && !isConfirmed(sku)) throw new HttpError(409, 'NOT_PURCHASABLE', sku);
     if (qty > 10) throw new HttpError(400, 'BAD_ITEM');
     const p = productById(v.productId);
-    lines.push({ sku, qty, price: p.price, name: p.name.en, productId: p.id, color: v.color, size: v.size, cut: v.cut, supplierArticleId: v.supplierArticleId, supplierVariantId: v.supplierVariantId, decoration: v.decoration, printFile: v.printFile, embroideryFile: v.embroideryFile });
+    lines.push({ sku, qty, price: p.price, name: p.name.en, productId: p.id, color: v.color, size: v.size, cut: v.cut, decoration: v.decoration, printFile: v.printFile, embroideryFile: v.embroideryFile });
   }
   const subtotal = lines.reduce((s, l) => s + l.price * l.qty, 0);
   const z = shipping.zones[zoneOf(country)];
@@ -133,7 +136,7 @@ export async function fulfill(env, order, supplier) {
     const r = await supplier.createOrder(order);
     return await setStatus(env.DB, order, 'submitted', { supplier: supplier.name, supplier_order_id: r.supplierOrderId, supplier_status: r.status, last_error: null, fulfillment_attempts: order.fulfillment_attempts + 1 });
   } catch (e) {
-    const kind = e instanceof SupplierError ? e.kind : 'api';
+    const kind = e instanceof FulfillmentError ? e.kind : 'api';
     const attempts = order.fulfillment_attempts + 1;
     if (kind === 'api' && attempts < MAX_ATTEMPTS) {
       await env.DB.prepare('UPDATE alg_orders SET fulfillment_attempts = ?, last_error = ?, updated_at = ? WHERE id = ?').bind(attempts, e.message, now(), order.id).run();
@@ -147,11 +150,16 @@ export async function fulfill(env, order, supplier) {
   }
 }
 
-const SUPPLIER_TO_ORDER = { received: 'submitted', in_production: 'in_production', shipped: 'shipped', delivered: 'delivered', cancelled: 'cancelled', problem: 'needs_attention' };
+/** Algebra provider statuses (fulfillment/errors.js) → order statuses. Old names kept for orders created before the switch. */
+const SUPPLIER_TO_ORDER = { received: 'submitted', production: 'in_production', in_production: 'in_production', shipped: 'shipped', delivered: 'delivered', cancelled: 'cancelled', error: 'needs_attention', problem: 'needs_attention' };
 
 /** Poll the supplier for one order and apply the result. */
 export async function syncStatus(env, order, supplier) {
-  const s = await supplier.getStatus(order);
+  return applyStatus(env, order, await supplier.getStatus(order));
+}
+
+/** Apply a provider status (from polling or a webhook) to an order. s = { status, carrier?, trackingNumber?, trackingUrl? } */
+export async function applyStatus(env, order, s) {
   const to = SUPPLIER_TO_ORDER[s.status];
   if (!to || to === order.status) {
     if (s.status !== order.supplier_status) await env.DB.prepare('UPDATE alg_orders SET supplier_status = ?, updated_at = ? WHERE id = ?').bind(s.status, now(), order.id).run();

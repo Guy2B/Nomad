@@ -1,4 +1,41 @@
-# Algebra · Supplier comparison (POD / zero-inventory)
+# Algebra · Suppliers and fulfillment
+
+## Decision 23.10.2026: Valadio replaces A61
+
+Model: **Algebra → Valadio REST API → premium base garments (SOL'S first) → embroidery / print → white-label shipping.**
+Customers only ever see Algebra. Supplier, base garment, supplier SKU, costs and print methods live server side in
+`worker/src/fulfillment/mapping.js` and are visible only through `GET /api/admin/fulfillment` (Bearer ADMIN_TOKEN).
+
+Known from valadio.com (23.10.2026): production in Teplice, Czech Republic; print on demand from 1 piece; fulfillment via API.
+Everything else (endpoints, auth, payload, statuses, webhook signature, prices, delivery times, white-label options) comes
+from Valadio's official documentation after API access. Nothing has been invented: `ENDPOINTS` in
+`worker/src/fulfillment/valadio.js` stays empty and the provider runs as a sandbox until it is filled in.
+
+Consequence for the public site: production is no longer in Germany. All "made/shipped in Germany" wording was changed to
+"embroidered and printed in Europe, shipped from the EU" (true for Valadio). Delivery times and the carrier are no longer named.
+
+### To confirm with Valadio before going live
+
+| Algebra ID | Candidate | What to confirm |
+|---|---|---|
+| ALG-M-POLO | SOL'S PASADENA MEN 00577 (tipped collar) | availability in the Valadio catalogue, colours (Black/White, French Navy/White, White/Navy, Grey/Navy, Forest Green/White), exact SKUs per colour/size, composition and weight, embroidery price |
+| ALG-W-POLO | SOL'S PASADENA WOMEN 00578 | same |
+| ALG-M-TEE / ALG-W-TEE | SOL'S MILLENIUM, SOL'S LYAM or other heavy references | weight, black / navy / off-white, men + women, relabel or tear-away label, DTG/DTF suitability |
+| ALG-M-CREW / ALG-W-CREW | SOL'S heavy crewneck sweatshirt (The Sweat) | reference, colours, composition |
+| ALG-M-KNIT / ALG-W-KNIT | SOL'S / NEOBLU knitwear | real fine-gauge knit (not fleece), embroidery possible, colours |
+| Graphic Series | heavyweight / oversized tee + women tee | full-back print area (~35 × 50 cm), DTG vs DTF, price, print file spec (the owner's drawings are 1024 × 1536 px and must be upscaled to ≥ 3500 px) |
+
+Until a variant has `confirmed: true` and an exact SKU in `SKU`, the live shop refuses it (`priceCart(…, { live: true })`)
+and a real Valadio order would go to `needs_attention`, never to production.
+
+**Product images**: the site keeps Algebra's own images (owner's blank boards + our symbol and drawings). The current polo
+images show a plain collar in black / navy / ivory; the Pasadena candidate has a contrast-tipped collar in other colours.
+If Pasadena is confirmed, new blank boards with the tipped collar are needed so the photo matches the piece delivered.
+
+---
+
+## History: comparison of 22.10.2026 (A61 period)
+
 
 Research date: 22.10.2026. Sources are the suppliers' own public pages, read on that day.
 Anything not published or not verifiable is marked **TO VERIFY**. No price or delay below is invented.

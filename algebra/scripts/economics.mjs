@@ -3,7 +3,8 @@
  * Writes docs/ECONOMICS.md and data/economics.json. Run: npm run economics
  *
  * Every number is one of:
- *   SUPPLIER   published by A61 (source in data/catalog.mjs / docs/SUPPLIERS.md)
+ *   SUPPLIER   provider cost from worker/src/fulfillment/mapping.js (Valadio, once confirmed)
+ *   REFERENCE  previous A61 offer (23.10.2026), used only while Valadio prices are unknown
  *   POLICY     an Algebra decision (price hypothesis, shipping fee), change it in data/catalog.mjs
  *   ASSUMPTION a modelling assumption, change it below; never presented as a fact
  *   TO VERIFY  unknown; the SKU's result is then flagged instead of invented
@@ -11,7 +12,8 @@
 import { writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { blanks, products, shipping } from '../data/catalog.mjs';
+import { products, shipping } from '../data/catalog.mjs';
+import { MAPPING, GRAPHIC, PREVIOUS_A61 } from '../worker/src/fulfillment/mapping.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VAT = 0.19;
@@ -31,7 +33,18 @@ export const ASSUMPTIONS = {
   returnHandling: 0,
   // White label per piece: transfer neck label (SUPPLIER, 0,90 € net). Packaging 0,75 € and inserts 0,25 € are not used at launch (POLICY).
   neckLabelNet: 0.9,
+  // Contribution Algebra wants to keep per piece, as a share of net revenue (POLICY, for the minimum price).
+  targetMargin: 0.35,
 };
+
+/** Net cost of garment + decoration: Valadio if both numbers are known, else the A61 reference, else null. */
+function costOf(p, cut) {
+  const m = p.line === 'graphic' ? GRAPHIC : MAPPING[p.id];
+  const c = m && m.cost;
+  if (c && c.garment != null && c.decoration != null) return { net: c.garment + c.decoration, source: 'Valadio' };
+  const ref = PREVIOUS_A61[p.line === 'graphic' ? 'graphic' : p.id];
+  return ref ? { net: ref.net, source: 'A61 reference' } : { net: null, source: 'TO VERIFY' };
+}
 
 const r2 = (n) => Math.round(n * 100) / 100;
 const eur = (n) => (n == null ? 'TO VERIFY' : `${n.toFixed(2).replace('.', ',')} €`);
@@ -39,14 +52,13 @@ const pct = (n) => (n == null ? 'TO VERIFY' : `${(n * 100).toFixed(0)} %`);
 
 /** One-unit order to Germany. mode 'K' = Kleinunternehmer (§ 19 UStG, no VAT charged, input VAT not deductible), 'V' = regular VAT. */
 export function unit(p, cut, mode = 'K', zone = 'DE', a = ASSUMPTIONS) {
-  const b = blanks[cut ? cut.blank : p.blank];
-  const opt = b.a61[p.decoration.option];
+  const cost = costOf(p, cut);
   const z = shipping.zones[zone];
   const shipFee = p.price >= z.freeFrom ? 0 : z.fee;
   const gross = p.price + shipFee; // what the customer pays
   const revenue = mode === 'K' ? gross : gross / (1 + VAT);
   const k = mode === 'K' ? 1 + VAT : 1; // supplier invoices carry 19 % VAT; not recoverable for a Kleinunternehmer
-  const product = opt ? opt.net * k : null;
+  const product = cost.net != null ? cost.net * k : null;
   const label = a.neckLabelNet * k;
   const ship = (z.supplierCostNet + shipping.packagingNetPerShipment) * k;
   const pay = gross * a.paymentPct + a.paymentFixed;
@@ -57,7 +69,9 @@ export function unit(p, cut, mode = 'K', zone = 'DE', a = ASSUMPTIONS) {
   return {
     sku: p.id + (cut ? `-${cut.id === 'women' ? 'W' : 'U'}` : ''),
     name: p.name.en + (cut ? ` (${cut.name.en})` : ''),
-    blank: b.label,
+    costSource: cost.source,
+    // minimum price (incl. shipping fee paid by the customer) that keeps targetMargin: gross = (fixed costs) / (1 − pay% − margin)
+    minPrice: product == null ? null : r2((product + label + ship + a.paymentFixed + a.returnRate * ((product + label) * (1 - a.returnRecovery) + a.returnHandling)) / ((mode === 'K' ? 1 : 1 / (1 + VAT)) - a.paymentPct - a.targetMargin * (mode === 'K' ? 1 : 1 / (1 + VAT))) - shipFee),
     status: p.status,
     mode,
     zone,
@@ -77,15 +91,15 @@ export function unit(p, cut, mode = 'K', zone = 'DE', a = ASSUMPTIONS) {
 }
 
 export function table(mode = 'K', zone = 'DE') {
-  return products.flatMap((p) => (p.cuts ? p.cuts.map((c) => unit(p, c, mode, zone)) : [unit(p, null, mode, zone)]));
+  return products.filter((p) => p.status !== 'DRAFT').flatMap((p) => (p.cuts ? p.cuts.map((c) => unit(p, c, mode, zone)) : [unit(p, null, mode, zone)]));
 }
 
 function md(rows, title) {
   const head =
-    '| SKU | Product | Status | Price | Ship fee | Net revenue | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix | Break-even CAC |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|';
+    '| SKU | Product | Status | Price | Min. price | Cost source | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|';
   const lines = rows.map(
     (r) =>
-      `| ${r.sku} | ${r.name} | ${r.status} | ${eur(r.priceGross)} | ${eur(r.shipFee)} | ${eur(r.revenue)} | ${eur(r.product)} | ${eur(r.label)} | ${eur(r.ship)} | ${eur(r.pay)} | ${eur(r.returns)} | **${eur(r.contribution)}** | ${pct(r.contributionPct)} | ${eur(r.contributionWorst)} | ${eur(r.breakEvenCac)} |`,
+      `| ${r.sku} | ${r.name} | ${r.status} | ${eur(r.priceGross)} | ${eur(r.minPrice)}${r.minPrice != null && r.minPrice > r.priceGross ? ' ⚠' : ''} | ${r.costSource} | ${eur(r.product)} | ${eur(r.label)} | ${eur(r.ship)} | ${eur(r.pay)} | ${eur(r.returns)} | **${eur(r.contribution)}** | ${pct(r.contributionPct)} | ${eur(r.contributionWorst)} |`,
   );
   return `### ${title}\n\n${head}\n${lines.join('\n')}\n`;
 }
@@ -96,13 +110,13 @@ export function sensitivity(prices = [59, 69, 79]) {
   const rows = g.cuts.flatMap((c) =>
     prices.map((price) => {
       const r = unit({ ...g, price }, c, 'K', 'DE');
-      return `| ${c.name.en} (${blanks[c.blank].label.replace(/^Stanley\/Stella |^Stella /, '')}) | ${eur(price)} | ${eur(r.shipFee)} | ${eur(r.product)} | **${eur(r.contribution)}** | ${pct(r.contributionPct)} | ${eur(r.contributionWorst)} |`;
+      return `| ${c.name.en} | ${eur(price)} | ${eur(r.shipFee)} | ${eur(r.product)} | **${eur(r.contribution)}** | ${pct(r.contributionPct)} | ${eur(r.contributionWorst)} |`;
     }),
   );
   return `### Graphic tee: price test 59 / 69 / 79 € (DE, Kleinunternehmer)
 
-Condition: A61 confirms that a ~30 × 40 cm three-colour back print + small chest print is covered by the published "2-sided print" price
-(question to A61, 23.10.2026). If not, add the surcharge they quote to "Product + deco".
+Costs: Valadio once confirmed, until then the previous A61 "2-sided print" offer as a reference. A full-back print (~35 × 50 cm)
+may cost more than a standard print: replace with the Valadio quote before deciding the price.
 
 | Cut | Price | Ship fee | Product + deco | **Contribution** | % | Worst pay mix |
 |---|---|---|---|---|---|---|

@@ -7,7 +7,7 @@
  *   NEEDS_SUPPLIER_APPROVAL    blank or decoration not on the supplier's public price list: not purchasable
  * Prices are HYPOTHESES within the brief's ranges (section 11). They are not applied automatically elsewhere:
  * change them here, rerun `npm run economics`, read docs/ECONOMICS.md.
- * Supplier facts carry a `source`; anything not published is the string 'TO VERIFY'.
+ * Public product facts only. Supplier, base garment, supplier SKU and costs: worker/src/fulfillment/mapping.js (server only).
  */
 
 export const TV = 'TO VERIFY';
@@ -21,67 +21,40 @@ export const colors = {
   burgundy: { tone: 'dark', hex: '#5E1F2C', ink: 'ivory', name: { de: 'Burgund', en: 'Burgundy', fr: 'Bordeaux' }, supplierColor: TV },
 };
 
-const A61 = 'https://www.a61partner.de/de/dropshipping-preise.html (read 22.10.2026)';
 
-/** Supplier blanks with the A61 published prices (first figure gross incl. 19 % VAT, second net; see docs/SUPPLIERS.md). */
+/** Base garment specs shown to customers (composition, weight). Keys are internal; names never reach the site. */
 export const blanks = {
-  prepster: {
-    label: 'Stanley/Stella PREPSTER 2.0 Unisex Heavy Poloshirt STPU222',
+  'polo-m': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 240,
-    source: A61,
-    a61: { embroidery: { id: 8757, gross: 20.3, net: 17.06 }, print1: { id: 8758, gross: 23.1, net: 19.41 }, print2: { id: 8758, gross: 27.8, net: 23.36 } },
   },
-  sparker: {
-    label: 'Stanley/Stella SPARKER 2.0 Unisex Heavy T-Shirt STTU171',
+  'tee-m': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 220,
-    source: A61,
-    a61: { embroidery: { id: 8614, gross: 23.9, net: 20.08 }, print1: { id: 8540, gross: 16.35, net: 13.74 }, print2: { id: 8540, gross: 21.15, net: 17.77 } },
   },
-  muser: {
-    label: 'Stella MUSER Women T-Shirt STTW172',
+  'tee-w': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 180,
-    source: A61,
-    a61: { embroidery: { id: 8982, gross: 22.4, net: 18.82 }, print1: { id: 8723, gross: 11.4, net: 9.58 }, print2: { id: 8723, gross: 16.2, net: 13.61 } },
   },
-  changer: {
-    label: 'Stanley/Stella CHANGER 2.0 Unisex Sweatshirt STSU178',
+  'sweat-m': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 350,
-    source: A61,
-    a61: { embroidery: { id: 7867, gross: 30.85, net: 25.92 }, print1: { id: 7727, gross: 27.3, net: 22.94 }, print2: { id: 7727, gross: 32.1, net: 26.97 } },
   },
-  blaster: {
-    label: 'Stanley/Stella BLASTER 2.0 Oversized T-Shirt STTU959',
+  'tee-oversize': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 200,
-    source: A61 + ' (re-read 23.10.2026)',
-    a61: { embroidery: { id: 8897, gross: 19.8, net: 16.64 }, print1: { id: 8896, gross: 12.3, net: 10.34 }, print2: { id: 8896, gross: 17.1, net: 14.37 } },
   },
-  asher: {
-    // heavier "premium" option for a later capsule; not used by a product yet
-    label: 'Stanley/Stella ASHER Heavyweight Boxy T-Shirt STTU078',
+  'tee-heavy': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 280,
-    source: A61 + ' (re-read 23.10.2026)',
-    a61: { embroidery: { id: 9071, gross: 25.1, net: 21.09 }, print1: { id: 9030, gross: 18.7, net: 15.71 }, print2: { id: 9030, gross: 23.5, net: 19.75 } },
   },
-  alma: {
-    label: 'Stella ALMA Women Sweatshirt STSW212',
+  'sweat-w': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 300,
-    source: A61,
-    // Embroidery is NOT on the public list for ALMA (print only) → NEEDS SUPPLIER APPROVAL.
-    a61: { embroidery: null, print1: { id: 8868, gross: 19.9, net: 16.72 }, print2: { id: 8868, gross: 24.7, net: 20.76 } },
   },
-  elliser: {
-    label: 'Stanley/Stella ELLISER women polo (exists at Stanley/Stella, not on the A61 list)',
+  'polo-w': {
     composition: { de: TV, en: TV, fr: TV },
     gsm: TV,
-    source: 'Not listed by A61 (22.10.2026)',
-    a61: { embroidery: null, print1: null, print2: null },
   },
 };
 
@@ -110,7 +83,7 @@ export const products = [
     name: { de: 'The Polo', en: 'The Polo', fr: 'The Polo' },
     price: 89,
     status: 'PREVIEW',
-    blank: 'prepster',
+    blank: 'polo-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 18 mm', file: 'brand/symbol-embroidery.svg' },
     colors: ['deep-navy', 'black', 'ivory'],
     sizes: sizesMen,
@@ -152,7 +125,7 @@ export const products = [
     name: { de: 'The Heavy Tee', en: 'The Heavy Tee', fr: 'The Heavy Tee' },
     price: 59,
     status: 'PREVIEW',
-    blank: 'sparker',
+    blank: 'tee-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 16 mm', file: 'brand/symbol-embroidery.svg' },
     colors: ['ivory', 'black', 'deep-navy'],
     sizes: sizesMen,
@@ -194,7 +167,7 @@ export const products = [
     name: { de: 'The Crew', en: 'The Crew', fr: 'The Crew' },
     price: 109,
     status: 'PREVIEW',
-    blank: 'changer',
+    blank: 'sweat-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 20 mm, tone on tone', file: 'brand/symbol-embroidery.svg' },
     colors: ['black', 'deep-navy', 'ivory'],
     sizes: sizesMen,
@@ -237,7 +210,7 @@ export const products = [
     name: { de: 'The Polo', en: 'The Polo', fr: 'The Polo' },
     price: 89,
     status: 'NEEDS_SUPPLIER_APPROVAL',
-    blank: 'elliser',
+    blank: 'polo-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 16 mm', file: 'brand/symbol-embroidery.svg' },
     colors: ['ivory', 'deep-navy', 'black'],
     sizes: sizesWomen,
@@ -267,7 +240,7 @@ export const products = [
     name: { de: 'The Premium Tee', en: 'The Premium Tee', fr: 'The Premium Tee' },
     price: 55,
     status: 'PREVIEW',
-    blank: 'muser',
+    blank: 'tee-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 14 mm', file: 'brand/symbol-embroidery.svg' },
     colors: ['ivory', 'black', 'deep-navy'],
     sizes: sizesWomen,
@@ -305,7 +278,7 @@ export const products = [
     name: { de: 'The Crew', en: 'The Crew', fr: 'The Crew' },
     price: 105,
     status: 'NEEDS_SUPPLIER_APPROVAL',
-    blank: 'alma',
+    blank: 'sweat-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, 18 mm, tone on tone', file: 'brand/symbol-embroidery.svg' },
     colors: ['ivory', 'deep-navy', 'black'],
     sizes: sizesWomen,
@@ -468,17 +441,16 @@ export const products = [
     name: { de: g.name, en: g.name, fr: g.name },
     price: 69,
     status: g.hidden ? 'DRAFT' : 'PREVIEW',
-    // Two cuts: unisex oversized (Blaster 2.0, confirmed on the A61 list 23.10.2026) or women's (Muser).
-    // Price of a ~30 × 40 cm three-colour back print inside the "2-sided" price: asked to A61, TO VERIFY.
+    // Two cuts: unisex oversized or women's. Base garments and print price: fulfillment mapping (Valadio, TO CONFIRM).
     cuts: [
-      { id: 'unisex', blank: 'blaster', sizes: sizesMen, name: { de: 'Unisex Oversize', en: 'Unisex oversized', fr: 'Unisexe oversize' } },
-      { id: 'women', blank: 'muser', sizes: sizesWomen, name: { de: 'Damenschnitt', en: 'Women’s cut', fr: 'Coupe femme' } },
+      { id: 'unisex', blank: 'tee-oversize', sizes: sizesMen, name: { de: 'Unisex Oversize', en: 'Unisex oversized', fr: 'Unisexe oversize' } },
+      { id: 'women', blank: 'tee-w', sizes: sizesWomen, name: { de: 'Damenschnitt', en: 'Women’s cut', fr: 'Coupe femme' } },
     ],
-    blank: 'blaster',
+    blank: 'tee-oversize',
     decoration: {
       method: 'print',
       option: 'print2',
-      placement: 'front: Algebra symbol ~20 mm, left chest · back: full-back print ~350 × 500 mm (max print area TO VERIFY with A61)',
+      placement: 'front: Algebra symbol ~20 mm, left chest · back: full-back print ~350 × 500 mm (max print area: see fulfillment mapping)',
       file: `design/prints/${g.key}.png (owner drawing 1024 × 1536: upscale to ≥ 3500 px before production) + brand/symbol`,
       technique: TV,
     },
@@ -516,7 +488,7 @@ export const products = [
   })),
 ];
 
-/** Shipping policy (decision documented in docs/ECONOMICS.md). Delivery times stay TO VERIFY until A61 confirms. */
+/** Shipping policy (decision documented in docs/ECONOMICS.md). Delivery times stay TO VERIFY until Valadio confirms. */
 export const shipping = {
   countries: ['DE', 'FR', 'AT', 'BE', 'NL', 'LU'],
   zones: {
@@ -528,7 +500,7 @@ export const shipping = {
 
 export const zoneOf = (country) => (country === 'DE' ? 'DE' : 'EU');
 
-/** Variant SKU: ALG-M-POLO-DNV-M. Supplier SKU stays TO VERIFY until A61 gives its variant IDs. */
+/** Variant SKU: ALG-M-POLO-DNV-M. Supplier SKUs live in worker/src/fulfillment/mapping.js. */
 export const colorCode = { ivory: 'IVO', 'deep-navy': 'DNV', black: 'BLK', sage: 'SAG', taupe: 'TAU', burgundy: 'BUR' };
 
 export function variantsOf(p) {
@@ -538,18 +510,12 @@ export function variantsOf(p) {
     for (const c of p.colors) {
       for (const s of cut.sizes) {
         const sku = [p.id, cut.id ? (cut.id === 'women' ? 'W' : 'U') : null, colorCode[c], s].filter(Boolean).join('-');
-        const b = blanks[cut.blank];
-        const option = b.a61[p.decoration.option];
         out.push({
           sku,
           productId: p.id,
           cut: cut.id,
           color: c,
           size: s,
-          blank: cut.blank,
-          supplier: 'a61',
-          supplierArticleId: option ? option.id : TV,
-          supplierVariantId: TV,
           decoration: p.decoration.method,
           printFile: p.line === 'graphic' ? { front: `brand/symbol${colors[c].tone === 'light' ? '' : '-ivory'}.svg`, back: `design/prints/${p.graphic}.png` } : null,
           embroideryFile: p.decoration.method === 'embroidery' ? 'brand/symbol-embroidery.svg (digitized DST: TO VERIFY)' : null,

@@ -60,11 +60,11 @@ test('mock checkout: paid → submitted to supplier → tracking → delivered',
   const s = await (await worker.fetch(new Request(`https://algebra.test/api/orders/by-session/${sid}`), e, ctx)).json();
   assert.equal(s.status, 'submitted');
   assert.equal(s.total, 93.9);
-  await sweep(e, mockSupplier()); // received → in_production
+  await sweep(e, mockSupplier()); // received → production
   await sweep(e, mockSupplier()); // → shipped with tracking
   const look = await (await worker.fetch(post('/api/orders/lookup', { order: s.number, email: 'A@B.de' }), e, ctx)).json();
   assert.equal(look.status, 'shipped');
-  assert.match(look.trackingNumber, /^MOCK/);
+  assert.match(look.trackingNumber, /^SANDBOX/);
   await sweep(e, mockSupplier());
   const done = await (await worker.fetch(post('/api/orders/lookup', { order: s.number, email: 'a@b.de' }), e, ctx)).json();
   assert.equal(done.status, 'delivered');

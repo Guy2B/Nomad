@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { allVariants, blanks, colors, products } from '../data/catalog.mjs';
+import { mappingFor } from '../worker/src/fulfillment/mapping.js';
 import { table } from '../scripts/economics.mjs';
 
 const root = join(import.meta.dirname, '..');
@@ -19,13 +20,17 @@ test('every graphic variant points to existing print files', () => {
   }
 });
 
-test('purchasable products have a published supplier cost; the others are blocked', () => {
+test('every purchasable variant has a fulfillment mapping; the others are blocked', () => {
   for (const p of products) {
-    const cuts = p.cuts || [{ blank: p.blank }];
-    const priced = cuts.every((c) => blanks[c.blank].a61[p.decoration.option]);
-    if (p.status === 'PREVIEW') assert.ok(priced, `${p.id} is purchasable without a known cost`);
-    else assert.equal(allVariants().filter((v) => v.productId === p.id && v.purchasable).length, 0);
+    const vs = allVariants().filter((v) => v.productId === p.id);
+    if (p.status === 'PREVIEW') for (const v of vs) assert.ok(mappingFor(v.sku), `${v.sku} has no fulfillment mapping`);
+    else assert.equal(vs.filter((v) => v.purchasable).length, 0);
   }
+});
+
+test('no supplier name, blank name or supplier SKU in the public catalogue', () => {
+  const pub = JSON.stringify({ products, colors, variants: allVariants() });
+  assert.doesNotMatch(pub, /a61|stanley|stella|sol['’]s|valadio|pasadena|00577|00578|supplierSku|supplierArticle/i);
 });
 
 test('prices stay inside the brief ranges (hypotheses)', () => {
@@ -38,7 +43,7 @@ test('prices stay inside the brief ranges (hypotheses)', () => {
 
 test('economics: no invented margin for unknown costs', () => {
   for (const r of table('K', 'DE')) {
-    if (r.status === 'NEEDS_SUPPLIER_APPROVAL') assert.equal(r.contribution, null, r.sku);
+    if (r.costSource === 'TO VERIFY') assert.equal(r.contribution, null, r.sku);
     else assert.ok(r.contribution > 0, r.sku);
   }
 });

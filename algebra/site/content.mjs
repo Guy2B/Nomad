@@ -22,9 +22,9 @@ const deFirst = {
 export const pages = {
   faq: {
     de: [
-      ['Wo werden die Stücke gefertigt?', 'Unsere Basis-Artikel stammen von Stanley/Stella. Bestickt, bedruckt und verschickt werden sie in Deutschland.'],
+      ['Wo werden die Stücke gefertigt?', 'Jedes Stück wird einzeln für dich in Europa bestickt oder bedruckt und aus der EU verschickt.'],
       ['Woraus sind die Stücke?', 'Aus Bio-Baumwolle. Material und Grammatur stehen auf jeder Produktseite.'],
-      ['Wie wird verschickt?', 'Mit DHL und Sendungsverfolgung. Den Link bekommst du per E-Mail, sobald dein Paket unterwegs ist.'],
+      ['Wie wird verschickt?', 'Mit Sendungsverfolgung. Den Link bekommst du per E-Mail, sobald dein Paket unterwegs ist.'],
       ['Wohin liefert ihr?', 'Nach Deutschland, Frankreich, Österreich, Belgien, die Niederlande und Luxemburg.'],
       ['Was kostet der Versand?', 'Deutschland 4,90 €, ab 100 € Bestellwert kostenlos. Übrige Lieferländer 7,90 €, ab 150 € kostenlos.'],
       ['Kann ich zurückgeben?', 'Ja. Du hast ein gesetzliches Widerrufsrecht von 14 Tagen ab Erhalt der Ware. Wie es funktioniert, steht auf der Seite Rücksendungen.'],
@@ -33,9 +33,9 @@ export const pages = {
       ['Was bedeutet das Symbol?', 'Ein A mit einem zweiten Balken, der an ein Gleichheitszeichen erinnert: Gleichgewicht und Proportion.'],
     ],
     en: [
-      ['Where are the pieces made?', 'Our base garments come from Stanley/Stella. They are embroidered, printed and shipped in Germany.'],
+      ['Where are the pieces made?', 'Every piece is embroidered or printed for you in Europe and shipped from the EU.'],
       ['What are the pieces made of?', 'Organic cotton. Material and weight are on every product page.'],
-      ['How is my order shipped?', 'With DHL, tracked. You get the link by email as soon as your parcel is on its way.'],
+      ['How is my order shipped?', 'Tracked. You get the link by email as soon as your parcel is on its way.'],
       ['Where do you ship?', 'Germany, France, Austria, Belgium, the Netherlands and Luxembourg.'],
       ['How much is shipping?', 'Germany 4.90 €, free from 100 €. Other countries 7.90 €, free from 150 €.'],
       ['Can I return?', 'Yes. You have a statutory 14-day right of withdrawal from receipt. The returns page explains how.'],
@@ -44,9 +44,9 @@ export const pages = {
       ['What does the symbol mean?', 'An A with a second bar that recalls an equals sign: balance and proportion.'],
     ],
     fr: [
-      ['Où les pièces sont-elles fabriquées ?', 'Nos vêtements de base viennent de Stanley/Stella. Ils sont brodés, imprimés et expédiés en Allemagne.'],
+      ['Où les pièces sont-elles fabriquées ?', 'Chaque pièce est brodée ou imprimée pour vous en Europe, puis expédiée depuis l’UE.'],
       ['En quoi sont les pièces ?', 'En coton biologique. Composition et grammage figurent sur chaque page produit.'],
-      ['Comment ma commande est-elle expédiée ?', 'Par DHL, avec suivi. Vous recevez le lien par e-mail dès que votre colis part.'],
+      ['Comment ma commande est-elle expédiée ?', 'Avec suivi. Vous recevez le lien par e-mail dès que votre colis part.'],
       ['Où livrez-vous ?', 'En Allemagne, France, Autriche, Belgique, aux Pays-Bas et au Luxembourg.'],
       ['Combien coûte la livraison ?', 'Allemagne 4,90 €, offerte dès 100 €. Autres pays 7,90 €, offerte dès 150 €.'],
       ['Puis-je retourner un article ?', 'Oui. Vous disposez d’un droit légal de rétractation de 14 jours à réception. La page Retours explique comment faire.'],
@@ -70,25 +70,25 @@ export const pages = {
     de: `<p class="lead">Algebra ist eine europäische Marke für zeitgenössische Essentials, für Herren und Damen.</p>
 <p>Wir machen wenige Teile und machen sie richtig: ein guter Stoff, ein klarer Schnitt, ein kleines Zeichen. Der Name kommt aus der Mathematik. Was uns daran interessiert, teilt sie mit gutem Design: Proportion, Gleichgewicht, Struktur.</p>
 <p>Unser Symbol ist ein A mit einem zweiten Balken, der an ein Gleichheitszeichen erinnert. Auf Polo, Tee und Crew ist es klein gestickt. Laut wird Algebra nur in der Graphic Series: große Ideen aus Physik und Mathematik, mit Tusche gezeichnet, jede mit ihrer echten Gleichung.</p>
-<p>Unsere Basis-Artikel aus Bio-Baumwolle stammen von Stanley/Stella. Bestickt, bedruckt und verschickt werden sie in Deutschland.</p>`,
+<p>Wir wählen Stoffe mit Substanz, meist aus Bio-Baumwolle. Jedes Stück wird einzeln in Europa bestickt oder bedruckt und aus der EU verschickt.</p>`,
     en: `<p class="lead">Algebra is a European brand of contemporary essentials, for men and women.</p>
 <p>We make few pieces and make them right: a good fabric, a clear cut, a small mark. The name comes from mathematics, and what interests us is what it shares with good design: proportion, balance, structure.</p>
 <p>Our symbol is an A with a second bar that recalls an equals sign. On the polo, tee and crew it is embroidered small. Algebra only gets loud in the Graphic Series: big ideas from physics and mathematics, drawn in ink, each with its real equation.</p>
-<p>Our organic cotton base garments come from Stanley/Stella. They are embroidered, printed and shipped in Germany.</p>`,
+<p>We choose fabrics with substance, mostly organic cotton. Every piece is embroidered or printed in Europe and shipped from the EU.</p>`,
     fr: `<p class="lead">Algebra est une marque européenne d’essentiels contemporains, pour homme et femme.</p>
 <p>Nous faisons peu de pièces et nous les faisons bien : une belle matière, une coupe nette, un petit signe. Le nom vient des mathématiques ; ce qui nous intéresse, c’est ce qu’elles partagent avec le bon design : la proportion, l’équilibre, la structure.</p>
 <p>Notre symbole est un A doté d’une seconde barre qui évoque un signe égal. Sur le polo, le t-shirt et le sweat, il est brodé en petit. Algebra ne devient expressif que dans la Graphic Series : de grandes idées de la physique et des mathématiques, dessinées à l’encre, chacune avec sa vraie équation.</p>
-<p>Nos vêtements de base en coton bio viennent de Stanley/Stella. Ils sont brodés, imprimés et expédiés en Allemagne.</p>`,
+<p>Nous choisissons des matières qui ont de la tenue, le plus souvent en coton bio. Chaque pièce est brodée ou imprimée en Europe, puis expédiée depuis l’UE.</p>`,
   },
   shipping: {
     de: `<h2>Lieferländer und Kosten</h2><table><thead><tr><th>Land</th><th>Versand</th><th>Kostenlos ab</th></tr></thead><tbody><tr><td>Deutschland</td><td>4,90 €</td><td>100 €</td></tr><tr><td>Frankreich, Österreich, Belgien, Niederlande, Luxemburg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>
-<h2>Versand</h2><p>Mit DHL und Sendungsverfolgung, aus Deutschland.</p>
+<h2>Versand</h2><p>Mit Sendungsverfolgung, aus der EU.</p>
 <h2>Sendungsverfolgung</h2><p>Sobald dein Paket unterwegs ist, bekommst du eine E-Mail mit dem Link zur Sendungsverfolgung. Du kannst den Status auch unter „Bestellung verfolgen“ abrufen.</p>`,
     en: `<h2>Countries and costs</h2><table><thead><tr><th>Country</th><th>Shipping</th><th>Free from</th></tr></thead><tbody><tr><td>Germany</td><td>4.90 €</td><td>100 €</td></tr><tr><td>France, Austria, Belgium, Netherlands, Luxembourg</td><td>7.90 €</td><td>150 €</td></tr></tbody></table>
-<h2>Carrier</h2><p>DHL, tracked, from Germany.</p>
+<h2>Carrier</h2><p>Tracked, from the EU.</p>
 <h2>Tracking</h2><p>Once your parcel is on its way you get an email with the tracking link. You can also check the status under “Track order”.</p>`,
     fr: `<h2>Pays et frais</h2><table><thead><tr><th>Pays</th><th>Livraison</th><th>Offerte dès</th></tr></thead><tbody><tr><td>Allemagne</td><td>4,90 €</td><td>100 €</td></tr><tr><td>France, Autriche, Belgique, Pays-Bas, Luxembourg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>
-<h2>Transporteur</h2><p>DHL, avec suivi, depuis l’Allemagne.</p>
+<h2>Transporteur</h2><p>Avec suivi, depuis l’UE.</p>
 <h2>Suivi</h2><p>Dès que votre colis est en route, vous recevez un e-mail avec le lien de suivi. Vous pouvez aussi consulter le statut sous « Suivre ma commande ».</p>`,
   },
   returns: {
@@ -115,7 +115,7 @@ export const pages = {
 <h2>2. Bestellungen</h2><p>Für die Abwicklung Ihrer Bestellung verarbeiten wir: Name, Lieferadresse, E-Mail-Adresse, bestellte Artikel und Beträge. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) sowie gesetzliche Aufbewahrungspflichten (Art. 6 Abs. 1 lit. c DSGVO).</p>
 <h2>3. Empfänger</h2><ul>
 <li><strong>Stripe</strong> (Stripe Payments Europe Ltd., Irland): Zahlungsabwicklung. Ihre Zahlungsdaten gibt nur Stripe ein und verarbeitet sie; wir sehen sie nicht.</li>
-<li><strong>Unser Produktionspartner</strong> (A61 Partner, Deutschland): erhält Name, Lieferadresse und Bestellinhalt, um Ihr Stück zu besticken oder zu bedrucken und zu versenden.</li>
+<li><strong>Dienstleister für Fertigung und Versand</strong> (Auftragsverarbeiter mit Sitz in der EU): erhalten Name, Lieferadresse und Bestellinhalt, um Ihr Stück zu besticken oder zu bedrucken und zu versenden.</li>
 <li><strong>Versanddienstleister</strong>: erhalten die für die Zustellung nötigen Angaben.</li>
 <li><strong>Cloudflare</strong> (Cloudflare, Inc., USA): Auslieferung dieser Website, Betrieb der Bestell-Schnittstelle und Speicherung der Bestelldaten (Cloudflare Workers, D1-Datenbank); Datenübermittlung auf Grundlage des EU-US Data Privacy Framework bzw. von Standardvertragsklauseln.</li>
 <li><strong>Resend</strong> (Resend, Inc., USA): Versand von Bestell- und Versandbestätigungen sowie des Newsletters; gleiche Grundlage.</li></ul>
@@ -123,13 +123,13 @@ export const pages = {
 <h2>5. Speicher im Browser und Statistik</h2><p>Technisch notwendig und ohne Einwilligung speichern wir im Browser den Inhalt Ihrer Tasche, das Lieferland und Ihre Cookie-Auswahl. Eine Besucherstatistik nutzen wir nur, wenn Sie ihr zustimmen; derzeit ist kein Statistikdienst eingebunden.</p>
 <h2>6. Speicherdauer</h2><p>Bestell- und Rechnungsdaten bewahren wir entsprechend den handels- und steuerrechtlichen Fristen auf (bis zu 10 Jahre), andere Daten nur so lange, wie es für den Zweck nötig ist.</p>
 <h2>7. Ihre Rechte</h2><p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde. Schreiben Sie uns an ${o.email}.</p>`,
-    en: `${deFirst.en}<p>Controller: ${addr}, ${o.email}.</p><p>We process the data needed for your order (name, address, e-mail, items). Recipients: Stripe (payment), our production partner A61 Partner in Germany (making and shipping your piece), carriers, Cloudflare (hosting, order API, database), Resend (e-mails). Newsletter only after double opt-in. In your browser we only store your bag, delivery country and cookie choice; no analytics service is active. Your rights: access, rectification, erasure, restriction, portability, objection, complaint to a supervisory authority. Write to ${o.email}.</p>`,
-    fr: `${deFirst.fr}<p>Responsable : ${addr}, ${o.email}.</p><p>Nous traitons les données nécessaires à votre commande (nom, adresse, e-mail, articles). Destinataires : Stripe (paiement), notre partenaire de production A61 Partner en Allemagne (fabrication et expédition), les transporteurs, Cloudflare (hébergement, API de commande, base de données), Resend (e-mails). Newsletter uniquement après double confirmation. Dans votre navigateur, nous enregistrons seulement votre panier, le pays de livraison et votre choix de cookies ; aucun service de statistiques n’est actif. Vos droits : accès, rectification, effacement, limitation, portabilité, opposition, réclamation auprès d’une autorité. Écrivez à ${o.email}.</p>`,
+    en: `${deFirst.en}<p>Controller: ${addr}, ${o.email}.</p><p>We process the data needed for your order (name, address, e-mail, items). Recipients: Stripe (payment), service providers for making and shipping your piece (processors based in the EU), carriers, Cloudflare (hosting, order API, database), Resend (e-mails). Newsletter only after double opt-in. In your browser we only store your bag, delivery country and cookie choice; no analytics service is active. Your rights: access, rectification, erasure, restriction, portability, objection, complaint to a supervisory authority. Write to ${o.email}.</p>`,
+    fr: `${deFirst.fr}<p>Responsable : ${addr}, ${o.email}.</p><p>Nous traitons les données nécessaires à votre commande (nom, adresse, e-mail, articles). Destinataires : Stripe (paiement), des prestataires de fabrication et d’expédition (sous-traitants établis dans l’UE), les transporteurs, Cloudflare (hébergement, API de commande, base de données), Resend (e-mails). Newsletter uniquement après double confirmation. Dans votre navigateur, nous enregistrons seulement votre panier, le pays de livraison et votre choix de cookies ; aucun service de statistiques n’est actif. Vos droits : accès, rectification, effacement, limitation, portabilité, opposition, réclamation auprès d’une autorité. Écrivez à ${o.email}.</p>`,
   },
   terms: {
     de: `<h2>1. Geltungsbereich</h2><p>Diese AGB gelten für alle Bestellungen von Verbrauchern über den Online-Shop Algebra bei ${o.name}, Inhaber ${o.owner}, ${o.street}, ${o.city}.</p>
 <h2>2. Vertragsschluss</h2><p>Die Darstellung der Produkte ist kein bindendes Angebot. Mit Klick auf den Bezahl-Button im Bestellprozess (Stripe Checkout) geben Sie ein verbindliches Angebot ab. Der Vertrag kommt mit der Zahlungsbestätigung zustande, die wir Ihnen per E-Mail senden.</p>
-<h2>3. Fertigung auf Bestellung</h2><p>Jedes Stück wird nach Ihrer Bestellung aus den angebotenen Größen und Farben gefertigt (bestickt oder bedruckt) und aus Deutschland versendet.</p>
+<h2>3. Fertigung auf Bestellung</h2><p>Jedes Stück wird nach Ihrer Bestellung aus den angebotenen Größen und Farben gefertigt (bestickt oder bedruckt) und aus der EU versendet.</p>
 <h2>4. Preise, Versand und Zahlung</h2><p>Alle Preise sind Endpreise. ${o.taxNote}; daher wird keine Umsatzsteuer berechnet. Versand nach Deutschland 4,90 €, ab 100 € kostenlos; nach Frankreich, Österreich, Belgien, in die Niederlande und nach Luxemburg 7,90 €, ab 150 € kostenlos. Die Zahlung erfolgt über Stripe.</p>
 <h2>5. Lieferzeit</h2><p>Die Lieferzeit wird auf der Produktseite und im Bestellprozess angegeben.</p>
 <h2>6. Widerrufsrecht</h2><p>Verbrauchern steht ein Widerrufsrecht nach Maßgabe der <a href="../withdrawal/">Widerrufsbelehrung</a> zu.</p>

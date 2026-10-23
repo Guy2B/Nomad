@@ -16,6 +16,7 @@ import { blanks, colors, products as allProducts, shipping, variantsOf } from '.
 const products = allProducts.filter((p) => p.status === 'PREVIEW' || p.status === 'NEEDS_SUPPLIER_APPROVAL');
 import { site } from '../site/config.mjs';
 import { legalTitles, pages } from '../site/content.mjs';
+import { common as copyCommon, copy as premiumCopy, graphicCopy } from '../data/copy.mjs';
 import { t } from '../site/i18n.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -311,11 +312,23 @@ function productPage(lang, p) {
   const concept = conceptKey && existsSync(join(root, 'site', 'assets', 'concept', `${conceptKey}.webp`)) ? `<figure class="gal__fig gal__fig--wide">${conceptPic(path, conceptKey, displayName(p, lang))}</figure>` : '';
   const b = blanks[p.blank];
   const composition = p.cuts ? p.cuts.map((c) => `${c.name[lang]}: ${blanks[c.blank].composition[lang]}, ${blanks[c.blank].gsm} g/m²`).join(' · ') : `${b.composition[lang]}${typeof b.gsm === 'number' ? `, ${b.gsm} g/m²` : ''}`;
-  const blankLabel = p.cuts ? p.cuts.map((c) => blanks[c.blank].label).join(' · ') : b.label;
   const buyable = p.status === 'PREVIEW';
   const acc = (title, html, open = false) => `<details${open ? ' open' : ''}><summary>${esc(title)}</summary><div class="acc__bd">${html}</div></details>`;
   const related = [...products.filter((x) => x.id !== p.id && x.line !== p.line), ...products.filter((x) => x.id !== p.id && x.line === p.line)].slice(0, 4);
   const vat = P.vat[site.vatMode];
+  // premium copy: headline + text per section (data/copy.mjs); public facts only
+  const C = premiumCopy[p.id] || graphicCopy(p.name.de);
+  const sec = (title, part, extra = '', open = false) => (part ? acc(title, `<p class="acc__h">${esc(part[lang][0])}</p><p>${esc(part[lang][1])}</p>${extra}`, open) : '');
+  const S = P.spec;
+  const o = site.operator;
+  const weight = C.spec.weight || (p.cuts ? p.cuts.map((c) => `${c.name[lang]} ${blanks[c.blank].gsm} g/m²`).join(' · ') : typeof b.gsm === 'number' ? `${b.gsm} g/m²` : null);
+  const specRows = [
+    [S.material, C.spec.material[lang]],
+    ...(weight ? [[S.weight, weight]] : []),
+    [S.finish, C.spec.finish === 'print' ? S.print : S.embroidery],
+    [S.ref, p.id],
+    [S.maker, `Algebra · ${o.name}, ${o.street}, ${o.city}, ${o.country} · ${o.email}`],
+  ];
   const body = `<article class="pdp wrap" data-product="${p.id}" data-name="${esc(displayName(p, lang))}" data-price="${p.price}" data-cat="${p.category}">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="${r(`/${lang}/`)}">${P.breadcrumbHome}</a> / <a href="${r(`/${lang}/${p.gender === 'women' ? 'women' : p.line === 'graphic' ? 'graphic-series' : 'men'}/`)}">${p.gender === 'women' ? L.nav.women : p.line === 'graphic' ? L.nav.graphic : L.nav.men}</a> / <span aria-current="page">${esc(displayName(p, lang))}</span></nav>
   <div class="pdp__grid">
@@ -326,7 +339,7 @@ function productPage(lang, p) {
         <h1 class="h1 buy__name">${esc(displayName(p, lang))}</h1>
         <p class="buy__price">${buyable ? money(p.price, lang) : P.unavailable}</p>
         ${buyable ? `<p class="small muted">${esc(vat)} <a href="${r(`/${lang}/info/shipping/`)}">${P.plusShip}</a></p>` : ''}
-        <p class="buy__lead">${esc(p.copy.lead[lang])}</p>
+        <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>
         <form class="buy__form" data-buy novalidate>
           ${p.cuts ? `<fieldset class="opt"><legend>${P.cut}</legend><div class="opt__row">${cuts.map((c, i) => `<label class="pill"><input type="radio" name="cut" value="${c.id}"${i ? '' : ' checked'}><span>${esc(c.name[lang])}</span></label>`).join('')}</div></fieldset>` : ''}
           <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[p.colors[0]].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c, i) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${i ? '' : ' checked'}><span class="sw sw--lg" style="--c:${colors[c].hex}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}</div></fieldset>
@@ -338,13 +351,13 @@ function productPage(lang, p) {
         <ul class="perks"><li>${esc(P.deliveryText)}</li><li>${esc(L.trust.returns[0])}</li><li>${esc(L.premium.germany[0])}</li></ul>
         <div class="acc">
           ${p.symbol ? acc(P.symbol, `<p class="symbol-eq">${mathHtml(p.equation || p.symbol.glyph)}</p><p>${mathHtml(p.symbol[lang])}</p>`, true) : ''}
-          ${acc(P.fit, `<p>${esc(p.copy.fit[lang])}</p><p><a href="${r(`/${lang}/size-guide/`)}">${P.sizeGuide}</a></p>`, !p.symbol)}
-          ${acc(P.fabric, `<p>${esc(p.copy.fabric[lang])}</p><p>${P.composition}: ${esc(composition)}</p><p class="small muted">${esc(L.premium.similar)}</p>`)}
-          ${acc(P.detail, `<p>${esc(p.copy.detail[lang])}</p>`)}
-          ${acc(P.design, `<p>${esc(p.copy.design[lang])}</p>`)}
-          ${acc(P.care, `<p>${esc(p.care[lang])}</p>`)}
-          ${acc(P.shipret, `<p>${esc(P.shipretText)}</p><p><a href="${r(`/${lang}/info/shipping/`)}">${L.footer.shipping}</a> · <a href="${r(`/${lang}/info/returns/`)}">${L.footer.returns}</a></p>`)}
-          ${acc(P.safety, `<p>${esc(P.safetyText)}</p><p class="small muted">${esc(p.id)}</p>`)}
+          ${sec(P.fit, C.fit, `<p><a href="${r(`/${lang}/size-guide/`)}">${P.sizeGuide}</a></p>`, !p.symbol)}
+          ${sec(P.fabric, C.fabric, `<p class="small muted">${esc(L.premium.similar)}</p>`)}
+          ${sec(P.detail, C.detail)}
+          ${sec(P.design, C.signature || copyCommon.signature)}
+          ${sec(P.care, C.care)}
+          ${sec(P.shipret, copyCommon.shipping, `<p><a href="${r(`/${lang}/info/shipping/`)}">${L.footer.shipping}</a> · <a href="${r(`/${lang}/info/returns/`)}">${L.footer.returns}</a></p>`)}
+          ${acc(P.safety, `<dl class="spec">${specRows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl><p class="small muted">${esc(S.more)}</p>`)}
         </div>
       </div>
     </div>
@@ -371,7 +384,7 @@ function productPage(lang, p) {
       name: `Algebra ${displayName(p, lang)}`,
       sku: p.id,
       brand: { '@type': 'Brand', name: 'Algebra' },
-      description: p.copy.lead[lang],
+      description: C.lead[lang][1],
       material: composition,
       color: p.colors.map((c) => colors[c].name[lang]).join(', '),
       image: [...(hasPhoto(`${p.slug}-${p.colors[0]}-stage`) ? [abs(`/assets/photos/${p.slug}-${p.colors[0]}-stage.jpg`)] : []), ...viewsOf(p, p.colors[0]).map((v) => abs(`/${img(p, p.colors[0], v)}.jpg`))],
@@ -379,7 +392,7 @@ function productPage(lang, p) {
     },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: P.breadcrumbHome, item: abs(`/${lang}/`) }, { '@type': 'ListItem', position: 2, name: displayName(p, lang), item: abs(path) }] },
   ];
-  write(path, layout(lang, { path, key: 'product', title: `${displayName(p, lang)} · Algebra`, desc: p.copy.lead[lang], body, jsonld }));
+  write(path, layout(lang, { path, key: 'product', title: `${displayName(p, lang)} · Algebra`, desc: C.lead[lang][1], body, jsonld }));
 }
 
 /** A photo from site/assets/photos (no -400 variant needed). */

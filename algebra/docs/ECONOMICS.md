@@ -32,122 +32,104 @@ everything else is labelled POLICY, ASSUMPTION or TO VERIFY. A SKU whose supplie
 
 ### Kleinunternehmer, delivery to Germany (current regime of the owner, LEGAL REVIEW)
 
-| SKU | Product | Status | Price | Ship fee | Net revenue | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix | Break-even CAC |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ALG-M-POLO | The Polo | PREVIEW | 89,00 € | 4,90 € | 93,90 € | 20,30 € | 1,07 € | 7,85 € | 1,66 € | 2,34 € | **60,68 €** | 65 % | 58,70 € | 60,68 € |
-| ALG-M-TEE | The Heavy Tee | PREVIEW | 59,00 € | 4,90 € | 63,90 € | 23,90 € | 1,07 € | 7,85 € | 1,21 € | 2,61 € | **27,26 €** | 43 % | 25,89 € | 27,26 € |
-| ALG-M-CREW | The Crew | PREVIEW | 109,00 € | 0,00 € | 109,00 € | 30,84 € | 1,07 € | 7,85 € | 1,89 € | 2,39 € | **64,95 €** | 60 % | 62,67 € | 64,95 € |
-| ALG-W-POLO | The Polo | NEEDS_SUPPLIER_APPROVAL | 89,00 € | 4,90 € | 93,90 € | TO VERIFY | 1,07 € | 7,85 € | 1,66 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY | TO VERIFY |
-| ALG-W-TEE | The Premium Tee | PREVIEW | 55,00 € | 4,90 € | 59,90 € | 22,40 € | 1,07 € | 7,85 € | 1,15 € | 2,50 € | **24,94 €** | 42 % | 23,64 € | 24,94 € |
-| ALG-W-CREW | The Crew | NEEDS_SUPPLIER_APPROVAL | 105,00 € | 0,00 € | 105,00 € | TO VERIFY | 1,07 € | 7,85 € | 1,83 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY | TO VERIFY |
-| ALG-G-01-NAVIERSTOKES-U | Navier–Stokes 01 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-01-NAVIERSTOKES-W | Navier–Stokes 01 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-02-BLACKHOLE-U | Black Hole 02 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-02-BLACKHOLE-W | Black Hole 02 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-03-ENTANGLEMENT-U | Entanglement 03 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-03-ENTANGLEMENT-W | Entanglement 03 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-04-CURVATURE-U | Curvature 04 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-04-CURVATURE-W | Curvature 04 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-05-EPRER-U | EPR = ER 05 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-05-EPRER-W | EPR = ER 05 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-06-EULER-U | Euler 06 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-06-EULER-W | Euler 06 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-07-LORENZ-U | Lorenz 07 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-07-LORENZ-W | Lorenz 07 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-08-MAXWELL-U | Maxwell 08 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-08-MAXWELL-W | Maxwell 08 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-09-MANDELBROT-U | Mandelbrot 09 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-09-MANDELBROT-W | Mandelbrot 09 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-10-TESSERACT-U | Tesseract 10 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-10-TESSERACT-W | Tesseract 10 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-11-HIGGS-U | Higgs Field 11 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-11-HIGGS-W | Higgs Field 11 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
-| ALG-G-12-BIGBANG-U | Big Bang 12 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € | 44,42 € |
-| ALG-G-12-BIGBANG-W | Big Bang 12 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 73,90 € | 16,20 € | 1,07 € | 7,85 € | 1,36 € | 2,03 € | **45,39 €** | 61 % | 43,81 € | 45,39 € |
+| SKU | Product | Status | Price | Min. price | Cost source | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| ALG-M-POLO | The Polo | PREVIEW | 89,00 € | 44,04 € | A61 reference | 20,30 € | 1,07 € | 7,85 € | 1,66 € | 2,34 € | **60,68 €** | 65 % | 58,70 € |
+| ALG-M-TEE | The Heavy Tee | PREVIEW | 59,00 € | 50,13 € | A61 reference | 23,90 € | 1,07 € | 7,85 € | 1,21 € | 2,61 € | **27,26 €** | 43 % | 25,89 € |
+| ALG-M-CREW | The Crew | PREVIEW | 109,00 € | 66,79 € | A61 reference | 30,84 € | 1,07 € | 7,85 € | 1,89 € | 2,39 € | **64,95 €** | 60 % | 62,67 € |
+| ALG-W-POLO | The Polo | NEEDS_SUPPLIER_APPROVAL | 89,00 € | TO VERIFY | TO VERIFY | TO VERIFY | 1,07 € | 7,85 € | 1,66 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY |
+| ALG-W-TEE | The Premium Tee | PREVIEW | 55,00 € | 47,59 € | A61 reference | 22,40 € | 1,07 € | 7,85 € | 1,15 € | 2,50 € | **24,94 €** | 42 % | 23,64 € |
+| ALG-W-CREW | The Crew | NEEDS_SUPPLIER_APPROVAL | 105,00 € | 48,26 € | A61 reference | 19,90 € | 1,07 € | 7,85 € | 1,83 € | 1,57 € | **72,78 €** | 69 % | 70,58 € |
+| ALG-G-03-ENTANGLEMENT-U | Entanglement 03 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-03-ENTANGLEMENT-W | Entanglement 03 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-06-EULER-U | Euler 06 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-06-EULER-W | Euler 06 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-07-LORENZ-U | Lorenz 07 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-07-LORENZ-W | Lorenz 07 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-08-MAXWELL-U | Maxwell 08 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-08-MAXWELL-W | Maxwell 08 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-09-MANDELBROT-U | Mandelbrot 09 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-09-MANDELBROT-W | Mandelbrot 09 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-11-HIGGS-U | Higgs Field 11 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-11-HIGGS-W | Higgs Field 11 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-12-BIGBANG-U | Big Bang 12 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-12-BIGBANG-W | Big Bang 12 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-13-FEYNMAN-U | Feynman 13 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-13-FEYNMAN-W | Feynman 13 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-14-MOBIUS-U | Möbius 14 (Unisex oversized) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
+| ALG-G-14-MOBIUS-W | Möbius 14 (Women’s cut) | PREVIEW | 69,00 € | 38,62 € | A61 reference | 17,10 € | 1,07 € | 7,85 € | 1,36 € | 2,10 € | **44,42 €** | 60 % | 42,84 € |
 
 ### Regular VAT 19 %, delivery to Germany (if Algebra leaves § 19 or exceeds the threshold)
 
-| SKU | Product | Status | Price | Ship fee | Net revenue | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix | Break-even CAC |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ALG-M-POLO | The Polo | PREVIEW | 89,00 € | 4,90 € | 78,91 € | 17,06 € | 0,90 € | 6,60 € | 1,66 € | 2,08 € | **50,61 €** | 64 % | 48,63 € | 50,61 € |
-| ALG-M-TEE | The Heavy Tee | PREVIEW | 59,00 € | 4,90 € | 53,70 € | 20,08 € | 0,90 € | 6,60 € | 1,21 € | 2,31 € | **22,60 €** | 42 % | 21,22 € | 22,60 € |
-| ALG-M-CREW | The Crew | PREVIEW | 109,00 € | 0,00 € | 91,60 € | 25,92 € | 0,90 € | 6,60 € | 1,89 € | 2,01 € | **54,28 €** | 59 % | 52,00 € | 54,28 € |
-| ALG-W-POLO | The Polo | NEEDS_SUPPLIER_APPROVAL | 89,00 € | 4,90 € | 78,91 € | TO VERIFY | 0,90 € | 6,60 € | 1,66 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY | TO VERIFY |
-| ALG-W-TEE | The Premium Tee | PREVIEW | 55,00 € | 4,90 € | 50,34 € | 18,82 € | 0,90 € | 6,60 € | 1,15 € | 2,21 € | **20,65 €** | 41 % | 19,36 € | 20,65 € |
-| ALG-W-CREW | The Crew | NEEDS_SUPPLIER_APPROVAL | 105,00 € | 0,00 € | 88,24 € | TO VERIFY | 0,90 € | 6,60 € | 1,83 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY | TO VERIFY |
-| ALG-G-01-NAVIERSTOKES-U | Navier–Stokes 01 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-01-NAVIERSTOKES-W | Navier–Stokes 01 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-02-BLACKHOLE-U | Black Hole 02 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-02-BLACKHOLE-W | Black Hole 02 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-03-ENTANGLEMENT-U | Entanglement 03 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-03-ENTANGLEMENT-W | Entanglement 03 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-04-CURVATURE-U | Curvature 04 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-04-CURVATURE-W | Curvature 04 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-05-EPRER-U | EPR = ER 05 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-05-EPRER-W | EPR = ER 05 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-06-EULER-U | Euler 06 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-06-EULER-W | Euler 06 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-07-LORENZ-U | Lorenz 07 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-07-LORENZ-W | Lorenz 07 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-08-MAXWELL-U | Maxwell 08 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-08-MAXWELL-W | Maxwell 08 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-09-MANDELBROT-U | Mandelbrot 09 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-09-MANDELBROT-W | Mandelbrot 09 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-10-TESSERACT-U | Tesseract 10 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-10-TESSERACT-W | Tesseract 10 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-11-HIGGS-U | Higgs Field 11 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-11-HIGGS-W | Higgs Field 11 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
-| ALG-G-12-BIGBANG-U | Big Bang 12 (Unisex oversized) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € | 36,99 € |
-| ALG-G-12-BIGBANG-W | Big Bang 12 (Women’s cut) | PREVIEW | 69,00 € | 4,90 € | 62,10 € | 13,61 € | 0,90 € | 6,60 € | 1,36 € | 1,82 € | **37,81 €** | 61 % | 36,23 € | 37,81 € |
+| SKU | Product | Status | Price | Min. price | Cost source | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| ALG-M-POLO | The Polo | PREVIEW | 89,00 € | 44,34 € | A61 reference | 17,06 € | 0,90 € | 6,60 € | 1,66 € | 2,08 € | **50,61 €** | 64 % | 48,63 € |
+| ALG-M-TEE | The Heavy Tee | PREVIEW | 59,00 € | 50,45 € | A61 reference | 20,08 € | 0,90 € | 6,60 € | 1,21 € | 2,31 € | **22,60 €** | 42 % | 21,22 € |
+| ALG-M-CREW | The Crew | PREVIEW | 109,00 € | 67,17 € | A61 reference | 25,92 € | 0,90 € | 6,60 € | 1,89 € | 2,01 € | **54,28 €** | 59 % | 52,00 € |
+| ALG-W-POLO | The Polo | NEEDS_SUPPLIER_APPROVAL | 89,00 € | TO VERIFY | TO VERIFY | TO VERIFY | 0,90 € | 6,60 € | 1,66 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY |
+| ALG-W-TEE | The Premium Tee | PREVIEW | 55,00 € | 47,90 € | A61 reference | 18,82 € | 0,90 € | 6,60 € | 1,15 € | 2,21 € | **20,65 €** | 41 % | 19,36 € |
+| ALG-W-CREW | The Crew | NEEDS_SUPPLIER_APPROVAL | 105,00 € | 48,55 € | A61 reference | 16,72 € | 0,90 € | 6,60 € | 1,83 € | 1,32 € | **60,87 €** | 69 % | 58,67 € |
+| ALG-G-03-ENTANGLEMENT-U | Entanglement 03 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-03-ENTANGLEMENT-W | Entanglement 03 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-06-EULER-U | Euler 06 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-06-EULER-W | Euler 06 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-07-LORENZ-U | Lorenz 07 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-07-LORENZ-W | Lorenz 07 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-08-MAXWELL-U | Maxwell 08 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-08-MAXWELL-W | Maxwell 08 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-09-MANDELBROT-U | Mandelbrot 09 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-09-MANDELBROT-W | Mandelbrot 09 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-11-HIGGS-U | Higgs Field 11 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-11-HIGGS-W | Higgs Field 11 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-12-BIGBANG-U | Big Bang 12 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-12-BIGBANG-W | Big Bang 12 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-13-FEYNMAN-U | Feynman 13 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-13-FEYNMAN-W | Feynman 13 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-14-MOBIUS-U | Möbius 14 (Unisex oversized) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
+| ALG-G-14-MOBIUS-W | Möbius 14 (Women’s cut) | PREVIEW | 69,00 € | 38,90 € | A61 reference | 14,37 € | 0,90 € | 6,60 € | 1,36 € | 1,88 € | **36,99 €** | 60 % | 35,41 € |
 
 ### Kleinunternehmer, delivery to FR / AT / BE / NL / LU (A61 EU example rate)
 
-| SKU | Product | Status | Price | Ship fee | Net revenue | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix | Break-even CAC |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ALG-M-POLO | The Polo | PREVIEW | 89,00 € | 7,90 € | 96,90 € | 20,30 € | 1,07 € | 10,85 € | 1,70 € | 2,79 € | **60,18 €** | 62 % | 58,15 € | 60,18 € |
-| ALG-M-TEE | The Heavy Tee | PREVIEW | 59,00 € | 7,90 € | 66,90 € | 23,90 € | 1,07 € | 10,85 € | 1,25 € | 3,06 € | **26,77 €** | 40 % | 25,33 € | 26,77 € |
-| ALG-M-CREW | The Crew | PREVIEW | 109,00 € | 7,90 € | 116,90 € | 30,84 € | 1,07 € | 10,85 € | 2,00 € | 3,58 € | **68,55 €** | 59 % | 66,11 € | 68,55 € |
-| ALG-W-POLO | The Polo | NEEDS_SUPPLIER_APPROVAL | 89,00 € | 7,90 € | 96,90 € | TO VERIFY | 1,07 € | 10,85 € | 1,70 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY | TO VERIFY |
-| ALG-W-TEE | The Premium Tee | PREVIEW | 55,00 € | 7,90 € | 62,90 € | 22,40 € | 1,07 € | 10,85 € | 1,19 € | 2,95 € | **24,44 €** | 39 % | 23,08 € | 24,44 € |
-| ALG-W-CREW | The Crew | NEEDS_SUPPLIER_APPROVAL | 105,00 € | 7,90 € | 112,90 € | TO VERIFY | 1,07 € | 10,85 € | 1,94 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY | TO VERIFY |
-| ALG-G-01-NAVIERSTOKES-U | Navier–Stokes 01 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-01-NAVIERSTOKES-W | Navier–Stokes 01 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-02-BLACKHOLE-U | Black Hole 02 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-02-BLACKHOLE-W | Black Hole 02 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-03-ENTANGLEMENT-U | Entanglement 03 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-03-ENTANGLEMENT-W | Entanglement 03 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-04-CURVATURE-U | Curvature 04 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-04-CURVATURE-W | Curvature 04 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-05-EPRER-U | EPR = ER 05 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-05-EPRER-W | EPR = ER 05 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-06-EULER-U | Euler 06 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-06-EULER-W | Euler 06 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-07-LORENZ-U | Lorenz 07 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-07-LORENZ-W | Lorenz 07 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-08-MAXWELL-U | Maxwell 08 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-08-MAXWELL-W | Maxwell 08 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-09-MANDELBROT-U | Mandelbrot 09 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-09-MANDELBROT-W | Mandelbrot 09 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-10-TESSERACT-U | Tesseract 10 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-10-TESSERACT-W | Tesseract 10 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-11-HIGGS-U | Higgs Field 11 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-11-HIGGS-W | Higgs Field 11 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
-| ALG-G-12-BIGBANG-U | Big Bang 12 (Unisex oversized) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € | 43,92 € |
-| ALG-G-12-BIGBANG-W | Big Bang 12 (Women’s cut) | PREVIEW | 69,00 € | 7,90 € | 76,90 € | 16,20 € | 1,07 € | 10,85 € | 1,40 € | 2,48 € | **44,90 €** | 58 % | 43,26 € | 44,90 € |
+| SKU | Product | Status | Price | Min. price | Cost source | Product + deco | Neck label | Shipping | Payment | Return prov. | **Contribution** | % | Worst pay mix |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| ALG-M-POLO | The Polo | PREVIEW | 89,00 € | 45,77 € | A61 reference | 20,30 € | 1,07 € | 10,85 € | 1,70 € | 2,79 € | **60,18 €** | 62 % | 58,15 € |
+| ALG-M-TEE | The Heavy Tee | PREVIEW | 59,00 € | 51,85 € | A61 reference | 23,90 € | 1,07 € | 10,85 € | 1,25 € | 3,06 € | **26,77 €** | 40 % | 25,33 € |
+| ALG-M-CREW | The Crew | PREVIEW | 109,00 € | 63,62 € | A61 reference | 30,84 € | 1,07 € | 10,85 € | 2,00 € | 3,58 € | **68,55 €** | 59 % | 66,11 € |
+| ALG-W-POLO | The Polo | NEEDS_SUPPLIER_APPROVAL | 89,00 € | TO VERIFY | TO VERIFY | TO VERIFY | 1,07 € | 10,85 € | 1,70 € | TO VERIFY | **TO VERIFY** | TO VERIFY | TO VERIFY |
+| ALG-W-TEE | The Premium Tee | PREVIEW | 55,00 € | 49,31 € | A61 reference | 22,40 € | 1,07 € | 10,85 € | 1,19 € | 2,95 € | **24,44 €** | 39 % | 23,08 € |
+| ALG-W-CREW | The Crew | NEEDS_SUPPLIER_APPROVAL | 105,00 € | 45,08 € | A61 reference | 19,90 € | 1,07 € | 10,85 € | 1,94 € | 2,76 € | **76,38 €** | 68 % | 74,02 € |
+| ALG-G-03-ENTANGLEMENT-U | Entanglement 03 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-03-ENTANGLEMENT-W | Entanglement 03 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-06-EULER-U | Euler 06 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-06-EULER-W | Euler 06 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-07-LORENZ-U | Lorenz 07 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-07-LORENZ-W | Lorenz 07 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-08-MAXWELL-U | Maxwell 08 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-08-MAXWELL-W | Maxwell 08 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-09-MANDELBROT-U | Mandelbrot 09 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-09-MANDELBROT-W | Mandelbrot 09 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-11-HIGGS-U | Higgs Field 11 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-11-HIGGS-W | Higgs Field 11 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-12-BIGBANG-U | Big Bang 12 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-12-BIGBANG-W | Big Bang 12 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-13-FEYNMAN-U | Feynman 13 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-13-FEYNMAN-W | Feynman 13 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-14-MOBIUS-U | Möbius 14 (Unisex oversized) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
+| ALG-G-14-MOBIUS-W | Möbius 14 (Women’s cut) | PREVIEW | 69,00 € | 40,35 € | A61 reference | 17,10 € | 1,07 € | 10,85 € | 1,40 € | 2,55 € | **43,92 €** | 57 % | 42,29 € |
 
 ### Graphic tee: price test 59 / 69 / 79 € (DE, Kleinunternehmer)
 
-Condition: A61 confirms that a ~30 × 40 cm three-colour back print + small chest print is covered by the published "2-sided print" price
-(question to A61, 23.10.2026). If not, add the surcharge they quote to "Product + deco".
+Costs: Valadio once confirmed, until then the previous A61 "2-sided print" offer as a reference. A full-back print (~35 × 50 cm)
+may cost more than a standard print: replace with the Valadio quote before deciding the price.
 
 | Cut | Price | Ship fee | Product + deco | **Contribution** | % | Worst pay mix |
 |---|---|---|---|---|---|---|
-| Unisex oversized (BLASTER 2.0 Oversized T-Shirt STTU959) | 59,00 € | 4,90 € | 17,10 € | **34,57 €** | 54 % | 33,19 € |
-| Unisex oversized (BLASTER 2.0 Oversized T-Shirt STTU959) | 69,00 € | 4,90 € | 17,10 € | **44,42 €** | 60 % | 42,84 € |
-| Unisex oversized (BLASTER 2.0 Oversized T-Shirt STTU959) | 79,00 € | 4,90 € | 17,10 € | **54,27 €** | 65 % | 52,49 € |
-| Women’s cut (MUSER Women T-Shirt STTW172) | 59,00 € | 4,90 € | 16,20 € | **35,54 €** | 56 % | 34,16 € |
-| Women’s cut (MUSER Women T-Shirt STTW172) | 69,00 € | 4,90 € | 16,20 € | **45,39 €** | 61 % | 43,81 € |
-| Women’s cut (MUSER Women T-Shirt STTW172) | 79,00 € | 4,90 € | 16,20 € | **55,24 €** | 66 % | 53,46 € |
+| Unisex oversized | 59,00 € | 4,90 € | 17,10 € | **34,57 €** | 54 % | 33,19 € |
+| Unisex oversized | 69,00 € | 4,90 € | 17,10 € | **44,42 €** | 60 % | 42,84 € |
+| Unisex oversized | 79,00 € | 4,90 € | 17,10 € | **54,27 €** | 65 % | 52,49 € |
+| Women’s cut | 59,00 € | 4,90 € | 17,10 € | **34,57 €** | 54 % | 33,19 € |
+| Women’s cut | 69,00 € | 4,90 € | 17,10 € | **44,42 €** | 60 % | 42,84 € |
+| Women’s cut | 79,00 € | 4,90 € | 17,10 € | **54,27 €** | 65 % | 52,49 € |
 
 
 ## One-off costs before launch

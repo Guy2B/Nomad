@@ -6,16 +6,19 @@
  *   POST /api/orders/lookup            {order, email} → status + tracking
  *   POST /api/newsletter               double opt-in start · GET /api/newsletter/confirm?token=
  *   POST /api/contact                  message to the owner
- *   POST /api/supplier/webhook         supplier push (if A61 offers it), shared secret
+ *   POST /api/webhooks/valadio         fulfillment provider push (signed), idempotent
  *   GET  /api/admin/orders             Bearer ADMIN_TOKEN · POST /api/admin/orders/:id/retry
+ *   GET  /api/admin/fulfillment        Bearer ADMIN_TOKEN · provider, mapping, costs (never public)
  *   GET  /api/health
  * Cron (wrangler.toml): sweep() retries fulfillment, polls supplier status, expires unpaid orders.
  */
 import { ensureSchema } from './schema.js';
 import { stripeRequest, timingSafeEqual, verifyStripeSignature } from './stripe.js';
-import { supplierFor } from './supplier.js';
+import { providerFor, FulfillmentError } from './fulfillment/provider.js';
+import { MAPPING, GRAPHIC, isConfirmed } from './fulfillment/mapping.js';
+import { allVariants } from '../../data/catalog.mjs';
 import { sendMail, template } from './email.js';
-import { HttpError, createPendingOrder, fulfill, getBySession, getOrder, markPaid, markRefunded, priceCart, setStatus, sweep, syncStatus } from './orders.js';
+import { HttpError, applyStatus, createPendingOrder, event, fulfill, getBySession, getOrder, markPaid, markRefunded, priceCart, setStatus, sweep, syncStatus } from './orders.js';
 
 const LANGS = ['de', 'en', 'fr'];
 const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...headers } });
@@ -40,7 +43,7 @@ async function body(req, max = 20000) {
 export async function handleCheckout(req, env, fetchImpl = fetch) {
   const b = await body(req);
   const lang = LANGS.includes(b.lang) ? b.lang : 'de';
-  const priced = priceCart(b);
+  const priced = priceCart(b, { live: env.SITE_MODE === 'live' });
   const origin = env.SITE_ORIGIN;
   if (env.MOCK_PAYMENTS === '1') {
     // Local end-to-end tests only: no Stripe, the order is paid immediately.
@@ -49,7 +52,7 @@ export async function handleCheckout(req, env, fetchImpl = fetch) {
     await env.DB.prepare('UPDATE alg_orders SET stripe_session_id = ? WHERE id = ?').bind(sid, id).run();
     const o = await getOrder(env.DB, id);
     await markPaid(env, o, { amount_total: Math.round(priced.total * 100), customer_details: { email: b.mockEmail || 'test@example.com', name: 'Test Kunde' }, shipping_details: { name: 'Test Kunde', address: b.mockAddress || { line1: 'Teststraße 1', postal_code: '10115', city: 'Berlin', country: b.country } }, payment_intent: 'pi_mock' });
-    await fulfill(env, await getOrder(env.DB, id), supplierFor(env));
+    await fulfill(env, await getOrder(env.DB, id), providerFor(env));
     return json({ url: `${origin}/${lang}/order/success/?session_id=${sid}`, number, mocked: true });
   }
   if (!env.STRIPE_SECRET_KEY) throw new HttpError(503, 'NEEDS_CREDENTIALS', 'Checkout not connected');
@@ -89,7 +92,7 @@ export async function handleStripeWebhook(req, env, fetchImpl = fetch) {
   const evt = JSON.parse(payload);
   const seen = await env.DB.prepare('SELECT id FROM alg_stripe_events WHERE id = ?').bind(evt.id).first();
   if (seen) return json({ received: true, duplicate: true });
-  const supplier = supplierFor(env);
+  const supplier = providerFor(env);
   const obj = evt.data.object;
   const orderFromSession = async () => (obj.metadata?.order_id ? getOrder(env.DB, obj.metadata.order_id) : getBySession(env.DB, obj.id));
   switch (evt.type) {
@@ -127,13 +130,40 @@ export async function handleStripeWebhook(req, env, fetchImpl = fetch) {
   return json({ received: true });
 }
 
+/** Provider webhook: signature, idempotency, status mapping. Never exposes provider statuses to customers. */
+export async function handleProviderWebhook(req, env) {
+  const rawBody = await req.text();
+  if (rawBody.length > 100000) throw new HttpError(413, 'TOO_LARGE');
+  const prov = providerFor(env);
+  let e;
+  try {
+    e = await prov.handleWebhook({ rawBody, headers: req.headers });
+  } catch (err) {
+    if (err instanceof FulfillmentError) {
+      console.log('[webhook]', err.kind, err.message);
+      return json({ error: err.kind }, err.kind === 'signature' ? 401 : err.kind === 'not_configured' ? 503 : 400);
+    }
+    throw err;
+  }
+  const eventId = e.eventId || `${e.supplierOrderId}:${e.rawStatus}:${e.trackingNumber || ''}`;
+  const seen = await env.DB.prepare('SELECT id FROM alg_provider_events WHERE id = ?').bind(eventId).first();
+  if (seen) return json({ received: true, duplicate: true });
+  const o = e.supplierOrderId ? await env.DB.prepare('SELECT * FROM alg_orders WHERE supplier_order_id = ?').bind(e.supplierOrderId).first() : null;
+  // 404 → the provider retries later (order may not be stored yet); nothing recorded so the retry is processed
+  if (!o) return json({ error: 'not found' }, 404);
+  await event(env.DB, o.id, 'provider_webhook', { provider: prov.name, status: e.status, raw: e.rawStatus });
+  if (e.status) await applyStatus(env, o, { status: e.status, carrier: e.carrier, trackingNumber: e.trackingNumber, trackingUrl: e.trackingUrl });
+  await env.DB.prepare('INSERT INTO alg_provider_events (id, provider, order_id, status, created_at) VALUES (?,?,?,?,?)').bind(eventId, prov.name, o.id, e.status, new Date().toISOString()).run();
+  return json({ received: true });
+}
+
 async function route(req, env, ctx) {
   const url = new URL(req.url);
   const p = url.pathname.replace(/\/+$/, '');
   const m = req.method;
   if (m === 'OPTIONS') return new Response(null, { status: 204, headers: { ...cors(env, req), 'access-control-allow-methods': 'GET,POST', 'access-control-allow-headers': 'content-type', 'access-control-max-age': '86400' } });
 
-  if (p === '/api/health') return json({ ok: true, supplier: env.SUPPLIER_MODE || 'mock', stripe: env.STRIPE_SECRET_KEY ? (env.STRIPE_SECRET_KEY.startsWith('sk_test_') ? 'test' : 'live') : 'NEEDS_CREDENTIALS', mail: env.RESEND_API_KEY ? 'resend' : 'MOCKED' });
+  if (p === '/api/health') return json({ ok: true, fulfillment: providerFor(env).name, stripe: env.STRIPE_SECRET_KEY ? (env.STRIPE_SECRET_KEY.startsWith('sk_test_') ? 'test' : 'live') : 'NEEDS_CREDENTIALS', mail: env.RESEND_API_KEY ? 'resend' : 'MOCKED' });
   if (p === '/api/checkout' && m === 'POST') return handleCheckout(req, env);
   if (p === '/api/stripe/webhook' && m === 'POST') return handleStripeWebhook(req, env);
 
@@ -178,14 +208,7 @@ async function route(req, env, ctx) {
     await sendMail(env, { to: env.OWNER_EMAIL, subject: `[Algebra] Kontakt: ${String(b.name || '').slice(0, 80)}`, text: `${b.name || ''} <${b.email}>\n\n${b.message}`, replyTo: b.email });
     return json({ ok: true });
   }
-  if (p === '/api/supplier/webhook' && m === 'POST') {
-    if (!env.SUPPLIER_WEBHOOK_SECRET || !timingSafeEqual(req.headers.get('x-algebra-secret') || '', env.SUPPLIER_WEBHOOK_SECRET)) return json({ error: 'forbidden' }, 403);
-    const b = await body(req);
-    const o = b.supplierOrderId ? await env.DB.prepare('SELECT * FROM alg_orders WHERE supplier_order_id = ?').bind(b.supplierOrderId).first() : null;
-    if (!o) return json({ error: 'not found' }, 404);
-    await syncStatus(env, o, supplierFor(env));
-    return json({ ok: true });
-  }
+  if (p === '/api/webhooks/valadio' && m === 'POST') return handleProviderWebhook(req, env);
   if (p.startsWith('/api/admin/')) {
     const auth = req.headers.get('authorization') || '';
     if (!env.ADMIN_TOKEN || !timingSafeEqual(auth, `Bearer ${env.ADMIN_TOKEN}`)) return json({ error: 'forbidden' }, 403);
@@ -193,12 +216,24 @@ async function route(req, env, ctx) {
       const r = await env.DB.prepare('SELECT id, number, status, email, total, supplier_order_id, last_error, created_at FROM alg_orders ORDER BY created_at DESC LIMIT 200').all();
       return json(r.results);
     }
+    if (p === '/api/admin/fulfillment' && m === 'GET') {
+      // admin only: provider, supplier references, confirmation status, costs
+      const prov = providerFor(env);
+      const variants = allVariants().filter((v) => v.purchasable);
+      return json({
+        provider: prov.name,
+        sandbox: Boolean(prov.sandbox),
+        products: MAPPING,
+        graphic: GRAPHIC,
+        variants: { total: variants.length, confirmed: variants.filter((v) => isConfirmed(v.sku)).length },
+      });
+    }
     const mm = p.match(/^\/api\/admin\/orders\/([\w-]+)\/retry$/);
     if (mm && m === 'POST') {
       const o = await getOrder(env.DB, mm[1]);
       if (!o) return json({ error: 'not found' }, 404);
       const back = ['needs_attention', 'fulfillment_failed'].includes(o.status) ? await setStatus(env.DB, o, 'paid', { fulfillment_attempts: 0 }) : o;
-      return json(await fulfill(env, back, supplierFor(env)));
+      return json(await fulfill(env, back, providerFor(env)));
     }
   }
   // everything else is the static shop (Workers static assets); /api/* unknown routes stay JSON 404
@@ -220,6 +255,6 @@ export default {
     }
   },
   async scheduled(_event, env, ctx) {
-    ctx.waitUntil(ensureSchema(env.DB).then(() => sweep(env, supplierFor(env))).then((r) => console.log('[sweep]', JSON.stringify(r))));
+    ctx.waitUntil(ensureSchema(env.DB).then(() => sweep(env, providerFor(env))).then((r) => console.log('[sweep]', JSON.stringify(r))));
   },
 };

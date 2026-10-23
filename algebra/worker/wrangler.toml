@@ -2,7 +2,8 @@
 # same pattern as GLOW / KIN / JOY / OFF in the AlGBr account.
 # Deployed by the "algebra" job of .github/workflows/deploy-cloudflare.yml in the Nomad repo (algbr-shops), on every push to main that touches algebra/.
 # Secrets are set in the Cloudflare dashboard as type "Secret" (or `wrangler secret put`), never here:
-#   STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, RESEND_API_KEY, ADMIN_TOKEN, NTFY_TOPIC (optional), A61_API_KEY (later)
+#   STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, RESEND_API_KEY, ADMIN_TOKEN, NTFY_TOPIC (optional),
+#   VALADIO_API_KEY, VALADIO_API_SECRET, VALADIO_WEBHOOK_SECRET (once Valadio grants API access)
 name = "algebra"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
@@ -21,7 +22,10 @@ not_found_handling = "404-page"
 [vars]
 SITE_ORIGIN = "https://algebra.algbr.eu"
 SITE_MODE = "preview"          # "live" only after docs/LAUNCH_CHECKLIST.md is PASS; preview refuses live Stripe keys
-SUPPLIER_MODE = "mock"         # "a61" once the A61 API is documented and the adapter is filled in
+FULFILLMENT_PROVIDER = "valadio"   # provider layer: worker/src/fulfillment/ (mock for local tests)
+VALADIO_SANDBOX = "true"           # "false" only after the API docs are implemented and a test order passed
+VALADIO_API_BASE_URL = ""          # from Valadio's official API documentation
+VALADIO_WEBHOOK_SIGNATURE_HEADER = "x-valadio-signature"   # TO VERIFY with the docs
 MAIL_FROM = "Algebra <service@algbr.eu>"   # same sender domain as the AlGBr shops (verified in Resend)
 OWNER_EMAIL = "contact@algbr.de"
 STRIPE_REQUIRE_TERMS = "0"
