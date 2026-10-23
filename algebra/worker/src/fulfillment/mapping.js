@@ -1,143 +1,143 @@
 /**
- * PRIVATE fulfillment mapping: Algebra product → provider product and SKUs, costs, print method.
- * Server side only. Never import this file from scripts/build.mjs or anything under site/ (a test checks it).
- * The storefront only knows Algebra IDs (ALG-M-POLO, ALG-M-POLO-BLK-M …).
+ * PRIVATE supplier mapping: Algebra product → provider product, variants, status, costs.
+ * Server side only. Never imported by scripts/build.mjs or site/* (tests check it), never sent by a public endpoint.
+ * Only GET /api/admin/fulfillment (Bearer ADMIN_TOKEN) returns it.
  *
- * Status of every field:
- *   confirmed: false  → candidate only; must be confirmed in the Valadio catalogue (API or account) before live sales.
- *   supplierSku: null → not known yet; a live order with this variant is refused and goes to the admin (needs_attention).
+ * type SupplierMapping = {
+ *   algebraProductId, provider: 'valadio' | 'a61', supplierBrand?, supplierProductId?, supplierProduct?,
+ *   status: 'candidate' | 'pending_confirmation' | 'confirmed' | 'disabled',
+ *   method, cost: { garment, decoration, source }, needs_verification, note?,
+ *   variants: [{ algebraVariantId, supplierSku?, status }]   (built from SKU below)
+ * }
+ *
+ * A real provider order is only possible when the product AND the variant are 'confirmed' and the supplierSku is known.
  */
 
-export const PROVIDER = 'valadio';
+export const STATUS = ['candidate', 'pending_confirmation', 'confirmed', 'disabled'];
+const unknownCost = { garment: null, decoration: null, source: 'needs_verification' };
 
-/** colour code in Algebra SKUs → supplier colour name (to be matched to the Valadio colour list) */
-const COLOR_HINT = { BLK: 'Black', DNV: 'French Navy', IVO: 'Off White / Natural (TO MATCH)' };
-
-/**
- * Per Algebra product: the base garment we intend to use through Valadio.
- * method: embroidery | dtg | dtf | screen | sublimation | flex  (how Valadio decorates; confirm per product)
- * cost: net EUR per piece from Valadio, null until their price list / API returns it.
- */
-export const MAPPING = {
+/** Target provider: Valadio. Nothing is confirmed yet (no API access, no price list, no test order). */
+export const VALADIO = {
   'ALG-M-POLO': {
-    provider: PROVIDER,
     supplierBrand: "SOL'S",
     supplierProduct: 'PASADENA MEN',
     supplierProductId: '00577',
-    confirmed: false,
+    status: 'candidate',
     method: 'embroidery',
-    note: 'Tipped (contrast) collar polo. Palette wanted: Black/White, French Navy/White, White/Navy, Grey/Navy, Forest Green/White. Publish a colour only once its exact SKU is confirmed. Current site colours (black, navy, ivory, plain collar) do not match this blank yet.',
-    cost: { garment: null, decoration: null },
+    needs_verification: true,
+    note: 'Priority candidate. Tipped (contrast) collar. Colours to examine: Black/White, French Navy/White, White/Navy, Grey/Navy, Forest Green/White. Publish nothing before SKU, sizes, colours, stock, composition, weight, embroidery and Valadio availability are confirmed. If chosen: new photo boards with the tipped collar (the current photos show a plain collar).',
+    cost: unknownCost,
   },
   'ALG-W-POLO': {
-    provider: PROVIDER,
     supplierBrand: "SOL'S",
     supplierProduct: 'PASADENA WOMEN',
     supplierProductId: '00578',
-    confirmed: false,
+    status: 'candidate',
     method: 'embroidery',
-    note: 'Women version of the tipped collar polo. Same palette rule as ALG-M-POLO.',
-    cost: { garment: null, decoration: null },
+    needs_verification: true,
+    note: 'Same rules as ALG-M-POLO.',
+    cost: unknownCost,
   },
   'ALG-M-TEE': {
-    provider: PROVIDER,
+    supplierBrand: "SOL'S",
+    supplierProduct: null,
+    supplierProductId: null,
+    candidates: ['MILLENIUM', 'LYAM'],
+    status: 'candidate',
+    method: 'embroidery',
+    needs_verification: true,
+    note: 'Compare weight, cut, cotton, black / navy / ivory-ecru, men + women, back print area, DTG/DTF, removable or hideable supplier label. The current tee stays until a better reference is confirmed.',
+    cost: unknownCost,
+  },
+  'ALG-W-TEE': { supplierBrand: "SOL'S", supplierProduct: null, supplierProductId: null, candidates: ['women versions of the chosen tee'], status: 'candidate', method: 'embroidery', needs_verification: true, cost: unknownCost },
+  'ALG-M-SWEAT': { supplierBrand: null, supplierProduct: null, supplierProductId: null, candidates: ['heavy crewneck sweatshirt (fleece)'], status: 'candidate', method: 'embroidery', needs_verification: true, note: 'The Sweat: fleece sweatshirt. Never presented as knitwear.', cost: unknownCost },
+  'ALG-W-SWEAT': { supplierBrand: null, supplierProduct: null, supplierProductId: null, candidates: ['women crewneck sweatshirt (fleece)'], status: 'candidate', method: 'embroidery', needs_verification: true, cost: unknownCost },
+  'ALG-M-KNIT': {
     supplierBrand: null,
     supplierProduct: null,
     supplierProductId: null,
-    candidates: ["SOL'S MILLENIUM", "SOL'S LYAM", 'other heavyweight references in the Valadio catalogue'],
-    confirmed: false,
+    candidates: ['Valadio / Solo Group (SOL\'S, NEOBLU) or other: fine gauge crewneck knit, premium cotton or wool blend, men + women'],
+    status: 'candidate',
     method: 'embroidery',
-    note: 'Choose after comparing weight, hand feel, black/navy/off-white availability, men + women, tear-away or relabel option.',
-    cost: { garment: null, decoration: null },
+    needs_verification: true,
+    note: 'The Knit: real knitted fabric (fine gauge). Palette: Black, Deep Navy, Ivory, Ecru, Warm Grey, possibly dark Forest Green. Not published until a reference is chosen.',
+    cost: unknownCost,
   },
-  'ALG-W-TEE': {
-    provider: PROVIDER,
+  'ALG-W-KNIT': { supplierBrand: null, supplierProduct: null, supplierProductId: null, candidates: ['as ALG-M-KNIT, women cut'], status: 'candidate', method: 'embroidery', needs_verification: true, cost: unknownCost },
+  graphic: {
     supplierBrand: null,
     supplierProduct: null,
     supplierProductId: null,
-    candidates: ["SOL'S women versions of the chosen men tee"],
-    confirmed: false,
-    method: 'embroidery',
-    cost: { garment: null, decoration: null },
+    candidates: ['heavyweight / oversized tee (unisex)', 'women tee'],
+    status: 'candidate',
+    method: 'dtg_or_dtf',
+    needs_verification: true,
+    note: 'Full-back print ~35 × 50 cm or the area Valadio confirms. Only print-master files are sent (design/print-master), never design-source.',
+    cost: unknownCost,
   },
-  'ALG-M-CREW': {
-    provider: PROVIDER,
-    supplierBrand: null,
-    supplierProduct: null,
-    supplierProductId: null,
-    candidates: ["SOL'S heavy crewneck sweatshirts"],
-    confirmed: false,
-    method: 'embroidery',
-    note: 'This is The Sweat (fleece sweatshirt), not The Knit.',
-    cost: { garment: null, decoration: null },
-  },
-  'ALG-W-CREW': {
-    provider: PROVIDER,
-    supplierBrand: null,
-    supplierProduct: null,
-    supplierProductId: null,
-    candidates: ["SOL'S women crewneck sweatshirts"],
-    confirmed: false,
-    method: 'embroidery',
-    cost: { garment: null, decoration: null },
-  },
-  // Reserved for a real knitwear line (fine gauge crewneck). Not on the site until a reference is confirmed.
-  'ALG-M-KNIT': { provider: PROVIDER, candidates: ['SOL\'S / NEOBLU knitwear (Solo Group)'], confirmed: false, method: 'embroidery', reserved: true, cost: { garment: null, decoration: null } },
-  'ALG-W-KNIT': { provider: PROVIDER, candidates: ['SOL\'S / NEOBLU knitwear (Solo Group)'], confirmed: false, method: 'embroidery', reserved: true, cost: { garment: null, decoration: null } },
 };
 
-/** Graphic Series tees: one mapping for every design (same base garments, different back print file). */
-export const GRAPHIC = {
-  provider: PROVIDER,
-  cuts: {
-    unisex: { supplierBrand: null, supplierProduct: null, candidates: ["SOL'S heavyweight / oversized tee in the Valadio catalogue"], confirmed: false },
-    women: { supplierBrand: null, supplierProduct: null, candidates: ["SOL'S women tee"], confirmed: false },
+/** Fallback provider A61: kept, DISABLED by default, never used unless FULFILLMENT_PROVIDER=a61. Costs = legacy_reference. */
+export const A61 = {
+  'ALG-M-POLO': { supplierBrand: 'Stanley/Stella', supplierProduct: 'PREPSTER 2.0', supplierProductId: 'STPU222', a61ArticleId: 8757, status: 'disabled', method: 'embroidery', cost: { net: 17.06, source: 'legacy_reference' } },
+  'ALG-M-TEE': { supplierBrand: 'Stanley/Stella', supplierProduct: 'SPARKER 2.0', supplierProductId: 'STTU171', a61ArticleId: 8614, status: 'disabled', method: 'embroidery', cost: { net: 20.08, source: 'legacy_reference' } },
+  'ALG-W-TEE': { supplierBrand: 'Stanley/Stella', supplierProduct: 'MUSER', supplierProductId: 'STTW172', a61ArticleId: 8982, status: 'disabled', method: 'embroidery', cost: { net: 18.82, source: 'legacy_reference' } },
+  'ALG-M-SWEAT': { supplierBrand: 'Stanley/Stella', supplierProduct: 'CHANGER 2.0', supplierProductId: 'STSU178', a61ArticleId: 7867, status: 'disabled', method: 'embroidery', cost: { net: 25.92, source: 'legacy_reference' } },
+  'ALG-W-SWEAT': { supplierBrand: 'Stanley/Stella', supplierProduct: 'ALMA', supplierProductId: 'STSW212', a61ArticleId: 8868, status: 'disabled', method: 'print', cost: { net: 16.72, source: 'legacy_reference' } },
+  graphic: { supplierBrand: 'Stanley/Stella', supplierProduct: 'BLASTER 2.0 (2-sided print)', supplierProductId: 'STTU959', a61ArticleId: 8896, status: 'disabled', method: 'print', cost: { net: 14.37, source: 'legacy_reference' } },
+};
+
+/** Exact supplier SKU and status per Algebra variant SKU (filled only from the provider's catalogue). */
+export const SKU = {
+  valadio: {
+    // 'ALG-M-POLO-BLK-M': { supplierSku: '…', status: 'confirmed' },
   },
-  method: 'dtg', // or dtf: full-back print about 35 × 50 cm, chest symbol; confirm technique and max print area
-  cost: { garment: null, decoration: null },
+  a61: {},
 };
 
-/**
- * Exact supplier SKU per Algebra variant SKU. Filled in once the Valadio catalogue is available.
- * Example (DO NOT USE until confirmed): 'ALG-M-POLO-BLK-M': '00577-…'
- */
-export const SKU = {};
-
-/** Previous supplier offer (A61, 23.10.2026), kept only as a cost reference for the margin check. Not used for orders. */
-export const PREVIOUS_A61 = {
-  'ALG-M-POLO': { blank: 'Stanley/Stella PREPSTER 2.0 STPU222', net: 17.06 },
-  'ALG-M-TEE': { blank: 'Stanley/Stella SPARKER 2.0 STTU171', net: 20.08 },
-  'ALG-W-TEE': { blank: 'Stella MUSER STTW172', net: 18.82 },
-  'ALG-M-CREW': { blank: 'Stanley/Stella CHANGER 2.0 STSU178', net: 25.92 },
-  'ALG-W-CREW': { blank: 'Stella ALMA STSW212 (print only)', net: 16.72 },
-  graphic: { blank: 'Stanley/Stella BLASTER 2.0 STTU959 (2-sided print)', net: 14.37 },
+/** Print-master files per design (high resolution for the confirmed print area). None exists yet. */
+export const PRINT_MASTER = {
+  // 'mandelbrot': 'https://…/print-master/mandelbrot.png'
 };
 
-const productIdOf = (algebraSku) => {
+export const PROVIDERS = { valadio: VALADIO, a61: A61 };
+
+export function productIdOf(algebraSku) {
   const m = String(algebraSku).match(/^(ALG-[MW]-[A-Z]+|ALG-G-\d{2}-[A-Z]+)/);
   return m ? m[1] : null;
-};
+}
 
-/** Mapping entry for an Algebra variant SKU, or null if the product is unknown. */
-export function mappingFor(algebraSku) {
+/** Mapping entry for an Algebra variant SKU and provider, or null. */
+export function mappingFor(algebraSku, provider = 'valadio') {
   const id = productIdOf(algebraSku);
-  if (!id) return null;
-  if (id.startsWith('ALG-G-')) {
-    const cut = /-W-/.test(algebraSku.slice(id.length)) ? 'women' : 'unisex';
-    return { productId: id, ...GRAPHIC, ...GRAPHIC.cuts[cut], cut };
+  const table = PROVIDERS[provider];
+  if (!id || !table) return null;
+  const key = id.startsWith('ALG-G-') ? 'graphic' : id;
+  const m = table[key];
+  if (!m) return null;
+  const v = SKU[provider]?.[algebraSku] || { supplierSku: null, status: m.status === 'disabled' ? 'disabled' : 'candidate' };
+  return { algebraProductId: id, provider, ...m, variant: { algebraVariantId: algebraSku, ...v } };
+}
+
+export function supplierSkuFor(algebraSku, provider = 'valadio') {
+  return SKU[provider]?.[algebraSku]?.supplierSku || null;
+}
+
+/** A real provider order is possible only for confirmed product + confirmed variant + known supplier SKU. */
+export function isConfirmed(algebraSku, provider = 'valadio') {
+  const m = mappingFor(algebraSku, provider);
+  return Boolean(m && m.status === 'confirmed' && m.variant.status === 'confirmed' && m.variant.supplierSku);
+}
+
+/** Admin view: SupplierMapping[] for a list of Algebra SKUs. */
+export function supplierMappings(skus, provider = 'valadio') {
+  const byProduct = new Map();
+  for (const sku of skus) {
+    const m = mappingFor(sku, provider);
+    if (!m) continue;
+    const { variant, ...rest } = m;
+    if (!byProduct.has(m.algebraProductId)) byProduct.set(m.algebraProductId, { ...rest, variants: [] });
+    byProduct.get(m.algebraProductId).variants.push(variant);
   }
-  return MAPPING[id] ? { productId: id, ...MAPPING[id] } : null;
+  return [...byProduct.values()];
 }
-
-/** Supplier SKU for an Algebra SKU, or null if not confirmed yet. */
-export function supplierSkuFor(algebraSku) {
-  return SKU[algebraSku] || null;
-}
-
-/** True when the variant can be ordered for real (product confirmed AND exact SKU known). */
-export function isConfirmed(algebraSku) {
-  const m = mappingFor(algebraSku);
-  return Boolean(m && m.confirmed && supplierSkuFor(algebraSku));
-}
-
-export const colorHint = (code) => COLOR_HINT[code] || null;

@@ -15,7 +15,7 @@
 import { ensureSchema } from './schema.js';
 import { stripeRequest, timingSafeEqual, verifyStripeSignature } from './stripe.js';
 import { providerFor, FulfillmentError } from './fulfillment/provider.js';
-import { MAPPING, GRAPHIC, isConfirmed } from './fulfillment/mapping.js';
+import { isConfirmed, supplierMappings } from './fulfillment/mapping.js';
 import { allVariants } from '../../data/catalog.mjs';
 import { sendMail, template } from './email.js';
 import { HttpError, applyStatus, createPendingOrder, event, fulfill, getBySession, getOrder, markPaid, markRefunded, priceCart, setStatus, sweep, syncStatus } from './orders.js';
@@ -163,7 +163,7 @@ async function route(req, env, ctx) {
   const m = req.method;
   if (m === 'OPTIONS') return new Response(null, { status: 204, headers: { ...cors(env, req), 'access-control-allow-methods': 'GET,POST', 'access-control-allow-headers': 'content-type', 'access-control-max-age': '86400' } });
 
-  if (p === '/api/health') return json({ ok: true, fulfillment: providerFor(env).name, stripe: env.STRIPE_SECRET_KEY ? (env.STRIPE_SECRET_KEY.startsWith('sk_test_') ? 'test' : 'live') : 'NEEDS_CREDENTIALS', mail: env.RESEND_API_KEY ? 'resend' : 'MOCKED' });
+  if (p === '/api/health') return json({ ok: true, fulfillment: providerFor(env).sandbox ? 'sandbox' : 'live', stripe: env.STRIPE_SECRET_KEY ? (env.STRIPE_SECRET_KEY.startsWith('sk_test_') ? 'test' : 'live') : 'NEEDS_CREDENTIALS', mail: env.RESEND_API_KEY ? 'resend' : 'MOCKED' });
   if (p === '/api/checkout' && m === 'POST') return handleCheckout(req, env);
   if (p === '/api/stripe/webhook' && m === 'POST') return handleStripeWebhook(req, env);
 
@@ -220,11 +220,12 @@ async function route(req, env, ctx) {
       // admin only: provider, supplier references, confirmation status, costs
       const prov = providerFor(env);
       const variants = allVariants().filter((v) => v.purchasable);
+      const skus = variants.map((v) => v.sku);
       return json({
         provider: prov.name,
         sandbox: Boolean(prov.sandbox),
-        products: MAPPING,
-        graphic: GRAPHIC,
+        valadio: supplierMappings(skus, 'valadio'),
+        a61Fallback: supplierMappings(skus, 'a61'),
         variants: { total: variants.length, confirmed: variants.filter((v) => isConfirmed(v.sku)).length },
       });
     }

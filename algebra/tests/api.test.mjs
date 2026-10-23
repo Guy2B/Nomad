@@ -162,8 +162,10 @@ test('order numbers look like ALG-YYMMDD-XXXX', () => {
   assert.match(orderNumber(new Date('2026-10-22T10:00:00Z'), 12345), /^ALG-261022-[0-9A-Z]{4}$/);
 });
 
-test('runtime schema matches the readable migration file', async () => {
-  const { readFileSync } = await import('node:fs');
-  const flat = readFileSync(schema, 'utf8').split('\n').map((l) => l.replace(/--.*$/, '')).join('\n').split(';').map((x) => x.split(/\s+/).join(' ').trim()).filter(Boolean);
+test('runtime schema matches the migration files, applied in order', async () => {
+  const { readFileSync, readdirSync } = await import('node:fs');
+  const dir = join(import.meta.dirname, '..', 'worker', 'migrations');
+  const all = readdirSync(dir).filter((f) => /^\d{4}_.*\.sql$/.test(f)).sort().map((f) => readFileSync(join(dir, f), 'utf8')).join('\n');
+  const flat = all.split('\n').map((l) => l.replace(/--.*$/, '')).join('\n').split(';').map((x) => x.split(/\s+/).join(' ').trim()).filter(Boolean);
   assert.deepEqual(SCHEMA, flat);
 });

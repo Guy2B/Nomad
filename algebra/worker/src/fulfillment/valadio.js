@@ -15,7 +15,7 @@
  *   VALADIO_WEBHOOK_SIGNATURE_HEADER       header carrying the signature (default x-valadio-signature, TO VERIFY)
  */
 import { FulfillmentError, normaliseStatus } from './errors.js';
-import { mappingFor, supplierSkuFor } from './mapping.js';
+import { PRINT_MASTER, isConfirmed, mappingFor, supplierSkuFor } from './mapping.js';
 import { mockProvider } from './mock.js';
 
 /** Fill from the official documentation. Keys are ours; values are Valadio paths or (params) => path. */
@@ -105,7 +105,7 @@ export function valadioProvider(env = {}) {
       return call('product', { method: 'GET' }, { id });
     },
     async getVariants(productId, skus = []) {
-      return skus.filter((s) => s.startsWith(productId)).map((sku) => ({ sku, supplierSku: supplierSkuFor(sku), confirmed: Boolean(supplierSkuFor(sku)) }));
+      return skus.filter((s) => s.startsWith(productId)).map((sku) => ({ sku, supplierSku: supplierSkuFor(sku), status: mappingFor(sku)?.variant.status || null }));
     },
     async getStock(sku) {
       return call('stock', { method: 'GET' }, { sku, supplierSku: supplierSkuFor(sku) });
@@ -119,11 +119,13 @@ export function valadioProvider(env = {}) {
       if (!a || !a.line1 || !a.postal_code || !a.city || !a.country) throw new FulfillmentError('address', 'Incomplete shipping address');
       const lines = items.map((it) => {
         const m = mappingFor(it.sku);
-        const supplierSku = supplierSkuFor(it.sku);
-        if (!m || !m.confirmed || !supplierSku) throw new FulfillmentError('sku', `Variant ${it.sku} has no confirmed Valadio SKU`);
-        return { supplierSku, quantity: it.qty, method: m.method, printFile: it.printFile || null, embroideryFile: it.embroideryFile || null };
+        if (!m || !isConfirmed(it.sku)) throw new FulfillmentError('sku', `Variant ${it.sku} is not confirmed for Valadio (status ${m ? m.variant.status : 'unknown'})`);
+        // Graphic Series: only a print-master file may be sent, never the design source
+        const design = it.printFile?.design || null;
+        const printMaster = design ? PRINT_MASTER[design] : null;
+        if (design && !printMaster) throw new FulfillmentError('rejected', `No print-master for ${design}`);
+        return { supplierSku: supplierSkuFor(it.sku), quantity: it.qty, method: m.method, printMaster, embroideryFile: it.embroideryFile || null };
       });
-      // Only what production and shipping need (no prices, no payment data, no e-mail unless Valadio requires it for the carrier).
       // Payload shape is a draft: rename fields to Valadio's schema when the docs arrive.
       const payload = { reference: order.number, whiteLabel: true, shippingAddress: { name: order.name, ...a }, lines };
       const r = await call('createOrder', { method: 'POST', body: JSON.stringify(payload) });

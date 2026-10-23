@@ -1,8 +1,8 @@
 /**
  * Product page copy, Algebra voice. Every section is [headline, text] per language.
  * Public facts only: no supplier, no base garment name, no supplier SKU (those live in worker/src/fulfillment/mapping.js).
- * spec = what the customer sees under "Product information". Values marked in docs/SUPPLIERS.md as
- * "confirm with Valadio" must be updated when the final base garment is confirmed.
+ * spec = what the customer sees under "Product information". needs_verification: true = the values come from the
+ * legacy base garment and must be confirmed for the final (Valadio) reference. A live build refuses to publish them.
  */
 
 const shipping = {
@@ -23,9 +23,9 @@ const carePrint = {
 };
 
 const signature = {
-  de: ['Balance. Struktur. Proportion.', 'Das Algebra-Symbol reduziert unsere Idee auf das Wesentliche: ein A, dessen zweiter Balken zum Gleichheitszeichen wird. Kein lautes Branding. Ein Zeichen für diejenigen, die genauer hinsehen.'],
-  en: ['Balance. Structure. Proportion.', 'The Algebra symbol reduces our idea to its essence: an A whose second bar becomes an equals sign. No loud branding. A sign for those who look closer.'],
-  fr: ['Équilibre. Structure. Proportion.', 'Le symbole Algebra réduit notre idée à l’essentiel : un A dont la seconde barre devient un signe égal. Pas de logo bruyant. Un signe pour ceux qui regardent de plus près.'],
+  de: ['Balance. Struktur. Proportion.', 'Das Algebra-Symbol reduziert unsere Idee auf das Wesentliche. Kein lautes Branding. Ein Zeichen für diejenigen, die genauer hinsehen.'],
+  en: ['Balance. Structure. Proportion.', 'The Algebra symbol reduces our idea to its essence. No loud branding. A sign for those who look closer.'],
+  fr: ['Équilibre. Structure. Proportion.', 'Le symbole Algebra réduit notre idée à l’essentiel. Pas de logo bruyant. Un signe pour ceux qui regardent de plus près.'],
 };
 
 const contrast = {
@@ -56,7 +56,7 @@ export const copy = {
       en: ['18 mm. Precisely embroidered.', `The Algebra symbol sits discreetly on the left chest. ${contrast.en} Deliberately small. Precisely made.`],
       fr: ['18 mm. Brodé avec précision.', `Le symbole Algebra se place discrètement sur la poitrine gauche. ${contrast.fr} Volontairement petit. Exécuté avec précision.`],
     },
-    spec: { material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '240 g/m²', finish: 'embroidery' },
+    spec: { needs_verification: true, material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '240 g/m²', finish: 'embroidery' },
     care: careEmb,
   },
   'ALG-W-POLO': {
@@ -80,7 +80,7 @@ export const copy = {
       en: ['Deliberately small.', `The Algebra symbol, about 18 mm, embroidered on the left chest. ${contrast.en}`],
       fr: ['Volontairement petit.', `Le symbole Algebra, environ 18 mm, brodé sur la poitrine gauche. ${contrast.fr}`],
     },
-    spec: { material: { de: 'Baumwoll-Piqué', en: 'Cotton piqué', fr: 'Piqué de coton' }, weight: null, finish: 'embroidery' },
+    spec: { needs_verification: true, material: { de: 'Baumwoll-Piqué', en: 'Cotton piqué', fr: 'Piqué de coton' }, weight: null, finish: 'embroidery' },
     care: careEmb,
   },
   'ALG-M-TEE': {
@@ -104,7 +104,7 @@ export const copy = {
       en: ['One sign. Embroidered.', `The Algebra symbol, about 18 mm, on the left chest. ${contrast.en}`],
       fr: ['Un signe. Brodé.', `Le symbole Algebra, environ 18 mm, sur la poitrine gauche. ${contrast.fr}`],
     },
-    spec: { material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '220 g/m²', finish: 'embroidery' },
+    spec: { needs_verification: true, material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '220 g/m²', finish: 'embroidery' },
     care: careEmb,
   },
   'ALG-W-TEE': {
@@ -128,10 +128,10 @@ export const copy = {
       en: ['One sign. Embroidered.', `The Algebra symbol, about 16 mm, on the left chest. ${contrast.en}`],
       fr: ['Un signe. Brodé.', `Le symbole Algebra, environ 16 mm, sur la poitrine gauche. ${contrast.fr}`],
     },
-    spec: { material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '180 g/m²', finish: 'embroidery' },
+    spec: { needs_verification: true, material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '180 g/m²', finish: 'embroidery' },
     care: careEmb,
   },
-  'ALG-M-CREW': {
+  'ALG-M-SWEAT': {
     lead: {
       de: ['Ruhe, die man trägt.', 'Ein schweres Sweatshirt mit Rundhals, klarer Linie und dem Algebra-Symbol auf der Brust.'],
       en: ['Calm you can wear.', 'A heavy crewneck sweatshirt with a clean line and the Algebra symbol on the chest.'],
@@ -152,10 +152,10 @@ export const copy = {
       en: ['20 mm. Embroidered.', `The Algebra symbol on the left chest. ${contrast.en}`],
       fr: ['20 mm. Brodé.', `Le symbole Algebra sur la poitrine gauche. ${contrast.fr}`],
     },
-    spec: { material: { de: 'Baumwolle (Bio)', en: 'Cotton (organic)', fr: 'Coton (bio)' }, weight: '350 g/m²', finish: 'embroidery' },
+    spec: { needs_verification: true, material: { de: 'Baumwolle (Bio)', en: 'Cotton (organic)', fr: 'Coton (bio)' }, weight: '350 g/m²', finish: 'embroidery' },
     care: careEmb,
   },
-  'ALG-W-CREW': {
+  'ALG-W-SWEAT': {
     lead: {
       de: ['Weich gerahmt.', 'Das Sweatshirt im Damenschnitt, mit dem Algebra-Symbol auf der Brust.'],
       en: ['Softly framed.', 'The crewneck in a women’s cut, with the Algebra symbol on the chest.'],
@@ -176,7 +176,7 @@ export const copy = {
       en: ['One sign on the chest.', `The Algebra symbol, about 18 mm. ${contrast.en}`],
       fr: ['Un signe sur la poitrine.', `Le symbole Algebra, environ 18 mm. ${contrast.fr}`],
     },
-    spec: { material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '300 g/m²', finish: 'embroidery' },
+    spec: { needs_verification: true, material: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' }, weight: '300 g/m²', finish: 'embroidery' },
     care: careEmb,
   },
 };
@@ -210,7 +210,7 @@ export function graphicCopy(name) {
       en: ['Drawn, not copied.', 'Original Algebra artwork: ink, stardust, construction lines. The equation is real, the drawing is ours.'],
       fr: ['Dessiné, pas recopié.', 'Graphisme original Algebra : encre, poussière d’étoiles, lignes de construction. L’équation est vraie, le dessin est le nôtre.'],
     },
-    spec: { material: { de: 'Baumwolle (Bio)', en: 'Cotton (organic)', fr: 'Coton (bio)' }, weight: null, finish: 'print' },
+    spec: { needs_verification: true, material: { de: 'Baumwolle (Bio)', en: 'Cotton (organic)', fr: 'Coton (bio)' }, weight: null, finish: 'print' },
     care: carePrint,
   };
 }

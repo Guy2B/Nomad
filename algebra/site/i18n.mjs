@@ -6,8 +6,8 @@ export const t = {
   de: {
     htmlLang: 'de-DE',
     locale: 'de_DE',
-    nav: { men: 'Herren', women: 'Damen', polos: 'Polos', tees: 'T-Shirts', sweaters: 'Sweater', graphic: 'Graphic Series', all: 'Alle Produkte', about: 'Über Algebra', search: 'Suche', bag: 'Tasche', menu: 'Menü', close: 'Schließen', skip: 'Zum Inhalt springen', language: 'Sprache' },
-    preview: 'Kostenloser Versand ab 100 € · 14 Tage Rückgaberecht',
+    nav: { men: 'Herren', women: 'Damen', polos: 'Polos', tees: 'T-Shirts', sweaters: 'Sweats', knit: 'Knitwear', graphic: 'Graphic Series', all: 'Alle Produkte', about: 'Über Algebra', search: 'Suche', bag: 'Tasche', menu: 'Menü', close: 'Schließen', skip: 'Zum Inhalt springen', language: 'Sprache' },
+    preview: 'Kostenloser Versand ab 100 € · 14 Tage Rückgabe',
     premium: {
       campaign: ['Algebra', 'Herbst / Winter 2026', 'Jetzt entdecken'],
       edit: {
@@ -44,7 +44,7 @@ export const t = {
       returns: ['14 Tage Widerruf', 'Gesetzliches Widerrufsrecht. Alle Details auf der Seite Rücksendungen.'],
       pay: ['Sicher bezahlen', 'Bezahlung über Stripe. Wir sehen und speichern keine Kartendaten.'],
     },
-    newsletter: { title: 'Neue Gleichungen per E-Mail', body: 'Neue Kapseln und wenig sonst. Abmeldung jederzeit.', label: 'E-Mail-Adresse', button: 'Anmelden', consent: 'Mit der Anmeldung stimmst du dem Empfang unseres Newsletters zu. Du bekommst zuerst eine E-Mail zur Bestätigung.', ok: 'Fast geschafft: Bitte bestätige die Anmeldung in der E-Mail, die wir dir geschickt haben.', err: 'Das hat nicht geklappt. Bitte versuche es später erneut.' },
+    newsletter: { title: 'Neue Kapitel, selten verschickt.', body: 'Neue Kapitel und wenig sonst. Abmeldung jederzeit.', label: 'E-Mail-Adresse', button: 'Anmelden', consent: 'Mit der Anmeldung stimmst du dem Empfang unseres Newsletters zu. Du bekommst zuerst eine E-Mail zur Bestätigung.', ok: 'Fast geschafft: Bitte bestätige die Anmeldung in der E-Mail, die wir dir geschickt haben.', err: 'Das hat nicht geklappt. Bitte versuche es später erneut.' },
     product: {
       color: 'Farbe', size: 'Größe', cut: 'Schnitt', add: 'In die Tasche', added: 'Hinzugefügt', chooseSize: 'Bitte wähle eine Größe.', unavailable: 'Noch nicht bestellbar',
       notifyBody: 'Bald erhältlich. Trag dich in den Newsletter ein, wir melden uns einmal.',
@@ -83,7 +83,7 @@ export const t = {
   en: {
     htmlLang: 'en',
     locale: 'en_GB',
-    nav: { men: 'Men', women: 'Women', polos: 'Polos', tees: 'T-Shirts', sweaters: 'Sweaters', graphic: 'Graphic Series', all: 'Shop all', about: 'About', search: 'Search', bag: 'Bag', menu: 'Menu', close: 'Close', skip: 'Skip to content', language: 'Language' },
+    nav: { men: 'Men', women: 'Women', polos: 'Polos', tees: 'T-Shirts', sweaters: 'Sweats', knit: 'Knitwear', graphic: 'Graphic Series', all: 'Shop all', about: 'About', search: 'Search', bag: 'Bag', menu: 'Menu', close: 'Close', skip: 'Skip to content', language: 'Language' },
     preview: 'Free shipping from 100 € · 14-day returns',
     premium: {
       campaign: ['Algebra', 'Autumn / Winter 2026', 'Discover now'],
@@ -121,7 +121,7 @@ export const t = {
       returns: ['14-day withdrawal', 'Statutory right of withdrawal. Full details on the returns page.'],
       pay: ['Secure payment', 'Payments by Stripe. We never see or store card details.'],
     },
-    newsletter: { title: 'New equations by email', body: 'New capsules and little else. Unsubscribe any time.', label: 'Email address', button: 'Subscribe', consent: 'By subscribing you agree to receive our newsletter. You will first get an email to confirm.', ok: 'Almost there: please confirm in the email we just sent you.', err: 'That did not work. Please try again later.' },
+    newsletter: { title: 'New chapters, sent rarely.', body: 'New chapters and little else. Unsubscribe any time.', label: 'Email address', button: 'Subscribe', consent: 'By subscribing you agree to receive our newsletter. You will first get an email to confirm.', ok: 'Almost there: please confirm in the email we just sent you.', err: 'That did not work. Please try again later.' },
     product: {
       color: 'Colour', size: 'Size', cut: 'Cut', add: 'Add to bag', added: 'Added', chooseSize: 'Please choose a size.', unavailable: 'Not available yet',
       notifyBody: 'Coming soon. Join the newsletter and we will tell you once.',
@@ -160,7 +160,7 @@ export const t = {
   fr: {
     htmlLang: 'fr',
     locale: 'fr_FR',
-    nav: { men: 'Homme', women: 'Femme', polos: 'Polos', tees: 'T-shirts', sweaters: 'Sweats', graphic: 'Graphic Series', all: 'Tout voir', about: 'À propos', search: 'Recherche', bag: 'Panier', menu: 'Menu', close: 'Fermer', skip: 'Aller au contenu', language: 'Langue' },
+    nav: { men: 'Homme', women: 'Femme', polos: 'Polos', tees: 'T-shirts', sweaters: 'Sweats', knit: 'Knitwear', graphic: 'Graphic Series', all: 'Tout voir', about: 'À propos', search: 'Recherche', bag: 'Panier', menu: 'Menu', close: 'Fermer', skip: 'Aller au contenu', language: 'Langue' },
     preview: 'Livraison offerte dès 100 € · Retours sous 14 jours',
     premium: {
       campaign: ['Algebra', 'Automne / Hiver 2026', 'Découvrir'],
@@ -198,7 +198,7 @@ export const t = {
       returns: ['Rétractation 14 jours', 'Droit de rétractation légal. Tous les détails sur la page Retours.'],
       pay: ['Paiement sécurisé', 'Paiement via Stripe. Nous ne voyons ni ne stockons vos données de carte.'],
     },
-    newsletter: { title: 'Nouvelles équations par e-mail', body: 'Les nouvelles capsules, et peu d’autre chose. Désinscription à tout moment.', label: 'Adresse e-mail', button: 'S’inscrire', consent: 'En vous inscrivant, vous acceptez de recevoir notre newsletter. Vous recevrez d’abord un e-mail de confirmation.', ok: 'Presque fini : confirmez dans l’e-mail que nous venons d’envoyer.', err: 'Cela n’a pas fonctionné. Merci de réessayer plus tard.' },
+    newsletter: { title: 'De nouveaux chapitres, rarement.', body: 'Les nouveaux chapitres, et peu d’autre chose. Désinscription à tout moment.', label: 'Adresse e-mail', button: 'S’inscrire', consent: 'En vous inscrivant, vous acceptez de recevoir notre newsletter. Vous recevrez d’abord un e-mail de confirmation.', ok: 'Presque fini : confirmez dans l’e-mail que nous venons d’envoyer.', err: 'Cela n’a pas fonctionné. Merci de réessayer plus tard.' },
     product: {
       color: 'Couleur', size: 'Taille', cut: 'Coupe', add: 'Ajouter au panier', added: 'Ajouté', chooseSize: 'Merci de choisir une taille.', unavailable: 'Pas encore disponible',
       notifyBody: 'Bientôt disponible. Inscrivez-vous à la newsletter, nous vous écrirons une fois.',

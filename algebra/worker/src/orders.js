@@ -49,6 +49,8 @@ export function priceCart(input, { live = false } = {}) {
   for (const it of items) {
     const qty = Number(it?.qty);
     if (typeof it?.sku !== 'string' || !Number.isInteger(qty) || qty < 1 || qty > 10) throw new HttpError(400, 'BAD_ITEM');
+    // bags saved before the rename The Crew → The Sweat (23.10.2026) keep working
+    it.sku = it.sku.replace(/^ALG-([MW])-CREW-/, 'ALG-$1-SWEAT-');
     merged.set(it.sku, (merged.get(it.sku) || 0) + qty);
   }
   const lines = [];

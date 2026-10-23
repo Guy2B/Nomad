@@ -16,7 +16,7 @@ test('SKUs are unique', () => {
 test('every graphic variant points to existing print files', () => {
   for (const v of allVariants().filter((x) => x.printFile && x.purchasable)) {
     assert.ok(existsSync(join(root, v.printFile.front)), v.printFile.front);
-    assert.ok(existsSync(join(root, v.printFile.back)), v.printFile.back);
+    assert.ok(existsSync(join(root, v.printFile.source)), v.printFile.source);
   }
 });
 
@@ -35,7 +35,7 @@ test('no supplier name, blank name or supplier SKU in the public catalogue', () 
 
 test('prices stay inside the brief ranges (hypotheses)', () => {
   const range = { polos: [69, 99], sweaters: [79, 119], 't-shirts': [49, 79] };
-  for (const p of products) {
+  for (const p of products.filter((x) => x.price != null)) {
     const [lo, hi] = range[p.category];
     assert.ok(p.price >= lo && p.price <= hi, `${p.id} ${p.price}`);
   }

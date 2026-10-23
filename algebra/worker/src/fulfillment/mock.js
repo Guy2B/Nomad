@@ -3,7 +3,7 @@
  * Test hooks in the shipping address line 1: test-out-of-stock · test-api-down
  */
 import { FulfillmentError } from './errors.js';
-import { MAPPING, mappingFor, supplierSkuFor } from './mapping.js';
+import { VALADIO, mappingFor, supplierSkuFor } from './mapping.js';
 
 const STEPS = ['received', 'production', 'shipped', 'delivered'];
 
@@ -16,13 +16,13 @@ export function mockProvider(env = {}, { name = 'mock' } = {}) {
     name,
     sandbox: true,
     async getProducts() {
-      return Object.entries(MAPPING).map(([productId, m]) => ({ productId, provider: m.provider, confirmed: m.confirmed }));
+      return Object.entries(VALADIO).map(([id, m]) => ({ algebraProductId: id, provider: 'valadio', status: m.status }));
     },
     async getProduct(productId) {
-      return MAPPING[productId] || null;
+      return VALADIO[productId] || null;
     },
     async getVariants(productId, skus = []) {
-      return skus.filter((s) => s.startsWith(productId)).map((sku) => ({ sku, supplierSku: supplierSkuFor(sku), confirmed: false }));
+      return skus.filter((s) => s.startsWith(productId)).map((sku) => ({ sku, supplierSku: supplierSkuFor(sku), status: mappingFor(sku)?.variant.status || null }));
     },
     async getStock(sku) {
       return { sku, available: mappingFor(sku) ? true : null };

@@ -120,6 +120,7 @@ function layout(lang, { path, key, title, desc, body, noindex = false, jsonld = 
     ['women', '/women/'],
     ['polos', '/polos/'],
     ['tees', '/t-shirts/'],
+    ['knit', '/knitwear/'],
     ['sweaters', '/sweaters/'],
     ['graphic', '/graphic-series/'],
   ];
@@ -181,7 +182,7 @@ ${body}
     <div class="ftr__cols">
       <div><h2>${f.shop}</h2><ul>
         <li><a href="${r(`/${lang}/men/`)}">${L.nav.men}</a></li><li><a href="${r(`/${lang}/women/`)}">${L.nav.women}</a></li>
-        <li><a href="${r(`/${lang}/graphic-series/`)}">${L.nav.graphic}</a></li><li><a href="${r(`/${lang}/shop/`)}">${L.nav.all}</a></li></ul></div>
+        <li><a href="${r(`/${lang}/knitwear/`)}">${L.nav.knit}</a></li><li><a href="${r(`/${lang}/graphic-series/`)}">${L.nav.graphic}</a></li><li><a href="${r(`/${lang}/shop/`)}">${L.nav.all}</a></li></ul></div>
       <div><h2>${f.help}</h2><ul>
         <li><a href="${r(`/${lang}/faq/`)}">${f.faq}</a></li><li><a href="${r(`/${lang}/size-guide/`)}">${f.size}</a></li>
         <li><a href="${info('shipping')}">${f.shipping}</a></li><li><a href="${info('returns')}">${f.returns}</a></li>
@@ -219,6 +220,43 @@ function write(path, html) {
   writeFileSync(file, html);
 }
 
+// ------------------------------------------------------------------ editorial copy (short on purpose)
+const ED = {
+  de: {
+    cta: 'Kollektion entdecken',
+    story: ['Herbst / Winter 2026', 'Form. Struktur. Balance.'],
+    knit: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen, ruhige Formen. Die erste Knitwear von Algebra erscheint in Kürze.', 'Knitwear entdecken', 'Demnächst'],
+    graphic: ['Graphic Series', 'Die großen Gleichungen der Welt.', 'Neun Studien über Form, Bewegung und Materie.', 'Zur Graphic Series'],
+    ess: ['The Essentials', 'Alle Essentials'],
+    statement: ['Built on proportion.', 'Form. Structure. Balance.'],
+    trust: [['Versand', 'Kostenlos ab 100 €'], ['Rückgabe', '14 Tage'], ['Zahlung', 'Sicher verschlüsselt']],
+    knitPage: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen in Schwarz, Navy und Elfenbein. Ruhig von vorn, präzise im Detail. Die erste Knitwear von Algebra erscheint in Kürze.', 'Als Erste erfahren'],
+    ship: 'Kostenloser Versand ab 100 € · 14 Tage Rückgabe',
+  },
+  en: {
+    cta: 'Discover the collection',
+    story: ['Autumn / Winter 2026', 'Form. Structure. Balance.'],
+    knit: ['Knitwear', 'Structure, softened.', 'Fine gauge, quiet shapes. Algebra’s first knitwear arrives soon.', 'Explore knitwear', 'Coming soon'],
+    graphic: ['Graphic Series', 'The great equations of the world.', 'Nine studies of form, motion and matter.', 'Explore the Graphic Series'],
+    ess: ['The Essentials', 'All essentials'],
+    statement: ['Built on proportion.', 'Form. Structure. Balance.'],
+    trust: [['Shipping', 'Free from 100 €'], ['Returns', '14 days'], ['Payment', 'Securely encrypted']],
+    knitPage: ['Knitwear', 'Structure, softened.', 'Fine gauge in black, navy and ivory. Quiet from the front, precise in the detail. Algebra’s first knitwear arrives soon.', 'Be the first to know'],
+    ship: 'Free shipping from 100 € · 14-day returns',
+  },
+  fr: {
+    cta: 'Découvrir la collection',
+    story: ['Automne / Hiver 2026', 'Forme. Structure. Équilibre.'],
+    knit: ['Knitwear', 'La structure, adoucie.', 'Maille fine, formes calmes. La première maille Algebra arrive bientôt.', 'Découvrir la maille', 'Bientôt'],
+    graphic: ['Graphic Series', 'Les grandes équations du monde.', 'Neuf études sur la forme, le mouvement et la matière.', 'Découvrir la Graphic Series'],
+    ess: ['The Essentials', 'Tous les essentiels'],
+    statement: ['Built on proportion.', 'Form. Structure. Balance.'],
+    trust: [['Livraison', 'Offerte dès 100 €'], ['Retours', '14 jours'], ['Paiement', 'Chiffré et sécurisé']],
+    knitPage: ['Knitwear', 'La structure, adoucie.', 'Maille fine en noir, navy et ivoire. Calme de face, précise dans le détail. La première maille Algebra arrive bientôt.', 'Être informé en premier'],
+    ship: 'Livraison offerte dès 100 € · Retours sous 14 jours',
+  },
+};
+
 // ------------------------------------------------------------------ components
 function card(lang, from, p, { eager = false, color } = {}) {
   const L = t[lang];
@@ -228,7 +266,7 @@ function card(lang, from, p, { eager = false, color } = {}) {
   // one image pair per colour; the swatches below switch them (hidden sets are not loaded: lazy + display:none)
   const sets = p.colors
     .map((c) => {
-      const v = viewsOf(p, c);
+      const v = p.line === 'graphic' ? viewsOf(p, c).reverse() : viewsOf(p, c);
       if (!v.length) return '';
       return `<div class="card__set" data-color="${c}"${c === first ? '' : ' hidden'}>${picture(from, img(p, c, v[0]), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager: eager && c === first })}${v[1] ? picture(from, img(p, c, v[1]), '', { cls: 'card__alt' }) : ''}</div>`;
     })
@@ -241,7 +279,7 @@ function card(lang, from, p, { eager = false, color } = {}) {
     <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>
     <p class="card__price">${soon ? `<span class="muted">${esc(L.product.unavailable)}</span>` : money(p.price, lang)}</p></div>
   </a>
-  <p class="card__meta"><span class="sws">${sw}</span><span>${L.premium.colorsCount(p.colors.length)}</span></p></li>`;
+  <p class="card__meta"><span class="sws">${sw}</span></p></li>`;
 }
 
 function collectionPage(lang, key) {
@@ -254,8 +292,10 @@ function collectionPage(lang, key) {
   const h1 = key === 'shop' ? L.nav.all : L.nav[collections[key].nav];
   const C = L.collection;
   // essentials: one card per colour (polo navy, polo black, polo ivory …); graphic tees: one card each
-  const entries = list.flatMap((p) => (p.line === 'essentials' ? p.colors.map((c) => [p, c]) : [[p, null]]));
-  const intro = key === 'graphic-series' ? `<p class="lead">${L.graphic.body}</p>` : key === 'women' ? `<p class="lead">${L.menwomen.body}</p>` : '';
+  let gi = 0;
+  const entries = list.flatMap((p) => (p.line === 'essentials' ? p.colors.map((c) => [p, c]) : [[p, key === 'graphic-series' || key === 't-shirts' || key === 'shop' || key === 'men' || key === 'women' ? p.colors[gi++ % p.colors.length] : null]]));
+  const G = ED[lang].graphic;
+  const intro = key === 'graphic-series' ? `<p class="coll__line">${esc(G[1])}</p><p class="coll__sub">${esc(G[2])}</p>` : '';
   const body = `<section class="coll">
   <header class="coll__hd wrap"><h1 class="coll__h">${esc(h1)}</h1>${intro}</header>
   <div class="wrap">
@@ -348,11 +388,12 @@ function productPage(lang, p) {
           <p class="form-err" data-err role="alert" hidden>${P.chooseSize}</p>
           ${buyable ? `<button class="btn btn--solid btn--block" type="submit">${P.add}</button>` : `<p class="notice">${esc(P.notifyBody)}</p><a class="btn btn--line btn--block" href="${r(`/${lang}/#newsletter`)}">Newsletter</a>`}
         </form>
-        <ul class="perks"><li>${esc(P.deliveryText)}</li><li>${esc(L.trust.returns[0])}</li><li>${esc(L.premium.germany[0])}</li></ul>
+        <p class="buy__ship">${esc(ED[lang].ship)}</p>
         <div class="acc">
           ${p.symbol ? acc(P.symbol, `<p class="symbol-eq">${mathHtml(p.equation || p.symbol.glyph)}</p><p>${mathHtml(p.symbol[lang])}</p>`, true) : ''}
           ${sec(P.fit, C.fit, `<p><a href="${r(`/${lang}/size-guide/`)}">${P.sizeGuide}</a></p>`, !p.symbol)}
           ${sec(P.fabric, C.fabric, `<p class="small muted">${esc(L.premium.similar)}</p>`)}
+          ${p.category === 'knitwear' ? sec('The Yarn', C.yarn) + sec('The Knit', C.knit) : ''}
           ${sec(P.detail, C.detail)}
           ${sec(P.design, C.signature || copyCommon.signature)}
           ${sec(P.care, C.care)}
@@ -403,68 +444,104 @@ function photo(from, name, alt, { w, h, eager = false, cls = '', sizes = '100vw'
 
 function home(lang) {
   const L = t[lang];
-  const M = L.premium;
+  const E = ED[lang];
   const path = `/${lang}/`;
   const r = (to) => rel(path, to);
   const byId = (id) => products.find((p) => p.id === id);
-  const gfx = products.filter((p) => p.line === 'graphic');
   const rail = ['ALG-G-09-MANDELBROT', 'ALG-G-11-HIGGS', 'ALG-G-13-FEYNMAN', 'ALG-G-12-BIGBANG'].map(byId).filter(Boolean);
-  const essCards = [['ALG-M-POLO', 'deep-navy'], ['ALG-M-TEE', 'black'], ['ALG-M-CREW', 'ivory'], ['ALG-W-TEE', 'deep-navy']].map(([id, c]) => [byId(id), c]).filter(([p]) => p);
-  const E = M.edit;
-  const edit = (href, img, [k, h, txt, cta]) => `<a class="edit" href="${r(href)}">${photo(path, img, h, { w: 800, h: 1000, sizes: '(min-width: 768px) 50vw, 100vw', cls: 'edit__img' })}<span class="edit__txt"><span class="edit__k">${esc(k)}</span><span class="edit__h">${esc(h)}</span><span class="edit__p">${esc(txt)}</span><span class="edit__cta">${esc(cta)}</span></span></a>`;
-  const T = L.trust;
+  const railColors = ['black', 'deep-navy', 'ivory', 'black'];
+  const essCards = [['ALG-M-POLO', 'deep-navy'], ['ALG-M-TEE', 'ivory'], ['ALG-M-SWEAT', 'black'], ['ALG-W-TEE', 'deep-navy']].map(([id, c]) => [byId(id), c]).filter(([p]) => p);
+  const sel = [['ALG-M-POLO', 'deep-navy', 'd-front'], ['ALG-M-TEE', 'ivory', 'd-collar'], ['ALG-M-SWEAT', 'black', 'd-fabric']].map(([id, c, d]) => [byId(id), c, d]).filter(([p]) => p);
   const body = `
 <section class="hero">
-  ${photo(path, 'campaign-graphic', `${M.campaign[0]} ${M.campaign[1]}`, { w: 1122, h: 1030, eager: true, cls: 'hero__img' })}
+  ${photo(path, 'campaign-graphic', `Algebra · ${E.story[0]}`, { w: 1122, h: 1030, eager: true, cls: 'hero__img' })}
   <div class="hero__txt">
-    <h1 class="hero__brand">${esc(M.campaign[0])}</h1>
-    <p class="hero__season">${esc(M.campaign[1])}</p>
-    <p class="hero__links"><a href="${r(`/${lang}/shop/`)}">${esc(M.campaign[2])}</a></p>
+    <h1 class="hero__brand">Algebra</h1>
+    <p class="hero__season">${esc(E.story[0])}</p>
+    <p class="hero__links"><a href="${r(`/${lang}/shop/`)}">${esc(E.cta)}</a></p>
   </div>
 </section>
 
-<section class="edits" aria-label="${esc(L.nav.men)} / ${esc(L.nav.women)}">
-  ${edit(`/${lang}/men/`, 'tile-men', E.men)}
-  ${edit(`/${lang}/women/`, 'tile-women', E.women)}
+<section class="edstory">
+  <a class="edstory__img" href="${r(`/${lang}/men/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'tile-men', '', { w: 800, h: 1000, sizes: '(min-width: 1024px) 58vw, 100vw' })}</a>
+  <div class="edstory__txt">
+    <p class="kicker">${esc(E.story[0])}</p>
+    <h2 class="edstory__h">${esc(E.story[1])}</h2>
+    <p class="edstory__links"><a class="more" href="${r(`/${lang}/men/`)}">${esc(L.nav.men)}</a><a class="more" href="${r(`/${lang}/women/`)}">${esc(L.nav.women)}</a></p>
+  </div>
 </section>
 
-<section class="feature">
-  <a class="feature__img" href="${r(`/${lang}/graphic-series/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'mandelbrot-black-stage', '', { w: 1600, h: 900, sizes: '(min-width: 1024px) 60vw, 100vw' })}</a>
-  <div class="feature__txt">
+<section class="knitfeat">
+  <div class="knitfeat__txt">
+    <p class="kicker">${esc(E.knit[0])} · ${esc(E.knit[4])}</p>
+    <h2 class="knitfeat__h">${esc(E.knit[1])}</h2>
+    <p class="knitfeat__p">${esc(E.knit[2])}</p>
+    <p><a class="more" href="${r(`/${lang}/knitwear/`)}">${esc(E.knit[3])}</a></p>
+  </div>
+  <a class="knitfeat__img" href="${r(`/${lang}/knitwear/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'tile-women', '', { w: 800, h: 1000, sizes: '(min-width: 1024px) 50vw, 100vw' })}</a>
+</section>
+
+<section class="gsfeat">
+  <div class="gsfeat__txt">
     <p class="kicker">${esc(E.graphic[0])}</p>
-    <h2 class="feature__h">${esc(E.graphic[1])}</h2>
-    <p>${esc(E.graphic[2])}</p>
-    <p><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(E.graphic[3])}</a></p>
+    <h2 class="gsfeat__h">${esc(E.graphic[1])}</h2>
+    <p class="gsfeat__p">${esc(E.graphic[2])}</p>
   </div>
+  <a class="gsfeat__img" href="${r(`/${lang}/graphic-series/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'mandelbrot-black-stage', '', { w: 1600, h: 1000, sizes: '100vw' })}</a>
+</section>
+
+<section class="rail rail--gs">
+  <ul class="grid grid--rail wrap">${rail.map((p, i) => card(lang, path, p, { color: railColors[i] })).join('')}</ul>
+  <p class="rail__more wrap"><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(E.graphic[3])}</a></p>
+</section>
+
+<section class="selection wrap" aria-label="${esc(E.ess[0])}">
+  <h2 class="selection__t">${esc(E.ess[0])}</h2>
+  <div class="selection__row">${sel
+    .map(([p, c, d]) => `<a class="selection__it" href="${r(productPath(lang, p))}?color=${c}">${photo(path, `${p.slug}-${c}-${d}`, displayName(p, lang), { w: 690, h: 796, sizes: '(min-width: 768px) 33vw, 100vw' })}<span>${esc(p.name[lang])}</span></a>`)
+    .join('')}</div>
 </section>
 
 <section class="rail">
-  <header class="rail__hd wrap"><h2 class="sec-t">${esc(M.rail)}</h2><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(L.graphic.cta)}</a></header>
-  <ul class="grid grid--rail wrap">${rail.map((p) => card(lang, path, p)).join('')}</ul>
-</section>
-
-<section class="rail">
-  <header class="rail__hd wrap"><h2 class="sec-t">${esc(M.essentials[0])}</h2><a class="more" href="${r(`/${lang}/shop/`)}">${esc(L.nav.all)}</a></header>
   <ul class="grid grid--rail wrap">${essCards.map(([p, c]) => card(lang, path, p, { color: c })).join('')}</ul>
+  <p class="rail__more wrap"><a class="more" href="${r(`/${lang}/shop/`)}">${esc(E.ess[1])}</a></p>
 </section>
 
-<section class="story">
-  <div class="story__in">
-    ${symbolSvg('sym story__sym', '')}
-    <h2 class="story__h">${esc(M.story[0])}</h2>
-    <p>${esc(M.story[1])}</p>
-    <p><a class="more more--inv" href="${r(`/${lang}/about/`)}">${esc(M.story[2])}</a></p>
-  </div>
+<section class="statement">
+  ${symbolSvg('sym statement__sym', '')}
+  <h2 class="statement__h">${esc(E.statement[0])}</h2>
+  <p class="statement__p">${esc(E.statement[1])}</p>
 </section>
 
 <section class="trust wrap" aria-label="Service">
-  ${[M.germany, T.ship, T.returns, T.pay].map(([h, b]) => `<div><h3>${esc(h)}</h3><p>${esc(b)}</p></div>`).join('')}
+  ${E.trust.map(([h, b]) => `<div><h3>${esc(h)}</h3><p>${esc(b)}</p></div>`).join('')}
 </section>`;
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'Organization', name: 'Algebra', url: abs('/'), logo: abs('/favicon.svg'), slogan: site.signature },
     { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Algebra', url: abs(`/${lang}/`), inLanguage: t[lang].htmlLang, potentialAction: { '@type': 'SearchAction', target: abs(`/${lang}/search/?q={query}`), 'query-input': 'required name=query' } },
   ];
   write(path, layout(lang, { path, key: 'home', title: L.meta.home[0], desc: L.meta.home[1], body, jsonld, bodyClass: 'is-home' }));
+}
+
+/** Knitwear: editorial page. No product until a real knit reference is chosen (never a sweatshirt presented as knit). */
+function knitwear(lang) {
+  const L = t[lang];
+  const K = ED[lang].knitPage;
+  const path = `/${lang}/knitwear/`;
+  const body = `<section class="knitpage">
+  <div class="knitpage__img">${photo(path, 'tile-women', K[1], { w: 800, h: 1000, eager: true, sizes: '(min-width: 1024px) 50vw, 100vw' })}</div>
+  <div class="knitpage__txt">
+    <p class="kicker">${esc(K[0])} · ${esc(ED[lang].knit[4])}</p>
+    <h1 class="knitpage__h">${esc(K[1])}</h1>
+    <p class="knitpage__p">${esc(K[2])}</p>
+    <form class="knitpage__nl" data-newsletter novalidate>
+      <label for="knit-email">${esc(K[3])}</label>
+      <div class="ftr__nlrow"><input id="knit-email" name="email" type="email" autocomplete="email" required placeholder="${esc(L.newsletter.label)}"><button type="submit">${L.newsletter.button}</button></div>
+      <p class="small" data-ok hidden role="status">${L.newsletter.ok}</p><p class="small form-err" data-err hidden role="alert">${L.newsletter.err}</p>
+    </form>
+  </div>
+</section>`;
+  write(path, layout(lang, { path, key: 'knitwear', title: `${K[0]} · Algebra`, desc: `${K[1]} ${K[2]}`, body, noindex: true }));
 }
 
 function simple(lang, slug, title, inner, { noindex = false, key = slug, desc } = {}) {
@@ -478,6 +555,7 @@ function simple(lang, slug, title, inner, { noindex = false, key = slug, desc } 
 for (const lang of LANGS) {
   const L = t[lang];
   home(lang);
+  knitwear(lang);
   for (const key of Object.keys(collections)) collectionPage(lang, key);
   for (const p of products) productPage(lang, p);
 
@@ -542,7 +620,7 @@ for (const lang of LANGS) {
     products: Object.fromEntries(products.map((p) => [p.id, { n: displayName(p, lang), p: p.price, u: productPath(lang, p), c: p.category, g: p.gender, s: p.status === 'PREVIEW', k: p.slug, gfx: p.line === 'graphic', q: [p.name.de, p.name.en, p.name.fr, p.category, p.gender, p.line, ...(p.symbol ? [p.symbol.glyph] : []), ...p.colors.map((c) => colors[c].name[lang])].join(' ').toLowerCase() }])),
     colors: Object.fromEntries(Object.entries(colors).map(([k, v]) => [k, v.name[lang]])),
     cuts: { unisex: { de: 'Unisex', en: 'Unisex', fr: 'Unisexe' }[lang], women: { de: 'Damenschnitt', en: 'Women’s cut', fr: 'Coupe femme' }[lang] },
-    shipping: { DE: shipping.zones.DE, EU: shipping.zones.EU, countries: shipping.countries },
+    shipping: { DE: { fee: shipping.zones.DE.fee, freeFrom: shipping.zones.DE.freeFrom }, EU: { fee: shipping.zones.EU.fee, freeFrom: shipping.zones.EU.freeFrom }, countries: shipping.countries }, // fees only, never costs
     upsell: { polos: 't-shirts', 't-shirts': 'polos', sweaters: 't-shirts' },
     t: { cart: { ...L.cart, freeHint: L.cart.freeHint('{n}') }, product: { added: L.product.added, chooseSize: L.product.chooseSize }, count: L.collection.count('{n}') },
   };
@@ -607,4 +685,30 @@ for (const [pkg, file] of [
   cpSync(join(root, 'node_modules', '@fontsource', pkg, 'files', file), join(dist, 'assets', 'fonts', file));
 }
 cpSync(join(root, 'site', 'assets', 'photos', 'hero.jpg'), join(dist, 'assets', 'og.jpg'));
+
+// ------------------------------------------------------------------ live guard: no unverified product facts
+if (!PREVIEW) {
+  const unverified = products.filter((p) => p.needs_verification || (premiumCopy[p.id] || graphicCopy(p.name.de)).spec.needs_verification);
+  if (unverified.length) {
+    console.error('LIVE BUILD REFUSED: product facts need verification for ' + unverified.map((p) => p.id).join(', '));
+    process.exit(1);
+  }
+}
+
+// ------------------------------------------------------------------ supplier confidentiality guard
+// The public build must never contain supplier, base garment or cost data. The deploy stops if it does.
+{
+  const FORBIDDEN = /\b(a61|valadio|stanley|stella|pasadena|00577|00578|millenium|lyam|neoblu|supplierCost\w*|supplierSku|supplierArticle\w*|supplierProduct\w*|dropshipping|print[- ]on[- ]demand|lieferant\w*|fournisseur\w*|grossiste|großhändler|wholesaler)\b|sol['’]s\b/i;
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(dir, e.name)) : [join(dir, e.name)]));
+  const leaks = [];
+  for (const f of walk(dist)) {
+    if (!/\.(html|json|js|css|txt|xml|svg)$/.test(f) && !f.endsWith('_headers') && !f.endsWith('_redirects')) continue;
+    const m = readFileSync(f, 'utf8').match(FORBIDDEN);
+    if (m) leaks.push(`${f.slice(dist.length)}: "${m[0]}"`);
+  }
+  if (leaks.length) {
+    console.error('SUPPLIER DATA IN THE PUBLIC BUILD:\n' + leaks.slice(0, 20).join('\n'));
+    process.exit(1);
+  }
+}
 console.log(`build ok · mode=${site.mode} · ${LANGS.length} languages · ${products.length} products → dist/`);

@@ -4,7 +4,7 @@
  *
  * Every number is one of:
  *   SUPPLIER   provider cost from worker/src/fulfillment/mapping.js (Valadio, once confirmed)
- *   REFERENCE  previous A61 offer (23.10.2026), used only while Valadio prices are unknown
+ *   legacy_reference  previous A61 offer (23.10.2026), shown only while Valadio prices are unknown, never a Valadio cost
  *   POLICY     an Algebra decision (price hypothesis, shipping fee), change it in data/catalog.mjs
  *   ASSUMPTION a modelling assumption, change it below; never presented as a fact
  *   TO VERIFY  unknown; the SKU's result is then flagged instead of invented
@@ -13,7 +13,7 @@ import { writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { products, shipping } from '../data/catalog.mjs';
-import { MAPPING, GRAPHIC, PREVIOUS_A61 } from '../worker/src/fulfillment/mapping.js';
+import { VALADIO, A61 } from '../worker/src/fulfillment/mapping.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VAT = 0.19;
@@ -39,11 +39,11 @@ export const ASSUMPTIONS = {
 
 /** Net cost of garment + decoration: Valadio if both numbers are known, else the A61 reference, else null. */
 function costOf(p, cut) {
-  const m = p.line === 'graphic' ? GRAPHIC : MAPPING[p.id];
-  const c = m && m.cost;
+  const key = p.line === 'graphic' ? 'graphic' : p.id;
+  const c = VALADIO[key]?.cost;
   if (c && c.garment != null && c.decoration != null) return { net: c.garment + c.decoration, source: 'Valadio' };
-  const ref = PREVIOUS_A61[p.line === 'graphic' ? 'graphic' : p.id];
-  return ref ? { net: ref.net, source: 'A61 reference' } : { net: null, source: 'TO VERIFY' };
+  const ref = A61[key]?.cost;
+  return ref ? { net: ref.net, source: 'legacy_reference (A61)' } : { net: null, source: 'TO VERIFY' };
 }
 
 const r2 = (n) => Math.round(n * 100) / 100;

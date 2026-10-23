@@ -122,7 +122,7 @@ export const products = [
     line: 'essentials',
     gender: 'men',
     category: 't-shirts',
-    name: { de: 'The Heavy Tee', en: 'The Heavy Tee', fr: 'The Heavy Tee' },
+    name: { de: 'The Tee', en: 'The Tee', fr: 'The Tee' },
     price: 59,
     status: 'PREVIEW',
     blank: 'tee-m',
@@ -159,12 +159,12 @@ export const products = [
     care: careEssential,
   },
   {
-    id: 'ALG-M-CREW',
+    id: 'ALG-M-SWEAT',
     slug: 'the-crew-men',
     line: 'essentials',
     gender: 'men', // Changer 2.0 (unisex blank), shown in the men's range; women have The Crew in Alma
     category: 'sweaters',
-    name: { de: 'The Crew', en: 'The Crew', fr: 'The Crew' },
+    name: { de: 'The Sweat', en: 'The Sweat', fr: 'The Sweat' },
     price: 109,
     status: 'PREVIEW',
     blank: 'sweat-m',
@@ -237,7 +237,7 @@ export const products = [
     line: 'essentials',
     gender: 'women',
     category: 't-shirts',
-    name: { de: 'The Premium Tee', en: 'The Premium Tee', fr: 'The Premium Tee' },
+    name: { de: 'The Tee', en: 'The Tee', fr: 'The Tee' },
     price: 55,
     status: 'PREVIEW',
     blank: 'tee-w',
@@ -270,12 +270,12 @@ export const products = [
     care: careEssential,
   },
   {
-    id: 'ALG-W-CREW',
+    id: 'ALG-W-SWEAT',
     slug: 'the-crew-women',
     line: 'essentials',
     gender: 'women',
     category: 'sweaters',
-    name: { de: 'The Crew', en: 'The Crew', fr: 'The Crew' },
+    name: { de: 'The Sweat', en: 'The Sweat', fr: 'The Sweat' },
     price: 105,
     status: 'NEEDS_SUPPLIER_APPROVAL',
     blank: 'sweat-w',
@@ -303,6 +303,25 @@ export const products = [
     },
     care: careEssential,
   },
+  // ---------------------------------------------------------------- THE KNIT (not published: no supplier reference chosen yet)
+  // Real knitted fabric (fine gauge crewneck), never a sweatshirt. Every fact below needs_verification.
+  ...['men', 'women'].map((g) => ({
+    id: g === 'men' ? 'ALG-M-KNIT' : 'ALG-W-KNIT',
+    slug: g === 'men' ? 'the-knit-men' : 'the-knit-women',
+    line: 'essentials',
+    gender: g,
+    category: 'knitwear',
+    name: { de: 'The Knit', en: 'The Knit', fr: 'The Knit' },
+    price: null, // set only after the supplier cost is known (no automatic price)
+    status: 'DRAFT',
+    needs_verification: true,
+    blank: null,
+    decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, tone on tone (to confirm on knit)', file: 'brand/symbol-embroidery.svg' },
+    colors: ['black', 'deep-navy', 'ivory'],
+    sizes: g === 'men' ? sizesMen : sizesWomen,
+    copy: { lead: { de: '', en: '', fr: '' } },
+    care: careEssential,
+  })),
   // ---------------------------------------------------------------- GRAPHIC SERIES · CAPSULE 01 "PHYSICS IN INK"
   // Direction from the owner's reference boards (22.10.2026). Artwork: scripts/physics.mjs. Equations checked in docs/GRAPHIC_SERIES.md.
   ...[
@@ -517,7 +536,8 @@ export function variantsOf(p) {
           color: c,
           size: s,
           decoration: p.decoration.method,
-          printFile: p.line === 'graphic' ? { front: `brand/symbol${colors[c].tone === 'light' ? '' : '-ivory'}.svg`, back: `design/prints/${p.graphic}.png` } : null,
+          // graphic: design-source (design/prints) is never sent; production needs a print-master (worker/src/fulfillment PRINT_MASTER)
+          printFile: p.line === 'graphic' ? { design: p.graphic, front: `brand/symbol${colors[c].tone === 'light' ? '' : '-ivory'}.svg`, source: `design/prints/${p.graphic}.png` } : null,
           embroideryFile: p.decoration.method === 'embroidery' ? 'brand/symbol-embroidery.svg (digitized DST: TO VERIFY)' : null,
           purchasable: p.status === 'PREVIEW',
         });

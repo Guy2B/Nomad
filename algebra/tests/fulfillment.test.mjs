@@ -143,3 +143,61 @@ test('the private mapping never reaches the storefront build', () => {
     assert.doesNotMatch(readFileSync(join(root, f), 'utf8'), /(from|import)\s*\(?\s*['"][^'"]*fulfillment\/mapping/, f);
   }
 });
+
+// ---------------------------------------------------------------- security of supplier data
+import { VALADIO, A61, isConfirmed as confirmedFor, mappingFor as mapFor } from '../worker/src/fulfillment/mapping.js';
+
+test('/api/admin/fulfillment: 403 without token or with a wrong token, data only with the right token', async () => {
+  const e = env({ ADMIN_TOKEN: 'a-long-admin-token-123' });
+  const get = (h = {}) => worker.fetch(new Request('https://algebra.test/api/admin/fulfillment', { headers: h }), e, ctx);
+  assert.equal((await get()).status, 403);
+  assert.equal((await get({ authorization: 'Bearer wrong' })).status, 403);
+  const noTokenEnv = await worker.fetch(new Request('https://algebra.test/api/admin/fulfillment', { headers: { authorization: 'Bearer ' } }), env({ ADMIN_TOKEN: '' }), ctx);
+  assert.equal(noTokenEnv.status, 403, 'no ADMIN_TOKEN configured → closed');
+  const ok = await get({ authorization: 'Bearer a-long-admin-token-123' });
+  assert.equal(ok.status, 200);
+  assert.equal(ok.headers.get('cache-control'), 'no-store');
+  const j = await ok.json();
+  assert.ok(j.valadio.length && j.a61Fallback.length);
+});
+
+test('public endpoints never return supplier data', async () => {
+  const e = env();
+  const health = await (await worker.fetch(new Request('https://algebra.test/api/health'), e, ctx)).text();
+  assert.doesNotMatch(health, /sol['’]s|pasadena|0057|stanley|a61|valadio|cost/i);
+  const o = await order(e, [{ sku: POLO_M, qty: 1 }]);
+  const look = await (await worker.fetch(post('/api/orders/lookup', { order: o.number, email: 'k@algebra.test' }), e, ctx)).text();
+  assert.doesNotMatch(look, /sol['’]s|pasadena|valadio|sandbox|SBX|supplier/i);
+});
+
+test('every supplier mapping is candidate (Valadio) or disabled (A61): nothing is confirmed yet', () => {
+  for (const m of Object.values(VALADIO)) assert.ok(['candidate', 'pending_confirmation'].includes(m.status));
+  for (const m of Object.values(A61)) assert.equal(m.status, 'disabled');
+  for (const v of allVariants().filter((x) => x.purchasable)) {
+    assert.equal(confirmedFor(v.sku), false, v.sku);
+    assert.equal(confirmedFor(v.sku, 'a61'), false, v.sku);
+  }
+  assert.equal(mapFor(POLO_M).supplierProductId, '00577');
+  assert.equal(mapFor(POLO_M).status, 'candidate');
+});
+
+test('A61 fallback is disabled: selectable, but refuses every real order', async () => {
+  const p = providerFor({ FULFILLMENT_PROVIDER: 'a61' });
+  assert.equal(p.name, 'a61');
+  const fake = { number: 'ALG-2', items_json: JSON.stringify([{ sku: POLO_M, qty: 1 }]), address_json: '{}' };
+  await assert.rejects(() => p.createOrder(fake), (err) => err instanceof FulfillmentError && err.kind === 'sku');
+});
+
+test('graphic tees: the design source is never sent, a print-master is required', async () => {
+  const p = providerFor(env({ VALADIO_SANDBOX: 'false', VALADIO_API_BASE_URL: 'https://api.example', VALADIO_API_KEY: 'k' }));
+  const g = allVariants().find((v) => v.productId.startsWith('ALG-G-') && v.purchasable);
+  assert.equal(g.printFile.source.startsWith('design/prints/'), true);
+  const fake = { number: 'ALG-3', items_json: JSON.stringify([{ sku: g.sku, qty: 1, printFile: g.printFile }]), address_json: JSON.stringify({ line1: 'Weg 1', postal_code: '10115', city: 'Berlin', country: 'DE' }) };
+  await assert.rejects(() => p.createOrder(fake), (err) => ['sku', 'rejected'].includes(err.kind));
+});
+
+test('bags saved with the old The Crew SKU still work (now The Sweat)', () => {
+  const sweat = allVariants().find((v) => v.productId === 'ALG-M-SWEAT' && v.size === 'M');
+  const legacy = sweat.sku.replace('SWEAT', 'CREW');
+  assert.equal(priceCart({ country: 'DE', items: [{ sku: legacy, qty: 1 }] }).lines[0].sku, sweat.sku);
+});
