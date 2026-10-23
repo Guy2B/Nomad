@@ -1,0 +1,36 @@
+# Algebra: one Cloudflare Worker serves the shop (static assets from ../dist) and the API (/api/*),
+# same pattern as GLOW / KIN / JOY / OFF in the AlGBr account.
+# Deployed by the "algebra" job of .github/workflows/deploy-cloudflare.yml in the Nomad repo (algbr-shops), on every push to main that touches algebra/.
+# Secrets are set in the Cloudflare dashboard as type "Secret" (or `wrangler secret put`), never here:
+#   STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, RESEND_API_KEY, ADMIN_TOKEN, NTFY_TOPIC (optional), A61_API_KEY (later)
+name = "algebra"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+account_id = "c7b9d85bb7d0ec8a475ad015364fa460"
+# Keep variables added in the dashboard on every deploy.
+keep_vars = true
+workers_dev = true
+routes = [{ pattern = "algebra.algbr.eu", custom_domain = true }]
+
+[assets]
+directory = "../dist"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+not_found_handling = "404-page"
+
+[vars]
+SITE_ORIGIN = "https://algebra.algbr.eu"
+SITE_MODE = "preview"          # "live" only after docs/LAUNCH_CHECKLIST.md is PASS; preview refuses live Stripe keys
+SUPPLIER_MODE = "mock"         # "a61" once the A61 API is documented and the adapter is filled in
+MAIL_FROM = "Algebra <service@algbr.eu>"   # same sender domain as the AlGBr shops (verified in Resend)
+OWNER_EMAIL = "contact@algbr.de"
+STRIPE_REQUIRE_TERMS = "0"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "algebra"
+database_id = "REPLACED_BY_CI"   # the deploy workflow creates the database if needed and writes its id here
+migrations_dir = "migrations"
+
+[triggers]
+crons = ["*/30 * * * *"]       # sweep: retry fulfillment, poll supplier status, expire unpaid orders

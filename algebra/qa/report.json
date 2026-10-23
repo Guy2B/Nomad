@@ -1,0 +1,222 @@
+{
+  "date": "2026-10-22T20:51:29.386Z",
+  "base": "http://localhost:8787",
+  "results": [
+    {
+      "area": "links",
+      "name": "All internal links, images and srcset resolve",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "seo",
+      "name": "Exactly one h1 per page",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "seo",
+      "name": "Unique titles per language",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "seo",
+      "name": "Meta description + canonical + hreflang (4) on every page",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "seo",
+      "name": "JSON-LD parses",
+      "result": "PASS",
+      "detail": "0 invalid"
+    },
+    {
+      "area": "a11y",
+      "name": "Every <img> has an alt attribute",
+      "result": "PASS",
+      "detail": "0 missing"
+    },
+    {
+      "area": "seo",
+      "name": "sitemap.xml lists 96 URLs, all exist",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "seo",
+      "name": "Preview: every page noindex, robots allows crawling",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "trust",
+      "name": "No countdowns, fake scarcity or review stars in the HTML",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "trust",
+      "name": "Mockup / concept images are labelled on the page",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "perf",
+      "name": "No third-party scripts",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "perf",
+      "name": "JS + CSS weight 38.5 KB (< 80 KB)",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "responsive",
+      "name": "No horizontal overflow at 320/375/390/430/768/1024/1440 px on 12 pages",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "consent",
+      "name": "Consent dialog shown on first visit",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "consent",
+      "name": "No analytics data before consent",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "consent",
+      "name": "Choice stored, dialog closed",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "pdp",
+      "name": "Add to bag without size shows an error",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "pdp",
+      "name": "Colour change swaps the gallery",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "cart",
+      "name": "Drawer opens with the item (colour, size)",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "analytics",
+      "name": "add_to_cart recorded after consent",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "cart",
+      "name": "Quantity + updates total (2 × 89 € = 178 €, free shipping)",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "cart",
+      "name": "Quantity − and country FR: 89 € + shipping 7,90 € (under 150 €)",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "a11y",
+      "name": "Escape closes the drawer",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "checkout",
+      "name": "Checkout (mock payment) → success page with order number",
+      "result": "PASS",
+      "detail": "ALG-261022-TKUA"
+    },
+    {
+      "area": "checkout",
+      "name": "Bag emptied after purchase",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "analytics",
+      "name": "purchase event recorded once",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "tracking",
+      "name": "Tracking lookup shows the status",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "tracking",
+      "name": "Wrong e-mail → not found message",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "collection",
+      "name": "Colour filter narrows the grid (18 → 4)",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "collection",
+      "name": "Sort by price descending",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "search",
+      "name": "Search \"black hole\" finds the product (1)",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "404",
+      "name": "404 status and page",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "forms",
+      "name": "Newsletter: double opt-in message shown",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "a11y",
+      "name": "First Tab focuses the skip link",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "i18n",
+      "name": "/fr/ declares lang=\"fr\"",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "area": "js",
+      "name": "No JavaScript errors in the browser",
+      "result": "PASS",
+      "detail": ""
+    }
+  ]
+}

@@ -9,3 +9,5 @@ dist/
 .netlify-site-id-body
 .dev.vars
 .wrangler/
+# Algebra: the documented example file is public (no secrets)
+!algebra/.env.example

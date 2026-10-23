@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.wrangler/
+.wrangler-dry/
+.env
+.dev.vars
+qa/screens/
+*.log
+capsule/_sheet.png
+brand/_sheet.png
+# generated, regenerate with npm run mockups / npm run capsule (PLAYWRIGHT_MODULE)
+site/assets/mockups/*.svg
+capsule/*/*.png
+capsule/_sheet*
+capsule/_archive/
