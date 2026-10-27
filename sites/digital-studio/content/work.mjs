@@ -8,7 +8,7 @@ export const WORK = [
     kind: 'client',
     image: 'assets/work/lune-site.webp',
     url: 'https://lunebeauty.de',
-    evidence: 'Guy2B/algbr index.html (Kundenprojekt, live). Kennzahlen des Kunden nicht übernommen: schriftliche Freigabe fehlt.',
+    evidence: 'Guy2B/algbr index.html (Kundenprojekt, live). Kennzahlen 10+ Anfragen/Monat und 60 % online: vom Inhaber am 27.10.2026 zur Veröffentlichung freigegeben.',
     title: { de: 'Lune Beauty', en: 'Lune Beauty', fr: 'Lune Beauty' },
     summary: {
       de: 'Website mit CRM für ein Kosmetikstudio in Worms: online so hochwertig wie vor Ort, mit Anfragen ohne Telefon-Pingpong.',
@@ -32,9 +32,9 @@ export const WORK = [
       fr: ['Demande de rendez-vous et WhatsApp en un clic', 'Soins et tarifs lisibles', 'Diagnostic de peau, CRM et avis en arrière-plan'],
     },
     results: {
-      de: ['Website und CRM im Einsatz'],
-      en: ['Website and CRM in use'],
-      fr: ['Site et CRM en service'],
+      de: ['Website und CRM im Einsatz', '10+ Anfragen pro Monat', '60 % der Anfragen kommen online'],
+      en: ['Website and CRM in use', '10+ enquiries per month', '60 % of enquiries come in online'],
+      fr: ['Site et CRM en service', '10+ demandes par mois', '60 % des demandes arrivent en ligne'],
     },
   },
   {
