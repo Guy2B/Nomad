@@ -242,6 +242,8 @@ p { margin: 0 0 1em; max-width: 70ch; }
 
 /* ---------- work */
 .work-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+@media (min-width: 1100px) { .work-grid-4 { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 640px) and (max-width: 1099px) { .work-grid-4 { grid-template-columns: repeat(2, 1fr); } }
 .work-card a { color: inherit; text-decoration: none; display: block; height: 100%; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.15s ease; }
 .work-card a:hover { transform: translateY(-2px); color: inherit; }
 .work-card .work-kind, .work-card h3, .work-card p { padding: 0 22px; }
@@ -261,6 +263,11 @@ p { margin: 0 0 1em; max-width: 70ch; }
 .software { padding: 28px; border: 1px solid rgb(255 255 255 / 12%); border-radius: var(--radius); background: radial-gradient(circle at 15% 0%, rgb(114 88 233 / 28%), transparent 55%), rgb(255 255 255 / 3%); }
 .software + .software { margin-top: 18px; }
 .band:not(.band-ink) .software { background: var(--card); border-color: var(--line); box-shadow: var(--shadow); }
+.software.has-visual { display: grid; gap: 28px; align-items: center; }
+@media (min-width: 900px) { .software.has-visual { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); } }
+.software-visual { border-radius: 14px; overflow: hidden; aspect-ratio: 3 / 2; background: var(--ink); }
+.software-visual img { width: 100%; height: 100%; object-fit: cover; }
+.software-body > :last-child { margin-bottom: 0; }
 .software-id { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .software-id h2, .software-id h3 { font-family: var(--serif); font-weight: 500; font-size: 1.9rem; margin: 0; }
 .software-id .status { margin-left: auto; }

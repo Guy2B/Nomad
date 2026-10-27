@@ -4,6 +4,40 @@
  */
 export const WORK = [
   {
+    id: 'lune-beauty',
+    kind: 'client',
+    image: 'assets/work/lune-site.webp',
+    url: 'https://lunebeauty.de',
+    evidence: 'Guy2B/algbr index.html (Kundenprojekt, live). Kennzahlen des Kunden nicht übernommen: schriftliche Freigabe fehlt.',
+    title: { de: 'Lune Beauty', en: 'Lune Beauty', fr: 'Lune Beauty' },
+    summary: {
+      de: 'Website mit CRM für ein Kosmetikstudio in Worms: online so hochwertig wie vor Ort, mit Anfragen ohne Telefon-Pingpong.',
+      en: 'Website with CRM for a beauty studio in Worms: as refined online as in the studio, with enquiries that need no phone tag.',
+      fr: 'Site avec CRM pour un institut de beauté à Worms : aussi soigné en ligne que sur place, avec des demandes sans allers-retours téléphoniques.',
+    },
+    challenge: {
+      de: 'Ein Premium-Studio, das online genauso hochwertig wirkt wie vor Ort und Anfragen direkt bekommt.',
+      en: 'A premium studio that looks as refined online as on site and receives enquiries directly.',
+      fr: 'Un institut premium aussi élégant en ligne qu’en vrai, qui reçoit les demandes directement.',
+    },
+    approach: {
+      de: 'Eigene Bildsprache statt Vorlage, Behandlungen und Preise auf einen Blick, Anfrage mit einem Klick.',
+      en: 'Own imagery instead of a template, treatments and prices at a glance, enquiry in one click.',
+      fr: 'Une identité visuelle propre plutôt qu’un modèle, soins et tarifs en un coup d’œil, demande en un clic.',
+    },
+    tech: ['Web', 'CRM', 'Booking'],
+    features: {
+      de: ['Terminanfrage und WhatsApp mit einem Klick', 'Behandlungen und Preise übersichtlich', 'Skin Check, CRM und Bewertungen im Hintergrund'],
+      en: ['Appointment request and WhatsApp in one click', 'Clear treatments and prices', 'Skin check, CRM and reviews behind the scenes'],
+      fr: ['Demande de rendez-vous et WhatsApp en un clic', 'Soins et tarifs lisibles', 'Diagnostic de peau, CRM et avis en arrière-plan'],
+    },
+    results: {
+      de: ['Website und CRM im Einsatz'],
+      en: ['Website and CRM in use'],
+      fr: ['Site et CRM en service'],
+    },
+  },
+  {
     id: 'commerce-platform',
     kind: 'internal',
     brands: ['go', 'space', 'ease', 'glow', 'kin', 'joy', 'off'],
@@ -41,7 +75,7 @@ export const WORK = [
     id: 'algebra',
     kind: 'internal',
     brands: ['algebra'],
-    image: null,
+    image: 'assets/work/algebra-campaign.webp',
     evidence: 'Nomad: algebra/ALGEBRA_LAUNCH_REPORT.md (22.10.2026), algebra/tests, algebra/qa/report.json',
     title: { de: 'Algebra · Modemarke', en: 'Algebra · fashion label', fr: 'Algebra · marque de mode' },
     summary: {
@@ -75,7 +109,7 @@ export const WORK = [
     id: 'next',
     kind: 'internal',
     software: 'next',
-    image: null,
+    image: 'assets/work/next-screens.webp',
     evidence: 'sum-plus: README.md, CHANGELOG.md 1.0.0 (30.09.2026)',
     title: { de: 'nΣxt LifeOS', en: 'nΣxt LifeOS', fr: 'nΣxt LifeOS' },
     summary: {
@@ -96,39 +130,5 @@ export const WORK = [
     tech: ['TypeScript', 'Preact', 'Vite', 'Firebase', 'Capacitor'],
     features: null,
     results: null,
-  },
-  {
-    id: 'lune-beauty',
-    kind: 'client',
-    image: 'assets/work/lune-site.webp',
-    url: 'https://lunebeauty.de',
-    evidence: 'Guy2B/algbr index.html (Kundenprojekt, live). Kennzahlen des Kunden nicht übernommen: schriftliche Freigabe fehlt.',
-    title: { de: 'Lune Beauty', en: 'Lune Beauty', fr: 'Lune Beauty' },
-    summary: {
-      de: 'Website für ein Kosmetikstudio in Worms: online so hochwertig wie vor Ort, mit Anfragen ohne Telefon-Pingpong.',
-      en: 'Website for a beauty studio in Worms: as refined online as in the studio, with enquiries that need no phone tag.',
-      fr: 'Site d’un institut de beauté à Worms : aussi soigné en ligne que sur place, avec des demandes sans allers-retours téléphoniques.',
-    },
-    challenge: {
-      de: 'Ein Premium-Studio, das online genauso hochwertig wirkt wie vor Ort und Anfragen direkt bekommt.',
-      en: 'A premium studio that looks as refined online as on site and receives enquiries directly.',
-      fr: 'Un institut premium aussi élégant en ligne qu’en vrai, qui reçoit les demandes directement.',
-    },
-    approach: {
-      de: 'Eigene Bildsprache statt Vorlage, Behandlungen und Preise auf einen Blick, Anfrage mit einem Klick.',
-      en: 'Own imagery instead of a template, treatments and prices at a glance, enquiry in one click.',
-      fr: 'Une identité visuelle propre plutôt qu’un modèle, soins et tarifs en un coup d’œil, demande en un clic.',
-    },
-    tech: ['Web', 'CRM', 'Booking'],
-    features: {
-      de: ['Terminanfrage und WhatsApp mit einem Klick', 'Behandlungen und Preise übersichtlich', 'Skin Check, CRM und Bewertungen im Hintergrund'],
-      en: ['Appointment request and WhatsApp in one click', 'Clear treatments and prices', 'Skin check, CRM and reviews behind the scenes'],
-      fr: ['Demande de rendez-vous et WhatsApp en un clic', 'Soins et tarifs lisibles', 'Diagnostic de peau, CRM et avis en arrière-plan'],
-    },
-    results: {
-      de: ['Website online'],
-      en: ['Website live'],
-      fr: ['Site en ligne'],
-    },
   },
 ];

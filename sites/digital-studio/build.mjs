@@ -250,7 +250,9 @@ function workTeaser(w, lang) {
 
 function softwareBlock(s, lang, full = false) {
   const t = SOFTWARE_PAGE[lang];
-  return `<article class="software" id="${s.id}">
+  return `<article class="software${s.image ? ' has-visual' : ''}" id="${s.id}">
+  ${s.image ? `<div class="software-visual"><img src="/${s.image.replace(/^sites\/digital-studio\//, '')}" alt="" width="1200" height="800" loading="lazy" decoding="async"></div>` : ''}
+  <div class="software-body">
   <div class="software-id">
     ${s.logo ? `<img src="/${s.logo.replace(/^sites\/digital-studio\//, '')}" alt="" width="56" height="56">` : ''}
     <div><${full ? 'h2' : 'h3'}>${esc(s.name)}</${full ? 'h2' : 'h3'}><p class="software-tag">${esc(s.tagline || '')}</p></div>
@@ -266,6 +268,7 @@ function softwareBlock(s, lang, full = false) {
     ${s.engineering ? `<div><dt>${esc(t.quality)}</dt><dd>${esc(s.engineering[lang])}</dd></div>` : ''}
   </dl>` : ''}
   <p><a class="btn btn-line" href="${esc(s.url)}" rel="noopener">${esc(s.access.cta[lang])}</a> <span class="host">${esc(s.domain)}</span></p>
+  </div>
 </article>`;
 }
 
@@ -316,7 +319,7 @@ function homePage(lang) {
 <section class="band">
   <div class="wrap">
     <div class="band-head"><div><p class="eyebrow">${esc(UI[lang].nav.work)}</p><h2>${esc(h.workTitle)}</h2></div><a href="${path(lang, 'work')}">${esc(UI[lang].nav.work)}</a></div>
-    <div class="work-grid">${WORK.slice(0, 3).map((w) => workTeaser(w, lang)).join('')}</div>
+    <div class="work-grid work-grid-4">${WORK.slice(0, 4).map((w) => workTeaser(w, lang)).join('')}</div>
   </div>
 </section>
 <section class="band">
