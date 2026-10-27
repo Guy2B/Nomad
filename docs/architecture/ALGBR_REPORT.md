@@ -60,7 +60,7 @@ historique modifié.
 | Simulation de paiement | uniquement en mode test et simulé ; aucune transaction réelle |
 
 Non vérifiable depuis cet environnement : état réel du DNS et des hébergeurs, Stripe et Resend en conditions réelles,
-Core Web Vitals en production (le Studio pèse environ 870 Ko au total pour 53 pages, sans script tiers).
+Core Web Vitals en production (le Studio pèse environ 830 Ko au total pour 53 pages, sans script tiers).
 
 ## 4. Ce que provoque la fusion dans `main`
 
