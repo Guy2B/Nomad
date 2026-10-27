@@ -17,15 +17,49 @@ const fmt = (n) => new Intl.NumberFormat(LANG === 'en' ? 'en-IE' : LANG === 'fr'
 // Events are only recorded after consent. The provider is not chosen yet (NEEDS CREDENTIALS):
 // window.dataLayer receives GA4-style events, a provider tag can be loaded in loadAnalytics().
 let consent = store.get('alg_consent', null);
+// First-party statistics (worker/src/analytics.js): only after consent, no cookie. A random id lives in this tab's
+// sessionStorage; events are batched and sent with sendBeacon. Nothing is sent without consent.
+const productOf = (id) => (String(id || '').match(/^(ALG-[MW]-[A-Z]+|ALG-G-\d{2}-[A-Z]+)/) || [])[1] || null;
+const queue = [];
+let sid = null;
+function session() {
+  if (sid) return sid;
+  try {
+    sid = sessionStorage.getItem('alg_sid');
+    if (!sid) {
+      sid = Array.from(crypto.getRandomValues(new Uint8Array(12)), (b) => b.toString(36).padStart(2, '0')).join('').replace(/[^a-z0-9]/g, '').slice(0, 24).padEnd(16, '0');
+      sessionStorage.setItem('alg_sid', sid);
+      sessionStorage.setItem('alg_sid_new', '1');
+    }
+  } catch { sid = null; }
+  return sid;
+}
+function flush() {
+  if (!queue.length || !consent?.analytics || !session()) return;
+  const params = new URLSearchParams(location.search);
+  let first = false;
+  try { first = sessionStorage.getItem('alg_sid_new') === '1'; sessionStorage.removeItem('alg_sid_new'); } catch { /* ignore */ }
+  const payload = { consent: true, session: session(), lang: LANG, events: queue.splice(0, 25) };
+  if (first) { payload.source = params.get('utm_source') || document.referrer || ''; payload.campaign = params.get('utm_campaign') || undefined; }
+  const body = JSON.stringify(payload);
+  const url = apiUrl('/events');
+  if (!(navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'application/json' })))) fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body, keepalive: true }).catch(() => {});
+}
 function loadAnalytics() {
   window.dataLayer = window.dataLayer || [];
-  // Provider snippet goes here after the decision (docs/ANALYTICS.md). Nothing is loaded today.
+  queue.push({ event: 'page_view', path: location.pathname });
+  flush();
 }
 function track(event, params = {}) {
   if (!consent || !consent.analytics) return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });
+  const raw = params.items?.[0]?.item_id || params.item_id;
+  queue.push({ event, path: location.pathname, item: productOf(raw), value: params.value });
+  if (['begin_checkout', 'purchase', 'add_to_cart'].includes(event)) flush();
+  else setTimeout(flush, 1500);
 }
+addEventListener('pagehide', flush);
 function showConsent(force = false) {
   const box = $('#consent');
   if (!box) return;

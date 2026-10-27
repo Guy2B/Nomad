@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-27T12:16:55.797Z",
-  "base": "http://localhost:8791",
+  "date": "2026-10-27T13:05:37.194Z",
+  "base": "http://localhost:8792",
   "results": [
     {
       "area": "links",
@@ -70,7 +70,7 @@
     },
     {
       "area": "perf",
-      "name": "JS + CSS weight 60.1 KB (< 80 KB)",
+      "name": "JS + CSS weight 62.2 KB (< 80 KB)",
       "result": "PASS",
       "detail": ""
     },
@@ -144,7 +144,7 @@
       "area": "checkout",
       "name": "Checkout (mock payment) → success page with order number",
       "result": "PASS",
-      "detail": "ALG-261027-OJOL"
+      "detail": "ALG-261027-EI8C"
     },
     {
       "area": "checkout",

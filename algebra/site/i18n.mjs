@@ -68,7 +68,7 @@ export const t = {
     contact: { title: 'Kontakt', name: 'Name', email: 'E-Mail-Adresse', message: 'Nachricht', send: 'Senden', ok: 'Danke, wir melden uns.', err: 'Senden fehlgeschlagen. Schreib uns direkt per E-Mail.' },
     notFound: { title: 'Diese Seite gibt es nicht.', body: 'Vielleicht hilft die Suche oder die Startseite.', home: 'Zur Startseite' },
     footer: { shop: 'Shop', help: 'Hilfe', legal: 'Rechtliches', company: 'Algebra', faq: 'FAQ', size: 'Größentabelle', shipping: 'Versand', returns: 'Rücksendungen', tracking: 'Bestellung verfolgen', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutz', terms: 'AGB', withdrawal: 'Widerrufsbelehrung', cookies: 'Cookies', a11y: 'Barrierefreiheit', cookieSettings: 'Cookie-Einstellungen', rights: 'Alle Rechte vorbehalten.' },
-    consent: { title: 'Cookies und Statistik', body: 'Wir verwenden nur technisch notwendige Speicherungen (z. B. deine Tasche). Mit deiner Zustimmung messen wir zusätzlich anonym, wie der Shop genutzt wird.', accept: 'Statistik erlauben', reject: 'Nur notwendige', more: 'Mehr dazu' },
+    consent: { title: 'Cookies und Statistik', body: 'Wir verwenden nur technisch notwendige Speicherungen (z. B. deine Tasche). Mit deiner Zustimmung messen wir zusätzlich, wie der Shop genutzt wird: auf unserem eigenen Server, ohne Cookies und ohne IP-Adresse.', accept: 'Statistik erlauben', reject: 'Nur notwendige', more: 'Mehr dazu' },
     meta: {
       home: ['Algebra · Built on proportion.', 'Zeitgenössische Essentials aus Europa für Herren und Damen: Polo, T-Shirt, Sweater und die Graphic Series. Schwere Bio-Baumwolle, ein gesticktes Zeichen.'],
       men: ['Herren · Algebra', 'Polo, Heavy Tee und Crew für Herren. Ruhige Schnitte, kleines gesticktes Symbol.'],
@@ -145,7 +145,7 @@ export const t = {
     contact: { title: 'Contact', name: 'Name', email: 'Email address', message: 'Message', send: 'Send', ok: 'Thank you, we will get back to you.', err: 'Sending failed. Please email us directly.' },
     notFound: { title: 'This page does not exist.', body: 'Search or the home page might help.', home: 'Back to home' },
     footer: { shop: 'Shop', help: 'Help', legal: 'Legal', company: 'Algebra', faq: 'FAQ', size: 'Size guide', shipping: 'Shipping', returns: 'Returns', tracking: 'Track order', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy', terms: 'Terms', withdrawal: 'Right of withdrawal', cookies: 'Cookies', a11y: 'Accessibility', cookieSettings: 'Cookie settings', rights: 'All rights reserved.' },
-    consent: { title: 'Cookies and statistics', body: 'We only use strictly necessary storage (for example your bag). With your consent we also measure anonymously how the shop is used.', accept: 'Allow statistics', reject: 'Necessary only', more: 'Learn more' },
+    consent: { title: 'Cookies and statistics', body: 'We only use strictly necessary storage (for example your bag). With your consent we also measure how the shop is used: on our own server, without cookies or IP address.', accept: 'Allow statistics', reject: 'Necessary only', more: 'Learn more' },
     meta: {
       home: ['Algebra · Built on proportion.', 'European contemporary essentials for men and women: polo, tee, crew and the Graphic Series. Heavy organic cotton, one embroidered sign.'],
       men: ['Men · Algebra', 'Polo, Heavy Tee and Crew for men. Calm cuts, a small embroidered symbol.'],
@@ -222,7 +222,7 @@ export const t = {
     contact: { title: 'Contact', name: 'Nom', email: 'Adresse e-mail', message: 'Message', send: 'Envoyer', ok: 'Merci, nous revenons vers vous.', err: 'Échec de l’envoi. Écrivez-nous directement par e-mail.' },
     notFound: { title: 'Cette page n’existe pas.', body: 'La recherche ou la page d’accueil vous aideront peut-être.', home: 'Retour à l’accueil' },
     footer: { shop: 'Boutique', help: 'Aide', legal: 'Informations légales', company: 'Algebra', faq: 'FAQ', size: 'Guide des tailles', shipping: 'Livraison', returns: 'Retours', tracking: 'Suivre ma commande', contact: 'Contact', imprint: 'Mentions légales', privacy: 'Confidentialité', terms: 'CGV', withdrawal: 'Droit de rétractation', cookies: 'Cookies', a11y: 'Accessibilité', cookieSettings: 'Réglages cookies', rights: 'Tous droits réservés.' },
-    consent: { title: 'Cookies et statistiques', body: 'Nous n’utilisons que le stockage strictement nécessaire (par exemple votre panier). Avec votre accord, nous mesurons aussi de façon anonyme l’utilisation de la boutique.', accept: 'Autoriser les statistiques', reject: 'Nécessaires uniquement', more: 'En savoir plus' },
+    consent: { title: 'Cookies et statistiques', body: 'Nous n’utilisons que le stockage strictement nécessaire (par exemple votre panier). Avec votre accord, nous mesurons aussi l’utilisation de la boutique : sur notre propre serveur, sans cookie ni adresse IP.', accept: 'Autoriser les statistiques', reject: 'Nécessaires uniquement', more: 'En savoir plus' },
     meta: {
       home: ['Algebra · Built on proportion.', 'Essentiels contemporains européens pour homme et femme : polo, t-shirt, sweat et la Graphic Series. Fabriqués à la commande.'],
       men: ['Homme · Algebra', 'Polo, Heavy Tee et Crew pour homme. Coupes calmes, petit symbole brodé.'],

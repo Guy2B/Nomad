@@ -121,7 +121,7 @@ const views = {
     <div><dt>Gross margin</dt><dd>${eur(b.grossMargin)}</dd></div>
     <div><dt>Refunds</dt><dd>${eur(b.refunds)}</dd></div>
     <div><dt>Checkout → purchase</dt><dd>${pct(b.checkoutConversion)}</dd></div>
-    <div><dt>Conversion (sessions)</dt><dd>${na(b.conversionReason)}</dd></div>
+    <div><dt>Conversion (sessions)</dt><dd title="${esc(b.conversionReason)}">${b.conversion == null ? '<span class="na">—</span>' : esc(fmtNum.format(b.conversion)) + ' %'}</dd></div>
   </dl>
 </section>
 
@@ -267,7 +267,7 @@ ${d.rows.length ? d.rows.map((r) => `<tr><td>${esc(r.key)}</td><td class="n">${e
     return `<div class="tablewrap"><table><thead><tr><th>Algebra ID</th><th>Name</th><th>Category</th><th>Status</th><th class="n">Price</th><th class="n">Cost</th><th class="n">Unit margin</th><th class="n">Units sold</th><th class="n">Revenue</th><th class="n">Returns</th><th>Conversion</th><th>Colours</th><th>Sizes</th><th>Supplier</th><th>Print-master</th><th class="n">Confirmed</th></tr></thead><tbody>
 ${d.products.map((p) => `<tr><td>${esc(p.id)}</td><td>${esc(p.name)}</td><td>${esc(p.category)}</td><td>${st(p.status.toLowerCase())}</td><td class="n">${eur(p.price)}</td>
 <td class="n">${eur(p.cost)}${est(p.costEstimate)}</td><td class="n">${eur(p.unitContribution)} <span class="muted">${p.unitMarginPct == null ? '' : esc(fmtNum.format(p.unitMarginPct)) + ' %'}</span></td>
-<td class="n">${num(p.units)}</td><td class="n">${eur(p.revenue)}</td><td class="n">${pct(p.returnRate)}</td><td>${na('Needs an analytics provider')}</td>
+<td class="n">${num(p.units)}</td><td class="n">${eur(p.revenue)}</td><td class="n">${pct(p.returnRate)}</td><td><a href="#/analytics">Analytics</a></td>
 <td>${p.colors.map(esc).join(', ')}</td><td>${p.sizes.map(esc).join(' ')}</td><td>${st(p.supplier.status)}<br><span class="muted">${esc(p.supplier.product || '')} · ${esc(p.supplier.method)}</span></td>
 <td>${p.printMaster == null ? '' : p.printMaster ? st('confirmed') : '<span class="st warn">missing</span>'}</td><td class="n">${p.production.confirmed} / ${p.production.purchasable}</td></tr>`).join('')}
 </tbody></table></div><p class="note">Unit margin: one piece delivered in Germany, shipping and packaging excluded, cost model of docs/ECONOMICS.md. No variant that is not “confirmed” can go to real production.</p>`;
@@ -310,7 +310,7 @@ ${d.customers.length ? d.customers.map((c) => `<tr><td>${c.name ? `${esc(c.name)
 </dl>
 <div class="cols2">
 <section class="sec"><h2>Members vs non-members</h2><div class="tablewrap"><table><thead><tr><th></th><th class="n">Members</th><th class="n">Non-members</th></tr></thead><tbody>
-${crow('Customers', (g) => num(g.customers))}${crow('Orders', (g) => num(g.orders))}${crow('Average order', (g) => eur(g.aov))}${crow('Repeat purchase', (g) => pct(g.repeatRate))}${crow('Lifetime value', (g) => eur(g.ltv))}${crow('Refund rate', (g) => pct(g.refundRate))}${crow('Contribution', (g) => eur(g.contribution))}${crow('Conversion', () => na('Needs an analytics provider'))}
+${crow('Customers', (g) => num(g.customers))}${crow('Orders', (g) => num(g.orders))}${crow('Average order', (g) => eur(g.aov))}${crow('Repeat purchase', (g) => pct(g.repeatRate))}${crow('Lifetime value', (g) => eur(g.ltv))}${crow('Refund rate', (g) => pct(g.refundRate))}${crow('Contribution', (g) => eur(g.contribution))}
 </tbody></table></div></section>
 <section class="sec"><h2>Segments</h2><dl class="facts">${['new_member', 'active_member', 'repeat_customer', 'high_ltv', 'inactive_member', 'private_candidate'].map((k) => `<dt>${esc(k)}</dt><dd class="num">${num(d.segments[k] || 0)}</dd>`).join('')}</dl>
 <p class="note">Circle · ${num(s.tiers.circle)} &nbsp; Private · ${num(s.tiers.circle_private)} (prepared, not public)</p></section>
@@ -326,14 +326,25 @@ ${d.consentLog.length ? d.consentLog.map((l) => `<tr><td>${dateTime(l.created_at
   async analytics() {
     const d = await api(`analytics?${rangeQuery()}`);
     const f = d.funnel;
-    return `<p class="note">${esc(d.reason)}</p>
+    const small = (rows, label) => `<div class="tablewrap"><table><thead><tr><th>${esc(label)}</th><th class="n">Sessions</th></tr></thead><tbody>${rows.length ? rows.map((r) => `<tr><td>${esc(r.k || '—')}</td><td class="n">${num(r.n)}</td></tr>`).join('') : '<tr><td colspan="2" class="empty">No data yet.</td></tr>'}</tbody></table></div>`;
+    return `<p class="note">${esc(d.note)}</p>
 <dl class="kpis">
-  ${kpi('Sessions', na('No analytics provider'))}${kpi('Product views', na('No analytics provider'))}${kpi('Add to cart', na('No analytics provider'))}
-  ${kpi('Checkout started', num(f.checkoutStarted))}${kpi('Purchases', num(f.purchase))}${kpi('Checkout → purchase', pct(f.checkoutConversion))}${kpi('Repeat purchase rate', pct(d.repeatPurchaseRate))}
+  ${kpi('Sessions', num(f.sessions))}${kpi('Product views', num(f.productViews))}${kpi('Add to cart', num(f.addToCart))}
+  ${kpi('Checkout started', num(f.checkoutStarted))}${kpi('Purchases', num(f.purchase))}${kpi('Conversion', pct(f.conversion))}${kpi('Checkout → purchase', pct(f.checkoutConversion))}${kpi('Repeat purchase rate', pct(d.repeatPurchaseRate))}
 </dl>
-<section class="sec"><h2>By country</h2><div class="tablewrap"><table><thead><tr><th>Country</th><th class="n">Checkouts</th><th class="n">Purchases</th></tr></thead><tbody>
-${Object.keys(d.byCountry).length ? Object.entries(d.byCountry).map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${num(v.checkouts)}</td><td class="n">${num(v.purchases)}</td></tr>`).join('') : '<tr><td colspan="3" class="empty">No checkout in this period.</td></tr>'}
-</tbody></table></div></section>`;
+<section class="sec"><h2>Conversion by product</h2><div class="tablewrap"><table><thead><tr><th>Product</th><th class="n">Views</th><th class="n">Sessions</th><th class="n">Add to cart</th><th class="n">Units sold</th><th class="n">Conversion</th></tr></thead><tbody>
+${d.byProduct.length ? d.byProduct.map((p) => `<tr><td>${esc(p.name)}<br><span class="muted">${esc(p.id)}</span></td><td class="n">${num(p.views)}</td><td class="n">${num(p.sessions)}</td><td class="n">${num(p.addToCart)}</td><td class="n">${num(p.units)}</td><td class="n">${pct(p.conversion)}</td></tr>`).join('') : '<tr><td colspan="6" class="empty">No product view in this period.</td></tr>'}
+</tbody></table></div></section>
+<div class="cols2">
+<section class="sec"><h2>By country</h2><div class="tablewrap"><table><thead><tr><th>Country</th><th class="n">Sessions</th><th class="n">Checkouts</th><th class="n">Purchases</th></tr></thead><tbody>
+${Object.keys(d.byCountry).length ? Object.entries(d.byCountry).map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${num(v.sessions)}</td><td class="n">${num(v.checkouts)}</td><td class="n">${num(v.purchases)}</td></tr>`).join('') : '<tr><td colspan="4" class="empty">No data yet.</td></tr>'}
+</tbody></table></div></section>
+<section class="sec"><h2>By device</h2>${small(d.byDevice, 'Device')}</section>
+</div>
+<div class="cols2">
+<section class="sec"><h2>Acquisition source</h2>${small(d.bySource, 'Source')}</section>
+<section class="sec"><h2>UTM campaign</h2>${small(d.byCampaign, 'Campaign')}</section>
+</div>`;
   },
 
   async settings() {
