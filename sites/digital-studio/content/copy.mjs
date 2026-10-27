@@ -340,7 +340,7 @@ export const ABOUT = {
     title: 'Über uns',
     lead: 'Al.G.B.r. Digital Studio ist der Bereich von AlGBr, der Websites, Shops und Software für andere baut. AlGBr ist ein inhabergeführtes Unternehmen mit Sitz in Lampertheim, gegründet von Guy Beaho.',
     blocks: [
-      ['Wir betreiben, was wir bauen', 'Unsere Shops, unsere Modemarke und unsere App laufen auf derselben Technik, die wir Kunden anbieten. Fehler finden wir zuerst bei uns selbst.'],
+      ['Wir betreiben, was wir bauen', 'Unsere Shops, unser Modehaus und unsere App laufen auf derselben Technik, die wir Kunden anbieten. Fehler finden wir zuerst bei uns selbst.'],
       ['Ein Ansprechpartner', 'Sie sprechen mit der Person, die plant und baut. Keine Weitergabe zwischen Vertrieb, Projektleitung und Entwicklung.'],
       ['Drei Sprachen', 'Wir arbeiten auf Deutsch, Französisch und Englisch, und wir bauen Websites in diesen Sprachen sauber mehrsprachig.'],
       ['Ehrlich im Detail', 'Keine erfundenen Bewertungen, keine künstliche Knappheit, keine Zahlen ohne Beleg: auf unseren Seiten und auf denen unserer Kunden.'],
@@ -350,7 +350,7 @@ export const ABOUT = {
     title: 'About',
     lead: 'Al.G.B.r. Digital Studio is the part of AlGBr that builds websites, shops and software for others. AlGBr is an owner-run company based in Lampertheim, Germany, founded by Guy Beaho.',
     blocks: [
-      ['We run what we build', 'Our shops, our fashion label and our app run on the same technology we offer to clients. We find the bugs on our own projects first.'],
+      ['We run what we build', 'Our shops, our fashion house and our app run on the same technology we offer to clients. We find the bugs on our own projects first.'],
       ['One contact', 'You talk to the person who plans and builds. No hand-offs between sales, project management and development.'],
       ['Three languages', 'We work in German, French and English, and we build properly multilingual websites in these languages.'],
       ['Honest in the details', 'No invented reviews, no artificial scarcity, no figures without evidence: on our sites and on our clients’.'],
@@ -360,7 +360,7 @@ export const ABOUT = {
     title: 'À propos',
     lead: 'Al.G.B.r. Digital Studio est la branche d’AlGBr qui conçoit des sites, des boutiques et des logiciels pour d’autres. AlGBr est une entreprise dirigée par son fondateur, Guy Beaho, basée à Lampertheim en Allemagne.',
     blocks: [
-      ['Nous exploitons ce que nous construisons', 'Nos boutiques, notre marque de mode et notre application tournent sur la même technologie que celle proposée à nos clients. Nous trouvons les défauts d’abord chez nous.'],
+      ['Nous exploitons ce que nous construisons', 'Nos boutiques, notre maison de mode et notre application tournent sur la même technologie que celle proposée à nos clients. Nous trouvons les défauts d’abord chez nous.'],
       ['Un seul interlocuteur', 'Vous parlez avec la personne qui conçoit et développe. Aucun relais entre commercial, chef de projet et développeur.'],
       ['Trois langues', 'Nous travaillons en allemand, en français et en anglais, et nous construisons des sites proprement multilingues dans ces langues.'],
       ['Honnêtes dans le détail', 'Pas d’avis inventés, pas de fausse rareté, pas de chiffres sans preuve : sur nos sites comme sur ceux de nos clients.'],
