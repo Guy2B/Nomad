@@ -139,7 +139,7 @@ ${nextBanner(lang, r)}
   </div>
   <div class="wrap foot-bottom">
     <span>© ${new Date().getFullYear()} ${esc(SITE.brand)} · ${esc(u.footer.rights)}</span>
-    <a class="by-algbr" href="${SITE.byAlgbr}" target="_blank" rel="noopener">by <img src="${r}assets/algbr.svg" alt="" width="22" height="22"> <b>Al.<i>G.B.</i><u>r.</u></b></a>
+    <a class="by-algbr" href="${SITE.byAlgbr}${['de', 'en', 'fr'].includes(lang) ? `${lang}/` : ''}" target="_blank" rel="noopener">by <img src="${r}assets/algbr.svg" alt="" width="22" height="22"> <b>Al.<i>G.B.</i><u>r.</u></b></a>
   </div>
 </footer>
 <script src="${r}assets/shop.js?v=${ASSET_V}" defer></script>

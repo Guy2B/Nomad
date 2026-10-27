@@ -76,12 +76,14 @@ function header(lang, page) {
   const links = NAV.filter((p) => p !== 'contact')
     .map((p) => `<li><a href="${path(lang, p)}"${p === section ? ' aria-current="page"' : ''}>${esc(t.nav[p])}</a></li>`)
     .join('');
+  const langs = LANGS.map((l) => `<li><a href="${path(l, page)}" hreflang="${l}" lang="${l}" aria-label="${esc(UI[l].langName)}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a></li>`).join('');
   return `<header class="site-head">
   <div class="wrap head-row">
     <a class="logo" href="${path(lang)}" aria-label="Al.G.B.r. Digital Studio, ${esc(t.nav[''])}"><img class="logo-mark" src="/assets/favicon.svg" alt="" width="36" height="36"><span class="logo-text"><span class="logo-word">Al.<i>G.B.</i><u>r.</u></span><span class="logo-sub">Digital Studio</span></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">${esc(t.menu)}</button>
     <nav id="site-nav" class="site-nav" aria-label="${esc(t.menu)}">
       <ul>${links}</ul>
+      <ul class="lang-switch" aria-label="${esc(t.language)}">${langs}</ul>
       <a class="btn btn-solid" href="${path(lang, 'contact')}"${section === 'contact' ? ' aria-current="page"' : ''}>${esc(t.cta)}</a>
     </nav>
   </div>
