@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23",
+  "generated": "2026-10-27",
   "assumptions": {
     "paymentPct": 0.015,
     "paymentFixed": 0.25,
@@ -140,7 +140,7 @@
     },
     {
       "sku": "ALG-G-03-ENTANGLEMENT-U",
-      "name": "Entanglement 03 (Unisex oversized)",
+      "name": "Entanglement 03 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -182,7 +182,7 @@
     },
     {
       "sku": "ALG-G-06-EULER-U",
-      "name": "Euler 06 (Unisex oversized)",
+      "name": "Euler 06 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -224,7 +224,7 @@
     },
     {
       "sku": "ALG-G-07-LORENZ-U",
-      "name": "Lorenz 07 (Unisex oversized)",
+      "name": "Lorenz 07 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -266,7 +266,7 @@
     },
     {
       "sku": "ALG-G-08-MAXWELL-U",
-      "name": "Maxwell 08 (Unisex oversized)",
+      "name": "Maxwell 08 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -308,7 +308,7 @@
     },
     {
       "sku": "ALG-G-09-MANDELBROT-U",
-      "name": "Mandelbrot 09 (Unisex oversized)",
+      "name": "Mandelbrot 09 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -350,7 +350,7 @@
     },
     {
       "sku": "ALG-G-11-HIGGS-U",
-      "name": "Higgs Field 11 (Unisex oversized)",
+      "name": "Higgs Field 11 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -392,7 +392,7 @@
     },
     {
       "sku": "ALG-G-12-BIGBANG-U",
-      "name": "Big Bang 12 (Unisex oversized)",
+      "name": "Big Bang 12 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -434,7 +434,7 @@
     },
     {
       "sku": "ALG-G-13-FEYNMAN-U",
-      "name": "Feynman 13 (Unisex oversized)",
+      "name": "Feynman 13 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -476,7 +476,7 @@
     },
     {
       "sku": "ALG-G-14-MOBIUS-U",
-      "name": "Möbius 14 (Unisex oversized)",
+      "name": "Möbius 14 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.62,
       "status": "PREVIEW",
@@ -646,7 +646,7 @@
     },
     {
       "sku": "ALG-G-03-ENTANGLEMENT-U",
-      "name": "Entanglement 03 (Unisex oversized)",
+      "name": "Entanglement 03 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -688,7 +688,7 @@
     },
     {
       "sku": "ALG-G-06-EULER-U",
-      "name": "Euler 06 (Unisex oversized)",
+      "name": "Euler 06 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -730,7 +730,7 @@
     },
     {
       "sku": "ALG-G-07-LORENZ-U",
-      "name": "Lorenz 07 (Unisex oversized)",
+      "name": "Lorenz 07 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -772,7 +772,7 @@
     },
     {
       "sku": "ALG-G-08-MAXWELL-U",
-      "name": "Maxwell 08 (Unisex oversized)",
+      "name": "Maxwell 08 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -814,7 +814,7 @@
     },
     {
       "sku": "ALG-G-09-MANDELBROT-U",
-      "name": "Mandelbrot 09 (Unisex oversized)",
+      "name": "Mandelbrot 09 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -856,7 +856,7 @@
     },
     {
       "sku": "ALG-G-11-HIGGS-U",
-      "name": "Higgs Field 11 (Unisex oversized)",
+      "name": "Higgs Field 11 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -898,7 +898,7 @@
     },
     {
       "sku": "ALG-G-12-BIGBANG-U",
-      "name": "Big Bang 12 (Unisex oversized)",
+      "name": "Big Bang 12 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -940,7 +940,7 @@
     },
     {
       "sku": "ALG-G-13-FEYNMAN-U",
-      "name": "Feynman 13 (Unisex oversized)",
+      "name": "Feynman 13 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -982,7 +982,7 @@
     },
     {
       "sku": "ALG-G-14-MOBIUS-U",
-      "name": "Möbius 14 (Unisex oversized)",
+      "name": "Möbius 14 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 38.9,
       "status": "PREVIEW",
@@ -1152,7 +1152,7 @@
     },
     {
       "sku": "ALG-G-03-ENTANGLEMENT-U",
-      "name": "Entanglement 03 (Unisex oversized)",
+      "name": "Entanglement 03 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1194,7 +1194,7 @@
     },
     {
       "sku": "ALG-G-06-EULER-U",
-      "name": "Euler 06 (Unisex oversized)",
+      "name": "Euler 06 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1236,7 +1236,7 @@
     },
     {
       "sku": "ALG-G-07-LORENZ-U",
-      "name": "Lorenz 07 (Unisex oversized)",
+      "name": "Lorenz 07 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1278,7 +1278,7 @@
     },
     {
       "sku": "ALG-G-08-MAXWELL-U",
-      "name": "Maxwell 08 (Unisex oversized)",
+      "name": "Maxwell 08 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1320,7 +1320,7 @@
     },
     {
       "sku": "ALG-G-09-MANDELBROT-U",
-      "name": "Mandelbrot 09 (Unisex oversized)",
+      "name": "Mandelbrot 09 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1362,7 +1362,7 @@
     },
     {
       "sku": "ALG-G-11-HIGGS-U",
-      "name": "Higgs Field 11 (Unisex oversized)",
+      "name": "Higgs Field 11 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1404,7 +1404,7 @@
     },
     {
       "sku": "ALG-G-12-BIGBANG-U",
-      "name": "Big Bang 12 (Unisex oversized)",
+      "name": "Big Bang 12 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1446,7 +1446,7 @@
     },
     {
       "sku": "ALG-G-13-FEYNMAN-U",
-      "name": "Feynman 13 (Unisex oversized)",
+      "name": "Feynman 13 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",
@@ -1488,7 +1488,7 @@
     },
     {
       "sku": "ALG-G-14-MOBIUS-U",
-      "name": "Möbius 14 (Unisex oversized)",
+      "name": "Möbius 14 (Unisex)",
       "costSource": "legacy_reference (A61)",
       "minPrice": 40.35,
       "status": "PREVIEW",

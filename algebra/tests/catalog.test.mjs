@@ -49,5 +49,5 @@ test('economics: no invented margin for unknown costs', () => {
 });
 
 test('colour palette is the short brand palette', () => {
-  assert.deepEqual(Object.keys(colors).sort(), ['black', 'burgundy', 'deep-navy', 'ivory', 'sage', 'taupe']);
+  assert.deepEqual(Object.keys(colors).sort(), ['black', 'burgundy', 'deep-navy', 'ivory', 'olive', 'sage', 'taupe']);
 });
