@@ -242,7 +242,7 @@ const ED = {
     ess: ['The Essentials', 'Alle Essentials'],
     statement: ['Built on proportion.', 'Form. Structure. Balance.'],
     trust: [['Versand', 'Kostenlos ab 100 €'], ['Rückgabe', '14 Tage'], ['Zahlung', 'Sicher verschlüsselt']],
-    knitPage: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen in Schwarz, Navy und Elfenbein. Ruhig von vorn, präzise im Detail. Die erste Knitwear von Algebra erscheint in Kürze.', 'Als Erste erfahren'],
+    knitPage: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen in Schwarz, Navy, Elfenbein und Oliv. Ruhig von vorn, präzise im Detail. Die erste Knitwear von Algebra erscheint in Kürze.', 'Als Erste erfahren'],
     ship: 'Kostenloser Versand ab 100 € · 14 Tage Rückgabe',
   },
   en: {
@@ -253,7 +253,7 @@ const ED = {
     ess: ['The Essentials', 'All essentials'],
     statement: ['Built on proportion.', 'Form. Structure. Balance.'],
     trust: [['Shipping', 'Free from 100 €'], ['Returns', '14 days'], ['Payment', 'Securely encrypted']],
-    knitPage: ['Knitwear', 'Structure, softened.', 'Fine gauge in black, navy and ivory. Quiet from the front, precise in the detail. Algebra’s first knitwear arrives soon.', 'Be the first to know'],
+    knitPage: ['Knitwear', 'Structure, softened.', 'Fine gauge in black, navy, ivory and olive. Quiet from the front, precise in the detail. Algebra’s first knitwear arrives soon.', 'Be the first to know'],
     ship: 'Free shipping from 100 € · 14-day returns',
   },
   fr: {
@@ -264,7 +264,7 @@ const ED = {
     ess: ['The Essentials', 'Tous les essentiels'],
     statement: ['Built on proportion.', 'Form. Structure. Balance.'],
     trust: [['Livraison', 'Offerte dès 100 €'], ['Retours', '14 jours'], ['Paiement', 'Chiffré et sécurisé']],
-    knitPage: ['Knitwear', 'La structure, adoucie.', 'Maille fine en noir, navy et ivoire. Calme de face, précise dans le détail. La première maille Algebra arrive bientôt.', 'Être informé en premier'],
+    knitPage: ['Knitwear', 'La structure, adoucie.', 'Maille fine en noir, navy, ivoire et vert olive. Calme de face, précise dans le détail. La première maille Algebra arrive bientôt.', 'Être informé en premier'],
     ship: 'Livraison offerte dès 100 € · Retours sous 14 jours',
   },
 };
@@ -551,6 +551,9 @@ function knitwear(lang) {
     <p class="kicker">${esc(K[0])} · ${esc(ED[lang].knit[4])}</p>
     <h1 class="knitpage__h">${esc(K[1])}</h1>
     <p class="knitpage__p">${esc(K[2])}</p>
+    <div class="knitpage__olive">${[['knit-olive-men', { de: 'Oliv · Herren', en: 'Olive · Men', fr: 'Vert olive · Homme' }], ['knit-olive-women', { de: 'Oliv · Damen', en: 'Olive · Women', fr: 'Vert olive · Femme' }]]
+      .map(([n, c]) => `<figure>${photo(path, n, `The Knit, ${c[lang]}`, { w: 640, h: 800, sizes: '180px' })}<figcaption>${esc(c[lang])}</figcaption></figure>`)
+      .join('')}</div>
     <form class="knitpage__nl" id="notify" data-newsletter novalidate>
       <label for="knit-email">${esc(K[3])}</label>
       <div class="ftr__nlrow"><input id="knit-email" name="email" type="email" autocomplete="email" required placeholder="${esc(L.newsletter.label)}"><button type="submit">${L.newsletter.button}</button></div>

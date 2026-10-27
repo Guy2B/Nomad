@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-27T16:49:26.127Z",
+  "date": "2026-10-27T16:56:31.081Z",
   "base": "http://localhost:8787",
   "results": [
     {
@@ -70,7 +70,7 @@
     },
     {
       "area": "perf",
-      "name": "JS + CSS weight 63.8 KB (< 80 KB)",
+      "name": "JS + CSS weight 64.2 KB (< 80 KB)",
       "result": "PASS",
       "detail": ""
     },
@@ -144,7 +144,7 @@
       "area": "checkout",
       "name": "Checkout (mock payment) → success page with order number",
       "result": "PASS",
-      "detail": "ALG-261027-6SZU"
+      "detail": "ALG-261027-B276"
     },
     {
       "area": "checkout",
@@ -172,7 +172,7 @@
     },
     {
       "area": "collection",
-      "name": "Colour filter narrows the grid (29 → 9)",
+      "name": "Colour filter narrows the grid (31 → 9)",
       "result": "PASS",
       "detail": ""
     },

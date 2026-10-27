@@ -170,7 +170,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'sweat-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high), tone on tone', file: 'brand/algebra-a-signature-master.svg' },
-    colors: ['black', 'deep-navy', 'ivory'],
+    colors: ['black', 'deep-navy', 'ivory', 'olive'],
     sizes: sizesMen,
     copy: {
       lead: {
@@ -281,7 +281,7 @@ export const products = [
     status: 'NEEDS_SUPPLIER_APPROVAL',
     blank: 'sweat-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high), tone on tone', file: 'brand/algebra-a-signature-master.svg' },
-    colors: ['ivory', 'deep-navy', 'black'],
+    colors: ['ivory', 'deep-navy', 'black', 'olive'],
     sizes: sizesWomen,
     copy: {
       lead: {
@@ -318,7 +318,7 @@ export const products = [
     needs_verification: true,
     blank: null,
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high), tone on tone (to confirm on knit)', file: 'brand/algebra-a-signature-master.svg' },
-    colors: ['black', 'deep-navy', 'ivory'],
+    colors: ['black', 'deep-navy', 'ivory', 'olive'],
     sizes: g === 'men' ? sizesMen : sizesWomen,
     copy: { lead: { de: '', en: '', fr: '' } },
     care: careEssential,
