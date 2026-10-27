@@ -74,9 +74,12 @@ test('brand links come from the registry; ALGEBRA links to algbr.eu', () => {
   assert.ok(read(join(dist, 'de', 'index.html')).includes('href="https://next.algbr.eu"'));
 });
 
-test('no unverified claims: no client figures, no testimonials, hidden software stays hidden', () => {
+test('no unverified claims: only approved client figures, no testimonials, hidden software stays hidden', () => {
   const all = html.map(read).join('\n');
-  for (const bad of ['Anfragen pro Monat', '60 %', 'Testimonial', 'Kundenstimmen', 'Metamorph', 'AggregateRating']) assert.ok(!all.includes(bad), bad);
+  for (const bad of ['Testimonial', 'Kundenstimmen', 'Metamorph', 'AggregateRating']) assert.ok(!all.includes(bad), bad);
+  // Lune Beauty figures: released by the owner on 27.10.2026 (content/work.mjs evidence); only on the work page
+  for (const f of html.filter((f) => !/[\\/]work[\\/]index\.html$/.test(f))) assert.ok(!read(f).includes('Anfragen pro Monat'), f);
+  assert.ok(read(join(dist, 'de', 'work', 'index.html')).includes('10+ Anfragen pro Monat'));
 });
 
 test('preview build is noindex everywhere', () => {
