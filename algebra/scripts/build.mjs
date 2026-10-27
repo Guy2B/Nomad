@@ -488,7 +488,7 @@ function home(lang) {
     <p class="knitfeat__p">${esc(E.knit[2])}</p>
     <p><a class="more" href="${r(`/${lang}/knitwear/`)}#notify">${esc(E.knit[3])}</a></p>
   </div>
-  <a class="knitfeat__img" href="${r(`/${lang}/knitwear/`)}#notify" tabindex="-1" aria-hidden="true">${photo(path, 'tile-women', '', { w: 800, h: 1000, sizes: '(min-width: 1024px) 50vw, 100vw' })}</a>
+  <a class="knitfeat__img" href="${r(`/${lang}/knitwear/`)}#notify" tabindex="-1" aria-hidden="true">${photo(path, 'knit-men', '', { w: 800, h: 1000, sizes: '(min-width: 1024px) 50vw, 100vw' })}</a>
 </section>
 
 <section class="gsfeat">
@@ -546,7 +546,7 @@ function knitwear(lang) {
   const K = ED[lang].knitPage;
   const path = `/${lang}/knitwear/`;
   const body = `<section class="knitpage">
-  <div class="knitpage__img">${photo(path, 'tile-women', K[1], { w: 800, h: 1000, eager: true, sizes: '(min-width: 1024px) 50vw, 100vw' })}</div>
+  <figure class="knitpage__img">${photo(path, 'knit-women', K[1], { w: 800, h: 1000, eager: true, sizes: '(min-width: 1024px) 50vw, 100vw' })}<figcaption class="knitpage__cap">${esc({ de: 'Konzeptbild. The Knit ist in Vorbereitung.', en: 'Concept image. The Knit is in preparation.', fr: 'Visuel de concept. The Knit est en préparation.' }[lang])}</figcaption></figure>
   <div class="knitpage__txt">
     <p class="kicker">${esc(K[0])} · ${esc(ED[lang].knit[4])}</p>
     <h1 class="knitpage__h">${esc(K[1])}</h1>

@@ -21,6 +21,9 @@ import { isConfirmed, mappingFor, PRINT_MASTER, supplierMappings, VALADIO } from
 import { providerFor } from '../fulfillment/provider.js';
 import { COST_MODEL, orderEconomics, parseItems, SOLD, sumEconomics, unitCost } from './margin.js';
 import { segmentsOf } from '../circle.js';
+import { analyticsOf } from '../analytics.js';
+
+const CONSENT_NOTE = 'Counts only visitors who accepted statistics (consent banner), so sessions are a lower bound and conversion an upper bound.';
 
 const DAY = 24 * 3600 * 1000;
 const r2 = (n) => (n == null ? null : Math.round(n * 100) / 100);
@@ -345,10 +348,11 @@ export async function cockpit(path, params, env) {
     const b = business(cur);
     const pb = business(prev);
     const created = cur.length;
+    const a = await analyticsOf(env.DB, per.from, per.to);
     return {
       period: per,
       generatedAt: new Date().toISOString(),
-      business: { ...b, checkoutConversion: created ? Math.round((cur.filter((o) => o.econ.sold).length / created) * 1000) / 10 : null, conversion: null, conversionReason: 'No analytics provider connected: sessions are not measured.', returns: null, returnsReason: 'Returns are not recorded separately yet; refunds are.' },
+      business: { ...b, sessions: a.sessions, checkoutConversion: created ? Math.round((cur.filter((o) => o.econ.sold).length / created) * 1000) / 10 : null, conversion: a.sessions ? Math.round((b.orders / a.sessions) * 1000) / 10 : null, conversionReason: a.sessions ? CONSENT_NOTE : 'No consented session recorded in this period yet.', returns: null, returnsReason: 'Returns are not recorded separately yet; refunds are.' },
       previous: { revenue: pb.revenue, orders: pb.orders, contribution: pb.contribution, aov: pb.aov },
       operations: {
         pending: orders.filter((o) => o.status === 'paid').length,
@@ -451,19 +455,29 @@ export async function cockpit(path, params, env) {
   }
   if (path === 'analytics') {
     const created = cur.length;
-    const paid = cur.filter((o) => o.econ.sold).length;
+    const sold = cur.filter((o) => o.econ.sold);
     const stats = customerStats(orders.filter((o) => o.econ.sold));
+    const a = await analyticsOf(env.DB, per.from, per.to);
+    const pct = (x, y) => (y ? Math.round((x / y) * 1000) / 10 : null);
     const byCountry = {};
+    for (const r of a.byCountry) byCountry[r.k || '—'] = { sessions: r.n, checkouts: 0, purchases: 0 };
     for (const o of cur) {
-      byCountry[o.country] ||= { checkouts: 0, purchases: 0 };
+      byCountry[o.country] ||= { sessions: 0, checkouts: 0, purchases: 0 };
       byCountry[o.country].checkouts += 1;
       if (o.econ.sold) byCountry[o.country].purchases += 1;
     }
+    const units = new Map();
+    for (const o of sold) for (const it of parseItems(o)) units.set(it.productId, (units.get(it.productId) || 0) + it.qty);
+    const names = new Map(products.map((p) => [p.id, p.name.en + (p.line === 'graphic' ? '' : ` (${p.gender})`)]));
     return {
-      provider: null,
-      reason: 'No analytics provider connected (docs/ANALYTICS.md): sessions, product views, add to cart, device and source are not measured. Only server data is shown.',
-      funnel: { sessions: null, productViews: null, addToCart: null, checkoutStarted: created, purchase: paid, checkoutConversion: created ? Math.round((paid / created) * 1000) / 10 : null },
+      provider: 'first-party',
+      note: CONSENT_NOTE,
+      funnel: { sessions: a.sessions, productViews: a.productViews, addToCart: a.addToCart, checkoutStarted: Math.max(a.checkoutStarted, created), purchase: sold.length, conversion: pct(sold.length, a.sessions), checkoutConversion: pct(sold.length, created) },
+      byProduct: a.items.map((i) => ({ id: i.item, name: names.get(i.item) || i.item, views: i.views, sessions: i.sessions, addToCart: i.addToCart, units: units.get(i.item) || 0, conversion: pct(units.get(i.item) || 0, i.sessions) })).sort((x, y) => y.sessions - x.sessions),
       byCountry,
+      byDevice: a.byDevice,
+      bySource: a.bySource,
+      byCampaign: a.byCampaign,
       repeatPurchaseRate: stats.size ? Math.round(([...stats.values()].filter((s) => s.orders >= 2).length / stats.size) * 1000) / 10 : null,
     };
   }

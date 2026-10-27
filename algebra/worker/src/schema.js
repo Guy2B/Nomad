@@ -19,6 +19,10 @@ export const SCHEMA = [
   "CREATE TABLE IF NOT EXISTS alg_consent_log ( id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, purpose TEXT NOT NULL, action TEXT NOT NULL, consent_version TEXT, lang TEXT, created_at TEXT NOT NULL )",
   "CREATE INDEX IF NOT EXISTS alg_consent_log_email ON alg_consent_log(email)",
   "CREATE TABLE IF NOT EXISTS alg_order_costs ( order_id TEXT PRIMARY KEY, supplier_cost REAL, shipping_cost REAL, payment_fee REAL, source TEXT NOT NULL, updated_at TEXT NOT NULL )",
+  // 0004_analytics.sql
+  "CREATE TABLE IF NOT EXISTS alg_events ( id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT NOT NULL, session TEXT NOT NULL, event TEXT NOT NULL, path TEXT, item TEXT, lang TEXT, country TEXT, device TEXT, source TEXT, campaign TEXT, value REAL )",
+  "CREATE INDEX IF NOT EXISTS alg_events_ts ON alg_events(ts)",
+  "CREATE INDEX IF NOT EXISTS alg_events_session ON alg_events(session)",
 ];
 
 const done = new WeakMap();

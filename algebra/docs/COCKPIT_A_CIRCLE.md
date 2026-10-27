@@ -51,8 +51,7 @@ A Circle members, new members, pending, left, member revenue, member average ord
 
 ## 6. KPIs not available yet (shown as “Not available” with the reason)
 
-Sessions, product views, add to cart, conversion rate, conversion by product / device, acquisition source and UTM
-(no analytics provider connected, docs/ANALYTICS.md); returns as such (only refunds are recorded); supplier stock and last
+Returns as such (only refunds are recorded); supplier stock and last
 supplier sync (provider does not report them yet); early-access performance (no early release has run).
 
 ## 7. Margin method

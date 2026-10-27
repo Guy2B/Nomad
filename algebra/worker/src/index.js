@@ -7,6 +7,7 @@
  *   POST /api/newsletter               double opt-in start · GET /api/newsletter/confirm?token=
  *   POST /api/contact                  message to the owner
  *   POST /api/webhooks/valadio         fulfillment provider push (signed), idempotent
+ *   POST /api/events                   first-party statistics, only after consent (worker/src/analytics.js)
  *   POST /api/circle · GET /api/circle/confirm · POST /api/circle/member|prefs|leave   A Circle (worker/src/circle.js)
  *   GET  /api/admin/<view>             Operating Cockpit, Bearer ADMIN_TOKEN (worker/src/cockpit/api.js)
  *   POST /api/admin/orders/:id/costs   real costs of an order (provider invoice, Stripe balance, manual)
@@ -25,6 +26,7 @@ import { sendMail, template } from './email.js';
 import { legacyStudioTarget } from './legacy.js';
 import { confirmMembership, getMember, leave, requestMembership, savePrefs } from './circle.js';
 import { cockpit } from './cockpit/api.js';
+import { pruneEvents, recordEvents } from './analytics.js';
 import { HttpError, applyStatus, createPendingOrder, event, fulfill, getBySession, getOrder, markPaid, markRefunded, priceCart, setStatus, sweep, syncStatus } from './orders.js';
 
 const LANGS = ['de', 'en', 'fr'];
@@ -221,6 +223,7 @@ async function route(req, env, ctx) {
     return json({ ok: true });
   }
   if (p === '/api/webhooks/valadio' && m === 'POST') return handleProviderWebhook(req, env);
+  if (p === '/api/events' && m === 'POST') return json(await recordEvents(req, env, await body(req, 8000)));
   if (p === '/api/circle' && m === 'POST') return json(await requestMembership(env, await body(req, 4000), { origin: url.origin, ctx }));
   if (p === '/api/circle/confirm' && m === 'GET') return Response.redirect(await confirmMembership(env, url.searchParams.get('token') || '', { ctx }), 302);
   if (p === '/api/circle/member' && m === 'POST') return json(await getMember(env, (await body(req, 2000)).token));
@@ -289,6 +292,6 @@ export default {
     }
   },
   async scheduled(_event, env, ctx) {
-    ctx.waitUntil(ensureSchema(env.DB).then(() => sweep(env, providerFor(env))).then((r) => console.log('[sweep]', JSON.stringify(r))));
+    ctx.waitUntil(ensureSchema(env.DB).then(() => sweep(env, providerFor(env))).then((r) => console.log('[sweep]', JSON.stringify(r))).then(() => pruneEvents(env.DB)));
   },
 };
