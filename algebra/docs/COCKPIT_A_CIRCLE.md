@@ -38,7 +38,7 @@ Pages: `/{de,en,fr}/circle/` (indexable), `/{de,en,fr}/circle/member/` (noindex)
 Every `/api/admin/*` route refuses without the exact `Bearer ADMIN_TOKEN` (constant-time compare; no token configured = closed).
 The `/admin/` shell holds no figure, is `noindex`, `no-store`, `no-referrer`, disallowed in robots.txt, and passes the build's
 supplier-confidentiality guard (no supplier names, costs or mapping in any public file). The token stays in `sessionStorage`.
-**Recommended:** put `/admin/*` behind Cloudflare Access (one e-mail rule) as a second lock.
+**Cloudflare Access (active since 27.10.2026):** application “Algebra Operating Cockpit” covers `algbr.eu/admin` and `algbr.eu/api/admin` (sub-paths included), policy “Owner only” = the owner’s e-mail, one-time PIN login, session 7 days. Both locks apply: Access first, then the admin token.
 
 ## 5. KPIs available
 
@@ -138,7 +138,7 @@ print-masters for the Graphic Series. Until then the cockpit shows the sandbox a
 
 ## 20. Before public activation
 
-1. Set `ADMIN_TOKEN` (long random value) on the Worker; add Cloudflare Access on `/admin/*`.
+1. Set `ADMIN_TOKEN` (long random value) on the Worker (Cloudflare Access is already in place).
 2. Legal review of the privacy section (A Circle) and of the e-mail wording.
 3. Choose the analytics provider to unlock sessions and conversion.
 4. Record the first real costs (provider invoice, Stripe fees) to replace estimates.
