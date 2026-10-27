@@ -139,35 +139,50 @@ supprimant la variable et en relançant le workflow.
 
 ## 6. Plan de migration DNS
 
+### État DNS constaté (27 octobre 2026, résolveur public dns.google)
+
+| Nom | Serveurs DNS | Enregistrements | Conséquence |
+|---|---|---|---|
+| algbr.eu | **Cloudflare** | apex `A` ×4 → 185.199.108–111.153 (**GitHub Pages**), `www` CNAME → guy2b.github.io | Le Studio actuel est servi par GitHub Pages (dépôt `algbr`), pas par Firebase. Ce sont ces 5 enregistrements qu'il faudra retirer à l'étape 2. |
+| algbr.eu (messagerie) | Cloudflare | MX fwd1/fwd2.porkbun.com, SPF Porkbun, DMARC `p=none`, DKIM `resend._domainkey`, MX `send` (Resend), vérification Google | **Ne pas toucher.** Ils prouvent aussi que le transfert e-mail Porkbun fonctionne avec un DNS hébergé ailleurs. |
+| next.algbr.eu | Cloudflare | CNAME → guy2b.github.io (GitHub Pages) | Indépendant de la bascule. |
+| algebra, go, off, api.algbr.eu | Cloudflare | proxifiés (188.114.96–97.3) | Inchangés. |
+| algbr.de | **Porkbun** | apex et `www` : redirection Porkbun (vers algbr.eu) ; MX fwd1/fwd2.porkbun.com (contact@algbr.de) ; SPF Porkbun ; vérification Google | Pas de domaine personnalisé Worker possible tant que la zone est chez Porkbun. |
+| go, space, ease, glow, kin, off.algbr.de | Porkbun | redirections Porkbun (uixie) | À recréer si la zone passe chez Cloudflare. glow et kin ont donc bien leur `.de`. |
+| joy.algbr.de | Porkbun | réponse générique Porkbun (pixie) | Pas de redirection configurée. |
+
 ### Étape 0 · Inventaire (avant tout)
-1. Cloudflare → zone `algbr.eu` → DNS : exporter la zone (bouton « Export »). Noter les enregistrements de l'apex
-   (`A`/`AAAA`/`CNAME` vers Firebase ou GitHub Pages) et **conserver** MX, SPF (`TXT v=spf1`), DKIM (Resend),
-   DMARC, vérifications Google/Firebase.
-2. Déterminer qui sert algbr.eu aujourd'hui (Firebase `algbr-3b4ee` ou GitHub Pages) : la cible des enregistrements
-   de l'apex le dit.
-3. `algbr.de` : identifier le serveur DNS (Porkbun ou Cloudflare). Exporter tous les enregistrements, en particulier
-   **MX de contact@algbr.de** et les redirections `go/space/ease/off.algbr.de`.
-4. Stripe : lister les endpoints webhook (Developers → Webhooks) et leurs événements.
+1. Cloudflare → zone `algbr.eu` → DNS → « Export » : garder le fichier. Il contient les 5 enregistrements GitHub Pages
+   et toute la messagerie (tableau ci-dessus).
+2. Porkbun → algbr.de → « DNS Records » et « URL Forwarding » et « Email Forwarding » : capture ou export de chaque
+   écran (règles de transfert de contact@algbr.de comprises).
+3. Stripe : lister les endpoints webhook (Developers → Webhooks) et leurs événements.
 
 ### Étape 1 · Studio sur algbr.de (sans toucher à algbr.eu)
 1. Fusionner la branche ; le job `studio` publie `algbr-studio` sur `algbr-studio.<compte>.workers.dev`.
-2. Recette sur cette URL (liste §8). Ajouter `RESEND_API_KEY`, `OWNER_EMAIL` (et facultativement
-   `TURNSTILE_SECRET` + `TURNSTILE_SITE_KEY`) comme Secrets du Worker `algbr-studio`.
-3. Si la zone `algbr.de` n'est pas chez Cloudflare : l'ajouter (offre gratuite), vérifier que l'import a repris
-   **tous** les enregistrements de l'étape 0 (MX en premier), recréer les redirections des sous-domaines boutiques
-   (Redirect Rules `go.algbr.de/*` → `https://go.algbr.eu/$1`, etc.), puis changer les serveurs de noms chez Porkbun.
-   Attendre la propagation et vérifier la réception d'un e-mail sur contact@algbr.de.
-4. Variable `STUDIO_LIVE=true`, relancer le workflow : le domaine personnalisé `algbr.de` est attaché au Worker.
-   Si un enregistrement existe déjà sur l'apex, Cloudflare refuse l'attachement : le supprimer d'abord (noté dans
-   l'export).
-5. Redirect Rule `www.algbr.de/*` → `https://algbr.de/${1}` (301).
+2. Recette sur cette URL (liste §8). Ajouter `RESEND_API_KEY` (et facultativement `TURNSTILE_SECRET` + variable
+   `STUDIO_TURNSTILE_SITEKEY`) au Worker `algbr-studio`.
+3. Cloudflare → « Add a domain » → `algbr.de` (offre gratuite). Avant de changer les serveurs de noms, vérifier la zone
+   importée et la compléter :
+   - **MX** `fwd1.porkbun.com` (10) et `fwd2.porkbun.com` (20), **TXT** SPF `v=spf1 include:_spf.porkbun.com ~all`,
+     TXT de vérification Google : copiés à l'identique (le transfert e-mail reste géré chez Porkbun, comme pour algbr.eu) ;
+   - supprimer les enregistrements importés qui pointent vers les redirections Porkbun (207.207.210.x, uixie, pixie) ;
+   - Redirect Rules (301) : `go.algbr.de/*` → `https://go.algbr.eu/${1}`, idem `space`, `ease`, `glow`, `kin`, `off`
+     (et `joy` si souhaité), chacun avec un enregistrement DNS proxifié (par exemple `AAAA 100::`) pour que la règle
+     s'applique ;
+   - `www.algbr.de` : enregistrement proxifié + Redirect Rule vers `https://algbr.de/${1}`.
+4. Porkbun → algbr.de → « Authoritative Nameservers » : remplacer par les deux serveurs Cloudflare indiqués.
+   Attendre l'état « Active » dans Cloudflare, puis vérifier : redirections des sous-domaines, et un e-mail de test
+   reçu sur contact@algbr.de.
+5. Variable de dépôt `STUDIO_LIVE=true`, relancer le workflow : le domaine personnalisé `algbr.de` est attaché au
+   Worker. À partir de là, algbr.de affiche le nouveau Studio au lieu de rediriger vers algbr.eu.
 
 ### Étape 2 · ALGEBRA sur algbr.eu
 1. Prérequis : Studio en ligne sur algbr.de (sinon les anciennes URL redirigées n'auraient pas de destination).
 2. Stripe : créer l'endpoint `https://algbr.eu/api/stripe/webhook` (mêmes événements que l'actuel), copier son secret.
-3. Supprimer **uniquement** les enregistrements de l'apex `algbr.eu` et `www` qui pointent vers Firebase/GitHub Pages
-   (garder MX/TXT). Firebase : retirer le domaine personnalisé du projet `algbr-3b4ee` ; GitHub Pages : vider le
-   `CNAME` du dépôt `algbr`.
+3. Dans la zone algbr.eu, supprimer **uniquement** les 4 `A` de l'apex (185.199.108–111.153) et le CNAME `www`
+   (guy2b.github.io) ; garder MX, TXT, DKIM, `send`. Dans le dépôt `algbr` → Settings → Pages, retirer le domaine
+   personnalisé `algbr.eu` (ne pas toucher au dépôt de nΣxt, qui sert `next.algbr.eu`).
 4. Variable `ALGEBRA_ORIGIN=https://algbr.eu`, relancer le workflow : build avec le nouvel origin, déploiement
    `--env apex` (route `algbr.eu`, `SITE_ORIGIN`, CORS, redirections des anciennes URL du Studio).
 5. Mettre le nouveau `STRIPE_WEBHOOK_SECRET` sur le Worker `algebra` (le Worker est le même : ses secrets sont conservés).
@@ -186,7 +201,7 @@ supprimant la variable et en relançant le workflow.
 
 | Situation | Action | Délai |
 |---|---|---|
-| Studio défaillant sur algbr.de | Supprimer `STUDIO_LIVE`, relancer le workflow (le domaine est détaché) ; si besoin, Workers → `algbr-studio` → Deployments → « Rollback » | minutes |
+| Studio défaillant sur algbr.de | Supprimer `STUDIO_LIVE`, relancer le workflow ; dans Cloudflare, détacher le domaine personnalisé `algbr.de` du Worker et ajouter une Redirect Rule `algbr.de/*` → `https://algbr.eu/${1}` (comportement d'avant) | minutes |
 | ALGEBRA défaillant sur algbr.eu | Supprimer `ALGEBRA_ORIGIN`, relancer le workflow : rebuild pour `algebra.algbr.eu`, route d'origine ; supprimer la Redirect Rule `algebra.algbr.eu` ; recréer les enregistrements apex depuis l'export pour remettre l'ancien Studio sur algbr.eu | 15 à 30 min (+ propagation DNS) |
 | Webhook ALGEBRA en échec | L'ancien endpoint reste actif ; Stripe rejoue les événements pendant 3 jours | immédiat |
 | Erreur de code | `git revert` du commit fautif sur `main` ; Cloudflare → Worker → Deployments → version précédente | minutes |

@@ -92,7 +92,7 @@ est marqué **À VÉRIFIER**.
   la réalité est un Worker unique `algebra` sur la D1 partagée `algbr-crm`.
 - `algebra/package.json` garde un script `pages:deploy` qui ne correspond plus au déploiement réel.
 - Hébergement d'algbr.eu : `docs/seo/SEO_AUDIT.md` indique GitHub Pages, le dépôt `algbr` publie à la fois sur
-  Firebase et GitHub Pages. **À VÉRIFIER** dans le DNS : lequel sert réellement algbr.eu.
+  Firebase et GitHub Pages. **Vérifié le 27.10.2026** : algbr.eu pointe vers GitHub Pages (voir `ALGBR_TARGET.md` §6).
 
 ## 7. Problèmes de sécurité, performance et maintenance
 
@@ -111,7 +111,7 @@ est marqué **À VÉRIFIER**.
 ## 8. Incohérences de configuration et de domaine
 
 1. **algbr.eu sert aujourd'hui le Digital Studio** (dépôt `algbr`, sitemap en `https://algbr.eu/…`), alors que la cible
-   est ALGEBRA. La migration est donc un **échange de domaines entre deux hébergeurs** (Firebase ou GitHub Pages vers
+   est ALGEBRA. La migration est donc un **échange de domaines entre deux hébergeurs** (GitHub Pages vers
    Cloudflare pour algbr.eu ; nouvelle mise en ligne du Studio sur algbr.de), pas une simple redirection.
 2. Les **anciennes URL du Studio** sur algbr.eu (`/leistungen/*.html`, `/branchen/*.html`, `/project.html`,
    `/en/`, `/fr/`, `/impressum.html`, `/datenschutz.html`…) devront répondre par une 301 vers algbr.de après la bascule.

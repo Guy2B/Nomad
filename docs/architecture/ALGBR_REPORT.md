@@ -75,8 +75,9 @@ Core Web Vitals en production (le Studio pèse environ 830 Ko au total pour 53 p
 ## 5. Points à valider manuellement
 
 Bloquants avant les bascules :
-1. **DNS** : exporter les zones algbr.eu et algbr.de ; identifier l'hébergeur actuel d'algbr.eu (Firebase ou GitHub Pages)
-   et le serveur DNS d'algbr.de ; conserver MX, SPF, DKIM, DMARC (`ALGBR_TARGET.md` §6 étape 0).
+1. **DNS** (état relevé le 27.10.2026 dans `ALGBR_TARGET.md` §6) : algbr.eu est chez Cloudflare et pointe vers GitHub Pages ;
+   algbr.de est chez Porkbun et doit passer chez Cloudflare (étape 1). Exporter les deux zones et les transferts Porkbun
+   avant de changer quoi que ce soit ; conserver MX, SPF, DKIM, DMARC.
 2. **Datenschutz du Studio** : sections 2 (hébergement Cloudflare) et 4 (formulaire, Resend, Turnstile) à faire relire.
 3. **Stripe** : liste des endpoints webhook ; à la bascule d'ALGEBRA, nouvel endpoint `https://algbr.eu/api/stripe/webhook`
    et son secret.
@@ -92,7 +93,7 @@ Bloquants avant les bascules :
 9. nΣxt LifeOS : plateformes affichées Web (PWA), Android, iOS ; accès « essai gratuit » repris de `platform.json`.
    Disponibilité réelle dans les stores à confirmer. Le logo « Sigma Life OS » n'a pas été repris (ancien nom).
 10. Impressum : ajout de la mention « Marke Algebra » à la liste des offres d'AlGBr.
-11. Redirections `.de` de GLOW, KIN, JOY (absentes des `site.json`, annoncées dans le README).
+11. Redirections `.de` : GLOW et KIN redirigent bien (Porkbun) ; joy.algbr.de n'a pas de redirection.
 12. Pages ALGEBRA « Collections », « Essentials », « The House », « Journal » : non créées. Les collections existent sous
     d'autres noms (shop, men, women, polos, t-shirts, sweaters, knitwear, graphic-series) ; un Journal demande du contenu
     éditorial réel : à fournir avant toute création.
