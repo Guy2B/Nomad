@@ -9,7 +9,7 @@ from PIL import Image, ImageFilter
 PH = Path(__file__).resolve().parent.parent / "site" / "assets" / "photos"
 SRC_H = 158            # deep navy, PIL hue 0..255
 DST = (39, 89, 76)     # olive (H, S median, V median) measured on the owner's olive boards
-VIEWS = ["front", "back", "stage", "d-front", "d-fabric", "d-collar"]
+VIEWS = ["front", "back", "stage", "d-front", "d-fabric", "d-print", "d-collar"]
 
 
 def recolor(im, ref=None):

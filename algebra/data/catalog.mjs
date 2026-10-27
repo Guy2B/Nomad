@@ -128,7 +128,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'tee-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
-    colors: ['ivory', 'black', 'deep-navy'],
+    colors: ['ivory', 'black', 'deep-navy', 'olive'],
     sizes: sizesMen,
     copy: {
       lead: {
@@ -243,7 +243,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'tee-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
-    colors: ['ivory', 'black', 'deep-navy'],
+    colors: ['ivory', 'black', 'deep-navy', 'olive'],
     sizes: sizesWomen,
     copy: {
       lead: {
@@ -332,7 +332,7 @@ export const products = [
       id: 'ALG-G-01-NAVIERSTOKES',
       name: 'Navier–Stokes 01',
       field: { de: 'Strömungsmechanik', en: 'Fluid dynamics', fr: 'Mécanique des fluides' },
-      colors: ['ivory', 'black', 'deep-navy'],
+      colors: ['ivory', 'black', 'deep-navy', 'olive'],
       symbol: {
         glyph: '≈',
         de: 'Die Navier-Stokes-Gleichungen beschreiben, wie sich zähe Flüssigkeiten und Gase bewegen: Wasser, Luft, Rauch. Ob ihre Lösungen in drei Dimensionen immer glatt bleiben, ist bis heute unbewiesen und eines der Millennium-Probleme des Clay Institute.',
@@ -347,7 +347,7 @@ export const products = [
       id: 'ALG-G-02-BLACKHOLE',
       name: 'Black Hole 02',
       field: { de: 'Gravitation', en: 'Gravitation', fr: 'Gravitation' },
-      colors: ['black', 'deep-navy', 'ivory'],
+      colors: ['black', 'deep-navy', 'ivory', 'olive'],
       symbol: {
         glyph: '○',
         de: 'Ein Schwarzes Loch ist ein Bereich, aus dem nicht einmal Licht entkommt. rₛ = 2GM/c² ist der Schwarzschild-Radius: Wird eine Masse M auf diesen Radius verdichtet, entsteht ein Schwarzes Loch.',
@@ -361,7 +361,7 @@ export const products = [
       id: 'ALG-G-03-ENTANGLEMENT',
       name: 'Entanglement 03',
       field: { de: 'Quantenphysik', en: 'Quantum physics', fr: 'Physique quantique' },
-      colors: ['black', 'deep-navy', 'ivory'],
+      colors: ['black', 'deep-navy', 'ivory', 'olive'],
       symbol: {
         glyph: '∞',
         de: 'Zwei verschränkte Teilchen teilen sich einen gemeinsamen Zustand. Misst man das eine, kennt man das Ergebnis des anderen, egal wie weit es entfernt ist. Nachrichten lassen sich so nicht schneller als Licht senden.',
@@ -376,7 +376,7 @@ export const products = [
       id: 'ALG-G-04-CURVATURE',
       name: 'Curvature 04',
       field: { de: 'Allgemeine Relativitätstheorie', en: 'General relativity', fr: 'Relativité générale' },
-      colors: ['deep-navy', 'black', 'ivory'],
+      colors: ['deep-navy', 'black', 'ivory', 'olive'],
       symbol: {
         glyph: 'Δ',
         de: 'Einsteins Feldgleichungen (1915) verbinden die Krümmung der Raumzeit mit Masse und Energie. Masse sagt dem Raum, wie er sich krümmt, und der gekrümmte Raum sagt der Masse, wie sie sich bewegt.',
@@ -391,7 +391,7 @@ export const products = [
       id: 'ALG-G-05-EPRER',
       name: 'EPR = ER 05',
       field: { de: 'Quantengravitation', en: 'Quantum gravity', fr: 'Gravité quantique' },
-      colors: ['black', 'ivory', 'deep-navy'],
+      colors: ['black', 'ivory', 'deep-navy', 'olive'],
       symbol: {
         glyph: '⚭',
         de: 'Eine Vermutung von Maldacena und Susskind (2013): Verschränkte Teilchen (EPR, 1935) könnten durch eine Einstein-Rosen-Brücke (ER, 1935) verbunden sein, also durch ein Wurmloch. Eine Idee der theoretischen Physik, nicht bewiesen.',
@@ -402,47 +402,47 @@ export const products = [
     },
     // ---- Capsule 02 "Pure Forms" (owner's boards, 22.10.2026 22:29–22:34). Chest: Algebra symbol.
     ...[
-      ['euler', 'ALG-G-06-EULER', 'Euler 06', { de: 'Mathematik', en: 'Mathematics', fr: 'Mathématiques' }, ['black', 'deep-navy', 'ivory'], 'e', 'e^{iπ} + 1 = 0', {
+      ['euler', 'ALG-G-06-EULER', 'Euler 06', { de: 'Mathematik', en: 'Mathematics', fr: 'Mathématiques' }, ['black', 'deep-navy', 'ivory', 'olive'], 'e', 'e^{iπ} + 1 = 0', {
         de: 'Eulers Identität verbindet fünf Grundzahlen der Mathematik in einer Zeile: e, i, π, 1 und 0. Sie folgt aus der Formel e^{iθ} = cos θ + i sin θ für θ = π.',
         en: 'Euler’s identity links five fundamental numbers in one line: e, i, π, 1 and 0. It follows from the formula e^{iθ} = cos θ + i sin θ with θ = π.',
         fr: 'L’identité d’Euler relie cinq nombres fondamentaux en une ligne : e, i, π, 1 et 0. Elle découle de la formule e^{iθ} = cos θ + i sin θ pour θ = π.',
       }],
-      ['lorenz', 'ALG-G-07-LORENZ', 'Lorenz 07', { de: 'Chaostheorie', en: 'Chaos theory', fr: 'Théorie du chaos' }, ['black', 'deep-navy', 'ivory'], '∿', 'dx/dt = σ(y − x)', {
+      ['lorenz', 'ALG-G-07-LORENZ', 'Lorenz 07', { de: 'Chaostheorie', en: 'Chaos theory', fr: 'Théorie du chaos' }, ['black', 'deep-navy', 'ivory', 'olive'], '∿', 'dx/dt = σ(y − x)', {
         de: 'Edward Lorenz’ vereinfachtes Wettermodell von 1963. Winzige Unterschiede am Anfang führen zu völlig anderen Bahnen: der Ursprung des Begriffs Schmetterlingseffekt.',
         en: 'Edward Lorenz’s simplified weather model from 1963. Tiny differences at the start lead to completely different paths: where the idea of the butterfly effect comes from.',
         fr: 'Le modèle météo simplifié d’Edward Lorenz, en 1963. D’infimes différences au départ mènent à des trajectoires totalement différentes : l’origine de l’« effet papillon ».',
       }],
-      ['maxwell', 'ALG-G-08-MAXWELL', 'Maxwell 08', { de: 'Elektromagnetismus', en: 'Electromagnetism', fr: 'Électromagnétisme' }, ['black', 'deep-navy', 'ivory'], '∇', '∇×B = μ_{0}J + μ_{0}ε_{0} ∂E/∂t', {
+      ['maxwell', 'ALG-G-08-MAXWELL', 'Maxwell 08', { de: 'Elektromagnetismus', en: 'Electromagnetism', fr: 'Électromagnétisme' }, ['black', 'deep-navy', 'ivory', 'olive'], '∇', '∇×B = μ_{0}J + μ_{0}ε_{0} ∂E/∂t', {
         de: 'Vier Gleichungen von James Clerk Maxwell beschreiben elektrische und magnetische Felder. Aus ihnen folgen Wellen, die sich mit Lichtgeschwindigkeit ausbreiten: Licht selbst.',
         en: 'Four equations by James Clerk Maxwell describe electric and magnetic fields. They predict waves that travel at the speed of light: light itself.',
         fr: 'Quatre équations de James Clerk Maxwell décrivent les champs électriques et magnétiques. Elles prédisent des ondes qui voyagent à la vitesse de la lumière : la lumière elle-même.',
       }],
-      ['mandelbrot', 'ALG-G-09-MANDELBROT', 'Mandelbrot 09', { de: 'Fraktale Geometrie', en: 'Fractal geometry', fr: 'Géométrie fractale' }, ['black', 'deep-navy', 'ivory'], '✳', 'z_{n+1} = z_{n}^{2} + c', {
+      ['mandelbrot', 'ALG-G-09-MANDELBROT', 'Mandelbrot 09', { de: 'Fraktale Geometrie', en: 'Fractal geometry', fr: 'Géométrie fractale' }, ['black', 'deep-navy', 'ivory', 'olive'], '✳', 'z_{n+1} = z_{n}^{2} + c', {
         de: 'Alle Zahlen c, für die z → z² + c ab z = 0 beschränkt bleibt. Eine Regel aus einer Zeile, ein Rand mit unendlich vielen Details.',
         en: 'All numbers c for which z → z² + c, starting at z = 0, stays bounded. A one-line rule, an edge with endless detail.',
         fr: 'Tous les nombres c pour lesquels z → z² + c, en partant de z = 0, reste borné. Une règle d’une ligne, un bord aux détails infinis.',
       }],
-      ['tesseract', 'ALG-G-10-TESSERACT', 'Tesseract 10', { de: 'Vierte Dimension', en: 'Fourth dimension', fr: 'Quatrième dimension' }, ['black', 'deep-navy', 'ivory'], '⧈', '16 · 32 · 24 · 8', {
+      ['tesseract', 'ALG-G-10-TESSERACT', 'Tesseract 10', { de: 'Vierte Dimension', en: 'Fourth dimension', fr: 'Quatrième dimension' }, ['black', 'deep-navy', 'ivory', 'olive'], '⧈', '16 · 32 · 24 · 8', {
         de: 'Der Würfel in vier Dimensionen. Was man sieht, ist sein Schatten im Raum: 16 Ecken, 32 Kanten, 24 Quadrate, 8 Würfel.',
         en: 'The cube in four dimensions. What you see is its shadow in space: 16 vertices, 32 edges, 24 squares, 8 cubes.',
         fr: 'Le cube en quatre dimensions. Ce que l’on voit est son ombre dans l’espace : 16 sommets, 32 arêtes, 24 carrés, 8 cubes.',
       }],
-      ['higgs', 'ALG-G-11-HIGGS', 'Higgs Field 11', { de: 'Teilchenphysik', en: 'Particle physics', fr: 'Physique des particules' }, ['black', 'deep-navy', 'ivory'], 'φ', 'V(φ) = −μ^{2}|φ|^{2} + λ|φ|^{4}', {
+      ['higgs', 'ALG-G-11-HIGGS', 'Higgs Field 11', { de: 'Teilchenphysik', en: 'Particle physics', fr: 'Physique des particules' }, ['black', 'deep-navy', 'ivory', 'olive'], 'φ', 'V(φ) = −μ^{2}|φ|^{2} + λ|φ|^{4}', {
         de: 'Das Higgs-Feld gibt Elementarteilchen ihre Masse. Sein Potenzial hat die Form eines Huts: Oben ist es instabil, das Feld kommt im Tal zur Ruhe. Das Higgs-Boson wurde 2012 am CERN nachgewiesen.',
         en: 'The Higgs field gives elementary particles their mass. Its potential is shaped like a hat: the top is unstable, the field settles in the valley. The Higgs boson was observed at CERN in 2012.',
         fr: 'Le champ de Higgs donne leur masse aux particules élémentaires. Son potentiel a la forme d’un chapeau : le sommet est instable, le champ se stabilise dans la vallée. Le boson de Higgs a été observé au CERN en 2012.',
       }],
-      ['big-bang', 'ALG-G-12-BIGBANG', 'Big Bang 12', { de: 'Kosmologie', en: 'Cosmology', fr: 'Cosmologie' }, ['black', 'deep-navy', 'ivory'], '✶', 'H^{2} = 8πGρ/3 − kc^{2}/a^{2} + Λc^{2}/3', {
+      ['big-bang', 'ALG-G-12-BIGBANG', 'Big Bang 12', { de: 'Kosmologie', en: 'Cosmology', fr: 'Cosmologie' }, ['black', 'deep-navy', 'ivory', 'olive'], '✶', 'H^{2} = 8πGρ/3 − kc^{2}/a^{2} + Λc^{2}/3', {
         de: 'Das Universum dehnt sich seit rund 13,8 Milliarden Jahren aus einem extrem heißen, dichten Zustand aus. Die Friedmann-Gleichung beschreibt, wie diese Ausdehnung von Materie, Krümmung und kosmologischer Konstante abhängt.',
         en: 'The universe has been expanding for about 13.8 billion years from an extremely hot, dense state. The Friedmann equation describes how that expansion depends on matter, curvature and the cosmological constant.',
         fr: 'L’Univers est en expansion depuis environ 13,8 milliards d’années, à partir d’un état extrêmement chaud et dense. L’équation de Friedmann décrit comment cette expansion dépend de la matière, de la courbure et de la constante cosmologique.',
       }],
-      ['feynman', 'ALG-G-13-FEYNMAN', 'Feynman 13', { de: 'Quantenelektrodynamik', en: 'Quantum electrodynamics', fr: 'Électrodynamique quantique' }, ['black', 'deep-navy', 'ivory'], 'γ', 'ℒ = ψ̄(iγ^{μ}D_{μ} − m)ψ − ¼F_{μν}F^{μν}', {
+      ['feynman', 'ALG-G-13-FEYNMAN', 'Feynman 13', { de: 'Quantenelektrodynamik', en: 'Quantum electrodynamics', fr: 'Électrodynamique quantique' }, ['black', 'deep-navy', 'ivory', 'olive'], 'γ', 'ℒ = ψ̄(iγ^{μ}D_{μ} − m)ψ − ¼F_{μν}F^{μν}', {
         de: 'Richard Feynman zeichnete Teilchenprozesse als einfache Diagramme: gerade Linien für Elektronen, Wellenlinien für Photonen. Jedes Diagramm steht für einen Term der Rechnung. Die Quantenelektrodynamik gehört zu den am genauesten bestätigten Theorien der Physik.',
         en: 'Richard Feynman drew particle processes as simple diagrams: straight lines for electrons, wavy lines for photons. Each diagram stands for one term of the calculation. Quantum electrodynamics is among the most precisely confirmed theories in physics.',
         fr: 'Richard Feynman dessinait les processus entre particules comme de simples diagrammes : des lignes droites pour les électrons, des lignes ondulées pour les photons. Chaque diagramme correspond à un terme du calcul. L’électrodynamique quantique est l’une des théories les mieux vérifiées de la physique.',
       }],
-      ['mobius', 'ALG-G-14-MOBIUS', 'Möbius 14', { de: 'Topologie', en: 'Topology', fr: 'Topologie' }, ['black', 'deep-navy', 'ivory'], '∞', 'χ = 0', {
+      ['mobius', 'ALG-G-14-MOBIUS', 'Möbius 14', { de: 'Topologie', en: 'Topology', fr: 'Topologie' }, ['black', 'deep-navy', 'ivory', 'olive'], '∞', 'χ = 0', {
         de: 'Ein Band, einmal verdreht und geschlossen: Es hat nur eine Seite und nur eine Kante. August Ferdinand Möbius beschrieb es 1858. Seine Euler-Charakteristik ist null.',
         en: 'A strip, twisted once and closed: it has only one side and only one edge. August Ferdinand Möbius described it in 1858. Its Euler characteristic is zero.',
         fr: 'Une bande, tordue une fois puis refermée : elle n’a qu’une seule face et un seul bord. August Ferdinand Möbius l’a décrite en 1858. Sa caractéristique d’Euler vaut zéro.',
