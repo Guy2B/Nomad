@@ -5,9 +5,9 @@
  * from shops/<shop>/site.json + products.json + assets/:
  *   /<lang>/index.html, /<lang>/produkt/<id>.html, /<lang>/ratgeber/<slug>.html,
  *   warenkorb, danke, bestellung, legal pages, sitemap, robots, _headers.
- * Every storefront is static (Cloudflare Pages) and calls the shared API
+ * Every storefront is static (Cloudflare Pages or a Worker serving assets) and calls the shared API
  * (shared/platform.json → api) cross-origin. The backend itself is built with
- *   node scripts/build.mjs backend   → dist/ = /admin/ only (Netlify, with the functions).
+ *   node scripts/build.mjs backend   → dist/ = /admin/ only (served by the Worker api-algbr, backend/).
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';

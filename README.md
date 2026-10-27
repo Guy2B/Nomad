@@ -13,7 +13,10 @@ shops/                 ← une boutique = un dossier, même architecture partout
   kin/     KIN    · kin.algbr.eu     animaux
   joy/     JOY    · joy.algbr.eu     Noël (saisonnier, stock CJ Allemagne)
   off/     OFF.   · off.algbr.eu     outlet (votre propre stock)
-shared/                données communes : adresse de l'API, prospects et mots-clés du sourcing
+algebra/               ALGEBRA (algebra.algbr.eu → algbr.eu) : marque de mode, paquet et Worker propres
+sites/digital-studio/  algbr.de : Al.G.B.r. Digital Studio + présentation de l'écosystème (registre → pages)
+shared/                registre des marques (brands.json) et logiciels (software.json), adresse de l'API,
+                       encart famille, prospects et mots-clés du sourcing
 engine/                le moteur : functions/ (API) + lib/ (prix, Stripe, CJ, CRM, Radar)
 backend/               le serveur api.algbr.eu (Cloudflare Worker) qui fait tourner engine/
 public/                gabarits communs : style et script des boutiques, dashboard /admin/
@@ -47,6 +50,8 @@ le nom de la marque ; `node scripts/build.mjs` accepte les deux.
 | GLOW, KIN, JOY | Cloudflare Workers (glow-algbr, kin-algbr, joy-algbr) | automatique à chaque envoi sur GitHub (GitHub Actions) |
 | OFF. | Cloudflare Worker off-algbr | automatique à chaque envoi sur GitHub (GitHub Actions) |
 | API + dashboard (api.algbr.eu) | Cloudflare Worker api-algbr, base D1 `algbr-crm` | automatique à chaque envoi sur GitHub (GitHub Actions), aussi quand un prix change |
+| ALGEBRA (algebra.algbr.eu, cible algbr.eu) | Cloudflare Worker algebra, tables `alg_*` de `algbr-crm` | GitHub Actions (job `algebra`) ; domaine choisi par la variable `ALGEBRA_ORIGIN` |
+| Digital Studio (cible algbr.de) | Cloudflare Worker algbr-studio | GitHub Actions (job `studio`) ; prévisualisation tant que `STUDIO_LIVE` n'est pas `true` |
 
 La publication automatique des Workers est dans `.github/workflows/deploy-cloudflare.yml` : elle ne
 publie que ce qui a changé, après `npm test`. Les commandes `npm run deploy:api`, `deploy:glow`,
@@ -89,6 +94,8 @@ Copier un dossier de `shops/` (site.json, products.json, assets/, README.md), l'
 `shops/glow/wrangler.toml`), et mettre son domaine dans `site.json` (baseUrl, sert aussi à
 autoriser l'API). Les commandes arrivent dans le même CRM et le même dashboard.
 
+Architecture, audit, migration DNS et retour arrière : `docs/architecture/ALGBR_AUDIT.md` et `ALGBR_TARGET.md`.
+
 ## Développement
 
 ```bash
@@ -96,6 +103,8 @@ npm install
 npm test                       # tests du moteur
 node scripts/build.mjs go      # construit une boutique dans dist/
 npm run deploy:api             # publie l'API et le dashboard
+npm run build:studio           # algbr.de dans sites/digital-studio/dist
+npm run test:all               # tests du moteur + registre + Digital Studio
 ```
 
 Légal : `docs/LEGAL-CHECKLIST.md` (pages générées depuis `site.json` → `company`, à faire relire).

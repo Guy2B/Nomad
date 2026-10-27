@@ -45,7 +45,9 @@ Public settings: `site/config.mjs` (operator placeholders, VAT display mode, sit
 
 ## Key decisions (details in docs/)
 
-- **Supplier**: A61 Partner (Germany) primary, Shirtigo/Prinovia backup ([SUPPLIERS.md](docs/SUPPLIERS.md)).
+- **Fulfillment**: Valadio REST API is the target provider (`FULFILLMENT_PROVIDER = "valadio"`, sandbox until validated);
+  A61 Partner stays a disabled fallback, Shirtigo/Prinovia backup ([SUPPLIERS.md](docs/SUPPLIERS.md); the launch report of
+  22.10.2026 predates this decision).
 - **Stack**: static site + Cloudflare Worker + D1 + Stripe Checkout, no monthly platform fee; Shopify as fallback if A61 has no API ([ARCHITECTURE.md](docs/ARCHITECTURE.md)).
 - **Collection**: 6 essentials (4 purchasable, 2 waiting for A61) + Graphic Series: Capsule 01 "Physics in Ink" (5) and Capsule 02 "Pure Forms" (7).
 - **Prices**: hypotheses inside the brief's ranges, margins in [ECONOMICS.md](docs/ECONOMICS.md).
@@ -53,4 +55,8 @@ Public settings: `site/config.mjs` (operator placeholders, VAT display mode, sit
 
 ## Deploy (when credentials exist)
 
-See [docs/ARCHITECTURE.md → Deployment](docs/ARCHITECTURE.md). Switch `SITE_MODE=live` only after [docs/LAUNCH_CHECKLIST.md](docs/LAUNCH_CHECKLIST.md) is all PASS.
+One Worker `algebra` (site + API) on the shared D1 `algbr-crm`, published by the `algebra` job of
+`.github/workflows/deploy-cloudflare.yml`. Today: algebra.algbr.eu. Target: **algbr.eu** through `wrangler deploy --env apex`,
+switched by the repository variable `ALGEBRA_ORIGIN` (see `docs/architecture/ALGBR_TARGET.md` in the repository root).
+The `pages:deploy` script is a leftover of an earlier plan and is not used.
+See also [docs/ARCHITECTURE.md → Deployment](docs/ARCHITECTURE.md). Switch `SITE_MODE=live` only after [docs/LAUNCH_CHECKLIST.md](docs/LAUNCH_CHECKLIST.md) is all PASS.
