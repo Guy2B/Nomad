@@ -10,6 +10,7 @@
  *   GET  /api/admin/orders             Bearer ADMIN_TOKEN · POST /api/admin/orders/:id/retry
  *   GET  /api/admin/fulfillment        Bearer ADMIN_TOKEN · provider, mapping, costs (never public)
  *   GET  /api/health
+ * Former Digital Studio URLs (/leistungen/*, /project.html…) → 301 to algbr.de when LEGACY_STUDIO_REDIRECTS = "1".
  * Cron (wrangler.toml): sweep() retries fulfillment, polls supplier status, expires unpaid orders.
  */
 import { ensureSchema } from './schema.js';
@@ -18,6 +19,7 @@ import { providerFor, FulfillmentError } from './fulfillment/provider.js';
 import { isConfirmed, supplierMappings } from './fulfillment/mapping.js';
 import { allVariants } from '../../data/catalog.mjs';
 import { sendMail, template } from './email.js';
+import { legacyStudioTarget } from './legacy.js';
 import { HttpError, applyStatus, createPendingOrder, event, fulfill, getBySession, getOrder, markPaid, markRefunded, priceCart, setStatus, sweep, syncStatus } from './orders.js';
 
 const LANGS = ['de', 'en', 'fr'];
@@ -67,8 +69,9 @@ export async function handleCheckout(req, env, fetchImpl = fetch) {
       mode: 'payment',
       locale: lang,
       client_reference_id: id,
-      metadata: { order_id: id, order_number: number },
-      payment_intent_data: { metadata: { order_id: id, order_number: number } },
+      // store: 'algebra' lets the AlGBr shops' webhook (same Stripe account) ignore these sessions.
+      metadata: { store: 'algebra', order_id: id, order_number: number },
+      payment_intent_data: { metadata: { store: 'algebra', order_id: id, order_number: number } },
       success_url: `${origin}/${lang}/order/success/?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/${lang}/cart/`,
       shipping_address_collection: { allowed_countries: { 0: b.country } },
@@ -161,6 +164,10 @@ async function route(req, env, ctx) {
   const url = new URL(req.url);
   const p = url.pathname.replace(/\/+$/, '');
   const m = req.method;
+  if (env.LEGACY_STUDIO_REDIRECTS === '1' && (m === 'GET' || m === 'HEAD')) {
+    const to = legacyStudioTarget(url.pathname);
+    if (to) return new Response(null, { status: 301, headers: { location: to, 'cache-control': 'public, max-age=86400' } });
+  }
   if (m === 'OPTIONS') return new Response(null, { status: 204, headers: { ...cors(env, req), 'access-control-allow-methods': 'GET,POST', 'access-control-allow-headers': 'content-type', 'access-control-max-age': '86400' } });
 
   if (p === '/api/health') return json({ ok: true, fulfillment: providerFor(env).sandbox ? 'sandbox' : 'live', stripe: env.STRIPE_SECRET_KEY ? (env.STRIPE_SECRET_KEY.startsWith('sk_test_') ? 'test' : 'live') : 'NEEDS_CREDENTIALS', mail: env.RESEND_API_KEY ? 'resend' : 'MOCKED' });

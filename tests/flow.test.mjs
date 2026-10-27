@@ -372,3 +372,15 @@ test('GLOW and KIN: own prefixes, bundles priced and fully mapped to CJ, API ope
     assert.ok(allowedOrigins({}).has(origin));
   }
 });
+
+test('ALGEBRA sessions on the shared Stripe account are ignored by the shops webhook', async () => {
+  const s = crm();
+  for (const metadata of [{ store: 'algebra', order_id: 'a1', order_number: 'ALG-1' }, { order_id: 'a2', order_number: 'ALG-2' }]) {
+    const r = await processPaidSession(s, paidSession({ id: `cs_alg_${metadata.order_id}`, metadata }));
+    assert.deepEqual(r, { skipped: 'foreign' });
+  }
+  assert.equal((await listOrders(s)).length, 0, 'no parasitic order in the CRM');
+  // Historic sessions without store metadata still belong to GO (store id nomad).
+  const legacy = await processPaidSession(s, paidSession({ id: 'cs_legacy', metadata: { cart: 'vacuum-backpack:1' } }));
+  assert.equal(legacy.order.store, 'nomad');
+});
