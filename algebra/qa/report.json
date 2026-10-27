@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-27T16:25:52.224Z",
+  "date": "2026-10-27T16:49:26.127Z",
   "base": "http://localhost:8787",
   "results": [
     {
@@ -144,7 +144,7 @@
       "area": "checkout",
       "name": "Checkout (mock payment) → success page with order number",
       "result": "PASS",
-      "detail": "ALG-261027-TCZ5"
+      "detail": "ALG-261027-6SZU"
     },
     {
       "area": "checkout",
