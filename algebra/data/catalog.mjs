@@ -19,6 +19,7 @@ export const colors = {
   sage: { tone: 'light', hex: '#8F9B86', ink: 'navy', name: { de: 'Salbei', en: 'Sage', fr: 'Sauge' }, supplierColor: TV },
   taupe: { tone: 'light', hex: '#A6978A', ink: 'navy', name: { de: 'Taupe', en: 'Taupe', fr: 'Taupe' }, supplierColor: TV },
   burgundy: { tone: 'dark', hex: '#5E1F2C', ink: 'ivory', name: { de: 'Burgund', en: 'Burgundy', fr: 'Bordeaux' }, supplierColor: TV },
+  olive: { tone: 'dark', hex: '#4F5A31', ink: 'ivory', name: { de: 'Oliv', en: 'Olive', fr: 'Vert olive' }, supplierColor: TV },
 };
 
 
@@ -85,7 +86,7 @@ export const products = [
     status: 'PREVIEW',
     blank: 'polo-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
-    colors: ['deep-navy', 'black', 'ivory'],
+    colors: ['deep-navy', 'black', 'ivory', 'olive'],
     sizes: sizesMen,
     copy: {
       lead: {
@@ -212,7 +213,7 @@ export const products = [
     status: 'NEEDS_SUPPLIER_APPROVAL',
     blank: 'polo-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
-    colors: ['ivory', 'deep-navy', 'black'],
+    colors: ['ivory', 'deep-navy', 'black', 'olive'],
     sizes: sizesWomen,
     copy: {
       lead: {
@@ -520,7 +521,7 @@ export const shipping = {
 export const zoneOf = (country) => (country === 'DE' ? 'DE' : 'EU');
 
 /** Variant SKU: ALG-M-POLO-DNV-M. Supplier SKUs live in worker/src/fulfillment/mapping.js. */
-export const colorCode = { ivory: 'IVO', 'deep-navy': 'DNV', black: 'BLK', sage: 'SAG', taupe: 'TAU', burgundy: 'BUR' };
+export const colorCode = { ivory: 'IVO', 'deep-navy': 'DNV', black: 'BLK', sage: 'SAG', taupe: 'TAU', burgundy: 'BUR', olive: 'OLV' };
 
 export function variantsOf(p) {
   const cuts = p.cuts || [{ id: null, blank: p.blank, sizes: p.sizes }];
