@@ -1,13 +1,19 @@
 # Publishes the Cloudflare Workers on every push to main, only what changed:
-#   api.algbr.eu (backend + dashboard) · GLOW · KIN · JOY · OFF · ALGEBRA (algebra/, own job).
+#   api.algbr.eu (backend + dashboard) · GLOW · KIN · JOY · OFF · ALGEBRA (algebra/, own job) ·
+#   Digital Studio algbr.de (sites/digital-studio, own job).
 # GO, SPACE and EASE are Cloudflare Pages projects: Cloudflare rebuilds them itself.
 #
 # The API embeds every shop's catalogue (prices are checked at checkout), so a change
 # in any shops/*/products.json or site.json republishes the API too.
 #
 # Needs one repository secret: CLOUDFLARE_API_TOKEN (Cloudflare → My Profile → API Tokens,
-# template "Edit Cloudflare Workers"). Actions → this workflow → "Run workflow" publishes all five.
-name: Deploy Cloudflare (API, GLOW, KIN, JOY, OFF)
+# template "Edit Cloudflare Workers"). Actions → this workflow → "Run workflow" publishes everything.
+#
+# Domain switches (repository variables, Settings → Secrets and variables → Actions → Variables),
+# see docs/architecture/ALGBR_TARGET.md §5–§7. Absent = current production behaviour, nothing moves:
+#   ALGEBRA_ORIGIN = https://algbr.eu   → ALGEBRA built for algbr.eu and deployed with `--env apex`
+#   STUDIO_LIVE    = true                → Digital Studio deployed with `--env live` (custom domain algbr.de)
+name: Deploy Cloudflare (API, GLOW, KIN, JOY, OFF, ALGEBRA, Studio)
 
 on:
   push:
@@ -31,6 +37,7 @@ jobs:
       joy: ${{ steps.f.outputs.joy }}
       off: ${{ steps.f.outputs.off }}
       algebra: ${{ steps.f.outputs.algebra }}
+      studio: ${{ steps.f.outputs.studio }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
@@ -41,7 +48,9 @@ jobs:
               - 'engine/**'
               - 'backend/**'
               - 'public/admin/**'
-              - 'shared/**'
+              - 'shared/platform.json'
+              - 'shared/prospects.json'
+              - 'shared/alt-keywords.json'
               - 'shops/*/products.json'
               - 'shops/*/site.json'
               - 'scripts/build.mjs'
@@ -67,6 +76,20 @@ jobs:
               - 'scripts/deploy-off.mjs'
             algebra:
               - 'algebra/**'
+            studio:
+              - 'sites/digital-studio/**'
+              - 'shared/brands.json'
+              - 'shared/software.json'
+              - 'shared/registry.mjs'
+              - 'shared/platform.json'
+              - 'shops/*/site.json'
+              - 'shops/*/assets/favicon.svg'
+              - 'shops/off/public/assets/favicon.svg'
+              - 'shops/off/wrangler.toml'
+              - 'shops/off/i18n.mjs'
+              - 'algebra/brand/**'
+              - 'algebra/site/config.mjs'
+              - 'tests/registry.test.mjs'
 
   deploy:
     needs: changes
@@ -122,7 +145,7 @@ jobs:
         if: env.ALL == 'true' || needs.changes.outputs.off == 'true'
         run: npm run deploy:off
 
-  # ALGEBRA (algebra.algbr.eu): its own package in algebra/, one Worker for shop + API.
+  # ALGEBRA (algebra.algbr.eu today, algbr.eu after the switch): its own package in algebra/, one Worker for shop + API.
   # Uses the shared D1 database algbr-crm (tables alg_*, created by the Worker itself): no D1 rights needed.
   algebra:
     needs: changes
@@ -135,6 +158,9 @@ jobs:
       CF_TOKEN_RAW: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: c7b9d85bb7d0ec8a475ad015364fa460
       npm_config_yes: 'true'
+      # Canonical origin baked into the pages (canonical, hreflang, sitemap, Stripe return URLs).
+      SITE_ORIGIN: ${{ vars.ALGEBRA_ORIGIN || 'https://algebra.algbr.eu' }}
+      ALGEBRA_ENV: ${{ vars.ALGEBRA_ORIGIN == 'https://algbr.eu' && 'apex' || '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -159,6 +185,47 @@ jobs:
           fi
           echo "::add-mask::$token"
           echo "CLOUDFLARE_API_TOKEN=$token" >> "$GITHUB_ENV"
-      - name: ALGEBRA (algebra.algbr.eu)
+      - name: ALGEBRA (${{ env.SITE_ORIGIN }})
         working-directory: algebra/worker
-        run: npx wrangler deploy
+        run: |
+          if [ "$ALGEBRA_ENV" = "apex" ]; then npx wrangler deploy --env apex; else npx wrangler deploy; fi
+
+  # Digital Studio + AlGBr ecosystem (algbr.de): static pages from the brand registry + contact Worker.
+  # Without STUDIO_LIVE it is published on algbr-studio.<account>.workers.dev only, as a noindex preview.
+  studio:
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.studio == 'true'
+    runs-on: ubuntu-latest
+    env:
+      CF_TOKEN_RAW: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: c7b9d85bb7d0ec8a475ad015364fa460
+      npm_config_yes: 'true'
+      STUDIO_LIVE: ${{ vars.STUDIO_LIVE == 'true' && 'true' || '' }}
+      STUDIO_TURNSTILE_SITEKEY: ${{ vars.STUDIO_TURNSTILE_SITEKEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Tests (registry + studio; nothing is published if they fail)
+        run: node --test sites/digital-studio/tests/studio.test.mjs tests/registry.test.mjs
+      - name: Build
+        run: |
+          if [ "$STUDIO_LIVE" = "true" ]; then node sites/digital-studio/build.mjs; else STUDIO_NOINDEX=1 node sites/digital-studio/build.mjs; fi
+      - name: Check the Cloudflare token is set
+        run: |
+          if [ -z "$CF_TOKEN_RAW" ]; then
+            echo "::error::Secret CLOUDFLARE_API_TOKEN missing (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+          token=$(printf '%s' "$CF_TOKEN_RAW" | grep -oE '[A-Za-z0-9_-]{40,}' | head -n1 || true)
+          if [ -z "$token" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN does not contain a Cloudflare token."
+            exit 1
+          fi
+          echo "::add-mask::$token"
+          echo "CLOUDFLARE_API_TOKEN=$token" >> "$GITHUB_ENV"
+      - name: Digital Studio (algbr.de)
+        working-directory: sites/digital-studio
+        run: |
+          if [ "$STUDIO_LIVE" = "true" ]; then npx wrangler@4 deploy --env live; else npx wrangler@4 deploy; fi
