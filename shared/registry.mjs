@@ -98,8 +98,11 @@ export async function checkRegistry(root, overrides = {}) {
       if (b.tagline) err(id, 'tagline à ne pas recopier : elle est lue dans site.json');
     } else if (b.source?.type === 'algebra') {
       const { site } = await import(pathToFileURL(join(root, b.source.config)).href);
-      const origin = (process.env.SITE_ORIGIN ? null : site.origin) ?? b.url;
-      if (origin.replace(/\/$/, '') !== b.url.replace(/\/$/, '')) err(id, `url ${b.url} ≠ origin par défaut d'ALGEBRA ${origin}`);
+      // Default origin in the code = where the Worker's default environment points (the CI switch ALGEBRA_ORIGIN
+      // overrides it). Before a migration it is the official url; after it, the migration's former address.
+      const expected = b.migration?.status === 'done' ? b.migration.from : b.url;
+      if (!process.env.SITE_ORIGIN && site.origin.replace(/\/$/, '') !== expected.replace(/\/$/, '')) err(id, `origine par défaut d'ALGEBRA ${site.origin} ≠ ${expected}`);
+      if (b.migration?.status === 'done' && b.url !== b.migration.to) err(id, 'migration terminée : url doit être la nouvelle adresse');
       if ([...site.languages].sort().join() !== [...b.languages].sort().join()) err(id, 'languages ≠ config ALGEBRA');
       if (!texts(b.tagline) || b.tagline.en !== site.signature) err(id, `tagline ≠ signature ALGEBRA "${site.signature}"`);
       if (b.crossPromotion.eligible || b.crossPromotion.showsFamily) err(id, 'ALGEBRA doit rester hors promotion croisée');

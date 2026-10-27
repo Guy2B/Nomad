@@ -67,10 +67,10 @@ test('security headers and no inline styles or scripts', () => {
   }
 });
 
-test('brand links come from the registry; ALGEBRA links to its current address', () => {
+test('brand links come from the registry; ALGEBRA links to algbr.eu', () => {
   const s = read(join(dist, 'de', 'brands', 'algebra', 'index.html'));
-  assert.ok(s.includes('href="https://algebra.algbr.eu"'));
-  assert.ok(s.includes('algbr.eu</dd>'), 'planned move is shown');
+  assert.ok(s.includes('href="https://algbr.eu"'));
+  assert.ok(!s.includes('algebra.algbr.eu'), 'former address no longer shown');
   assert.ok(read(join(dist, 'de', 'index.html')).includes('href="https://next.algbr.eu"'));
 });
 

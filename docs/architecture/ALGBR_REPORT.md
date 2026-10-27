@@ -1,5 +1,16 @@
 # Rapport de livraison · restructuration AlGBr (27 octobre 2026)
 
+> **Mise à jour du 27.10.2026, 11 h 40 : bascules effectuées et vérifiées.**
+> - **algbr.de** : zone transférée de Porkbun vers Cloudflare (serveurs de noms confirmés au registre DENIC), Digital Studio en
+>   ligne et indexable, `www` et les sous-domaines boutiques (go, space, ease, glow, kin, off, next) redirigés en 301 avec le
+>   chemin, messagerie contact@algbr.de inchangée (MX et transfert Porkbun).
+> - **algbr.eu** : ALGEBRA en ligne (toujours en mode preview, Stripe test, e-mails Resend), `www.algbr.eu` et
+>   `algebra.algbr.eu` redirigés en 301, anciennes pages du Studio redirigées vers leur équivalent sur algbr.de,
+>   webhook Stripe déplacé sur `https://algbr.eu/api/stripe/webhook`, domaine retiré de GitHub Pages (dépôt `algbr`).
+> - Variables de dépôt actives : `STUDIO_LIVE=true`, `ALGEBRA_ORIGIN=https://algbr.eu`. Retour arrière : `ALGBR_TARGET.md` §7.
+> - Enregistrements GitHub Pages supprimés de la zone algbr.eu (pour un éventuel retour arrière) : `A` 185.199.108–111.153,
+>   `AAAA` 2606:50c0:8000–8003::153, `www` CNAME guy2b.github.io.
+
 Branche `restructure/algbr-ecosystem` du dépôt Nomad. **Rien n'a été déployé, aucun domaine, DNS, webhook,
 prix, stock ou commande n'a été modifié.** Fusionner la branche publie seulement des changements sans effet de domaine
 (voir §4) ; les bascules sont des actions séparées, réversibles, décrites dans `ALGBR_TARGET.md`.
