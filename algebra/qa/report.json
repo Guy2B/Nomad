@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-27T13:36:48.500Z",
-  "base": "http://localhost:8797",
+  "date": "2026-10-27T16:25:52.224Z",
+  "base": "http://localhost:8787",
   "results": [
     {
       "area": "links",
@@ -70,7 +70,7 @@
     },
     {
       "area": "perf",
-      "name": "JS + CSS weight 63.7 KB (< 80 KB)",
+      "name": "JS + CSS weight 63.8 KB (< 80 KB)",
       "result": "PASS",
       "detail": ""
     },
@@ -144,7 +144,7 @@
       "area": "checkout",
       "name": "Checkout (mock payment) → success page with order number",
       "result": "PASS",
-      "detail": "ALG-261027-7IJR"
+      "detail": "ALG-261027-TCZ5"
     },
     {
       "area": "checkout",
@@ -172,7 +172,7 @@
     },
     {
       "area": "collection",
-      "name": "Colour filter narrows the grid (27 → 9)",
+      "name": "Colour filter narrows the grid (29 → 9)",
       "result": "PASS",
       "detail": ""
     },
