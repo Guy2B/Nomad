@@ -11,8 +11,8 @@ export const t = {
     premium: {
       campaign: ['Algebra', 'Herbst / Winter 2026', 'Jetzt entdecken'],
       edit: {
-        men: ['Herren', 'Polo, T-Shirt, Sweater', 'Schwere Bio-Baumwolle, das Symbol gestickt. Schwarz, Navy und Elfenbein.', 'Jetzt entdecken'],
-        women: ['Damen', 'Die Essentials', 'Klare Schnitte, ein Zeichen auf der Brust. Schwarz, Navy und Elfenbein.', 'Jetzt entdecken'],
+        men: ['Herren', 'Polo, T-Shirt, Sweater', 'Schwere Bio-Baumwolle, das Symbol gestickt. Schwarz, Navy, Elfenbein und Oliv.', 'Jetzt entdecken'],
+        women: ['Damen', 'Die Essentials', 'Klare Schnitte, ein Zeichen auf der Brust. Schwarz, Navy, Elfenbein und Oliv.', 'Jetzt entdecken'],
         graphic: ['Graphic Series', 'Die großen Gleichungen der Welt.', 'Neun Zeichnungen aus Tusche, Kupfer und Petrol, groß auf dem Rücken getragen. Vorne nur das Symbol.', 'Zur Graphic Series'],
       },
       tiles: { men: 'Herren', women: 'Damen', graphic: 'Graphic Series', polo: 'The Polo', shop: 'Entdecken' },
@@ -88,8 +88,8 @@ export const t = {
     premium: {
       campaign: ['Algebra', 'Autumn / Winter 2026', 'Discover now'],
       edit: {
-        men: ['Men', 'Polo, T-shirt, sweater', 'Heavy organic cotton, the symbol embroidered. Black, navy and ivory.', 'Discover now'],
-        women: ['Women', 'The Essentials', 'Clean cuts, one sign on the chest. Black, navy and ivory.', 'Discover now'],
+        men: ['Men', 'Polo, T-shirt, sweater', 'Heavy organic cotton, the symbol embroidered. Black, navy, ivory and olive.', 'Discover now'],
+        women: ['Women', 'The Essentials', 'Clean cuts, one sign on the chest. Black, navy, ivory and olive.', 'Discover now'],
         graphic: ['Graphic Series', 'The great equations of the world.', 'Nine drawings in ink, copper and teal, worn large on the back. On the front, only the symbol.', 'Explore the Graphic Series'],
       },
       tiles: { men: 'Men', women: 'Women', graphic: 'Graphic Series', polo: 'The Polo', shop: 'Shop now' },
@@ -165,8 +165,8 @@ export const t = {
     premium: {
       campaign: ['Algebra', 'Automne / Hiver 2026', 'Découvrir'],
       edit: {
-        men: ['Homme', 'Polo, T-shirt, sweat', 'Coton bio épais, le symbole brodé. Noir, navy et ivoire.', 'Découvrir'],
-        women: ['Femme', 'Les Essentiels', 'Des coupes nettes, un signe sur la poitrine. Noir, navy et ivoire.', 'Découvrir'],
+        men: ['Homme', 'Polo, T-shirt, sweat', 'Coton bio épais, le symbole brodé. Noir, navy, ivoire et vert olive.', 'Découvrir'],
+        women: ['Femme', 'Les Essentiels', 'Des coupes nettes, un signe sur la poitrine. Noir, navy, ivoire et vert olive.', 'Découvrir'],
         graphic: ['Graphic Series', 'Les grandes équations du monde.', 'Neuf dessins à l’encre, cuivre et pétrole, portés en grand dans le dos. Devant, seulement le symbole.', 'Découvrir la Graphic Series'],
       },
       tiles: { men: 'Homme', women: 'Femme', graphic: 'Graphic Series', polo: 'The Polo', shop: 'Découvrir' },
