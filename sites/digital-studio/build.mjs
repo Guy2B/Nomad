@@ -435,6 +435,19 @@ function workPage(lang) {
   const [title, desc] = meta(lang, 'work');
   const list = (items) => `<ul class="ticks">${items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`;
   const cases = WORK.map((w) => {
+    if (w.compact) {
+      const link = BRANDS.find((b) => b.id === w.brands?.[0])?.url;
+      return `<article class="case case--compact${w.style ? ` case--${w.style}` : ''}" id="${w.id}">
+  <p class="work-kind">${esc(workTag(w, lang))}</p>
+  <h2>${esc(w.title[lang])}</h2>
+  ${w.signature ? `<p class="work-signature">${esc(w.signature)}</p>` : ''}
+  <img class="case-photo" src="/${w.caseImage}" alt="${esc(w.title[lang])}" width="1080" height="720" loading="lazy" decoding="async">
+  <p class="case-headline">${esc(w.headline[lang])}</p>
+  <p class="case-text">${esc(w.text[lang])}</p>
+  <p class="case-services">${w.services[lang].map(esc).join(' · ')}</p>
+  ${link ? `<p class="case-cta"><a href="${esc(link)}" rel="noopener">${esc(w.cta[lang])} <span aria-hidden="true">↗</span></a></p>` : ''}
+</article>`;
+    }
     const sw = w.software ? SOFTWARE.find((s) => s.id === w.software) : null;
     const features = w.features?.[lang] ?? sw?.features[lang];
     const results = w.results?.[lang] ?? (sw ? [`${UI[lang].status[sw.status]} · ${sw.domain}`, sw.engineering?.[lang]].filter(Boolean) : null);
