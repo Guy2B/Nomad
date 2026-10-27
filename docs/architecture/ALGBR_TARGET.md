@@ -151,6 +151,16 @@ supprimant la variable et en relançant le workflow.
 | go, space, ease, glow, kin, off.algbr.de | Porkbun | redirections Porkbun (uixie) | À recréer si la zone passe chez Cloudflare. glow et kin ont donc bien leur `.de`. |
 | joy.algbr.de | Porkbun | réponse générique Porkbun (pixie) | Pas de redirection configurée. |
 
+Inventaire Porkbun d'algbr.de relevé le 27.10.2026 (à reproduire chez Cloudflare) :
+
+| Élément | Valeur |
+|---|---|
+| Redirections (301, chemin conservé) | `algbr.de` et `www` → https://algbr.eu ; `go`, `space`, `ease`, `glow`, `kin`, `off`, `next`.algbr.de → même sous-domaine en .eu |
+| MX | `fwd1.porkbun.com` (10), `fwd2.porkbun.com` (20) |
+| TXT | SPF `v=spf1 include:_spf.porkbun.com ~all` ; vérification Google ; 2 × `_acme-challenge` (certificat Porkbun, inutiles après le transfert) |
+| Joker | `*.algbr.de` CNAME pixie.porkbun.com (page Porkbun par défaut, ne pas reprendre) |
+| Transfert e-mail | `contact@algbr.de` → boîte personnelle du propriétaire (géré chez Porkbun, continue de fonctionner tant que les MX pointent vers Porkbun) |
+
 ### Étape 0 · Inventaire (avant tout)
 1. Cloudflare → zone `algbr.eu` → DNS → « Export » : garder le fichier. Il contient les 5 enregistrements GitHub Pages
    et toute la messagerie (tableau ci-dessus).
