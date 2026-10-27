@@ -78,7 +78,7 @@ function header(lang, page) {
     .join('');
   return `<header class="site-head">
   <div class="wrap head-row">
-    <a class="logo" href="${path(lang)}" aria-label="Al.G.B.r. Digital Studio, ${esc(t.nav[''])}"><span class="logo-mark">Al.<b>G.B.</b>r.</span><span class="logo-sub">Digital Studio</span></a>
+    <a class="logo" href="${path(lang)}" aria-label="Al.G.B.r. Digital Studio, ${esc(t.nav[''])}"><img class="logo-mark" src="/assets/favicon.svg" alt="" width="36" height="36"><span class="logo-text"><span class="logo-word">Al.<i>G.B.</i><u>r.</u></span><span class="logo-sub">Digital Studio</span></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">${esc(t.menu)}</button>
     <nav id="site-nav" class="site-nav" aria-label="${esc(t.menu)}">
       <ul>${links}</ul>
@@ -94,7 +94,7 @@ function footer(lang, page) {
   return `<footer class="site-foot">
   <div class="wrap foot-grid">
     <div>
-      <p class="foot-logo">Al.<b>G.B.</b>r. <span>Digital Studio</span></p>
+      <p class="logo foot-logo"><img class="logo-mark" src="/assets/favicon.svg" alt="" width="36" height="36"><span class="logo-text"><span class="logo-word">Al.<i>G.B.</i><u>r.</u></span><span class="logo-sub">Digital Studio</span></span></p>
       <p class="foot-line">${esc(t.footer.line)}</p>
       <p><a href="mailto:${esc(ORG.email)}">${esc(ORG.email)}</a></p>
     </div>
@@ -147,7 +147,6 @@ ${alternates}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b1530">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/studio.css?v=${V}">
 <link rel="stylesheet" href="/assets/brands.css?v=${V}">
 ${ldJson([org, ...jsonLd])}
@@ -274,47 +273,60 @@ function homePage(lang) {
   const [title, desc] = meta(lang, '');
   const body = `
 <section class="hero">
+  <div class="glow" aria-hidden="true"></div>
   <div class="wrap hero-grid">
-    <div class="hero-text">
-      <h1>${esc(h.title)}</h1>
-      <p class="lead">${esc(h.lead)}</p>
-      <p class="actions"><a class="btn btn-solid" href="${path(lang, 'contact')}">${esc(UI[lang].cta)}</a> <a class="btn btn-line" href="${path(lang, 'work')}">${esc(UI[lang].nav.work)}</a></p>
+    <div class="hero-copy">
+      <p class="pill"><span class="dot" aria-hidden="true"></span>${esc(h.pill)}</p>
+      <h1>${esc(h.heroTitle)}</h1>
+      <p class="lead">${esc(h.heroLead)}</p>
+      <p class="hero-cta"><a class="btn btn-accent btn-lg" href="${path(lang, 'contact')}">${esc(h.cta1)}</a> <a class="btn btn-ghost btn-lg" href="${path(lang, 'work')}">${esc(h.cta2)}</a></p>
+      <ul class="trust">${h.trust.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
     </div>
-    <div class="hero-dir">
-      <h2 class="dir-title">${esc(h.directory)}</h2>
-      ${directory(lang)}
-      <p class="dir-note">${esc(h.directoryNote)}</p>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="orbit">
+        ${h.viz.map(([a, b], i) => `<div class="node node-${i + 1}"><small>0${i + 1}</small><strong>${esc(a)}</strong><span>${esc(b)}</span></div>`).join('')}
+        <div class="core"><span>Al.G.B.r.</span><small>${esc(h.vizCore)}</small></div>
+      </div>
     </div>
+  </div>
+</section>
+<section class="strip" aria-label="Al.G.B.r.">
+  <div class="wrap strip-row">${h.strip.map(([n, x]) => `<p><strong>${esc(n)}</strong> <span>${esc(x)}</span></p>`).join('')}</div>
+</section>
+<section class="band band-ink">
+  <div class="wrap eco">
+    <div class="band-head"><div><p class="eyebrow">${esc(h.directory)}</p><h2>${esc(h.directoryNote)}</h2></div></div>
+    ${directory(lang)}
   </div>
 </section>
 <section class="band">
   <div class="wrap">
-    <div class="band-head"><h2>${esc(h.servicesTitle)}</h2><a href="${path(lang, 'services')}">${esc(UI[lang].nav.services)}</a></div>
+    <div class="band-head"><div><p class="eyebrow">${esc(UI[lang].nav.services)}</p><h2>${esc(h.servicesTitle)}</h2></div><a href="${path(lang, 'services')}">${esc(UI[lang].nav.services)}</a></div>
     ${serviceList(lang)}
   </div>
 </section>
 <section class="band band-soft">
   <div class="wrap">
-    <div class="band-head"><h2>${esc(INDUSTRY_COMMON[lang].homeTitle)}</h2><a href="${path(lang, 'industries')}">${esc(UI[lang].nav.industries)}</a></div>
+    <div class="band-head"><div><p class="eyebrow">${esc(UI[lang].nav.industries)}</p><h2>${esc(INDUSTRY_COMMON[lang].homeTitle)}</h2></div><a href="${path(lang, 'industries')}">${esc(UI[lang].nav.industries)}</a></div>
     ${industryGrid(lang)}
   </div>
 </section>
 <section class="band">
   <div class="wrap">
-    <div class="band-head"><h2>${esc(h.workTitle)}</h2><a href="${path(lang, 'work')}">${esc(UI[lang].nav.work)}</a></div>
+    <div class="band-head"><div><p class="eyebrow">${esc(UI[lang].nav.work)}</p><h2>${esc(h.workTitle)}</h2></div><a href="${path(lang, 'work')}">${esc(UI[lang].nav.work)}</a></div>
     <div class="work-grid">${WORK.slice(0, 3).map((w) => workTeaser(w, lang)).join('')}</div>
   </div>
 </section>
 <section class="band">
   <div class="wrap">
-    <div class="band-head"><h2>${esc(h.brandsTitle)}</h2><a href="${path(lang, 'brands')}">${esc(UI[lang].allBrands)}</a></div>
+    <div class="band-head"><div><p class="eyebrow">${esc(UI[lang].nav.brands)}</p><h2>${esc(h.brandsTitle)}</h2></div><a href="${path(lang, 'brands')}">${esc(UI[lang].allBrands)}</a></div>
     <p class="band-lead">${esc(h.brandsLead)}</p>
     <div class="brand-grid">${BRANDS.map((b) => brandCard(b, lang)).join('')}</div>
   </div>
 </section>
 ${SOFTWARE.length ? `<section class="band band-ink">
   <div class="wrap">
-    <div class="band-head"><h2>${esc(h.softwareTitle)}</h2><a href="${path(lang, 'software')}">${esc(UI[lang].nav.software)}</a></div>
+    <div class="band-head"><div><p class="eyebrow">${esc(UI[lang].nav.software)}</p><h2>${esc(h.softwareTitle)}</h2></div><a href="${path(lang, 'software')}">${esc(UI[lang].nav.software)}</a></div>
     ${SOFTWARE.map((s) => softwareBlock(s, lang)).join('')}
   </div>
 </section>` : ''}
@@ -480,10 +492,10 @@ function contactPage(lang) {
     <p class="form-status" role="status" aria-live="polite" data-ok="${esc(c.sent)}" data-error="${esc(c.error)}" data-fallback="${esc(c.fallback)}"></p>
     <p class="form-fallback" hidden><a class="btn btn-line" data-mailto href="mailto:${esc(ORG.email)}">${esc(c.fallbackButton)}</a></p>
   </form>
-  <aside class="contact-aside">
+  <div class="contact-aside">
     <p class="foot-title">${esc(c.direct)}</p>
     <p><a href="mailto:${esc(ORG.email)}">${esc(ORG.email)}</a></p>
-  </aside>
+  </div>
 </div></section>`;
   write(path(lang, 'contact'), layout(lang, 'contact', { title, desc, body }));
 }
@@ -499,7 +511,7 @@ function servicePage(id, lang) {
   <p class="actions"><a class="btn btn-solid" href="${brief}">${esc(k.ctaButton)}</a> <a class="btn btn-line" href="mailto:${esc(ORG.email)}">${esc(ORG.email)}</a></p>
 </div></section>
 <section class="band"><div class="wrap split">
-  <aside class="split-aside"><p class="aside-eyebrow">${esc(k.eyebrow)}</p><h2>${esc(d.name)}</h2><p>${esc(k.aside)}</p><ul class="tags">${d.tags.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></aside>
+  <div class="split-aside"><p class="aside-eyebrow">${esc(k.eyebrow)}</p><h2>${esc(d.name)}</h2><p>${esc(k.aside)}</p><ul class="tags">${d.tags.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
   <div class="split-main">
     <h2>${esc(k.itemsTitle)}</h2>
     <ul class="feature-list">${d.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
@@ -539,7 +551,7 @@ function industryPage(ind, lang) {
   <p class="actions"><a class="btn btn-solid" href="${brief}">${esc(k.ctaButton)}</a> <a class="btn btn-line" href="${path(lang, 'work')}">${esc(UI[lang].nav.work)}</a></p>
 </div></section>
 <section class="band"><div class="wrap split">
-  <aside class="split-aside"><p class="aside-eyebrow">${esc(k.eyebrow)}</p><h2>${esc(d.name)}</h2><p>${esc(k.aside)}</p></aside>
+  <div class="split-aside"><p class="aside-eyebrow">${esc(k.eyebrow)}</p><h2>${esc(d.name)}</h2><p>${esc(k.aside)}</p></div>
   <div class="split-main">
     <h2>${esc(k.itemsTitle)}</h2>
     <ul class="feature-list">${d.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
@@ -625,8 +637,6 @@ ${NOINDEX ? '  X-Robots-Tag: noindex, nofollow\n' : ''}
 /assets/*
   Cache-Control: public, max-age=604800
 
-/assets/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
 `,
 );
 
