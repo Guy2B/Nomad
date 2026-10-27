@@ -68,10 +68,12 @@ test('domaine incohérent, logo absent, statut inconnu : refusés', async () => 
   for (const needle of ['domain', 'logo introuvable', 'status inconnu']) assert.ok(errors.some((e) => e.includes(needle)), needle);
 });
 
-test('ALGEBRA : domaine officiel algbr.eu, migration déclarée, adresse actuelle conservée', () => {
+test('ALGEBRA : domaine officiel algbr.eu, migration terminée', () => {
   const a = loadRegistry(root).brands.find((b) => b.id === 'algebra');
   assert.equal(a.domain, 'algbr.eu');
   assert.equal(a.migration.to, 'https://algbr.eu');
+  assert.equal(a.url, 'https://algbr.eu');
+  assert.equal(a.migration.status, 'done');
   assert.equal(a.shopType, 'print-on-demand');
 });
 
