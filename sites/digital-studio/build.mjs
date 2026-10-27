@@ -460,6 +460,7 @@ function workPage(lang) {
     <p class="lead">${esc(w.summary[lang])}</p>
     ${brandLinks}
   </header>
+  ${w.caseImage ? `<img class="case-shot" src="/${w.caseImage}" alt="${esc(w.title[lang])}" width="1200" height="800" loading="lazy" decoding="async">` : ''}
   <div class="case-grid">
     <section><h3>${esc(p.challenge)}</h3><p>${esc(w.challenge[lang])}</p><h3>${esc(p.approach)}</h3><p>${esc(w.approach[lang])}</p></section>
     <section>${features ? `<h3>${esc(p.features)}</h3>${list(features)}` : ''}<h3>${esc(p.tech)}</h3><p>${w.tech.map(esc).join(', ')}</p></section>

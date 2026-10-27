@@ -281,6 +281,7 @@ p { margin: 0 0 1em; max-width: 70ch; }
 .case { padding: 44px; margin-bottom: 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
 .case-head .small a + a { margin-left: 14px; }
 .case-grid { display: grid; gap: 28px; margin-top: 24px; }
+.case-shot { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; display: block; margin: 24px 0 8px; }
 @media (min-width: 900px) { .case-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 600px) { .case { padding: 24px; } }
 .case-grid h3 { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }

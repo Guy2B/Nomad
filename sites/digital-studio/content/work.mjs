@@ -7,6 +7,7 @@ export const WORK = [
     id: 'lune-beauty',
     kind: 'client',
     image: 'assets/work/lune-site.webp',
+    caseImage: 'assets/work/lune-case.webp',
     url: 'https://lunebeauty.de',
     evidence: 'Guy2B/algbr index.html (Kundenprojekt, live). Kennzahlen 10+ Anfragen/Monat und 60 % online: vom Inhaber am 27.10.2026 zur Veröffentlichung freigegeben.',
     title: { de: 'Lune Beauty', en: 'Lune Beauty', fr: 'Lune Beauty' },
@@ -42,6 +43,7 @@ export const WORK = [
     kind: 'internal',
     brands: ['go', 'space', 'ease', 'glow', 'kin', 'joy', 'off'],
     image: 'assets/brands/go.webp',
+    caseImage: 'assets/work/commerce-case.webp',
     evidence: 'Nomad: README.md, engine/, backend/, .github/workflows/deploy-cloudflare.yml, tests/',
     title: { de: 'AlGBr Commerce-Plattform', en: 'AlGBr commerce platform', fr: 'Plateforme commerce AlGBr' },
     summary: {
@@ -131,6 +133,7 @@ export const WORK = [
     kind: 'internal',
     software: 'next',
     image: 'assets/work/next-screens.webp',
+    caseImage: 'assets/work/next-screens.webp',
     evidence: 'sum-plus: README.md, CHANGELOG.md 1.0.0 (30.09.2026)',
     title: { de: 'nΣxt LifeOS', en: 'nΣxt LifeOS', fr: 'nΣxt LifeOS' },
     summary: {
