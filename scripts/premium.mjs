@@ -262,7 +262,7 @@ ${
   </div>
 </section>`;
     const jsonLd = [
-      { '@context': 'https://schema.org', '@type': 'OnlineStore', name: `${SITE.brand} by AlGBr`, alternateName: SITE.brand, url: `${BASE}/`, description: SITE.seo?.[lang]?.description || SITE.tagline[lang], slogan: SITE.tagline[lang], logo: `${BASE}/assets/favicon.svg`, email: SITE.company?.email || undefined, brand: { '@type': 'Brand', name: SITE.brand }, parentOrganization: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' } },
+      { '@context': 'https://schema.org', '@type': 'OnlineStore', name: `${SITE.brand} by AlGBr`, alternateName: SITE.brand, url: `${BASE}/`, description: SITE.seo?.[lang]?.description || SITE.tagline[lang], slogan: SITE.tagline[lang], logo: `${BASE}/assets/favicon.svg`, email: SITE.company?.email || undefined, brand: { '@type': 'Brand', name: SITE.brand }, parentOrganization: { '@type': 'Organization', name: 'AlGBr', url: SITE.byAlgbr } },
       { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: u.faq.items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: fill(a) } })) },
     ];
     write(
@@ -381,7 +381,7 @@ ${
           availability: 'https://schema.org/InStock',
           itemCondition: 'https://schema.org/NewCondition',
           url,
-          seller: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' },
+          seller: { '@type': 'Organization', name: 'AlGBr', url: SITE.byAlgbr },
           shippingDetails: {
             '@type': 'OfferShippingDetails',
             shippingRate: { '@type': 'MonetaryAmount', value: (SITE.shipping.cents / 100).toFixed(2), currency: 'EUR' },

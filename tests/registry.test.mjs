@@ -96,3 +96,13 @@ test('coordonnées de l’exploitant identiques dans toutes les copies', async (
   const off = readFileSync(join(root, 'shops/off/worker.mjs'), 'utf8');
   for (const k of keys) assert.ok(off.includes(`'${ref[k]}'`), `shops/off/worker.mjs: ${k}`);
 });
+
+test('“by AlGBr” links and JSON-LD of every shop point to the organisation site (algbr.de), not to ALGEBRA', () => {
+  const { organization } = loadRegistry(root);
+  const org = `${organization.url}/`;
+  for (const s of ['go', 'space', 'ease', 'glow', 'kin', 'joy'])
+    assert.equal(JSON.parse(readFileSync(join(root, `shops/${s}/site.json`), 'utf8')).byAlgbr, org, s);
+  const off = readFileSync(join(root, 'shops/off/worker.mjs'), 'utf8');
+  assert.ok(!off.includes("'https://algbr.eu/'") && off.includes(`'${org}'`), 'shops/off/worker.mjs');
+  assert.ok(!readFileSync(join(root, 'scripts/premium.mjs'), 'utf8').includes('https://algbr.eu/'), 'scripts/premium.mjs');
+});
