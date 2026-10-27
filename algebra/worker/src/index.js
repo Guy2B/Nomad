@@ -26,7 +26,7 @@ import { sendMail, template } from './email.js';
 import { legacyStudioTarget } from './legacy.js';
 import { confirmMembership, getMember, leave, requestMembership, savePrefs } from './circle.js';
 import { cockpit } from './cockpit/api.js';
-import { pruneEvents, recordEvents } from './analytics.js';
+import { linkOrderSession, pruneEvents, recordEvents } from './analytics.js';
 import { HttpError, applyStatus, createPendingOrder, event, fulfill, getBySession, getOrder, markPaid, markRefunded, priceCart, setStatus, sweep, syncStatus } from './orders.js';
 
 const LANGS = ['de', 'en', 'fr'];
@@ -57,6 +57,7 @@ export async function handleCheckout(req, env, fetchImpl = fetch) {
   if (env.MOCK_PAYMENTS === '1') {
     // Local end-to-end tests only: no Stripe, the order is paid immediately.
     const { id, number } = await createPendingOrder(env.DB, { lang, country: b.country, priced });
+    if (b.statsConsent === true) await linkOrderSession(env.DB, id, b.session);
     const sid = `mock_${id}`;
     await env.DB.prepare('UPDATE alg_orders SET stripe_session_id = ? WHERE id = ?').bind(sid, id).run();
     const o = await getOrder(env.DB, id);
@@ -67,6 +68,7 @@ export async function handleCheckout(req, env, fetchImpl = fetch) {
   if (!env.STRIPE_SECRET_KEY) throw new HttpError(503, 'NEEDS_CREDENTIALS', 'Checkout not connected');
   if (env.SITE_MODE !== 'live' && !env.STRIPE_SECRET_KEY.startsWith('sk_test_')) throw new HttpError(503, 'PREVIEW_REQUIRES_TEST_KEY');
   const { id, number } = await createPendingOrder(env.DB, { lang, country: b.country, priced });
+  if (b.statsConsent === true) await linkOrderSession(env.DB, id, b.session);
   const zoneName = { de: 'Standardversand', en: 'Standard shipping', fr: 'Livraison standard' }[lang];
   const session = await stripeRequest(
     env,

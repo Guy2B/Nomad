@@ -23,6 +23,14 @@ export const SCHEMA = [
   "CREATE TABLE IF NOT EXISTS alg_events ( id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT NOT NULL, session TEXT NOT NULL, event TEXT NOT NULL, path TEXT, item TEXT, lang TEXT, country TEXT, device TEXT, source TEXT, campaign TEXT, value REAL )",
   "CREATE INDEX IF NOT EXISTS alg_events_ts ON alg_events(ts)",
   "CREATE INDEX IF NOT EXISTS alg_events_session ON alg_events(session)",
+  // 0005_analytics_sessions.sql
+  "CREATE TABLE IF NOT EXISTS alg_sessions ( session TEXT PRIMARY KEY, visitor TEXT, is_returning INTEGER NOT NULL DEFAULT 0, first_ts TEXT NOT NULL, last_ts TEXT NOT NULL, pages INTEGER NOT NULL DEFAULT 0, landing TEXT, referrer TEXT, source TEXT, medium TEXT, campaign TEXT, content TEXT, term TEXT, lang TEXT, country TEXT, device TEXT, screen TEXT )",
+  "CREATE INDEX IF NOT EXISTS alg_sessions_first ON alg_sessions(first_ts)",
+  "CREATE TABLE IF NOT EXISTS alg_engagement ( id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT NOT NULL, session TEXT NOT NULL, path TEXT, seconds INTEGER, scroll INTEGER )",
+  "CREATE INDEX IF NOT EXISTS alg_engagement_ts ON alg_engagement(ts)",
+  "CREATE TABLE IF NOT EXISTS alg_searches ( id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT NOT NULL, session TEXT NOT NULL, term TEXT NOT NULL, results INTEGER )",
+  "CREATE INDEX IF NOT EXISTS alg_searches_ts ON alg_searches(ts)",
+  "CREATE TABLE IF NOT EXISTS alg_order_sessions ( order_id TEXT PRIMARY KEY, session TEXT NOT NULL )",
 ];
 
 const done = new WeakMap();

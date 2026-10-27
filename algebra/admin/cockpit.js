@@ -325,26 +325,37 @@ ${d.consentLog.length ? d.consentLog.map((l) => `<tr><td>${dateTime(l.created_at
 
   async analytics() {
     const d = await api(`analytics?${rangeQuery()}`);
-    const f = d.funnel;
-    const small = (rows, label) => `<div class="tablewrap"><table><thead><tr><th>${esc(label)}</th><th class="n">Sessions</th></tr></thead><tbody>${rows.length ? rows.map((r) => `<tr><td>${esc(r.k || '—')}</td><td class="n">${num(r.n)}</td></tr>`).join('') : '<tr><td colspan="2" class="empty">No data yet.</td></tr>'}</tbody></table></div>`;
-    return `<p class="note">${esc(d.note)}</p>
+    const seg = (rows, label, limit = 15) => `<div class="tablewrap"><table><thead><tr><th>${esc(label)}</th><th class="n">Sessions</th><th class="n">Pages / session</th><th class="n">Carts</th><th class="n">Checkouts</th><th class="n">Purchases</th><th class="n">Revenue</th><th class="n">Conversion</th></tr></thead><tbody>${rows.length ? rows.slice(0, limit).map((r) => `<tr><td>${esc(r.key)}</td><td class="n">${num(r.sessions)}</td><td class="n">${num(r.pagesPerSession)}</td><td class="n">${num(r.carts)}</td><td class="n">${num(r.checkouts)}</td><td class="n">${num(r.purchases)}</td><td class="n">${eur(r.revenue)}</td><td class="n">${pct(r.conversion)}</td></tr>`).join('') : '<tr><td colspan="8" class="empty">No data yet.</td></tr>'}</tbody></table></div>`;
+    const bars = (rows, labelOf, max = Math.max(1, ...rows.map((r) => r.sessions))) => `<div class="bars">${rows.map((r) => `<div class="bar" title="${esc(labelOf(r))}: ${r.sessions}"><span class="bar__fill" data-h="${Math.round((r.sessions / max) * 100)}"></span><small>${esc(labelOf(r))}</small></div>`).join('')}</div>`;
+    const funnel = d.funnel.map((s) => `<div class="fn"><span class="fn__label">${esc(s.step)}</span><span class="fn__track"><span class="fn__bar" data-w="${s.ofSessions ?? 0}"></span></span><span class="fn__n num">${num(s.n)}</span><span class="fn__p num">${s.ofPrevious == null ? '' : `${esc(fmtNum.format(s.ofPrevious))} %`}</span></div>`).join('');
+    const trend = { step: 'day', points: d.trend.map((t) => ({ date: t.date, revenue: t.revenue, orders: t.orders })) };
+    const html = `<p class="note">${esc(d.note)} Purchases and revenue come from the orders; ${d.attributed.orders} of ${d.attributed.of} paid order(s) could be linked to a consented session.</p>
+<section class="sec"><h2>What the data says</h2><div class="panel"><ul class="alerts">${d.insights.map((t) => `<li class="info"><span class="dot" aria-hidden="true"></span><div>${esc(t)}</div></li>`).join('')}</ul></div></section>
 <dl class="kpis">
-  ${kpi('Sessions', num(f.sessions))}${kpi('Product views', num(f.productViews))}${kpi('Add to cart', num(f.addToCart))}
-  ${kpi('Checkout started', num(f.checkoutStarted))}${kpi('Purchases', num(f.purchase))}${kpi('Conversion', pct(f.conversion))}${kpi('Checkout → purchase', pct(f.checkoutConversion))}${kpi('Repeat purchase rate', pct(d.repeatPurchaseRate))}
+  ${kpi('Sessions', `${num(d.sessions)}${delta(d.sessions, d.previous.sessions)}`)}${kpi('Visitors', num(d.visitors))}${kpi('New / returning', `${num(d.newSessions)} / ${num(d.returningSessions)}`)}${kpi('Page views', num(d.pageViews))}
+  ${kpi('Pages per session', num(d.pagesPerSession))}${kpi('One-page sessions', pct(d.bounceRate))}${kpi('Avg. time per page', d.avgSecondsPerPage == null ? '<span class="na">—</span>' : `${num(d.avgSecondsPerPage)} s`)}${kpi('Avg. scroll depth', pct(d.avgScroll))}
+  ${kpi('Purchases', num(d.purchases))}${kpi('Revenue', eur(d.revenue))}${kpi('Conversion', pct(d.conversion))}${kpi('Repeat purchase rate', pct(d.repeatPurchaseRate))}
+  ${kpi('Carts without checkout', `${num(d.abandonment.cartsWithoutCheckout)} <span class="delta">${d.abandonment.cartAbandonRate == null ? '' : esc(fmtNum.format(d.abandonment.cartAbandonRate)) + ' %'}</span>`)}${kpi('Unpaid checkouts', `${num(d.abandonment.unpaidCheckouts)} <span class="delta">${eur(d.abandonment.unpaidValue)}</span>`)}${kpi('A Circle / newsletter sign-ups', `${num(d.signups.circle)} / ${num(d.signups.newsletter)}`)}${kpi('Size guide opened', num(d.sizeGuideOpens))}
 </dl>
-<section class="sec"><h2>Conversion by product</h2><div class="tablewrap"><table><thead><tr><th>Product</th><th class="n">Views</th><th class="n">Sessions</th><th class="n">Add to cart</th><th class="n">Units sold</th><th class="n">Conversion</th></tr></thead><tbody>
-${d.byProduct.length ? d.byProduct.map((p) => `<tr><td>${esc(p.name)}<br><span class="muted">${esc(p.id)}</span></td><td class="n">${num(p.views)}</td><td class="n">${num(p.sessions)}</td><td class="n">${num(p.addToCart)}</td><td class="n">${num(p.units)}</td><td class="n">${pct(p.conversion)}</td></tr>`).join('') : '<tr><td colspan="6" class="empty">No product view in this period.</td></tr>'}
-</tbody></table></div></section>
 <div class="cols2">
-<section class="sec"><h2>By country</h2><div class="tablewrap"><table><thead><tr><th>Country</th><th class="n">Sessions</th><th class="n">Checkouts</th><th class="n">Purchases</th></tr></thead><tbody>
-${Object.keys(d.byCountry).length ? Object.entries(d.byCountry).map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${num(v.sessions)}</td><td class="n">${num(v.checkouts)}</td><td class="n">${num(v.purchases)}</td></tr>`).join('') : '<tr><td colspan="4" class="empty">No data yet.</td></tr>'}
-</tbody></table></div></section>
-<section class="sec"><h2>By device</h2>${small(d.byDevice, 'Device')}</section>
+  <section class="sec"><h2>Funnel</h2><div class="panel funnel">${funnel}<p class="note">Bar: share of all sessions. Right: share of the previous step.</p></div></section>
+  <section class="sec"><h2>Revenue &amp; orders per day</h2><div class="panel chart">${chart(trend)}</div></section>
 </div>
+<section class="sec"><h2>Channels</h2>${seg(d.byMedium, 'Channel')}</section>
+<div class="cols2"><section class="sec"><h2>Sources</h2>${seg(d.bySource, 'Source')}</section><section class="sec"><h2>Campaigns (utm)</h2>${seg(d.byCampaign, 'Campaign')}</section></div>
+<section class="sec"><h2>Landing pages</h2>${seg(d.byLanding, 'Landing page')}</section>
+<section class="sec"><h2>Pages</h2><div class="tablewrap"><table><thead><tr><th>Page</th><th class="n">Views</th><th class="n">Landings</th><th class="n">Avg. time</th><th class="n">Avg. scroll</th></tr></thead><tbody>${d.pages.length ? d.pages.map((p) => `<tr><td>${esc(p.path)}</td><td class="n">${num(p.views)}</td><td class="n">${num(p.landings)}</td><td class="n">${p.avgSeconds == null ? '<span class="na">—</span>' : `${num(p.avgSeconds)} s`}</td><td class="n">${pct(p.avgScroll)}</td></tr>`).join('') : '<tr><td colspan="5" class="empty">No data yet.</td></tr>'}</tbody></table></div></section>
+<section class="sec"><h2>Products</h2><div class="tablewrap"><table><thead><tr><th>Product</th><th class="n">Views</th><th class="n">Viewers</th><th class="n">Add to cart</th><th class="n">Add rate</th><th class="n">Units sold</th><th class="n">Revenue</th><th class="n">Conversion</th><th>Colours chosen</th><th>Sizes chosen</th></tr></thead><tbody>${d.products.length ? d.products.map((p) => `<tr><td>${esc(p.name)}<br><span class="muted">${esc(p.id)}</span></td><td class="n">${num(p.views)}</td><td class="n">${num(p.sessions)}</td><td class="n">${num(p.addToCart)}</td><td class="n">${pct(p.addRate)}</td><td class="n">${num(p.units)}</td><td class="n">${eur(p.revenue)}</td><td class="n">${pct(p.conversion)}</td><td>${p.colors.map(esc).join('<br>')}</td><td>${p.sizes.map(esc).join('<br>')}</td></tr>`).join('') : '<tr><td colspan="10" class="empty">No product view in this period.</td></tr>'}</tbody></table></div></section>
+<div class="cols2"><section class="sec"><h2>Devices</h2>${seg(d.byDevice, 'Device')}</section><section class="sec"><h2>Screen width</h2>${seg(d.byScreen, 'Screen (s < 600 · m < 1024 · l < 1440 · xl)')}</section></div>
+<div class="cols2"><section class="sec"><h2>Countries</h2>${seg(d.byCountry, 'Country')}</section><section class="sec"><h2>Languages</h2>${seg(d.byLanguage, 'Language')}</section></div>
+<section class="sec"><h2>New vs returning visitors</h2>${seg(d.byVisitorType, 'Visitor')}</section>
+<div class="cols2"><section class="sec"><h2>Hour of day (Berlin)</h2><div class="panel">${bars(d.hours, (r) => String(r.hour).padStart(2, '0'))}</div></section><section class="sec"><h2>Weekday</h2><div class="panel">${bars(d.weekdays, (r) => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][r.day])}</div></section></div>
 <div class="cols2">
-<section class="sec"><h2>Acquisition source</h2>${small(d.bySource, 'Source')}</section>
-<section class="sec"><h2>UTM campaign</h2>${small(d.byCampaign, 'Campaign')}</section>
+<section class="sec"><h2>Shop searches</h2><div class="tablewrap"><table><thead><tr><th>Term</th><th class="n">Searches</th><th class="n">No result</th></tr></thead><tbody>${d.searches.length ? d.searches.map((t) => `<tr><td>${esc(t.term)}</td><td class="n">${num(t.count)}</td><td class="n">${num(t.zero)}</td></tr>`).join('') : '<tr><td colspan="3" class="empty">No search yet.</td></tr>'}</tbody></table></div></section>
+<section class="sec"><h2>Missing pages (404)</h2><div class="tablewrap"><table><thead><tr><th>Address</th><th class="n">Visits</th></tr></thead><tbody>${d.notFound.length ? d.notFound.map((x) => `<tr><td>${esc(x.path)}</td><td class="n">${num(x.n)}</td></tr>`).join('') : '<tr><td colspan="2" class="empty">None.</td></tr>'}</tbody></table></div></section>
 </div>`;
+    queueMicrotask(sizeBars);
+    return html;
   },
 
   async settings() {
@@ -361,6 +372,12 @@ ${Object.keys(d.byCountry).length ? Object.entries(d.byCountry).map(([k, v]) => 
   },
 };
 
+// bar sizes are set through the CSSOM (allowed by the CSP), never with inline style attributes
+function sizeBars() {
+  $$('.bar__fill[data-h]').forEach((el) => { el.style.height = `${Math.max(2, Number(el.dataset.h))}%`; });
+  $$('.fn__bar[data-w]').forEach((el) => { el.style.width = `${Math.max(0.5, Number(el.dataset.w))}%`; });
+}
+
 // ---------------------------------------------------------------- router
 async function render() {
   const [pathPart, query = ''] = (location.hash.replace(/^#\/?/, '') || 'dashboard').split('?');
@@ -375,6 +392,7 @@ async function render() {
   el.innerHTML = '<p class="empty">Loading…</p>';
   try {
     el.innerHTML = await views[name](params, arg && decodeURIComponent(arg));
+    sizeBars();
   } catch (e) {
     if (e.message !== 'forbidden') el.innerHTML = `<p class="empty">Could not load (${esc(e.message)}).</p>`;
   }
