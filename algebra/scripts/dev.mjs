@@ -12,7 +12,7 @@ import { memoryD1 } from '../tests/d1.mjs';
 const root = join(fileURLToPath(import.meta.url), '..', '..');
 const dist = join(root, 'dist');
 const port = Number(process.env.PORT || 8787);
-const env = { DB: memoryD1(null), SITE_ORIGIN: `http://localhost:${port}`, SITE_MODE: 'preview', SUPPLIER_MODE: 'mock', MOCK_PAYMENTS: '1' };
+const env = { DB: memoryD1(null), SITE_ORIGIN: `http://localhost:${port}`, SITE_MODE: 'preview', SUPPLIER_MODE: 'mock', MOCK_PAYMENTS: '1', ADMIN_TOKEN: process.env.ADMIN_TOKEN || '', STRIPE_WEBHOOK_SECRET: 'whsec_dev' };
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.avif': 'image/avif', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain' };
 
 createServer(async (req, res) => {

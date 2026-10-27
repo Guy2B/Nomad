@@ -13,6 +13,12 @@ export const SCHEMA = [
   "CREATE TABLE IF NOT EXISTS alg_subscribers ( email TEXT PRIMARY KEY, lang TEXT NOT NULL, status TEXT NOT NULL, token TEXT NOT NULL, created_at TEXT NOT NULL, confirmed_at TEXT )",
   // 0002_fulfillment_provider.sql
   "CREATE TABLE IF NOT EXISTS alg_provider_events ( id TEXT PRIMARY KEY, provider TEXT NOT NULL, order_id TEXT, status TEXT, created_at TEXT NOT NULL )",
+  // 0003_circle_cockpit.sql
+  "CREATE TABLE IF NOT EXISTS alg_members ( email TEXT PRIMARY KEY, first_name TEXT, lang TEXT NOT NULL, program TEXT NOT NULL DEFAULT 'a-circle', tier TEXT NOT NULL DEFAULT 'circle', status TEXT NOT NULL, token TEXT NOT NULL, source TEXT, consent_version TEXT NOT NULL, requested_at TEXT NOT NULL, joined_at TEXT, left_at TEXT, prefs_json TEXT, updated_at TEXT NOT NULL )",
+  "CREATE INDEX IF NOT EXISTS alg_members_status ON alg_members(status)",
+  "CREATE TABLE IF NOT EXISTS alg_consent_log ( id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, purpose TEXT NOT NULL, action TEXT NOT NULL, consent_version TEXT, lang TEXT, created_at TEXT NOT NULL )",
+  "CREATE INDEX IF NOT EXISTS alg_consent_log_email ON alg_consent_log(email)",
+  "CREATE TABLE IF NOT EXISTS alg_order_costs ( order_id TEXT PRIMARY KEY, supplier_cost REAL, shipping_cost REAL, payment_fee REAL, source TEXT NOT NULL, updated_at TEXT NOT NULL )",
 ];
 
 const done = new WeakMap();

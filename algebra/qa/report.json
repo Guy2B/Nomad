@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-22T20:51:29.386Z",
-  "base": "http://localhost:8787",
+  "date": "2026-10-27T12:16:55.797Z",
+  "base": "http://localhost:8791",
   "results": [
     {
       "area": "links",
@@ -40,7 +40,7 @@
     },
     {
       "area": "seo",
-      "name": "sitemap.xml lists 96 URLs, all exist",
+      "name": "sitemap.xml lists 90 URLs, all exist",
       "result": "PASS",
       "detail": ""
     },
@@ -58,7 +58,7 @@
     },
     {
       "area": "trust",
-      "name": "Mockup / concept images are labelled on the page",
+      "name": "Image origin tracked internally (data/photos.json) and colour note on every product page",
       "result": "PASS",
       "detail": ""
     },
@@ -70,7 +70,7 @@
     },
     {
       "area": "perf",
-      "name": "JS + CSS weight 38.5 KB (< 80 KB)",
+      "name": "JS + CSS weight 60.1 KB (< 80 KB)",
       "result": "PASS",
       "detail": ""
     },
@@ -124,13 +124,13 @@
     },
     {
       "area": "cart",
-      "name": "Quantity + updates total (2 × 89 € = 178 €, free shipping)",
+      "name": "Quantity + updates total (2 × 59 € = 118 €, free shipping)",
       "result": "PASS",
       "detail": ""
     },
     {
       "area": "cart",
-      "name": "Quantity − and country FR: 89 € + shipping 7,90 € (under 150 €)",
+      "name": "Quantity − and country FR: 59 € + shipping 7,90 € (under 150 €)",
       "result": "PASS",
       "detail": ""
     },
@@ -144,7 +144,7 @@
       "area": "checkout",
       "name": "Checkout (mock payment) → success page with order number",
       "result": "PASS",
-      "detail": "ALG-261022-TKUA"
+      "detail": "ALG-261027-OJOL"
     },
     {
       "area": "checkout",
@@ -172,7 +172,7 @@
     },
     {
       "area": "collection",
-      "name": "Colour filter narrows the grid (18 → 4)",
+      "name": "Colour filter narrows the grid (27 → 9)",
       "result": "PASS",
       "detail": ""
     },
@@ -184,7 +184,7 @@
     },
     {
       "area": "search",
-      "name": "Search \"black hole\" finds the product (1)",
+      "name": "Search \"mandelbrot\" finds the product (1)",
       "result": "PASS",
       "detail": ""
     },

@@ -333,6 +333,37 @@ function bindForm(sel, path, extra = {}, onOk) {
 }
 bindForm('[data-newsletter]', '/newsletter');
 bindForm('[data-contact]', '/contact');
+bindForm('[data-circle]', '/circle', {}, () => { $('[data-circle]').reset(); track('circle_signup'); });
+if ($('[data-circle-expired]') && new URLSearchParams(location.search).get('link') === 'expired') $('[data-circle-expired]').hidden = false;
+
+// A Circle member page: the token sits in the URL fragment (#t=…), so it never reaches a server log or a Referer.
+const cm = $('[data-circle-member]');
+if (cm) {
+  const tok = new URLSearchParams(location.hash.slice(1)).get('t');
+  const show = (sel) => { const el = $(sel, cm); if (el) el.hidden = false; };
+  const fill = (m) => {
+    if (m.status === 'left') { $('[data-cm-body]', cm).hidden = true; show('[data-cm-left]'); return; }
+    $('[data-cm-since]', cm).textContent = m.joinedAt ? new Date(m.joinedAt).toLocaleDateString(LANG === 'en' ? 'en-GB' : LANG === 'fr' ? 'fr-FR' : 'de-DE', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+    $('[data-cm-email]', cm).textContent = m.email;
+    for (const [k, v] of Object.entries(m.prefs || {})) { const box = $(`[data-cm-prefs] [name="${k}"]`, cm); if (box) box.checked = Boolean(v); }
+    show('[data-cm-body]');
+  };
+  if (!tok) show('[data-cm-missing]');
+  else {
+    if (new URLSearchParams(location.search).get('welcome')) show('[data-cm-welcome]');
+    postJson('/circle/member', { token: tok }).then(fill).catch(() => show('[data-cm-missing]'));
+    $('[data-cm-prefs]', cm).addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const prefs = Object.fromEntries(['graphic', 'knitwear', 'restocks'].map((k) => [k, $(`[name="${k}"]`, f).checked]));
+      try { fill(await postJson('/circle/prefs', { token: tok, prefs, lang: LANG })); $('[data-cm-saved]', cm).hidden = false; } catch { show('[data-cm-missing]'); }
+    });
+    $('[data-cm-leave]', cm).addEventListener('click', async (e) => {
+      if (!window.confirm(e.currentTarget.dataset.confirm)) return;
+      try { fill(await postJson('/circle/leave', { token: tok })); } catch { show('[data-cm-missing]'); }
+    });
+  }
+}
 
 const tform = $('[data-tracking]');
 if (tform) {
