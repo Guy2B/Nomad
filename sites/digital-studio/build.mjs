@@ -237,15 +237,17 @@ function faqBlock(items, h = 'h3') {
 }
 const faqLd = (items) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
 
+const workTag = (w, lang) => w.tag?.[lang] ?? (w.kind === 'client' ? UI[lang].client : UI[lang].internal);
+
 function workTeaser(w, lang) {
-  const tag = w.kind === 'client' ? UI[lang].client : UI[lang].internal;
+  const tag = workTag(w, lang);
   const brand = w.brands?.length === 1 ? BRANDS.find((b) => b.id === w.brands[0]) : null;
   const visual = w.image
     ? `<img src="/${w.image}" alt="" width="720" height="480" loading="lazy" decoding="async">`
     : brand
       ? brandVisual(brand, lang)
       : `<div class="brand-mark mark-next"><span aria-hidden="true">nΣxt</span></div>`;
-  return `<article class="work-card"><a href="${path(lang, 'work')}#${w.id}"><div class="work-visual">${visual}</div><p class="work-kind">${esc(tag)}</p><h3>${esc(w.title[lang])}</h3><p>${esc(w.summary[lang])}</p></a></article>`;
+  return `<article class="work-card${w.style ? ` work-card--${w.style}` : ''}"><a href="${path(lang, 'work')}#${w.id}"><div class="work-visual">${visual}</div><p class="work-kind">${esc(tag)}</p><h3>${esc(w.title[lang])}</h3>${w.signature ? `<p class="work-signature">${esc(w.signature)}</p>` : ''}<p>${esc(w.summary[lang])}</p></a></article>`;
 }
 
 function softwareBlock(s, lang, full = false) {
@@ -438,10 +440,10 @@ function workPage(lang) {
     const results = w.results?.[lang] ?? (sw ? [`${UI[lang].status[sw.status]} · ${sw.domain}`, sw.engineering?.[lang]].filter(Boolean) : null);
     const link = w.url ?? sw?.url ?? (w.brands?.length === 1 ? BRANDS.find((b) => b.id === w.brands[0])?.url : null);
     const brandLinks = w.brands?.length > 1 ? `<p class="small">${w.brands.map((id) => BRANDS.find((b) => b.id === id)).map((b) => `<a href="${path(lang, `brands/${b.id}`)}">${esc(b.name)}</a>`).join(' ')}</p>` : '';
-    return `<article class="case" id="${w.id}">
+    return `<article class="case${w.style ? ` case--${w.style}` : ''}" id="${w.id}">
   <header class="case-head">
-    <p class="work-kind">${esc(w.kind === 'client' ? UI[lang].client : UI[lang].internal)}</p>
-    <h2>${esc(w.title[lang])}</h2>
+    <p class="work-kind">${esc(workTag(w, lang))}</p>
+    <h2>${esc(w.title[lang])}</h2>${w.signature ? `\n    <p class="work-signature">${esc(w.signature)}</p>` : ''}
     <p class="lead">${esc(w.summary[lang])}</p>
     ${brandLinks}
   </header>

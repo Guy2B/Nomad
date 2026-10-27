@@ -251,6 +251,23 @@ p { margin: 0 0 1em; max-width: 70ch; }
 .work-visual { aspect-ratio: 3 / 2; overflow: hidden; background: var(--ink); margin-bottom: 16px; }
 .work-visual img { width: 100%; height: 100%; object-fit: cover; }
 .work-kind { font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--accent-ink); margin: 0 0 6px; }
+/* Algebra: its own register, night navy and ivory, the house colours of the label. */
+.work-card--luxe a { background: #131A2B; border-color: #131A2B; color: #F3EFE7; }
+.work-card--luxe a:hover { color: #F3EFE7; }
+.work-card--luxe .work-visual { margin-bottom: 18px; }
+.work-card--luxe .work-kind { color: #cdbfa8; }
+.work-card--luxe h3 { font-family: var(--serif); font-weight: 500; font-size: 1.6rem; letter-spacing: 0.01em; color: #F3EFE7; margin-bottom: 2px; }
+.work-card--luxe .work-signature { font-family: var(--serif); font-style: italic; color: #cdbfa8; margin: 0 0 10px; padding: 0 22px; }
+.work-card--luxe p:last-child { color: #d9d3c7; }
+.case.case--luxe { background: #131A2B; border-color: #131A2B; color: #d9d3c7; }
+.case--luxe h2 { font-size: clamp(2.2rem, 4vw, 3rem); letter-spacing: 0.01em; color: #F3EFE7; margin-bottom: 4px; }
+.case--luxe .work-signature { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: #cdbfa8; margin: 0 0 16px; }
+.case--luxe .lead { color: #e6e0d4; }
+.case--luxe .work-kind, .case--luxe .case-grid h3 { color: #cdbfa8; }
+.case--luxe .ticks li::before { color: #cdbfa8; }
+.case--luxe .btn-line { border-color: rgb(243 239 231 / 45%); color: #F3EFE7; }
+.case--luxe .btn-line:hover { background: #F3EFE7; color: #131A2B; }
+.case--luxe a { color: #F3EFE7; }
 .case { padding: 44px; margin-bottom: 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
 .case-head .small a + a { margin-left: 14px; }
 .case-grid { display: grid; gap: 28px; margin-top: 24px; }
