@@ -39,18 +39,39 @@
     status.textContent = text || '';
   }
 
+  function text(el) {
+    if (!el) return '';
+    if (el.tagName === 'SELECT') return el.value ? el.options[el.selectedIndex].text : '';
+    return el.value.trim();
+  }
   function summary() {
     var f = form.elements;
-    var type = f.type.options[f.type.selectedIndex].text;
-    var budget = f.budget.options[f.budget.selectedIndex].text;
-    return [f.name.value, f.email.value, f.company.value, type, budget, '', f.message.value].filter(function (x, i) { return x || i === 5; }).join('\n');
+    var lines = [];
+    Array.prototype.forEach.call(form.querySelectorAll('fieldset'), function (fs) {
+      lines.push('## ' + fs.querySelector('legend').textContent.trim());
+      Array.prototype.forEach.call(fs.querySelectorAll('label'), function (l) {
+        var el = l.querySelector('input, select, textarea');
+        if (!el || el.name === 'consent') return;
+        if (el.type === 'checkbox') { if (el.checked) lines.push('- ' + l.textContent.trim()); return; }
+        var v = text(el);
+        if (v) lines.push(l.firstChild.textContent.trim() + ': ' + v);
+      });
+      lines.push('');
+    });
+    return lines.join('\n');
   }
+
+  // Prefill from the service and industry pages (?type=shop, ?industry=beauty).
+  var q = new URLSearchParams(location.search);
+  ['type', 'industry'].forEach(function (k) {
+    var v = q.get(k), el = form.elements[k];
+    if (v && el && Array.prototype.some.call(el.options, function (o) { return o.value === v; })) el.value = v;
+  });
 
   function showFallback() {
     var link = fallback.querySelector('[data-mailto]');
     var base = link.getAttribute('href').split('?')[0];
-    var type = form.elements.type.options[form.elements.type.selectedIndex].text;
-    link.href = base + '?subject=' + encodeURIComponent('Projekt: ' + type) + '&body=' + encodeURIComponent(summary());
+    link.href = base + '?subject=' + encodeURIComponent('Projekt: ' + (text(form.elements.type) || 'algbr.de')) + '&body=' + encodeURIComponent(summary());
     fallback.hidden = false;
     say('err', status.dataset.fallback);
     link.focus();
@@ -61,7 +82,7 @@
     fallback.hidden = true;
     var invalid = [];
     Array.prototype.forEach.call(form.querySelectorAll('input, select, textarea'), function (el) {
-      if (el.name === 'website' || el.type === 'hidden') return;
+      if (el.name === 'website' || el.type === 'hidden' || el.name === 'features') return;
       var bad = !el.checkValidity();
       el.setAttribute('aria-invalid', bad ? 'true' : 'false');
       if (bad) invalid.push(el);
@@ -71,8 +92,8 @@
       invalid[0].focus();
       return;
     }
-    var data = {};
-    new FormData(form).forEach(function (v, k) { data[k] = v; });
+    var data = { features: [] };
+    new FormData(form).forEach(function (v, k) { if (k === 'features') data.features.push(v); else data[k] = v; });
     data.consent = form.elements.consent.checked;
     button.disabled = true;
     button.textContent = button.dataset.sending;

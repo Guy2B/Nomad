@@ -42,6 +42,8 @@ Modifiés :
 - Documentation : `README.md`, `shared/README.md`, `shared/platform.json` (`note`), `scripts/build.mjs` (en-tête),
   `algebra/README.md`, `algebra/.env.example`, `algebra/ALGEBRA_LAUNCH_REPORT.md`
 
+Contenu de l'ancien Studio repris (27.10.2026, après relecture) : 6 pages de services, 8 pages de secteurs, FAQ de l'accueil et briefing guidé en 4 étapes (mêmes questions que l'ancien « Projektarchitekt »), texte allemand d'origine, traductions EN et FR. Les anciennes URL redirigent vers leur page équivalente.
+
 Aucun fichier supprimé ou déplacé dans l'existant. Aucun prix, catalogue, produit, stock, schéma D1 ni identifiant
 historique modifié.
 

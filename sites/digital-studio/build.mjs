@@ -14,7 +14,8 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statS
 import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { checkRegistry, loadRegistry } from '../../shared/registry.mjs';
-import { LANGS, DEFAULT_LANG, UI, META, HOME, SERVICES, SERVICES_PAGE, BRANDS_PAGE, SOFTWARE_PAGE, PLATFORM_NAMES, WORK_PAGE, ABOUT, CONTACT, NOT_FOUND } from './content/copy.mjs';
+import { LANGS, DEFAULT_LANG, UI, META, HOME, SERVICES, SERVICES_PAGE, BRANDS_PAGE, SOFTWARE_PAGE, PLATFORM_NAMES, WORK_PAGE, ABOUT, CONTACT, BRIEF, NOT_FOUND } from './content/copy.mjs';
+import { SERVICE_COMMON, SERVICE_DETAIL, INDUSTRY_COMMON, INDUSTRIES, HOME_FAQ } from './content/solutions.mjs';
 import { WORK } from './content/work.mjs';
 import { LEGAL } from './content/legal.mjs';
 
@@ -71,7 +72,7 @@ const NAV = ['', 'services', 'brands', 'software', 'work', 'about', 'contact'];
 
 function header(lang, page) {
   const t = UI[lang];
-  const section = page.split('/')[0];
+  const section = page.split('/')[0] === 'industries' ? 'services' : page.split('/')[0];
   const links = NAV.filter((p) => p !== 'contact')
     .map((p) => `<li><a href="${path(lang, p)}"${p === section ? ' aria-current="page"' : ''}>${esc(t.nav[p])}</a></li>`)
     .join('');
@@ -98,6 +99,7 @@ function footer(lang, page) {
       <p><a href="mailto:${esc(ORG.email)}">${esc(ORG.email)}</a></p>
     </div>
     <nav aria-label="${esc(t.nav.brands)}"><p class="foot-title">${esc(t.nav.brands)}</p><ul>${BRANDS.map((b) => `<li><a href="${path(lang, `brands/${b.id}`)}">${esc(b.name)}</a></li>`).join('')}</ul></nav>
+    <nav aria-label="${esc(t.nav.industries)}"><p class="foot-title">${esc(t.nav.industries)}</p><ul>${INDUSTRIES.map((i) => `<li><a href="${path(lang, `industries/${i.id}`)}">${esc(i[lang].label)}</a></li>`).join('')}</ul></nav>
     <nav aria-label="Studio"><p class="foot-title">Studio</p><ul>${NAV.filter(Boolean).map((p) => `<li><a href="${path(lang, p)}">${esc(t.nav[p])}</a></li>`).join('')}</ul></nav>
     <div><p class="foot-title">${esc(t.language)}</p><p class="foot-langs">${langs}</p></div>
   </div>
@@ -207,10 +209,32 @@ function brandCard(b, lang, h = 'h3') {
 function serviceList(lang, detailed = false) {
   return `<ul class="services${detailed ? ' services-detailed' : ''}">${SERVICES[lang]
     .map(
-      (s) => `<li id="${s.id}"><${detailed ? 'h2' : 'h3'}>${esc(s.title)}</${detailed ? 'h2' : 'h3'}><p>${esc(s.text)}</p>${detailed ? `<ul class="ticks">${s.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : ''}</li>`,
+      (s) => `<li id="${s.id}"><${detailed ? 'h2' : 'h3'}><a href="${path(lang, `services/${s.id}`)}">${esc(s.title)}</a></${detailed ? 'h2' : 'h3'}><p>${esc(s.text)}</p>${detailed ? `<ul class="ticks">${s.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : ''}</li>`,
     )
     .join('')}</ul>`;
 }
+
+/** Line icons for the industries (24×24, stroke = currentColor). */
+const ICONS = {
+  wrench: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/>',
+  sparkle: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+  plate: '<circle cx="12" cy="12" r="6"/><path d="M3 4v6a2 2 0 0 0 2 2v8M21 4c-1.5 1-2 3-2 5s.5 3 2 3v8"/>',
+  target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
+  scissors: '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6 20 18M8.6 16.4 20 6"/>',
+  ticket: '<path d="M3 8a2 2 0 0 0 0 4v0a2 2 0 0 1 0 4v2h18v-2a2 2 0 0 1 0-4 2 2 0 0 1 0-4V6H3zM14 6v12" stroke-dasharray="2 2"/>',
+  stethoscope: '<path d="M6 3v6a5 5 0 0 0 10 0V3M11 14v2a5 5 0 0 0 10 0v-2"/><circle cx="21" cy="12" r="2"/>',
+  house: '<path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-6h4v6"/>',
+};
+const icon = (name) => `<svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONS[name]}</svg>`;
+
+function industryGrid(lang, h = 'h3') {
+  return `<ul class="industry-grid">${INDUSTRIES.map((i) => `<li><a href="${path(lang, `industries/${i.id}`)}">${icon(i.icon)}<${h}>${esc(i[lang].label)}</${h}><span>${esc(i[lang].name)}</span></a></li>`).join('')}</ul>`;
+}
+
+function faqBlock(items, h = 'h3') {
+  return `<div class="faq">${items.map(([q, a]) => `<details><summary><${h}>${esc(q)}</${h}></summary><p>${esc(a)}</p></details>`).join('')}</div>`;
+}
+const faqLd = (items) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
 
 function workTeaser(w, lang) {
   const tag = w.kind === 'client' ? UI[lang].client : UI[lang].internal;
@@ -271,6 +295,12 @@ function homePage(lang) {
 </section>
 <section class="band band-soft">
   <div class="wrap">
+    <div class="band-head"><h2>${esc(INDUSTRY_COMMON[lang].homeTitle)}</h2><a href="${path(lang, 'industries')}">${esc(UI[lang].nav.industries)}</a></div>
+    ${industryGrid(lang)}
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
     <div class="band-head"><h2>${esc(h.workTitle)}</h2><a href="${path(lang, 'work')}">${esc(UI[lang].nav.work)}</a></div>
     <div class="work-grid">${WORK.slice(0, 3).map((w) => workTeaser(w, lang)).join('')}</div>
   </div>
@@ -288,6 +318,12 @@ ${SOFTWARE.length ? `<section class="band band-ink">
     ${SOFTWARE.map((s) => softwareBlock(s, lang)).join('')}
   </div>
 </section>` : ''}
+<section class="band">
+  <div class="wrap narrow">
+    <h2>${esc(HOME_FAQ[lang].title)}</h2>
+    ${faqBlock(HOME_FAQ[lang].items)}
+  </div>
+</section>
 <section class="band closing">
   <div class="wrap narrow">
     <h2>${esc(h.contactTitle)}</h2>
@@ -295,7 +331,7 @@ ${SOFTWARE.length ? `<section class="band band-ink">
     <p><a class="btn btn-solid" href="${path(lang, 'contact')}">${esc(UI[lang].cta)}</a></p>
   </div>
 </section>`;
-  write(path(lang), layout(lang, '', { title, desc, body, bodyClass: 'is-home', jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: ORG.studio, url: `${ORIGIN}/`, inLanguage: LANGS }] }));
+  write(path(lang), layout(lang, '', { title, desc, body, bodyClass: 'is-home', jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: ORG.studio, url: `${ORIGIN}/`, inLanguage: LANGS }, faqLd(HOME_FAQ[lang].items)] }));
 }
 
 function servicesPage(lang) {
@@ -315,7 +351,7 @@ function servicesPage(lang) {
 </div></section>
 <section class="band band-soft"><div class="wrap">
   <h2>${esc(p.industriesTitle)}</h2>
-  <ul class="chips">${p.industries.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+  ${industryGrid(lang)}
   <p class="actions"><a class="btn btn-solid" href="${path(lang, 'contact')}">${esc(UI[lang].cta)}</a></p>
 </div></section>`;
   const jsonLd = [{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: SERVICES[lang].map((s, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Service', name: s.title, description: s.text, provider: { '@id': `${ORIGIN}/#org` } } })) }];
@@ -416,20 +452,29 @@ function aboutPage(lang) {
 function contactPage(lang) {
   const c = CONTACT[lang];
   const [title, desc] = meta(lang, 'contact');
-  const options = SERVICES[lang].map((s) => `<option value="${s.id}">${esc(s.title)}</option>`).join('') + `<option value="other">${esc(c.typeOther)}</option>`;
+  const opts = (ids, labels, placeholder) => (placeholder ? `<option value="">${esc(placeholder)}</option>` : '') + ids.map((id) => `<option value="${id}">${esc(labels[id])}</option>`).join('');
+  const industryLabels = { ...Object.fromEntries(INDUSTRIES.map((i) => [i.id, i[lang].label])), other: c.other };
+  const step = (n, inner) => `<fieldset class="brief-step"><legend><span class="step-n">${n}</span> ${esc(c.steps[n - 1])}</legend>${inner}</fieldset>`;
   const body = `${pageHead(c.title, c.lead)}
 <section class="band"><div class="wrap contact-grid">
   <form class="contact-form" data-contact novalidate action="/api/contact" method="post">
     <input type="hidden" name="lang" value="${lang}">
     <input type="hidden" name="t" value="">
     <div class="hp" aria-hidden="true"><label>${esc(c.honeypot)}<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-    <label>${esc(c.name)}<input name="name" required maxlength="120" autocomplete="name"></label>
-    <label>${esc(c.email)}<input name="email" type="email" required maxlength="200" autocomplete="email"></label>
-    <label>${esc(c.company)}<input name="company" maxlength="160" autocomplete="organization"></label>
-    <label>${esc(c.type)}<select name="type" required>${options}</select></label>
-    <label>${esc(c.budget)}<select name="budget">${c.budgets.map((b, i) => `<option value="${i}">${esc(b)}</option>`).join('')}</select></label>
-    <label>${esc(c.message)}<textarea name="message" required minlength="20" maxlength="5000" rows="7" aria-describedby="msg-hint"></textarea><span id="msg-hint" class="hint">${esc(c.messageHint)}</span></label>
-    <label class="check"><input type="checkbox" name="consent" required> <span>${esc(c.consent)} <a href="${path(lang, 'datenschutz')}">${esc(c.consentLink)}</a>.</span></label>
+    ${step(1, `<div class="row2"><label>${esc(c.type)}<select name="type" required>${opts(BRIEF.types, c.types, c.choose)}</select></label>
+      <label>${esc(c.industry)}<select name="industry">${opts(BRIEF.industries, industryLabels, c.choose)}</select></label></div>
+      <label>${esc(c.goal)}<textarea name="goal" required minlength="10" maxlength="2000" rows="3" aria-describedby="goal-hint"></textarea><span id="goal-hint" class="hint">${esc(c.goalHint)}</span></label>`)}
+    ${step(2, `<div class="checks">${BRIEF.features.map((f) => `<label class="check"><input type="checkbox" name="features" value="${f}"> <span>${esc(c.features[f])}</span></label>`).join('')}</div>`)}
+    ${step(3, `<div class="row2"><label>${esc(c.brand)}<select name="brand">${opts(BRIEF.have, c.have)}</select></label>
+      <label>${esc(c.content)}<select name="content">${opts(BRIEF.have, c.have)}</select></label></div>
+      <label>${esc(c.links)}<input name="links" maxlength="500" inputmode="url"></label>`)}
+    ${step(4, `<div class="row2"><label>${esc(c.budget)}<select name="budget">${opts(BRIEF.budgets, c.budgets)}</select></label>
+      <label>${esc(c.timeline)}<select name="timeline">${opts(BRIEF.timelines, c.timelines)}</select></label></div>
+      <div class="row2"><label>${esc(c.name)}<input name="name" required maxlength="120" autocomplete="name"></label>
+      <label>${esc(c.email)}<input name="email" type="email" required maxlength="200" autocomplete="email"></label></div>
+      <label>${esc(c.company)}<input name="company" maxlength="160" autocomplete="organization"></label>
+      <label>${esc(c.message)}<textarea name="message" maxlength="5000" rows="4"></textarea></label>
+      <label class="check"><input type="checkbox" name="consent" required> <span>${esc(c.consent)} <a href="${path(lang, 'datenschutz')}">${esc(c.consentLink)}</a>.</span></label>`)}
     ${TURNSTILE ? `<div class="cf-turnstile" data-sitekey="${esc(TURNSTILE)}" data-language="${lang}"></div>` : ''}
     <button class="btn btn-solid" type="submit" data-sending="${esc(c.sending)}">${esc(c.submit)}</button>
     <p class="form-status" role="status" aria-live="polite" data-ok="${esc(c.sent)}" data-error="${esc(c.error)}" data-fallback="${esc(c.fallback)}"></p>
@@ -441,6 +486,74 @@ function contactPage(lang) {
   </aside>
 </div></section>`;
   write(path(lang, 'contact'), layout(lang, 'contact', { title, desc, body }));
+}
+
+function servicePage(id, lang) {
+  const d = SERVICE_DETAIL[id][lang];
+  const k = SERVICE_COMMON[lang];
+  const page = `services/${id}`;
+  const brief = `${path(lang, 'contact')}?type=${BRIEF.serviceType[id]}`;
+  const body = `<section class="page-head sub-head"><div class="wrap">
+  <p class="crumbs"><a href="${path(lang, 'services')}">${esc(UI[lang].nav.services)}</a></p>
+  <h1>${esc(d.h1)}</h1><p class="lead">${esc(d.lead)}</p>
+  <p class="actions"><a class="btn btn-solid" href="${brief}">${esc(k.ctaButton)}</a> <a class="btn btn-line" href="mailto:${esc(ORG.email)}">${esc(ORG.email)}</a></p>
+</div></section>
+<section class="band"><div class="wrap split">
+  <aside class="split-aside"><p class="aside-eyebrow">${esc(k.eyebrow)}</p><h2>${esc(d.name)}</h2><p>${esc(k.aside)}</p><ul class="tags">${d.tags.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></aside>
+  <div class="split-main">
+    <h2>${esc(k.itemsTitle)}</h2>
+    <ul class="feature-list">${d.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+    ${k.blocks.map(([h, x]) => `<h2>${esc(h)}</h2><p>${esc(x)}</p>`).join('')}
+    <h2>${esc(k.faqTitle)}</h2>
+    ${faqBlock(k.faq)}
+    <h2>${esc(k.related)}</h2>
+    <p class="related">${SERVICE_DETAIL[id].industries.map((iid) => INDUSTRIES.find((i) => i.id === iid)).map((i) => `<a href="${path(lang, `industries/${i.id}`)}">${esc(i[lang].label)}</a>`).join('')}</p>
+  </div>
+</div></section>
+<section class="band closing"><div class="wrap narrow"><h2>${esc(k.cta)}</h2><p><a class="btn btn-solid" href="${brief}">${esc(k.ctaButton)}</a></p></div></section>`;
+  const jsonLd = [
+    { '@context': 'https://schema.org', '@type': 'Service', name: d.name, description: d.lead, provider: { '@id': `${ORIGIN}/#org` }, areaServed: 'DE', url: abs(path(lang, page)) },
+    faqLd(k.faq),
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: UI[lang].nav.services, item: abs(path(lang, 'services')) }, { '@type': 'ListItem', position: 2, name: d.name, item: abs(path(lang, page)) }] },
+  ];
+  write(path(lang, page), layout(lang, page, { title: `${d.name} · ${ORG.studio}`, desc: d.lead, body, jsonLd }));
+}
+
+function industriesPage(lang) {
+  const k = INDUSTRY_COMMON[lang];
+  const [title, desc] = meta(lang, 'industries');
+  const body = `${pageHead(k.title, k.lead)}
+<section class="band"><div class="wrap">${industryGrid(lang, 'h2')}</div></section>`;
+  write(path(lang, 'industries'), layout(lang, 'industries', { title, desc, body }));
+}
+
+function industryPage(ind, lang) {
+  const d = ind[lang];
+  const k = INDUSTRY_COMMON[lang];
+  const page = `industries/${ind.id}`;
+  const brief = `${path(lang, 'contact')}?industry=${ind.id}`;
+  const body = `<section class="page-head sub-head"><div class="wrap">
+  <p class="crumbs"><a href="${path(lang, 'industries')}">${esc(UI[lang].nav.industries)}</a></p>
+  <p class="industry-icon">${icon(ind.icon)}</p>
+  <h1>${esc(d.h1)}</h1><p class="lead">${esc(d.lead)}</p>
+  <p class="actions"><a class="btn btn-solid" href="${brief}">${esc(k.ctaButton)}</a> <a class="btn btn-line" href="${path(lang, 'work')}">${esc(UI[lang].nav.work)}</a></p>
+</div></section>
+<section class="band"><div class="wrap split">
+  <aside class="split-aside"><p class="aside-eyebrow">${esc(k.eyebrow)}</p><h2>${esc(d.name)}</h2><p>${esc(k.aside)}</p></aside>
+  <div class="split-main">
+    <h2>${esc(k.itemsTitle)}</h2>
+    <ul class="feature-list">${d.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+    ${k.blocks.map(([h, x]) => `<h2>${esc(h)}</h2><p>${esc(x)}</p>`).join('')}
+    <h2>${esc(k.related)}</h2>
+    <p class="related">${ind.services.map((sid) => `<a href="${path(lang, `services/${sid}`)}">${esc(SERVICE_DETAIL[sid][lang].name)}</a>`).join('')}</p>
+  </div>
+</div></section>
+<section class="band closing"><div class="wrap narrow"><h2>${esc(k.cta)}</h2><p><a class="btn btn-solid" href="${brief}">${esc(k.ctaButton)}</a></p></div></section>`;
+  const jsonLd = [
+    { '@context': 'https://schema.org', '@type': 'Service', name: d.name, description: d.lead, provider: { '@id': `${ORIGIN}/#org` }, areaServed: 'DE', audience: { '@type': 'BusinessAudience', audienceType: d.label } },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: UI[lang].nav.industries, item: abs(path(lang, 'industries')) }, { '@type': 'ListItem', position: 2, name: d.name, item: abs(path(lang, page)) }] },
+  ];
+  write(path(lang, page), layout(lang, page, { title: `${d.name} · ${ORG.studio}`, desc: d.lead, body, jsonLd }));
 }
 
 function legalPage(lang, key) {
@@ -461,6 +574,9 @@ function notFound() {
 for (const lang of LANGS) {
   homePage(lang);
   servicesPage(lang);
+  for (const id of Object.keys(SERVICE_DETAIL)) servicePage(id, lang);
+  industriesPage(lang);
+  for (const ind of INDUSTRIES) industryPage(ind, lang);
   brandsPage(lang);
   for (const b of BRANDS) brandPage(b, lang);
   softwarePage(lang);

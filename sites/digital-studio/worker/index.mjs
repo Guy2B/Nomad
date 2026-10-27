@@ -7,8 +7,9 @@
  * Variables (wrangler.toml): OWNER_EMAIL, MAIL_FROM, ALLOWED_ORIGINS.
  * Nothing is stored. Logs never contain the visitor's name, e-mail or message.
  */
+import { BRIEF } from '../content/copy.mjs';
+
 const LANGS = ['de', 'en', 'fr'];
-const TYPES = ['website', 'ecommerce', 'branding', 'software', 'automation', 'maintenance', 'other'];
 const MIN_FILL_MS = 3000;
 const MAX_AGE_MS = 24 * 3600 * 1000;
 
@@ -40,11 +41,12 @@ export function validate(b, now = Date.now()) {
   const fields = [];
   const name = oneLine(b.name, 120);
   const email = String(b.email ?? '').trim();
-  const message = clean(b.message, 5000);
+  const goal = clean(b.goal, 2000);
+  const pick = (v, list, fallback) => (list.includes(v) ? v : fallback);
   if (name.length < 2) fields.push('name');
   if (!isEmail(email)) fields.push('email');
-  if (!TYPES.includes(b.type)) fields.push('type');
-  if (message.length < 20) fields.push('message');
+  if (!BRIEF.types.includes(b.type)) fields.push('type');
+  if (goal.length < 10) fields.push('goal');
   if (b.consent !== true && b.consent !== 'on') fields.push('consent');
   if (fields.length) return { ok: false, fields };
   return {
@@ -54,14 +56,19 @@ export function validate(b, now = Date.now()) {
       email,
       company: oneLine(b.company, 160),
       type: b.type,
-      budget: ['0', '1', '2', '3'].includes(String(b.budget)) ? Number(b.budget) : 0,
-      message,
+      industry: pick(b.industry, BRIEF.industries, ''),
+      goal,
+      features: (Array.isArray(b.features) ? b.features : []).filter((f) => BRIEF.features.includes(f)).slice(0, BRIEF.features.length),
+      brand: pick(b.brand, BRIEF.have, ''),
+      content: pick(b.content, BRIEF.have, ''),
+      links: oneLine(b.links, 500),
+      budget: pick(b.budget, BRIEF.budgets, 'open'),
+      timeline: pick(b.timeline, BRIEF.timelines, 'flexible'),
+      message: clean(b.message, 5000),
       lang: LANGS.includes(b.lang) ? b.lang : 'de',
     },
   };
 }
-
-const BUDGETS = ['offen', '< 1.500 €', '1.500–5.000 €', '> 5.000 €'];
 
 export function mailFor(d, env) {
   return {
@@ -69,7 +76,12 @@ export function mailFor(d, env) {
     to: [env.OWNER_EMAIL],
     reply_to: d.email,
     subject: `[algbr.de] ${d.type} · ${d.name}${d.company ? ` (${d.company})` : ''}`,
-    text: [`Name: ${d.name}`, `E-Mail: ${d.email}`, `Unternehmen: ${d.company || '-'}`, `Projekt: ${d.type}`, `Budget: ${BUDGETS[d.budget]}`, `Sprache: ${d.lang}`, '', d.message].join('\n'),
+    text: [
+      `Name: ${d.name}`, `E-Mail: ${d.email}`, `Unternehmen: ${d.company || '-'}`, `Sprache: ${d.lang}`, '',
+      `Projektart: ${d.type}`, `Branche: ${d.industry || '-'}`, `Ziel: ${d.goal}`, '',
+      `Funktionen: ${d.features.join(', ') || '-'}`, `Marke & Logo: ${d.brand || '-'}`, `Texte & Bilder: ${d.content || '-'}`, `Links: ${d.links || '-'}`, '',
+      `Budget: ${d.budget}`, `Start: ${d.timeline}`, '', d.message || '',
+    ].join('\n'),
   };
 }
 
