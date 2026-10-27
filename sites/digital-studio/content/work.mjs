@@ -78,7 +78,25 @@ export const WORK = [
     brands: ['algebra'],
     image: 'assets/work/algebra-maison.webp',
     evidence: 'Nomad: algebra/ALGEBRA_LAUNCH_REPORT.md (22.10.2026), algebra/docs/BRAND.md, algebra/site/content.mjs (about), algebra/tests, algebra/qa/report.json',
-    tag: { de: 'Eigenes Modehaus', en: 'Our own fashion house', fr: 'Notre maison de mode' },
+    tag: { de: 'Modehaus · Identität & Commerce', en: 'Fashion house · Identity & commerce', fr: 'Maison de mode · Identité & commerce' },
+    compact: true,
+    caseImage: 'assets/work/algebra-polo.webp',
+    headline: {
+      de: 'Eleganz als Sprache. Proportion als Signatur.',
+      en: 'Elegance as a language. Proportion as a signature.',
+      fr: 'L’élégance comme langage. La proportion comme signature.',
+    },
+    text: {
+      de: 'ALGEBRA ist eine zeitgenössische Modemarke, in der die Präzision der Formen auf höchsten Anspruch an das Detail trifft. Eine unverwechselbare Identität, eine reduzierte Garderobe und ein digitales Erlebnis im selben Geist.',
+      en: 'ALGEBRA is a contemporary fashion label where precision of form meets an uncompromising eye for detail. A distinctive identity, a refined wardrobe and a digital experience designed in the same spirit.',
+      fr: 'ALGEBRA est une marque de mode contemporaine où la précision des formes rencontre l’exigence du détail. Une identité distinctive, un vestiaire épuré et une expérience digitale conçue dans le même esprit.',
+    },
+    services: {
+      de: ['Markenidentität', 'Art Direction', 'E-Commerce', 'Individuelle Entwicklung'],
+      en: ['Brand identity', 'Art direction', 'E-commerce', 'Custom development'],
+      fr: ['Identité de marque', 'Direction artistique', 'E-commerce', 'Développement sur mesure'],
+    },
+    cta: { de: 'ALGEBRA entdecken', en: 'Discover ALGEBRA', fr: 'Découvrir ALGEBRA' },
     title: { de: 'Algebra', en: 'Algebra', fr: 'Algebra' },
     signature: 'Built on proportion.',
     summary: {

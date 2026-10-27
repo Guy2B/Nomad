@@ -259,6 +259,16 @@ p { margin: 0 0 1em; max-width: 70ch; }
 .work-card--luxe h3 { font-family: var(--serif); font-weight: 500; font-size: 1.6rem; letter-spacing: 0.01em; color: #F3EFE7; margin-bottom: 2px; }
 .work-card--luxe .work-signature { font-family: var(--serif); font-style: italic; color: #cdbfa8; margin: 0 0 10px; padding: 0 22px; }
 .work-card--luxe p:last-child { color: #d9d3c7; }
+.case--compact { max-width: 780px; padding: 28px 30px 30px; }
+.case--compact h2 { margin: 0 0 2px; }
+.case--compact .work-signature { margin-bottom: 18px; }
+.case-photo { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; display: block; margin: 0 0 20px; }
+.case-headline { font-size: 1.25rem; color: #F3EFE7; margin: 0 0 10px; }
+.case-text { color: #d9d3c7; margin: 0 0 22px; max-width: 64ch; }
+.case-services { max-width: none; border-top: 1px solid rgb(243 239 231 / 18%); padding-top: 16px; margin: 0 0 14px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: #cdbfa8; }
+.case-cta { margin: 0; }
+.case-cta a { color: #F3EFE7; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px; font-weight: 600; }
+@media (max-width: 600px) { .case--compact { padding: 22px 20px; } }
 .case.case--luxe { background: #131A2B; border-color: #131A2B; color: #d9d3c7; }
 .case--luxe h2 { font-size: clamp(2.2rem, 4vw, 3rem); letter-spacing: 0.01em; color: #F3EFE7; margin-bottom: 4px; }
 .case--luxe .work-signature { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: #cdbfa8; margin: 0 0 16px; }
