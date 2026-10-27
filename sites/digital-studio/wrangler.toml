@@ -1,0 +1,45 @@
+# algbr.de · Al.G.B.r. Digital Studio + AlGBr ecosystem.
+# One Worker: static pages from dist/ (node sites/digital-studio/build.mjs) + /api/contact + language redirect on /.
+# Deployed by the "studio" job of .github/workflows/deploy-cloudflare.yml.
+#
+#   default environment → preview only: algbr-studio.<account>.workers.dev, no custom domain
+#   --env live          → custom domain algbr.de (only when the repository variable STUDIO_LIVE = true,
+#                         after the DNS steps of docs/architecture/ALGBR_TARGET.md §6)
+#
+# Secrets (Cloudflare dashboard → Worker algbr-studio → Settings → Variables, type "Secret"), never here:
+#   RESEND_API_KEY      same key as the shops (sender domain algbr.eu verified in Resend)
+#   TURNSTILE_SECRET    optional; only together with the build variable STUDIO_TURNSTILE_SITEKEY
+name = "algbr-studio"
+main = "worker/index.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+keep_vars = true
+
+[assets]
+directory = "dist"
+binding = "ASSETS"
+run_worker_first = ["/", "/api/*"]
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+
+[vars]
+OWNER_EMAIL = "contact@algbr.de"
+MAIL_FROM = "Al.G.B.r. Digital Studio <service@algbr.eu>"
+ALLOWED_ORIGINS = "https://algbr.de,https://algbr-studio.guybeaho.workers.dev"
+
+[env.live]
+name = "algbr-studio"
+workers_dev = true
+routes = [{ pattern = "algbr.de", custom_domain = true }]
+
+[env.live.assets]
+directory = "dist"
+binding = "ASSETS"
+run_worker_first = ["/", "/api/*"]
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+
+[env.live.vars]
+OWNER_EMAIL = "contact@algbr.de"
+MAIL_FROM = "Al.G.B.r. Digital Studio <service@algbr.eu>"
+ALLOWED_ORIGINS = "https://algbr.de"

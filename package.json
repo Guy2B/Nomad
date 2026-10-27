@@ -18,7 +18,11 @@
     "deploy:kin": "npm run build:kin && npx wrangler deploy --config shops/kin/wrangler.toml",
     "build:joy": "node scripts/build.mjs joy",
     "deploy:joy": "npm run build:joy && npx wrangler deploy --config shops/joy/wrangler.toml",
-    "deploy:off": "node scripts/deploy-off.mjs"
+    "deploy:off": "node scripts/deploy-off.mjs",
+    "build:studio": "node sites/digital-studio/build.mjs",
+    "test:studio": "node --test sites/digital-studio/tests/studio.test.mjs tests/registry.test.mjs",
+    "test:all": "npm test && npm run test:studio",
+    "deploy:studio": "npm run build:studio && npx wrangler deploy --config sites/digital-studio/wrangler.toml"
   },
   "devDependencies": {
     "sharp": "^0.34.0"
