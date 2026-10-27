@@ -1,6 +1,6 @@
 {
   "api": "https://api.algbr.eu",
-  "note": "Shared backend (Netlify): /api/* for every store + /admin/. Storefronts are static (Cloudflare Pages) and call this API cross-origin.",
+  "note": "Shared backend (Cloudflare Worker api-algbr): /api/* for every store + /admin/. Storefronts are static (Cloudflare Pages or Workers) and call this API cross-origin. family = sales configuration; which brands may appear is decided by shared/brands.json crossPromotion (checked by tests/registry.test.mjs).",
   "next": {
     "url": "https://next.algbr.eu",
     "de": {

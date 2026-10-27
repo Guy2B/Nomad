@@ -1,0 +1,232 @@
+{
+  "_doc": "Registre officiel des marques AlGBr (identité et politique de liens). Pas de prix, de stock ni de catalogue ici : ceux-ci restent dans shops/<x>/products.json, la D1 (OFF.) et algebra/data/catalog.mjs. Cohérence vérifiée par tests/registry.test.mjs. L'accroche (tagline) est lue dans site.json, jamais recopiée.",
+  "version": 1,
+  "organization": {
+    "name": "AlGBr",
+    "studio": "Al.G.B.r. Digital Studio",
+    "url": "https://algbr.de",
+    "email": "contact@algbr.de"
+  },
+  "brands": [
+    {
+      "id": "algebra",
+      "storeId": "algebra",
+      "name": "Algebra",
+      "domain": "algbr.eu",
+      "url": "https://algebra.algbr.eu",
+      "migration": { "from": "https://algebra.algbr.eu", "to": "https://algbr.eu", "status": "planned" },
+      "source": { "type": "algebra", "config": "algebra/site/config.mjs" },
+      "category": "fashion",
+      "status": "preview",
+      "shopType": "print-on-demand",
+      "logo": "algebra/brand/algebra-a-signature-master.svg",
+      "logoOnDark": "algebra/brand/algebra-a-signature-master-ivory.svg",
+      "image": null,
+      "theme": { "primary": "#131A2B", "background": "#F3EFE7", "accent": "#6A2232" },
+      "languages": ["de", "en", "fr"],
+      "tagline": { "de": "Built on proportion.", "en": "Built on proportion.", "fr": "Built on proportion." },
+      "positioning": {
+        "de": "European contemporary essentials für Damen und Herren.",
+        "en": "European contemporary essentials for men and women.",
+        "fr": "European contemporary essentials pour homme et femme."
+      },
+      "description": {
+        "de": "Eigene Modemarke: Polo, T-Shirt, Sweat und die Graphic Series aus Bio-Baumwolle, nach der Bestellung in Europa bestickt oder bedruckt. Eigenes Markensystem, eigener Shop und eigene Bestelllogik.",
+        "en": "Our own fashion label: polo, tee, sweat and the Graphic Series in organic cotton, embroidered or printed in Europe after each order. Own brand system, own shop and own order flow.",
+        "fr": "Notre propre marque de mode : polo, tee-shirt, sweat et la Graphic Series en coton biologique, brodés ou imprimés en Europe après chaque commande. Système de marque, boutique et logique de commande propres."
+      },
+      "portfolioPriority": 1,
+      "crossPromotion": { "eligible": false, "showsFamily": false }
+    },
+    {
+      "id": "go",
+      "storeId": "nomad",
+      "name": "GO",
+      "domain": "go.algbr.eu",
+      "url": "https://go.algbr.eu",
+      "source": { "type": "shop", "site": "shops/go/site.json" },
+      "category": "travel",
+      "status": "live",
+      "shopType": "dropshipping",
+      "logo": "shops/go/assets/favicon.svg",
+      "image": "sites/digital-studio/assets/brands/go.webp",
+      "theme": { "primary": "#16181d", "background": "#f6f3ee", "accent": "#a2542f" },
+      "languages": ["de", "fr", "en"],
+      "positioning": {
+        "de": "Reisen und Mobilität: leichter packen, entspannter unterwegs.",
+        "en": "Travel and mobility: pack lighter, travel calmer.",
+        "fr": "Voyage et mobilité : partir plus léger, voyager plus serein."
+      },
+      "description": {
+        "de": "Vakuum-Rucksack, Packwürfel, Kulturbeutel und Schlaf-Kit für mehr Platz im Handgepäck und weniger Stress am Gate.",
+        "en": "Vacuum backpack, packing cubes, toiletry bag and sleep kit for more room in your carry-on and less stress at the gate.",
+        "fr": "Sac à dos sous vide, cubes de rangement, trousse de toilette et kit de sommeil : plus de place en cabine, moins de stress à la porte d'embarquement."
+      },
+      "portfolioPriority": 2,
+      "crossPromotion": { "eligible": true, "showsFamily": true }
+    },
+    {
+      "id": "space",
+      "storeId": "appart-reset",
+      "name": "SPACE",
+      "domain": "space.algbr.eu",
+      "url": "https://space.algbr.eu",
+      "source": { "type": "shop", "site": "shops/space/site.json" },
+      "category": "home-organisation",
+      "status": "live",
+      "shopType": "dropshipping",
+      "logo": "shops/space/assets/favicon.svg",
+      "image": "sites/digital-studio/assets/brands/space.webp",
+      "theme": { "primary": "#1c2925", "background": "#f4efe7", "accent": "#c8693a" },
+      "languages": ["de", "fr", "en"],
+      "positioning": {
+        "de": "Ordnung und Stauraum für kleine Wohnungen, ohne Bohren.",
+        "en": "Storage and order for small homes, no drilling.",
+        "fr": "Rangement et organisation pour petits logements, sans percer."
+      },
+      "description": {
+        "de": "Spüle, Bad, Schreibtisch, Schrank: Sets, die kleine Mietwohnungen in Ordnung bringen.",
+        "en": "Sink, bathroom, desk, wardrobe: sets that bring order to small rented flats.",
+        "fr": "Évier, salle de bain, bureau, placard : des ensembles qui remettent de l'ordre dans les petits logements en location."
+      },
+      "portfolioPriority": 3,
+      "crossPromotion": { "eligible": true, "showsFamily": true }
+    },
+    {
+      "id": "ease",
+      "storeId": "body-care",
+      "name": "EASE",
+      "domain": "ease.algbr.eu",
+      "url": "https://ease.algbr.eu",
+      "source": { "type": "shop", "site": "shops/ease/site.json" },
+      "category": "wellbeing",
+      "status": "live",
+      "shopType": "dropshipping",
+      "logo": "shops/ease/assets/favicon.svg",
+      "image": "sites/digital-studio/assets/brands/ease.webp",
+      "theme": { "primary": "#1e1e24", "background": "#f5eee8", "accent": "#c4604f" },
+      "languages": ["de", "fr", "en"],
+      "positioning": {
+        "de": "Wohlbefinden und kleine tägliche Routinen nach dem Bildschirmtag.",
+        "en": "Wellbeing and small daily routines after a day at the screen.",
+        "fr": "Bien-être et petites routines quotidiennes après une journée d'écran."
+      },
+      "description": {
+        "de": "Fußroller, Nackenroller und Stretchband: zehn Minuten nach dem Schreibtisch, die den Tag abschließen.",
+        "en": "Foot roller, neck roller and stretch band: ten minutes after the desk to close the day.",
+        "fr": "Rouleau pour les pieds, rouleau de nuque et bande élastique : dix minutes après le bureau pour clore la journée."
+      },
+      "portfolioPriority": 4,
+      "crossPromotion": { "eligible": true, "showsFamily": true }
+    },
+    {
+      "id": "glow",
+      "storeId": "glow",
+      "name": "GLOW",
+      "domain": "glow.algbr.eu",
+      "url": "https://glow.algbr.eu",
+      "source": { "type": "shop", "site": "shops/glow/site.json" },
+      "category": "beauty",
+      "status": "live",
+      "shopType": "dropshipping",
+      "logo": "shops/glow/assets/favicon.svg",
+      "image": "sites/digital-studio/assets/brands/glow.webp",
+      "theme": { "primary": "#2b2026", "background": "#f8f1ec", "accent": "#b4705f" },
+      "languages": ["de", "fr", "en"],
+      "positioning": {
+        "de": "Schönheit und Schlaf: eine einfache Abendroutine.",
+        "en": "Beauty and sleep: a simple evening routine.",
+        "fr": "Beauté et sommeil : une routine du soir simple."
+      },
+      "description": {
+        "de": "Satin-Kissenbezug, Schlafhaube und Beauty-Taschen für eine Abendroutine, die man gerne beibehält.",
+        "en": "Satin pillowcase, sleep cap and beauty pouches for an evening routine worth keeping.",
+        "fr": "Taie en satin, bonnet de nuit et trousses de beauté pour une routine du soir que l'on garde volontiers."
+      },
+      "portfolioPriority": 5,
+      "crossPromotion": { "eligible": true, "showsFamily": true }
+    },
+    {
+      "id": "kin",
+      "storeId": "kin",
+      "name": "KIN",
+      "domain": "kin.algbr.eu",
+      "url": "https://kin.algbr.eu",
+      "source": { "type": "shop", "site": "shops/kin/site.json" },
+      "category": "pets",
+      "status": "live",
+      "shopType": "dropshipping",
+      "logo": "shops/kin/assets/favicon.svg",
+      "image": "sites/digital-studio/assets/brands/kin.webp",
+      "theme": { "primary": "#1f2a24", "background": "#f4f0e7", "accent": "#c47f2c" },
+      "languages": ["de", "fr", "en"],
+      "positioning": {
+        "de": "Für ein Zuhause mit Hund oder Katze.",
+        "en": "For a home with a dog or a cat.",
+        "fr": "Pour un foyer avec chien ou chat."
+      },
+      "description": {
+        "de": "Tierhaare vom Sofa, entspannte Fellpflege, saubere Pfoten: Sets für den Alltag mit Haustier.",
+        "en": "Pet hair off the sofa, calm grooming, clean paws: sets for everyday life with a pet.",
+        "fr": "Poils retirés du canapé, toilettage apaisé, pattes propres : des ensembles pour le quotidien avec un animal."
+      },
+      "portfolioPriority": 6,
+      "crossPromotion": { "eligible": true, "showsFamily": true }
+    },
+    {
+      "id": "joy",
+      "storeId": "joy",
+      "name": "JOY",
+      "domain": "joy.algbr.eu",
+      "url": "https://joy.algbr.eu",
+      "source": { "type": "shop", "site": "shops/joy/site.json" },
+      "category": "seasonal",
+      "status": "seasonal",
+      "shopType": "dropshipping",
+      "logo": "shops/joy/assets/favicon.svg",
+      "image": "sites/digital-studio/assets/brands/joy.webp",
+      "theme": { "primary": "#1d3a2f", "background": "#f7f2e8", "accent": "#a8323e" },
+      "languages": ["de", "fr", "en"],
+      "positioning": {
+        "de": "Saisonale Kollektion: Weihnachten in fertigen Boxen.",
+        "en": "Seasonal collection: Christmas in ready-made boxes.",
+        "fr": "Collection saisonnière : Noël en coffrets prêts à offrir."
+      },
+      "description": {
+        "de": "Advent, Baumschmuck, Kissen und Geschenkverpackung in fertigen Boxen, aus einem Lager in Deutschland.",
+        "en": "Advent, tree decorations, cushions and gift wrap in ready-made boxes, shipped from a warehouse in Germany.",
+        "fr": "Avent, décorations de sapin, coussins et emballages cadeaux en coffrets prêts, expédiés depuis un entrepôt en Allemagne."
+      },
+      "portfolioPriority": 7,
+      "crossPromotion": { "eligible": true, "showsFamily": true }
+    },
+    {
+      "id": "off",
+      "storeId": "off",
+      "name": "OFF.",
+      "domain": "off.algbr.eu",
+      "url": "https://off.algbr.eu",
+      "source": { "type": "off", "worker": "shops/off/wrangler.toml", "i18n": "shops/off/i18n.mjs" },
+      "category": "outlet",
+      "status": "live",
+      "shopType": "own-stock",
+      "logo": "shops/off/public/assets/favicon.svg",
+      "image": "sites/digital-studio/assets/brands/off.webp",
+      "theme": { "primary": "#0b0b0a", "background": "#f3f0e9", "accent": "#f36a21" },
+      "languages": ["de", "fr", "en"],
+      "tagline": { "de": "Markenschuhe unter UVP.", "en": "Brand shoes below RRP.", "fr": "Chaussures de marque sous le prix conseillé." },
+      "positioning": {
+        "de": "Outlet aus eigenem Bestand: Einzelstücke, versendet aus Deutschland.",
+        "en": "Outlet from our own stock: single pieces, shipped from Germany.",
+        "fr": "Outlet sur stock propre : pièces uniques, expédiées depuis l'Allemagne."
+      },
+      "description": {
+        "de": "Originale Markenpaare, neu mit Karton, aus eigenem Bestand. Eigener Ablauf: Verwaltung per Smartphone, Versand durch uns.",
+        "en": "Original branded pairs, new in box, from our own stock. Own flow: managed from a phone, shipped by us.",
+        "fr": "Paires de marque originales, neuves en boîte, issues de notre stock. Circuit propre : gestion depuis le téléphone, expédition par nos soins."
+      },
+      "portfolioPriority": 8,
+      "crossPromotion": { "eligible": false, "showsFamily": false }
+    }
+  ]
+}
