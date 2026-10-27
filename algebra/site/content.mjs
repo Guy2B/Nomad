@@ -67,18 +67,27 @@ export const pages = {
 <p>Nos coupes unisexes sont amples et carrées, la coupe femme taille normalement. Une question sur la taille ? Écrivez-nous, nous vous aidons volontiers.</p>`,
   },
   about: {
-    de: `<p class="lead">Algebra ist eine europäische Marke für zeitgenössische Essentials, für Herren und Damen.</p>
-<p>Wir machen wenige Teile und machen sie richtig: ein guter Stoff, ein klarer Schnitt, ein kleines Zeichen. Der Name kommt aus der Mathematik. Was uns daran interessiert, teilt sie mit gutem Design: Proportion, Gleichgewicht, Struktur.</p>
-<p>Unser Symbol ist ein A mit einem zweiten Balken, der an ein Gleichheitszeichen erinnert. Auf Polo, Tee und Crew ist es klein gestickt. Laut wird Algebra nur in der Graphic Series: große Ideen aus Physik und Mathematik, mit Tusche gezeichnet, jede mit ihrer echten Gleichung.</p>
-<p>Wir wählen Stoffe mit Substanz, meist aus Bio-Baumwolle. Jedes Stück wird einzeln in Europa bestickt oder bedruckt und aus der EU verschickt.</p>`,
-    en: `<p class="lead">Algebra is a European brand of contemporary essentials, for men and women.</p>
-<p>We make few pieces and make them right: a good fabric, a clear cut, a small mark. The name comes from mathematics, and what interests us is what it shares with good design: proportion, balance, structure.</p>
-<p>Our symbol is an A with a second bar that recalls an equals sign. On the polo, tee and crew it is embroidered small. Algebra only gets loud in the Graphic Series: big ideas from physics and mathematics, drawn in ink, each with its real equation.</p>
-<p>We choose fabrics with substance, mostly organic cotton. Every piece is embroidered or printed in Europe and shipped from the EU.</p>`,
-    fr: `<p class="lead">Algebra est une marque européenne d’essentiels contemporains, pour homme et femme.</p>
-<p>Nous faisons peu de pièces et nous les faisons bien : une belle matière, une coupe nette, un petit signe. Le nom vient des mathématiques ; ce qui nous intéresse, c’est ce qu’elles partagent avec le bon design : la proportion, l’équilibre, la structure.</p>
-<p>Notre symbole est un A doté d’une seconde barre qui évoque un signe égal. Sur le polo, le t-shirt et le sweat, il est brodé en petit. Algebra ne devient expressif que dans la Graphic Series : de grandes idées de la physique et des mathématiques, dessinées à l’encre, chacune avec sa vraie équation.</p>
-<p>Nous choisissons des matières qui ont de la tenue, le plus souvent en coton bio. Chaque pièce est brodée ou imprimée en Europe, puis expédiée depuis l’UE.</p>`,
+    de: `<p class="about__kicker">Stil beginnt mit Haltung.</p>
+<p class="lead">ALGEBRA ist eine europäische Modemarke für zeitlose Essentials, klare Silhouetten und durchdachte Details.</p>
+<p>Unsere Philosophie ist einfach: Schönheit entsteht durch Balance. Zwischen Form und Funktion. Zwischen Zurückhaltung und Ausdruck. Zwischen dem Vertrauten und dem Besonderen.</p>
+<p>Inspiriert von der Ästhetik der Mathematik, steht ALGEBRA für Präzision, Harmonie und Individualität. Unser charakteristisches Monogramm – ein A mit zwei horizontalen Linien – verkörpert diesen Gedanken.</p>
+<p>Von klassischen Poloshirts und hochwertigen Basics bis hin zu ausdrucksstarken Designs unserer Graphic Series verbindet jede Kollektion eine gemeinsame Idee: zeitgemäße Eleganz mit unverwechselbarem Charakter.</p>
+<p class="about__credo">Wir glauben nicht an das Überflüssige. Wir glauben an das Wesentliche.</p>
+<p class="about__sign"><span>ALGEBRA</span><em>Built on proportion.</em></p>`,
+    en: `<p class="about__kicker">Style begins with attitude.</p>
+<p class="lead">ALGEBRA is a European fashion label for timeless essentials, clean silhouettes and considered details.</p>
+<p>Our philosophy is simple: beauty comes from balance. Between form and function. Between restraint and expression. Between the familiar and the exceptional.</p>
+<p>Inspired by the aesthetics of mathematics, ALGEBRA stands for precision, harmony and individuality. Our signature monogram, an A with two horizontal lines, embodies this idea.</p>
+<p>From classic polo shirts and refined basics to the expressive designs of our Graphic Series, every collection shares one idea: contemporary elegance with unmistakable character.</p>
+<p class="about__credo">We do not believe in the superfluous. We believe in the essential.</p>
+<p class="about__sign"><span>ALGEBRA</span><em>Built on proportion.</em></p>`,
+    fr: `<p class="about__kicker">Le style commence par une attitude.</p>
+<p class="lead">ALGEBRA est une marque de mode européenne d’essentiels intemporels, de silhouettes épurées et de détails réfléchis.</p>
+<p>Notre philosophie est simple : la beauté naît de l’équilibre. Entre la forme et la fonction. Entre la retenue et l’expression. Entre le familier et l’exceptionnel.</p>
+<p>Inspirée par l’esthétique des mathématiques, ALGEBRA incarne la précision, l’harmonie et l’individualité. Notre monogramme, un A traversé de deux lignes horizontales, porte cette idée.</p>
+<p>Des polos classiques et des basiques de grande qualité jusqu’aux créations expressives de notre Graphic Series, chaque collection partage une même idée : une élégance contemporaine au caractère affirmé.</p>
+<p class="about__credo">Nous ne croyons pas au superflu. Nous croyons à l’essentiel.</p>
+<p class="about__sign"><span>ALGEBRA</span><em>Built on proportion.</em></p>`,
   },
   shipping: {
     de: `<h2>Lieferländer und Kosten</h2><table><thead><tr><th>Land</th><th>Versand</th><th>Kostenlos ab</th></tr></thead><tbody><tr><td>Deutschland</td><td>4,90 €</td><td>100 €</td></tr><tr><td>Frankreich, Österreich, Belgien, Niederlande, Luxemburg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>
