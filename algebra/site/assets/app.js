@@ -14,40 +14,66 @@ const store = {
 const fmt = (n) => new Intl.NumberFormat(LANG === 'en' ? 'en-IE' : LANG === 'fr' ? 'fr-FR' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(n);
 
 // ------------------------------------------------------------ consent + analytics
-// Events are only recorded after consent. The provider is not chosen yet (NEEDS CREDENTIALS):
-// window.dataLayer receives GA4-style events, a provider tag can be loaded in loadAnalytics().
+// First-party statistics (worker/src/analytics.js). Nothing is stored or sent before consent. After consent:
+// alg_vid (localStorage, random visitor id: new vs returning) and alg_sid (sessionStorage, random tab session id).
+// No cookie, no third party. Events are batched and sent with sendBeacon; window.dataLayer mirrors them.
 let consent = store.get('alg_consent', null);
-// First-party statistics (worker/src/analytics.js): only after consent, no cookie. A random id lives in this tab's
-// sessionStorage; events are batched and sent with sendBeacon. Nothing is sent without consent.
 const productOf = (id) => (String(id || '').match(/^(ALG-[MW]-[A-Z]+|ALG-G-\d{2}-[A-Z]+)/) || [])[1] || null;
+const rid = () => Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => (b % 36).toString(36)).join('');
 const queue = [];
 let sid = null;
-function session() {
-  if (sid) return sid;
+let vid = null;
+let returning = false;
+let fresh = false;
+function ids() {
+  if (sid) return true;
   try {
+    vid = localStorage.getItem('alg_vid');
+    returning = Boolean(vid);
+    if (!vid) { vid = rid(); localStorage.setItem('alg_vid', vid); }
     sid = sessionStorage.getItem('alg_sid');
-    if (!sid) {
-      sid = Array.from(crypto.getRandomValues(new Uint8Array(12)), (b) => b.toString(36).padStart(2, '0')).join('').replace(/[^a-z0-9]/g, '').slice(0, 24).padEnd(16, '0');
-      sessionStorage.setItem('alg_sid', sid);
-      sessionStorage.setItem('alg_sid_new', '1');
-    }
+    if (!sid) { sid = rid(); sessionStorage.setItem('alg_sid', sid); fresh = true; }
   } catch { sid = null; }
-  return sid;
+  return Boolean(sid);
 }
+const screenClass = () => (innerWidth < 600 ? 's' : innerWidth < 1024 ? 'm' : innerWidth < 1440 ? 'l' : 'xl');
 function flush() {
-  if (!queue.length || !consent?.analytics || !session()) return;
-  const params = new URLSearchParams(location.search);
-  let first = false;
-  try { first = sessionStorage.getItem('alg_sid_new') === '1'; sessionStorage.removeItem('alg_sid_new'); } catch { /* ignore */ }
-  const payload = { consent: true, session: session(), lang: LANG, events: queue.splice(0, 25) };
-  if (first) { payload.source = params.get('utm_source') || document.referrer || ''; payload.campaign = params.get('utm_campaign') || undefined; }
+  if (!queue.length || !consent?.analytics || !ids()) return;
+  const payload = { consent: true, session: sid, visitor: vid, lang: LANG, events: queue.splice(0, 30) };
+  if (fresh) {
+    const q = new URLSearchParams(location.search);
+    payload.returning = returning;
+    payload.screen = screenClass();
+    payload.landing = location.pathname;
+    payload.referrer = document.referrer || '';
+    payload.utm = Object.fromEntries(['source', 'medium', 'campaign', 'content', 'term'].map((k) => [k, q.get(`utm_${k}`) || undefined]));
+    fresh = false;
+  }
   const body = JSON.stringify(payload);
   const url = apiUrl('/events');
   if (!(navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'application/json' })))) fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body, keepalive: true }).catch(() => {});
 }
+// time on page and deepest scroll, sent once when the page is left
+const started = Date.now();
+let deepest = 0;
+addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - innerHeight;
+  deepest = Math.max(deepest, h > 0 ? Math.round((scrollY / h) * 100) : 100);
+}, { passive: true });
+let left = false;
+function leave() {
+  if (left || !consent?.analytics) return;
+  left = true;
+  queue.push({ event: 'page_leave', path: location.pathname, seconds: Math.round((Date.now() - started) / 1000), scroll: deepest });
+  flush();
+}
+addEventListener('pagehide', leave);
+addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leave(); else left = false; });
 function loadAnalytics() {
   window.dataLayer = window.dataLayer || [];
-  queue.push({ event: 'page_view', path: location.pathname });
+  const notFound = /^404/.test(document.title);
+  queue.push({ event: notFound ? 'not_found' : 'page_view', path: location.pathname });
+  if (notFound) queue.push({ event: 'page_view', path: location.pathname });
   flush();
 }
 function track(event, params = {}) {
@@ -55,11 +81,10 @@ function track(event, params = {}) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });
   const raw = params.items?.[0]?.item_id || params.item_id;
-  queue.push({ event, path: location.pathname, item: productOf(raw), value: params.value });
+  queue.push({ event, path: location.pathname, item: productOf(raw), value: params.value, detail: params.color || params.size, term: params.search_term, results: params.results });
   if (['begin_checkout', 'purchase', 'add_to_cart'].includes(event)) flush();
   else setTimeout(flush, 1500);
 }
-addEventListener('pagehide', flush);
 function showConsent(force = false) {
   const box = $('#consent');
   if (!box) return;
@@ -71,7 +96,11 @@ $$('[data-consent]').forEach((b) =>
     consent = { analytics: b.dataset.consent === 'analytics', at: new Date().toISOString() };
     store.set('alg_consent', consent);
     $('#consent').hidden = true;
-    if (consent.analytics) loadAnalytics();
+    if (consent.analytics) {
+      loadAnalytics();
+      const pd = $('[data-product]');
+      if (pd) track('view_item', { value: +pd.dataset.price, items: [{ item_id: pd.dataset.product }] });
+    }
   }),
 );
 $$('[data-consent-open]').forEach((b) => b.addEventListener('click', () => showConsent(true)));
@@ -219,7 +248,7 @@ async function checkout(btn) {
     const r = await fetch(apiUrl('/checkout'), {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ lang: LANG, country, items: bag.map((i) => ({ sku: i.sku, qty: i.qty })) }),
+      body: JSON.stringify({ lang: LANG, country, items: bag.map((i) => ({ sku: i.sku, qty: i.qty })), ...(consent?.analytics && ids() ? { statsConsent: true, session: sid } : {}) }),
     });
     const j = await r.json().catch(() => ({}));
     if (r.ok && j.url) { location.href = j.url; return; }
@@ -336,6 +365,9 @@ if (sform) {
     });
     $('[data-search-count]').textContent = c.t.count.replace('{n}', n);
     $('[data-empty]').hidden = n > 0;
+    const term = words.join(' ');
+    clearTimeout(run.t);
+    if (term.length >= 2 && term !== run.last) run.t = setTimeout(() => { run.last = term; track('search', { search_term: term, results: n }); }, 1200);
   };
   input.addEventListener('input', run);
   sform.addEventListener('submit', (e) => { e.preventDefault(); run(); });

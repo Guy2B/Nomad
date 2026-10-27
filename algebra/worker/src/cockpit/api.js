@@ -342,6 +342,36 @@ async function fulfillmentStatus(env, orders) {
   };
 }
 
+/** Plain-language observations from the period's data. Only stated when the sample is large enough to mean something. */
+export function insightsOf(a, sold, names = new Map()) {
+  const out = [];
+  const MIN = 30;
+  if (a.sessions < MIN) {
+    out.push(`Only ${a.sessions} consented session(s) in this period: wait for at least ${MIN} before drawing conclusions.`);
+    return out;
+  }
+  const f = a.funnel;
+  const worst = f.slice(1).filter((s) => s.ofPrevious != null).sort((x, y) => x.ofPrevious - y.ofPrevious)[0];
+  if (worst) out.push(`Biggest drop: only ${worst.ofPrevious} % reach “${worst.step}” from the step before. Work on that step first.`);
+  const dev = a.byDevice.filter((d) => d.sessions >= 10);
+  if (dev.length > 1) {
+    const [best, low] = [...dev].sort((x, y) => (y.conversion ?? 0) - (x.conversion ?? 0)).filter((_, i, arr) => i === 0 || i === arr.length - 1);
+    if (best && low && best.key !== low.key) out.push(`${best.key} converts at ${best.conversion ?? 0} %, ${low.key} at ${low.conversion ?? 0} %.`);
+  }
+  const src = a.bySource.filter((x) => x.sessions >= 10).sort((x, y) => y.revenue - x.revenue)[0];
+  if (src && src.revenue > 0) out.push(`Most revenue from “${src.key}”: ${src.revenue} € over ${src.sessions} sessions.`);
+  const curious = a.products.filter((p) => p.sessions >= 15 && (p.addRate ?? 0) < 3).sort((x, y) => y.sessions - x.sessions)[0];
+  if (curious) out.push(`${names.get(curious.id) || curious.id}: ${curious.sessions} viewers but ${curious.addRate ?? 0} % add to cart. Check photos, price or size information.`);
+  if (a.abandonment.cartAbandonRate != null && a.abandonment.cartAbandonRate >= 70) out.push(`${a.abandonment.cartAbandonRate} % of carts never reach checkout. Shipping cost or delivery time may be the brake.`);
+  if (a.abandonment.unpaidCheckouts) out.push(`${a.abandonment.unpaidCheckouts} checkout(s) not paid, ${a.abandonment.unpaidValue} € in total.`);
+  const zero = a.searches.filter((t) => t.zero > 0).slice(0, 3).map((t) => `“${t.term}”`);
+  if (zero.length) out.push(`Searches with no result: ${zero.join(', ')}. Possible demand or wording to add.`);
+  if (a.notFound.length) out.push(`${a.notFound.length} missing page(s) visited, e.g. ${a.notFound[0].path}. Add a redirect.`);
+  if (a.bounceRate != null && a.bounceRate >= 70) out.push(`${a.bounceRate} % of sessions see only one page. Check the landing pages below.`);
+  if (!sold.length) out.push('No purchase in this period.');
+  return out;
+}
+
 export async function cockpit(path, params, env) {
   const orders = await loadOrders(env);
   const per = period(params);
@@ -353,7 +383,7 @@ export async function cockpit(path, params, env) {
     const b = business(cur);
     const pb = business(prev);
     const created = cur.length;
-    const a = await analyticsOf(env.DB, per.from, per.to);
+    const a = await analyticsOf(env.DB, per.from, per.to, cur);
     return {
       period: per,
       generatedAt: new Date().toISOString(),
@@ -459,31 +489,22 @@ export async function cockpit(path, params, env) {
     return { summary: circleBlock(members, orders, per.from, per.to), segments: seg, members: rows.sort((a, b) => (b.joinedAt || b.requestedAt).localeCompare(a.joinedAt || a.requestedAt)), consentLog: consent.results, earlyAccess: null, earlyAccessReason: 'No early-access release has run yet.' };
   }
   if (path === 'analytics') {
-    const created = cur.length;
-    const sold = cur.filter((o) => o.econ.sold);
+    const a = await analyticsOf(env.DB, per.from, per.to, cur);
+    const prevA = await analyticsOf(env.DB, per.prevFrom, per.prevTo, prev);
     const stats = customerStats(orders.filter((o) => o.econ.sold));
-    const a = await analyticsOf(env.DB, per.from, per.to);
-    const pct = (x, y) => (y ? Math.round((x / y) * 1000) / 10 : null);
-    const byCountry = {};
-    for (const r of a.byCountry) byCountry[r.k || '—'] = { sessions: r.n, checkouts: 0, purchases: 0 };
-    for (const o of cur) {
-      byCountry[o.country] ||= { sessions: 0, checkouts: 0, purchases: 0 };
-      byCountry[o.country].checkouts += 1;
-      if (o.econ.sold) byCountry[o.country].purchases += 1;
-    }
-    const units = new Map();
-    for (const o of sold) for (const it of parseItems(o)) units.set(it.productId, (units.get(it.productId) || 0) + it.qty);
     const names = new Map(products.map((p) => [p.id, p.name.en + (p.line === 'graphic' ? '' : ` (${p.gender})`)]));
+    const sold = cur.filter((o) => o.econ.sold);
     return {
       provider: 'first-party',
       note: CONSENT_NOTE,
-      funnel: { sessions: a.sessions, productViews: a.productViews, addToCart: a.addToCart, checkoutStarted: Math.max(a.checkoutStarted, created), purchase: sold.length, conversion: pct(sold.length, a.sessions), checkoutConversion: pct(sold.length, created) },
-      byProduct: a.items.map((i) => ({ id: i.item, name: names.get(i.item) || i.item, views: i.views, sessions: i.sessions, addToCart: i.addToCart, units: units.get(i.item) || 0, conversion: pct(units.get(i.item) || 0, i.sessions) })).sort((x, y) => y.sessions - x.sessions),
-      byCountry,
-      byDevice: a.byDevice,
-      bySource: a.bySource,
-      byCampaign: a.byCampaign,
+      ...a,
+      products: a.products.map((p) => ({ ...p, name: names.get(p.id) || p.id })),
+      purchases: sold.length,
+      revenue: Math.round(sold.reduce((n, o) => n + o.total, 0) * 100) / 100,
+      conversion: a.sessions ? Math.round((sold.length / a.sessions) * 1000) / 10 : null,
+      previous: { sessions: prevA.sessions, purchases: prev.filter((o) => o.econ.sold).length, pageViews: prevA.pageViews },
       repeatPurchaseRate: stats.size ? Math.round(([...stats.values()].filter((s) => s.orders >= 2).length / stats.size) * 1000) / 10 : null,
+      insights: insightsOf(a, sold, names),
     };
   }
   if (path === 'alerts') return { alerts: alertsOf(orders, env) };
