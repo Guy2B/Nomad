@@ -46,3 +46,8 @@ test('wrangler env.apex: algbr.eu route, origin, redirects reach the Worker, sti
   const ids = [...toml.matchAll(/database_id = "([^"]+)"/g)].map((m) => m[1]);
   assert.equal(new Set(ids).size, 1);
 });
+
+test('no inline style attributes in page templates (CSP style-src self would drop them)', () => {
+  const src = readFileSync(join(import.meta.dirname, '..', 'scripts', 'build.mjs'), 'utf8');
+  assert.equal((src.match(/ style="/g) || []).length, 0);
+});
