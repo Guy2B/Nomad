@@ -1,4 +1,5 @@
-"""Olive range board (owner, 27.10.2026, design/olive/olive-range-board.png): The Sweat (men + women) and The Knit in olive.
+"""Olive range board (owner, 27.10.2026, design/olive/olive-range-board.png): The Knit in olive (knitwear page).
+The olive Polo and Sweat sets come from scripts/recolor.py (recoloured deep-navy shoot), not from this board.
 Tiles are small (about 200 px), so they are scaled with LANCZOS + a light unsharp mask and placed on a flat canvas
 that takes the tile's own background colour. Usage: python3 scripts/olive_range.py"""
 from pathlib import Path
@@ -60,17 +61,6 @@ def save(im, name, small=False):
     if small:
         im.resize((400, round(400 * im.height / im.width)), Image.LANCZOS).save(OUT / f"{name}-400.webp", quality=84)
 
-
-for slug, b in TILES.items():
-    face, dos, bro = (SRC.crop(b[k]) for k in ("face", "dos", "bro"))
-    s = f"{slug}-olive"
-    save(onto((800, 1000), [face], 720, 900), f"{s}-front", small=True)
-    save(onto((800, 1000), [dos], 720, 900), f"{s}-back", small=True)
-    save(onto((1600, 880), [face, dos], 1500, 820), f"{s}-stage")
-    save(fit(bro, 690, 796), f"{s}-d-front")
-    save(fit(bro.crop((0, round(bro.height * 0.62), round(bro.width * 0.42), bro.height)), 690, 796), f"{s}-d-fabric")
-    save(fit(dos.crop((round(dos.width * 0.2), 0, round(dos.width * 0.8), round(dos.height * 0.45))), 690, 796), f"{s}-d-collar")
-    print(s, "ok")
 
 for name, box in KNIT.items():
     save(fit(SRC.crop(box), 640, 800), name)
