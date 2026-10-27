@@ -39,3 +39,47 @@ database_id = "3ab63107-8a8e-40e2-988d-33edb35f2da5"
 
 [triggers]
 crons = ["*/30 * * * *"]       # sweep: retry fulfillment, poll supplier status, expire unpaid orders
+
+# ------------------------------------------------------------------------------------------------
+# algbr.eu (prepared, NOT active). Used only when the repository variable ALGEBRA_ORIGIN is
+# https://algbr.eu: the CI job then builds with SITE_ORIGIN=https://algbr.eu and runs
+# `wrangler deploy --env apex`. Same Worker name, so secrets, D1 tables and history are kept.
+# Steps, checks and rollback: docs/architecture/ALGBR_TARGET.md §6–§8 (Nomad repository).
+# Still preview: going live (SITE_MODE = "live") is a separate decision (docs/LAUNCH_CHECKLIST.md).
+# www.algbr.eu and algebra.algbr.eu → https://algbr.eu are zone Redirect Rules (301), not Worker routes;
+# algebra.algbr.eu stays attached below so a rollback is only a redeploy.
+[env.apex]
+name = "algebra"
+workers_dev = true
+routes = [
+  { pattern = "algbr.eu", custom_domain = true },
+  { pattern = "algebra.algbr.eu", custom_domain = true },
+]
+
+[env.apex.assets]
+directory = "../dist"
+binding = "ASSETS"
+# /api/* + the former Digital Studio URLs on algbr.eu (worker/src/legacy.js → 301 to algbr.de).
+run_worker_first = ["/api/*", "/leistungen/*", "/branchen/*", "/project.html", "/en/project.html", "/fr/project.html", "/impressum.html", "/datenschutz.html", "/privacy.html", "/legal.html"]
+not_found_handling = "404-page"
+
+[env.apex.vars]
+SITE_ORIGIN = "https://algbr.eu"
+ALLOWED_ORIGINS = "https://algbr.eu,https://algebra.algbr.eu"
+LEGACY_STUDIO_REDIRECTS = "1"
+SITE_MODE = "preview"
+FULFILLMENT_PROVIDER = "valadio"
+VALADIO_SANDBOX = "true"
+VALADIO_API_BASE_URL = ""
+VALADIO_WEBHOOK_SIGNATURE_HEADER = "x-valadio-signature"
+MAIL_FROM = "Algebra <service@algbr.eu>"
+OWNER_EMAIL = "contact@algbr.de"
+STRIPE_REQUIRE_TERMS = "0"
+
+[[env.apex.d1_databases]]
+binding = "DB"
+database_name = "algbr-crm"
+database_id = "3ab63107-8a8e-40e2-988d-33edb35f2da5"
+
+[env.apex.triggers]
+crons = ["*/30 * * * *"]

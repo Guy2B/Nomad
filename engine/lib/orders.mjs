@@ -113,7 +113,18 @@ export async function fulfill(store, order) {
   return order;
 }
 
+/**
+ * Sessions of another AlGBr circuit on the same Stripe account (ALGEBRA: own Worker, own webhook, own tables).
+ * ALGEBRA marks its sessions with metadata.store = 'algebra'; older ones carry order_id without store.
+ * Sessions without any store metadata remain GO's (the first store, before the multi-store platform).
+ */
+export const isForeignSession = (session) => {
+  const m = session?.metadata ?? {};
+  return m.store === 'algebra' || (!m.store && Boolean(m.order_id));
+};
+
 export async function processPaidSession(store, session) {
+  if (isForeignSession(session)) return { skipped: 'foreign' };
   if (session.payment_status && session.payment_status !== 'paid') return { skipped: 'unpaid' };
   const existing = await getOrder(store, session.id);
   if (existing) return { order: existing, duplicate: true };

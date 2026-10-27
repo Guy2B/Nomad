@@ -36,7 +36,7 @@ const PREVIEW = site.mode !== 'live';
 // Cache-busting: every asset URL carries ?v=<hash of the shipped files>, so a deploy is never hidden by a browser cache.
 const V = (() => {
   const h = createHash('sha1');
-  for (const f of ['site/assets/styles.css', 'site/assets/app.js', 'data/photos.json']) if (existsSync(join(root, f))) h.update(readFileSync(join(root, f)));
+  for (const f of ['site/assets/styles.css', 'site/assets/app.js', 'data/photos.json', 'data/catalog.mjs']) if (existsSync(join(root, f))) h.update(readFileSync(join(root, f)));
   const pd = join(root, 'site', 'assets', 'photos');
   if (existsSync(pd)) for (const f of readdirSync(pd).sort()) h.update(f + statSync(join(pd, f)).size);
   return h.digest('hex').slice(0, 10);
@@ -282,7 +282,7 @@ function card(lang, from, p, { eager = false, color, crop = false } = {}) {
       return `<div class="card__set" data-color="${c}"${c === first ? '' : ' hidden'}>${picture(from, img(p, c, v[0]), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager: eager && c === first })}${v[1] ? picture(from, img(p, c, v[1]), '', { cls: 'card__alt' }) : ''}</div>`;
     })
     .join('');
-  const sw = p.colors.map((k) => `<button type="button" class="sw-btn" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(colors[k].name[lang])}" title="${esc(colors[k].name[lang])}"><span class="sw" style="--c:${colors[k].hex}"></span></button>`).join('');
+  const sw = p.colors.map((k) => `<button type="button" class="sw-btn" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(colors[k].name[lang])}" title="${esc(colors[k].name[lang])}"><span class="sw sw--c-${k}"></span></button>`).join('');
   const soon = p.status !== 'PREVIEW';
   return `<li class="card${crop ? ' card--crop' : ''}" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${color || p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
   <a href="${color ? `${href}?color=${color}` : href}" class="card__a" data-track="select_item" data-id="${p.id}" data-href="${href}">
@@ -311,7 +311,7 @@ function collectionPage(lang, key) {
   <header class="coll__hd wrap"><h1 class="coll__h">${esc(h1)}</h1>${intro}</header>
   <div class="wrap">
   <form class="filters" data-filters aria-label="${esc(C.filter)}">
-    <fieldset><legend>${C.color}</legend><div class="chips">${allColors.map((c) => `<label class="chip"><input type="checkbox" name="color" value="${c}"><span class="sw" style="--c:${colors[c].hex}"></span>${esc(colors[c].name[lang])}</label>`).join('')}</div></fieldset>
+    <fieldset><legend>${C.color}</legend><div class="chips">${allColors.map((c) => `<label class="chip"><input type="checkbox" name="color" value="${c}"><span class="sw sw--c-${c}"></span>${esc(colors[c].name[lang])}</label>`).join('')}</div></fieldset>
     <fieldset><legend>${C.size}</legend><div class="chips">${allSizes.map((s) => `<label class="chip"><input type="checkbox" name="size" value="${s}">${s}</label>`).join('')}</div></fieldset>
     <label class="sort">${C.sort} <select name="sort"><option value="">${C.sortDefault}</option><option value="asc">${C.sortAsc}</option><option value="desc">${C.sortDesc}</option></select></label>
     <button type="reset" class="linkish">${C.reset}</button>
@@ -391,7 +391,7 @@ function productPage(lang, p) {
         <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>
         <form class="buy__form" data-buy novalidate>
           ${p.cuts ? `<fieldset class="opt"><legend>${P.cut}</legend><div class="opt__row">${cuts.map((c, i) => `<label class="pill"><input type="radio" name="cut" value="${c.id}"${i ? '' : ' checked'}><span>${esc(c.name[lang])}</span></label>`).join('')}</div></fieldset>` : ''}
-          <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[p.colors[0]].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c, i) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${i ? '' : ' checked'}><span class="sw sw--lg" style="--c:${colors[c].hex}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}</div></fieldset>
+          <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[p.colors[0]].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c, i) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${i ? '' : ' checked'}><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}</div></fieldset>
           <fieldset class="opt"><legend>${P.size}</legend><div class="opt__row" data-sizes>${cuts.map((c, ci) => c.sizes.map((s) => `<label class="pill" data-cut="${c.id}"${ci ? ' hidden' : ''}><input type="radio" name="size" value="${s}"${ci ? ' disabled' : ''}><span>${s}</span></label>`).join('')).join('')}</div>
           <a href="${r(`/${lang}/size-guide/`)}" class="small" data-track="size_guide_open">${P.sizeGuide}</a></fieldset>
           <p class="form-err" data-err role="alert" hidden>${P.chooseSize}</p>
@@ -683,6 +683,11 @@ writeFileSync(join(dist, 'robots.txt'), PREVIEW ? `# Preview: pages carry noinde
 
 // static assets
 cpSync(join(root, 'site', 'assets'), join(dist, 'assets'), { recursive: true, });
+// Garment colour swatches as classes: the Content-Security-Policy (style-src 'self') blocks inline style attributes.
+writeFileSync(
+  join(dist, 'assets', 'styles.css'),
+  readFileSync(join(dist, 'assets', 'styles.css'), 'utf8') + '\n/* garment colours, generated from data/catalog.mjs */\n' + Object.entries(colors).map(([k, c]) => `.sw--c-${k}{--c:${c.hex}}`).join('\n') + '\n',
+);
 cpSync(join(root, 'brand', 'favicon.svg'), join(dist, 'favicon.svg'));
 mkdirSync(join(dist, 'assets', 'fonts'), { recursive: true });
 for (const [pkg, file] of [

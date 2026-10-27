@@ -1,0 +1,64 @@
+{
+  "_doc": "Registre des logiciels et applications d'AlGBr. Hors infrastructure e-commerce : chaque logiciel a son propre dépôt, hébergement et domaine. Seuls les logiciels \"public\": true sont présentés sur algbr.de. Faits repris des dépôts sources ; tout ce qui n'y figure pas reste hors du registre.",
+  "version": 1,
+  "software": [
+    {
+      "id": "next",
+      "name": "nΣxt LifeOS",
+      "aliases": ["NEXT by AlGBr", "Σ Life OS", "Sigma Life OS"],
+      "domain": "next.algbr.eu",
+      "url": "https://next.algbr.eu",
+      "repository": "Guy2B/sum-plus",
+      "status": "live",
+      "version": "1.0.0",
+      "released": "2026-09-30",
+      "category": "productivity",
+      "platforms": ["web-pwa", "android", "ios"],
+      "languages": ["fr", "en", "de", "es"],
+      "logo": null,
+      "tagline": "Know what matters. Do what’s next.",
+      "summary": {
+        "de": "Ein persönlicher Entscheidungsmotor: Aufgaben, Kalender und Mails werden zu höchstens drei erklärten Entscheidungen pro Tag. Lokal zuerst, offline nutzbar, keine externe Aktion ohne Bestätigung.",
+        "en": "A personal decision engine: tasks, calendar and mail become at most three explained decisions a day. Local-first, works offline, never acts externally without confirmation.",
+        "fr": "Un moteur de décision personnel : tâches, agenda et e-mails deviennent au plus trois décisions expliquées par jour. Local d'abord, utilisable hors ligne, aucune action externe sans confirmation."
+      },
+      "features": {
+        "de": ["Entscheidungs-Engine Σ", "Installierbare Offline-PWA", "Kalender- und Mail-Anbindung (Google, Microsoft, IMAP)", "DSGVO-Export und Kontolöschung, Datenhaltung in der EU"],
+        "en": ["Σ decision engine", "Installable offline PWA", "Calendar and mail connectors (Google, Microsoft, IMAP)", "GDPR export and account deletion, EU data region"],
+        "fr": ["Moteur de décision Σ", "PWA installable hors ligne", "Connexion agenda et e-mail (Google, Microsoft, IMAP)", "Export RGPD et suppression du compte, données dans l'UE"]
+      },
+      "stack": ["TypeScript", "Preact", "Vite", "Firebase (europe-west1)", "Capacitor"],
+      "engineering": {
+        "de": "58 Unit-Tests, 22 End-to-End-Tests inklusive Barrierefreiheit (axe) und Offline-Betrieb.",
+        "en": "58 unit tests, 22 end-to-end tests including accessibility (axe) and offline use.",
+        "fr": "58 tests unitaires, 22 tests de bout en bout dont accessibilité (axe) et usage hors ligne."
+      },
+      "access": {
+        "type": "free-trial",
+        "cta": { "de": "nΣxt entdecken", "en": "Discover nΣxt", "fr": "Découvrir nΣxt" }
+      },
+      "public": true,
+      "portfolioPriority": 1
+    },
+    {
+      "id": "metamorph",
+      "name": "Metamorph",
+      "aliases": ["Metamorph Live", "Metamorph Studio"],
+      "domain": null,
+      "url": null,
+      "repository": null,
+      "status": "development",
+      "category": "sales-tool",
+      "platforms": ["chrome-extension", "web"],
+      "languages": ["de"],
+      "logo": null,
+      "summary": {
+        "de": "Business Future Simulator: zeigt einem Interessenten seine eigene Website nach der digitalen Transformation.",
+        "en": "Business Future Simulator: shows a prospect their own website after a digital transformation.",
+        "fr": "Simulateur d'avenir commercial : montre à un prospect son propre site après transformation digitale."
+      },
+      "public": false,
+      "portfolioPriority": 2
+    }
+  ]
+}

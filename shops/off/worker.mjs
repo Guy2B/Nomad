@@ -123,7 +123,7 @@ ${archive.length ? `<section class="wrap section" id="archive"><span class="ey">
     description: t.seo.description,
     email: SITE.company.email,
     address: { '@type': 'PostalAddress', streetAddress: SITE.company.street, postalCode: '68623', addressLocality: 'Lampertheim', addressCountry: 'DE' },
-    parentOrganization: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' },
+    parentOrganization: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.de/' },
   };
   return layout(env, lang, { title: t.seo.title, description: t.seo.description, body, path: '/', ogImage: live[0] ? imgs(live[0])[0] : null, jsonld: [store, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ[lang].items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] });
 }
@@ -152,7 +152,7 @@ function product(env, lang, p, others) {
       price: (p.price_cents / 100).toFixed(2),
       availability: isSold ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
       itemCondition: p.condition === 'like_new' ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.eu/' },
+      seller: { '@type': 'Organization', name: 'AlGBr', url: 'https://algbr.de/' },
       shippingDetails: {
         '@type': 'OfferShippingDetails',
         shippingRate: { '@type': 'MonetaryAmount', value: '5.79', currency: 'EUR' },

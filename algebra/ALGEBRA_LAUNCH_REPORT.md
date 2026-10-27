@@ -41,6 +41,11 @@ STRIPE_SECRET_KEY (test, later live) · STRIPE_WEBHOOK_SECRET · A61_API_BASE + 
 ADMIN_TOKEN (any long random string) · Cloudflare D1 database id · OWNER_EMAIL · analytics id (if chosen). All documented in `.env.example`.
 
 ## 5. External accounts to create or connect
+
+> Update 27.10.2026: deployment is one Worker `algebra` (site + API) on the shared D1 `algbr-crm`, not a Pages project,
+> a separate `algebra-api` Worker and a D1 `algebra`. Target domain: algbr.eu (docs/architecture/ALGBR_TARGET.md).
+> Fulfillment target is Valadio; A61 is the disabled fallback.
+
 1. A61 Partner dropshipping account (free registration) and request for API documentation.
 2. Stripe: same account as the AlGBr shops (owner decision). For the preview, a test key (sk_test_…) as Secret on the Worker `algebra`; a new webhook endpoint https://algebra.algbr.eu/api/stripe/webhook gives its own STRIPE_WEBHOOK_SECRET.
 3. Cloudflare: Pages project `algebra-shop`, Worker `algebra-api`, D1 `algebra`, DNS `algebra.algbr.eu`.
