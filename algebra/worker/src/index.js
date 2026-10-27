@@ -7,6 +7,9 @@
  *   POST /api/newsletter               double opt-in start · GET /api/newsletter/confirm?token=
  *   POST /api/contact                  message to the owner
  *   POST /api/webhooks/valadio         fulfillment provider push (signed), idempotent
+ *   POST /api/circle · GET /api/circle/confirm · POST /api/circle/member|prefs|leave   A Circle (worker/src/circle.js)
+ *   GET  /api/admin/<view>             Operating Cockpit, Bearer ADMIN_TOKEN (worker/src/cockpit/api.js)
+ *   POST /api/admin/orders/:id/costs   real costs of an order (provider invoice, Stripe balance, manual)
  *   GET  /api/admin/orders             Bearer ADMIN_TOKEN · POST /api/admin/orders/:id/retry
  *   GET  /api/admin/fulfillment        Bearer ADMIN_TOKEN · provider, mapping, costs (never public)
  *   GET  /api/health
@@ -20,6 +23,8 @@ import { isConfirmed, supplierMappings } from './fulfillment/mapping.js';
 import { allVariants } from '../../data/catalog.mjs';
 import { sendMail, template } from './email.js';
 import { legacyStudioTarget } from './legacy.js';
+import { confirmMembership, getMember, leave, requestMembership, savePrefs } from './circle.js';
+import { cockpit } from './cockpit/api.js';
 import { HttpError, applyStatus, createPendingOrder, event, fulfill, getBySession, getOrder, markPaid, markRefunded, priceCart, setStatus, sweep, syncStatus } from './orders.js';
 
 const LANGS = ['de', 'en', 'fr'];
@@ -216,13 +221,17 @@ async function route(req, env, ctx) {
     return json({ ok: true });
   }
   if (p === '/api/webhooks/valadio' && m === 'POST') return handleProviderWebhook(req, env);
+  if (p === '/api/circle' && m === 'POST') return json(await requestMembership(env, await body(req, 4000), { origin: url.origin, ctx }));
+  if (p === '/api/circle/confirm' && m === 'GET') return Response.redirect(await confirmMembership(env, url.searchParams.get('token') || '', { ctx }), 302);
+  if (p === '/api/circle/member' && m === 'POST') return json(await getMember(env, (await body(req, 2000)).token));
+  if (p === '/api/circle/prefs' && m === 'POST') {
+    const b = await body(req, 2000);
+    return json(await savePrefs(env, b.token, b.prefs, b.lang));
+  }
+  if (p === '/api/circle/leave' && m === 'POST') return json(await leave(env, (await body(req, 2000)).token));
   if (p.startsWith('/api/admin/')) {
     const auth = req.headers.get('authorization') || '';
     if (!env.ADMIN_TOKEN || !timingSafeEqual(auth, `Bearer ${env.ADMIN_TOKEN}`)) return json({ error: 'forbidden' }, 403);
-    if (p === '/api/admin/orders' && m === 'GET') {
-      const r = await env.DB.prepare('SELECT id, number, status, email, total, supplier_order_id, last_error, created_at FROM alg_orders ORDER BY created_at DESC LIMIT 200').all();
-      return json(r.results);
-    }
     if (p === '/api/admin/fulfillment' && m === 'GET') {
       // admin only: provider, supplier references, confirmation status, costs
       const prov = providerFor(env);
@@ -235,6 +244,23 @@ async function route(req, env, ctx) {
         a61Fallback: supplierMappings(skus, 'a61'),
         variants: { total: variants.length, confirmed: variants.filter((v) => isConfirmed(v.sku)).length },
       });
+    }
+    const mc = p.match(/^\/api\/admin\/orders\/([\w-]+)\/costs$/);
+    if (mc && m === 'POST') {
+      const o = await getOrder(env.DB, mc[1]);
+      if (!o) return json({ error: 'not found' }, 404);
+      const b = await body(req, 2000);
+      const num = (v) => (v === null || v === undefined || v === '' ? null : Number.isFinite(Number(v)) && Number(v) >= 0 ? Math.round(Number(v) * 100) / 100 : NaN);
+      const c = { supplier: num(b.productionCost), shipping: num(b.shippingCost), payment: num(b.paymentFee) };
+      if (Object.values(c).some(Number.isNaN) || !['provider_invoice', 'stripe_balance', 'manual'].includes(b.source)) throw new HttpError(400, 'BAD_INPUT');
+      await env.DB.prepare('INSERT INTO alg_order_costs (order_id, supplier_cost, shipping_cost, payment_fee, source, updated_at) VALUES (?,?,?,?,?,?) ON CONFLICT(order_id) DO UPDATE SET supplier_cost = excluded.supplier_cost, shipping_cost = excluded.shipping_cost, payment_fee = excluded.payment_fee, source = excluded.source, updated_at = excluded.updated_at').bind(o.id, c.supplier, c.shipping, c.payment, b.source, new Date().toISOString()).run();
+      await event(env.DB, o.id, 'costs', { ...c, source: b.source });
+      return json({ ok: true });
+    }
+    if (m === 'GET') {
+      const view = p.slice('/api/admin/'.length);
+      const data = await cockpit(view, url.searchParams, env);
+      if (data) return json(data);
     }
     const mm = p.match(/^\/api\/admin\/orders\/([\w-]+)\/retry$/);
     if (mm && m === 'POST') {

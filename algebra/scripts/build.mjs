@@ -17,6 +17,7 @@ import { blanks, colors, products as allProducts, shipping, variantsOf } from '.
 const products = allProducts.filter((p) => p.status === 'PREVIEW' || p.status === 'NEEDS_SUPPLIER_APPROVAL');
 import { site } from '../site/config.mjs';
 import { legalTitles, pages } from '../site/content.mjs';
+import { CIRCLE } from '../site/circle.mjs';
 import { common as copyCommon, copy as premiumCopy, graphicCopy } from '../data/copy.mjs';
 import { t } from '../site/i18n.mjs';
 
@@ -199,7 +200,7 @@ ${body}
         <li><a href="${info('shipping')}">${f.shipping}</a></li><li><a href="${info('returns')}">${f.returns}</a></li>
         <li><a href="${r(`/${lang}/tracking/`)}">${f.tracking}</a></li><li><a href="${r(`/${lang}/contact/`)}">${f.contact}</a></li></ul></div>
       <div><h2>${f.company}</h2><ul>
-        <li><a href="${r(`/${lang}/about/`)}">${L.nav.about}</a></li>
+        <li><a href="${r(`/${lang}/about/`)}">${L.nav.about}</a></li><li><a href="${r(`/${lang}/circle/`)}">${CIRCLE[lang].nav}</a></li>
         <li><a href="${info('imprint')}">${f.imprint}</a></li><li><a href="${info('privacy')}">${f.privacy}</a></li>
         <li><a href="${info('terms')}">${f.terms}</a></li><li><a href="${info('withdrawal')}">${f.withdrawal}</a></li>
         <li><a href="${info('cookies')}">${f.cookies}</a></li><li><a href="${info('accessibility')}">${f.a11y}</a></li>
@@ -516,6 +517,13 @@ function home(lang) {
   <p class="rail__more wrap"><a class="more" href="${r(`/${lang}/shop/`)}">${esc(E.ess[1])}</a></p>
 </section>
 
+<section class="circlefeat" aria-labelledby="circlefeat-h">
+  <p class="circlemark">${symbolSvg('sym circlemark__a', '')}<span>Circle</span></p>
+  <h2 class="circlefeat__h" id="circlefeat-h">${esc(CIRCLE[lang].home.h)}</h2>
+  <p class="circlefeat__list">${CIRCLE[lang].home.list.map(esc).join(' ')}</p>
+  <p><a class="more" href="${r(`/${lang}/circle/`)}">${esc(CIRCLE[lang].home.cta)}</a></p>
+</section>
+
 <section class="statement">
   ${symbolSvg('sym statement__sym', '')}
   <h2 class="statement__h">${esc(E.statement[0])}</h2>
@@ -578,6 +586,56 @@ for (const lang of LANGS) {
   }
   simple(lang, 'size-guide', L.size.title, pages.sizeGuide[lang]);
   simple(lang, 'about', L.about.title, pages.about[lang] + `<p class="about__sym">${symbolSvg('sym sym--xl', 'Algebra')}</p>`);
+  // A Circle: public page with the join form, and the member page (token in the URL fragment, never sent to a server log)
+  {
+    const C = CIRCLE[lang];
+    const path = `/${lang}/circle/`;
+    const privacyHref = rel(path, `/${lang}/info/privacy/`);
+    const body = `<section class="circle">
+  <div class="circle__hero">
+    <p class="circlemark circlemark--xl">${symbolSvg('sym circlemark__a', 'A')}<span>Circle</span></p>
+    <h1 class="circle__h">${esc(C.title)}</h1>
+    <p class="lead circle__lead">${esc(C.lead)}</p>
+  </div>
+  <ul class="circle__benefits wrap">${C.benefits.map(([h, b]) => `<li><h2>${esc(h)}</h2><p>${esc(b)}</p></li>`).join('')}</ul>
+  <div class="circle__join" id="join">
+    <h2 class="h2">${esc(C.join)}</h2>
+    <p class="notice" data-circle-expired hidden>${esc(C.expired)}</p>
+    <form class="form" data-circle novalidate>
+      <input type="hidden" name="source" value="page">
+      <label for="ci-email">${esc(C.email)}</label><input id="ci-email" name="email" type="email" autocomplete="email" required>
+      <label for="ci-name">${esc(C.firstName)}</label><input id="ci-name" name="firstName" autocomplete="given-name" maxlength="60">
+      <p class="hp" aria-hidden="true"><label for="ci-web">Website</label><input id="ci-web" name="website" tabindex="-1" autocomplete="off"></p>
+      <label class="check"><input type="checkbox" name="consent" value="true" required> <span>${esc(C.consent)} <a href="${privacyHref}">${esc(C.privacy)}</a>.</span></label>
+      <button class="btn btn--solid" type="submit">${esc(C.button)}</button>
+      <p class="small" data-ok hidden role="status">${esc(C.ok)}</p><p class="small form-err" data-err hidden role="alert">${esc(C.err)}</p>
+    </form>
+    <ul class="circle__small">${C.small.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+  </div>
+</section>`;
+    write(path, layout(lang, { path, key: 'circle', title: `A Circle · Algebra`, desc: C.meta, body }));
+    const mpath = `/${lang}/circle/member/`;
+    const M = C.member;
+    const mbody = `<section class="wrap page circle-member" data-circle-member>
+  <p class="circlemark">${symbolSvg('sym circlemark__a', 'A')}<span>Circle</span></p>
+  <h1 class="h1">${esc(M.title)}</h1>
+  <p class="about__kicker" data-cm-welcome hidden>${esc(M.welcome)}</p>
+  <p class="form-err" data-cm-missing hidden role="alert">${esc(M.notFound)} <a href="${rel(mpath, path)}">${esc(M.rejoin)}</a></p>
+  <div data-cm-body hidden>
+    <p><span class="kicker">${esc(M.since)}</span><br><strong data-cm-since></strong> · <span data-cm-email></span></p>
+    <form class="form" data-cm-prefs>
+      <fieldset><legend>${esc(M.prefs)}</legend>
+        ${['graphic', 'knitwear', 'restocks'].map((k) => `<label class="check"><input type="checkbox" name="${k}"> <span>${esc(M[k])}</span></label>`).join('')}
+      </fieldset>
+      <button class="btn btn--solid" type="submit">${esc(M.save)}</button>
+      <p class="small" data-cm-saved hidden role="status">${esc(M.saved)}</p>
+    </form>
+    <p><button type="button" class="linkish" data-cm-leave data-confirm="${esc(M.leaveConfirm)}">${esc(M.leave)}</button></p>
+  </div>
+  <p class="notice" data-cm-left hidden>${esc(M.left)} <a href="${rel(mpath, path)}">${esc(M.rejoin)}</a></p>
+</section>`;
+    write(mpath, layout(lang, { path: mpath, key: 'circle-member', title: `${M.title} · A Circle · Algebra`, desc: C.meta, body: mbody, noindex: true }));
+  }
   simple(
     lang,
     'contact',
@@ -662,6 +720,10 @@ writeFileSync(
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' ${site.apiBase.startsWith('http') ? new URL(site.apiBase).origin : ''}; form-action 'self' https://checkout.stripe.com; frame-ancestors 'self'; base-uri 'self'
 ${PREVIEW ? '  X-Robots-Tag: noindex, nofollow\n' : ''}/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+  Referrer-Policy: no-referrer
 /assets/photos/*
   Cache-Control: public, max-age=86400
 /assets/catalog.*
@@ -672,9 +734,9 @@ ${PREVIEW ? '  X-Robots-Tag: noindex, nofollow\n' : ''}/assets/fonts/*
   Cache-Control: public, max-age=86400
 `,
 );
-writeFileSync(join(dist, 'robots.txt'), PREVIEW ? `# Preview: pages carry noindex. Crawling stays allowed so the noindex is seen.\nUser-agent: *\nAllow: /\n` : `User-agent: *\nAllow: /\nDisallow: /*/cart/\nDisallow: /*/search/\nDisallow: /*/order/\nDisallow: /*/tracking/\n\nSitemap: ${abs('/sitemap.xml')}\n`);
+writeFileSync(join(dist, 'robots.txt'), PREVIEW ? `# Preview: pages carry noindex. Crawling stays allowed so the noindex is seen.\nUser-agent: *\nAllow: /\n` : `User-agent: *\nAllow: /\nDisallow: /*/cart/\nDisallow: /*/search/\nDisallow: /*/order/\nDisallow: /*/tracking/\nDisallow: /*/circle/member/\nDisallow: /admin/\n\nSitemap: ${abs('/sitemap.xml')}\n`);
 {
-  const indexable = ['', 'shop/', ...Object.keys(collections).filter((k) => k !== 'shop').map((k) => `${k}/`), ...products.map((p) => `product/${p.slug}/`), 'faq/', 'size-guide/', 'about/', 'contact/', 'info/shipping/', 'info/returns/'];
+  const indexable = ['', 'shop/', ...Object.keys(collections).filter((k) => k !== 'shop').map((k) => `${k}/`), ...products.map((p) => `product/${p.slug}/`), 'faq/', 'size-guide/', 'about/', 'circle/', 'contact/', 'info/shipping/', 'info/returns/'];
   const urls = indexable
     .map((s) => `<url><loc>${abs(`/de/${s}`)}</loc>${LANGS.map((l) => `<xhtml:link rel="alternate" hreflang="${t[l].htmlLang}" href="${abs(`/${l}/${s}`)}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${abs(`/de/${s}`)}"/></url>` + LANGS.filter((l) => l !== 'de').map((l) => `<url><loc>${abs(`/${l}/${s}`)}</loc></url>`).join(''))
     .join('\n');
@@ -689,6 +751,9 @@ writeFileSync(
   readFileSync(join(dist, 'assets', 'styles.css'), 'utf8') + '\n/* garment colours, generated from data/catalog.mjs */\n' + Object.entries(colors).map(([k, c]) => `.sw--c-${k}{--c:${c.hex}}`).join('\n') + '\n',
 );
 cpSync(join(root, 'brand', 'favicon.svg'), join(dist, 'favicon.svg'));
+// Operating Cockpit (static shell only: every figure comes from /api/admin/* with the admin token)
+cpSync(join(root, 'admin'), join(dist, 'admin'), { recursive: true });
+cpSync(join(root, 'brand', 'algebra-a-signature-master-ivory.svg'), join(dist, 'admin', 'a.svg'));
 mkdirSync(join(dist, 'assets', 'fonts'), { recursive: true });
 for (const [pkg, file] of [
   ['cormorant-garamond', 'cormorant-garamond-latin-500-normal.woff2'],

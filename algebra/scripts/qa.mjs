@@ -18,7 +18,7 @@ const pages = [];
 (function walk(d) {
   for (const f of readdirSync(d)) {
     const p = join(d, f);
-    if (statSync(p).isDirectory()) walk(p);
+    if (statSync(p).isDirectory()) { if (f !== 'admin') walk(p); } // /admin/: internal cockpit, noindex, no SEO rules
     else if (f.endsWith('.html')) pages.push(p);
   }
 })(dist);
