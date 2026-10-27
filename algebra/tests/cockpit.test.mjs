@@ -110,6 +110,15 @@ test('alerts are actionable and catch intervention, missing tracking, negative m
   assert.ok(alertsOf([], { STRIPE_WEBHOOK_SECRET: 'x' }).every((a) => a.action));
 });
 
+test('EU distance-sales threshold alert (§ 19): warning from 8,000 €, error from 10,000 € outside Germany', () => {
+  const mk = (n, country, total) => { const o = order({ number: n, country, total, created_at: new Date().toISOString() }); return { ...o, econ: orderEconomics(o) }; };
+  const warn = alertsOf([mk('E1', 'FR', 8500), mk('E2', 'DE', 50000)], { STRIPE_WEBHOOK_SECRET: 'x' }).find((a) => a.code === 'eu_distance_threshold');
+  assert.equal(warn.level, 'warning');
+  const err = alertsOf([mk('E1', 'FR', 6000), mk('E3', 'AT', 4500)], { STRIPE_WEBHOOK_SECRET: 'x' }).find((a) => a.code === 'eu_distance_threshold');
+  assert.equal(err.level, 'error');
+  assert.ok(!alertsOf([mk('E1', 'FR', 9000)], { STRIPE_WEBHOOK_SECRET: 'x', VAT_MODE: 'regular' }).some((a) => a.code === 'eu_distance_threshold'));
+});
+
 test('order filters and periods', () => {
   assert.ok(FILTERS.attention(order({ status: 'fulfillment_failed' })));
   assert.ok(FILTERS.attention(order({ status: 'shipped', tracking_number: null })));

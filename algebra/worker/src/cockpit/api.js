@@ -141,6 +141,11 @@ export function alertsOf(orders, env, at = Date.now()) {
     if (PRODUCTION.includes(o.status) && hours(o.updated_at) > 24 * 7) add('warning', 'stuck_production', 'In production for more than 7 days', o.number, 'Ask the provider for a status.');
     if (o.econ.sold && o.econ.contribution != null && o.econ.contribution < 0) add('warning', 'negative_margin', 'Negative contribution margin', o.number, 'Check prices, shipping threshold and supplier cost.');
   }
+  // EU distance sales (B2C outside Germany): above 10,000 EUR per calendar year VAT is due in the destination country
+  // (OSS); the § 19 exemption then no longer covers those sales. Counts Algebra only: add the AlGBr shops' EU sales.
+  const year = String(new Date(at).getUTCFullYear());
+  const euSales = orders.filter((o) => o.econ.sold && o.status !== 'refunded' && o.country !== 'DE' && o.created_at.startsWith(year)).reduce((n, o) => n + o.total, 0);
+  if ((env.VAT_MODE || 'kleinunternehmer') === 'kleinunternehmer' && euSales >= 8000) add(euSales >= 10000 ? 'error' : 'warning', 'eu_distance_threshold', `EU sales outside Germany ${year}: ${Math.round(euSales)} € of the 10,000 € threshold`, null, 'Talk to the tax adviser: above 10,000 € destination VAT (OSS) applies. The AlGBr shops count too.');
   const live = env.SITE_MODE === 'live';
   const prov = providerFor(env);
   const purchasable = allVariants().filter((v) => v.purchasable);
