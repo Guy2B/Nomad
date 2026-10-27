@@ -21,7 +21,7 @@
       "shopType": "print-on-demand",
       "logo": "algebra/brand/algebra-a-signature-master.svg",
       "logoOnDark": "algebra/brand/algebra-a-signature-master-ivory.svg",
-      "image": null,
+      "image": "sites/digital-studio/assets/brands/algebra.webp",
       "theme": { "primary": "#131A2B", "background": "#F3EFE7", "accent": "#6A2232" },
       "languages": ["de", "en", "fr"],
       "tagline": { "de": "Built on proportion.", "en": "Built on proportion.", "fr": "Built on proportion." },

@@ -16,6 +16,7 @@
       "platforms": ["web-pwa", "android", "ios"],
       "languages": ["fr", "en", "de", "es"],
       "logo": null,
+      "image": "sites/digital-studio/assets/work/next-screens.webp",
       "tagline": "Know what matters. Do what’s next.",
       "summary": {
         "de": "Ein persönlicher Entscheidungsmotor: Aufgaben, Kalender und Mails werden zu höchstens drei erklärten Entscheidungen pro Tag. Lokal zuerst, offline nutzbar, keine externe Aktion ohne Bestätigung.",
