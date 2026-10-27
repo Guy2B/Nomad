@@ -172,7 +172,7 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .brand-visual { aspect-ratio: 9 / 7; background: var(--b-paper); overflow: hidden; }
 .brand-visual img { width: 100%; height: 100%; object-fit: cover; }
 .brand-mark { width: 100%; height: 100%; display: grid; place-items: center; background: var(--b-ink); color: #fff; }
-.brand-mark img { width: 34%; height: auto; object-fit: contain; }
+.brand-visual .brand-mark img, .work-visual .brand-mark img { width: 34%; height: auto; max-height: 70%; object-fit: contain; aspect-ratio: 1; }
 .mark-next { background: var(--ink); font-size: clamp(2rem, 4vw, 3rem); font-weight: 820; letter-spacing: -0.03em; }
 .brand-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
 .brand-body h2, .brand-body h3 { color: var(--b-ink); margin: 0; font-size: 1.35rem; }
@@ -202,7 +202,7 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .work-card a:hover h3 { text-decoration: underline; }
 .work-visual { aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--r); background: var(--ink); margin-bottom: 14px; }
 .work-visual img { width: 100%; height: 100%; object-fit: cover; }
-.work-visual .brand-mark img { width: 26%; }
+.work-visual .brand-mark img { width: 28%; }
 .work-kind { font-size: 0.88rem; color: var(--muted); margin: 0 0 4px; }
 .case { padding: 40px 0 48px; border-top: 2px solid var(--ink); }
 .case:first-child { border-top: 0; padding-top: 0; }
@@ -259,7 +259,7 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .site-foot a { color: #fff; text-decoration: none; }
 .site-foot a:hover { text-decoration: underline; }
 .foot-grid { display: grid; gap: 32px; }
-@media (min-width: 860px) { .foot-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+@media (min-width: 860px) { .foot-grid { grid-template-columns: 1.6fr 1fr 1.2fr 1fr 1fr; } }
 .foot-logo { color: #fff; font-weight: 850; font-size: 1.3rem; letter-spacing: -0.03em; margin-bottom: 8px; }
 .foot-logo b { color: #a99bff; }
 .foot-logo span { font-weight: 500; font-size: 0.9rem; color: #9aa6c4; letter-spacing: 0; }
@@ -279,3 +279,51 @@ p { margin: 0 0 1em; max-width: 68ch; }
 @keyframes row-in { from { opacity: 0; transform: translateY(6px); } }
 @media print { .site-head, .site-foot, .actions { display: none; } body { background: #fff; } }
 .case-head .small a + a { margin-left: 14px; }
+
+/* ---------- industries */
+.industry-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); }
+.industry-grid a { display: grid; grid-template-columns: auto 1fr; column-gap: 14px; row-gap: 2px; align-items: center; height: 100%; padding: 18px 20px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; color: var(--text); text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
+.industry-grid a:hover { border-color: var(--blue); box-shadow: 0 6px 20px rgb(11 21 48 / 8%); }
+.industry-grid .icon { grid-row: span 2; color: var(--violet); width: 28px; height: 28px; }
+.industry-grid h2, .industry-grid h3 { font-size: 1.08rem; margin: 0; }
+.industry-grid span { font-size: 0.9rem; color: var(--muted); }
+.industry-icon { color: var(--violet); margin: 0 0 8px; }
+.industry-icon .icon { width: 40px; height: 40px; }
+
+/* ---------- service and industry pages */
+.sub-head h1 { max-width: 22ch; font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+.split { display: grid; gap: 40px; }
+@media (min-width: 960px) { .split { grid-template-columns: 1fr 2fr; gap: 64px; } .split-aside { position: sticky; top: 96px; align-self: start; } }
+.split-aside h2 { font-size: 1.5rem; }
+.aside-eyebrow { color: var(--violet); font-weight: 650; margin-bottom: 8px; }
+.split-main h2 { font-size: 1.4rem; margin-top: 1.8em; }
+.split-main h2:first-child { margin-top: 0; }
+.feature-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+@media (min-width: 640px) { .feature-list { grid-template-columns: 1fr 1fr; } }
+.feature-list li { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 6px; padding: 12px 14px; font-weight: 550; }
+.tags { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+.tags li { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 14px; font-size: 0.92rem; justify-self: start; }
+.related { display: flex; flex-wrap: wrap; gap: 10px; }
+.related a { border: 1.5px solid var(--ink); border-radius: 8px; padding: 8px 14px; text-decoration: none; color: var(--ink); font-weight: 600; }
+.related a:hover { background: var(--ink); color: #fff; }
+.services h2 a, .services h3 a { color: inherit; text-decoration: none; }
+.services h2 a:hover, .services h3 a:hover { text-decoration: underline; }
+
+/* ---------- FAQ */
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; padding: 16px 0; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-size: 1.4rem; line-height: 1; color: var(--blue); }
+.faq details[open] summary::after { content: '–'; }
+.faq summary h2, .faq summary h3 { font-size: 1.08rem; margin: 0; }
+.faq p { margin: 0 0 16px; color: var(--ink-2); }
+
+/* ---------- guided brief */
+.brief-step { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 18px 20px 20px; margin: 0; display: grid; gap: 16px; min-width: 0; }
+.brief-step legend { font-weight: 720; font-size: 1.1rem; color: var(--ink); padding: 0 6px; display: flex; align-items: center; gap: 10px; }
+.step-n { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+.row2 { display: grid; gap: 16px; }
+@media (min-width: 640px) { .row2 { grid-template-columns: 1fr 1fr; } }
+.checks { display: grid; gap: 10px 16px; }
+@media (min-width: 640px) { .checks { grid-template-columns: 1fr 1fr; } }
+.contact-form { max-width: 760px; }

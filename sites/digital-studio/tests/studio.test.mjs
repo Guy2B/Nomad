@@ -19,7 +19,9 @@ const urlOf = (f) => '/' + relative(dist, f).replace(/index\.html$/, '');
 
 test('every page of the brief exists in DE, EN and FR', () => {
   for (const l of ['de', 'en', 'fr'])
-    for (const p of ['', 'services/', 'brands/', 'software/', 'work/', 'about/', 'contact/', 'impressum/', 'datenschutz/', 'brands/algebra/', 'brands/go/', 'brands/off/'])
+    for (const p of ['', 'services/', 'industries/', 'brands/', 'software/', 'work/', 'about/', 'contact/', 'impressum/', 'datenschutz/', 'brands/algebra/', 'brands/go/', 'brands/off/',
+      ...['website', 'ecommerce', 'branding', 'software', 'automation', 'maintenance'].map((s) => `services/${s}/`),
+      ...['trades', 'beauty', 'restaurants', 'coaching', 'hair', 'events', 'medical', 'real-estate'].map((i) => `industries/${i}/`)])
       assert.ok(existsSync(join(dist, l, p, 'index.html')), `${l}/${p}`);
 });
 
@@ -87,7 +89,7 @@ test('preview build is noindex everywhere', () => {
 
 // ------------------------------------------------------------------ Worker
 const now = Date.now();
-const good = { name: 'Ada Muster', email: 'ada@example.com', type: 'website', budget: '1', message: 'Wir brauchen eine neue Website für unseren Betrieb.', consent: true, lang: 'de', t: String(now - 60_000) };
+const good = { name: 'Ada Muster', email: 'ada@example.com', type: 'website', industry: 'trades', goal: 'Mehr Anfragen aus der Region.', features: ['contact', 'book', 'nope'], budget: 'lt1000', timeline: '4weeks', message: '', consent: true, lang: 'de', t: String(now - 60_000) };
 const env = { OWNER_EMAIL: 'owner@example.com', RESEND_API_KEY: 'test', ALLOWED_ORIGINS: 'https://algbr.de' };
 const req = (body, headers = {}) =>
   new Request('https://algbr.de/api/contact', { method: 'POST', headers: { origin: 'https://algbr.de', 'content-type': 'application/json', ...headers }, body: typeof body === 'string' ? body : JSON.stringify(body) });
@@ -110,7 +112,9 @@ test('root redirects, unknown API is JSON 404, the rest goes to the static asset
 
 test('validation: required fields, honeypot and too-fast submissions', () => {
   assert.equal(validate(good, now).ok, true);
-  assert.deepEqual(validate({ ...good, email: 'nope', message: 'kurz', consent: false }, now).fields, ['email', 'message', 'consent']);
+  assert.deepEqual(validate({ ...good, email: 'nope', goal: 'kurz', consent: false }, now).fields, ['email', 'goal', 'consent']);
+  assert.deepEqual(validate(good, now).data.features, ['contact', 'book'], 'unknown features are dropped');
+  assert.equal(validate({ ...good, budget: 'all-the-money' }, now).data.budget, 'open');
   assert.equal(validate({ ...good, website: 'http://spam' }, now).spam, true);
   assert.equal(validate({ ...good, t: String(now - 500) }, now).spam, true);
   assert.equal(validate({ ...good, type: 'casino' }, now).fields[0], 'type');
@@ -147,7 +151,28 @@ test('contact: foreign origin, wrong type, oversize and missing credentials are 
 
 test('mail text contains the request, budget label and language', () => {
   const m = mailFor(validate(good, now).data, env);
-  assert.match(m.text, /Projekt: website/);
-  assert.match(m.text, /Budget: < 1\.500 €/);
+  assert.match(m.text, /Projektart: website/);
+  assert.match(m.text, /Branche: trades/);
+  assert.match(m.text, /Funktionen: contact, book/);
+  assert.match(m.text, /Budget: lt1000/);
   assert.match(m.subject, /^\[algbr\.de\] website · Ada Muster$/);
+});
+
+test('the Algebra mark is never stretched: its card image keeps its own proportions', () => {
+  const css = read(join(here, 'assets', 'studio.css'));
+  assert.match(css, /\.work-visual \.brand-mark img[^{]*\{[^}]*height: auto[^}]*object-fit: contain/);
+});
+
+test('old studio content is kept: service and industry pages carry the original German text', () => {
+  const s = read(join(dist, 'de', 'industries', 'trades', 'index.html'));
+  assert.ok(s.includes('Leistungsseiten nach Gewerk'));
+  assert.ok(read(join(dist, 'de', 'services', 'ecommerce', 'index.html')).includes('Shop- und Kategoriearchitektur'));
+  assert.ok(read(join(dist, 'de', 'index.html')).includes('"@type":"FAQPage"'));
+});
+
+test('brief options in the page match what the Worker accepts', async () => {
+  const { BRIEF } = await import('../content/copy.mjs');
+  const s = read(join(dist, 'en', 'contact', 'index.html'));
+  for (const t of BRIEF.types) assert.ok(s.includes(`value="${t}"`), t);
+  for (const f of BRIEF.features) assert.ok(s.includes(`name="features" value="${f}"`), f);
 });

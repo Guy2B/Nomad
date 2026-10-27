@@ -7,9 +7,10 @@ import worker from '../worker/src/index.js';
 import { LEGACY_PATTERNS, legacyStudioTarget } from '../worker/src/legacy.js';
 
 test('old studio pages map to their algbr.de equivalent', () => {
-  assert.equal(legacyStudioTarget('/leistungen/webshop.html'), 'https://algbr.de/de/services/#ecommerce');
-  assert.equal(legacyStudioTarget('/leistungen/websites.html'), 'https://algbr.de/de/services/#website');
-  assert.equal(legacyStudioTarget('/branchen/handwerk.html'), 'https://algbr.de/de/services/');
+  assert.equal(legacyStudioTarget('/leistungen/webshop.html'), 'https://algbr.de/de/services/ecommerce/');
+  assert.equal(legacyStudioTarget('/leistungen/websites.html'), 'https://algbr.de/de/services/website/');
+  assert.equal(legacyStudioTarget('/branchen/handwerk.html'), 'https://algbr.de/de/industries/trades/');
+  assert.equal(legacyStudioTarget('/branchen/arzt.html'), 'https://algbr.de/de/industries/medical/');
   assert.equal(legacyStudioTarget('/fr/project.html'), 'https://algbr.de/fr/contact/');
   assert.equal(legacyStudioTarget('/project.html'), 'https://algbr.de/de/contact/');
   assert.equal(legacyStudioTarget('/impressum.html'), 'https://algbr.de/de/impressum/');
@@ -24,7 +25,7 @@ test('redirects only when LEGACY_STUDIO_REDIRECTS = "1"', async () => {
   const assets = { fetch: () => new Response('asset') };
   const on = await worker.fetch(new Request('https://algbr.eu/leistungen/apps.html'), { LEGACY_STUDIO_REDIRECTS: '1', ASSETS: assets, SITE_ORIGIN: 'https://algbr.eu' });
   assert.equal(on.status, 301);
-  assert.equal(on.headers.get('location'), 'https://algbr.de/de/services/#software');
+  assert.equal(on.headers.get('location'), 'https://algbr.de/de/services/software/');
   const off = await worker.fetch(new Request('https://algebra.algbr.eu/leistungen/apps.html'), { ASSETS: assets, SITE_ORIGIN: 'https://algebra.algbr.eu' });
   assert.equal(await off.text(), 'asset');
 });
