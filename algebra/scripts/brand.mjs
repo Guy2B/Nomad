@@ -7,6 +7,8 @@
  * Generated here (never edited by hand):
  *   brand/wordmark-signature.svg / -ivory.svg   "Algebra": the master A + "lgebra" (Cormorant Garamond SemiBold outlines, OFL)
  *   brand/favicon.svg                           the master A, ivory on navy
+ *   brand/circle-seal.svg / -ivory.svg          A Circle seal: the master A in a fine ring
+ *   brand/circle-signature.svg / -ivory.svg     A Circle signature: the master A, a hairline, CIRCLE (Cormorant Garamond outlines)
  *   brand/paths.json                            geometry for the build: master path + bars, "lgebra" outlines, wordmark layout
  *
  * Only size and colour ever vary; the A's geometry is copied, not re-created.
@@ -69,9 +71,39 @@ writeFileSync(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${FAV} ${FAV}"><rect width="${FAV}" height="${FAV}" rx="14" fill="${tokens.color.navy}"/>${aShape(IVORY, `matrix(${fs.toFixed(5)} 0 0 ${fs.toFixed(5)} ${((FAV - aw) / 2 - bx0 * fs).toFixed(3)} ${((FAV - ah) / 2 - by0 * fs + 1).toFixed(3)})`)}</svg>\n`,
 );
 
+// ------------------------------------------------------------------ A Circle: seal + member signature (the master A, never altered)
+// Seal: the A centred in a fine ring (avatar, member card, packaging stamp, small formats).
+// Signature: the A, a hairline rule, "CIRCLE" in spaced capitals (page header, e-mails).
+const aIn = (cx, cy, w) => { const k = w / (bx1 - bx0); return `matrix(${k.toFixed(5)} 0 0 ${k.toFixed(5)} ${(cx - ((bx0 + bx1) / 2) * k).toFixed(3)} ${(cy - ((by0 + by1) / 2) * k).toFixed(3)})`; };
+const SEAL = { size: 200, r: 78, stroke: 1.6, aw: 84, cy: 102 };
+const seal = (fill) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SEAL.size} ${SEAL.size}" role="img" aria-label="A Circle"><title>A Circle</title><circle cx="100" cy="100" r="${SEAL.r}" fill="none" stroke="${fill}" stroke-width="${SEAL.stroke}"/>${aShape(fill, aIn(100, SEAL.cy, SEAL.aw))}</svg>\n`;
+writeFileSync(join(out, 'circle-seal.svg'), seal(INK));
+writeFileSync(join(out, 'circle-seal-ivory.svg'), seal(IVORY));
+
+const cfont = opentype.loadSync(join(root, 'node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff'));
+const CS = 40, TRK = 0.25 * CS, CBASE = 114;
+let cx = 196;
+const cparts = [];
+for (const g of cfont.stringToGlyphs('CIRCLE')) {
+  const p = g.getPath(cx, CBASE, CS);
+  cparts.push(p.toPathData(2));
+  cx += (g.advanceWidth / cfont.unitsPerEm) * CS + TRK;
+}
+const textRight = cx - TRK;
+const SIG = { x0: 40, y0: 60, w: Math.ceil(textRight + 4 - 40), h: 80 };
+const signature = (fill) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${SIG.x0} ${SIG.y0} ${SIG.w} ${SIG.h}" role="img" aria-label="A Circle"><title>A Circle</title>${aShape(fill, aIn(92, 100, 96))}<rect x="167.6" y="64" width="0.8" height="72" fill="${fill}"/><path fill="${fill}" d="${cparts.join(' ')}"/></svg>\n`;
+writeFileSync(join(out, 'circle-signature.svg'), signature(INK));
+writeFileSync(join(out, 'circle-signature-ivory.svg'), signature(IVORY));
+const circle = {
+  seal: { size: SEAL.size, r: SEAL.r, stroke: SEAL.stroke, matrix: aIn(100, SEAL.cy, SEAL.aw) },
+  signature: { viewBox: `${SIG.x0} ${SIG.y0} ${SIG.w} ${SIG.h}`, matrix: aIn(92, 100, 96), rule: [167.6, 64, 0.8, 72], text: cparts.join(' ') },
+};
+
 // ------------------------------------------------------------------ geometry for the build
 writeFileSync(
   join(out, 'paths.json'),
-  JSON.stringify({ master: { d: master.d, bars: master.bars, box: master.box }, signature: { width, height, matrix, rest: { dx, d: lgebra.d } } }, null, 1) + '\n',
+  JSON.stringify({ master: { d: master.d, bars: master.bars, box: master.box }, signature: { width, height, matrix, rest: { dx, d: lgebra.d } }, circle }, null, 1) + '\n',
 );
 console.log('brand/ written from the master A', { wordmark: `${width}×${height}`, scale: s.toFixed(4) });

@@ -520,12 +520,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (min-width: 1024px) { .ftr__cols { gap: 48px; } }
 @media (max-width: 767px) { .ftr__in { padding-top: 48px; padding-bottom: 32px; gap: 32px; } .ftr ul { gap: 7px; } }
 
-/* ---------- A Circle (the official A, then "Circle": one A, one geometry) */
-.circlemark { display: inline-flex; align-items: flex-end; gap: 10px; margin: 0 0 18px; color: var(--ink); }
-.circlemark__a { width: 30px; height: auto; color: var(--navy); }
-.circlemark span { font: 500 1.7rem/0.9 var(--display); letter-spacing: .02em; }
-.circlemark--xl .circlemark__a { width: 46px; }
-.circlemark--xl span { font-size: 2.6rem; }
+/* ---------- A Circle: seal and signature, both built from the official A (one A, one geometry) */
+.circlemark { display: inline-flex; margin: 0 0 22px; color: var(--navy); line-height: 0; }
+/* seal: the A in a fine ring (home feature, member page); signature: A | CIRCLE (A Circle page) */
+.circleseal { width: 88px; height: auto; display: block; }
+.circleseal--sm { width: 64px; }
+.circlesig { height: 52px; width: auto; display: block; }
+@media (min-width: 768px) { .circlesig { height: 64px; } .circleseal { width: 104px; } }
 .circlefeat { padding-block: 104px; text-align: center; border-top: 1px solid var(--line); background: var(--ivory); }
 .circlefeat .circlemark { justify-content: center; }
 .circlefeat__h { font: italic 400 clamp(1.9rem, 3.6vw, 3rem)/1.1 var(--display); margin: 0 0 16px; }

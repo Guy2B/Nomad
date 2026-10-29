@@ -67,6 +67,17 @@ const [MX0, MY0, MX1, MY1] = brand.master.box;
 const symbolSvg = (cls = 'sym', label = '') =>
   `<svg class="${cls}" viewBox="${MX0} ${MY0} ${+(MX1 - MX0).toFixed(1)} ${+(MY1 - MY0).toFixed(1)}" ${label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"'} focusable="false" fill="currentColor">${aMark()}</svg>`;
 /** Primary brand: the wordmark "Algebra", the master A as its first letter (brand/wordmark-signature.svg). */
+/** A Circle seal: the master A centred in a fine ring (brand/circle-seal.svg). */
+const circleSealSvg = (cls = 'circleseal') => {
+  const c = brand.circle.seal;
+  return `<svg class="${cls}" viewBox="0 0 ${c.size} ${c.size}" role="img" aria-label="A Circle" focusable="false" fill="currentColor"><circle cx="${c.size / 2}" cy="${c.size / 2}" r="${c.r}" fill="none" stroke="currentColor" stroke-width="${c.stroke}"/>${aMark(c.matrix)}</svg>`;
+};
+/** A Circle signature: the master A, a hairline, CIRCLE (brand/circle-signature.svg). */
+const circleSigSvg = (cls = 'circlesig') => {
+  const c = brand.circle.signature;
+  const [x, y, w, h] = c.rule;
+  return `<svg class="${cls}" viewBox="${c.viewBox}" role="img" aria-label="A Circle" focusable="false" fill="currentColor">${aMark(c.matrix)}<rect x="${x}" y="${y}" width="${w}" height="${h}"/><path d="${c.text}"/></svg>`;
+};
 const sigSvg = (cls = 'wm') => {
   const g = brand.signature;
   return `<svg class="${cls}" viewBox="0 0 ${g.width} ${g.height}" role="img" aria-label="Algebra" focusable="false" fill="currentColor">${aMark(g.matrix)}<path transform="translate(${g.rest.dx} 0)" d="${g.rest.d}"/></svg>`;
@@ -518,7 +529,7 @@ function home(lang) {
 </section>
 
 <section class="circlefeat" aria-labelledby="circlefeat-h">
-  <p class="circlemark">${symbolSvg('sym circlemark__a', '')}<span>Circle</span></p>
+  <p class="circlemark">${circleSealSvg('circleseal')}</p>
   <h2 class="circlefeat__h" id="circlefeat-h">${esc(CIRCLE[lang].home.h)}</h2>
   <p class="circlefeat__list">${CIRCLE[lang].home.list.map(esc).join(' ')}</p>
   <p><a class="more" href="${r(`/${lang}/circle/`)}">${esc(CIRCLE[lang].home.cta)}</a></p>
@@ -596,7 +607,7 @@ for (const lang of LANGS) {
     const privacyHref = rel(path, `/${lang}/info/privacy/`);
     const body = `<section class="circle">
   <div class="circle__hero">
-    <p class="circlemark circlemark--xl">${symbolSvg('sym circlemark__a', 'A')}<span>Circle</span></p>
+    <p class="circlemark circlemark--xl">${circleSigSvg('circlesig')}</p>
     <h1 class="circle__h">${esc(C.title)}</h1>
     <p class="lead circle__lead">${esc(C.lead)}</p>
   </div>
@@ -620,7 +631,7 @@ for (const lang of LANGS) {
     const mpath = `/${lang}/circle/member/`;
     const M = C.member;
     const mbody = `<section class="wrap page circle-member" data-circle-member>
-  <p class="circlemark">${symbolSvg('sym circlemark__a', 'A')}<span>Circle</span></p>
+  <p class="circlemark">${circleSealSvg('circleseal circleseal--sm')}</p>
   <h1 class="h1">${esc(M.title)}</h1>
   <p class="about__kicker" data-cm-welcome hidden>${esc(M.welcome)}</p>
   <p class="form-err" data-cm-missing hidden role="alert">${esc(M.notFound)} <a href="${rel(mpath, path)}">${esc(M.rejoin)}</a></p>
@@ -804,7 +815,7 @@ if (!PREVIEW) {
     const t = readFileSync(f, 'utf8');
     for (const re of LEGACY) if (re.test(t)) hits.push(`${f.slice(dist.length)}: ${re}`);
   }
-  const allowed = new Set(['README.md', 'algebra-a-signature-master.svg', 'algebra-a-signature-master-ivory.svg', 'wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'favicon.svg', 'paths.json', 'production']);
+  const allowed = new Set(['README.md', 'algebra-a-signature-master.svg', 'algebra-a-signature-master-ivory.svg', 'wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'circle-seal.svg', 'circle-seal-ivory.svg', 'circle-signature.svg', 'circle-signature-ivory.svg', 'favicon.svg', 'paths.json', 'production']);
   const extra = readdirSync(join(root, 'brand')).filter((f) => !allowed.has(f));
   if (extra.length) hits.push(`brand/ holds files outside the master set: ${extra.join(', ')}`);
   if (!readFileSync(join(dist, 'favicon.svg'), 'utf8').includes(brand.master.d)) hits.push('favicon.svg is not built from the master A');

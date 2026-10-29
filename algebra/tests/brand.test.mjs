@@ -32,7 +32,7 @@ test('generated files reuse the master geometry (wordmark, favicon, build paths)
   const paths = JSON.parse(read('brand', 'paths.json'));
   assert.equal(paths.master.d, master.d);
   assert.deepEqual(paths.master.bars, master.bars);
-  for (const f of ['wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'favicon.svg']) {
+  for (const f of ['wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'favicon.svg', 'circle-seal.svg', 'circle-seal-ivory.svg', 'circle-signature.svg', 'circle-signature-ivory.svg']) {
     const t = read('brand', f);
     assert.ok(t.includes(master.d), `${f} uses the master path`);
     for (const [x, y, w, h] of master.bars) assert.ok(t.includes(`<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`), `${f} uses the master bars`);
@@ -41,7 +41,7 @@ test('generated files reuse the master geometry (wordmark, favicon, build paths)
 });
 
 test('brand/ holds only the master and what is generated from it', () => {
-  const allowed = ['README.md', 'algebra-a-signature-master.svg', 'algebra-a-signature-master-ivory.svg', 'wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'favicon.svg', 'paths.json', 'production'];
+  const allowed = ['README.md', 'algebra-a-signature-master.svg', 'algebra-a-signature-master-ivory.svg', 'wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'circle-seal.svg', 'circle-seal-ivory.svg', 'circle-signature.svg', 'circle-signature-ivory.svg', 'favicon.svg', 'paths.json', 'production'];
   assert.deepEqual(readdirSync(brandDir).filter((f) => !allowed.includes(f)), []);
   assert.ok(read('brand', 'README.md').includes('One A. One geometry. Everywhere.'));
 });
