@@ -8,7 +8,7 @@
  *   brand/wordmark-signature.svg / -ivory.svg   "Algebra": the master A + "lgebra" (Cormorant Garamond SemiBold outlines, OFL)
  *   brand/favicon.svg                           the master A, ivory on navy
  *   brand/circle-seal.svg / -ivory.svg          A Circle seal: the master A in a fine ring
- *   brand/circle-signature.svg / -ivory.svg     A Circle signature: the master A, a hairline, CIRCLE (Cormorant Garamond outlines)
+ *   brand/circle-signature.svg / -ivory.svg     A Circle logo: the seal, a hairline, CIRCLE (Cormorant Garamond outlines)
  *   brand/paths.json                            geometry for the build: master path + bars, "lgebra" outlines, wordmark layout
  *
  * Only size and colour ever vary; the A's geometry is copied, not re-created.
@@ -83,7 +83,9 @@ writeFileSync(join(out, 'circle-seal-ivory.svg'), seal(IVORY));
 
 const cfont = opentype.loadSync(join(root, 'node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff'));
 const CS = 40, TRK = 0.25 * CS, CBASE = 114;
-let cx = 196;
+// signature = the seal (ring + A) on the left, a hairline, CIRCLE
+const SR = { cx: 84, cy: 100, r: 38, stroke: 1.1, aw: 41, acy: 101 };
+let cx = 166;
 const cparts = [];
 for (const g of cfont.stringToGlyphs('CIRCLE')) {
   const p = g.getPath(cx, CBASE, CS);
@@ -91,14 +93,15 @@ for (const g of cfont.stringToGlyphs('CIRCLE')) {
   cx += (g.advanceWidth / cfont.unitsPerEm) * CS + TRK;
 }
 const textRight = cx - TRK;
-const SIG = { x0: 40, y0: 60, w: Math.ceil(textRight + 4 - 40), h: 80 };
+const SIG = { x0: 44, y0: 60, w: Math.ceil(textRight + 4 - 44), h: 80 };
+const RULE = [143.6, 66, 0.8, 68];
 const signature = (fill) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${SIG.x0} ${SIG.y0} ${SIG.w} ${SIG.h}" role="img" aria-label="A Circle"><title>A Circle</title>${aShape(fill, aIn(92, 100, 96))}<rect x="167.6" y="64" width="0.8" height="72" fill="${fill}"/><path fill="${fill}" d="${cparts.join(' ')}"/></svg>\n`;
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${SIG.x0} ${SIG.y0} ${SIG.w} ${SIG.h}" role="img" aria-label="A Circle"><title>A Circle</title><circle cx="${SR.cx}" cy="${SR.cy}" r="${SR.r}" fill="none" stroke="${fill}" stroke-width="${SR.stroke}"/>${aShape(fill, aIn(SR.cx, SR.acy, SR.aw))}<rect x="${RULE[0]}" y="${RULE[1]}" width="${RULE[2]}" height="${RULE[3]}" fill="${fill}"/><path fill="${fill}" d="${cparts.join(' ')}"/></svg>\n`;
 writeFileSync(join(out, 'circle-signature.svg'), signature(INK));
 writeFileSync(join(out, 'circle-signature-ivory.svg'), signature(IVORY));
 const circle = {
   seal: { size: SEAL.size, r: SEAL.r, stroke: SEAL.stroke, matrix: aIn(100, SEAL.cy, SEAL.aw) },
-  signature: { viewBox: `${SIG.x0} ${SIG.y0} ${SIG.w} ${SIG.h}`, matrix: aIn(92, 100, 96), rule: [167.6, 64, 0.8, 72], text: cparts.join(' ') },
+  signature: { viewBox: `${SIG.x0} ${SIG.y0} ${SIG.w} ${SIG.h}`, ring: [SR.cx, SR.cy, SR.r, SR.stroke], matrix: aIn(SR.cx, SR.acy, SR.aw), rule: RULE, text: cparts.join(' ') },
 };
 
 // ------------------------------------------------------------------ geometry for the build

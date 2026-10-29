@@ -36,8 +36,8 @@ It replaces the earlier master. Any change needs the owner's explicit written ap
 | `algebra-a-signature-master-ivory.svg` | Same geometry, ivory. |
 | `wordmark-signature.svg`, `-ivory.svg` | Primary brand "Algebra": the master A + "lgebra" (Cormorant Garamond SemiBold outlines). Generated. |
 | `favicon.svg` | The master A, ivory on navy. Generated. |
-| `circle-seal.svg`, `-ivory.svg` | A Circle seal: the master A in a fine ring (avatar, member card, packaging stamp, small formats). Generated. |
-| `circle-signature.svg`, `-ivory.svg` | A Circle signature: the master A, a hairline, CIRCLE in spaced capitals (page header, e-mails). Generated. |
+| `circle-seal.svg`, `-ivory.svg` | A Circle seal alone: the master A in a fine ring (avatar, member card, packaging stamp, small formats). Generated. |
+| `circle-signature.svg`, `-ivory.svg` | A Circle logo: the seal (ring + master A), a hairline, CIRCLE in spaced capitals (page, home, member page, e-mails). Generated. |
 | `paths.json` | Geometry for the site build. Generated. |
 | `production/` | Technical files for suppliers (embroidery, print), always derived from the master. |
 

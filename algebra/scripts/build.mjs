@@ -67,16 +67,12 @@ const [MX0, MY0, MX1, MY1] = brand.master.box;
 const symbolSvg = (cls = 'sym', label = '') =>
   `<svg class="${cls}" viewBox="${MX0} ${MY0} ${+(MX1 - MX0).toFixed(1)} ${+(MY1 - MY0).toFixed(1)}" ${label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"'} focusable="false" fill="currentColor">${aMark()}</svg>`;
 /** Primary brand: the wordmark "Algebra", the master A as its first letter (brand/wordmark-signature.svg). */
-/** A Circle seal: the master A centred in a fine ring (brand/circle-seal.svg). */
-const circleSealSvg = (cls = 'circleseal') => {
-  const c = brand.circle.seal;
-  return `<svg class="${cls}" viewBox="0 0 ${c.size} ${c.size}" role="img" aria-label="A Circle" focusable="false" fill="currentColor"><circle cx="${c.size / 2}" cy="${c.size / 2}" r="${c.r}" fill="none" stroke="currentColor" stroke-width="${c.stroke}"/>${aMark(c.matrix)}</svg>`;
-};
-/** A Circle signature: the master A, a hairline, CIRCLE (brand/circle-signature.svg). */
+/** A Circle logo: the seal (ring + master A), a hairline, CIRCLE (brand/circle-signature.svg). */
 const circleSigSvg = (cls = 'circlesig') => {
   const c = brand.circle.signature;
   const [x, y, w, h] = c.rule;
-  return `<svg class="${cls}" viewBox="${c.viewBox}" role="img" aria-label="A Circle" focusable="false" fill="currentColor">${aMark(c.matrix)}<rect x="${x}" y="${y}" width="${w}" height="${h}"/><path d="${c.text}"/></svg>`;
+  const [rx, ry, rr, rs] = c.ring;
+  return `<svg class="${cls}" viewBox="${c.viewBox}" role="img" aria-label="A Circle" focusable="false" fill="currentColor"><circle cx="${rx}" cy="${ry}" r="${rr}" fill="none" stroke="currentColor" stroke-width="${rs}"/>${aMark(c.matrix)}<rect x="${x}" y="${y}" width="${w}" height="${h}"/><path d="${c.text}"/></svg>`;
 };
 const sigSvg = (cls = 'wm') => {
   const g = brand.signature;
@@ -529,7 +525,7 @@ function home(lang) {
 </section>
 
 <section class="circlefeat" aria-labelledby="circlefeat-h">
-  <p class="circlemark">${circleSealSvg('circleseal')}</p>
+  <p class="circlemark">${circleSigSvg('circlesig')}</p>
   <h2 class="circlefeat__h" id="circlefeat-h">${esc(CIRCLE[lang].home.h)}</h2>
   <p class="circlefeat__list">${CIRCLE[lang].home.list.map(esc).join(' ')}</p>
   <p><a class="more" href="${r(`/${lang}/circle/`)}">${esc(CIRCLE[lang].home.cta)}</a></p>
@@ -631,7 +627,7 @@ for (const lang of LANGS) {
     const mpath = `/${lang}/circle/member/`;
     const M = C.member;
     const mbody = `<section class="wrap page circle-member" data-circle-member>
-  <p class="circlemark">${circleSealSvg('circleseal circleseal--sm')}</p>
+  <p class="circlemark">${circleSigSvg('circlesig circlesig--sm')}</p>
   <h1 class="h1">${esc(M.title)}</h1>
   <p class="about__kicker" data-cm-welcome hidden>${esc(M.welcome)}</p>
   <p class="form-err" data-cm-missing hidden role="alert">${esc(M.notFound)} <a href="${rel(mpath, path)}">${esc(M.rejoin)}</a></p>

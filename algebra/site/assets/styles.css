@@ -522,11 +522,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ---------- A Circle: seal and signature, both built from the official A (one A, one geometry) */
 .circlemark { display: inline-flex; margin: 0 0 22px; color: var(--navy); line-height: 0; }
-/* seal: the A in a fine ring (home feature, member page); signature: A | CIRCLE (A Circle page) */
-.circleseal { width: 88px; height: auto; display: block; }
-.circleseal--sm { width: 64px; }
-.circlesig { height: 52px; width: auto; display: block; }
-@media (min-width: 768px) { .circlesig { height: 64px; } .circleseal { width: 104px; } }
+/* A Circle logo: seal (ring + A) | CIRCLE. The seal alone (brand/circle-seal.svg) is for avatars and small formats. */
+.circlesig { height: 56px; width: auto; display: block; } /* the A inside the ring stays >= 24 px high on desktop */
+.circlesig--sm { height: 48px; }
+@media (min-width: 768px) { .circlesig { height: 72px; } .circlesig--sm { height: 56px; } }
 .circlefeat { padding-block: 104px; text-align: center; border-top: 1px solid var(--line); background: var(--ivory); }
 .circlefeat .circlemark { justify-content: center; }
 .circlefeat__h { font: italic 400 clamp(1.9rem, 3.6vw, 3rem)/1.1 var(--display); margin: 0 0 16px; }
