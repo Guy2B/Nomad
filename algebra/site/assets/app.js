@@ -143,8 +143,11 @@ function updateCount() {
 }
 updateCount();
 
+// price of a bag line: the cut's own price when it has one (e.g. oversize), else the product price
+const unitPrice = (i) => CAT.products[i.id].cp?.[i.cut] ?? CAT.products[i.id].p;
+
 function totals() {
-  const sub = bag.reduce((s, i) => s + CAT.products[i.id].p * i.qty, 0);
+  const sub = bag.reduce((s, i) => s + unitPrice(i) * i.qty, 0);
   const zone = country === 'DE' ? CAT.shipping.DE : CAT.shipping.EU;
   const ship = sub === 0 || sub >= zone.freeFrom ? 0 : zone.fee;
   return { sub, ship, total: sub + ship, zone };
@@ -172,7 +175,7 @@ function renderBag() {
         .map(
           (i, idx) => `<li class="bag__item"><img src="${itemImg(i)}" alt="" width="92" height="115" loading="lazy">
           <div><h3><a href="${ROOT}${CAT.products[i.id].u.slice(1)}">${CAT.products[i.id].n}</a></h3>
-          <p>${CAT.colors[i.color]} · ${i.size}${i.cut ? ` · ${CAT.cuts[i.cut]}` : ''}</p><p>${fmt(CAT.products[i.id].p)}</p>
+          <p>${CAT.colors[i.color]} · ${i.size}${i.cut ? ` · ${CAT.cuts[i.cut]}` : ''}</p><p>${fmt(unitPrice(i))}</p>
           <div class="bag__row"><div class="qty" role="group" aria-label="${t.qty}"><button type="button" data-q="-1" data-i="${idx}" aria-label="−">−</button><output aria-live="polite">${i.qty}</output><button type="button" data-q="1" data-i="${idx}" aria-label="+">+</button></div>
           <button type="button" class="linkish small" data-rm="${idx}">${t.remove}</button></div></div></li>`,
         )
@@ -291,7 +294,10 @@ if (pdp) {
       input.disabled = !show || !v;
       if (input.disabled) input.checked = false;
     });
-    $$('[data-gallery] .gal__set').forEach((s) => (s.hidden = s.dataset.color !== color));
+    $$('[data-gallery] .gal__set').forEach((s) => (s.hidden = s.dataset.color !== color || (cut && s.dataset.cut && s.dataset.cut !== cut)));
+    const pv = variants.find((x) => x.cut === cut && x.price != null);
+    const pe = $('[data-price-el]');
+    if (pv && pe && pdp.dataset.buyable) pe.textContent = fmt(pv.price);
     const lbl = form.querySelector('[name="color"]:checked')?.dataset.label;
     if (lbl) $('[data-color-name]').textContent = lbl;
   };
@@ -314,7 +320,7 @@ if (pdp) {
     if (ex) ex.qty = Math.min(10, ex.qty + 1);
     else bag.push({ sku: v.sku, id, color: v.color, size: v.size, cut: v.cut, qty: 1 });
     saveBag();
-    track('add_to_cart', { currency: 'EUR', value: +pdp.dataset.price, items: [{ item_id: v.sku, item_name: pdp.dataset.name, quantity: 1 }] });
+    track('add_to_cart', { currency: 'EUR', value: v.price ?? +pdp.dataset.price, items: [{ item_id: v.sku, item_name: pdp.dataset.name, quantity: 1 }] });
     await openBag();
   });
 }

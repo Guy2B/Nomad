@@ -54,8 +54,9 @@ const pct = (n) => (n == null ? 'TO VERIFY' : `${(n * 100).toFixed(0)} %`);
 export function unit(p, cut, mode = 'K', zone = 'DE', a = ASSUMPTIONS) {
   const cost = costOf(p, cut);
   const z = shipping.zones[zone];
-  const shipFee = p.price >= z.freeFrom ? 0 : z.fee;
-  const gross = p.price + shipFee; // what the customer pays
+  const price = cut?.price ?? p.price;
+  const shipFee = price >= z.freeFrom ? 0 : z.fee;
+  const gross = price + shipFee; // what the customer pays
   const revenue = mode === 'K' ? gross : gross / (1 + VAT);
   const k = mode === 'K' ? 1 + VAT : 1; // supplier invoices carry 19 % VAT; not recoverable for a Kleinunternehmer
   const product = cost.net != null ? cost.net * k : null;
@@ -67,7 +68,7 @@ export function unit(p, cut, mode = 'K', zone = 'DE', a = ASSUMPTIONS) {
   const contribution = product == null ? null : revenue - product - label - ship - pay - returns;
   const contributionWorst = product == null ? null : revenue - product - label - ship - payWorst - returns;
   return {
-    sku: p.id + (cut ? `-${cut.id === 'women' ? 'W' : 'U'}` : ''),
+    sku: p.id + (cut ? `-${cut.code}` : ''),
     name: p.name.en + (cut ? ` (${cut.name.en})` : ''),
     costSource: cost.source,
     // minimum price (incl. shipping fee paid by the customer) that keeps targetMargin: gross = (fixed costs) / (1 − pay% − margin)
@@ -75,7 +76,7 @@ export function unit(p, cut, mode = 'K', zone = 'DE', a = ASSUMPTIONS) {
     status: p.status,
     mode,
     zone,
-    priceGross: p.price,
+    priceGross: price,
     shipFee,
     revenue: r2(revenue),
     product: product == null ? null : r2(product),
@@ -109,7 +110,7 @@ export function sensitivity(prices = [59, 69, 79]) {
   const g = products.find((p) => p.line === 'graphic');
   const rows = g.cuts.flatMap((c) =>
     prices.map((price) => {
-      const r = unit({ ...g, price }, c, 'K', 'DE');
+      const r = unit({ ...g, price }, { ...c, price }, 'K', 'DE');
       return `| ${c.name.en} | ${eur(price)} | ${eur(r.shipFee)} | ${eur(r.product)} | **${eur(r.contribution)}** | ${pct(r.contributionPct)} | ${eur(r.contributionWorst)} |`;
     }),
   );

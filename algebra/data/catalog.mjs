@@ -45,6 +45,14 @@ export const blanks = {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 200,
   },
+  'tee-unisex': {
+    composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
+    gsm: 180,
+  },
+  'tee-w-fitted': {
+    composition: { de: '100 % Baumwolle', en: '100% cotton', fr: '100 % coton' },
+    gsm: 185,
+  },
   'tee-heavy': {
     composition: { de: '100 % Bio-Baumwolle', en: '100% organic cotton', fr: '100 % coton biologique' },
     gsm: 280,
@@ -72,6 +80,18 @@ const careGraphic = {
 
 const sizesMen = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const sizesWomen = ['XS', 'S', 'M', 'L', 'XL'];
+
+/** Graphic Series cuts (test order 30.10.2026: one of each). Images of the extra cuts: scripts/cuts.py. */
+export const graphicCuts = [
+  { id: 'unisex', code: 'U', blank: 'tee-unisex', sizes: sizesMen, name: { de: 'Unisex', en: 'Unisex', fr: 'Unisexe' } },
+  { id: 'oversize', code: 'O', blank: 'tee-oversize', sizes: sizesMen, price: 75, name: { de: 'Oversize', en: 'Oversize', fr: 'Oversize' } },
+  { id: 'women', code: 'W', blank: 'tee-w-fitted', sizes: sizesWomen, name: { de: 'Damen tailliert', en: 'Women’s fitted', fr: 'Femme cintrée' } },
+  { id: 'women-straight', code: 'R', blank: 'tee-w', sizes: sizesWomen, name: { de: 'Damen gerade', en: 'Women’s straight', fr: 'Femme droite' } },
+];
+/** Price of a product in a cut (cut.price when set, else the product price). */
+export const priceOf = (p, cutId) => (p.cuts?.find((c) => c.id === cutId)?.price ?? p.price);
+/** Lowest price of a product (cards, sorting). */
+export const minPrice = (p) => Math.min(p.price, ...(p.cuts || []).map((c) => c.price ?? p.price));
 
 export const products = [
   // ---------------------------------------------------------------- ESSENTIALS · MEN
@@ -461,12 +481,10 @@ export const products = [
     name: { de: g.name, en: g.name, fr: g.name },
     price: 69,
     status: g.hidden ? 'DRAFT' : 'PREVIEW',
-    // Two cuts: unisex oversized or women's. Base garments and print price: fulfillment mapping (Valadio, TO CONFIRM).
-    cuts: [
-      { id: 'unisex', blank: 'tee-oversize', sizes: sizesMen, name: { de: 'Unisex', en: 'Unisex', fr: 'Unisexe' } },
-      { id: 'women', blank: 'tee-w', sizes: sizesWomen, name: { de: 'Damenschnitt', en: 'Women’s cut', fr: 'Coupe femme' } },
-    ],
-    blank: 'tee-oversize',
+    // Four cuts, same print (back) and the A (left chest). code = letter in the variant SKU. price: only when it differs.
+    // Base garments, supplier colours and print price: worker/src/fulfillment/mapping.js (server only).
+    cuts: graphicCuts,
+    blank: 'tee-unisex',
     decoration: {
       method: 'print',
       option: 'print2',
@@ -484,14 +502,14 @@ export const products = [
         fr: `${g.name.replace(/ \d{2}$/, '')} : un grand imprimé dos à l’encre, cuivre et pétrole, avec la vraie équation. Le symbole Algebra sur la poitrine.`,
       },
       fit: {
-        de: 'Zwei Schnitte: Unisex oder Damenschnitt.',
-        en: 'Two cuts: unisex or women’s cut.',
-        fr: 'Deux coupes : unisexe ou coupe femme.',
+        de: 'Vier Schnitte: Unisex, Oversize, Damen tailliert, Damen gerade.',
+        en: 'Four cuts: unisex, oversize, women’s fitted, women’s straight.',
+        fr: 'Quatre coupes : unisexe, oversize, femme cintrée, femme droite.',
       },
       fabric: {
-        de: 'Unisex 200 g/m², Damen 180 g/m².',
-        en: 'Unisex 200 g/m², women 180 g/m².',
-        fr: 'Unisexe 200 g/m², femme 180 g/m².',
+        de: 'Unisex 180 g/m², Oversize 200 g/m², Damen tailliert 185 g/m², Damen gerade 180 g/m².',
+        en: 'Unisex 180 g/m², oversize 200 g/m², women’s fitted 185 g/m², women’s straight 180 g/m².',
+        fr: 'Unisexe 180 g/m², oversize 200 g/m², femme cintrée 185 g/m², femme droite 180 g/m².',
       },
       detail: {
         de: 'Druck über fast den ganzen Rücken. Das Symbol klein auf der linken Brust.',
@@ -529,11 +547,12 @@ export function variantsOf(p) {
   for (const cut of cuts) {
     for (const c of p.colors) {
       for (const s of cut.sizes) {
-        const sku = [p.id, cut.id ? (cut.id === 'women' ? 'W' : 'U') : null, colorCode[c], s].filter(Boolean).join('-');
+        const sku = [p.id, cut.id ? cut.code : null, colorCode[c], s].filter(Boolean).join('-');
         out.push({
           sku,
           productId: p.id,
           cut: cut.id,
+          price: cut.price ?? p.price,
           color: c,
           size: s,
           decoration: p.decoration.method,

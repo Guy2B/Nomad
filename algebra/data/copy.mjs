@@ -191,9 +191,9 @@ export function graphicCopy(name) {
       fr: [`${n}.`, 'L’une des grandes équations du monde, en grand dans le dos : encre, cuivre et pétrole. Devant, seulement le symbole Algebra.'],
     },
     fit: {
-      de: ['Zwei Schnitte.', 'Unisex oder Damenschnitt. Fallen normal aus.'],
-      en: ['Two cuts.', 'Unisex or women’s cut. True to size.'],
-      fr: ['Deux coupes.', 'Unisexe ou coupe femme. Taillent normalement.'],
+      de: ['Vier Schnitte.', 'Unisex gerade, Oversize mit überschnittenen Schultern (auch für Frauen: eine Größe kleiner für eine klare Linie), Damen tailliert oder Damen gerade. Die Maße stehen in der Größentabelle.'],
+      en: ['Four cuts.', 'Unisex straight, oversize with dropped shoulders (also for women: one size down for a cleaner line), women’s fitted or women’s straight. Measurements in the size guide.'],
+      fr: ['Quatre coupes.', 'Unisexe droite, oversize aux épaules tombantes (aussi pour les femmes : une taille en dessous pour une ligne nette), femme cintrée ou femme droite. Les mesures sont dans le guide des tailles.'],
     },
     fabric: {
       de: ['Fester Jersey.', 'Baumwoll-Jersey mit Stand, damit der Druck ruhig liegt.'],

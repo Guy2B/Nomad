@@ -440,7 +440,7 @@ export async function cockpit(path, params, env) {
             designSource: p.status === 'DRAFT' ? null : `design/prints/${p.graphic}.png`,
             printMaster: PRINT_MASTER[p.graphic] ? 'available' : null,
             productMockup: p.status === 'DRAFT' ? null : `assets/photos/${p.slug}-${p.colors[0]}-front.webp`,
-            products: (p.cuts || []).map((c) => `${p.id}-${c.id === 'women' ? 'W' : 'U'}`),
+            products: (p.cuts || []).map((c) => `${p.id}-${c.code}`),
             printArea: p.decoration.placement,
             method: VALADIO.graphic?.method || p.decoration.method,
             approval: VALADIO.graphic?.status || 'candidate',

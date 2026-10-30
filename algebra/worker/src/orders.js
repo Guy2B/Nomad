@@ -62,7 +62,7 @@ export function priceCart(input, { live = false } = {}) {
     if (live && !isConfirmed(sku)) throw new HttpError(409, 'NOT_PURCHASABLE', sku);
     if (qty > 10) throw new HttpError(400, 'BAD_ITEM');
     const p = productById(v.productId);
-    lines.push({ sku, qty, price: p.price, name: p.name.en, productId: p.id, color: v.color, size: v.size, cut: v.cut, decoration: v.decoration, printFile: v.printFile, embroideryFile: v.embroideryFile });
+    lines.push({ sku, qty, price: v.price ?? p.price, name: p.name.en, productId: p.id, color: v.color, size: v.size, cut: v.cut, decoration: v.decoration, printFile: v.printFile, embroideryFile: v.embroideryFile });
   }
   const subtotal = lines.reduce((s, l) => s + l.price * l.qty, 0);
   const z = shipping.zones[zoneOf(country)];

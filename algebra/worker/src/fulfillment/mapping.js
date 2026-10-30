@@ -87,6 +87,17 @@ export const A61 = {
   graphic: { supplierBrand: 'Stanley/Stella', supplierProduct: 'BLASTER 2.0 (2-sided print)', supplierProductId: 'STTU959', a61ArticleId: 8896, status: 'disabled', method: 'print', cost: { net: 14.37, source: 'legacy_reference' } },
 };
 
+/**
+ * Printegy (test order 30.10.2026, not yet an active provider): blank per Graphic Series cut and the supplier colour
+ * used for each Algebra colour. Same blanks and colours as the product images (scripts/cuts.py). Exact SKUs: dashboard only.
+ */
+export const PRINTEGY_GRAPHIC_CUTS = {
+  unisex: { supplierBrand: 'Stanley/Stella', supplierProduct: 'CREATOR 2.0', supplierProductId: 'STTU169', print: 'DTF', colors: { black: 'Black', 'deep-navy': 'French Navy', olive: 'Khaki', ivory: 'Natural Raw' } },
+  oversize: { supplierBrand: 'Stanley/Stella', supplierProduct: 'Oversize (BLASTER 2.0)', supplierProductId: 'STTU959', print: 'DTF', colors: { black: 'Black', 'deep-navy': 'French Navy', olive: 'Khaki', ivory: 'Natural Raw' } },
+  women: { supplierBrand: 'B&C', supplierProduct: '#E190 /women', supplierProductId: 'TW04T', print: 'DTF', colors: { black: 'Black', 'deep-navy': 'Navy', olive: 'Urban Khaki', ivory: 'Natural' } },
+  'women-straight': { supplierBrand: 'Stanley/Stella', supplierProduct: 'MUSER', supplierProductId: 'STTW172', print: 'DTG', colors: { black: 'Black', 'deep-navy': 'French Navy', olive: 'Khaki', ivory: 'Natural Raw' } },
+};
+
 /** Exact supplier SKU and status per Algebra variant SKU (filled only from the provider's catalogue). */
 export const SKU = {
   valadio: {

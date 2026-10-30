@@ -59,13 +59,13 @@ export const pages = {
   sizeGuide: {
     de: `<p>Messe ein Kleidungsstück, das dir gut passt, flach liegend, und vergleiche es mit den Maßen unten.</p>
 <ol><li><strong>Brustbreite:</strong> von Naht zu Naht, 2 cm unter dem Ärmelansatz.</li><li><strong>Länge:</strong> vom höchsten Punkt der Schulter bis zum Saum.</li><li><strong>Ärmel:</strong> von der Schulternaht bis zum Ärmelende.</li></ol>
-<p>Unsere Unisex-Schnitte fallen weit und kastig, der Damenschnitt normal. Für Fragen zur Größe schreib uns: wir helfen gern.</p>`,
+<p>Unsere Unisex-Schnitte fallen gerade, Oversize weit mit überschnittenen Schultern, die Damenschnitte normal (tailliert oder gerade). Für Fragen zur Größe schreib uns: wir helfen gern.</p>`,
     en: `<p>Measure a garment that fits you well, lying flat, and compare it with the measurements below.</p>
 <ol><li><strong>Chest width:</strong> seam to seam, 2 cm below the armhole.</li><li><strong>Length:</strong> from the highest point of the shoulder to the hem.</li><li><strong>Sleeve:</strong> from the shoulder seam to the cuff.</li></ol>
-<p>Our unisex cuts are roomy and boxy, the women's cut is true to size. Questions about sizing? Write to us, we are happy to help.</p>`,
+<p>Our unisex cuts are straight, the oversize is roomy with dropped shoulders, the women’s cuts are true to size (fitted or straight). Questions about sizing? Write to us, we are happy to help.</p>`,
     fr: `<p>Mesurez à plat un vêtement qui vous va bien et comparez avec les mesures ci-dessous.</p>
 <ol><li><strong>Largeur poitrine :</strong> de couture à couture, 2 cm sous l’emmanchure.</li><li><strong>Longueur :</strong> du point le plus haut de l’épaule à l’ourlet.</li><li><strong>Manche :</strong> de la couture d’épaule au bout de la manche.</li></ol>
-<p>Nos coupes unisexes sont amples et carrées, la coupe femme taille normalement. Une question sur la taille ? Écrivez-nous, nous vous aidons volontiers.</p>`,
+<p>Nos coupes unisexes sont droites, l’oversize est ample avec des épaules tombantes, les coupes femme taillent normalement (cintrée ou droite). Une question sur la taille ? Écrivez-nous, nous vous aidons volontiers.</p>`,
   },
   about: {
     de: `<p class="about__kicker">Stil beginnt mit Haltung.</p>

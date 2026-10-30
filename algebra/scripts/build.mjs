@@ -11,7 +11,7 @@ import { dirname, join, posix } from 'node:path';
 import { createHash } from 'node:crypto';
 import { readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { blanks, colors, products as allProducts, shipping, variantsOf } from '../data/catalog.mjs';
+import { blanks, colors, minPrice, products as allProducts, shipping, variantsOf } from '../data/catalog.mjs';
 // Pieces waiting for supplier approval are not shown on the site (no 'coming soon' clutter).
 // Shown: orderable pieces, plus pieces waiting for supplier approval (shown as 'coming soon', not orderable).
 const products = allProducts.filter((p) => p.status === 'PREVIEW' || p.status === 'NEEDS_SUPPLIER_APPROVAL');
@@ -277,6 +277,7 @@ const ED = {
 };
 
 // ------------------------------------------------------------------ components
+const FROM = { de: 'ab', en: 'from', fr: 'dès' };
 function card(lang, from, p, { eager = false, color, crop = false } = {}) {
   const L = t[lang];
   const first = color || p.colors[0];
@@ -292,11 +293,13 @@ function card(lang, from, p, { eager = false, color, crop = false } = {}) {
     .join('');
   const sw = p.colors.map((k) => `<button type="button" class="sw-btn" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(colors[k].name[lang])}" title="${esc(colors[k].name[lang])}"><span class="sw sw--c-${k}"></span></button>`).join('');
   const soon = p.status !== 'PREVIEW';
-  return `<li class="card${crop ? ' card--crop' : ''}" data-gender="${p.gender}" data-cat="${p.category}" data-price="${p.price}" data-colors="${color || p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
+  const low = minPrice(p);
+  const several = (p.cuts || []).some((x) => (x.price ?? p.price) !== low);
+  return `<li class="card${crop ? ' card--crop' : ''}" data-gender="${p.gender}" data-cat="${p.category}" data-price="${low}" data-colors="${color || p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
   <a href="${color ? `${href}?color=${color}` : href}" class="card__a" data-track="select_item" data-id="${p.id}" data-href="${href}">
     <div class="card__img">${sets}</div>
     <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>
-    <p class="card__price">${soon ? `<span class="muted">${esc(L.product.unavailable)}</span>` : money(p.price, lang)}</p></div>
+    <p class="card__price">${soon ? `<span class="muted">${esc(L.product.unavailable)}</span>` : `${several ? `${FROM[lang]} ` : ''}${money(low, lang)}`}</p></div>
   </a>
   <p class="card__meta"><span class="sws">${sw}</span></p></li>`;
 }
@@ -342,7 +345,7 @@ function productPage(lang, p) {
   const path = productPath(lang, p);
   const r = (to) => rel(path, to);
   const cuts = p.cuts || [{ id: '', blank: p.blank, sizes: p.sizes, name: null }];
-  const variants = variantsOf(p).map((v) => ({ sku: v.sku, cut: v.cut || '', color: v.color, size: v.size, ok: v.purchasable }));
+  const variants = variantsOf(p).map((v) => ({ sku: v.sku, cut: v.cut || '', color: v.color, size: v.size, price: v.price, ok: v.purchasable }));
   const fig = (name, alt, cap, opts = {}) => {
     const [w, h] = jpgSize(photoFile(name));
     return `<figure class="${opts.cls || 'sheet__fig'}">${picture(path, `assets/photos/${name}`, alt, { w, h, small: false, eager: opts.eager, sizes: opts.sizes || '(min-width: 1024px) 20vw, 33vw' })}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
@@ -362,9 +365,20 @@ function productPage(lang, p) {
           .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${name}, ${cn}`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 30vw, 100vw' })}</figure>`)
           .join('')}</div>`;
       }
-      return `<div class="gal__set" data-color="${c}"${ci ? ' hidden' : ''}>${inner}</div>`;
+      return `<div class="gal__set" data-color="${c}"${p.cuts ? ` data-cut="${cuts[0].id}"` : ''}${ci ? ' hidden' : ''}>${inner}</div>`;
     })
-    .join('');
+    .join('') +
+    // extra cuts (Graphic Series): front and back of that exact blank, scripts/cuts.py. A cut without its image is not offered.
+    cuts
+      .slice(1)
+      .flatMap((cut) =>
+        p.colors.map((c) => {
+          const name = `${p.slug}-${cut.id}-${c}-stage`;
+          const cn = colors[c].name[lang];
+          return `<div class="gal__set" data-color="${c}" data-cut="${cut.id}" hidden>${fig(name, `${displayName(p, lang)}, ${cut.name[lang]}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', sizes: '(min-width: 1024px) 60vw, 100vw' })}</div>`;
+        }),
+      )
+      .join('');
   const spaced = esc(p.name[lang].replace(/\s+\d+$/, ''));
   // no reference/AI image on product pages: only images of the actual design
   const b = blanks[p.blank];
@@ -386,7 +400,7 @@ function productPage(lang, p) {
     [S.ref, p.id],
     [S.maker, `Algebra · ${o.name}, ${o.street}, ${o.city}, ${o.country} · ${o.email}`],
   ];
-  const body = `<article class="pdp wrap" data-product="${p.id}" data-name="${esc(displayName(p, lang))}" data-price="${p.price}" data-cat="${p.category}">
+  const body = `<article class="pdp wrap" data-product="${p.id}" data-name="${esc(displayName(p, lang))}" data-price="${p.price}" data-cat="${p.category}"${buyable ? ' data-buyable="1"' : ''}>
   <nav class="crumbs" aria-label="Breadcrumb"><a href="${r(`/${lang}/`)}">${P.breadcrumbHome}</a> / <a href="${r(`/${lang}/${p.gender === 'women' ? 'women' : p.line === 'graphic' ? 'graphic-series' : 'men'}/`)}">${p.gender === 'women' ? L.nav.women : p.line === 'graphic' ? L.nav.graphic : L.nav.men}</a> / <span aria-current="page">${esc(displayName(p, lang))}</span></nav>
   <div class="pdp__grid">
     <div class="gal sheet" data-gallery><p class="sheet__title" aria-hidden="true">${spaced}</p><span class="sheet__rule" aria-hidden="true"></span>${gallery}</div>
@@ -394,7 +408,7 @@ function productPage(lang, p) {
       <div class="buy__sticky">
         ${p.capsule ? `<p class="kicker">${esc(p.capsule)}</p>` : `<p class="kicker">The Essentials</p>`}
         <h1 class="h1 buy__name">${esc(displayName(p, lang))}</h1>
-        <p class="buy__price">${buyable ? money(p.price, lang) : P.unavailable}</p>
+        <p class="buy__price" data-price-el>${buyable ? money(p.price, lang) : P.unavailable}</p>
         ${buyable ? `<p class="small muted">${esc(vat)} <a href="${r(`/${lang}/info/shipping/`)}">${P.plusShip}</a></p>` : ''}
         <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>
         <form class="buy__form" data-buy novalidate>
@@ -694,9 +708,9 @@ for (const lang of LANGS) {
 
   // client data: compact catalogue for the bag and search (prices are re-checked server side)
   const client = {
-    products: Object.fromEntries(products.map((p) => [p.id, { n: displayName(p, lang), p: p.price, u: productPath(lang, p), c: p.category, g: p.gender, s: p.status === 'PREVIEW', k: p.slug, gfx: p.line === 'graphic', q: [p.name.de, p.name.en, p.name.fr, p.category, p.gender, p.line, ...(p.symbol ? [p.symbol.glyph] : []), ...p.colors.map((c) => colors[c].name[lang])].join(' ').toLowerCase() }])),
+    products: Object.fromEntries(products.map((p) => [p.id, { n: displayName(p, lang), p: p.price, cp: p.cuts ? Object.fromEntries(p.cuts.filter((c) => c.price != null).map((c) => [c.id, c.price])) : undefined, u: productPath(lang, p), c: p.category, g: p.gender, s: p.status === 'PREVIEW', k: p.slug, gfx: p.line === 'graphic', q: [p.name.de, p.name.en, p.name.fr, p.category, p.gender, p.line, ...(p.symbol ? [p.symbol.glyph] : []), ...p.colors.map((c) => colors[c].name[lang])].join(' ').toLowerCase() }])),
     colors: Object.fromEntries(Object.entries(colors).map(([k, v]) => [k, v.name[lang]])),
-    cuts: { unisex: { de: 'Unisex', en: 'Unisex', fr: 'Unisexe' }[lang], women: { de: 'Damenschnitt', en: 'Women’s cut', fr: 'Coupe femme' }[lang] },
+    cuts: Object.fromEntries(products.flatMap((p) => p.cuts || []).map((c) => [c.id, c.name[lang]])),
     shipping: { DE: { fee: shipping.zones.DE.fee, freeFrom: shipping.zones.DE.freeFrom }, EU: { fee: shipping.zones.EU.fee, freeFrom: shipping.zones.EU.freeFrom }, countries: shipping.countries }, // fees only, never costs
     upsell: { polos: 't-shirts', 't-shirts': 'polos', sweaters: 't-shirts' },
     t: { cart: { ...L.cart, freeHint: L.cart.freeHint('{n}') }, product: { added: L.product.added, chooseSize: L.product.chooseSize }, count: L.collection.count('{n}') },
