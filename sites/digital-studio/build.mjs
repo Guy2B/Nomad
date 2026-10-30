@@ -274,6 +274,13 @@ function softwareBlock(s, lang, full = false) {
 </article>`;
 }
 
+/** NEXT and Cortex side by side: how the two apps work together. */
+function duoBand(lang) {
+  if (!SOFTWARE.some((s) => s.id === 'next') || !SOFTWARE.some((s) => s.id === 'cortex')) return '';
+  const t = SOFTWARE_PAGE[lang];
+  return `<aside class="software-duo"><p class="duo-mark" aria-hidden="true"><b>nΣxt</b><span>⇄</span><b>cortΣx</b></p><div><h3>${esc(t.duoTitle)}</h3><p>${esc(t.duoText)}</p></div></aside>`;
+}
+
 // ------------------------------------------------------------------ pages
 function homePage(lang) {
   const h = HOME[lang];
@@ -335,6 +342,7 @@ ${SOFTWARE.length ? `<section class="band band-ink">
   <div class="wrap">
     <div class="band-head"><div><p class="eyebrow">${esc(UI[lang].nav.software)}</p><h2>${esc(h.softwareTitle)}</h2></div><a href="${path(lang, 'software')}">${esc(UI[lang].nav.software)}</a></div>
     ${SOFTWARE.map((s) => softwareBlock(s, lang)).join('')}
+    ${duoBand(lang)}
   </div>
 </section>` : ''}
 <section class="band">
@@ -425,6 +433,7 @@ function softwarePage(lang) {
   const [title, desc] = meta(lang, 'software');
   const body = `${pageHead(p.title, p.lead)}
 <section class="band"><div class="wrap">${SOFTWARE.map((s) => softwareBlock(s, lang, true)).join('')}
+${duoBand(lang)}
 <p class="muted">${esc(p.more)}</p></div></section>`;
   const jsonLd = SOFTWARE.map((s) => ({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: s.name, url: s.url, applicationCategory: 'ProductivityApplication', operatingSystem: 'Web', softwareVersion: s.version, description: s.summary[lang], publisher: { '@id': `${ORIGIN}/#org` } }));
   write(path(lang, 'software'), layout(lang, 'software', { title, desc, body, jsonLd }));

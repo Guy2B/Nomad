@@ -112,7 +112,7 @@ export const META = {
     '': ['Al.G.B.r. Digital Studio · Websites, Shops und Software', 'Digital Studio von AlGBr: Websites, Webshops, Markenauftritt, Software und Automatisierung. Wir betreiben unsere eigenen Marken und Anwendungen auf derselben Technik.'],
     services: ['Leistungen · Al.G.B.r. Digital Studio', 'Websites, E-Commerce, Branding, Softwareentwicklung, Automatisierung sowie Wartung und Optimierung, aus einer Hand.'],
     brands: ['Marken · Al.G.B.r. Digital Studio', 'Die Marken von AlGBr: Algebra, GO, SPACE, EASE, GLOW, KIN, JOY und OFF. Eigene Projekte, gebaut und betrieben vom Studio.'],
-    software: ['Software · Al.G.B.r. Digital Studio', 'Eigene Anwendungen des Studios, darunter nΣxt LifeOS.'],
+    software: ['Software · Al.G.B.r. Digital Studio', 'Eigene Anwendungen des Studios, darunter nΣxt und cortΣx.'],
     work: ['Arbeiten · Al.G.B.r. Digital Studio', 'Fallstudien: Aufbau, Technik, Funktionen und dokumentierte Ergebnisse.'],
     about: ['Über uns · Al.G.B.r. Digital Studio', 'Das Digitalstudio von AlGBr in Lampertheim: was wir bauen, was wir selbst betreiben und wie wir arbeiten.'],
     contact: ['Kontakt · Al.G.B.r. Digital Studio', 'Beschreiben Sie Ihr Projekt. Sie erhalten eine Antwort per E-Mail.'],
@@ -124,7 +124,7 @@ export const META = {
     '': ['Al.G.B.r. Digital Studio · Websites, shops and software', 'AlGBr Digital Studio: websites, online shops, branding, software and automation. We run our own brands and apps on the same technology.'],
     services: ['Services · Al.G.B.r. Digital Studio', 'Website development, e-commerce, branding, software development, automation, maintenance and optimisation, from one team.'],
     brands: ['Brands · Al.G.B.r. Digital Studio', 'The AlGBr brands: Algebra, GO, SPACE, EASE, GLOW, KIN, JOY and OFF. In-house projects built and run by the studio.'],
-    software: ['Software · Al.G.B.r. Digital Studio', 'Applications built by the studio, including nΣxt LifeOS.'],
+    software: ['Software · Al.G.B.r. Digital Studio', 'Applications built by the studio, including nΣxt and cortΣx.'],
     work: ['Work · Al.G.B.r. Digital Studio', 'Case studies: design, technology, features and documented results.'],
     about: ['About · Al.G.B.r. Digital Studio', 'The digital studio of AlGBr in Lampertheim: what we build, what we run ourselves and how we work.'],
     contact: ['Contact · Al.G.B.r. Digital Studio', 'Describe your project. You will get an answer by e-mail.'],
@@ -136,7 +136,7 @@ export const META = {
     '': ['Al.G.B.r. Digital Studio · Sites, boutiques et logiciels', 'Le Digital Studio d’AlGBr : sites web, boutiques en ligne, identité de marque, logiciels et automatisations. Nous exploitons nos propres marques et applications sur la même technologie.'],
     services: ['Services · Al.G.B.r. Digital Studio', 'Création de sites, e-commerce, identité de marque, développement logiciel, automatisation, maintenance et optimisation, par une seule équipe.'],
     brands: ['Marques · Al.G.B.r. Digital Studio', 'Les marques d’AlGBr : Algebra, GO, SPACE, EASE, GLOW, KIN, JOY et OFF. Des projets internes conçus et exploités par le studio.'],
-    software: ['Logiciels · Al.G.B.r. Digital Studio', 'Les applications développées par le studio, dont nΣxt LifeOS.'],
+    software: ['Logiciels · Al.G.B.r. Digital Studio', 'Les applications développées par le studio, dont nΣxt et cortΣx.'],
     work: ['Réalisations · Al.G.B.r. Digital Studio', 'Études de cas : conception, technologies, fonctionnalités et résultats documentés.'],
     about: ['À propos · Al.G.B.r. Digital Studio', 'Le studio digital d’AlGBr à Lampertheim : ce que nous construisons, ce que nous exploitons nous-mêmes et notre façon de travailler.'],
     contact: ['Contact · Al.G.B.r. Digital Studio', 'Décrivez votre projet. Vous recevrez une réponse par e-mail.'],
@@ -155,7 +155,7 @@ export const HOME = {
     trust: ['Persönlicher Ansprechpartner', 'Mobile-first & schnell', 'DSGVO-bewusst', 'DE · FR · EN'],
     viz: [['Website', 'Gefunden werden'], ['Shop & Buchung', 'Handeln lassen'], ['CRM & Cloud', 'Verwalten'], ['App & KI', 'Wachsen']],
     vizCore: 'Ein System',
-    strip: [['6', 'Leistungsbereiche, ein Ansprechpartner'], ['8', 'Branchenlösungen mit eigener Architektur'], ['9', 'Projekte live: NEXT, 7 Shops, Lune Beauty'], ['3', 'Sprachen: Deutsch, Französisch, Englisch']],
+    strip: [['6', 'Leistungsbereiche, ein Ansprechpartner'], ['8', 'Branchenlösungen mit eigener Architektur'], ['10', 'Projekte live: NEXT, Cortex, 7 Shops, Lune Beauty'], ['3', 'Sprachen: Deutsch, Französisch, Englisch']],
     title: 'Wir bauen digitale Produkte und betreiben sie selbst.',
     lead: 'Al.G.B.r. Digital Studio entwickelt Websites, Shops, Software und Automatisierungen für Unternehmen. Dieselbe Technik trägt jeden Tag unsere eigenen Marken und Anwendungen.',
     directory: 'Das AlGBr-Ökosystem',
@@ -177,7 +177,7 @@ export const HOME = {
     trust: ['One personal contact', 'Mobile-first and fast', 'GDPR-aware', 'DE · FR · EN'],
     viz: [['Website', 'Get found'], ['Shop & booking', 'Make it happen'], ['CRM & cloud', 'Manage'], ['App & AI', 'Grow']],
     vizCore: 'One system',
-    strip: [['6', 'service areas, one contact'], ['8', 'industry solutions with their own architecture'], ['9', 'projects live: NEXT, 7 shops, Lune Beauty'], ['3', 'languages: German, French, English']],
+    strip: [['6', 'service areas, one contact'], ['8', 'industry solutions with their own architecture'], ['10', 'projects live: NEXT, Cortex, 7 shops, Lune Beauty'], ['3', 'languages: German, French, English']],
     title: 'We build digital products, and we run them ourselves.',
     lead: 'Al.G.B.r. Digital Studio develops websites, shops, software and automation for businesses. The same technology runs our own brands and applications every day.',
     directory: 'The AlGBr ecosystem',
@@ -199,7 +199,7 @@ export const HOME = {
     trust: ['Un interlocuteur personnel', 'Mobile-first et rapide', 'Conforme RGPD', 'DE · FR · EN'],
     viz: [['Site web', 'Être trouvé'], ['Boutique & réservation', 'Faire agir'], ['CRM & cloud', 'Gérer'], ['App & IA', 'Grandir']],
     vizCore: 'Un seul système',
-    strip: [['6', 'domaines de service, un seul interlocuteur'], ['8', 'solutions sectorielles avec leur propre architecture'], ['9', 'projets en ligne : NEXT, 7 boutiques, Lune Beauty'], ['3', 'langues : allemand, français, anglais']],
+    strip: [['6', 'domaines de service, un seul interlocuteur'], ['8', 'solutions sectorielles avec leur propre architecture'], ['10', 'projets en ligne : NEXT, Cortex, 7 boutiques, Lune Beauty'], ['3', 'langues : allemand, français, anglais']],
     title: 'Nous concevons des produits numériques, et nous les exploitons nous-mêmes.',
     lead: 'Al.G.B.r. Digital Studio développe des sites, des boutiques, des logiciels et des automatisations pour les entreprises. La même technologie fait tourner chaque jour nos propres marques et applications.',
     directory: 'L’écosystème AlGBr',
@@ -318,9 +318,9 @@ export const BRANDS_PAGE = {
 };
 
 export const SOFTWARE_PAGE = {
-  de: { title: 'Software', lead: 'Anwendungen, die das Studio selbst entwickelt, betreibt und weiterentwickelt.', more: 'Weitere Anwendungen sind in Entwicklung und erscheinen hier, sobald sie nutzbar sind.', stack: 'Technik', platforms: 'Plattformen', quality: 'Qualität', version: 'Version' },
-  en: { title: 'Software', lead: 'Applications the studio develops, runs and keeps improving itself.', more: 'More applications are in development and will appear here once they are ready to use.', stack: 'Technology', platforms: 'Platforms', quality: 'Quality', version: 'Version' },
-  fr: { title: 'Logiciels', lead: 'Des applications que le studio développe, exploite et fait évoluer lui-même.', more: 'D’autres applications sont en développement et apparaîtront ici dès qu’elles seront utilisables.', stack: 'Technologies', platforms: 'Plateformes', quality: 'Qualité', version: 'Version' },
+  de: { title: 'Software', lead: 'Anwendungen, die das Studio selbst entwickelt, betreibt und weiterentwickelt.', more: 'Weitere Anwendungen sind in Entwicklung und erscheinen hier, sobald sie nutzbar sind.', duoTitle: 'NEXT entscheidet. Cortex setzt um.', duoText: 'Jede App funktioniert für sich. Mit demselben Konto arbeiten beide zusammen: Die Entscheidungen von NEXT landen im Tagesplan von Cortex, und was in Cortex erledigt ist, ist auch in NEXT erledigt. Kalender und Postfach werden einmal verbunden und versorgen beide.', stack: 'Technik', platforms: 'Plattformen', quality: 'Qualität', version: 'Version' },
+  en: { title: 'Software', lead: 'Applications the studio develops, runs and keeps improving itself.', more: 'More applications are in development and will appear here once they are ready to use.', duoTitle: 'NEXT decides. Cortex delivers.', duoText: 'Each app works on its own. With the same account they work together: NEXT’s decisions land in Cortex’s day plan, and what is done in Cortex is done in NEXT too. Calendar and mailbox are connected once and feed both.', stack: 'Technology', platforms: 'Platforms', quality: 'Quality', version: 'Version' },
+  fr: { title: 'Logiciels', lead: 'Des applications que le studio développe, exploite et fait évoluer lui-même.', more: 'D’autres applications sont en développement et apparaîtront ici dès qu’elles seront utilisables.', duoTitle: 'NEXT décide. Cortex exécute.', duoText: 'Chaque application fonctionne seule. Avec le même compte, les deux travaillent ensemble : les décisions de NEXT arrivent dans le planning de Cortex, et ce qui est fait dans Cortex est fait dans NEXT. L’agenda et la boîte mail se connectent une fois et alimentent les deux.', stack: 'Technologies', platforms: 'Plateformes', quality: 'Qualité', version: 'Version' },
 };
 
 export const PLATFORM_NAMES = {
