@@ -5,7 +5,11 @@
     {
       "id": "next",
       "name": "nΣxt LifeOS",
-      "aliases": ["NEXT by AlGBr", "Σ Life OS", "Sigma Life OS"],
+      "aliases": [
+        "NEXT by AlGBr",
+        "Σ Life OS",
+        "Sigma Life OS"
+      ],
       "domain": "next.algbr.eu",
       "url": "https://next.algbr.eu",
       "repository": "Guy2B/sum-plus",
@@ -13,22 +17,52 @@
       "version": "1.0.0",
       "released": "2026-09-30",
       "category": "productivity",
-      "platforms": ["web-pwa", "android", "ios"],
-      "languages": ["fr", "en", "de", "es"],
+      "platforms": [
+        "web-pwa",
+        "android",
+        "ios"
+      ],
+      "languages": [
+        "fr",
+        "en",
+        "de",
+        "es"
+      ],
       "logo": null,
       "image": "sites/digital-studio/assets/work/next-screens.webp",
       "tagline": "Know what matters. Do what’s next.",
       "summary": {
-        "de": "Ein persönlicher Entscheidungsmotor: Aufgaben, Kalender und Mails werden zu höchstens drei erklärten Entscheidungen pro Tag. Lokal zuerst, offline nutzbar, keine externe Aktion ohne Bestätigung.",
-        "en": "A personal decision engine: tasks, calendar and mail become at most three explained decisions a day. Local-first, works offline, never acts externally without confirmation.",
-        "fr": "Un moteur de décision personnel : tâches, agenda et e-mails deviennent au plus trois décisions expliquées par jour. Local d'abord, utilisable hors ligne, aucune action externe sans confirmation."
+        "de": "Entscheiden: NEXT liest Aufgaben, Kalender und Mails und macht daraus höchstens drei erklärte Entscheidungen pro Tag. Alles andere darf warten, mit Begründung. Lokal zuerst, offline nutzbar, keine externe Aktion ohne Bestätigung.",
+        "en": "Decide: NEXT reads tasks, calendar and mail and turns them into at most three explained decisions a day. Everything else can wait, with a reason. Local-first, works offline, never acts externally without confirmation.",
+        "fr": "Décider : NEXT lit tâches, agenda et e-mails et en fait au plus trois décisions expliquées par jour. Le reste peut attendre, avec une raison. Local d’abord, utilisable hors ligne, aucune action externe sans confirmation."
       },
       "features": {
-        "de": ["Entscheidungs-Engine Σ", "Installierbare Offline-PWA", "Kalender- und Mail-Anbindung (Google, Microsoft, IMAP)", "DSGVO-Export und Kontolöschung, Datenhaltung in der EU"],
-        "en": ["Σ decision engine", "Installable offline PWA", "Calendar and mail connectors (Google, Microsoft, IMAP)", "GDPR export and account deletion, EU data region"],
-        "fr": ["Moteur de décision Σ", "PWA installable hors ligne", "Connexion agenda et e-mail (Google, Microsoft, IMAP)", "Export RGPD et suppression du compte, données dans l'UE"]
+        "de": [
+          "Entscheidungs-Engine Σ",
+          "Installierbare Offline-PWA",
+          "Kalender- und Mail-Anbindung (Google, Microsoft, IMAP)",
+          "DSGVO-Export und Kontolöschung, Datenhaltung in der EU"
+        ],
+        "en": [
+          "Σ decision engine",
+          "Installable offline PWA",
+          "Calendar and mail connectors (Google, Microsoft, IMAP)",
+          "GDPR export and account deletion, EU data region"
+        ],
+        "fr": [
+          "Moteur de décision Σ",
+          "PWA installable hors ligne",
+          "Connexion agenda et e-mail (Google, Microsoft, IMAP)",
+          "Export RGPD et suppression du compte, données dans l'UE"
+        ]
       },
-      "stack": ["TypeScript", "Preact", "Vite", "Firebase (europe-west1)", "Capacitor"],
+      "stack": [
+        "TypeScript",
+        "Preact",
+        "Vite",
+        "Firebase (europe-west1)",
+        "Capacitor"
+      ],
       "engineering": {
         "de": "58 Unit-Tests, 22 End-to-End-Tests inklusive Barrierefreiheit (axe) und Offline-Betrieb.",
         "en": "58 unit tests, 22 end-to-end tests including accessibility (axe) and offline use.",
@@ -36,22 +70,101 @@
       },
       "access": {
         "type": "free-trial",
-        "cta": { "de": "nΣxt entdecken", "en": "Discover nΣxt", "fr": "Découvrir nΣxt" }
+        "cta": {
+          "de": "nΣxt entdecken",
+          "en": "Discover nΣxt",
+          "fr": "Découvrir nΣxt"
+        }
       },
       "public": true,
       "portfolioPriority": 1
     },
     {
+      "id": "cortex",
+      "name": "cortΣx",
+      "aliases": [
+        "Cortex",
+        "Cortex by Al.G.B.r."
+      ],
+      "domain": "next.algbr.eu",
+      "url": "https://next.algbr.eu/cortex.html",
+      "repository": "Guy2B/sum-plus",
+      "status": "live",
+      "released": "2026-10-30",
+      "category": "productivity",
+      "platforms": [
+        "web-pwa"
+      ],
+      "languages": [
+        "fr",
+        "en",
+        "de",
+        "es"
+      ],
+      "logo": null,
+      "image": "sites/digital-studio/assets/work/cortex-screens.webp",
+      "tagline": "Plan it. Live it.",
+      "summary": {
+        "de": "Umsetzen: Cortex ist der Arbeitsplatz für den Tag. Prioritäten setzen, Aufgaben und Termine in ein Zeitraster legen, Gewohnheiten halten und Ideen festhalten, an einem Ort. So wird aus Entscheidungen ein gelebter Tag.",
+        "en": "Act: Cortex is the workspace for your day. Set priorities, place tasks and appointments on an hour-by-hour plan, keep your habits and hold on to your ideas, in one place. Decisions become a day well lived.",
+        "fr": "Agir : Cortex est l’espace de travail de la journée. Fixer ses priorités, placer tâches et rendez-vous heure par heure, tenir ses habitudes et garder ses idées, au même endroit. Les décisions deviennent une journée vécue."
+      },
+      "features": {
+        "de": [
+          "Tagesplan im Zeitraster, per Drag & Drop oder automatisch durch Σ",
+          "Gewohnheiten mit Serien und Tageszielen, fünf Startgewohnheiten",
+          "Zweites Gehirn: Notizen, Ideen und Projekte, verknüpft und per Sprache diktiert",
+          "Termine aus WhatsApp, Mails und .ics-Dateien übernehmen"
+        ],
+        "en": [
+          "Hour-by-hour day plan, drag and drop or placed by Σ",
+          "Habits with streaks and daily targets, five starter habits",
+          "Second brain: notes, ideas and projects, linked and dictated by voice",
+          "Appointments taken from WhatsApp, mail and .ics files"
+        ],
+        "fr": [
+          "Planning heure par heure, en glisser-déposer ou placé par Σ",
+          "Habitudes avec séries et objectifs du jour, cinq habitudes de départ",
+          "Second cerveau : notes, idées et projets reliés, dictés à la voix",
+          "Rendez-vous repris de WhatsApp, des e-mails et des fichiers .ics"
+        ]
+      },
+      "stack": [
+        "TypeScript",
+        "Preact",
+        "Vite",
+        "Firebase (europe-west1)"
+      ],
+      "access": {
+        "type": "included",
+        "cta": {
+          "de": "cortΣx öffnen",
+          "en": "Open cortΣx",
+          "fr": "Ouvrir cortΣx"
+        }
+      },
+      "public": true,
+      "portfolioPriority": 2
+    },
+    {
       "id": "metamorph",
       "name": "Metamorph",
-      "aliases": ["Metamorph Live", "Metamorph Studio"],
+      "aliases": [
+        "Metamorph Live",
+        "Metamorph Studio"
+      ],
       "domain": null,
       "url": null,
       "repository": null,
       "status": "development",
       "category": "sales-tool",
-      "platforms": ["chrome-extension", "web"],
-      "languages": ["de"],
+      "platforms": [
+        "chrome-extension",
+        "web"
+      ],
+      "languages": [
+        "de"
+      ],
       "logo": null,
       "summary": {
         "de": "Business Future Simulator: zeigt einem Interessenten seine eigene Website nach der digitalen Transformation.",
@@ -59,7 +172,7 @@
         "fr": "Simulateur d'avenir commercial : montre à un prospect son propre site après transformation digitale."
       },
       "public": false,
-      "portfolioPriority": 2
+      "portfolioPriority": 3
     }
   ]
 }

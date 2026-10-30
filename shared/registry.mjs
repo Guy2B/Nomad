@@ -19,6 +19,8 @@ const readJson = (f) => JSON.parse(readFileSync(f, 'utf8'));
 const isHex = (s) => typeof s === 'string' && /^#[0-9a-fA-F]{6}$/.test(s);
 const isHttps = (s) => typeof s === 'string' && /^https:\/\/[a-z0-9.-]+\.[a-z]{2,}\/?$/.test(s);
 const hostOf = (u) => new URL(u).host;
+/** A software may live on a page of another app's domain (cortΣx: next.algbr.eu/cortex.html). */
+const isHttpsPage = (s) => typeof s === 'string' && /^https:\/\/[a-z0-9.-]+\.[a-z]{2,}(\/[\w./-]*)?$/.test(s);
 const texts = (o) => o && LANGS.every((l) => typeof o[l] === 'string' && o[l].trim().length > 0);
 
 export function readRegistry(root) {
@@ -143,7 +145,7 @@ export async function checkRegistry(root, overrides = {}) {
     if (typeof s.public !== 'boolean') err(id, 'public doit être true ou false');
     if (!texts(s.summary)) err(id, 'summary DE/EN/FR incomplet');
     if (s.public) {
-      if (!isHttps(s.url) || hostOf(s.url) !== s.domain) err(id, 'logiciel public : url https et domain cohérents requis');
+      if (!isHttpsPage(s.url) || hostOf(s.url) !== s.domain) err(id, 'logiciel public : url https et domain cohérents requis');
       if (!texts(s.access?.cta)) err(id, 'logiciel public : access.cta DE/EN/FR requis');
       if (!s.features || !LANGS.every((l) => Array.isArray(s.features[l]) && s.features[l].length)) err(id, 'logiciel public : features DE/EN/FR requises');
       if (s.logo && !existsSync(join(root, s.logo))) err(id, `logo introuvable (${s.logo})`);

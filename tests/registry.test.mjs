@@ -84,7 +84,7 @@ test('logiciels : seuls les publics sont complets et hors sous-domaines e-commer
   s.software[0].url = 'https://api.algbr.eu';
   assert.ok((await checkRegistry(root, { softwareFile: s })).some((e) => e.includes('sous-domaine e-commerce')));
   const pub = loadRegistry(root).software.filter((x) => x.public);
-  assert.deepEqual(pub.map((x) => x.id), ['next']);
+  assert.deepEqual(pub.map((x) => x.id), ['next', 'cortex']);
 });
 
 test('coordonnées de l’exploitant identiques dans toutes les copies', async () => {

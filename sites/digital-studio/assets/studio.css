@@ -388,3 +388,12 @@ p { margin: 0 0 1em; max-width: 70ch; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 @media print { .site-head, .site-foot, .actions, .hero-cta { display: none; } body { background: #fff; } }
+
+/* NEXT ⇄ Cortex */
+.software-duo { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; margin: 8px 0 28px; padding: 22px 26px; border-radius: 14px; border: 1px solid rgb(127 127 127 / 25%); background: linear-gradient(90deg, rgb(114 88 233 / 14%), rgb(19 145 141 / 14%)); }
+.software-duo h3 { margin: 0 0 6px; }
+.software-duo p { margin: 0; }
+.duo-mark { display: flex; align-items: center; gap: 10px; font-weight: 700; white-space: nowrap; }
+.duo-mark b { padding: 6px 10px; border-radius: 9px; background: #111214; color: #f6f3ee; }
+.duo-mark span { font-size: 1.4rem; color: #13918d; }
+@media (max-width: 640px) { .software-duo { grid-template-columns: 1fr; } }
