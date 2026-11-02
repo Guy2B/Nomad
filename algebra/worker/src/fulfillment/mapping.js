@@ -104,10 +104,29 @@ export const SKU = {
     // 'ALG-M-POLO-BLK-M': { supplierSku: '…', status: 'confirmed' },
   },
   a61: {},
-  printegy: {
-    // 'ALG-G-09-MANDELBROT-U-BLK-L': { supplierSku: '…', status: 'confirmed' },
-  },
+  printegy: {}, // filled below from the Printegy SKU tables
 };
+
+/**
+ * Printegy: one shop product per drawing (Creator 2.0, ivory A front, dark A on Natural Raw, drawing back), created 02.11.2026.
+ * Item SKU = {variantSku}-{shopProductId}, read from the dashboard SKU table ("SKU-Tabellen"), e.g. stc_black-L-358379.
+ */
+export const PRINTEGY_SHOP_PRODUCTS = {
+  'ALG-G-03-ENTANGLEMENT': 358378,
+  'ALG-G-06-EULER': 358377,
+  'ALG-G-07-LORENZ': 358368,
+  'ALG-G-08-MAXWELL': 358370,
+  'ALG-G-09-MANDELBROT': 358379,
+  'ALG-G-11-HIGGS': 358375,
+  'ALG-G-12-BIGBANG': 358365,
+  'ALG-G-13-FEYNMAN': 358373,
+  'ALG-G-14-MOBIUS': 358374,
+};
+const PRINTEGY_COLOR = { BLK: 'stc_black', DNV: 'stc_french_navy', OLV: 'stc_khaki', IVO: 'stc_natural_raw' };
+const PRINTEGY_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+for (const [id, shopProductId] of Object.entries(PRINTEGY_SHOP_PRODUCTS))
+  for (const [code, variant] of Object.entries(PRINTEGY_COLOR))
+    for (const size of PRINTEGY_SIZES) SKU.printegy[`${id}-U-${code}-${size}`] = { supplierSku: `${variant}-${size}-${shopProductId}`, status: 'confirmed' };
 
 /** Print-master files per design (high resolution for the confirmed print area). None exists yet. */
 export const PRINT_MASTER = {
@@ -123,7 +142,7 @@ export const PRINTEGY = {
     status: 'pending_confirmation',
     method: 'print',
     needs_verification: true,
-    note: 'Test order 30.10.2026. One Printegy product per drawing; its variant SKUs go into SKU.printegy (cockpit → Fulfillment shows them).',
+    note: 'Products and SKUs set up 02.11.2026 (SKU.printegy). Stays pending_confirmation until a test order through the API has been delivered: only then status confirmed = live sale.',
     cost: { garment: 9.95, decoration: 4.0, source: 'Printegy dashboard 30.10.2026 (net, front + back)' },
   },
 };

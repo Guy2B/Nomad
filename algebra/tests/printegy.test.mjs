@@ -34,6 +34,12 @@ test('probe is read only and reports shops and product SKUs; a refused token is 
   assert.match(bad.error, /token refused/);
 });
 
+test('every live Graphic Series variant has its Printegy SKU (stc_<colour>-<size>-<shop product>)', () => {
+  const gs = allVariants().filter((v) => v.productId.startsWith('ALG-G-') && v.purchasable);
+  assert.ok(gs.length > 0);
+  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^stc_(black|french_navy|khaki|natural_raw)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
+});
+
 test('sandbox never posts an order', async () => {
   let posted = false;
   const p = printegyProvider({ PRINTEGY_API_KEY: 'k' }, async (u, i = {}) => { if (i.method === 'POST') posted = true; return new Response('{}'); });
@@ -45,6 +51,7 @@ test('sandbox never posts an order', async () => {
 test('live order refuses a variant without confirmed Printegy SKU, then sends the documented multipart form', async () => {
   const env = { PRINTEGY_API_KEY: 'k', PRINTEGY_SANDBOX: 'false', PRINTEGY_SHOP_ID: '7' };
   await assert.rejects(printegyProvider(env, fake({})).createOrder(order()), (e) => e.kind === 'sku');
+  const saved = SKU.printegy[G];
   SKU.printegy[G] = { supplierSku: 'PX-1', status: 'confirmed' };
   try {
     // product-level status must be confirmed too
@@ -62,7 +69,7 @@ test('live order refuses a variant without confirmed Printegy SKU, then sends th
     assert.equal(form.get('items[0][quantity]'), '2');
     PRINTEGY.graphic.status = prev;
   } finally {
-    delete SKU.printegy[G];
+    SKU.printegy[G] = saved;
   }
 });
 
