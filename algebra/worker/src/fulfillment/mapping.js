@@ -104,6 +104,9 @@ export const SKU = {
     // 'ALG-M-POLO-BLK-M': { supplierSku: '…', status: 'confirmed' },
   },
   a61: {},
+  printegy: {
+    // 'ALG-G-09-MANDELBROT-U-BLK-L': { supplierSku: '…', status: 'confirmed' },
+  },
 };
 
 /** Print-master files per design (high resolution for the confirmed print area). None exists yet. */
@@ -111,7 +114,21 @@ export const PRINT_MASTER = {
   // 'mandelbrot': 'https://…/print-master/mandelbrot.png'
 };
 
-export const PROVIDERS = { valadio: VALADIO, a61: A61 };
+/** Active provider for the Graphic Series (unisex cut: Creator 2.0, A front + drawing back, DTF). Essentials: not here. */
+export const PRINTEGY = {
+  graphic: {
+    supplierBrand: 'Stanley/Stella',
+    supplierProduct: 'CREATOR 2.0 (2-sided print)',
+    supplierProductId: 'STTU169',
+    status: 'pending_confirmation',
+    method: 'print',
+    needs_verification: true,
+    note: 'Test order 30.10.2026. One Printegy product per drawing; its variant SKUs go into SKU.printegy (cockpit → Fulfillment shows them).',
+    cost: { garment: 9.95, decoration: 4.0, source: 'Printegy dashboard 30.10.2026 (net, front + back)' },
+  },
+};
+
+export const PROVIDERS = { valadio: VALADIO, a61: A61, printegy: PRINTEGY };
 
 export function productIdOf(algebraSku) {
   const m = String(algebraSku).match(/^(ALG-[MW]-[A-Z]+|ALG-G-\d{2}-[A-Z]+)/);

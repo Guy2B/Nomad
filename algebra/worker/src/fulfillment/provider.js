@@ -21,14 +21,20 @@ export { FulfillmentError, STATUSES, normaliseStatus } from './errors.js';
 import { mockProvider } from './mock.js';
 import { valadioProvider } from './valadio.js';
 import { a61Provider } from './a61.js';
+import { printegyProvider } from './printegy.js';
+
+/** Key of the active provider in mapping.js (which SKU table decides what may be sold live). */
+export const providerKey = (env = {}) => (['printegy', 'a61'].includes(env.FULFILLMENT_PROVIDER) ? env.FULFILLMENT_PROVIDER : 'valadio');
 
 /**
- * FULFILLMENT_PROVIDER=valadio (default, target) · a61 (fallback, disabled: refuses real orders) · mock (local tests).
+ * FULFILLMENT_PROVIDER=printegy (Graphic Series, PRINTEGY_SANDBOX=true until a test order passed) · valadio · a61 (fallback,
+ * disabled: refuses real orders) · mock (local tests).
  * valadio with VALADIO_SANDBOX=true (or without credentials) behaves like the mock: nothing real is ordered.
  */
 export function providerFor(env = {}) {
   const name = env.FULFILLMENT_PROVIDER || (env.SUPPLIER_MODE === 'mock' ? 'mock' : 'valadio');
   if (name === 'mock') return mockProvider(env);
   if (name === 'a61') return a61Provider(env);
+  if (name === 'printegy') return printegyProvider(env);
   return valadioProvider(env);
 }

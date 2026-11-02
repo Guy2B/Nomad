@@ -19,7 +19,7 @@
  */
 import { ensureSchema } from './schema.js';
 import { stripeRequest, timingSafeEqual, verifyStripeSignature } from './stripe.js';
-import { providerFor, FulfillmentError } from './fulfillment/provider.js';
+import { providerFor, providerKey, FulfillmentError } from './fulfillment/provider.js';
 import { isConfirmed, supplierMappings } from './fulfillment/mapping.js';
 import { allVariants } from '../../data/catalog.mjs';
 import { sendMail, template } from './email.js';
@@ -52,7 +52,7 @@ async function body(req, max = 20000) {
 export async function handleCheckout(req, env, fetchImpl = fetch) {
   const b = await body(req);
   const lang = LANGS.includes(b.lang) ? b.lang : 'de';
-  const priced = priceCart(b, { live: env.SITE_MODE === 'live' });
+  const priced = priceCart(b, { live: env.SITE_MODE === 'live', provider: providerKey(env) });
   const origin = env.SITE_ORIGIN;
   if (env.MOCK_PAYMENTS === '1') {
     // Local end-to-end tests only: no Stripe, the order is paid immediately.
@@ -247,6 +247,7 @@ async function route(req, env, ctx) {
         sandbox: Boolean(prov.sandbox),
         valadio: supplierMappings(skus, 'valadio'),
         a61Fallback: supplierMappings(skus, 'a61'),
+        printegy: supplierMappings(skus, 'printegy'),
         variants: { total: variants.length, confirmed: variants.filter((v) => isConfirmed(v.sku)).length },
       });
     }

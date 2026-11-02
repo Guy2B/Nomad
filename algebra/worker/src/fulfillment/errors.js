@@ -14,10 +14,10 @@ export function normaliseStatus(raw) {
   if (!s) return null;
   if (/cancel|storn/.test(s)) return 'cancelled';
   if (/deliver|zugestellt/.test(s)) return 'delivered';
-  if (/ship|dispatch|sent|versand|transit/.test(s)) return 'shipped';
-  if (/produc|print|embroid|stick|process|manufact/.test(s)) return 'production';
+  if (/ship|dispatch|sent|versand|versend|transit|unterwegs/.test(s)) return 'shipped';
+  if (/produc|produk|print|druck|embroid|stick|process|bearbeit|manufact/.test(s)) return 'production';
   if (/error|fail|hold|problem|reject|invalid/.test(s)) return 'error';
-  if (/new|accept|receiv|created|pending|open|confirm/.test(s)) return 'received';
+  if (/new|neu|accept|receiv|created|pending|open|confirm|offen|eingegangen/.test(s)) return 'received';
   return null;
 }
 

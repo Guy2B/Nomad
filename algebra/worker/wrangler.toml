@@ -3,6 +3,7 @@
 # Deployed by the "algebra" job of .github/workflows/deploy-cloudflare.yml in the Nomad repo (algbr-shops), on every push to main that touches algebra/.
 # Secrets are set in the Cloudflare dashboard as type "Secret" (or `wrangler secret put`), never here:
 #   STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, RESEND_API_KEY, ADMIN_TOKEN, NTFY_TOPIC (optional),
+#   PRINTEGY_API_KEY (Graphic Series provider),
 #   VALADIO_API_KEY, VALADIO_API_SECRET, VALADIO_WEBHOOK_SECRET (once Valadio grants API access)
 name = "algebra"
 main = "src/index.js"
@@ -22,7 +23,8 @@ not_found_handling = "404-page"
 [vars]
 SITE_ORIGIN = "https://algebra.algbr.eu"
 SITE_MODE = "preview"          # "live" only after docs/LAUNCH_CHECKLIST.md is PASS; preview refuses live Stripe keys
-FULFILLMENT_PROVIDER = "valadio"   # provider layer: worker/src/fulfillment/ (mock for local tests)
+FULFILLMENT_PROVIDER = "printegy"  # provider layer: worker/src/fulfillment/ (mock for local tests)
+PRINTEGY_SANDBOX = "true"          # "false" only after a test order through the API passed; secret PRINTEGY_API_KEY, var PRINTEGY_SHOP_ID
 VALADIO_SANDBOX = "true"           # "false" only after the API docs are implemented and a test order passed
 VALADIO_API_BASE_URL = ""          # from Valadio's official API documentation
 VALADIO_WEBHOOK_SIGNATURE_HEADER = "x-valadio-signature"   # TO VERIFY with the docs
@@ -68,7 +70,8 @@ SITE_ORIGIN = "https://algbr.eu"
 ALLOWED_ORIGINS = "https://algbr.eu,https://algebra.algbr.eu"
 LEGACY_STUDIO_REDIRECTS = "1"
 SITE_MODE = "preview"
-FULFILLMENT_PROVIDER = "valadio"
+FULFILLMENT_PROVIDER = "printegy"
+PRINTEGY_SANDBOX = "true"
 VALADIO_SANDBOX = "true"
 VALADIO_API_BASE_URL = ""
 VALADIO_WEBHOOK_SIGNATURE_HEADER = "x-valadio-signature"

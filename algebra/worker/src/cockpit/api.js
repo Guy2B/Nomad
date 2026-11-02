@@ -18,7 +18,7 @@
  */
 import { allVariants, colors, products, shipping } from '../../../data/catalog.mjs';
 import { isConfirmed, mappingFor, PRINT_MASTER, supplierMappings, VALADIO } from '../fulfillment/mapping.js';
-import { providerFor } from '../fulfillment/provider.js';
+import { providerFor, providerKey } from '../fulfillment/provider.js';
 import { COST_MODEL, orderEconomics, parseItems, SOLD, sumEconomics, unitCost } from './margin.js';
 import { segmentsOf } from '../circle.js';
 import { analyticsOf } from '../analytics.js';
@@ -149,14 +149,14 @@ export function alertsOf(orders, env, at = Date.now()) {
   const live = env.SITE_MODE === 'live';
   const prov = providerFor(env);
   const purchasable = allVariants().filter((v) => v.purchasable);
-  const unconfirmed = purchasable.filter((v) => !isConfirmed(v.sku));
+  const unconfirmed = purchasable.filter((v) => !isConfirmed(v.sku, providerKey(env)));
   if (live && unconfirmed.length) add('error', 'variant_not_confirmed', `${unconfirmed.length} purchasable variants have no confirmed supplier SKU`, null, 'Confirm the Valadio mapping or set the products back to preview.');
   if (live && prov.sandbox) add('error', 'provider_sandbox', 'Shop is live while fulfillment is in sandbox', null, 'Activate Valadio production only after a test order.');
   for (const p of products.filter((x) => x.line === 'graphic' && x.status === 'PREVIEW')) {
     if (!PRINT_MASTER[p.graphic]) add(live ? 'error' : 'info', 'print_master_missing', `Print-master missing: ${p.name.en}`, p.id, 'Upscale the drawing to the confirmed print area and add it to PRINT_MASTER.');
   }
   if (!env.STRIPE_WEBHOOK_SECRET) add('error', 'webhook_missing', 'Stripe webhook secret missing', null, 'Set STRIPE_WEBHOOK_SECRET on the Worker.');
-  if (!prov.sandbox && !env.VALADIO_WEBHOOK_SECRET) add('error', 'provider_webhook_missing', 'Provider webhook secret missing', null, 'Set VALADIO_WEBHOOK_SECRET.');
+  if (!prov.sandbox && providerKey(env) === 'valadio' && !env.VALADIO_WEBHOOK_SECRET) add('error', 'provider_webhook_missing', 'Provider webhook secret missing', null, 'Set VALADIO_WEBHOOK_SECRET.');
   const rank = { error: 0, warning: 1, info: 2 };
   return out.sort((a, b) => rank[a.level] - rank[b.level]);
 }
@@ -319,8 +319,10 @@ async function fulfillmentStatus(env, orders) {
     provider: prov.name,
     mode: prov.sandbox ? 'sandbox' : 'production',
     fallback: { name: 'a61', enabled: env.FULFILLMENT_PROVIDER === 'a61' },
-    apiConfigured: Boolean(env.VALADIO_API_BASE_URL && env.VALADIO_API_KEY),
-    webhookConfigured: Boolean(env.VALADIO_WEBHOOK_SECRET),
+    apiConfigured: providerKey(env) === 'printegy' ? Boolean(env.PRINTEGY_API_KEY) : Boolean(env.VALADIO_API_BASE_URL && env.VALADIO_API_KEY),
+    webhookConfigured: providerKey(env) === 'printegy' ? null : Boolean(env.VALADIO_WEBHOOK_SECRET),
+    // read-only connection check (never orders): shops and the provider's products with their variant SKUs
+    connection: prov.probe ? await prov.probe() : null,
     lastWebhook: await last('SELECT MAX(created_at) AS t FROM alg_provider_events'),
     lastSync: await last("SELECT MAX(created_at) AS t FROM alg_order_events WHERE type IN ('provider_webhook','sync_error') OR type LIKE 'status:%'"),
     successRate: reached.length ? Math.round((sent.length / reached.length) * 1000) / 10 : null,
@@ -328,9 +330,9 @@ async function fulfillmentStatus(env, orders) {
     delayed: orders.filter((o) => PRODUCTION.includes(o.status) && Date.now() - Date.parse(o.updated_at) > 7 * DAY).length,
     rejected: orders.filter((o) => ATTENTION.includes(o.status)).length,
     skuErrors: orders.filter((o) => /sku|stock/i.test(o.last_error || '')).length,
-    variants: { purchasable: allVariants().filter((v) => v.purchasable).length, confirmed: allVariants().filter((v) => v.purchasable && isConfirmed(v.sku)).length },
+    variants: { purchasable: allVariants().filter((v) => v.purchasable).length, confirmed: allVariants().filter((v) => v.purchasable && isConfirmed(v.sku, providerKey(env))).length },
     // neutral field names: the admin shell is a public static file and must not carry supplier vocabulary
-    mapping: supplierMappings(allVariants().filter((v) => v.purchasable).map((v) => v.sku), 'valadio').map((m) => ({
+    mapping: supplierMappings(allVariants().filter((v) => v.purchasable).map((v) => v.sku), providerKey(env)).map((m) => ({
       product: m.algebraProductId,
       reference: [m.supplierBrand, m.supplierProduct].filter(Boolean).join(' ') || (m.candidates || []).join(', ') || null,
       method: m.method,

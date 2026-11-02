@@ -12,6 +12,7 @@ import { productById, shipping, variantBySku, zoneOf } from '../../data/catalog.
 import { notifyOwner, sendMail, template } from './email.js';
 import { FulfillmentError } from './fulfillment/provider.js';
 import { isConfirmed } from './fulfillment/mapping.js';
+import { providerKey } from './fulfillment/provider.js';
 
 export const STATUSES = ['pending_payment', 'payment_failed', 'expired', 'paid', 'submitted', 'in_production', 'shipped', 'delivered', 'needs_attention', 'fulfillment_failed', 'cancelled', 'refunded'];
 const NEXT = {
@@ -41,7 +42,7 @@ export class HttpError extends Error {
 }
 
 /** Validate a cart against the catalogue and price it. Throws HttpError(400) on anything suspicious. */
-export function priceCart(input, { live = false } = {}) {
+export function priceCart(input, { live = false, provider = 'valadio' } = {}) {
   const { items, country } = input || {};
   if (!Array.isArray(items) || !items.length || items.length > 20) throw new HttpError(400, 'BAD_CART');
   if (!shipping.countries.includes(country)) throw new HttpError(400, 'BAD_COUNTRY');
@@ -59,7 +60,7 @@ export function priceCart(input, { live = false } = {}) {
     if (!v) throw new HttpError(400, 'UNKNOWN_SKU', sku);
     if (!v.purchasable) throw new HttpError(409, 'NOT_PURCHASABLE', sku);
     // live shop: only variants whose exact supplier SKU is confirmed can be sold (worker/src/fulfillment/mapping.js)
-    if (live && !isConfirmed(sku)) throw new HttpError(409, 'NOT_PURCHASABLE', sku);
+    if (live && !isConfirmed(sku, provider)) throw new HttpError(409, 'NOT_PURCHASABLE', sku);
     if (qty > 10) throw new HttpError(400, 'BAD_ITEM');
     const p = productById(v.productId);
     lines.push({ sku, qty, price: v.price ?? p.price, name: p.name.en, productId: p.id, color: v.color, size: v.size, cut: v.cut, decoration: v.decoration, printFile: v.printFile, embroideryFile: v.embroideryFile });

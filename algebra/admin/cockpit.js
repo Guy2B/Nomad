@@ -228,7 +228,8 @@ ${o.events.map((ev) => `<tr><td>${dateTime(ev.created_at)}</td><td>${esc(ev.type
   ${kpi('Provider', esc(s.provider))}
   ${kpi('Mode', esc(s.mode), { cls: s.mode === 'production' ? '' : 'is-warn' })}
   ${kpi('API', s.apiConfigured ? 'configured' : 'not configured', { cls: s.apiConfigured ? '' : 'is-warn' })}
-  ${kpi('Webhook', s.webhookConfigured ? 'configured' : 'not configured', { cls: s.webhookConfigured ? '' : 'is-warn' })}
+  ${s.webhookConfigured == null ? kpi('Webhook', 'none (status polled every 30 min)') : kpi('Webhook', s.webhookConfigured ? 'configured' : 'not configured', { cls: s.webhookConfigured ? '' : 'is-warn' })}
+  ${s.connection ? kpi('API connection', s.connection.ok ? 'OK' : esc(s.connection.error || 'error'), { cls: s.connection.ok ? '' : 'is-err' }) : ''}
   ${kpi('Last webhook', dateTime(s.lastWebhook))}
   ${kpi('Last sync', dateTime(s.lastSync))}
   ${kpi('Order success rate', pct(s.successRate))}
@@ -241,7 +242,12 @@ ${o.events.map((ev) => `<tr><td>${dateTime(ev.created_at)}</td><td>${esc(ev.type
 <p class="note">The provider stays in sandbox until it is officially activated; the fallback provider stays disabled. Production can only be switched on the Worker configuration, never from this cockpit.</p>
 <section class="sec"><h2>Production mapping · ${esc(s.provider)}</h2><div class="tablewrap"><table><thead><tr><th>Algebra product</th><th>Reference</th><th>Method</th><th>Status</th><th class="n">Variants confirmed</th><th>Note</th></tr></thead><tbody>
 ${s.mapping.map((p) => `<tr><td>${esc(p.product)}</td><td>${esc(p.reference || '')}</td><td>${esc(p.method)}</td><td>${st(p.status)}</td><td class="n">${p.confirmed} / ${p.total}</td><td class="muted">${esc(p.note || '')}</td></tr>`).join('')}
-</tbody></table></div></section>`;
+</tbody></table></div></section>
+${s.connection?.ok ? `<section class="sec"><h2>Provider account (read only)</h2>
+<p class="note">Shops: ${s.connection.shops.map((x) => `${esc(x.name || '')} · id ${esc(x.id)}`).join(' | ') || '—'}${s.connection.shopId ? '' : ' · set this id as PRINTEGY_SHOP_ID on the Worker'}</p>
+<div class="tablewrap"><table><thead><tr><th>Product</th><th>Id</th><th>Variant SKUs</th></tr></thead><tbody>
+${s.connection.products.map((p) => `<tr><td>${esc(p.title || '')}</td><td>${esc(p.id)}</td><td class="muted">${p.variants.map((v) => esc([v.color, v.size, v.sku].filter(Boolean).join(' '))).join('<br>') || '—'}</td></tr>`).join('') || '<tr><td colspan="3" class="empty">No products.</td></tr>'}
+</tbody></table></div></section>` : ''}`;
   },
 
   async finance(params) {
