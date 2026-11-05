@@ -280,7 +280,8 @@ const ED = {
 const FROM = { de: 'ab', en: 'from', fr: 'dès' };
 function card(lang, from, p, { eager = false, color, crop = false } = {}) {
   const L = t[lang];
-  const first = color || p.colors[0];
+  // a colour that is no longer sold for this product (e.g. now only on request) falls back to the first sold colour
+  const first = color && p.colors.includes(color) ? color : p.colors[0];
   const sizes = [...new Set((p.cuts ? p.cuts.flatMap((x) => x.sizes) : p.sizes))];
   const href = rel(from, productPath(lang, p));
   // one image pair per colour; the swatches below switch them (hidden sets are not loaded: lazy + display:none)
@@ -350,7 +351,9 @@ function productPage(lang, p) {
     const [w, h] = jpgSize(photoFile(name));
     return `<figure class="${opts.cls || 'sheet__fig'}">${picture(path, `assets/photos/${name}`, alt, { w, h, small: false, eager: opts.eager, sizes: opts.sizes || '(min-width: 1024px) 20vw, 33vw' })}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
   };
-  const gallery = p.colors
+  // colours on request get their images too (when they exist), so the customer can see them
+  const galColors = [...p.colors, ...(p.requestColors || []).filter((c) => hasPhoto(`${p.slug}-${c}-stage`) || hasPhoto(`${p.slug}-${c}-back`))];
+  const gallery = galColors
     .map((c, ci) => {
       const cn = colors[c].name[lang];
       const name = displayName(p, lang);
@@ -481,7 +484,7 @@ function home(lang) {
   const r = (to) => rel(path, to);
   const byId = (id) => products.find((p) => p.id === id);
   const rail = ['ALG-G-09-MANDELBROT', 'ALG-G-11-HIGGS', 'ALG-G-13-FEYNMAN', 'ALG-G-12-BIGBANG'].map(byId).filter(Boolean);
-  const railColors = ['black', 'deep-navy', 'ivory', 'black'];
+  const railColors = ['black', 'deep-navy', 'black', 'black'];
   const essCards = [['ALG-M-POLO', 'deep-navy'], ['ALG-M-TEE', 'ivory'], ['ALG-M-SWEAT', 'black'], ['ALG-W-TEE', 'deep-navy']].map(([id, c]) => [byId(id), c]).filter(([p]) => p);
   const sel = [['ALG-M-POLO', 'deep-navy', 'd-front'], ['ALG-M-TEE', 'ivory', 'd-collar'], ['ALG-M-SWEAT', 'black', 'd-fabric']].map(([id, c, d]) => [byId(id), c, d]).filter(([p]) => p);
   const body = `

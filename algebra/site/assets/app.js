@@ -306,7 +306,10 @@ if (pdp) {
       u.searchParams.set('color', form.querySelector('[name="color"]:checked')?.dataset.label || color);
       a.href = u.pathname + u.search;
     }
-    if (!req) $$('[data-gallery] .gal__set').forEach((s) => (s.hidden = s.dataset.color !== color || (cut && s.dataset.cut && s.dataset.cut !== cut)));
+    // show that colour's images; a colour without images keeps the current ones
+    const sets = $$('[data-gallery] .gal__set');
+    const match = (s) => s.dataset.color === color && !(cut && s.dataset.cut && s.dataset.cut !== cut);
+    if (sets.some(match)) sets.forEach((s) => (s.hidden = !match(s)));
     const pv = variants.find((x) => x.cut === cut && x.price != null);
     const pe = $('[data-price-el]');
     if (pv && pe && pdp.dataset.buyable) pe.textContent = fmt(pv.price);
