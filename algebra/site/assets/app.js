@@ -294,7 +294,19 @@ if (pdp) {
       input.disabled = !show || !v;
       if (input.disabled) input.checked = false;
     });
-    $$('[data-gallery] .gal__set').forEach((s) => (s.hidden = s.dataset.color !== color || (cut && s.dataset.cut && s.dataset.cut !== cut)));
+    // colours "on request" (no photos, no variants): keep the last gallery, swap the add button for a request link
+    const req = !!form.querySelector('[name="color"]:checked')?.dataset.request;
+    const rb = $('[data-request-box]', form);
+    if (rb) {
+      rb.hidden = !req;
+      const add = $('[data-add]', form);
+      if (add) add.style.display = req ? 'none' : '';
+      const a = $('[data-request-link]', rb);
+      const u = new URL(a.href, location.href);
+      u.searchParams.set('color', form.querySelector('[name="color"]:checked')?.dataset.label || color);
+      a.href = u.pathname + u.search;
+    }
+    if (!req) $$('[data-gallery] .gal__set').forEach((s) => (s.hidden = s.dataset.color !== color || (cut && s.dataset.cut && s.dataset.cut !== cut)));
     const pv = variants.find((x) => x.cut === cut && x.price != null);
     const pe = $('[data-price-el]');
     if (pv && pe && pdp.dataset.buyable) pe.textContent = fmt(pv.price);
@@ -405,6 +417,13 @@ function bindForm(sel, path, extra = {}, onOk) {
 }
 bindForm('[data-newsletter]', '/newsletter');
 bindForm('[data-contact]', '/contact');
+// request for a colour "on request": prefill the contact message from ?product=&color=
+{
+  const f = $('[data-contact]');
+  const q = new URLSearchParams(location.search);
+  const msg = f && $('[name="message"]', f);
+  if (msg && q.get('product') && !msg.value) msg.value = `${q.get('product')}${q.get('color') ? ` · ${q.get('color')}` : ''}\n`;
+}
 bindForm('[data-circle]', '/circle', {}, () => { $('[data-circle]').reset(); track('circle_signup'); });
 if ($('[data-circle-expired]') && new URLSearchParams(location.search).get('link') === 'expired') $('[data-circle-expired]').hidden = false;
 

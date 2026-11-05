@@ -46,7 +46,7 @@ export const t = {
     },
     newsletter: { title: 'Neue Kapitel, selten verschickt.', body: 'Neue Kapitel und wenig sonst. Abmeldung jederzeit.', label: 'E-Mail-Adresse', button: 'Anmelden', consent: 'Mit der Anmeldung stimmst du dem Empfang unseres Newsletters zu. Du bekommst zuerst eine E-Mail zur Bestätigung.', ok: 'Fast geschafft: Bitte bestätige die Anmeldung in der E-Mail, die wir dir geschickt haben.', err: 'Das hat nicht geklappt. Bitte versuche es später erneut.' },
     product: {
-      color: 'Farbe', size: 'Größe', cut: 'Schnitt', add: 'In die Tasche', added: 'Hinzugefügt', chooseSize: 'Bitte wähle eine Größe.', unavailable: 'Noch nicht bestellbar',
+      color: 'Farbe', size: 'Größe', cut: 'Schnitt', add: 'In die Tasche', added: 'Hinzugefügt', chooseSize: 'Bitte wähle eine Größe.', unavailable: 'Noch nicht bestellbar', onRequest: 'Auf Anfrage', requestBody: 'Diese Farbe fertigen wir auf Anfrage. Schreib uns, wir melden uns mit Lieferzeit.', requestBtn: 'Anfrage senden',
       notifyBody: 'Bald erhältlich. Trag dich in den Newsletter ein, wir melden uns einmal.',
       sizeGuide: 'Größentabelle', delivery: 'Lieferung', deliveryText: 'Versand mit Sendungsverfolgung. In Deutschland kostenlos ab 100 €.',
       model: 'Model', modelText: 'Größe und Maße des Models folgen mit den echten Produktfotos.',
@@ -123,7 +123,7 @@ export const t = {
     },
     newsletter: { title: 'New chapters, sent rarely.', body: 'New chapters and little else. Unsubscribe any time.', label: 'Email address', button: 'Subscribe', consent: 'By subscribing you agree to receive our newsletter. You will first get an email to confirm.', ok: 'Almost there: please confirm in the email we just sent you.', err: 'That did not work. Please try again later.' },
     product: {
-      color: 'Colour', size: 'Size', cut: 'Cut', add: 'Add to bag', added: 'Added', chooseSize: 'Please choose a size.', unavailable: 'Not available yet',
+      color: 'Colour', size: 'Size', cut: 'Cut', add: 'Add to bag', added: 'Added', chooseSize: 'Please choose a size.', unavailable: 'Not available yet', onRequest: 'On request', requestBody: 'We make this colour on request. Write to us and we will reply with the delivery time.', requestBtn: 'Send a request',
       notifyBody: 'Coming soon. Join the newsletter and we will tell you once.',
       sizeGuide: 'Size guide', delivery: 'Delivery', deliveryText: 'Tracked shipping. Free in Germany from 100 €.',
       model: 'Model', modelText: 'Model height and size worn will follow with the real product photos.',
@@ -200,7 +200,7 @@ export const t = {
     },
     newsletter: { title: 'De nouveaux chapitres, rarement.', body: 'Les nouveaux chapitres, et peu d’autre chose. Désinscription à tout moment.', label: 'Adresse e-mail', button: 'S’inscrire', consent: 'En vous inscrivant, vous acceptez de recevoir notre newsletter. Vous recevrez d’abord un e-mail de confirmation.', ok: 'Presque fini : confirmez dans l’e-mail que nous venons d’envoyer.', err: 'Cela n’a pas fonctionné. Merci de réessayer plus tard.' },
     product: {
-      color: 'Couleur', size: 'Taille', cut: 'Coupe', add: 'Ajouter au panier', added: 'Ajouté', chooseSize: 'Merci de choisir une taille.', unavailable: 'Pas encore disponible',
+      color: 'Couleur', size: 'Taille', cut: 'Coupe', add: 'Ajouter au panier', added: 'Ajouté', chooseSize: 'Merci de choisir une taille.', unavailable: 'Pas encore disponible', onRequest: 'Sur demande', requestBody: 'Nous réalisons cette couleur sur demande. Écrivez-nous, nous revenons vers vous avec le délai.', requestBtn: 'Envoyer une demande',
       notifyBody: 'Bientôt disponible. Inscrivez-vous à la newsletter, nous vous écrirons une fois.',
       sizeGuide: 'Guide des tailles', delivery: 'Livraison', deliveryText: 'Livraison suivie. Offerte en Allemagne dès 100 €.',
       model: 'Mannequin', modelText: 'La taille du mannequin et la taille portée suivront avec les vraies photos produit.',

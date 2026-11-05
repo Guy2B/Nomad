@@ -498,6 +498,8 @@ export const products = [
     // Owner decision 05.11.2026: the drawings have a dark ground, which reads as a square block on light shirts.
     // Graphic Series is sold on black and deep navy only.
     colors: g.colors.filter((c) => c === 'black' || c === 'deep-navy'),
+    // Owner decision 05.11.2026: olive (khaki) and ivory (beige) are shown as "on request": no direct purchase, a request goes to contact.
+    requestColors: ['olive', 'ivory'],
     sizes: sizesMen,
     symbol: g.symbol,
     copy: {
