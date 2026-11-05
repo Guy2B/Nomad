@@ -122,7 +122,8 @@ export const PRINTEGY_SHOP_PRODUCTS = {
   'ALG-G-13-FEYNMAN': 358373,
   'ALG-G-14-MOBIUS': 358374,
 };
-const PRINTEGY_COLOR = { BLK: 'stc_black', DNV: 'stc_french_navy', OLV: 'stc_khaki', IVO: 'stc_natural_raw' };
+// Black and French Navy only (owner decision 05.11.2026: dark-ground drawings look like a block on khaki / natural raw).
+const PRINTEGY_COLOR = { BLK: 'stc_black', DNV: 'stc_french_navy' };
 const PRINTEGY_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 for (const [id, shopProductId] of Object.entries(PRINTEGY_SHOP_PRODUCTS))
   for (const [code, variant] of Object.entries(PRINTEGY_COLOR))

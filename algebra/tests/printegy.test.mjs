@@ -37,7 +37,7 @@ test('probe is read only and reports shops and product SKUs; a refused token is 
 test('every live Graphic Series variant has its Printegy SKU (stc_<colour>-<size>-<shop product>)', () => {
   const gs = allVariants().filter((v) => v.productId.startsWith('ALG-G-') && v.purchasable);
   assert.ok(gs.length > 0);
-  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^stc_(black|french_navy|khaki|natural_raw)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
+  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^stc_(black|french_navy)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
 });
 
 test('sandbox never posts an order', async () => {

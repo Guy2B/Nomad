@@ -495,7 +495,9 @@ export const products = [
       file: `design/prints/${g.key}.png (owner drawing 1024 × 1536: upscale to ≥ 3500 px before production) + brand/algebra-a-signature-master.svg`,
       technique: TV,
     },
-    colors: g.colors,
+    // Owner decision 05.11.2026: the drawings have a dark ground, which reads as a square block on light shirts.
+    // Graphic Series is sold on black and deep navy only.
+    colors: g.colors.filter((c) => c === 'black' || c === 'deep-navy'),
     sizes: sizesMen,
     symbol: g.symbol,
     copy: {
