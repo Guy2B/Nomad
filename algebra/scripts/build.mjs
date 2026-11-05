@@ -285,14 +285,16 @@ function card(lang, from, p, { eager = false, color, crop = false } = {}) {
   const sizes = [...new Set((p.cuts ? p.cuts.flatMap((x) => x.sizes) : p.sizes))];
   const href = rel(from, productPath(lang, p));
   // one image pair per colour; the swatches below switch them (hidden sets are not loaded: lazy + display:none)
-  const sets = p.colors
+  // colours on request (olive, ivory) are shown too when we have their photos, with a faded swatch
+  const reqC = (p.requestColors || []).filter((c) => viewsOf(p, c).length);
+  const sets = [...p.colors, ...reqC]
     .map((c) => {
       const v = p.line === 'graphic' ? viewsOf(p, c).reverse() : viewsOf(p, c);
       if (!v.length) return '';
       return `<div class="card__set" data-color="${c}"${c === first ? '' : ' hidden'}>${picture(from, img(p, c, v[0]), `${displayName(p, lang)}, ${colors[c].name[lang]}`, { eager: eager && c === first })}${v[1] ? picture(from, img(p, c, v[1]), '', { cls: 'card__alt' }) : ''}</div>`;
     })
     .join('');
-  const sw = p.colors.map((k) => `<button type="button" class="sw-btn" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(colors[k].name[lang])}" title="${esc(colors[k].name[lang])}"><span class="sw sw--c-${k}"></span></button>`).join('');
+  const sw = [...p.colors, ...reqC].map((k) => { const req = !p.colors.includes(k); const lab = req ? `${colors[k].name[lang]} · ${L.product.onRequest}` : colors[k].name[lang]; return `<button type="button" class="sw-btn${req ? ' sw-btn--request' : ''}" data-swatch="${k}" aria-pressed="${k === first}" aria-label="${esc(lab)}" title="${esc(lab)}"><span class="sw sw--c-${k}"></span></button>`; }).join('');
   const soon = p.status !== 'PREVIEW';
   const low = minPrice(p);
   const several = (p.cuts || []).some((x) => (x.price ?? p.price) !== low);
