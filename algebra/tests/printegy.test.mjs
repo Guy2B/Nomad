@@ -37,7 +37,7 @@ test('probe is read only and reports shops and product SKUs; a refused token is 
 test('every live Graphic Series variant has its Printegy SKU (stc_<colour>-<size>-<shop product>)', () => {
   const gs = allVariants().filter((v) => v.productId.startsWith('ALG-G-') && v.purchasable);
   assert.ok(gs.length > 0);
-  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^st[cm]_(black|french_navy|khaki|natural_raw)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
+  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^(st[cm]_(black|french_navy|khaki|natural_raw)|wt_(black|navy|urban_khaki|natural))-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
 });
 
 test('sandbox never posts an order', async () => {
@@ -94,4 +94,11 @@ test('women straight cut (R) maps to the MUSER shop products, XS-XL only', () =>
   assert.equal(SKU.printegy['ALG-G-11-HIGGS-R-IVO-XL'].supplierSku, 'stm_natural_raw-XL-360085');
   assert.equal(SKU.printegy['ALG-G-07-LORENZ-R-OLV-M'].supplierSku, 'stm_khaki-M-360009');
   assert.equal(SKU.printegy['ALG-G-07-LORENZ-R-BLK-XXL'], undefined);
+});
+
+test('women fitted cut (W) maps to the B&C shop products, XS-S on the smaller print', () => {
+  assert.equal(SKU.printegy['ALG-G-12-BIGBANG-W-IVO-M'].supplierSku, 'wt_natural-M-360115');
+  assert.equal(SKU.printegy['ALG-G-12-BIGBANG-W-BLK-S'].supplierSku, 'wt_black-S-360151');
+  assert.equal(SKU.printegy['ALG-G-14-MOBIUS-W-OLV-XL'].supplierSku, 'wt_urban_khaki-XL-360150');
+  assert.equal(SKU.printegy['ALG-G-14-MOBIUS-W-DNV-XS'].supplierSku, 'wt_navy-XS-360168');
 });

@@ -158,6 +158,23 @@ for (const [id, shopProductId] of Object.entries(PRINTEGY_SHOP_PRODUCTS))
       const shop = (size === 'XS' || size === 'S') && PRINTEGY_SHOP_PRODUCTS_XS_S[id] ? PRINTEGY_SHOP_PRODUCTS_XS_S[id] : shopProductId;
       SKU.printegy[`${id}-U-${code}-${size}`] = { supplierSku: `${variant}-${size}-${shop}`, status: 'confirmed' };
     }
+/** Women's fitted cut (B&C #E190, DTF), created 06.11.2026: M-XL print 33 × 41 cm, XS-S 29 × 36 cm. SKU prefix wt_. */
+export const PRINTEGY_SHOP_PRODUCTS_FITTED = {
+  'ALG-G-03-ENTANGLEMENT': [360124, 360152],
+  'ALG-G-06-EULER': [360130, 360153],
+  'ALG-G-07-LORENZ': [360142, 360160],
+  'ALG-G-08-MAXWELL': [360146, 360165],
+  'ALG-G-09-MANDELBROT': [360144, 360162],
+  'ALG-G-11-HIGGS': [360138, 360158],
+  'ALG-G-12-BIGBANG': [360115, 360151],
+  'ALG-G-13-FEYNMAN': [360135, 360154],
+  'ALG-G-14-MOBIUS': [360150, 360168],
+};
+const FITTED_COLOR = { BLK: 'wt_black', DNV: 'wt_navy', OLV: 'wt_urban_khaki', IVO: 'wt_natural' };
+for (const [id, [mxl, xss]] of Object.entries(PRINTEGY_SHOP_PRODUCTS_FITTED))
+  for (const [code, variant] of Object.entries(FITTED_COLOR))
+    for (const size of ['XS', 'S', 'M', 'L', 'XL'])
+      SKU.printegy[`${id}-W-${code}-${size}`] = { supplierSku: `${variant}-${size}-${size === 'XS' || size === 'S' ? xss : mxl}`, status: 'confirmed' };
 for (const [id, shop] of Object.entries(PRINTEGY_SHOP_PRODUCTS_WOMEN))
   for (const [code, variant] of Object.entries(PRINTEGY_COLOR))
     for (const size of ['XS', 'S', 'M', 'L', 'XL'])

@@ -88,7 +88,8 @@ const sizesWomen = ['XS', 'S', 'M', 'L', 'XL'];
 export const graphicCuts = [
   { id: 'unisex', code: 'U', blank: 'tee-unisex', sizes: sizesMen, name: { de: 'Unisex', en: 'Unisex', fr: 'Unisexe' } },
   { id: 'oversize', code: 'O', live: false, blank: 'tee-oversize', sizes: sizesMen, price: 75, name: { de: 'Oversize', en: 'Oversize', fr: 'Oversize' } },
-  { id: 'women', code: 'W', live: false, blank: 'tee-w-fitted', sizes: sizesWomen, name: { de: 'Damen tailliert', en: 'Women’s fitted', fr: 'Femme cintrée' } },
+  // Owner 06.11.2026: the fitted cut (very popular) is sold again; print 33 × 41 cm M-XL, 29 × 36 cm XS-S.
+  { id: 'women', code: 'W', blank: 'tee-w-fitted', sizes: sizesWomen, name: { de: 'Damen tailliert', en: 'Women’s fitted', fr: 'Femme cintrée' } },
   // Owner 06.11.2026: the women's straight cut (one shop product per drawing, DTG) is sold; the fitted cut stays on request.
   { id: 'women-straight', code: 'R', blank: 'tee-w', sizes: sizesWomen, name: { de: 'Damen gerade', en: 'Women’s straight', fr: 'Femme droite' } },
 ];
@@ -508,14 +509,14 @@ export const products = [
         fr: `${g.name.replace(/ \d{2}$/, '')} : un grand imprimé dos à l’encre, cuivre et pétrole, avec la vraie équation. Le symbole Algebra sur la poitrine.`,
       },
       fit: {
-        de: 'Unisex oder Damen, beide gerade geschnitten.',
-        en: 'Unisex or women’s, both straight cut.',
-        fr: 'Unisexe ou femme, coupe droite.',
+        de: 'Unisex gerade, Damen tailliert oder Damen gerade.',
+        en: 'Unisex straight, women’s fitted or women’s straight.',
+        fr: 'Unisexe droit, femme cintrée ou femme droite.',
       },
       fabric: {
-        de: 'Unisex und Damen 180 g/m².',
-        en: 'Unisex and women’s 180 g/m².',
-        fr: 'Unisexe et femme 180 g/m².',
+        de: 'Unisex und Damen gerade 180 g/m², Damen tailliert 185 g/m².',
+        en: 'Unisex and women’s straight 180 g/m², women’s fitted 185 g/m².',
+        fr: 'Unisexe et femme droite 180 g/m², femme cintrée 185 g/m².',
       },
       detail: {
         de: 'Druck über fast den ganzen Rücken. Das Symbol klein auf der linken Brust.',

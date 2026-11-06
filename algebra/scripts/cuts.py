@@ -30,7 +30,7 @@ INK, IVORY = (17, 19, 24), (243, 235, 221)  # master A colours
 CUTS = {
     "oversize": dict(product="82", area=(4606, 5787), a=(3484, 945, 295),
                      colors={"black": "Black", "deep-navy": "French Navy", "olive": "Khaki", "ivory": "Natural Raw"}),
-    "women": dict(product="2", area=(4606, 5787), a=(3484, 945, 295),
+    "women": dict(product="2", area=(4606, 5787), a=(3484, 945, 295), art_frac=33 / 39,
                   colors={"black": "Black", "deep-navy": "Navy", "olive": "Urban Khaki", "ivory": "Natural"}),
     "women-straight": dict(product="113", area=(3425, 4606), a=(2657, 827, 295),
                            colors={"black": "Black", "deep-navy": "French Navy", "olive": "Khaki", "ivory": "Natural Raw"}),
@@ -43,7 +43,7 @@ def layer(name):
     return Image.open(LAYERS / name).convert("RGBA")
 
 
-def side_image(t, side, hexcol, art=None, a_spec=None, light=False, area=None):
+def side_image(t, side, hexcol, art=None, a_spec=None, light=False, area=None, art_frac=None):
     s = t[side]
     bg, fg = layer(s["background"]), layer(s["foreground"])
     W, H = bg.size
@@ -53,9 +53,10 @@ def side_image(t, side, hexcol, art=None, a_spec=None, light=False, area=None):
     alpha = np.asarray(bg)[..., 3:4].astype(np.float32) / 255
     L, T, MW, MH = s["maskLeft"], s["maskTop"], s["maskWidth"], s["maskHeight"]
     if art is not None:  # back: drawing fitted in the print area, centred
-        k = min(MW / art.width, MH / art.height)
+        k = min(MW * (art_frac or 1) / art.width, MH / art.height)
         im = art.resize((max(1, round(art.width * k)), max(1, round(art.height * k))), Image.LANCZOS)
-        x, y = L + (MW - im.width) // 2, T + (MH - im.height) // 2
+        # art_frac: printed narrower than the area and from its top edge, like the print file
+        x, y = L + (MW - im.width) // 2, (T if art_frac else T + (MH - im.height) // 2)
         a = np.asarray(im).astype(np.float32) / 255
         reg = base[y : y + im.height, x : x + im.width]
         reg[:] = reg * (1 - a[..., 3:4]) + a[..., :3] * 255 * a[..., 3:4]
@@ -115,7 +116,7 @@ def make(design, only=None):
             t = tpl[v["layer"]]
             light = color in LIGHT
             front, fm = side_image(t, "front", v["color"], a_spec=spec["a"], light=light, area=spec["area"])
-            back, bm = side_image(t, "back", v["color"], art=drawing(design, light))
+            back, bm = side_image(t, "back", v["color"], art=drawing(design, light), art_frac=spec.get("art_frac"))
             save(stage(front, back, fm, bm), f"{design}-{cut}-{color}-stage")
             made.append(f"{design}-{cut}-{color}")
     return made
