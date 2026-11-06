@@ -132,6 +132,22 @@ export const PRINTEGY_SHOP_PRODUCTS_XS_S = {
   'ALG-G-09-MANDELBROT': 359656,
   'ALG-G-11-HIGGS': 359659,
   'ALG-G-14-MOBIUS': 359661,
+  'ALG-G-13-FEYNMAN': 360028,
+  'ALG-G-08-MAXWELL': 360031,
+  'ALG-G-07-LORENZ': 360032,
+  'ALG-G-12-BIGBANG': 360033,
+};
+/** Women's straight cut (MUSER, DTG, print 26 × 39 cm, XS-XL), one shop product per drawing, created 06.11.2026. SKU prefix stm_. */
+export const PRINTEGY_SHOP_PRODUCTS_WOMEN = {
+  'ALG-G-03-ENTANGLEMENT': 360016,
+  'ALG-G-06-EULER': 360022,
+  'ALG-G-07-LORENZ': 360009,
+  'ALG-G-08-MAXWELL': 360008,
+  'ALG-G-09-MANDELBROT': 360005,
+  'ALG-G-11-HIGGS': 354352,
+  'ALG-G-12-BIGBANG': 360015,
+  'ALG-G-13-FEYNMAN': 360004,
+  'ALG-G-14-MOBIUS': 360024,
 };
 // All four colours (owner 06.11.2026): print files without the dark ground; Natural Raw has its own front (dark A) and back (light version).
 const PRINTEGY_COLOR = { BLK: 'stc_black', DNV: 'stc_french_navy', OLV: 'stc_khaki', IVO: 'stc_natural_raw' };
@@ -142,6 +158,10 @@ for (const [id, shopProductId] of Object.entries(PRINTEGY_SHOP_PRODUCTS))
       const shop = (size === 'XS' || size === 'S') && PRINTEGY_SHOP_PRODUCTS_XS_S[id] ? PRINTEGY_SHOP_PRODUCTS_XS_S[id] : shopProductId;
       SKU.printegy[`${id}-U-${code}-${size}`] = { supplierSku: `${variant}-${size}-${shop}`, status: 'confirmed' };
     }
+for (const [id, shop] of Object.entries(PRINTEGY_SHOP_PRODUCTS_WOMEN))
+  for (const [code, variant] of Object.entries(PRINTEGY_COLOR))
+    for (const size of ['XS', 'S', 'M', 'L', 'XL'])
+      SKU.printegy[`${id}-R-${code}-${size}`] = { supplierSku: `${variant.replace('stc_', 'stm_')}-${size}-${shop}`, status: 'confirmed' };
 
 /** Print-master files per design (high resolution for the confirmed print area). None exists yet. */
 export const PRINT_MASTER = {

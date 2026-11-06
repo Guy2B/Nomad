@@ -37,7 +37,7 @@ test('probe is read only and reports shops and product SKUs; a refused token is 
 test('every live Graphic Series variant has its Printegy SKU (stc_<colour>-<size>-<shop product>)', () => {
   const gs = allVariants().filter((v) => v.productId.startsWith('ALG-G-') && v.purchasable);
   assert.ok(gs.length > 0);
-  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^stc_(black|french_navy|khaki|natural_raw)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
+  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^st[cm]_(black|french_navy|khaki|natural_raw)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
 });
 
 test('sandbox never posts an order', async () => {
@@ -85,5 +85,13 @@ test('polled order: status name and DHL tracking become Algebra status and track
 test('XS and S go to the smaller-print shop product where one exists; olive and ivory are mapped', () => {
   assert.equal(SKU.printegy['ALG-G-06-EULER-U-IVO-XS'].supplierSku, 'stc_natural_raw-XS-359655');
   assert.equal(SKU.printegy['ALG-G-06-EULER-U-OLV-M'].supplierSku, 'stc_khaki-M-358377');
-  assert.equal(SKU.printegy['ALG-G-13-FEYNMAN-U-BLK-S'].supplierSku, 'stc_black-S-358373');
+  assert.equal(SKU.printegy['ALG-G-13-FEYNMAN-U-BLK-S'].supplierSku, 'stc_black-S-360028');
+  assert.equal(SKU.printegy['ALG-G-13-FEYNMAN-U-BLK-M'].supplierSku, 'stc_black-M-358373');
+});
+
+test('women straight cut (R) maps to the MUSER shop products, XS-XL only', () => {
+  assert.equal(SKU.printegy['ALG-G-14-MOBIUS-R-DNV-XS'].supplierSku, 'stm_french_navy-XS-360024');
+  assert.equal(SKU.printegy['ALG-G-11-HIGGS-R-IVO-XL'].supplierSku, 'stm_natural_raw-XL-354352');
+  assert.equal(SKU.printegy['ALG-G-07-LORENZ-R-OLV-M'].supplierSku, 'stm_khaki-M-360009');
+  assert.equal(SKU.printegy['ALG-G-07-LORENZ-R-BLK-XXL'], undefined);
 });
