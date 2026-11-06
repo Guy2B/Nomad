@@ -313,7 +313,7 @@ def make(slug, color, spec):
     if spec.get("design"):
         bw = back_box[2] - back_box[0]
         bh = back_box[3] - back_box[1]
-        a = art(spec["design"], bw * 0.70, bh * 0.76, color)
+        a = art(spec["design"], bw * 0.52, bh * 0.76, color)  # 4:5 drawings (06.11.2026): keep them inside the back panel
         back = fabric_blend(back, a, (round(back_box[0] + (bw - a.width) / 2), round(back_box[1] + bh * 0.12)), strength=0.96)
     fp = packshot(front, front_box, bg)
     bp = packshot(back, back_box, bg)

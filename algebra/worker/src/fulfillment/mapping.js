@@ -123,7 +123,7 @@ export const PRINTEGY_SHOP_PRODUCTS = {
   'ALG-G-14-MOBIUS': 358374,
 };
 /**
- * XS and S use a separate shop product with a smaller back print (29.4 × 44 cm instead of 32.7 × 49 cm on M-XXL),
+ * XS and S use a separate shop product with a smaller back print (35 × 44 cm instead of 39 × 49 cm on M-XXL, 4:5 drawings since 06.11.2026),
  * so the drawing keeps the same proportion on the back (set up 05/06.11.2026). Designs without one keep XS/S on the main product.
  */
 export const PRINTEGY_SHOP_PRODUCTS_XS_S = {
@@ -137,14 +137,14 @@ export const PRINTEGY_SHOP_PRODUCTS_XS_S = {
   'ALG-G-07-LORENZ': 360032,
   'ALG-G-12-BIGBANG': 360033,
 };
-/** Women's straight cut (MUSER, DTG, print 26 × 39 cm, XS-XL), one shop product per drawing, created 06.11.2026. SKU prefix stm_. */
+/** Women's straight cut (MUSER, DTG, print 29 × 36 cm, XS-XL), one shop product per drawing, created 06.11.2026. SKU prefix stm_. */
 export const PRINTEGY_SHOP_PRODUCTS_WOMEN = {
   'ALG-G-03-ENTANGLEMENT': 360016,
   'ALG-G-06-EULER': 360022,
   'ALG-G-07-LORENZ': 360009,
   'ALG-G-08-MAXWELL': 360008,
   'ALG-G-09-MANDELBROT': 360005,
-  'ALG-G-11-HIGGS': 354352,
+  'ALG-G-11-HIGGS': 360085, // replaces 354352 (drawing on the front), 06.11.2026
   'ALG-G-12-BIGBANG': 360015,
   'ALG-G-13-FEYNMAN': 360004,
   'ALG-G-14-MOBIUS': 360024,

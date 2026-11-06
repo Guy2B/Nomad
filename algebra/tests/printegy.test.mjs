@@ -91,7 +91,7 @@ test('XS and S go to the smaller-print shop product where one exists; olive and 
 
 test('women straight cut (R) maps to the MUSER shop products, XS-XL only', () => {
   assert.equal(SKU.printegy['ALG-G-14-MOBIUS-R-DNV-XS'].supplierSku, 'stm_french_navy-XS-360024');
-  assert.equal(SKU.printegy['ALG-G-11-HIGGS-R-IVO-XL'].supplierSku, 'stm_natural_raw-XL-354352');
+  assert.equal(SKU.printegy['ALG-G-11-HIGGS-R-IVO-XL'].supplierSku, 'stm_natural_raw-XL-360085');
   assert.equal(SKU.printegy['ALG-G-07-LORENZ-R-OLV-M'].supplierSku, 'stm_khaki-M-360009');
   assert.equal(SKU.printegy['ALG-G-07-LORENZ-R-BLK-XXL'], undefined);
 });

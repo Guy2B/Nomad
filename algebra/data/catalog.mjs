@@ -492,7 +492,7 @@ export const products = [
     decoration: {
       method: 'print',
       option: 'print2',
-      placement: 'front: official A, 25 mm wide (≈ 18 mm high), left chest · back: full-back print ~350 × 500 mm (max print area: see fulfillment mapping)',
+      placement: 'front: official A, 25 mm wide (≈ 18 mm high), left chest · back: full-back print ~390 × 490 mm (4:5 drawings since 06.11.2026) (max print area: see fulfillment mapping)',
       file: `design/prints/${g.key}.png (owner drawing 1024 × 1536: upscale to ≥ 3500 px before production) + brand/algebra-a-signature-master.svg`,
       technique: TV,
     },

@@ -1,18 +1,18 @@
 // Size guide: measured garment (flat), print size on the back, one diagram per cut (06.11.2026).
 // Sources: Stanley/Stella Creator 2.0 (STTU169) and Stella Muser (STTW172) size charts; print sizes = our Printegy files.
 const T = {
-  de: { intro: 'Maße am flach liegenden Shirt, in cm. Herstellerangaben, ± 1–2 cm.', size: 'Größe', chest: 'Brustbreite', length: 'Länge', sleeve: 'Ärmel', print: 'Druck Rücken (B × H)', unisex: 'Unisex (gerader Schnitt)', women: 'Damen (gerader Schnitt)', fitted: 'Damen tailliert', fittedText: 'Auf Anfrage. Schreib uns, wir senden dir die Maße.', printNote: 'Unisex: in XS und S ist der Druck kleiner (29 × 44 cm), damit das Motiv im gleichen Verhältnis auf dem Rücken sitzt.', a: 'Symbol: 25 mm breit, linke Brust.', front: 'Vorne', back: 'Hinten' },
-  en: { intro: 'Garment measured flat, in cm. Manufacturer figures, ± 1–2 cm.', size: 'Size', chest: 'Chest width', length: 'Length', sleeve: 'Sleeve', print: 'Back print (W × H)', unisex: 'Unisex (straight cut)', women: 'Women (straight cut)', fitted: 'Women fitted', fittedText: 'On request. Write to us and we send you the measurements.', printNote: 'Unisex: in XS and S the print is smaller (29 × 44 cm), so the drawing keeps the same proportion on the back.', a: 'Symbol: 25 mm wide, left chest.', front: 'Front', back: 'Back' },
-  fr: { intro: 'Vêtement mesuré à plat, en cm. Données fabricant, ± 1–2 cm.', size: 'Taille', chest: 'Largeur poitrine', length: 'Longueur', sleeve: 'Manche', print: 'Impression dos (L × H)', unisex: 'Unisexe (coupe droite)', women: 'Femme (coupe droite)', fitted: 'Femme cintrée', fittedText: 'Sur demande. Écrivez-nous, nous vous envoyons les mesures.', printNote: 'Unisexe : en XS et S, l’impression est plus petite (29 × 44 cm) pour que le dessin garde la même proportion sur le dos.', a: 'Symbole : 25 mm de large, poitrine gauche.', front: 'Devant', back: 'Dos' },
+  de: { intro: 'Maße am flach liegenden Shirt, in cm. Herstellerangaben, ± 1–2 cm.', size: 'Größe', chest: 'Brustbreite', length: 'Länge', sleeve: 'Ärmel', print: 'Druck Rücken (B × H)', unisex: 'Unisex (gerader Schnitt)', women: 'Damen (gerader Schnitt)', fitted: 'Damen tailliert', fittedText: 'Auf Anfrage. Schreib uns, wir senden dir die Maße.', printNote: 'Unisex: in XS und S ist der Druck kleiner (35 × 44 cm), damit das Motiv im gleichen Verhältnis auf dem Rücken sitzt.', a: 'Symbol: 25 mm breit, linke Brust.', front: 'Vorne', back: 'Hinten' },
+  en: { intro: 'Garment measured flat, in cm. Manufacturer figures, ± 1–2 cm.', size: 'Size', chest: 'Chest width', length: 'Length', sleeve: 'Sleeve', print: 'Back print (W × H)', unisex: 'Unisex (straight cut)', women: 'Women (straight cut)', fitted: 'Women fitted', fittedText: 'On request. Write to us and we send you the measurements.', printNote: 'Unisex: in XS and S the print is smaller (35 × 44 cm), so the drawing keeps the same proportion on the back.', a: 'Symbol: 25 mm wide, left chest.', front: 'Front', back: 'Back' },
+  fr: { intro: 'Vêtement mesuré à plat, en cm. Données fabricant, ± 1–2 cm.', size: 'Taille', chest: 'Largeur poitrine', length: 'Longueur', sleeve: 'Manche', print: 'Impression dos (L × H)', unisex: 'Unisexe (coupe droite)', women: 'Femme (coupe droite)', fitted: 'Femme cintrée', fittedText: 'Sur demande. Écrivez-nous, nous vous envoyons les mesures.', printNote: 'Unisexe : en XS et S, l’impression est plus petite (35 × 44 cm) pour que le dessin garde la même proportion sur le dos.', a: 'Symbole : 25 mm de large, poitrine gauche.', front: 'Devant', back: 'Dos' },
 };
 const CUTS = {
   unisex: [
-    ['XS', 47.5, 65, 21, '29 × 44'], ['S', 49.5, 69, 22.5, '29 × 44'], ['M', 53.5, 73, 24, '33 × 49'],
-    ['L', 56.5, 75, 24.5, '33 × 49'], ['XL', 59.5, 77, 25, '33 × 49'], ['XXL', 63.5, 79, 25.5, '33 × 49'],
+    ['XS', 47.5, 65, 21, '35 × 44'], ['S', 49.5, 69, 22.5, '35 × 44'], ['M', 53.5, 73, 24, '39 × 49'],
+    ['L', 56.5, 75, 24.5, '39 × 49'], ['XL', 59.5, 77, 25, '39 × 49'], ['XXL', 63.5, 79, 25.5, '39 × 49'],
   ],
   women: [
-    ['XS', 45, 56.5, 18, '26 × 39'], ['S', 48, 59.5, 18.5, '26 × 39'], ['M', 51, 61.5, 19, '26 × 39'],
-    ['L', 54, 63.5, 19.5, '26 × 39'], ['XL', 57, 65.5, 20, '26 × 39'],
+    ['XS', 45, 56.5, 18, '29 × 36'], ['S', 48, 59.5, 18.5, '29 × 36'], ['M', 51, 61.5, 19, '29 × 36'],
+    ['L', 54, 63.5, 19.5, '29 × 36'], ['XL', 57, 65.5, 20, '29 × 36'],
   ],
 };
 const n = (v, lang) => (lang === 'en' ? String(v) : String(v).replace('.', ','));
@@ -45,8 +45,8 @@ export function sizeGuide(lang) {
   const L = T[lang];
   const u = CUTS.unisex[2], w = CUTS.women[2];
   return `<p>${L.intro}</p>
-<section class="sg"><h2>${L.unisex}</h2>${diagram(L, { w: u[1], l: u[2], pw: 33, ph: 49 })}${table(L, CUTS.unisex, lang)}</section>
-<section class="sg"><h2>${L.women}</h2>${diagram(L, { w: w[1], l: w[2], pw: 26, ph: 39 })}${table(L, CUTS.women, lang)}</section>
+<section class="sg"><h2>${L.unisex}</h2>${diagram(L, { w: u[1], l: u[2], pw: 39, ph: 49 })}${table(L, CUTS.unisex, lang)}</section>
+<section class="sg"><h2>${L.women}</h2>${diagram(L, { w: w[1], l: w[2], pw: 29, ph: 36 })}${table(L, CUTS.women, lang)}</section>
 <section class="sg"><h2>${L.fitted}</h2><p>${L.fittedText}</p></section>
 <p class="small">${L.printNote} ${L.a}</p>`;
 }
