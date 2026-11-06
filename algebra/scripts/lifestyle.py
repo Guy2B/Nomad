@@ -59,7 +59,7 @@ def couple(src, man_old, man_new, woman, name, man_w=26, woman_w=24):
     im = Image.open(SRC / src).convert("RGB")
     im = erase(im, man_old, 22, True)
     im = erase(im, woman, 20, False)
-    im = embroider(im, "olive", man_w, man_new, printed=True)   # the man's left chest (image right)
+    im = embroider(im, "olive", man_w, man_new, printed=True)   # the man's left chest (image right), out towards the shoulder as on campaign-couple (owner 06.11.2026)
     im = embroider(im, "ivory", woman_w, woman, printed=True)
     save(im, name)
     return im
@@ -105,9 +105,9 @@ def straight_navy_backs():
 
 
 if __name__ == "__main__":
-    couple("couple-olive-ivory-a.jpg", (617, 357), (763, 357), (1153, 500), "ls-couple-a")
-    couple("couple-olive-ivory-b.jpg", (648, 360), (822, 360), (1110, 485), "ls-couple-b")
-    couple("couple-olive-ivory-c.jpg", (301, 373), (429, 373), (797, 481), "ls-couple-c")
+    couple("couple-olive-ivory-a.jpg", (617, 357), (800, 362), (1153, 500), "ls-couple-a")
+    couple("couple-olive-ivory-b.jpg", (648, 360), (857, 358), (1110, 485), "ls-couple-b")
+    couple("couple-olive-ivory-c.jpg", (301, 373), (482, 362), (797, 481), "ls-couple-c")
     man_olive()
     real_fitted()
     straight_navy_backs()
