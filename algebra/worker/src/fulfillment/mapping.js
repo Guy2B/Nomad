@@ -122,12 +122,26 @@ export const PRINTEGY_SHOP_PRODUCTS = {
   'ALG-G-13-FEYNMAN': 358373,
   'ALG-G-14-MOBIUS': 358374,
 };
-// Black and French Navy only (owner decision 05.11.2026: dark-ground drawings look like a block on khaki / natural raw).
-const PRINTEGY_COLOR = { BLK: 'stc_black', DNV: 'stc_french_navy' };
+/**
+ * XS and S use a separate shop product with a smaller back print (29.4 × 44 cm instead of 32.7 × 49 cm on M-XXL),
+ * so the drawing keeps the same proportion on the back (set up 05/06.11.2026). Designs without one keep XS/S on the main product.
+ */
+export const PRINTEGY_SHOP_PRODUCTS_XS_S = {
+  'ALG-G-03-ENTANGLEMENT': 359657,
+  'ALG-G-06-EULER': 359655,
+  'ALG-G-09-MANDELBROT': 359656,
+  'ALG-G-11-HIGGS': 359659,
+  'ALG-G-14-MOBIUS': 359661,
+};
+// All four colours (owner 06.11.2026): print files without the dark ground; Natural Raw has its own front (dark A) and back (light version).
+const PRINTEGY_COLOR = { BLK: 'stc_black', DNV: 'stc_french_navy', OLV: 'stc_khaki', IVO: 'stc_natural_raw' };
 const PRINTEGY_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 for (const [id, shopProductId] of Object.entries(PRINTEGY_SHOP_PRODUCTS))
   for (const [code, variant] of Object.entries(PRINTEGY_COLOR))
-    for (const size of PRINTEGY_SIZES) SKU.printegy[`${id}-U-${code}-${size}`] = { supplierSku: `${variant}-${size}-${shopProductId}`, status: 'confirmed' };
+    for (const size of PRINTEGY_SIZES) {
+      const shop = (size === 'XS' || size === 'S') && PRINTEGY_SHOP_PRODUCTS_XS_S[id] ? PRINTEGY_SHOP_PRODUCTS_XS_S[id] : shopProductId;
+      SKU.printegy[`${id}-U-${code}-${size}`] = { supplierSku: `${variant}-${size}-${shop}`, status: 'confirmed' };
+    }
 
 /** Print-master files per design (high resolution for the confirmed print area). None exists yet. */
 export const PRINT_MASTER = {

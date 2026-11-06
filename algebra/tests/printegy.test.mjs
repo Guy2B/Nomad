@@ -37,7 +37,7 @@ test('probe is read only and reports shops and product SKUs; a refused token is 
 test('every live Graphic Series variant has its Printegy SKU (stc_<colour>-<size>-<shop product>)', () => {
   const gs = allVariants().filter((v) => v.productId.startsWith('ALG-G-') && v.purchasable);
   assert.ok(gs.length > 0);
-  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^stc_(black|french_navy)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
+  for (const v of gs) assert.match(SKU.printegy[v.sku]?.supplierSku || '', /^stc_(black|french_navy|khaki|natural_raw)-(XS|S|M|L|XL|XXL)-\d+$/, v.sku);
 });
 
 test('sandbox never posts an order', async () => {
@@ -80,4 +80,10 @@ test('polled order: status name and DHL tracking become Algebra status and track
   assert.equal(s.carrier, 'DHL');
   assert.match(s.trackingUrl, /piececode=00340434/);
   assert.throws(() => orderForm(order({ address_json: null }), '7'), (e) => e.kind === 'address');
+});
+
+test('XS and S go to the smaller-print shop product where one exists; olive and ivory are mapped', () => {
+  assert.equal(SKU.printegy['ALG-G-06-EULER-U-IVO-XS'].supplierSku, 'stc_natural_raw-XS-359655');
+  assert.equal(SKU.printegy['ALG-G-06-EULER-U-OLV-M'].supplierSku, 'stc_khaki-M-358377');
+  assert.equal(SKU.printegy['ALG-G-13-FEYNMAN-U-BLK-S'].supplierSku, 'stc_black-S-358373');
 });

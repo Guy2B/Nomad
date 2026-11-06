@@ -495,11 +495,9 @@ export const products = [
       file: `design/prints/${g.key}.png (owner drawing 1024 × 1536: upscale to ≥ 3500 px before production) + brand/algebra-a-signature-master.svg`,
       technique: TV,
     },
-    // Owner decision 05.11.2026: the drawings have a dark ground, which reads as a square block on light shirts.
-    // Graphic Series is sold on black and deep navy only.
-    colors: g.colors.filter((c) => c === 'black' || c === 'deep-navy'),
-    // Owner decision 05.11.2026: olive (khaki) and ivory (beige) are shown as "on request": no direct purchase, a request goes to contact.
-    requestColors: ['olive', 'ivory'],
+    // Owner 06.11.2026: the print files have no dark ground any more (design/prints-nobg), so all four colours are sold again.
+    // Ivory gets the light-shirt version of the file (light strokes in dark ink, dark A on the chest).
+    colors: g.colors,
     sizes: sizesMen,
     symbol: g.symbol,
     copy: {
