@@ -566,3 +566,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .about__img { margin: 0 0 40px; }
 .about__img img { width: 100%; height: auto; display: block; }
 .hero__img img { object-position: 50% 28%; }
+.sg { margin: 40px 0; }
+.sg h2 { font-size: 1rem; letter-spacing: .08em; text-transform: uppercase; }
+.sg__svg { display: block; width: 100%; max-width: 640px; height: auto; margin: 16px auto 20px; color: var(--ink); }
+.sg__lb { font: 13px var(--text); fill: currentColor; }
+.sg__cap { font: 600 11px var(--text); letter-spacing: .12em; text-transform: uppercase; fill: currentColor; }
+.sg__tbl td, .sg__tbl th { text-align: center; }
+.sg__tbl td:first-child, .sg__tbl th:first-child { text-align: left; }

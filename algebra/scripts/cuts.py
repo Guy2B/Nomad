@@ -94,10 +94,19 @@ def save(img, name):
     img.save(OUT / f"{name}.avif", quality=62)
 
 
-def make(design):
-    art = Image.open(PRINTS / f"{design}.png").convert("RGBA")
+PRINTS_NOBG = ROOT / "design" / "prints-nobg"  # drawings without their dark ground (owner 05.11.2026)
+
+
+def drawing(design, light):
+    f = PRINTS_NOBG / f"{design}-{'light' if light else 'dark'}.png"
+    return Image.open(f if f.exists() else PRINTS / f"{design}.png").convert("RGBA")
+
+
+def make(design, only=None):
     made = []
     for cut, spec in CUTS.items():
+        if only and cut not in only:
+            continue
         p = META[spec["product"]]
         by_name = {v["name"]: v for v in p["variants"]}
         tpl = {t["id"]: t for t in p["templates"]}
@@ -106,13 +115,15 @@ def make(design):
             t = tpl[v["layer"]]
             light = color in LIGHT
             front, fm = side_image(t, "front", v["color"], a_spec=spec["a"], light=light, area=spec["area"])
-            back, bm = side_image(t, "back", v["color"], art=art)
+            back, bm = side_image(t, "back", v["color"], art=drawing(design, light))
             save(stage(front, back, fm, bm), f"{design}-{cut}-{color}-stage")
             made.append(f"{design}-{cut}-{color}")
     return made
 
 
 if __name__ == "__main__":
-    designs = sys.argv[1:] or ["big-bang", "entanglement", "feynman", "lorenz", "mandelbrot", "maxwell", "higgs", "euler", "mobius"]
+    args = sys.argv[1:]
+    only = {a[6:] for a in args if a.startswith("--cut=")}
+    designs = [a for a in args if not a.startswith("--")] or ["big-bang", "entanglement", "feynman", "lorenz", "mandelbrot", "maxwell", "higgs", "euler", "mobius"]
     for d in designs:
-        print(d, len(make(d)))
+        print(d, len(make(d, only)))

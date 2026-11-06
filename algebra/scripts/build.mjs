@@ -5,6 +5,7 @@
  * All internal links are relative, so the build works on any host or sub-path.
  * Run: npm run build   (SITE_MODE=live only after the launch checklist is PASS)
  */
+import { sizeGuide } from './sizeguide.mjs';
 import { readMaster } from './brand-master.mjs';
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, posix } from 'node:path';
@@ -420,7 +421,7 @@ function productPage(lang, p) {
           ${p.cuts?.length > 1 ? `<fieldset class="opt"><legend>${P.cut}</legend><div class="opt__row">${cuts.map((c, i) => `<label class="pill"><input type="radio" name="cut" value="${c.id}"${i ? '' : ' checked'}><span>${esc(c.name[lang])}</span></label>`).join('')}</div></fieldset>` : p.cuts ? `<input type="radio" name="cut" value="${cuts[0].id}" checked hidden>` : ''}
           <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[p.colors[0]].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c, i) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${i ? '' : ' checked'}><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}${(p.requestColors || []).map((c) => `<label class="swatch swatch--request" title="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><input type="radio" name="color" value="${c}" data-request="1" data-label="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])} · ${esc(P.onRequest)}</span></label>`).join('')}</div></fieldset>
           <fieldset class="opt"><legend>${P.size}</legend><div class="opt__row" data-sizes>${cuts.map((c, ci) => c.sizes.map((s) => `<label class="pill" data-cut="${c.id}"${ci ? ' hidden' : ''}><input type="radio" name="size" value="${s}"${ci ? ' disabled' : ''}><span>${s}</span></label>`).join('')).join('')}</div>
-          <a href="${r(`/${lang}/size-guide/`)}" class="small" data-track="size_guide_open">${P.sizeGuide}</a></fieldset>
+          <a href="${r(`/${lang}/size-guide/`)}" class="small" data-track="size_guide_open">${P.sizeGuide}</a>${p.line === 'graphic' ? ` · <a href="${r(`/${lang}/contact/`)}?product=${encodeURIComponent(`${displayName(p, lang)}, ${P.fittedReq}`)}" class="small" data-track="fitted_request">${esc(P.fittedReq)}</a>` : ''}</fieldset>
           <p class="form-err" data-err role="alert" hidden>${P.chooseSize}</p>
           ${p.requestColors?.length ? `<div class="notice" data-request-box hidden><p>${esc(P.requestBody)}</p><a class="btn btn--line btn--block" data-request-link href="${r(`/${lang}/contact/`)}?product=${encodeURIComponent(displayName(p, lang))}">${esc(P.requestBtn)}</a></div>` : ''}
           ${buyable ? `<button class="btn btn--solid btn--block" type="submit" data-add>${P.add}</button>` : `<p class="notice">${esc(P.notifyBody)}</p><a class="btn btn--line btn--block" href="${r(`/${lang}/#newsletter`)}">Newsletter</a>`}
@@ -614,7 +615,7 @@ for (const lang of LANGS) {
     const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: qa.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }];
     write(path, layout(lang, { path, key: 'faq', title: `${L.faq.title} · Algebra`, desc: qa[0][1], body, jsonld }));
   }
-  simple(lang, 'size-guide', L.size.title, pages.sizeGuide[lang]);
+  simple(lang, 'size-guide', L.size.title, pages.sizeGuide[lang] + sizeGuide(lang));
   // campaign image (06.11.2026): AI-assisted from the owner's real test photos, the official A placed from the print file
   simple(lang, 'about', L.about.title, `<figure class="about__img">${photo(`/${lang}/about/`, 'campaign-couple-2', 'Algebra', { w: 1672, h: 941, sizes: '(min-width: 1024px) 760px, 100vw' })}</figure>` + pages.about[lang] + `<p class="about__sym">${symbolSvg('sym sym--xl', 'Algebra')}</p>`);
   // A Circle: public page with the join form, and the member page (token in the URL fragment, never sent to a server log)
