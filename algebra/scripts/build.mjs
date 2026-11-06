@@ -124,6 +124,8 @@ const LOOKS = {
   'women-straight/deep-navy': ['{slug}-ls-straight-deep-navy-back'],
 };
 const looksOf = (slug, cut, color) => (LOOKS[`${cut}/${color}`] || []).map((n) => n.replace('{slug}', slug)).filter(hasPhoto);
+// owner 06.11.2026: a page with worn photos opens on the colour that has them (first cut)
+const leadColor = (p) => (p.cuts && p.colors.find((c) => looksOf(p.slug, p.cuts[0].id, c).length)) || p.colors[0];
 const viewsOf = (p, color) => ['front', 'back'].filter((v) => hasImg(p, color, v));
 const displayName = (p, lang) => {
   const g = { men: { de: 'Herren', en: 'Men', fr: 'Homme' }, women: { de: 'Damen', en: 'Women', fr: 'Femme' } }[p.gender];
@@ -291,7 +293,7 @@ const FROM = { de: 'ab', en: 'from', fr: 'dès' };
 function card(lang, from, p, { eager = false, color, crop = false } = {}) {
   const L = t[lang];
   // a colour that is no longer sold for this product (e.g. now only on request) falls back to the first sold colour
-  const first = color && p.colors.includes(color) ? color : p.colors[0];
+  const first = color && p.colors.includes(color) ? color : leadColor(p);
   const sizes = [...new Set((p.cuts ? p.cuts.flatMap((x) => x.sizes) : p.sizes))];
   const href = rel(from, productPath(lang, p));
   // one image pair per colour; the swatches below switch them (hidden sets are not loaded: lazy + display:none)
@@ -366,6 +368,7 @@ function productPage(lang, p) {
   const lookFig = (n, alt, eager = false) => fig(n, alt, '', { cls: 'sheet__stage sheet__look', eager, sizes: '(min-width: 1024px) 60vw, 100vw' });
   // colours on request get their images too (when they exist), so the customer can see them
   const galColors = [...p.colors, ...(p.requestColors || []).filter((c) => hasPhoto(`${p.slug}-${c}-stage`) || hasPhoto(`${p.slug}-${c}-back`))];
+  const lead = leadColor(p);
   const gallery = galColors
     .map((c, ci) => {
       const cn = colors[c].name[lang];
@@ -375,14 +378,14 @@ function productPage(lang, p) {
       const looks = p.cuts ? looksOf(p.slug, cuts[0].id, c) : [];
       if (hasPhoto(stage)) {
         const mid = hasPhoto(`${p.slug}-${c}-d-print`) ? fig(`${p.slug}-${c}-d-print`, `${name}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang]) : fig(`${p.slug}-${c}-d-fabric`, `${name}, ${DETAIL.fabric[lang]}, ${cn}`, DETAIL.fabric[lang]);
-        inner = `${looks.length ? lookFig(looks[0], `${name}, ${cuts[0].name ? cuts[0].name[lang] + ', ' : ''}${cn}, ${DETAIL.worn[lang]}`, ci === 0) : ''}${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: ci === 0 && !looks.length, sizes: '(min-width: 1024px) 60vw, 100vw' })}
+        inner = `${looks.length ? lookFig(looks[0], `${name}, ${cuts[0].name ? cuts[0].name[lang] + ', ' : ''}${cn}, ${DETAIL.worn[lang]}`, c === lead) : ''}${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: c === lead && !looks.length, sizes: '(min-width: 1024px) 60vw, 100vw' })}
         <div class="sheet__details">${fig(`${p.slug}-${c}-d-front`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`${p.slug}-${c}-d-collar`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>${looks.slice(1).map((n) => lookFig(n, `${name}, ${cn}, ${DETAIL.worn[lang]}`)).join('')}`;
       } else {
         inner = `<div class="sheet__views">${viewsOf(p, c)
-          .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${name}, ${cn}`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 30vw, 100vw' })}</figure>`)
+          .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${name}, ${cn}`, { eager: c === lead && vi === 0, sizes: '(min-width: 1024px) 30vw, 100vw' })}</figure>`)
           .join('')}</div>`;
       }
-      return `<div class="gal__set" data-color="${c}"${p.cuts ? ` data-cut="${cuts[0].id}"` : ''}${ci ? ' hidden' : ''}>${inner}</div>`;
+      return `<div class="gal__set" data-color="${c}"${p.cuts ? ` data-cut="${cuts[0].id}"` : ''}${c !== lead ? ' hidden' : ''}>${inner}</div>`;
     })
     .join('') +
     // extra cuts (Graphic Series): front and back of that exact blank, scripts/cuts.py. A cut without its image is not offered.
@@ -434,7 +437,7 @@ function productPage(lang, p) {
         <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>
         <form class="buy__form" data-buy novalidate>
           ${p.cuts?.length > 1 ? `<fieldset class="opt"><legend>${P.cut}</legend><div class="opt__row">${cuts.map((c, i) => `<label class="pill"><input type="radio" name="cut" value="${c.id}"${i ? '' : ' checked'}><span>${esc(c.name[lang])}</span></label>`).join('')}</div></fieldset>` : p.cuts ? `<input type="radio" name="cut" value="${cuts[0].id}" checked hidden>` : ''}
-          <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[p.colors[0]].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c, i) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${i ? '' : ' checked'}><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}${(p.requestColors || []).map((c) => `<label class="swatch swatch--request" title="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><input type="radio" name="color" value="${c}" data-request="1" data-label="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])} · ${esc(P.onRequest)}</span></label>`).join('')}</div></fieldset>
+          <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[lead].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${c === lead ? ' checked' : ''}><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}${(p.requestColors || []).map((c) => `<label class="swatch swatch--request" title="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><input type="radio" name="color" value="${c}" data-request="1" data-label="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])} · ${esc(P.onRequest)}</span></label>`).join('')}</div></fieldset>
           <fieldset class="opt"><legend>${P.size}</legend><div class="opt__row" data-sizes>${cuts.map((c, ci) => c.sizes.map((s) => `<label class="pill" data-cut="${c.id}"${ci ? ' hidden' : ''}><input type="radio" name="size" value="${s}"${ci ? ' disabled' : ''}><span>${s}</span></label>`).join('')).join('')}</div>
           <a href="${r(`/${lang}/size-guide/`)}" class="small" data-track="size_guide_open">${P.sizeGuide}</a></fieldset>
           <p class="form-err" data-err role="alert" hidden>${P.chooseSize}</p>
