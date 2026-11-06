@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "site" / "assets" / "photos"
 BASES = ROOT / "design" / "bases"
 CAP = ROOT / "capsule"
-THREAD = {"black": (233, 226, 211), "deep-navy": (233, 226, 211), "ivory": (24, 33, 56)}
+THREAD = {"black": (233, 226, 211), "deep-navy": (233, 226, 211), "olive": (233, 226, 211), "ivory": (24, 33, 56)}
 DW, DH = 690, 796
 
 # product -> board, decoration
@@ -42,6 +42,8 @@ GRAPHICS = ["big-bang", "entanglement", "feynman", "lorenz", "mandelbrot", "maxw
 for g in GRAPHICS:
     PLAN[g] = dict(board="men-tee", design=g)
 COLORS = ["black", "deep-navy", "ivory"]
+# Graphic Series: all four shirt colours (owner 05.11.2026); design/bases/men-tee-olive.png = men-tee-deep-navy.png recoloured with scripts/recolor.py
+GRAPHIC_COLORS = ["black", "deep-navy", "olive", "ivory"]
 
 # chest position of the symbol (fraction of the garment box) and back print box, per garment type
 CHEST = {"tee": (0.655, 0.255), "polo": (0.665, 0.285), "sweat": (0.655, 0.265)}
@@ -148,13 +150,19 @@ def tone(color):
 PRINTS = ROOT / "design" / "prints"
 
 
-def drawing(design):
-    return Image.open(PRINTS / f"{design}.png").convert("RGBA")
+PRINTS_NOBG = ROOT / "design" / "prints-nobg"
 
 
-def art(design, box_w, box_h):
+def drawing(design, color=None):
+    """Owner drawing without its dark ground (owner 05.11.2026: no square block on the shirt).
+    design/prints-nobg/<design>-dark.png on black, navy, olive; <design>-light.png (light strokes in dark ink) on ivory."""
+    f = PRINTS_NOBG / f"{design}-{tone(color) if color else 'dark'}.png"
+    return Image.open(f if f.exists() else PRINTS / f"{design}.png").convert("RGBA")
+
+
+def art(design, box_w, box_h, color=None):
     """The drawing as large as the back allows (full-back print, like the owner's boards)."""
-    im = drawing(design)
+    im = drawing(design, color)
     s = min(box_w / im.width, box_h / im.height)
     return im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
 
@@ -305,7 +313,7 @@ def make(slug, color, spec):
     if spec.get("design"):
         bw = back_box[2] - back_box[0]
         bh = back_box[3] - back_box[1]
-        a = art(spec["design"], bw * 0.70, bh * 0.76)
+        a = art(spec["design"], bw * 0.70, bh * 0.76, color)
         back = fabric_blend(back, a, (round(back_box[0] + (bw - a.width) / 2), round(back_box[1] + bh * 0.12)), strength=0.96)
     fp = packshot(front, front_box, bg)
     bp = packshot(back, back_box, bg)
@@ -323,7 +331,7 @@ def make(slug, color, spec):
     collar = tile(raw, tiles[1])
     save(embroider(fabric, color, 210, (DW / 2, DH / 2 + 10), relief=1.4, printed=printed), f"{slug}-{color}-d-front")
     if spec.get("design"):
-        im = drawing(spec["design"])
+        im = drawing(spec["design"], color)
         al = np.asarray(im.split()[3].resize((im.width // 16, im.height // 16))).astype(np.float32)
         ww, wh = round(im.width * 0.5 / 16), round(im.width * 0.5 * DH / DW / 16)
         ii = al.cumsum(0).cumsum(1)
@@ -348,7 +356,7 @@ if __name__ == "__main__":
     for slug, spec in PLAN.items():
         if only and slug not in only:
             continue
-        for color in COLORS:
+        for color in (GRAPHIC_COLORS if spec.get("design") else COLORS):
             made[f"{slug}-{color}"] = make(slug, color, spec)
             print(slug, color, made[f"{slug}-{color}"]["tiles"], "tiles", flush=True)
     log = ROOT / "data" / "photos.json"
