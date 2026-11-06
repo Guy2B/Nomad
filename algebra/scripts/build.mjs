@@ -114,7 +114,16 @@ const DETAIL = {
   label: { de: 'Kragen', en: 'Collar', fr: 'Col' },
   frontView: { de: 'Vorderseite', en: 'Front', fr: 'Face avant' },
   backView: { de: 'Rückseite', en: 'Back', fr: 'Face arrière' },
+  worn: { de: 'getragen', en: 'worn', fr: 'porté' },
 };
+// Worn photos (owner 06.11.2026: "les clients doivent s'identifier"), scripts/lifestyle.py: generated people, real A and
+// real drawing composited. Shown only on the cut and colour they show; a front-only photo fits every motif (same front).
+const LOOKS = {
+  'unisex/olive': ['ls-man-olive', 'campaign-couple-2', 'ls-couple-a', 'ls-couple-c', 'ls-couple-b'],
+  'women/ivory': ['ls-couple-c', 'campaign-couple', 'ls-couple-a', 'ls-couple-b', 'ls-fitted-ivory-real'],
+  'women-straight/deep-navy': ['{slug}-ls-straight-deep-navy-back'],
+};
+const looksOf = (slug, cut, color) => (LOOKS[`${cut}/${color}`] || []).map((n) => n.replace('{slug}', slug)).filter(hasPhoto);
 const viewsOf = (p, color) => ['front', 'back'].filter((v) => hasImg(p, color, v));
 const displayName = (p, lang) => {
   const g = { men: { de: 'Herren', en: 'Men', fr: 'Homme' }, women: { de: 'Damen', en: 'Women', fr: 'Femme' } }[p.gender];
@@ -354,6 +363,7 @@ function productPage(lang, p) {
     const [w, h] = jpgSize(photoFile(name));
     return `<figure class="${opts.cls || 'sheet__fig'}">${picture(path, `assets/photos/${name}`, alt, { w, h, small: false, eager: opts.eager, sizes: opts.sizes || '(min-width: 1024px) 20vw, 33vw' })}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
   };
+  const lookFig = (n, alt, eager = false) => fig(n, alt, '', { cls: 'sheet__stage sheet__look', eager, sizes: '(min-width: 1024px) 60vw, 100vw' });
   // colours on request get their images too (when they exist), so the customer can see them
   const galColors = [...p.colors, ...(p.requestColors || []).filter((c) => hasPhoto(`${p.slug}-${c}-stage`) || hasPhoto(`${p.slug}-${c}-back`))];
   const gallery = galColors
@@ -362,10 +372,11 @@ function productPage(lang, p) {
       const name = displayName(p, lang);
       const stage = `${p.slug}-${c}-stage`;
       let inner;
+      const looks = p.cuts ? looksOf(p.slug, cuts[0].id, c) : [];
       if (hasPhoto(stage)) {
         const mid = hasPhoto(`${p.slug}-${c}-d-print`) ? fig(`${p.slug}-${c}-d-print`, `${name}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang]) : fig(`${p.slug}-${c}-d-fabric`, `${name}, ${DETAIL.fabric[lang]}, ${cn}`, DETAIL.fabric[lang]);
-        inner = `${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: ci === 0, sizes: '(min-width: 1024px) 60vw, 100vw' })}
-        <div class="sheet__details">${fig(`${p.slug}-${c}-d-front`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`${p.slug}-${c}-d-collar`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>`;
+        inner = `${looks.length ? lookFig(looks[0], `${name}, ${cuts[0].name ? cuts[0].name[lang] + ', ' : ''}${cn}, ${DETAIL.worn[lang]}`, ci === 0) : ''}${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: ci === 0 && !looks.length, sizes: '(min-width: 1024px) 60vw, 100vw' })}
+        <div class="sheet__details">${fig(`${p.slug}-${c}-d-front`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`${p.slug}-${c}-d-collar`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>${looks.slice(1).map((n) => lookFig(n, `${name}, ${cn}, ${DETAIL.worn[lang]}`)).join('')}`;
       } else {
         inner = `<div class="sheet__views">${viewsOf(p, c)
           .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${name}, ${cn}`, { eager: ci === 0 && vi === 0, sizes: '(min-width: 1024px) 30vw, 100vw' })}</figure>`)
@@ -381,12 +392,16 @@ function productPage(lang, p) {
         p.colors.map((c) => {
           const name = `${p.slug}-${cut.id}-${c}-stage`;
           const cn = colors[c].name[lang];
-          return `<div class="gal__set" data-color="${c}" data-cut="${cut.id}" hidden>${fig(name, `${displayName(p, lang)}, ${cut.name[lang]}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', sizes: '(min-width: 1024px) 60vw, 100vw' })}</div>`;
+          const dn = displayName(p, lang);
+          const looks = looksOf(p.slug, cut.id, c);
+          // same drawing and same printed A as the unisex: its print and front details apply to this cut too
+          const det = hasPhoto(`${p.slug}-${c}-d-print`) ? `<div class="sheet__details sheet__details--2">${fig(`${p.slug}-${c}-d-front`, `${dn}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${fig(`${p.slug}-${c}-d-print`, `${dn}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang])}</div>` : '';
+          return `<div class="gal__set" data-color="${c}" data-cut="${cut.id}" hidden>${looks.length ? lookFig(looks[0], `${dn}, ${cut.name[lang]}, ${cn}, ${DETAIL.worn[lang]}`) : ''}${fig(name, `${dn}, ${cut.name[lang]}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', sizes: '(min-width: 1024px) 60vw, 100vw' })}${det}${looks.slice(1).map((n) => lookFig(n, `${dn}, ${cut.name[lang]}, ${cn}, ${DETAIL.worn[lang]}`)).join('')}</div>`;
         }),
       )
       .join('');
   const spaced = esc(p.name[lang].replace(/\s+\d+$/, ''));
-  // no reference/AI image on product pages: only images of the actual design
+  // product pages: images of the actual design; worn photos (LOOKS) carry the real A and the real drawing, on the cut and colour sold
   const b = blanks[p.blank];
   const composition = p.cuts ? p.cuts.map((c) => `${c.name[lang]}: ${blanks[c.blank].composition[lang]}, ${blanks[c.blank].gsm} g/m²`).join(' · ') : `${b.composition[lang]}${typeof b.gsm === 'number' ? `, ${b.gsm} g/m²` : ''}`;
   const buyable = p.status === 'PREVIEW';

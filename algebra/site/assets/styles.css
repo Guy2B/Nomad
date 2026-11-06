@@ -249,6 +249,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .sheet__stage { margin: 0; }
 .sheet__stage img { width: 100%; height: auto; display: block; }
 .sheet__details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+.sheet__details--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sheet__look { margin: 0 0 6px; }
+.sheet__details + .sheet__look, .sheet__look + .sheet__look { margin-top: 6px; }
+.sheet__look img { width: 100%; height: auto; max-height: 92vh; object-fit: cover; object-position: 50% 18%; display: block; }
 .sheet__fig { margin: 0; }
 .sheet__fig img { width: 100%; aspect-ratio: 690 / 796; object-fit: cover; display: block; }
 .sheet__fig figcaption { text-align: center; font: 500 9px var(--text); letter-spacing: .32em; text-transform: uppercase; color: var(--ink-2); padding: 14px 0 0; }
