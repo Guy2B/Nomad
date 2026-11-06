@@ -491,7 +491,7 @@ function home(lang) {
   const sel = [['ALG-M-POLO', 'deep-navy', 'd-front'], ['ALG-M-TEE', 'ivory', 'd-collar'], ['ALG-M-SWEAT', 'black', 'd-fabric']].map(([id, c, d]) => [byId(id), c, d]).filter(([p]) => p);
   const body = `
 <section class="hero">
-  ${photo(path, 'campaign-graphic', `Algebra · ${E.story[0]}`, { w: 1122, h: 1030, eager: true, cls: 'hero__img' })}
+  ${photo(path, 'campaign-couple', `Algebra · ${E.story[0]}`, { w: 1672, h: 941, eager: true, cls: 'hero__img' })}
   <div class="hero__txt">
     <h1 class="hero__brand">${sigSvg('wm wm--hero')}</h1>
     <p class="hero__season">${esc(E.story[0])}</p>
@@ -615,7 +615,8 @@ for (const lang of LANGS) {
     write(path, layout(lang, { path, key: 'faq', title: `${L.faq.title} · Algebra`, desc: qa[0][1], body, jsonld }));
   }
   simple(lang, 'size-guide', L.size.title, pages.sizeGuide[lang]);
-  simple(lang, 'about', L.about.title, pages.about[lang] + `<p class="about__sym">${symbolSvg('sym sym--xl', 'Algebra')}</p>`);
+  // campaign image (06.11.2026): AI-assisted from the owner's real test photos, the official A placed from the print file
+  simple(lang, 'about', L.about.title, `<figure class="about__img">${photo(`/${lang}/about/`, 'campaign-couple-2', 'Algebra', { w: 1672, h: 941, sizes: '(min-width: 1024px) 760px, 100vw' })}</figure>` + pages.about[lang] + `<p class="about__sym">${symbolSvg('sym sym--xl', 'Algebra')}</p>`);
   // A Circle: public page with the join form, and the member page (token in the URL fragment, never sent to a server log)
   {
     const C = CIRCLE[lang];

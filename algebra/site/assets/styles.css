@@ -562,3 +562,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .knitpage__olive figure { margin: 0; }
 .knitpage__olive img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
 .knitpage__olive figcaption { font: 500 10px var(--text); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+
+.about__img { margin: 0 0 40px; }
+.about__img img { width: 100%; height: auto; display: block; }
+.hero__img img { object-position: 50% 28%; }
