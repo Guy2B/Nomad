@@ -123,7 +123,23 @@ const LOOKS = {
   'women/ivory': ['ls-couple-c', 'campaign-couple', 'ls-couple-a', 'ls-couple-b', 'ls-fitted-ivory-real'],
   'women-straight/deep-navy': ['{slug}-ls-straight-deep-navy-back'],
 };
-const looksOf = (slug, cut, color) => (LOOKS[`${cut}/${color}`] || []).map((n) => n.replace('{slug}', slug)).filter(hasPhoto);
+// group campaign photos (scripts/campaign_groups.py): real drawing of that motif, on that colour; shown on that product only
+const MOTIF_LOOKS = {
+  'mandelbrot:unisex/olive': ['campaign-walk'],
+  'big-bang:unisex/deep-navy': ['campaign-walk'],
+  'feynman:unisex/ivory': ['campaign-walk'],
+  'maxwell:unisex/deep-navy': ['campaign-steps', 'campaign-steps-2'],
+  'maxwell:unisex/black': ['campaign-trio'],
+  'entanglement:unisex/black': ['campaign-steps', 'campaign-steps-2'],
+  'euler:unisex/deep-navy': ['campaign-trio'],
+};
+const looksOf = (slug, cut, color) => [...(MOTIF_LOOKS[`${slug}:${cut}/${color}`] || []), ...(LOOKS[`${cut}/${color}`] || [])].map((n) => n.replace('{slug}', slug)).filter(hasPhoto);
+// lookbook: the four group photos, every person in a sold colour with a real drawing and the official A
+const LOOKBOOK = ['campaign-walk', 'campaign-steps', 'campaign-trio', 'campaign-steps-2'];
+function lookbook(from, lang, href) {
+  const r = (to) => rel(from, to);
+  return `<div class="lookbook">${LOOKBOOK.filter(hasPhoto).map((n) => `<a class="lookbook__it" href="${r(href)}" tabindex="-1">${photo(from, n, 'Algebra Graphic Series', { w: 1122, h: 1402, sizes: '(min-width: 1024px) 25vw, 50vw' })}</a>`).join('')}</div>`;
+}
 // owner 06.11.2026: a page with worn photos opens on the colour that has them (first cut)
 const leadColor = (p) => (p.cuts && p.colors.find((c) => looksOf(p.slug, p.cuts[0].id, c).length)) || p.colors[0];
 const viewsOf = (p, color) => ['front', 'back'].filter((v) => hasImg(p, color, v));
@@ -335,6 +351,7 @@ function collectionPage(lang, key) {
   const intro = key === 'graphic-series' ? `<p class="coll__line">${esc(G[1])}</p><p class="coll__sub">${esc(G[2])}</p>` : '';
   const body = `<section class="coll">
   <header class="coll__hd wrap"><h1 class="coll__h">${esc(h1)}</h1>${intro}</header>
+  ${['graphic-series', 'men', 'women', 't-shirts'].includes(key) ? `<div class="wrap">${lookbook(path, lang, `/${lang}/graphic-series/`)}</div>` : ''}
   <div class="wrap">
   <form class="filters" data-filters aria-label="${esc(C.filter)}">
     <fieldset><legend>${C.color}</legend><div class="chips">${allColors.map((c) => `<label class="chip"><input type="checkbox" name="color" value="${c}"><span class="sw sw--c-${c}"></span>${esc(colors[c].name[lang])}</label>`).join('')}</div></fieldset>
@@ -543,7 +560,7 @@ function home(lang) {
     <h2 class="gsfeat__h">${esc(E.graphic[1])}</h2>
     <p class="gsfeat__p">${esc(E.graphic[2])}</p>
   </div>
-  <a class="gsfeat__img" href="${r(`/${lang}/graphic-series/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'mandelbrot-black-stage', '', { w: 1600, h: 1000, sizes: '100vw' })}</a>
+  ${lookbook(path, lang, `/${lang}/graphic-series/`)}
 </section>
 
 <section class="rail rail--gs">

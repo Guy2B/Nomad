@@ -577,3 +577,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .sg__cap { font: 600 11px var(--text); letter-spacing: .12em; text-transform: uppercase; fill: currentColor; }
 .sg__tbl td, .sg__tbl th { text-align: center; }
 .sg__tbl td:first-child, .sg__tbl th:first-child { text-align: left; }
+
+/* lookbook: group campaign photos (Graphic Series) */
+.lookbook { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0 0 28px; }
+.lookbook__it { display: block; overflow: hidden; background: var(--stone); }
+.lookbook__it img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; transition: transform .8s ease; }
+.lookbook__it:hover img { transform: scale(1.03); }
+@media (min-width: 1024px) { .lookbook { grid-template-columns: repeat(4, minmax(0, 1fr)); } .gsfeat .lookbook { max-width: 1500px; margin: 40px auto 0; padding-inline: var(--gutter); } }
+@media (max-width: 1023px) { .gsfeat .lookbook { margin-top: 24px; } }
