@@ -102,9 +102,11 @@ def front(cut, col):
             break
     # measured on the product page's own front (site/assets/photos/<motif>-<color>-stage): the A centre sits
     # 0.17 x chest width right of the centre, 0.23 x chest width above the armpit line, 0.038 x chest wide
-    cx = tc + 0.17 * cw
-    cy = g["arm"] - 0.23 * cw
-    out = embroider(im, COLOR[col], max(13, round(0.038 * cw)), (round(cx), round(cy)), printed=True)
+    # owner's reference photo (07.11.2026, olive unisex): A centre 0.27 x chest width towards the wearer's left
+    # and 0.29 x chest width below the front neckline; 25 mm wide on the real shirt (about 0.05 x chest width)
+    cx = tc + 0.27 * cw
+    cy = g["collar"] + 0.29 * cw
+    out = embroider(im, COLOR[col], max(15, round(0.05 * cw)), (round(cx), round(cy)), printed=True)
     return out, g
 
 
@@ -117,8 +119,13 @@ def back(cut, col, design):
     w = round(PRINT[cut] * g["tw"])
     art = drawing(design, COLOR[col])
     art = art.resize((w, round(art.height * w / art.width)), Image.LANCZOS)
-    top = g["collar"] + round(0.05 * g["tw"])  # about 3 to 4 cm below the collar seam, as on the real shirts
-    return fabric_blend(im, art, (g["tc"] - w // 2, top), strength=0.95), g
+    top = g["collar"] + round(0.12 * g["tw"])  # as on the real test shirts: a hand below the collar  # about 3 to 4 cm below the collar seam, as on the real shirts
+    out = fabric_blend(im, art, (g["tc"] - w // 2, top), strength=0.95)
+    # the print stays on the shirt: hair or arms over the back stay in front of it
+    keep = np.asarray(im)
+    o = np.asarray(out).copy()
+    o[~g["mask"]] = keep[~g["mask"]]
+    return Image.fromarray(o), g
 
 
 if __name__ == "__main__":
