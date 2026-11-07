@@ -57,9 +57,15 @@ def geometry(m):
     ys, xs = np.where(m)
     gx0, gx1, gy0, gy1 = xs.min(), xs.max(), ys.min(), ys.max()
     gh = gy1 - gy0
-    # torso width: below the sleeves, at 55 % of the garment height
-    row = m[gy0 + int(gh * .55)]
-    tx = np.where(row)[0]
+    # chest width: the body just below the sleeves (armpit line), where the print sits; the width there is what the
+    # real print is measured against (owner 07.11.2026: the drawing covers about 70 % of the back)
+    widths = []
+    for y in range(gy0 + int(gh * .25), gy0 + int(gh * .75)):
+        x = np.where(m[y])[0]
+        widths.append((y, x.max() - x.min() if len(x) else 0, x))
+    wmax = max(w for _, w, _ in widths)
+    arm = next((t for t in widths if t[1] < 0.80 * wmax), widths[len(widths) // 2])
+    tx = arm[2]
     centre = m[:, (gx0 + gx1) // 2]
     collar = int(np.where(centre)[0].min())
     return dict(gx0=gx0, gx1=gx1, gy0=gy0, gy1=gy1, tw=tx.max() - tx.min(), tc=(tx.max() + tx.min()) // 2, collar=collar)
