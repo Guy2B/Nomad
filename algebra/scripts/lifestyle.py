@@ -55,12 +55,12 @@ def erase(img, centre, half, light_mark):
     return Image.fromarray(cv2.cvtColor(out, cv2.COLOR_BGR2RGB))
 
 
-def couple(src, man_old, man_new, woman, name, man_w=26, woman_w=24):
+def couple(src, man_old, man_new, woman, name, man_w=26, woman_w=24, woman_new=None):
     im = Image.open(SRC / src).convert("RGB")
     im = erase(im, man_old, 22, True)
     im = erase(im, woman, 20, False)
     im = embroider(im, "olive", man_w, man_new, printed=True)   # the man's left chest (image right), out towards the shoulder as on campaign-couple (owner 06.11.2026)
-    im = embroider(im, "ivory", woman_w, woman, printed=True)
+    im = embroider(im, "ivory", woman_w, woman_new or woman, printed=True)
     save(im, name)
     return im
 
@@ -105,9 +105,11 @@ def straight_navy_backs():
 
 
 if __name__ == "__main__":
-    couple("couple-olive-ivory-a.jpg", (617, 357), (800, 362), (1153, 500), "ls-couple-a")
-    couple("couple-olive-ivory-b.jpg", (648, 360), (857, 358), (1110, 485), "ls-couple-b")
-    couple("couple-olive-ivory-c.jpg", (301, 373), (482, 362), (797, 481), "ls-couple-c")
+    # A placed as on the product page (owner 07.11.2026): from the collar centre, 0.24 x torso width towards the
+    # wearer's left, 0.32 x torso width below the neckline, A width 0.065 x torso width
+    couple("couple-olive-ivory-a.jpg", (617, 357), (798, 402), (1153, 500), "ls-couple-a", man_w=29, woman_w=21, woman_new=(1147, 497))
+    couple("couple-olive-ivory-b.jpg", (648, 360), (870, 419), (1110, 485), "ls-couple-b", man_w=30, woman_w=18, woman_new=(1102, 500))
+    couple("couple-olive-ivory-c.jpg", (301, 373), (498, 405), (797, 481), "ls-couple-c", man_w=30, woman_w=18, woman_new=(817, 475))
     man_olive()
     real_fitted()
     straight_navy_backs()
