@@ -18,11 +18,11 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "design" / "refs" / "worn2"
 OUT = ROOT / "site" / "assets" / "photos"
 COLOR = {"black": "black", "navy": "deep-navy", "ivory": "ivory", "olive": "olive"}
-# drawing width / back width measured on the photo at the armpit line, calibrated on the owner's real test shirts
-# (owner 07.11.2026, photos of the worn B&C fitted ivory and the navy unisex): the print covers most of the back.
-# Unisex 39 cm and fitted 33 cm read as about 80 % of the visible back; straight (29 cm, the blank's maximum)
-# about 62 %.
-PRINT = {"unisex": 0.80, "women": 0.80, "women-straight": 0.62}
+# drawing width / back width measured on the photo at the armpit line. Calibrated on the owner's real worn test
+# shirt (B&C fitted ivory, 32.7 cm print on a 47 cm half chest = 0.70 physical): on the body it reads as about 0.88 of
+# the visible back and reaches the lower back. Same factor (x 1.25) for every cut:
+# unisex 39/53.5 -> 0.91, fitted 33/47 -> 0.88, straight 29/51 (the blank's maximum) -> 0.71.
+PRINT = {"unisex": 0.91, "women": 0.88, "women-straight": 0.71}
 DEBUG = "--debug" in sys.argv
 
 
@@ -117,7 +117,7 @@ def back(cut, col, design):
     w = round(PRINT[cut] * g["tw"])
     art = drawing(design, COLOR[col])
     art = art.resize((w, round(art.height * w / art.width)), Image.LANCZOS)
-    top = g["collar"] + round(0.06 * g["tw"])  # about 3 to 4 cm below the collar seam, as on the real shirts
+    top = g["collar"] + round(0.05 * g["tw"])  # about 3 to 4 cm below the collar seam, as on the real shirts
     return fabric_blend(im, art, (g["tc"] - w // 2, top), strength=0.95), g
 
 
