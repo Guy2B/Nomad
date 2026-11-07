@@ -589,4 +589,4 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* worn front / back pair (Graphic Series) */
 .sheet__worn { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0 0 6px; }
 .sheet__wfig { margin: 0; overflow: hidden; background: var(--stone); }
-.sheet__wfig img { width: 100%; aspect-ratio: 8 / 7; object-fit: cover; display: block; }
+.sheet__wfig img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; display: block; }
