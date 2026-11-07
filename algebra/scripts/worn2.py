@@ -23,7 +23,15 @@ PRINT = {"unisex": 39 / 53.5, "women": 33 / 47, "women-straight": 29 / 51}
 DEBUG = "--debug" in sys.argv
 
 
-def shirt_mask(im):
+# long dark hair on a dark shirt joins the mask: the shirt starts at this row (collar), measured on the photo
+TOP = {
+    ("women-straight", "black", "front"): 452,
+    ("women-straight", "navy", "front"): 392,
+    ("women-straight", "black", "back"): 336,
+}
+
+
+def shirt_mask(im, top=None):
     a = np.asarray(im).astype(np.float32)
     H, W = a.shape[:2]
     seed = a[int(H * .5):int(H * .6), int(W * .45):int(W * .55)].reshape(-1, 3)
@@ -33,6 +41,8 @@ def shirt_mask(im):
     tol = 34 if lum_ref > 150 else 46
     near = (d < tol).astype(np.uint8)
     near[: int(H * .12)] = 0
+    if top:
+        near[:top] = 0
     near = cv2.morphologyEx(near, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
     n, lab = cv2.connectedComponents(near)
     m = (lab == lab[int(H * .55), W // 2]).astype(np.uint8) * 255
@@ -66,7 +76,7 @@ def front(cut, col):
     if not f.exists():
         return None
     im = Image.open(f).convert("RGB")
-    g = geometry(shirt_mask(im))
+    g = geometry(shirt_mask(im, TOP.get((cut, col, "front"))))
     gw, gh = g["gx1"] - g["gx0"], g["gy1"] - g["gy0"]
     cx = g["gx0"] + CHEST["tee"][0] * gw
     cy = g["gy0"] + CHEST["tee"][1] * gh
@@ -79,7 +89,7 @@ def back(cut, col, design):
     if not f.exists():
         return None
     im = Image.open(f).convert("RGB")
-    g = geometry(shirt_mask(im))
+    g = geometry(shirt_mask(im, TOP.get((cut, col, "back"))))
     w = round(PRINT[cut] * g["tw"])
     art = drawing(design, COLOR[col])
     art = art.resize((w, round(art.height * w / art.width)), Image.LANCZOS)
@@ -89,7 +99,8 @@ def back(cut, col, design):
 
 if __name__ == "__main__":
     done = []
-    for cut in PRINT:
+    only = [a for a in sys.argv[1:] if not a.startswith("--")]
+    for cut in (only or PRINT):
         for col in COLOR:
             fr = front(cut, col)
             for d in GRAPHICS:
