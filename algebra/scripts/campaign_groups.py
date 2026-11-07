@@ -140,6 +140,8 @@ def put(im, design, color, cx, top, w, protect_img=None, protect=None):
     return out
 
 
+# A on the chest where the photo's own mark sat (on the torso, clear of arms and collar), at the product's size
+# (owner 07.11.2026: never on an arm, under the armpit or on the collar)
 def front(im, old, half, light_mark, color, new, w):
     im = erase(im, old, half, light_mark)
     return embroider(im, color, w, new, printed=True)
@@ -161,8 +163,8 @@ def walk():
     im = put(im, "feynman", "ivory", 402, 352, 216, protect_img=orig, protect=strap)
     im = put(im, "mandelbrot", "olive", 716, 345, 240)
     im = put(im, "big-bang", "deep-navy", 990, 384, 212)
-    im = front(im, (160, 340), 26, True, "black", (180, 308), 16)
-    im = front(im, (522, 330), 22, True, "deep-navy", (533, 329), 12)
+    im = front(im, (160, 340), 26, True, "black", (162, 338), 16)
+    im = front(im, (522, 330), 22, True, "deep-navy", (524, 330), 13)
     save(im, "campaign-walk")
 
 
@@ -172,8 +174,8 @@ def steps_b():
     im, _ = remove_print(im, (1000, 1080), (700, 685, 1122, 1132), debug=DEBUG)
     im = put(im, "maxwell", "deep-navy", 268, 255, 236)
     im = put(im, "entanglement", "black", 952, 736, 266)
-    im = front(im, (865, 307), 26, False, "ivory", (852, 349), 22)
-    im = front(im, (483, 910), 28, True, "olive", (560, 970), 29)
+    im = front(im, (865, 307), 26, False, "ivory", (868, 306), 20)
+    im = front(im, (483, 910), 28, True, "olive", (488, 905), 22)
     save(im, "campaign-steps")
 
 
@@ -187,8 +189,8 @@ def steps_a():
     im = redye(im, wm, NAVY, "burgundy")
     im = put(im, "entanglement", "black", 202, 286, 290)
     im = put(im, "maxwell", "deep-navy", 982, 462, 270)
-    im = front(im, (695, 352), 30, True, "olive", (734, 393), 25)
-    im = front(im, (705, 1028), 34, False, "ivory", (724, 992), 23)
+    im = front(im, (695, 352), 30, True, "olive", (692, 352), 22)
+    im = front(im, (705, 1028), 34, False, "ivory", (708, 1026), 22)
     save(im, "campaign-steps-2")
 
 
@@ -200,7 +202,7 @@ def trio():
     im = redye(im, tm, NAVY, "teal")
     im = put(im, "maxwell", "black", 180, 318, 320)
     im = put(im, "euler", "deep-navy", 982, 478, 280)
-    im = front(im, (672, 588), 30, False, "ivory", (600, 436), 21)
+    im = front(im, (672, 588), 30, False, "ivory", (676, 548), 20)
     save(im, "campaign-trio")
 
 
