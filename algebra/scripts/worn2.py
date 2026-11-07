@@ -68,7 +68,7 @@ def geometry(m):
     tx = arm[2]
     centre = m[:, (gx0 + gx1) // 2]
     collar = int(np.where(centre)[0].min())
-    return dict(gx0=gx0, gx1=gx1, gy0=gy0, gy1=gy1, tw=tx.max() - tx.min(), tc=(tx.max() + tx.min()) // 2, collar=collar)
+    return dict(arm=arm[0], mask=m, gx0=gx0, gx1=gx1, gy0=gy0, gy1=gy1, tw=tx.max() - tx.min(), tc=(tx.max() + tx.min()) // 2, collar=collar)
 
 
 def save(im, name):
@@ -83,10 +83,25 @@ def front(cut, col):
         return None
     im = Image.open(f).convert("RGB")
     g = geometry(shirt_mask(im, TOP.get((cut, col, "front"))))
-    gw, gh = g["gx1"] - g["gx0"], g["gy1"] - g["gy0"]
-    cx = g["gx0"] + CHEST["tee"][0] * gw
-    cy = g["gy0"] + CHEST["tee"][1] * gh
-    out = embroider(im, COLOR[col], round(SYMBOL["tee"] * gw), (round(cx), round(cy)), printed=True)
+    # left chest of the wearer (image right), measured on the body itself, not on the garment box (sleeves and
+    # pose move the box): about 12 cm from the centre and 9 cm below the front neckline on a size M (chest 53.5 cm),
+    # A 25 mm wide (owner 07.11.2026: the A sits on the chest, below the collar, never towards the arm)
+    cw = g["tw"]
+    # body centre = centre of the neck opening (the pose may shift the torso, the neckline does not lie)
+    m = g["mask"]
+    tc = g["tc"]
+    for dy in (6, 12, 18, 24):
+        row = m[g["collar"] + dy, g["gx0"]:g["gx1"]]
+        xs = np.where(row)[0]
+        gaps = [(xs[i] + xs[i + 1]) / 2 + g["gx0"] for i in range(len(xs) - 1) if xs[i + 1] - xs[i] > 0.12 * cw]
+        if gaps:
+            tc = min(gaps, key=lambda v: abs(v - g["tc"]))
+            break
+    # measured on the product page's own front (site/assets/photos/<motif>-<color>-stage): the A centre sits
+    # 0.17 x chest width right of the centre, 0.23 x chest width above the armpit line, 0.038 x chest wide
+    cx = tc + 0.17 * cw
+    cy = g["arm"] - 0.23 * cw
+    out = embroider(im, COLOR[col], max(13, round(0.038 * cw)), (round(cx), round(cy)), printed=True)
     return out, g
 
 
