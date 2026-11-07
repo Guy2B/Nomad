@@ -109,9 +109,11 @@ def front(cut, col):
     yw = int(g["collar"] + 0.7 * (g["gy1"] - g["collar"]))
     r = np.where(m[yw])[0]
     ww, wc = r.max() - r.min(), (r.max() + r.min()) / 2
-    cx = wc + 0.24 * ww
-    cy = g["collar"] + 0.29 * ww
-    out = embroider(im, COLOR[col], max(14, round(0.07 * ww)), (round(cx), round(cy)), printed=True)
+    # women's cuts: the owner's women reference (fitted ivory packshot) sits a little further out and higher
+    fx, fy, fs = {"women": (0.21, 0.26, 0.08), "women-straight": (0.215, 0.27, 0.08)}.get(cut, (0.24, 0.29, 0.07))
+    cx = wc + fx * ww
+    cy = g["collar"] + fy * ww
+    out = embroider(im, COLOR[col], max(14, round(fs * ww)), (round(cx), round(cy)), printed=True)
     return out, g
 
 
