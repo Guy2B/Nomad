@@ -322,6 +322,15 @@ if (pdp) {
   if (pre) pre.checked = true;
   form.addEventListener('change', (e) => {
     if (e.target.name === 'color') track('color_selected', { item_id: id, color: e.target.value });
+    // a cut opens on a colour that has its worn photos (owner 07.11.2026: the page opens on a campaign photo)
+    if (e.target.name === 'cut') {
+      const cut = e.target.value;
+      const worn = (c) => $$('[data-gallery] .gal__set').some((s) => s.dataset.color === c && (!s.dataset.cut || s.dataset.cut === cut) && $('.sheet__worn', s));
+      if (!worn(val('color'))) {
+        const alt = $$('[name="color"]', form).find((i) => !i.dataset.request && worn(i.value));
+        if (alt) alt.checked = true;
+      }
+    }
     if (e.target.name === 'size') { track('size_selected', { item_id: id, size: e.target.value }); $('[data-err]', form).hidden = true; }
     sync();
   });
