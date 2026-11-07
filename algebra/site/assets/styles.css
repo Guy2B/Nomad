@@ -585,3 +585,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .lookbook__it:hover img { transform: scale(1.03); }
 @media (min-width: 1024px) { .lookbook { grid-template-columns: repeat(4, minmax(0, 1fr)); } .gsfeat .lookbook { max-width: 1500px; margin: 40px auto 0; padding-inline: var(--gutter); } }
 @media (max-width: 1023px) { .gsfeat .lookbook { margin-top: 24px; } }
+
+/* worn front / back pair (Graphic Series) */
+.sheet__worn { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0 0 6px; }
+.sheet__wfig { margin: 0; overflow: hidden; background: var(--stone); }
+.sheet__wfig img { width: 100%; aspect-ratio: 8 / 7; object-fit: cover; display: block; }

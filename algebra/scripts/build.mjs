@@ -382,6 +382,11 @@ function productPage(lang, p) {
     const [w, h] = jpgSize(photoFile(name));
     return `<figure class="${opts.cls || 'sheet__fig'}">${picture(path, `assets/photos/${name}`, alt, { w, h, small: false, eager: opts.eager, sizes: opts.sizes || '(min-width: 1024px) 20vw, 33vw' })}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
   };
+  // worn front/back of this motif, cut and colour (scripts/worn.py): the first thing the customer sees
+  const wornPair = (cut, c, alt, eager = false) => {
+    const f = `${p.slug}-wf-${cut}-${c}-front`, b = `${p.slug}-wf-${cut}-${c}-back`;
+    return hasPhoto(f) && hasPhoto(b) ? `<div class="sheet__worn">${fig(f, `${alt}, ${DETAIL.worn[lang]}, ${DETAIL.frontView[lang]}`, '', { cls: 'sheet__wfig', eager, sizes: '(min-width: 1024px) 30vw, 50vw' })}${fig(b, `${alt}, ${DETAIL.worn[lang]}, ${DETAIL.backView[lang]}`, '', { cls: 'sheet__wfig', eager, sizes: '(min-width: 1024px) 30vw, 50vw' })}</div>` : '';
+  };
   const lookFig = (n, alt, eager = false) => fig(n, alt, '', { cls: 'sheet__stage sheet__look', eager, sizes: '(min-width: 1024px) 60vw, 100vw' });
   // colours on request get their images too (when they exist), so the customer can see them
   const galColors = [...p.colors, ...(p.requestColors || []).filter((c) => hasPhoto(`${p.slug}-${c}-stage`) || hasPhoto(`${p.slug}-${c}-back`))];
@@ -395,8 +400,9 @@ function productPage(lang, p) {
       const looks = p.cuts ? looksOf(p.slug, cuts[0].id, c) : [];
       if (hasPhoto(stage)) {
         const mid = hasPhoto(`${p.slug}-${c}-d-print`) ? fig(`${p.slug}-${c}-d-print`, `${name}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang]) : fig(`${p.slug}-${c}-d-fabric`, `${name}, ${DETAIL.fabric[lang]}, ${cn}`, DETAIL.fabric[lang]);
-        inner = `${looks.length ? lookFig(looks[0], `${name}, ${cuts[0].name ? cuts[0].name[lang] + ', ' : ''}${cn}, ${DETAIL.worn[lang]}`, c === lead) : ''}${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: c === lead && !looks.length, sizes: '(min-width: 1024px) 60vw, 100vw' })}
-        <div class="sheet__details">${fig(`${p.slug}-${c}-d-front`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`${p.slug}-${c}-d-collar`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>${looks.slice(1).map((n) => lookFig(n, `${name}, ${cn}, ${DETAIL.worn[lang]}`)).join('')}`;
+        const wp = p.cuts ? wornPair(cuts[0].id, c, `${name}, ${cuts[0].name[lang]}, ${cn}`, c === lead) : '';
+        inner = `${wp}${fig(stage, `${name}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', eager: c === lead && !wp, sizes: '(min-width: 1024px) 60vw, 100vw' })}
+        <div class="sheet__details">${fig(`${p.slug}-${c}-d-front`, `${name}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${mid}${fig(`${p.slug}-${c}-d-collar`, `${name}, ${DETAIL.label[lang]}, ${cn}`, DETAIL.label[lang])}</div>${looks.map((n) => lookFig(n, `${name}, ${cn}, ${DETAIL.worn[lang]}`)).join('')}`;
       } else {
         inner = `<div class="sheet__views">${viewsOf(p, c)
           .map((v, vi) => `<figure class="gal__fig">${picture(path, img(p, c, v), `${name}, ${cn}`, { eager: c === lead && vi === 0, sizes: '(min-width: 1024px) 30vw, 100vw' })}</figure>`)
@@ -416,7 +422,7 @@ function productPage(lang, p) {
           const looks = looksOf(p.slug, cut.id, c);
           // same drawing and same printed A as the unisex: its print and front details apply to this cut too
           const det = hasPhoto(`${p.slug}-${c}-d-print`) ? `<div class="sheet__details sheet__details--2">${fig(`${p.slug}-${c}-d-front`, `${dn}, ${DETAIL.front[lang]}, ${cn}`, DETAIL.front[lang])}${fig(`${p.slug}-${c}-d-print`, `${dn}, ${DETAIL.print[lang]}, ${cn}`, DETAIL.print[lang])}</div>` : '';
-          return `<div class="gal__set" data-color="${c}" data-cut="${cut.id}" hidden>${looks.length ? lookFig(looks[0], `${dn}, ${cut.name[lang]}, ${cn}, ${DETAIL.worn[lang]}`) : ''}${fig(name, `${dn}, ${cut.name[lang]}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', sizes: '(min-width: 1024px) 60vw, 100vw' })}${det}${looks.slice(1).map((n) => lookFig(n, `${dn}, ${cut.name[lang]}, ${cn}, ${DETAIL.worn[lang]}`)).join('')}</div>`;
+          return `<div class="gal__set" data-color="${c}" data-cut="${cut.id}" hidden>${wornPair(cut.id, c, `${dn}, ${cut.name[lang]}, ${cn}`)}${fig(name, `${dn}, ${cut.name[lang]}, ${cn}: ${DETAIL.frontView[lang]} / ${DETAIL.backView[lang]}`, '', { cls: 'sheet__stage', sizes: '(min-width: 1024px) 60vw, 100vw' })}${det}${looks.map((n) => lookFig(n, `${dn}, ${cut.name[lang]}, ${cn}, ${DETAIL.worn[lang]}`)).join('')}</div>`;
         }),
       )
       .join('');
