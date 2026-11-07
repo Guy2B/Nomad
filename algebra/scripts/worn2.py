@@ -102,11 +102,16 @@ def front(cut, col):
             break
     # measured on the product page's own front (site/assets/photos/<motif>-<color>-stage): the A centre sits
     # 0.17 x chest width right of the centre, 0.23 x chest width above the armpit line, 0.038 x chest wide
-    # owner's reference photo (07.11.2026, olive unisex): A centre 0.27 x chest width towards the wearer's left
-    # and 0.29 x chest width below the front neckline; 25 mm wide on the real shirt (about 0.05 x chest width)
-    cx = tc + 0.27 * cw
-    cy = g["collar"] + 0.29 * cw
-    out = embroider(im, COLOR[col], max(15, round(0.05 * cw)), (round(cx), round(cy)), printed=True)
+    # owner 07.11.2026: the A sits near the middle of the left pectoral. Measured on the body, from the torso width at
+    # the waist (arms and sleeves excluded): 0.24 x waist towards the wearer's left, 0.29 x waist below the neckline,
+    # 0.07 x waist wide (owner's reference: the essentials ivory tee packshot)
+    m = g["mask"]
+    yw = int(g["collar"] + 0.7 * (g["gy1"] - g["collar"]))
+    r = np.where(m[yw])[0]
+    ww, wc = r.max() - r.min(), (r.max() + r.min()) / 2
+    cx = wc + 0.24 * ww
+    cy = g["collar"] + 0.29 * ww
+    out = embroider(im, COLOR[col], max(14, round(0.07 * ww)), (round(cx), round(cy)), printed=True)
     return out, g
 
 
