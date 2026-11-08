@@ -570,7 +570,7 @@ function home(lang) {
 </section>
 
 <section class="rail rail--gs">
-  <ul class="grid grid--rail wrap">${rail.map((p, i) => card(lang, path, p, { color: railColors[i] })).join('')}</ul>
+  <ul class="grid grid--rail wrap">${rail.map((p, i) => card(lang, path, p, { color: railColors[i], crop: i === 2 })  /* owner: one zoomed card on purpose, so the rail is not uniform */).join('')}</ul>
   <p class="rail__more wrap"><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(E.graphic[3])}</a></p>
 </section>
 
