@@ -360,7 +360,7 @@ function collectionPage(lang, key) {
     <button type="reset" class="linkish">${C.reset}</button>
     <p class="count" aria-live="polite" data-count data-template="${esc(C.count(0)).replace('0', '{n}')}">${C.count(entries.length)}</p>
   </form>
-  <ul class="grid" data-grid>${entries.map(([p, c], i) => card(lang, path, p, { eager: i < 4, color: c || undefined })).join('')}</ul>
+  <ul class="grid${key === 'graphic-series' ? ' grid--3' : ''}" data-grid>${entries.map(([p, c], i) => card(lang, path, p, { eager: i < 4, color: c || undefined })).join('')}</ul>
   <p class="empty" data-empty hidden>${C.empty}</p>
   </div>
 </section>`;
@@ -570,7 +570,7 @@ function home(lang) {
 </section>
 
 <section class="rail rail--gs">
-  <ul class="grid grid--rail wrap">${rail.map((p, i) => card(lang, path, p, { color: railColors[i], crop: i === 2 })).join('')}</ul>
+  <ul class="grid grid--rail wrap">${rail.map((p, i) => card(lang, path, p, { color: railColors[i] })).join('')}</ul>
   <p class="rail__more wrap"><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(E.graphic[3])}</a></p>
 </section>
 
