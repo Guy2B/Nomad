@@ -85,18 +85,36 @@ function track(event, params = {}) {
   if (['begin_checkout', 'purchase', 'add_to_cart'].includes(event)) flush();
   else setTimeout(flush, 1500);
 }
+// Visit insights (Microsoft Clarity: heatmaps and session recordings, all text masked in the project settings),
+// loaded only after consent, like on lunebeauty.de. Consent v2 covers it; an older choice is asked again.
+const CLARITY_ID = 'zaukgsrdz3';
+const CONSENT_V = 2;
+let clarityOn = false;
+function loadClarity() {
+  if (clarityOn || !CLARITY_ID) return;
+  clarityOn = true;
+  window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+  const sc = document.createElement('script');
+  sc.async = true;
+  sc.src = `https://www.clarity.ms/tag/${CLARITY_ID}`;
+  document.head.appendChild(sc);
+  window.clarity('consent');
+}
 function showConsent(force = false) {
   const box = $('#consent');
   if (!box) return;
-  if (consent && !force) return;
+  if (consent && consent.v === CONSENT_V && !force) return;
   box.hidden = false;
 }
 $$('[data-consent]').forEach((b) =>
   b.addEventListener('click', () => {
-    consent = { analytics: b.dataset.consent === 'analytics', at: new Date().toISOString() };
+    const was = Boolean(consent?.analytics && consent.v === CONSENT_V);
+    consent = { analytics: b.dataset.consent === 'analytics', v: CONSENT_V, at: new Date().toISOString() };
     store.set('alg_consent', consent);
     $('#consent').hidden = true;
+    if (!consent.analytics && (was || clarityOn)) { if (window.clarity) window.clarity('consent', false); location.reload(); return; } // withdrawal: Clarity erases its cookies, the reload stops the recording
     if (consent.analytics) {
+      loadClarity();
       loadAnalytics();
       const pd = $('[data-product]');
       if (pd) track('view_item', { value: +pd.dataset.price, items: [{ item_id: pd.dataset.product }] });
@@ -105,6 +123,7 @@ $$('[data-consent]').forEach((b) =>
 );
 $$('[data-consent-open]').forEach((b) => b.addEventListener('click', () => showConsent(true)));
 if (consent && consent.analytics) loadAnalytics();
+if (consent && consent.analytics && consent.v === CONSENT_V) loadClarity();
 showConsent();
 
 // ------------------------------------------------------------ navigation

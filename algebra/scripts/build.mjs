@@ -790,7 +790,7 @@ writeFileSync(
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: SAMEORIGIN
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' ${site.apiBase.startsWith('http') ? new URL(site.apiBase).origin : ''}; form-action 'self' https://checkout.stripe.com; frame-ancestors 'self'; base-uri 'self'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; style-src 'self'; script-src 'self' https://www.clarity.ms https://*.clarity.ms; font-src 'self'; connect-src 'self' https://*.clarity.ms ${site.apiBase.startsWith('http') ? new URL(site.apiBase).origin : ''}; form-action 'self' https://checkout.stripe.com; frame-ancestors 'self'; base-uri 'self'
 ${PREVIEW ? '  X-Robots-Tag: noindex, nofollow\n' : ''}/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 /admin/*
