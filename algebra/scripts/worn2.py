@@ -34,6 +34,18 @@ TOP = {
 }
 
 
+# hand-measured on each blank front (owner 09.11.2026): neck centre x, bottom of the front neckline y,
+# body left / right edge at the armpit line
+FRONT = {
+    ("unisex", "black"): (580, 368, 362, 765), ("unisex", "navy"): (560, 412, 320, 750),
+    ("unisex", "ivory"): (575, 368, 370, 757), ("unisex", "olive"): (575, 366, 370, 770),
+    ("women", "black"): (600, 467, 370, 770), ("women", "navy"): (590, 446, 360, 760),
+    ("women", "ivory"): (588, 452, 392, 775), ("women", "olive"): (562, 450, 370, 770),
+    ("women-straight", "black"): (597, 472, 345, 760), ("women-straight", "navy"): (600, 424, 375, 772),
+    ("women-straight", "ivory"): (612, 426, 400, 775), ("women-straight", "olive"): (613, 425, 400, 780),
+}
+
+
 def shirt_mask(im, top=None):
     a = np.asarray(im).astype(np.float32)
     H, W = a.shape[:2]
@@ -100,20 +112,17 @@ def front(cut, col):
         if gaps:
             tc = min(gaps, key=lambda v: abs(v - g["tc"]))
             break
-    # measured on the product page's own front (site/assets/photos/<motif>-<color>-stage): the A centre sits
-    # 0.17 x chest width right of the centre, 0.23 x chest width above the armpit line, 0.038 x chest wide
-    # owner 07.11.2026: the A sits near the middle of the left pectoral. Measured on the body, from the torso width at
-    # the waist (arms and sleeves excluded): 0.24 x waist towards the wearer's left, 0.29 x waist below the neckline,
-    # 0.07 x waist wide (owner's reference: the essentials ivory tee packshot)
-    m = g["mask"]
-    yw = int(g["collar"] + 0.7 * (g["gy1"] - g["collar"]))
-    r = np.where(m[yw])[0]
-    ww, wc = r.max() - r.min(), (r.max() + r.min()) / 2
-    # women's cuts: the owner's women reference (fitted ivory packshot) sits a little further out and higher
-    fx, fy, fs = {"women": (0.21, 0.26, 0.08), "women-straight": (0.215, 0.27, 0.08)}.get(cut, (0.24, 0.29, 0.07))
-    cx = wc + fx * ww
-    cy = g["collar"] + fy * ww
-    out = embroider(im, COLOR[col], max(14, round(fs * ww)), (round(cx), round(cy)), printed=True)
+    # owner 09.11.2026: the A sits on the middle of the left pectoral, as on the product packshots. The automatic
+    # waist measure failed on several photos (shading, arms against the body), so each blank photo carries its own
+    # hand-measured landmarks: neck centre, bottom of the front neckline, body edges at the armpit line.
+    nc, ny, bl, br = FRONT[(cut, col)]
+    bw = br - bl
+    c = (nc + (bl + br) / 2) / 2  # sternum: between the neck centre and the middle of the body
+    # ratios read on the packshots (A centre right of the sternum, below the neckline, glyph width; x body width)
+    fx, fy, fs = {"unisex": (0.26, 0.31, 0.060), "women": (0.25, 0.42, 0.063), "women-straight": (0.24, 0.44, 0.070)}[cut]
+    cx = c + fx * bw
+    cy = ny + fy * bw
+    out = embroider(im, COLOR[col], max(14, round(fs * bw)), (round(cx), round(cy)), printed=True)
     return out, g
 
 
@@ -136,17 +145,15 @@ def back(cut, col, design):
 
 
 if __name__ == "__main__":
-    done = []
+    # fronts only: the worn backs on the site are the owner's ChatGPT shots (08.11.2026), never overwrite them
+    done = 0
     only = [a for a in sys.argv[1:] if not a.startswith("--")]
     for cut in (only or PRINT):
         for col in COLOR:
             fr = front(cut, col)
+            if not fr:
+                continue
             for d in GRAPHICS:
-                bk = back(cut, col, d)
-                if fr and bk:
-                    save(fr[0], f"{d}-wf-{cut}-{COLOR[col]}-front")
-                    save(bk[0], f"{d}-wf-{cut}-{COLOR[col]}-back")
-                    done.append((cut, col, d))
-            if DEBUG and fr:
-                print(cut, col, "front", fr[1])
-    print("worn2:", len(done), "pairs")
+                save(fr[0], f"{d}-wf-{cut}-{COLOR[col]}-front")
+                done += 1
+    print("worn2 fronts:", done)
