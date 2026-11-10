@@ -278,7 +278,7 @@ const ED = {
     knit: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen, ruhige Formen. Die erste Knitwear von Algebra erscheint in Kürze.', 'Benachrichtigen', 'Demnächst'],
     graphic: ['Graphic Series', 'Die unsichtbare Ordnung der Welt.', 'Neun Perspektiven auf Form, Verbindung und Wandel.', 'Zur Graphic Series', 'Neun Motive. Neun Perspektiven.', 'Von den Zügen des Awélé bis zu den Strukturen der modernen Wissenschaft erkundet die Graphic Series die unsichtbaren Beziehungen, die unsere Welt prägen. Wissenschaft, Formen und kulturelles Erbe treten hier in Dialog, jedes mit seiner eigenen Herkunft.', 'Jedes Motiv erzählt von einer Idee. Gemeinsam sind sie eine Hommage an das Wissen, das kulturelle Erbe und die unendliche Vielfalt der Formen.', 'Die Philosophie entdecken'],
     ess: ['The Essentials', 'Alle Essentials'],
-    statement: ['Die Intelligenz der Formen.', 'Die Eleganz des Unendlichen.'],
+    statement: ['Die Intelligenz der Formen.', 'Das Erbe der Welten. Die Eleganz des Unendlichen.'],
     trust: [['Versand', 'Kostenlos ab 100 €'], ['Rückgabe', '14 Tage'], ['Zahlung', 'Sicher verschlüsselt']],
     knitPage: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen in Schwarz, Navy, Elfenbein und Oliv. Ruhig von vorn, präzise im Detail. Die erste Knitwear von Algebra erscheint in Kürze.', 'Als Erste erfahren'],
     ship: 'Kostenloser Versand ab 100 € · 14 Tage Rückgabe',
@@ -289,7 +289,7 @@ const ED = {
     knit: ['Knitwear', 'Structure, softened.', 'Fine gauge, quiet shapes. Algebra’s first knitwear arrives soon.', 'Get notified', 'Coming soon'],
     graphic: ['Graphic Series', 'The invisible order of the world.', 'Nine perspectives on form, connection and change.', 'Explore the Graphic Series', 'Nine motifs. Nine perspectives.', 'From the moves of Awélé to the structures of modern science, the Graphic Series explores the invisible relations that shape our world. Science, forms and cultural heritage enter into dialogue here, each with its own origin.', 'Every motif tells of one idea. Together they pay tribute to knowledge, to heritage and to the endless variety of forms.', 'Discover the philosophy'],
     ess: ['The Essentials', 'All essentials'],
-    statement: ['The intelligence of form.', 'The elegance of infinity.'],
+    statement: ['The intelligence of form.', 'The heritage of worlds. The elegance of infinity.'],
     trust: [['Shipping', 'Free from 100 €'], ['Returns', '14 days'], ['Payment', 'Securely encrypted']],
     knitPage: ['Knitwear', 'Structure, softened.', 'Fine gauge in black, navy, ivory and olive. Quiet from the front, precise in the detail. Algebra’s first knitwear arrives soon.', 'Be the first to know'],
     ship: 'Free shipping from 100 € · 14-day returns',
@@ -300,7 +300,7 @@ const ED = {
     knit: ['Knitwear', 'La structure, adoucie.', 'Maille fine, formes calmes. La première maille Algebra arrive bientôt.', 'Être prévenu', 'Bientôt'],
     graphic: ['Graphic Series', 'L’ordre invisible du monde.', 'Neuf regards sur la forme, le lien et le changement.', 'Découvrir la Graphic Series', 'Neuf motifs. Neuf regards.', 'Des mouvements de l’Awélé aux structures de la science moderne, la Graphic Series explore les relations invisibles qui façonnent notre monde. Science, formes et héritages culturels y entrent en dialogue, chacun avec sa propre origine.', 'Chaque motif raconte une idée. Ensemble, ils rendent hommage au savoir, aux héritages et à l’infinie variété des formes.', 'Découvrir la philosophie'],
     ess: ['The Essentials', 'Tous les essentiels'],
-    statement: ['L’intelligence des formes.', 'L’élégance de l’infini.'],
+    statement: ['L’intelligence des formes.', 'L’héritage des mondes. L’élégance de l’infini.'],
     trust: [['Livraison', 'Offerte dès 100 €'], ['Retours', '14 jours'], ['Paiement', 'Chiffré et sécurisé']],
     knitPage: ['Knitwear', 'La structure, adoucie.', 'Maille fine en noir, navy, ivoire et vert olive. Calme de face, précise dans le détail. La première maille Algebra arrive bientôt.', 'Être informé en premier'],
     ship: 'Livraison offerte dès 100 € · Retours sous 14 jours',
@@ -604,7 +604,9 @@ function home(lang) {
 <section class="circlefeat" aria-labelledby="circlefeat-h">
   <p class="circlemark">${circleSigSvg('circlesig')}</p>
   <h2 class="circlefeat__h" id="circlefeat-h">${esc(CIRCLE[lang].home.h)}</h2>
-  <p class="circlefeat__list">${CIRCLE[lang].home.list.map(esc).join(' ')}</p>
+  <span class="circlefeat__rule" aria-hidden="true"></span>
+  <p class="circlefeat__lead">${esc(CIRCLE[lang].home.lead)}</p>
+  <p class="circlefeat__list">${CIRCLE[lang].home.list.map(esc).join(' · ')}</p>
   <p><a class="more" href="${r(`/${lang}/circle/`)}">${esc(CIRCLE[lang].home.cta)}</a></p>
 </section>
 

@@ -24,7 +24,7 @@ export const CIRCLE = {
     small: ['Die Mitgliedschaft ist kostenlos.', 'Austritt jederzeit.', 'Wir schreiben selten.'],
     expired: 'Dieser Link ist abgelaufen. Melde dich unten einfach erneut an.',
     member: { title: 'Deine Mitgliedschaft', since: 'Mitglied seit', welcome: 'Du bist dabei.', prefs: 'Worüber wir dich informieren dürfen', graphic: 'Neue Graphic Series', knitwear: 'Knitwear', restocks: 'Nachschub', save: 'Speichern', saved: 'Gespeichert.', leave: 'A Circle verlassen', leaveConfirm: 'Möchtest du A Circle wirklich verlassen?', left: 'Du hast A Circle verlassen. Wir schreiben dir dazu nicht mehr.', notFound: 'Dieser Link ist nicht mehr gültig.', rejoin: 'Wieder beitreten' },
-    home: { h: 'Für alle, die genauer hinsehen.', list: ['Früher Zugang.', 'Limitierte Editionen.', 'Ausgewählte Veröffentlichungen.'], cta: 'A Circle beitreten' },
+    home: { h: 'Für alle, die genauer hinsehen.', lead: 'Ein näherer Blick auf unsere Kreationen, unsere Inspirationen und die Geschichten, die ihnen Sinn geben.', list: ['Früher Zugang', 'Limitierte Editionen', 'Ausgewählte Veröffentlichungen'], cta: 'Dem Kreis beitreten' },
     meta: 'A Circle: privater Zugang zu Algebra. Früher Zugang, limitierte Editionen, ausgewählte Veröffentlichungen. Kostenlos, Austritt jederzeit.',
   },
   en: {
@@ -48,7 +48,7 @@ export const CIRCLE = {
     small: ['Membership is free.', 'Leave at any time.', 'We write rarely.'],
     expired: 'This link has expired. Simply join again below.',
     member: { title: 'Your membership', since: 'Member since', welcome: 'You’re inside.', prefs: 'What you would like to hear about', graphic: 'New Graphic Series', knitwear: 'Knitwear', restocks: 'Restocks', save: 'Save', saved: 'Saved.', leave: 'Leave A Circle', leaveConfirm: 'Do you really want to leave A Circle?', left: 'You have left A Circle. We will not write to you about it again.', notFound: 'This link is no longer valid.', rejoin: 'Join again' },
-    home: { h: 'For those who look closer.', list: ['Early access.', 'Limited editions.', 'Selected releases.'], cta: 'Join A Circle' },
+    home: { h: 'For those who look closer.', lead: 'A closer look at our creations, our inspirations and the stories that give them meaning.', list: ['Early access', 'Limited editions', 'Selected releases'], cta: 'Join the circle' },
     meta: 'A Circle: private access to Algebra. Early access, limited editions, selected releases. Free, leave at any time.',
   },
   fr: {
@@ -72,7 +72,7 @@ export const CIRCLE = {
     small: ['L’adhésion est gratuite.', 'Vous pouvez partir à tout moment.', 'Nous écrivons rarement.'],
     expired: 'Ce lien a expiré. Inscrivez-vous simplement à nouveau ci-dessous.',
     member: { title: 'Votre adhésion', since: 'Membre depuis', welcome: 'Vous y êtes.', prefs: 'Ce dont vous souhaitez être informé', graphic: 'Nouvelles Graphic Series', knitwear: 'Maille', restocks: 'Réassorts', save: 'Enregistrer', saved: 'Enregistré.', leave: 'Quitter A Circle', leaveConfirm: 'Voulez-vous vraiment quitter A Circle ?', left: 'Vous avez quitté A Circle. Nous ne vous écrirons plus à ce sujet.', notFound: 'Ce lien n’est plus valide.', rejoin: 'Rejoindre à nouveau' },
-    home: { h: 'Pour celles et ceux qui regardent de plus près.', list: ['Accès anticipé.', 'Éditions limitées.', 'Sorties choisies.'], cta: 'Rejoindre A Circle' },
+    home: { h: 'Pour celles et ceux qui regardent de plus près.', lead: 'Un regard privilégié sur nos créations, nos inspirations et les histoires qui leur donnent sens.', list: ['Accès anticipé', 'Éditions limitées', 'Sorties choisies'], cta: 'Rejoindre le cercle' },
     meta: 'A Circle : un accès privé à Algebra. Accès anticipé, éditions limitées, sorties choisies. Gratuit, départ possible à tout moment.',
   },
 };

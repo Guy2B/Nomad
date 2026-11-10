@@ -80,16 +80,18 @@ writeFileSync(
 // Seal: the A centred in a fine ring (avatar, member card, packaging stamp, small formats).
 // Signature: the A, a hairline rule, "CIRCLE" in spaced capitals (page header, e-mails).
 const aIn = (cx, cy, w) => { const k = w / (bx1 - bx0); return `matrix(${k.toFixed(5)} 0 0 ${k.toFixed(5)} ${(cx - ((bx0 + bx1) / 2) * k).toFixed(3)} ${(cy - ((by0 + by1) / 2) * k).toFixed(3)})`; };
-const SEAL = { size: 200, r: 78, stroke: 1.6, aw: 84, cy: 102 };
+const SEAL = { size: 200, r: 78, stroke: 1.4, // owner 10.11.2026: ring ~12 % finer (was 1.6)
+  aw: 84, cy: 102 };
 const seal = (fill) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SEAL.size} ${SEAL.size}" role="img" aria-label="A Circle"><title>A Circle</title><circle cx="100" cy="100" r="${SEAL.r}" fill="none" stroke="${fill}" stroke-width="${SEAL.stroke}"/>${aShape(fill, aIn(100, SEAL.cy, SEAL.aw))}</svg>\n`;
 writeFileSync(join(out, 'circle-seal.svg'), seal(INK));
 writeFileSync(join(out, 'circle-seal-ivory.svg'), seal(IVORY));
 
 const cfont = opentype.loadSync(join(root, 'node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff'));
-const CS = 40, TRK = 0.25 * CS, CBASE = 114;
+const CS = 40, TRK = 0.21 * CS, CBASE = 114; // owner 10.11.2026: CIRCLE tracked a little tighter (was 0.25)
 // signature = the seal (ring + A) on the left, a hairline, CIRCLE
-const SR = { cx: 84, cy: 100, r: 38, stroke: 1.1, aw: 41, acy: 101 };
+const SR = { cx: 84, cy: 100, r: 38, stroke: 0.95, // owner 10.11.2026: ring ~14 % finer (was 1.1)
+  aw: 41, acy: 101 };
 let cx = 166;
 const cparts = [];
 for (const g of cfont.stringToGlyphs('CIRCLE')) {
