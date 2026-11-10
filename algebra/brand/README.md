@@ -76,3 +76,7 @@ Raster uses (product images, campaign retouches) rasterise the master through `s
 - the public site contains an older symbol or the font's own A used as a logo,
 - this folder holds any file outside the list above,
 - the favicon is not built from the master.
+
+## Copy freeze (owner, 10.11.2026)
+Signature and copy are frozen for the launch. Brand line: "L’intelligence des formes. L’élégance de l’infini." (DE/EN in site/config.mjs `signatures`).
+Home statement only adds "L’héritage des mondes." Graphic Series: data/chapters.mjs (nine chapters). Change only after real customer data (Clarity, orders), not after new critiques.

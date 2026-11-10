@@ -41,9 +41,9 @@ export const chapters = {
     title: { de: 'Die Schönheit des Wesentlichen', en: 'The beauty of the essential', fr: 'La beauté de l’essentiel' },
     dialogue: { de: 'Im Dialog mit dem Awélé und der Einfachheit der Regeln.', en: 'In dialogue with Awélé and the simplicity of rules.', fr: 'Dialogue avec l’Awélé et la simplicité des règles.' },
     text: {
-      de: ['Eulers Denken zeigt, wie mathematische Beziehungen Begriffe vereinen können, die weit voneinander entfernt scheinen.', 'Wie beim Awélé, wo wenige Regeln eine Fülle von Strategien hervorbringen, entsteht Komplexität manchmal aus einer erstaunlich knappen Struktur.', 'Für Algebra folgt Luxus diesem Prinzip: wenige Elemente, jedes genau an seinem Platz.'],
-      en: ['Euler’s thinking shows how mathematical relations can unite notions that seem far apart.', 'As in Awélé, where a few rules give rise to a wealth of strategies, complexity sometimes emerges from a strikingly concise structure.', 'For Algebra, luxury follows this principle: few elements, each exactly in its place.'],
-      fr: ['La pensée d’Euler révèle comment des relations mathématiques peuvent unir des notions qui semblent éloignées.', 'Comme dans l’Awélé, où quelques règles donnent naissance à une richesse de stratégies, la complexité surgit parfois d’une structure étonnamment concise.', 'Pour Algebra, le luxe suit ce principe : peu d’éléments, mais chacun parfaitement à sa place.'],
+      de: ['Eulers Denken zeigt, wie mathematische Beziehungen Begriffe vereinen können, die weit voneinander entfernt scheinen.', 'Wie beim Awélé, wo wenige Regeln eine Fülle von Strategien hervorbringen, entsteht Komplexität manchmal aus einer erstaunlich knappen Struktur.', 'Für Algebra folgt Eleganz diesem Prinzip: wenige Elemente, jedes genau an seinem Platz.'],
+      en: ['Euler’s thinking shows how mathematical relations can unite notions that seem far apart.', 'As in Awélé, where a few rules give rise to a wealth of strategies, complexity sometimes emerges from a strikingly concise structure.', 'For Algebra, elegance follows this principle: few elements, each exactly in its place.'],
+      fr: ['La pensée d’Euler révèle comment des relations mathématiques peuvent unir des notions qui semblent éloignées.', 'Comme dans l’Awélé, où quelques règles donnent naissance à une richesse de stratégies, la complexité surgit parfois d’une structure étonnamment concise.', 'Pour Algebra, l’élégance suit ce principe : peu d’éléments, mais chacun parfaitement à sa place.'],
     },
     close: { de: 'Raffinesse beginnt, wo nichts überflüssig ist.', en: 'Sophistication begins when nothing is superfluous.', fr: 'La sophistication commence lorsque rien n’est superflu.' },
   },
@@ -61,8 +61,8 @@ export const chapters = {
   },
   maxwell: {
     hook: { de: 'Elektrizität, Magnetismus und Licht werden eins.', en: 'Electricity, magnetism and light become one.', fr: 'L’électricité, le magnétisme et la lumière ne font qu’un.' },
-    subj: { de: 'der Maxwell-Gleichungen, zwischen unsichtbaren Feldern und Licht', en: 'Maxwell’s equations, between invisible fields and light', fr: 'des équations de Maxwell, entre champs invisibles et lumière' },
-    title: { de: 'Das Licht des Unsichtbaren', en: 'The light of the invisible', fr: 'La lumière de l’invisible' },
+    subj: { de: 'der Maxwell-Gleichungen, zwischen Feldern und Licht', en: 'Maxwell’s equations, between fields and light', fr: 'des équations de Maxwell, entre champs et lumière' },
+    title: { de: 'Kräfte, die sich übertragen', en: 'Forces in transmission', fr: 'Les forces qui se transmettent' },
     dialogue: { de: 'Im Dialog mit dem Kupfer und der Übertragung.', en: 'In dialogue with copper and transmission.', fr: 'Dialogue avec le cuivre et la transmission.' },
     text: {
       de: ['Maxwells Arbeiten haben die Beschreibungen von Elektrizität, Magnetismus und Licht vereint.', 'Kupfer, seit Langem ein Leiter in den Techniken des Menschen, wird hier zu einem treffenden Symbol: ein altes Material im Herzen moderner Erfindungen.', 'Bei Algebra ist Kupfer die Farbe, die unser Zeichen und unsere Zeichnungen durchzieht.'],
@@ -86,14 +86,14 @@ export const chapters = {
   higgs: {
     hook: { de: 'Was zählt, zeigt sich nicht immer.', en: 'What matters does not always show.', fr: 'Ce qui compte ne se montre pas toujours.' },
     subj: { de: 'des Higgs-Feldes, zwischen verborgener Struktur und Materie', en: 'the Higgs field, between hidden structure and matter', fr: 'du champ de Higgs, entre structure cachée et matière' },
-    title: { de: 'Was dem Unsichtbaren Gestalt gibt', en: 'What gives the invisible a body', fr: 'Ce qui donne corps à l’invisible' },
+    title: { de: 'Was der Materie Gestalt gibt', en: 'What gives matter its body', fr: 'Ce qui donne corps à la matière' },
     dialogue: { de: 'Im Dialog mit Immanenz und Emergenz.', en: 'In dialogue with immanence and emergence.', fr: 'Dialogue avec l’immanence et l’émergence.' },
     text: {
       de: ['Das Higgs-Feld wirkt in dem Mechanismus, durch den bestimmte Elementarteilchen ihre Masse erhalten.', 'Diese Entdeckung lädt ein, über das unmittelbar Sichtbare hinauszublicken, zu den physikalischen Strukturen, die zu den Eigenschaften der Materie beitragen.', 'Ohne Wissenschaft und Metaphysik zu vermischen, schöpft Algebra daraus eine ästhetische Überzeugung: Wahrer Wert hängt nicht nur davon ab, was sich zeigt.'],
       en: ['The Higgs field plays a part in the mechanism by which certain elementary particles acquire their mass.', 'This discovery invites us to look beyond what appears at first, towards the physical structures that contribute to the properties of matter.', 'Without confusing science and metaphysics, Algebra draws an aesthetic conviction from it: deep value does not depend only on what is shown.'],
       fr: ['Le champ de Higgs intervient dans le mécanisme par lequel certaines particules élémentaires acquièrent leur masse.', 'Cette découverte nous invite à regarder au-delà de ce qui apparaît immédiatement, vers les structures physiques qui contribuent aux propriétés de la matière.', 'Sans confondre science et métaphysique, Algebra y puise une conviction esthétique : la valeur profonde ne dépend pas seulement de ce qui se montre.'],
     },
-    close: { de: 'Wahrer Luxus verkündet sich nicht. Er offenbart sich.', en: 'True luxury does not announce itself. It reveals itself.', fr: 'Le luxe véritable ne se proclame pas. Il se révèle.' },
+    close: { de: 'Wahrer Wert verkündet sich nicht. Er offenbart sich.', en: 'True value does not announce itself. It reveals itself.', fr: 'La vraie valeur ne se proclame pas. Elle se révèle.' },
   },
   'big-bang': {
     hook: { de: 'Alles beginnt mit einem ersten Augenblick.', en: 'Everything begins with a first instant.', fr: 'Tout commence par un premier instant.' },
