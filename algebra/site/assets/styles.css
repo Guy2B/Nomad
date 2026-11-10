@@ -6,6 +6,7 @@
 
 :root {
   --ivory: #F3EFE7; --paper: #FFFFFF; --stone: #ECE8E1; --navy: #131A2B; --black: #111111; --burgundy: #6A2232;
+  --copper: #93693F; --copper-light: #C49A6C; --a-line: #F3EBDD; /* the griffe's noble colours: navy, ivory, copper */
   --ink: #131A2B; --ink-2: #3D4352; --muted: #6B6E78; --line: #E2DED6; --focus: #2F5FD0;
   --display: 'Cormorant Garamond', 'Times New Roman', serif; --text: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --gutter: 16px; --maxw: 1840px; --hdr: 64px;
@@ -590,3 +591,24 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .sheet__worn { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0 0 6px; }
 .sheet__wfig { margin: 0; overflow: hidden; background: var(--stone); }
 .sheet__wfig img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; display: block; }
+
+/* ------------------------------------------------------------ the griffe (owner, 10.11.2026): navy body, ivory lines, copper accent */
+.a-body { fill: var(--navy); }
+.a-line { fill: var(--a-line); }
+.a-acc { fill: var(--copper); }
+.story .a-acc, .announce .a-acc, .wm--hero .a-acc, .story__sym .a-acc { fill: var(--copper-light); }
+
+/* the noble colours in the presentation: copper as the house accent, used sparingly */
+.kicker { color: var(--copper); }
+.story .kicker { color: var(--copper-light); }
+.announce { border-bottom: 1px solid rgba(196,154,108,.55); }
+.more { transition: color var(--fast) var(--ease), border-color var(--fast) var(--ease); }
+.more:hover { color: var(--copper); border-color: var(--copper); }
+p a, .prose a, .acc a { text-decoration-color: var(--copper); }
+p a:hover, .prose a:hover, .acc a:hover { color: var(--copper); }
+.btn--solid:hover { background: var(--copper); border-color: var(--copper); color: #fff; }
+.btn--line:hover { background: var(--navy); border-color: var(--navy); }
+.notice { border-left-color: var(--copper); }
+.ftr { border-top: 1px solid rgba(147,105,63,.35); }
+.ftr h2 { color: var(--copper); }
+::selection { background: rgba(196,154,108,.35); color: var(--ink); }

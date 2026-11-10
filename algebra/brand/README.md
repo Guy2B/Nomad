@@ -15,6 +15,17 @@ Never redraw. Never regenerate with AI. Never alter proportions.
 
 ## Status
 
+**New master since 10.11.2026 (owner's written decision: "un A unique partout, cette forme remplace l'actuel").**
+The griffe: high serif A with a fine inner line on the left leg, the "=" of two bars, the infinity symbol in the
+counter and an arch under the bars; navy body, ivory lines, a copper accent along the right leg. Vectorised
+faithfully (potrace) from the owner's approved image, not redrawn. The master holds three paths: `body` (navy
+silhouette), the letter (ivory lines, bars included) and `accent` (copper). Colours: navy #131A2B, ivory #F3EBDD,
+copper #93693F (on dark grounds copper light #C49A6C).
+Products: garments and photos still carry the previous A (archived in design/brand-archive/) until the embroidery
+test of the griffe at 25 mm is validated; then photos, Printegy fronts and the embroidery file follow.
+
+## Previous status (archived)
+
 LOCKED. Validated by the owner on 23.10.2026: a vector drawing of the A on the approved brand board
 (high pointed apex, finer left leg, stronger right leg, refined serifs, compact "=" in the counter).
 It replaces the earlier master. Any change needs the owner's explicit written approval, then `npm run brand`.

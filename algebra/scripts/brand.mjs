@@ -29,10 +29,15 @@ const tokens = JSON.parse(readFileSync(join(root, 'design', 'tokens.json'), 'utf
 // ------------------------------------------------------------------ the master A
 const master = readMaster(join(out, 'algebra-a-signature-master.svg'));
 const ivory = readMaster(join(out, 'algebra-a-signature-master-ivory.svg'));
-if (ivory.d !== master.d || JSON.stringify(ivory.bars) !== JSON.stringify(master.bars)) throw new Error('ivory master must have exactly the master geometry');
-const INK = master.fill, IVORY = ivory.fill;
-const aShape = (fill, transform = '') =>
-  `<g fill="${fill}"${transform ? ` transform="${transform}"` : ''}><path d="${master.d}"/>${master.bars.map(([x, y, w, h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}</g>`;
+if (ivory.d !== master.d || ivory.accent !== master.accent || ivory.body !== master.body || JSON.stringify(ivory.bars) !== JSON.stringify(master.bars)) throw new Error('ivory master must have exactly the master geometry');
+// text colours of the wordmark and A Circle (the griffe itself keeps its own colours: navy body, ivory lines, copper)
+const INK = master.body ? '#111318' : master.fill, IVORY = master.body ? '#F3EBDD' : ivory.fill;
+// the griffe (10.11.2026): navy body, ivory lines, copper accent, the same on every ground (as embroidered).
+// Older masters (no body): the letter in the given colour.
+const NAVY = tokens.color.navy, LINE = '#F3EBDD', COPPER = tokens.color.copper, COPPER_LIGHT = tokens.color['copper-light'];
+const aShape = (fill, transform = '', accent = fill === IVORY ? COPPER_LIGHT : COPPER) => master.body
+  ? `<g${transform ? ` transform="${transform}"` : ''}><path fill="${NAVY}" d="${master.body}"/><path fill="${LINE}" d="${master.d}"/><path fill="${accent}" d="${master.accent}"/></g>`
+  : `<g fill="${fill}"${transform ? ` transform="${transform}"` : ''}><path d="${master.d}"/>${master.bars.map(([x, y, w, h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}</g>`;
 
 // ------------------------------------------------------------------ "lgebra" in the brand serif
 const font = opentype.loadSync(join(root, 'node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff'));
@@ -107,6 +112,6 @@ const circle = {
 // ------------------------------------------------------------------ geometry for the build
 writeFileSync(
   join(out, 'paths.json'),
-  JSON.stringify({ master: { d: master.d, bars: master.bars, box: master.box }, signature: { width, height, matrix, rest: { dx, d: lgebra.d } }, circle }, null, 1) + '\n',
+  JSON.stringify({ master: { d: master.d, bars: master.bars, accent: master.accent, body: master.body, box: master.box }, signature: { width, height, matrix, rest: { dx, d: lgebra.d } }, circle }, null, 1) + '\n',
 );
 console.log('brand/ written from the master A', { wordmark: `${width}×${height}`, scale: s.toFixed(4) });

@@ -11,20 +11,20 @@ const brandDir = join(root, 'brand');
 const read = (...p) => readFileSync(join(root, ...p), 'utf8');
 const master = readMaster();
 
-test('master A: one letter path and an exact equals sign (two identical, parallel bars)', () => {
-  const [a, b] = master.bars;
-  assert.equal(a[0], b[0], 'same x');
-  assert.equal(a[2], b[2], 'same width');
-  assert.equal(a[3], b[3], 'same height');
-  assert.ok(b[1] - (a[1] + a[3]) > 0, 'bars do not touch');
-  assert.ok(!/<(polygon|circle|ellipse|text|filter|image)/.test(read('brand', 'algebra-a-signature-master.svg')), 'no star, triangle, text or effect');
-  // the = sits inside the letter, never wider than it
-  assert.ok(a[0] > master.box[0] && a[0] + a[2] < master.box[2]);
+test('master A: the griffe (owner, 10.11.2026): one letter path, its navy body and its copper accent', () => {
+  assert.ok(master.d.length > 1000, 'letter path (A, inner line, the two bars, infinity, arch)');
+  assert.ok(master.body.length > 500, 'navy body (silhouette)');
+  assert.ok(master.accent.length > 500, 'copper accent along the right leg');
+  assert.deepEqual(master.bars, [], 'the bars are part of the letter path');
+  assert.ok(!/<(polygon|circle|ellipse|text|filter|image)/.test(read('brand', 'algebra-a-signature-master.svg')), 'no added shape, text or effect');
+  assert.ok(master.box[2] > master.box[0] && master.box[3] > master.box[1]);
 });
 
 test('ivory master has exactly the master geometry', () => {
   const iv = readMaster(join(brandDir, 'algebra-a-signature-master-ivory.svg'));
   assert.equal(iv.d, master.d);
+  assert.equal(iv.body, master.body);
+  assert.equal(iv.accent, master.accent);
   assert.deepEqual(iv.bars, master.bars);
 });
 
@@ -35,6 +35,7 @@ test('generated files reuse the master geometry (wordmark, favicon, build paths)
   for (const f of ['wordmark-signature.svg', 'wordmark-signature-ivory.svg', 'favicon.svg', 'circle-seal.svg', 'circle-seal-ivory.svg', 'circle-signature.svg', 'circle-signature-ivory.svg']) {
     const t = read('brand', f);
     assert.ok(t.includes(master.d), `${f} uses the master path`);
+    assert.ok(t.includes(master.body) && t.includes(master.accent), `${f} uses the griffe's body and copper accent`);
     for (const [x, y, w, h] of master.bars) assert.ok(t.includes(`<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`), `${f} uses the master bars`);
     assert.ok(!/scale\([^)]*,[^)]*\)|matrix\(([\d.]+) 0 0 (?!\1 )/.test(t), `${f}: uniform scale only`);
   }

@@ -28,7 +28,7 @@ const brand = JSON.parse(readFileSync(join(root, 'brand', 'paths.json'), 'utf8')
 // Brand lock: the build refuses to run if paths.json drifted from the locked master A (run `npm run brand` after a validated change)
 {
   const m = readMaster();
-  if (m.d !== brand.master.d || JSON.stringify(m.bars) !== JSON.stringify(brand.master.bars)) {
+  if (m.d !== brand.master.d || (m.accent || '') !== (brand.master.accent || '') || (m.body || '') !== (brand.master.body || '') || JSON.stringify(m.bars) !== JSON.stringify(brand.master.bars)) {
     console.error('BRAND LOCK: brand/paths.json does not match brand/algebra-a-signature-master.svg. Run: npm run brand');
     process.exit(1);
   }
@@ -62,7 +62,9 @@ const abs = (p) => site.origin + p;
 /** escaped text with ^{sup} and _{sub} markup → HTML */
 const mathHtml = (s) => esc(s).replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>').replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
 // The brand: ONE A (brand/algebra-a-signature-master.svg, locked), copied into every use; only size and colour vary.
-const aMark = (transform = '') => `<g${transform ? ` transform="${transform}"` : ''}><path d="${brand.master.d}"/>${brand.master.bars.map(([x, y, w, h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}</g>`;
+// The griffe (owner, 10.11.2026) adds a copper accent along the right leg: class "a-acc", coloured by CSS (copper).
+const aMark = (transform = '') => `<g${transform ? ` transform="${transform}"` : ''}>${brand.master.body ? `<path class="a-body" d="${brand.master.body}"/><path class="a-line" d="${brand.master.d}"/>` : `<path d="${brand.master.d}"/>`}${brand.master.bars.map(([x, y, w, h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}${brand.master.accent ? `<path class="a-acc" d="${brand.master.accent}"/>` : ''}</g>`;
+// with a body (griffe): navy silhouette, ivory lines, copper accent; colours set by CSS (.a-body, .a-line, .a-acc)
 const [MX0, MY0, MX1, MY1] = brand.master.box;
 /** Secondary mark: the A alone (statement, about, 404). viewBox = the A's own box, so CSS sizes it exactly. */
 const symbolSvg = (cls = 'sym', label = '') =>
