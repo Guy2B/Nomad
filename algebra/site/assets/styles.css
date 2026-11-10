@@ -612,3 +612,8 @@ p a:hover, .prose a:hover, .acc a:hover { color: var(--copper); }
 .ftr { border-top: 1px solid rgba(147,105,63,.35); }
 .ftr h2 { color: var(--copper); }
 ::selection { background: rgba(196,154,108,.35); color: var(--ink); }
+
+/* hero (10.11.2026): the brand block sits a little higher, off the hem line; the call to action takes a copper rule */
+.hero__txt { padding-bottom: clamp(64px, 11vh, 120px); }
+.hero__links a.more--inv { border-bottom-color: var(--copper-light); }
+.hero__links a.more--inv:hover { color: var(--copper-light); border-bottom-color: var(--copper-light); }
