@@ -20,6 +20,7 @@ import { site } from '../site/config.mjs';
 import { legalTitles, pages } from '../site/content.mjs';
 import { CIRCLE } from '../site/circle.mjs';
 import { common as copyCommon, copy as premiumCopy, graphicCopy } from '../data/copy.mjs';
+import { series as gSeries, chapters as gChapters } from '../data/chapters.mjs';
 import { t } from '../site/i18n.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -275,7 +276,7 @@ const ED = {
     cta: 'Kollektion entdecken',
     story: ['Herbst / Winter 2026', 'Ein Samenkorn. Eine Form. Eine Welt.'],
     knit: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen, ruhige Formen. Die erste Knitwear von Algebra erscheint in Kürze.', 'Benachrichtigen', 'Demnächst'],
-    graphic: ['Graphic Series', 'Die großen Gleichungen der Welt.', 'Neun Studien über Form, Bewegung und Materie.', 'Zur Graphic Series'],
+    graphic: ['Graphic Series', 'Die großen Gleichungen der Welt.', 'Neun Ausdrucksformen. Eine Philosophie.', 'Zur Graphic Series'],
     ess: ['The Essentials', 'Alle Essentials'],
     statement: ['Die Intelligenz der Formen.', 'Die Eleganz des Unendlichen.'],
     trust: [['Versand', 'Kostenlos ab 100 €'], ['Rückgabe', '14 Tage'], ['Zahlung', 'Sicher verschlüsselt']],
@@ -286,7 +287,7 @@ const ED = {
     cta: 'Discover the collection',
     story: ['Autumn / Winter 2026', 'A seed. A shape. A world.'],
     knit: ['Knitwear', 'Structure, softened.', 'Fine gauge, quiet shapes. Algebra’s first knitwear arrives soon.', 'Get notified', 'Coming soon'],
-    graphic: ['Graphic Series', 'The great equations of the world.', 'Nine studies of form, motion and matter.', 'Explore the Graphic Series'],
+    graphic: ['Graphic Series', 'The great equations of the world.', 'Nine Expressions. One Philosophy.', 'Explore the Graphic Series'],
     ess: ['The Essentials', 'All essentials'],
     statement: ['The intelligence of form.', 'The elegance of infinity.'],
     trust: [['Shipping', 'Free from 100 €'], ['Returns', '14 days'], ['Payment', 'Securely encrypted']],
@@ -297,7 +298,7 @@ const ED = {
     cta: 'Découvrir la collection',
     story: ['Automne / Hiver 2026', 'Une graine. Une forme. Un monde.'],
     knit: ['Knitwear', 'La structure, adoucie.', 'Maille fine, formes calmes. La première maille Algebra arrive bientôt.', 'Être prévenu', 'Bientôt'],
-    graphic: ['Graphic Series', 'Les grandes équations du monde.', 'Neuf études sur la forme, le mouvement et la matière.', 'Découvrir la Graphic Series'],
+    graphic: ['Graphic Series', 'Les grandes équations du monde.', 'Neuf expressions. Une philosophie.', 'Découvrir la Graphic Series'],
     ess: ['The Essentials', 'Tous les essentiels'],
     statement: ['L’intelligence des formes.', 'L’élégance de l’infini.'],
     trust: [['Livraison', 'Offerte dès 100 €'], ['Retours', '14 jours'], ['Paiement', 'Chiffré et sécurisé']],
@@ -350,7 +351,8 @@ function collectionPage(lang, key) {
   let gi = 0;
   const entries = list.flatMap((p) => (p.line === 'essentials' ? p.colors.map((c) => [p, c]) : [[p, key === 'graphic-series' || key === 't-shirts' || key === 'shop' || key === 'men' || key === 'women' ? p.colors[gi++ % p.colors.length] : null]]));
   const G = ED[lang].graphic;
-  const intro = key === 'graphic-series' ? `<p class="coll__line">${esc(G[1])}</p><p class="coll__sub">${esc(G[2])}</p>` : '';
+  const intro = key === 'graphic-series' ? `<p class="coll__line">${esc(gSeries.title[lang])}</p><p class="coll__poem">${gSeries.poem[lang].map(esc).join('<br>')}</p>` : '';
+  const outro = key === 'graphic-series' ? `<section class="coll__outro wrap">${gSeries.outro[lang].map((t, i, a) => `<p${i === a.length - 1 ? ' class="coll__credo"' : ''}>${esc(t)}</p>`).join('')}</section>` : '';
   const body = `<section class="coll">
   <header class="coll__hd wrap"><h1 class="coll__h">${esc(h1)}</h1>${intro}</header>
   ${['graphic-series', 'men', 'women', 't-shirts'].includes(key) ? `<div class="wrap">${lookbook(path, lang, `/${lang}/graphic-series/`)}</div>` : ''}
@@ -365,6 +367,7 @@ function collectionPage(lang, key) {
   <ul class="grid${key === 'graphic-series' ? ' grid--3' : ''}" data-grid>${entries.map(([p, c], i) => card(lang, path, p, { eager: i < 4, color: c || undefined })).join('')}</ul>
   <p class="empty" data-empty hidden>${C.empty}</p>
   </div>
+  ${outro}
 </section>`;
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: L.product.breadcrumbHome, item: abs(`/${lang}/`) }, { '@type': 'ListItem', position: 2, name: h1, item: abs(path) }] },
@@ -438,6 +441,8 @@ function productPage(lang, p) {
   const vat = P.vat[site.vatMode];
   // premium copy: headline + text per section (data/copy.mjs); public facts only
   const C = premiumCopy[p.id] || graphicCopy(p.name.de);
+  const ch = p.line === 'graphic' ? gChapters[p.graphic] : null;
+  const chLabel = { de: 'Der Dialog', en: 'The dialogue', fr: 'Le dialogue' }[lang];
   const sec = (title, part, extra = '', open = false) => (part ? acc(title, `<p class="acc__h">${esc(part[lang][0])}</p><p>${esc(part[lang][1])}</p>${extra}`, open) : '');
   const S = P.spec;
   const o = site.operator;
@@ -459,7 +464,7 @@ function productPage(lang, p) {
         <h1 class="h1 buy__name">${esc(displayName(p, lang))}</h1>
         <p class="buy__price" data-price-el>${buyable ? money(p.price, lang) : P.unavailable}</p>
         ${buyable ? `<p class="small muted">${esc(vat)} <a href="${r(`/${lang}/info/shipping/`)}">${P.plusShip}</a></p>` : ''}
-        <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>
+        <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>${ch ? `<p class="buy__chapter">${esc(ch.title[lang])}</p>` : ''}
         <form class="buy__form" data-buy novalidate>
           ${p.cuts?.length > 1 ? `<fieldset class="opt"><legend>${P.cut}</legend><div class="opt__row">${cuts.map((c, i) => `<label class="pill"><input type="radio" name="cut" value="${c.id}"${i ? '' : ' checked'}><span>${esc(c.name[lang])}</span></label>`).join('')}</div></fieldset>` : p.cuts ? `<input type="radio" name="cut" value="${cuts[0].id}" checked hidden>` : ''}
           <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[lead].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${c === lead ? ' checked' : ''}><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}${(p.requestColors || []).map((c) => `<label class="swatch swatch--request" title="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><input type="radio" name="color" value="${c}" data-request="1" data-label="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])} · ${esc(P.onRequest)}</span></label>`).join('')}</div></fieldset>
@@ -471,7 +476,8 @@ function productPage(lang, p) {
         </form>
         <p class="buy__ship">${esc(ED[lang].ship)}</p>
         <div class="acc">
-          ${p.symbol ? acc(P.symbol, `<p class="symbol-eq">${mathHtml(p.equation || p.symbol.glyph)}</p><p>${mathHtml(p.symbol[lang])}</p>`, true) : ''}
+          ${ch ? acc(chLabel, `<p class="acc__h">${esc(ch.title[lang])}</p><p class="chap__dlg">${esc(ch.dialogue[lang])}</p>${ch.text[lang].map((t) => `<p>${esc(t)}</p>`).join('')}<p class="chap__close">${esc(ch.close[lang])}</p>`, true) : ''}
+          ${p.symbol ? acc(P.symbol, `<p class="symbol-eq">${mathHtml(p.equation || p.symbol.glyph)}</p><p>${mathHtml(p.symbol[lang])}</p>`, !ch) : ''}
           ${sec(P.fit, C.fit, `<p><a href="${r(`/${lang}/size-guide/`)}">${P.sizeGuide}</a></p>`, !p.symbol)}
           ${sec(P.fabric, C.fabric, `<p class="small muted">${esc(L.premium.similar)}</p>`)}
           ${p.category === 'knitwear' ? sec('The Yarn', C.yarn) + sec('The Knit', C.knit) : ''}

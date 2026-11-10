@@ -618,3 +618,11 @@ p a:hover, .prose a:hover, .acc a:hover { color: var(--copper); }
 .hero__links a.more--inv { border-bottom-color: var(--copper-light); }
 .hero__links a.more--inv:hover { color: var(--copper-light); border-bottom-color: var(--copper-light); }
 .hero__season { line-height: 1.9; }
+/* Graphic Series: the nine chapters (owner text 10.11.2026) */
+.coll__poem { font: italic 400 15px/1.75 var(--display); color: var(--muted); margin: 14px 0 0; max-width: 34em; }
+.coll__outro { max-width: 40em; margin: 72px auto 24px; text-align: center; color: var(--ink); line-height: 1.7; }
+.coll__outro p { margin: 0 0 14px; }
+.coll__credo { font: 500 clamp(1.1rem, 2vw, 1.4rem)/1.4 var(--display); color: var(--copper); margin-top: 24px !important; }
+.buy__chapter { font: italic 400 15px/1.4 var(--display); color: var(--copper); margin: 6px 0 18px; }
+.chap__dlg { font-size: 13px; letter-spacing: .02em; color: var(--muted); }
+.chap__close { font: italic 500 1.05rem/1.4 var(--display); color: var(--copper); margin-top: 14px; }
