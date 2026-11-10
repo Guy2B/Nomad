@@ -80,7 +80,8 @@ export async function handleCheckout(req, env, fetchImpl = fetch) {
       client_reference_id: id,
       // store: 'algebra' lets the AlGBr shops' webhook (same Stripe account) ignore these sessions.
       metadata: { store: 'algebra', order_id: id, order_number: number },
-      payment_intent_data: { metadata: { store: 'algebra', order_id: id, order_number: number } },
+      // owner 10.11.2026: shared AlGBr Stripe account, the bank statement reads 'ALGBR* ALGEBRA'
+      payment_intent_data: { statement_descriptor_suffix: 'ALGEBRA', metadata: { store: 'algebra', order_id: id, order_number: number } },
       success_url: `${origin}/${lang}/order/success/?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/${lang}/cart/`,
       shipping_address_collection: { allowed_countries: { 0: b.country } },
