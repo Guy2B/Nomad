@@ -281,7 +281,7 @@ const ED = {
     statement: ['Die Intelligenz der Formen.', 'Das Erbe der Welten. Die Eleganz des Unendlichen.'],
     trust: [['Versand', 'Kostenlos ab 100 €'], ['Rückgabe', '14 Tage'], ['Zahlung', 'Sicher verschlüsselt']],
     knitPage: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen in Schwarz, Navy, Elfenbein und Oliv. Ruhig von vorn, präzise im Detail. Die erste Knitwear von Algebra erscheint in Kürze.', 'Als Erste erfahren'],
-    ship: 'Kostenloser Versand ab 100 € · 14 Tage Rückgabe',
+    ship: 'Lieferung in 5–6 Werktagen · Kostenlos ab 100 € · 14 Tage Rückgabe',
   },
   en: {
     cta: 'Discover the collection',
@@ -292,7 +292,7 @@ const ED = {
     statement: ['The intelligence of form.', 'The heritage of worlds. The elegance of infinity.'],
     trust: [['Shipping', 'Free from 100 €'], ['Returns', '14 days'], ['Payment', 'Securely encrypted']],
     knitPage: ['Knitwear', 'Structure, softened.', 'Fine gauge in black, navy, ivory and olive. Quiet from the front, precise in the detail. Algebra’s first knitwear arrives soon.', 'Be the first to know'],
-    ship: 'Free shipping from 100 € · 14-day returns',
+    ship: 'Delivery in 5–6 working days · Free from 100 € · 14-day returns',
   },
   fr: {
     cta: 'Découvrir la collection',
@@ -303,7 +303,7 @@ const ED = {
     statement: ['L’intelligence des formes.', 'L’héritage des mondes. L’élégance de l’infini.'],
     trust: [['Livraison', 'Offerte dès 100 €'], ['Retours', '14 jours'], ['Paiement', 'Chiffré et sécurisé']],
     knitPage: ['Knitwear', 'La structure, adoucie.', 'Maille fine en noir, navy, ivoire et vert olive. Calme de face, précise dans le détail. La première maille Algebra arrive bientôt.', 'Être informé en premier'],
-    ship: 'Livraison offerte dès 100 € · Retours sous 14 jours',
+    ship: 'Livraison en 5 à 6 jours ouvrés · Offerte dès 100 € · Retours sous 14 jours',
   },
 };
 

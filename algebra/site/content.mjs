@@ -26,8 +26,8 @@ export const pages = {
       ['Wo werden die Stücke gefertigt?', 'Jedes Stück wird einzeln für dich in Europa bestickt oder bedruckt und aus der EU verschickt.'],
       ['Woraus sind die Stücke?', 'Aus Bio-Baumwolle. Material und Grammatur stehen auf jeder Produktseite.'],
       ['Wie wird verschickt?', 'Mit Sendungsverfolgung. Den Link bekommst du per E-Mail, sobald dein Paket unterwegs ist.'],
-      ['Wohin liefert ihr?', 'Nach Deutschland, Frankreich, Österreich, Belgien, die Niederlande und Luxemburg.'],
-      ['Was kostet der Versand?', 'Deutschland 4,90 €, ab 100 € Bestellwert kostenlos. Übrige Lieferländer 7,90 €, ab 150 € kostenlos.'],
+      ['Wohin liefert ihr?', 'Zum Start nach Deutschland, in 5 bis 6 Werktagen. Frankreich, Österreich, Belgien, die Niederlande und Luxemburg folgen.'],
+      ['Was kostet der Versand?', 'Deutschland 4,90 €, ab 100 € Bestellwert kostenlos. Weitere EU-Länder folgen.'],
       ['Kann ich zurückgeben?', 'Ja. Du hast ein gesetzliches Widerrufsrecht von 14 Tagen ab Erhalt der Ware. Wie es funktioniert, steht auf der Seite Rücksendungen.'],
       ['Welche Größe passt mir?', 'Jede Produktseite beschreibt den Schnitt. Die Größentabelle mit den Maßen des Kleidungsstücks findest du auf der Seite Größentabelle.'],
       ['Wie bezahle ich?', 'Über Stripe. Welche Zahlungsarten angezeigt werden, hängt von deinem Land ab. Wir sehen und speichern keine Kartendaten.'],
@@ -37,8 +37,8 @@ export const pages = {
       ['Where are the pieces made?', 'Every piece is embroidered or printed for you in Europe and shipped from the EU.'],
       ['What are the pieces made of?', 'Organic cotton. Material and weight are on every product page.'],
       ['How is my order shipped?', 'Tracked. You get the link by email as soon as your parcel is on its way.'],
-      ['Where do you ship?', 'Germany, France, Austria, Belgium, the Netherlands and Luxembourg.'],
-      ['How much is shipping?', 'Germany 4.90 €, free from 100 €. Other countries 7.90 €, free from 150 €.'],
+      ['Where do you ship?', 'At launch, within Germany, in 5 to 6 working days. France, Austria, Belgium, the Netherlands and Luxembourg will follow.'],
+      ['How much is shipping?', 'Germany 4.90 €, free from 100 €. More EU countries will follow.'],
       ['Can I return?', 'Yes. You have a statutory 14-day right of withdrawal from receipt. The returns page explains how.'],
       ['Which size fits me?', 'Every product page describes the fit. Garment measurements are on the size guide page.'],
       ['How do I pay?', 'Through Stripe. The methods shown depend on your country. We never see or store card details.'],
@@ -48,8 +48,8 @@ export const pages = {
       ['Où les pièces sont-elles fabriquées ?', 'Chaque pièce est brodée ou imprimée pour vous en Europe, puis expédiée depuis l’UE.'],
       ['En quoi sont les pièces ?', 'En coton biologique. Composition et grammage figurent sur chaque page produit.'],
       ['Comment ma commande est-elle expédiée ?', 'Avec suivi. Vous recevez le lien par e-mail dès que votre colis part.'],
-      ['Où livrez-vous ?', 'En Allemagne, France, Autriche, Belgique, aux Pays-Bas et au Luxembourg.'],
-      ['Combien coûte la livraison ?', 'Allemagne 4,90 €, offerte dès 100 €. Autres pays 7,90 €, offerte dès 150 €.'],
+      ['Où livrez-vous ?', 'Au lancement, en Allemagne, en 5 à 6 jours ouvrés. La France, l’Autriche, la Belgique, les Pays-Bas et le Luxembourg suivront.'],
+      ['Combien coûte la livraison ?', 'Allemagne 4,90 €, offerte dès 100 €. D’autres pays de l’UE suivront.'],
       ['Puis-je retourner un article ?', 'Oui. Vous disposez d’un droit légal de rétractation de 14 jours à réception. La page Retours explique comment faire.'],
       ['Quelle taille choisir ?', 'Chaque page produit décrit la coupe. Les mesures des vêtements sont dans le guide des tailles.'],
       ['Comment payer ?', 'Via Stripe. Les moyens proposés dépendent de votre pays. Nous ne voyons ni ne stockons vos données de carte.'],
@@ -113,13 +113,16 @@ export const pages = {
 <p class="about__sign"><span>ALGEBRA</span><em>L’intelligence des formes. L’élégance de l’infini.</em></p>`,
   },
   shipping: {
-    de: `<h2>Lieferländer und Kosten</h2><table><thead><tr><th>Land</th><th>Versand</th><th>Kostenlos ab</th></tr></thead><tbody><tr><td>Deutschland</td><td>4,90 €</td><td>100 €</td></tr><tr><td>Frankreich, Österreich, Belgien, Niederlande, Luxemburg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>
+    de: `<h2>Lieferländer und Kosten</h2><table><thead><tr><th>Land</th><th>Versand</th><th>Kostenlos ab</th></tr></thead><tbody><tr><td>Deutschland</td><td>4,90 €</td><td>100 €</td></tr></tbody></table><p>Frankreich, Österreich, Belgien, die Niederlande und Luxemburg folgen.</p>
+<h2>Lieferzeit</h2><p>5 bis 6 Werktage innerhalb Deutschlands. Jedes Stück wird nach deiner Bestellung gefertigt.</p>
 <h2>Versand</h2><p>Mit Sendungsverfolgung, aus der EU.</p>
 <h2>Sendungsverfolgung</h2><p>Sobald dein Paket unterwegs ist, bekommst du eine E-Mail mit dem Link zur Sendungsverfolgung. Du kannst den Status auch unter „Bestellung verfolgen“ abrufen.</p>`,
-    en: `<h2>Countries and costs</h2><table><thead><tr><th>Country</th><th>Shipping</th><th>Free from</th></tr></thead><tbody><tr><td>Germany</td><td>4.90 €</td><td>100 €</td></tr><tr><td>France, Austria, Belgium, Netherlands, Luxembourg</td><td>7.90 €</td><td>150 €</td></tr></tbody></table>
+    en: `<h2>Countries and costs</h2><table><thead><tr><th>Country</th><th>Shipping</th><th>Free from</th></tr></thead><tbody><tr><td>Germany</td><td>4.90 €</td><td>100 €</td></tr></tbody></table><p>France, Austria, Belgium, the Netherlands and Luxembourg will follow.</p>
+<h2>Delivery time</h2><p>5 to 6 working days within Germany. Each piece is made after you order it.</p>
 <h2>Carrier</h2><p>Tracked, from the EU.</p>
 <h2>Tracking</h2><p>Once your parcel is on its way you get an email with the tracking link. You can also check the status under “Track order”.</p>`,
-    fr: `<h2>Pays et frais</h2><table><thead><tr><th>Pays</th><th>Livraison</th><th>Offerte dès</th></tr></thead><tbody><tr><td>Allemagne</td><td>4,90 €</td><td>100 €</td></tr><tr><td>France, Autriche, Belgique, Pays-Bas, Luxembourg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>
+    fr: `<h2>Pays et frais</h2><table><thead><tr><th>Pays</th><th>Livraison</th><th>Offerte dès</th></tr></thead><tbody><tr><td>Allemagne</td><td>4,90 €</td><td>100 €</td></tr></tbody></table><p>La France, l’Autriche, la Belgique, les Pays-Bas et le Luxembourg suivront.</p>
+<h2>Délai de livraison</h2><p>5 à 6 jours ouvrés en Allemagne. Chaque pièce est fabriquée après votre commande.</p>
 <h2>Transporteur</h2><p>Avec suivi, depuis l’UE.</p>
 <h2>Suivi</h2><p>Dès que votre colis est en route, vous recevez un e-mail avec le lien de suivi. Vous pouvez aussi consulter le statut sous « Suivre ma commande ».</p>`,
   },
@@ -164,13 +167,13 @@ ${CIRCLE_PRIVACY.de}
     de: `<h2>1. Geltungsbereich</h2><p>Diese AGB gelten für alle Bestellungen von Verbrauchern über den Online-Shop Algebra bei ${o.name}, Inhaber ${o.owner}, ${o.street}, ${o.city}.</p>
 <h2>2. Vertragsschluss</h2><p>Die Darstellung der Produkte ist kein bindendes Angebot. Mit Klick auf den Bezahl-Button im Bestellprozess (Stripe Checkout) geben Sie ein verbindliches Angebot ab. Der Vertrag kommt mit der Zahlungsbestätigung zustande, die wir Ihnen per E-Mail senden.</p>
 <h2>3. Fertigung auf Bestellung</h2><p>Jedes Stück wird nach Ihrer Bestellung aus den angebotenen Größen und Farben gefertigt (bestickt oder bedruckt) und aus der EU versendet.</p>
-<h2>4. Preise, Versand und Zahlung</h2><p>Alle Preise sind Endpreise. ${o.taxNote}; daher wird keine Umsatzsteuer berechnet. Versand nach Deutschland 4,90 €, ab 100 € kostenlos; nach Frankreich, Österreich, Belgien, in die Niederlande und nach Luxemburg 7,90 €, ab 150 € kostenlos. Die Zahlung erfolgt über Stripe.</p>
-<h2>5. Lieferzeit</h2><p>Die Lieferzeit wird auf der Produktseite und im Bestellprozess angegeben.</p>
+<h2>4. Preise, Versand und Zahlung</h2><p>Alle Preise sind Endpreise. ${o.taxNote}; daher wird keine Umsatzsteuer berechnet. Lieferung derzeit nur innerhalb Deutschlands; Versand 4,90 €, ab 100 € kostenlos. Die Zahlung erfolgt über Stripe.</p>
+<h2>5. Lieferzeit</h2><p>Die Lieferzeit innerhalb Deutschlands beträgt 5 bis 6 Werktage ab Zahlungseingang. Sie wird auch auf der Produktseite angegeben.</p>
 <h2>6. Widerrufsrecht</h2><p>Verbrauchern steht ein Widerrufsrecht nach Maßgabe der <a href="../withdrawal/">Widerrufsbelehrung</a> zu.</p>
 <h2>7. Gewährleistung</h2><p>Es gelten die gesetzlichen Mängelrechte.</p>
 <h2>8. Recht</h2><p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts; zwingende Verbraucherschutzvorschriften des Staates Ihres gewöhnlichen Aufenthalts bleiben unberührt.</p>`,
-    en: `${deFirst.en}<p>The contract with ${o.name} is concluded on payment confirmation. Pieces are made to order from the sizes and colours offered. Final prices, no VAT (§ 19 UStG). Shipping: Germany 4.90 € (free from 100 €), FR, AT, BE, NL, LU 7.90 € (free from 150 €). 14-day right of withdrawal. Statutory warranty. German law, without prejudice to mandatory rules of your country.</p>`,
-    fr: `${deFirst.fr}<p>Le contrat avec ${o.name} est conclu à la confirmation du paiement. Les pièces sont fabriquées à la commande, dans les tailles et couleurs proposées. Prix finaux, TVA non applicable (§ 19 UStG). Livraison : Allemagne 4,90 € (offerte dès 100 €), FR, AT, BE, NL, LU 7,90 € (offerte dès 150 €). Droit de rétractation de 14 jours. Garantie légale. Droit allemand, sous réserve des règles impératives de votre pays.</p>`,
+    en: `${deFirst.en}<p>The contract with ${o.name} is concluded on payment confirmation. Pieces are made to order from the sizes and colours offered. Final prices, no VAT (§ 19 UStG). Delivery within Germany only for now: 4.90 € (free from 100 €), 5 to 6 working days. 14-day right of withdrawal. Statutory warranty. German law, without prejudice to mandatory rules of your country.</p>`,
+    fr: `${deFirst.fr}<p>Le contrat avec ${o.name} est conclu à la confirmation du paiement. Les pièces sont fabriquées à la commande, dans les tailles et couleurs proposées. Prix finaux, TVA non applicable (§ 19 UStG). Livraison en Allemagne uniquement pour l’instant : 4,90 € (offerte dès 100 €), 5 à 6 jours ouvrés. Droit de rétractation de 14 jours. Garantie légale. Droit allemand, sous réserve des règles impératives de votre pays.</p>`,
   },
   withdrawal: {
     de: `<h2>Widerrufsrecht</h2><p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben bzw. hat.</p>

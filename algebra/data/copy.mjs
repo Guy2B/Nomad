@@ -6,9 +6,9 @@
  */
 
 const shipping = {
-  de: ['Aus der EU versendet.', 'Lieferung nach Deutschland, Frankreich, Österreich, Belgien, die Niederlande und Luxemburg. 14 Tage gesetzliches Widerrufsrecht ab Erhalt der Bestellung.'],
-  en: ['Shipped from the EU.', 'Delivery to Germany, France, Austria, Belgium, the Netherlands and Luxembourg. 14-day statutory right of withdrawal from receipt of your order.'],
-  fr: ['Expédié depuis l’UE.', 'Livraison en Allemagne, France, Autriche, Belgique, aux Pays-Bas et au Luxembourg. Droit de rétractation légal de 14 jours à compter de la réception.'],
+  de: ['Aus der EU versendet.', 'Lieferung innerhalb Deutschlands in 5 bis 6 Werktagen. Weitere EU-Länder folgen. 14 Tage gesetzliches Widerrufsrecht ab Erhalt der Bestellung.'],
+  en: ['Shipped from the EU.', 'Delivery within Germany in 5 to 6 working days. More EU countries will follow. 14-day statutory right of withdrawal from receipt of your order.'],
+  fr: ['Expédié depuis l’UE.', 'Livraison en Allemagne en 5 à 6 jours ouvrés. D’autres pays de l’UE suivront. Droit de rétractation légal de 14 jours à compter de la réception.'],
 };
 
 const careEmb = {

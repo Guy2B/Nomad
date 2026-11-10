@@ -11,6 +11,13 @@
  */
 
 export const TV = 'TO VERIFY';
+/**
+ * Launch scope (owner 10.11.2026): only the Graphic Series is sold, only to Germany.
+ * The order-engine tests still run on the full scope (essentials, EU zone): npm test sets ALGEBRA_FULL_SCOPE=1.
+ * Cloudflare Workers have no process.env, so production always gets the launch scope.
+ */
+const FULL_SCOPE = globalThis.process?.env?.ALGEBRA_FULL_SCOPE === '1';
+const ESSENTIALS_STATUS = FULL_SCOPE ? 'PREVIEW' : 'NEEDS_SUPPLIER_APPROVAL';
 
 export const colors = {
   ivory: { tone: 'light', hex: '#EDE8DD', ink: 'navy', name: { de: 'Ivory', en: 'Ivory', fr: 'Ivoire' }, supplierColor: TV },
@@ -108,7 +115,7 @@ export const products = [
     category: 'polos',
     name: { de: 'The Polo', en: 'The Polo', fr: 'The Polo' },
     price: 89,
-    status: 'PREVIEW',
+    status: ESSENTIALS_STATUS, // launch: Graphic Series only; Essentials via a POD supplier (Printful or other) later
     blank: 'polo-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['deep-navy', 'black', 'ivory', 'olive'],
@@ -150,7 +157,7 @@ export const products = [
     category: 't-shirts',
     name: { de: 'The Tee', en: 'The Tee', fr: 'The Tee' },
     price: 45, // owner 10.11.2026: tee with the embroidered A
-    status: 'PREVIEW',
+    status: ESSENTIALS_STATUS, // launch: Graphic Series only; Essentials via a POD supplier (Printful or other) later
     blank: 'tee-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['ivory', 'black', 'deep-navy', 'olive'],
@@ -192,7 +199,7 @@ export const products = [
     category: 'sweaters',
     name: { de: 'The Sweat', en: 'The Sweat', fr: 'The Sweat' },
     price: 109,
-    status: 'PREVIEW',
+    status: ESSENTIALS_STATUS, // launch: Graphic Series only; Essentials via a POD supplier (Printful or other) later
     blank: 'sweat-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high), tone on tone', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['black', 'deep-navy', 'ivory', 'olive'],
@@ -265,7 +272,7 @@ export const products = [
     category: 't-shirts',
     name: { de: 'The Tee', en: 'The Tee', fr: 'The Tee' },
     price: 45, // owner 10.11.2026: same tee, same price
-    status: 'PREVIEW',
+    status: ESSENTIALS_STATUS, // launch: Graphic Series only; Essentials via a POD supplier (Printful or other) later
     blank: 'tee-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
     colors: ['ivory', 'black', 'deep-navy', 'olive'],
@@ -535,9 +542,11 @@ export const products = [
 
 /** Shipping policy (decision documented in docs/ECONOMICS.md). Delivery times stay TO VERIFY until Valadio confirms. */
 export const shipping = {
-  countries: ['DE', 'FR', 'AT', 'BE', 'NL', 'LU'],
+  // owner 10.11.2026: launch ships to Germany only; the other EU countries follow once the delivery time is known
+  countries: FULL_SCOPE ? ['DE', 'FR', 'AT', 'BE', 'NL', 'LU'] : ['DE'],
+  countriesLater: ['FR', 'AT', 'BE', 'NL', 'LU'],
   zones: {
-    DE: { fee: 4.9, freeFrom: 100, supplierCostNet: 5.8, deliveryDays: TV },
+    DE: { fee: 4.9, freeFrom: 100, supplierCostNet: 5.8, deliveryDays: '5–6' }, // Printegy's own recommendation; owner's order: Sat → Wed
     EU: { fee: 7.9, freeFrom: 150, supplierCostNet: 8.32, deliveryDays: TV },
   },
   packagingNetPerShipment: 0.8,

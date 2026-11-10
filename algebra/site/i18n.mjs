@@ -40,7 +40,7 @@ export const t = {
     next: { kicker: 'New Equations', title: 'Was als Nächstes kommt.', body: 'Neue Kapseln entstehen langsam. Schrödinger, Feynman und Möbius sind in Arbeit. Kein Datum, bis sie fertig sind.' },
     trust: {
       made: ['Bestickt und bedruckt in Europa', 'Jedes Stück wird einzeln für dich in Europa veredelt und aus der EU verschickt.'],
-      ship: ['Versand', 'Deutschland 4,90 €, ab 100 € kostenlos. FR, AT, BE, NL, LU 7,90 €, ab 150 € kostenlos.'],
+      ship: ['Versand', 'Deutschland 4,90 €, ab 100 € kostenlos. 5 bis 6 Werktage.'],
       returns: ['14 Tage Widerruf', 'Gesetzliches Widerrufsrecht. Alle Details auf der Seite Rücksendungen.'],
       pay: ['Sicher bezahlen', 'Bezahlung über Stripe. Wir sehen und speichern keine Kartendaten.'],
     },
@@ -117,7 +117,7 @@ export const t = {
     next: { kicker: 'New Equations', title: 'What comes next.', body: 'New capsules take their time. Schrödinger, Feynman and Möbius are in the works. No date until they are ready.' },
     trust: {
       made: ['Embroidered and printed in Europe', 'Every piece is finished for you in Europe and shipped from the EU.'],
-      ship: ['Shipping', 'Germany 4.90 €, free from 100 €. FR, AT, BE, NL, LU 7.90 €, free from 150 €.'],
+      ship: ['Shipping', 'Germany 4.90 €, free from 100 €. 5 to 6 working days.'],
       returns: ['14-day withdrawal', 'Statutory right of withdrawal. Full details on the returns page.'],
       pay: ['Secure payment', 'Payments by Stripe. We never see or store card details.'],
     },
@@ -194,7 +194,7 @@ export const t = {
     next: { kicker: 'New Equations', title: 'La suite.', body: 'Les nouvelles capsules prennent leur temps. Schrödinger, Feynman et Möbius sont en cours. Pas de date avant qu’elles soient prêtes.' },
     trust: {
       made: ['Brodé et imprimé en Europe', 'Chaque pièce est finie pour vous en Europe et expédiée depuis l’UE.'],
-      ship: ['Livraison', 'Allemagne 4,90 €, offerte dès 100 €. FR, AT, BE, NL, LU 7,90 €, offerte dès 150 €.'],
+      ship: ['Livraison', 'Allemagne 4,90 €, offerte dès 100 €. 5 à 6 jours ouvrés.'],
       returns: ['Rétractation 14 jours', 'Droit de rétractation légal. Tous les détails sur la page Retours.'],
       pay: ['Paiement sécurisé', 'Paiement via Stripe. Nous ne voyons ni ne stockons vos données de carte.'],
     },
