@@ -161,6 +161,8 @@ jobs:
       # Canonical origin baked into the pages (canonical, hreflang, sitemap, Stripe return URLs).
       SITE_ORIGIN: ${{ vars.ALGEBRA_ORIGIN || 'https://algebra.algbr.eu' }}
       ALGEBRA_ENV: ${{ vars.ALGEBRA_ORIGIN == 'https://algbr.eu' && 'apex' || '' }}
+      # owner 10.11.2026: launch. The site build reads SITE_MODE (no noindex, no preview banner); the Worker reads it from wrangler.toml.
+      SITE_MODE: live
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

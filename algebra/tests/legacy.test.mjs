@@ -30,13 +30,13 @@ test('redirects only when LEGACY_STUDIO_REDIRECTS = "1"', async () => {
   assert.equal(await off.text(), 'asset');
 });
 
-test('wrangler env.apex: algbr.eu route, origin, redirects reach the Worker, still preview', () => {
+test('wrangler env.apex: algbr.eu route, origin, redirects reach the Worker, live since the launch (owner 10.11.2026)', () => {
   const toml = readFileSync(join(import.meta.dirname, '..', 'worker', 'wrangler.toml'), 'utf8');
   const apex = toml.slice(toml.indexOf('[env.apex]'));
   const base = toml.slice(0, toml.indexOf('[env.apex]'));
   assert.match(apex, /pattern = "algbr\.eu", custom_domain = true/);
   assert.match(apex, /SITE_ORIGIN = "https:\/\/algbr\.eu"/);
-  assert.match(apex, /SITE_MODE = "preview"/);
+  assert.match(apex, /SITE_MODE = "live"/);
   assert.match(apex, /LEGACY_STUDIO_REDIRECTS = "1"/);
   for (const p of LEGACY_PATTERNS) assert.ok(apex.includes(`"${p}"`), `run_worker_first ${p}`);
   // The default environment (current production) is unchanged.

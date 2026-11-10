@@ -210,7 +210,8 @@ export function graphicCopy(name) {
       en: ['Drawn, not copied.', 'Original Algebra artwork: ink, stardust, construction lines. The equation is real, the drawing is ours.'],
       fr: ['Dessiné, pas recopié.', 'Graphisme original Algebra : encre, poussière d’étoiles, lignes de construction. L’équation est vraie, le dessin est le nôtre.'],
     },
-    spec: { needs_verification: true, material: { de: 'Baumwolle (Bio)', en: 'Cotton (organic)', fr: 'Coton (bio)' }, weight: null, finish: 'print' },
+    // verified 10.11.2026 on the makers' spec pages: material and weight come per cut from data/catalog.mjs blanks
+    spec: { needs_verification: false, material: null, weight: null, finish: 'print' },
     care: carePrint,
   };
 }

@@ -191,10 +191,10 @@ export const PRINTEGY = {
     supplierBrand: 'Stanley/Stella',
     supplierProduct: 'CREATOR 2.0 (2-sided print)',
     supplierProductId: 'STTU169',
-    status: 'pending_confirmation',
+    status: 'confirmed', // owner 10.11.2026: launch; the first real order is the API test (fallback: manual order in the Printegy dashboard)
     method: 'print',
-    needs_verification: true,
-    note: 'Products and SKUs set up 02.11.2026 (SKU.printegy). Stays pending_confirmation until a test order through the API has been delivered: only then status confirmed = live sale.',
+    needs_verification: false,
+    note: 'Products and SKUs set up 02.11.2026 (SKU.printegy). Owner test order (Printegy dashboard) delivered Sat → Wed.',
     cost: { garment: 9.95, decoration: 4.0, source: 'Printegy dashboard 30.10.2026 (net, front + back)' },
   },
 };

@@ -458,9 +458,12 @@ function productPage(lang, p) {
   const S = P.spec;
   const o = site.operator;
   const weight = C.spec.weight || (p.cuts ? p.cuts.map((c) => `${c.name[lang]} ${blanks[c.blank].gsm} g/m²`).join(' · ') : typeof b.gsm === 'number' ? `${b.gsm} g/m²` : null);
+  // graphic: composition per cut (organic or not depends on the cut), from the verified blanks
+  const material = C.spec.material ? C.spec.material[lang] : [...new Set((p.cuts || []).map((c) => blanks[c.blank].composition[lang]))].length === 1 ? blanks[p.cuts[0].blank].composition[lang] : p.cuts.map((c) => `${c.name[lang]} ${blanks[c.blank].composition[lang]}`).join(' · ');
+  // not for sale yet: no material or weight shown (facts unverified until a supplier is chosen)
   const specRows = [
-    [S.material, C.spec.material[lang]],
-    ...(weight ? [[S.weight, weight]] : []),
+    ...(buyable ? [[S.material, material]] : []),
+    ...(weight && buyable ? [[S.weight, weight]] : []),
     [S.finish, C.spec.finish === 'print' ? S.print : S.embroidery],
     [S.ref, p.id],
     [S.maker, `Algebra · ${o.name}, ${o.street}, ${o.city}, ${o.country} · ${o.email}`],
@@ -490,7 +493,7 @@ function productPage(lang, p) {
           ${ch ? acc(chLabel, `<p class="acc__h">${esc(ch.title[lang])}</p><p class="chap__dlg">${esc(ch.dialogue[lang])}</p>${ch.text[lang].map((t) => `<p>${esc(t)}</p>`).join('')}<p class="chap__close">${esc(ch.close[lang])}</p>`, true) : ''}
           ${p.symbol ? acc(P.symbol, `<p class="symbol-eq">${mathHtml(p.equation || p.symbol.glyph)}</p><p>${mathHtml(p.symbol[lang])}</p>`, !ch) : ''}
           ${sec(P.fit, C.fit, `<p><a href="${r(`/${lang}/size-guide/`)}">${P.sizeGuide}</a></p>`, !p.symbol)}
-          ${sec(P.fabric, C.fabric, `<p class="small muted">${esc(L.premium.similar)}</p>`)}
+          ${buyable ? sec(P.fabric, C.fabric, `<p class="small muted">${esc(L.premium.similar)}</p>`) : ''}
           ${p.category === 'knitwear' ? sec('The Yarn', C.yarn) + sec('The Knit', C.knit) : ''}
           ${sec(P.detail, C.detail)}
           ${sec(P.design, C.signature || copyCommon.signature)}
@@ -869,7 +872,8 @@ cpSync(join(root, 'site', 'assets', 'photos', 'mandelbrot-black-stage.jpg'), joi
 
 // ------------------------------------------------------------------ live guard: no unverified product facts
 if (!PREVIEW) {
-  const unverified = products.filter((p) => p.needs_verification || (premiumCopy[p.id] || graphicCopy(p.name.de)).spec.needs_verification);
+  // only what is for sale must be verified; products shown as "not available yet" hide material and weight
+  const unverified = products.filter((p) => p.status === 'PREVIEW' && (p.needs_verification || (premiumCopy[p.id] || graphicCopy(p.name.de)).spec.needs_verification));
   if (unverified.length) {
     console.error('LIVE BUILD REFUSED: product facts need verification for ' + unverified.map((p) => p.id).join(', '));
     process.exit(1);

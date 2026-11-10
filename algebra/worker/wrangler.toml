@@ -22,9 +22,9 @@ not_found_handling = "404-page"
 
 [vars]
 SITE_ORIGIN = "https://algebra.algbr.eu"
-SITE_MODE = "preview"          # "live" only after docs/LAUNCH_CHECKLIST.md is PASS; preview refuses live Stripe keys
+SITE_MODE = "live"             # owner 10.11.2026: launch (Graphic Series, Germany)
 FULFILLMENT_PROVIDER = "printegy"  # provider layer: worker/src/fulfillment/ (mock for local tests)
-PRINTEGY_SANDBOX = "true"          # "false" only after a test order through the API passed; secret PRINTEGY_API_KEY, var PRINTEGY_SHOP_ID
+PRINTEGY_SANDBOX = "false"         # owner 10.11.2026: live; secret PRINTEGY_API_KEY, var PRINTEGY_SHOP_ID
 PRINTEGY_SHOP_ID = "13647"         # from the cockpit probe (GET /shops), 02.11.2026
 VALADIO_SANDBOX = "true"           # "false" only after the API docs are implemented and a test order passed
 VALADIO_API_BASE_URL = ""          # from Valadio's official API documentation
@@ -70,9 +70,9 @@ not_found_handling = "404-page"
 SITE_ORIGIN = "https://algbr.eu"
 ALLOWED_ORIGINS = "https://algbr.eu,https://algebra.algbr.eu"
 LEGACY_STUDIO_REDIRECTS = "1"
-SITE_MODE = "preview"
+SITE_MODE = "live"
 FULFILLMENT_PROVIDER = "printegy"
-PRINTEGY_SANDBOX = "true"
+PRINTEGY_SANDBOX = "false"
 PRINTEGY_SHOP_ID = "13647"
 VALADIO_SANDBOX = "true"
 VALADIO_API_BASE_URL = ""
