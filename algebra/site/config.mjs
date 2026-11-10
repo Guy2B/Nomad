@@ -5,7 +5,7 @@
 export const site = {
   name: 'Algebra',
   // owner 10.11.2026 (manifesto "Une graine. Une forme. Un monde."): the brand line, per language
-  signature: 'L’intelligence des formes. L’élégance de l’infini.',
+  signature: 'The intelligence of form. The elegance of infinity.', // English, as shared with the studio registry
   signatures: {
     de: 'Die Intelligenz der Formen. Die Eleganz des Unendlichen.',
     en: 'The intelligence of form. The elegance of infinity.',

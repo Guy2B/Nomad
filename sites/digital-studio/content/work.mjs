@@ -100,7 +100,7 @@ export const WORK = [
     },
     cta: { de: 'ALGEBRA entdecken', en: 'Discover ALGEBRA', fr: 'Découvrir ALGEBRA' },
     title: { de: 'Algebra', en: 'Algebra', fr: 'Algebra' },
-    signature: 'Built on proportion.',
+    signature: 'The intelligence of form. The elegance of infinity.',
     summary: {
       de: 'Ein europäisches Modehaus, bis zur letzten Naht gedacht: ein eigens gezeichnetes Zeichen, eigene Typografie, Essentials aus Bio-Baumwolle, in Europa bestickt, und eine Boutique auf demselben Niveau.',
       en: 'A European fashion house, considered down to the last stitch: a bespoke mark, its own typography, organic-cotton essentials embroidered in Europe, and a boutique to match.',

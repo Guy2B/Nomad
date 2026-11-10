@@ -24,7 +24,7 @@
       "image": "sites/digital-studio/assets/brands/algebra.webp",
       "theme": { "primary": "#131A2B", "background": "#F3EFE7", "accent": "#6A2232" },
       "languages": ["de", "en", "fr"],
-      "tagline": { "de": "Built on proportion.", "en": "Built on proportion.", "fr": "Built on proportion." },
+      "tagline": { "de": "Die Intelligenz der Formen. Die Eleganz des Unendlichen.", "en": "The intelligence of form. The elegance of infinity.", "fr": "L’intelligence des formes. L’élégance de l’infini." },
       "positioning": {
         "de": "European contemporary essentials für Damen und Herren.",
         "en": "European contemporary essentials for men and women.",
