@@ -442,6 +442,18 @@ function productPage(lang, p) {
   const C = premiumCopy[p.id] || graphicCopy(p.name.de);
   const ch = p.line === 'graphic' ? gChapters[p.graphic] : null;
   const chLabel = { de: 'Der Dialog', en: 'The dialogue', fr: 'Le dialogue' }[lang];
+  // owner 10.11.2026: graphic intro = chapter title + one idea + one product line; the long text stays in "Le dialogue"
+  if (ch) {
+    const intro = { de: 'Eine grafische Interpretation', en: 'A graphic interpretation of', fr: 'Une interprétation graphique' }[lang];
+    C.lead = { ...C.lead, [lang]: [`${ch.title[lang]}.`, `${ch.hook[lang]} ${intro} ${ch.subj[lang]}.`] };
+  }
+  const NUM = { de: ['', 'Ein', 'Zwei', 'Drei', 'Vier'], en: ['', 'One', 'Two', 'Three', 'Four'], fr: ['', 'Une', 'Deux', 'Trois', 'Quatre'] }[lang];
+  const nCuts = (p.cuts || []).length, nCol = p.colors.length;
+  const facts = ch ? {
+    de: [`${NUM[nCuts]} ${nCuts > 1 ? 'Schnitte' : 'Schnitt'}`, `${NUM[nCol]} ${nCol > 1 ? 'Farben' : 'Farbe'}`, 'Künstlerische Komposition auf dem Rücken', 'Dezentes Monogramm auf der Brust'],
+    en: [`${NUM[nCuts]} ${nCuts > 1 ? 'cuts' : 'cut'}`, `${NUM[nCol]} ${nCol > 1 ? 'colours' : 'colour'}`, 'Artwork on the back', 'Discreet monogram on the chest'],
+    fr: [`${NUM[nCuts]} ${nCuts > 1 ? 'coupes' : 'coupe'}`, `${NUM[nCol]} coloris`, 'Composition artistique au dos', 'Monogramme discret sur la poitrine'],
+  }[lang] : null;
   const sec = (title, part, extra = '', open = false) => (part ? acc(title, `<p class="acc__h">${esc(part[lang][0])}</p><p>${esc(part[lang][1])}</p>${extra}`, open) : '');
   const S = P.spec;
   const o = site.operator;
@@ -462,8 +474,8 @@ function productPage(lang, p) {
         ${p.capsule ? `<p class="kicker">${esc(p.capsule)}</p>` : `<p class="kicker">The Essentials</p>`}
         <h1 class="h1 buy__name">${esc(displayName(p, lang))}</h1>
         <p class="buy__price" data-price-el>${buyable ? money(p.price, lang) : P.unavailable}</p>
-        ${buyable ? `<p class="small muted">${esc(vat)} <a href="${r(`/${lang}/info/shipping/`)}">${P.plusShip}</a></p>` : ''}
-        <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>${ch ? `<p class="buy__chapter">${esc(ch.title[lang])}</p>` : ''}
+        ${buyable ? `<p class="buy__vat">${esc(vat)} <a href="${r(`/${lang}/info/shipping/`)}">${P.plusShip}</a></p>` : ''}
+        <p class="buy__head">${esc(C.lead[lang][0])}</p><p class="buy__lead">${esc(C.lead[lang][1])}</p>${facts ? `<p class="buy__facts">${facts.map(esc).join(' · ')}</p>` : ''}
         <form class="buy__form" data-buy novalidate>
           ${p.cuts?.length > 1 ? `<fieldset class="opt"><legend>${P.cut}</legend><div class="opt__row">${cuts.map((c, i) => `<label class="pill"><input type="radio" name="cut" value="${c.id}"${i ? '' : ' checked'}><span>${esc(c.name[lang])}</span></label>`).join('')}</div></fieldset>` : p.cuts ? `<input type="radio" name="cut" value="${cuts[0].id}" checked hidden>` : ''}
           <fieldset class="opt"><legend>${P.color}: <span data-color-name>${esc(colors[lead].name[lang])}</span></legend><div class="opt__row">${p.colors.map((c) => `<label class="swatch" title="${esc(colors[c].name[lang])}"><input type="radio" name="color" value="${c}" data-label="${esc(colors[c].name[lang])}"${c === lead ? ' checked' : ''}><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])}</span></label>`).join('')}${(p.requestColors || []).map((c) => `<label class="swatch swatch--request" title="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><input type="radio" name="color" value="${c}" data-request="1" data-label="${esc(colors[c].name[lang])} · ${esc(P.onRequest)}"><span class="sw sw--lg sw--c-${c}"></span><span class="vh">${esc(colors[c].name[lang])} · ${esc(P.onRequest)}</span></label>`).join('')}</div></fieldset>

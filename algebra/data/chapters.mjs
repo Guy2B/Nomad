@@ -24,6 +24,8 @@ export const series = {
 
 export const chapters = {
   entanglement: {
+    hook: { de: 'Was getrennt scheint, kann tief verbunden sein.', en: 'What seems separate can be deeply linked.', fr: 'Ce qui semble séparé peut être profondément lié.' },
+    subj: { de: 'der Quantenverschränkung, zwischen präzisen Linien, Bewegung und Licht', en: 'quantum entanglement, between precise lines, movement and light', fr: 'de l’intrication quantique, entre précision des lignes, mouvement et lumière' },
     title: { de: 'Die Kunst der unsichtbaren Verbindungen', en: 'The art of invisible bonds', fr: 'L’art des liens invisibles' },
     dialogue: { de: 'Im Dialog mit Leere und gegenseitiger Abhängigkeit.', en: 'In dialogue with emptiness and interdependence.', fr: 'Dialogue avec la vacuité et l’interdépendance.' },
     text: {
@@ -34,6 +36,8 @@ export const chapters = {
     close: { de: 'Was uns verbindet, ist nicht immer sichtbar.', en: 'What connects us is not always visible.', fr: 'Ce qui nous relie ne se voit pas toujours.' },
   },
   euler: {
+    hook: { de: 'Wenige Elemente, jedes an seinem Platz.', en: 'A few elements, each in its place.', fr: 'Peu d’éléments, chacun à sa place.' },
+    subj: { de: 'der Eulerschen Identität, in der wenige Zeichen ferne Welten vereinen', en: 'Euler’s identity, where a few signs unite distant worlds', fr: 'de l’identité d’Euler, où quelques signes unissent des mondes éloignés' },
     title: { de: 'Die Schönheit des Wesentlichen', en: 'The beauty of the essential', fr: 'La beauté de l’essentiel' },
     dialogue: { de: 'Im Dialog mit dem Awélé und der Einfachheit der Regeln.', en: 'In dialogue with Awélé and the simplicity of rules.', fr: 'Dialogue avec l’Awélé et la simplicité des règles.' },
     text: {
@@ -44,6 +48,8 @@ export const chapters = {
     close: { de: 'Raffinesse beginnt, wo nichts überflüssig ist.', en: 'Sophistication begins when nothing is superfluous.', fr: 'La sophistication commence lorsque rien n’est superflu.' },
   },
   lorenz: {
+    hook: { de: 'Ein winziger Unterschied, ein ganz anderer Weg.', en: 'A tiny difference, an entirely different path.', fr: 'Une infime différence, un tout autre chemin.' },
+    subj: { de: 'des Lorenz-Attraktors, zwischen Ordnung und Unvorhersehbarem', en: 'the Lorenz attractor, between order and the unpredictable', fr: 'de l’attracteur de Lorenz, entre ordre et imprévisible' },
     title: { de: 'Die Eleganz des Unvorhersehbaren', en: 'The elegance of the unpredictable', fr: 'L’élégance de l’imprévisible' },
     dialogue: { de: 'Im Dialog mit der Vergänglichkeit.', en: 'In dialogue with impermanence.', fr: 'Dialogue avec l’impermanence.' },
     text: {
@@ -54,6 +60,8 @@ export const chapters = {
     close: { de: 'Eleganz heißt nicht, die Zeit anzuhalten, sondern ihre Wandlungen zu durchqueren.', en: 'Elegance is not freezing time, but moving through its transformations.', fr: 'L’élégance n’est pas de figer le temps, mais de traverser ses transformations.' },
   },
   maxwell: {
+    hook: { de: 'Elektrizität, Magnetismus und Licht werden eins.', en: 'Electricity, magnetism and light become one.', fr: 'L’électricité, le magnétisme et la lumière ne font qu’un.' },
+    subj: { de: 'der Maxwell-Gleichungen, zwischen unsichtbaren Feldern und Licht', en: 'Maxwell’s equations, between invisible fields and light', fr: 'des équations de Maxwell, entre champs invisibles et lumière' },
     title: { de: 'Das Licht des Unsichtbaren', en: 'The light of the invisible', fr: 'La lumière de l’invisible' },
     dialogue: { de: 'Im Dialog mit dem Kupfer und der Übertragung.', en: 'In dialogue with copper and transmission.', fr: 'Dialogue avec le cuivre et la transmission.' },
     text: {
@@ -64,6 +72,8 @@ export const chapters = {
     close: { de: 'Manche Kräfte sieht man nicht. Ihre Wirkung verändert die Welt.', en: 'Some forces cannot be seen. Their effects transform the world.', fr: 'Certaines forces ne se voient pas. Leurs effets transforment le monde.' },
   },
   mandelbrot: {
+    hook: { de: 'Das Unendliche passt in ein Detail.', en: 'Infinity fits into a detail.', fr: 'L’infini tient dans un détail.' },
+    subj: { de: 'der Mandelbrot-Menge, einer Form, die sich in jedem Maßstab erneuert', en: 'the Mandelbrot set, a shape that renews itself at every scale', fr: 'de l’ensemble de Mandelbrot, une forme qui se renouvelle à chaque échelle' },
     title: { de: 'Das Unendliche im Detail', en: 'The infinite in the detail', fr: 'L’infini dans le détail' },
     dialogue: { de: 'Im Dialog mit der Selbstähnlichkeit und den traditionellen Geometrien.', en: 'In dialogue with self-similarity and traditional geometries.', fr: 'Dialogue avec l’autosimilarité et les géométries traditionnelles.' },
     text: {
@@ -74,6 +84,8 @@ export const chapters = {
     close: { de: 'Das Detail ist nicht nebensächlich. Es trägt den Geist des Ganzen.', en: 'The detail is not secondary. It holds the spirit of the whole.', fr: 'Le détail n’est pas secondaire. Il contient l’esprit de l’ensemble.' },
   },
   higgs: {
+    hook: { de: 'Was zählt, zeigt sich nicht immer.', en: 'What matters does not always show.', fr: 'Ce qui compte ne se montre pas toujours.' },
+    subj: { de: 'des Higgs-Feldes, zwischen verborgener Struktur und Materie', en: 'the Higgs field, between hidden structure and matter', fr: 'du champ de Higgs, entre structure cachée et matière' },
     title: { de: 'Was dem Unsichtbaren Gestalt gibt', en: 'What gives the invisible a body', fr: 'Ce qui donne corps à l’invisible' },
     dialogue: { de: 'Im Dialog mit Immanenz und Emergenz.', en: 'In dialogue with immanence and emergence.', fr: 'Dialogue avec l’immanence et l’émergence.' },
     text: {
@@ -84,6 +96,8 @@ export const chapters = {
     close: { de: 'Wahrer Luxus verkündet sich nicht. Er offenbart sich.', en: 'True luxury does not announce itself. It reveals itself.', fr: 'Le luxe véritable ne se proclame pas. Il se révèle.' },
   },
   'big-bang': {
+    hook: { de: 'Alles beginnt mit einem ersten Augenblick.', en: 'Everything begins with a first instant.', fr: 'Tout commence par un premier instant.' },
+    subj: { de: 'des Urknalls, vom ersten Augenblick bis zum sich ausdehnenden Universum', en: 'the Big Bang, from the first instant to the expanding universe', fr: 'du Big Bang, du premier instant à l’Univers en expansion' },
     title: { de: 'Das Erbe der Anfänge', en: 'The legacy of beginnings', fr: 'L’héritage des commencements' },
     dialogue: { de: 'Im Dialog mit dem Samen des Awélé und der Weitergabe.', en: 'In dialogue with the Awélé seed and transmission.', fr: 'Dialogue avec la graine d’Awélé et la transmission.' },
     text: {
@@ -94,6 +108,8 @@ export const chapters = {
     close: { de: 'Jede große Geschichte hat einen ersten Zug.', en: 'Every great story has a first move.', fr: 'Toute grande histoire possède un premier mouvement.' },
   },
   feynman: {
+    hook: { de: 'Ein Strich wird zur Beziehung.', en: 'A line becomes a relation.', fr: 'Un trait devient une relation.' },
+    subj: { de: 'der Feynman-Diagramme, in denen jede Linie eine Wechselwirkung erzählt', en: 'Feynman diagrams, where every line tells an interaction', fr: 'des diagrammes de Feynman, où chaque ligne raconte une interaction' },
     title: { de: 'Die Intelligenz des Strichs', en: 'The intelligence of the line', fr: 'L’intelligence du trait' },
     dialogue: { de: 'Im Dialog mit algorithmischem Denken und symbolischen Sprachen.', en: 'In dialogue with algorithmic thinking and symbolic languages.', fr: 'Dialogue avec la pensée algorithmique et les langages symboliques.' },
     text: {
@@ -104,6 +120,8 @@ export const chapters = {
     close: { de: 'Ein genauer Strich kann ein Universum erzählen.', en: 'A precise line can tell a universe.', fr: 'Un trait juste peut raconter un univers.' },
   },
   mobius: {
+    hook: { de: 'Eine Seite, eine Kante.', en: 'One side, one edge.', fr: 'Une seule face, un seul bord.' },
+    subj: { de: 'des Möbiusbandes, einer Fläche ohne Rückseite', en: 'the Möbius strip, a surface with no reverse', fr: 'du ruban de Möbius, une surface sans envers' },
     title: { de: 'Die Kunst der Einheit', en: 'The art of unity', fr: 'L’art de l’unité' },
     dialogue: { de: 'Im Dialog mit Immanenz, Vergänglichkeit und Gleichgewicht.', en: 'In dialogue with immanence, impermanence and balance.', fr: 'Dialogue avec l’immanence, l’impermanence et l’équilibre.' },
     text: {

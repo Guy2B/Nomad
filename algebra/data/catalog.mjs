@@ -504,9 +504,9 @@ export const products = [
     symbol: g.symbol,
     copy: {
       lead: {
-        de: `${g.name.replace(/ \d{2}$/, '')}: ein großer Rückendruck in Tusche, Kupfer und Petrol, mit der echten Gleichung. Vorne das Algebra-Symbol.`,
-        en: `${g.name.replace(/ \d{2}$/, '')}: a full back print in ink, copper and teal, with the real equation. The Algebra symbol on the chest.`,
-        fr: `${g.name.replace(/ \d{2}$/, '')} : un grand imprimé dos à l’encre, cuivre et pétrole, avec la vraie équation. Le symbole Algebra sur la poitrine.`,
+        de: `${g.name.replace(/ \d{2}$/, '')}: ein großer Rückendruck in Tusche und Kupfer, mit der echten Gleichung. Vorne das Algebra-Symbol.`,
+        en: `${g.name.replace(/ \d{2}$/, '')}: a full back print in ink and copper, with the real equation. The Algebra symbol on the chest.`,
+        fr: `${g.name.replace(/ \d{2}$/, '')} : un grand imprimé dos à l’encre et au cuivre, avec la vraie équation. Le symbole Algebra sur la poitrine.`,
       },
       fit: {
         de: 'Unisex gerade, Damen tailliert oder Damen gerade.',

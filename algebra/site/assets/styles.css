@@ -643,3 +643,7 @@ p a:hover, .prose a:hover, .acc a:hover { color: var(--copper); }
 .statement__h { margin-bottom: 12px; }
 .statement__p::before { content: ''; display: block; width: 40px; height: 1px; margin: 0 auto 16px; background: var(--copper); }
 @media (max-width: 767px) { .statement { padding-block: 48px; } }
+/* PDP Graphic Series, owner 10.11.2026: one idea + one product line; legal VAT line kept, quieter */
+.buy__facts { margin: -12px 0 24px; font-size: 11px; letter-spacing: .08em; color: var(--muted); line-height: 1.7; }
+.buy__vat { margin: 4px 0 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+.buy__vat a { color: inherit; }
