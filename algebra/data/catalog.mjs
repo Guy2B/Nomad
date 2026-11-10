@@ -87,7 +87,7 @@ const sizesWomen = ['XS', 'S', 'M', 'L', 'XL'];
  */
 export const graphicCuts = [
   { id: 'unisex', code: 'U', blank: 'tee-unisex', sizes: sizesMen, name: { de: 'Unisex', en: 'Unisex', fr: 'Unisexe' } },
-  { id: 'oversize', code: 'O', live: false, blank: 'tee-oversize', sizes: sizesMen, price: 75, name: { de: 'Oversize', en: 'Oversize', fr: 'Oversize' } },
+  { id: 'oversize', code: 'O', live: false, blank: 'tee-oversize', sizes: sizesMen, price: 55, name: { de: 'Oversize', en: 'Oversize', fr: 'Oversize' } },
   // Owner 06.11.2026: the fitted cut (very popular) is sold again; print 33 × 41 cm M-XL, 29 × 36 cm XS-S.
   { id: 'women', code: 'W', blank: 'tee-w-fitted', sizes: sizesWomen, name: { de: 'Damen tailliert', en: 'Women’s fitted', fr: 'Femme cintrée' } },
   // Owner 06.11.2026: the women's straight cut (one shop product per drawing, DTG) is sold; the fitted cut stays on request.
@@ -149,7 +149,7 @@ export const products = [
     gender: 'men',
     category: 't-shirts',
     name: { de: 'The Tee', en: 'The Tee', fr: 'The Tee' },
-    price: 59,
+    price: 45, // owner 10.11.2026: tee with the embroidered A
     status: 'PREVIEW',
     blank: 'tee-m',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
@@ -264,7 +264,7 @@ export const products = [
     gender: 'women',
     category: 't-shirts',
     name: { de: 'The Tee', en: 'The Tee', fr: 'The Tee' },
-    price: 55,
+    price: 45, // owner 10.11.2026: same tee, same price
     status: 'PREVIEW',
     blank: 'tee-w',
     decoration: { method: 'embroidery', option: 'embroidery', placement: 'left chest, A 25 mm wide (≈ 18 mm high)', file: 'brand/algebra-a-signature-master.svg' },
@@ -484,7 +484,7 @@ export const products = [
     field: g.field,
     equation: g.equation,
     name: { de: g.name, en: g.name, fr: g.name },
-    price: 69,
+    price: 49, // owner 10.11.2026: launch price of an unknown brand (was 69)
     status: g.hidden ? 'DRAFT' : 'PREVIEW',
     // Four cuts, same print (back) and the A (left chest). code = letter in the variant SKU. price: only when it differs.
     // Base garments, supplier colours and print price: worker/src/fulfillment/mapping.js (server only).

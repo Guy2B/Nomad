@@ -34,7 +34,7 @@ test('no supplier name, blank name or supplier SKU in the public catalogue', () 
 });
 
 test('prices stay inside the brief ranges (hypotheses)', () => {
-  const range = { polos: [69, 99], sweaters: [79, 119], 't-shirts': [49, 79] };
+  const range = { polos: [69, 99], sweaters: [79, 119], 't-shirts': [39, 79] };
   for (const p of products.filter((x) => x.price != null)) {
     const [lo, hi] = range[p.category];
     assert.ok(p.price >= lo && p.price <= hi, `${p.id} ${p.price}`);
