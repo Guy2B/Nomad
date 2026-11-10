@@ -4,7 +4,13 @@
  */
 export const site = {
   name: 'Algebra',
-  signature: 'Built on proportion.',
+  // owner 10.11.2026 (manifesto "Une graine. Une forme. Un monde."): the brand line, per language
+  signature: 'L’intelligence des formes. L’élégance de l’infini.',
+  signatures: {
+    de: 'Die Intelligenz der Formen. Die Eleganz des Unendlichen.',
+    en: 'The intelligence of form. The elegance of infinity.',
+    fr: 'L’intelligence des formes. L’élégance de l’infini.',
+  },
   origin: process.env.SITE_ORIGIN || 'https://algebra.algbr.eu',
   // API of the Worker (checkout, newsletter, tracking). Same origin via a route, or a separate host.
   apiBase: process.env.API_BASE || '/api',

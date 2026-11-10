@@ -222,7 +222,7 @@ ${body}
 </main>
 <footer class="ftr">
   <div class="ftr__in">
-    <div class="ftr__brand">${sigSvg('wm wm--ftr')}<p class="ftr__sig">${site.signature}</p>
+    <div class="ftr__brand">${sigSvg('wm wm--ftr')}<p class="ftr__sig">${site.signatures[lang]}</p>
       <form class="ftr__nl" data-newsletter novalidate>
         <label for="ftr-email">${L.newsletter.title}</label>
         <div class="ftr__nlrow"><input id="ftr-email" name="email" type="email" autocomplete="email" required placeholder="${esc(L.newsletter.label)}"><button type="submit">${L.newsletter.button}</button></div>
@@ -273,33 +273,33 @@ function write(path, html) {
 const ED = {
   de: {
     cta: 'Kollektion entdecken',
-    story: ['Herbst / Winter 2026', 'Form. Struktur. Balance.'],
+    story: ['Herbst / Winter 2026', 'Ein Samenkorn. Eine Form. Eine Welt.'],
     knit: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen, ruhige Formen. Die erste Knitwear von Algebra erscheint in Kürze.', 'Benachrichtigen', 'Demnächst'],
     graphic: ['Graphic Series', 'Die großen Gleichungen der Welt.', 'Neun Studien über Form, Bewegung und Materie.', 'Zur Graphic Series'],
     ess: ['The Essentials', 'Alle Essentials'],
-    statement: ['Built on proportion.', 'Form. Structure. Balance.'],
+    statement: ['Die Intelligenz der Formen.', 'Die Eleganz des Unendlichen.'],
     trust: [['Versand', 'Kostenlos ab 100 €'], ['Rückgabe', '14 Tage'], ['Zahlung', 'Sicher verschlüsselt']],
     knitPage: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen in Schwarz, Navy, Elfenbein und Oliv. Ruhig von vorn, präzise im Detail. Die erste Knitwear von Algebra erscheint in Kürze.', 'Als Erste erfahren'],
     ship: 'Kostenloser Versand ab 100 € · 14 Tage Rückgabe',
   },
   en: {
     cta: 'Discover the collection',
-    story: ['Autumn / Winter 2026', 'Form. Structure. Balance.'],
+    story: ['Autumn / Winter 2026', 'A seed. A shape. A world.'],
     knit: ['Knitwear', 'Structure, softened.', 'Fine gauge, quiet shapes. Algebra’s first knitwear arrives soon.', 'Get notified', 'Coming soon'],
     graphic: ['Graphic Series', 'The great equations of the world.', 'Nine studies of form, motion and matter.', 'Explore the Graphic Series'],
     ess: ['The Essentials', 'All essentials'],
-    statement: ['Built on proportion.', 'Form. Structure. Balance.'],
+    statement: ['The intelligence of form.', 'The elegance of infinity.'],
     trust: [['Shipping', 'Free from 100 €'], ['Returns', '14 days'], ['Payment', 'Securely encrypted']],
     knitPage: ['Knitwear', 'Structure, softened.', 'Fine gauge in black, navy, ivory and olive. Quiet from the front, precise in the detail. Algebra’s first knitwear arrives soon.', 'Be the first to know'],
     ship: 'Free shipping from 100 € · 14-day returns',
   },
   fr: {
     cta: 'Découvrir la collection',
-    story: ['Automne / Hiver 2026', 'Forme. Structure. Équilibre.'],
+    story: ['Automne / Hiver 2026', 'Une graine. Une forme. Un monde.'],
     knit: ['Knitwear', 'La structure, adoucie.', 'Maille fine, formes calmes. La première maille Algebra arrive bientôt.', 'Être prévenu', 'Bientôt'],
     graphic: ['Graphic Series', 'Les grandes équations du monde.', 'Neuf études sur la forme, le mouvement et la matière.', 'Découvrir la Graphic Series'],
     ess: ['The Essentials', 'Tous les essentiels'],
-    statement: ['Built on proportion.', 'Form. Structure. Balance.'],
+    statement: ['L’intelligence des formes.', 'L’élégance de l’infini.'],
     trust: [['Livraison', 'Offerte dès 100 €'], ['Retours', '14 jours'], ['Paiement', 'Chiffré et sécurisé']],
     knitPage: ['Knitwear', 'La structure, adoucie.', 'Maille fine en noir, navy, ivoire et vert olive. Calme de face, précise dans le détail. La première maille Algebra arrive bientôt.', 'Être informé en premier'],
     ship: 'Livraison offerte dès 100 € · Retours sous 14 jours',
@@ -538,7 +538,7 @@ function home(lang) {
   ${photo(path, 'campaign-couple', `Algebra · ${E.story[0]}`, { w: 1672, h: 941, eager: true, cls: 'hero__img' })}
   <div class="hero__txt">
     <h1 class="hero__brand">${sigSvg('wm wm--hero')}</h1>
-    <p class="hero__season">${esc(E.story[0])}</p>
+    <p class="hero__season">${esc(site.signatures[lang])}</p>
     <p class="hero__links"><a class="more more--inv" href="${r(`/${lang}/shop/`)}">${esc(E.cta)}</a></p>
   </div>
 </section>
@@ -605,7 +605,7 @@ function home(lang) {
   ${E.trust.map(([h, b]) => `<div><h3>${esc(h)}</h3><p>${esc(b)}</p></div>`).join('')}
 </section>`;
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'Organization', name: 'Algebra', url: abs('/'), logo: abs('/favicon.svg'), slogan: site.signature },
+    { '@context': 'https://schema.org', '@type': 'Organization', name: 'Algebra', url: abs('/'), logo: abs('/favicon.svg'), slogan: site.signatures[lang] },
     { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Algebra', url: abs(`/${lang}/`), inLanguage: t[lang].htmlLang, potentialAction: { '@type': 'SearchAction', target: abs(`/${lang}/search/?q={query}`), 'query-input': 'required name=query' } },
   ];
   write(path, layout(lang, { path, key: 'home', title: L.meta.home[0], desc: L.meta.home[1], body, jsonld, bodyClass: 'is-home' }));
@@ -639,7 +639,7 @@ function simple(lang, slug, title, inner, { noindex = false, key = slug, desc } 
   const L = t[lang];
   const path = `/${lang}/${slug}/`;
   const body = `<section class="wrap page"><nav class="crumbs" aria-label="Breadcrumb"><a href="${rel(path, `/${lang}/`)}">${L.product.breadcrumbHome}</a> / <span aria-current="page">${esc(title)}</span></nav><h1 class="h1">${esc(title)}</h1><div class="prose">${inner}</div></section>`;
-  write(path, layout(lang, { path, key, title: `${title} · Algebra`, desc: desc || `${title}. Algebra, ${site.signature}`, body, noindex }));
+  write(path, layout(lang, { path, key, title: `${title} · Algebra`, desc: desc || `${title}. Algebra, ${site.signatures[lang]}`, body, noindex }));
 }
 
 // ------------------------------------------------------------------ pages

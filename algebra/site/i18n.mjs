@@ -1,6 +1,6 @@
 /**
- * Interface copy. Written per language (not translated word for word). The signature stays in English
- * in every language: "Built on proportion." is the brand line, like a wordmark.
+ * Interface copy. Written per language (not translated word for word). The brand line (owner, 10.11.2026):
+ * "L’intelligence des formes. L’élégance de l’infini." (site.signatures, one per language).
  */
 export const t = {
   de: {
@@ -17,7 +17,7 @@ export const t = {
       },
       tiles: { men: 'Herren', women: 'Damen', graphic: 'Graphic Series', polo: 'The Polo', shop: 'Entdecken' },
       essentials: ['The Essentials', 'Ruhige Stücke mit einem kleinen Zeichen.', 'Polo, Tee und Crew aus Bio-Baumwolle, mit dem Algebra-Symbol bestickt.', 'Essentials entdecken'],
-      story: ['Built on proportion.', 'Algebra steht für Kleidung, die stimmt: ein guter Stoff, ein klarer Schnitt, ein Zeichen, das man erst auf den zweiten Blick sieht.', 'Über Algebra'],
+      story: ['Alles beginnt mit einer Geste.', 'Ein Samenkorn, auf einem Awélé-Brett weitergesetzt. Ein Faden, in einen Stoff verwoben. Eine Form, die sich wiederholt, sich verwandelt und eine unsichtbare Ordnung offenbart.', 'Über Algebra'],
       rail: 'Neu in der Graphic Series',
       germany: ['Bestickt und bedruckt in Europa', 'Jedes Stück wird einzeln für dich in Europa bestickt oder bedruckt und aus der EU verschickt.'],
       similar: 'Farben können je nach Bildschirm leicht abweichen.',
@@ -70,7 +70,7 @@ export const t = {
     footer: { shop: 'Shop', help: 'Hilfe', legal: 'Rechtliches', company: 'Algebra', faq: 'FAQ', size: 'Größentabelle', shipping: 'Versand', returns: 'Rücksendungen', tracking: 'Bestellung verfolgen', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutz', terms: 'AGB', withdrawal: 'Widerrufsbelehrung', cookies: 'Cookies', a11y: 'Barrierefreiheit', cookieSettings: 'Cookie-Einstellungen', rights: 'Alle Rechte vorbehalten.' },
     consent: { title: 'Cookies und Statistik', body: 'Wir verwenden nur technisch notwendige Speicherungen (z. B. deine Tasche). Mit deiner Zustimmung messen wir zusätzlich, wie der Shop genutzt wird: auf unserem eigenen Server (ohne Cookies, ohne IP-Adresse) und mit Microsoft Clarity (Klicks und Scrollen als Heatmaps und Aufzeichnungen, alle Texte und Eingaben unkenntlich, mit Cookies).', accept: 'Statistik erlauben', reject: 'Nur notwendige', more: 'Mehr dazu' },
     meta: {
-      home: ['Algebra · Built on proportion.', 'Zeitgenössische Essentials aus Europa für Herren und Damen: Polo, T-Shirt, Sweater und die Graphic Series. Schwere Bio-Baumwolle, ein gesticktes Zeichen.'],
+      home: ['Algebra · Die Intelligenz der Formen.', 'Zeitgenössische Essentials aus Europa für Herren und Damen: Polo, T-Shirt, Sweater und die Graphic Series. Schwere Bio-Baumwolle, ein gesticktes Zeichen.'],
       men: ['Herren · Algebra', 'Polo, Heavy Tee und Crew für Herren. Ruhige Schnitte, kleines gesticktes Symbol.'],
       women: ['Damen · Algebra', 'Premium Tee, Polo und Crew im Damenschnitt. Eine Welt, eigene Schnitte.'],
       polos: ['Polos · Algebra', 'Polo aus schwerem Piqué mit gesticktem Algebra-Symbol.'],
@@ -94,7 +94,7 @@ export const t = {
       },
       tiles: { men: 'Men', women: 'Women', graphic: 'Graphic Series', polo: 'The Polo', shop: 'Shop now' },
       essentials: ['The Essentials', 'Quiet pieces with a small mark.', 'Polo, tee and crew in organic cotton, embroidered with the Algebra symbol.', 'Shop the Essentials'],
-      story: ['Built on proportion.', 'Algebra stands for clothes that add up: a good fabric, a clear cut, a mark you only notice at second glance.', 'About Algebra'],
+      story: ['Everything begins with a gesture.', 'A seed moved across an Awélé board. A thread woven into cloth. A shape that repeats, transforms and reveals an invisible order.', 'About Algebra'],
       rail: 'New in the Graphic Series',
       germany: ['Embroidered and printed in Europe', 'Every piece is finished for you in Europe and shipped from the EU.'],
       similar: 'Colours may vary slightly depending on your screen.',
@@ -147,7 +147,7 @@ export const t = {
     footer: { shop: 'Shop', help: 'Help', legal: 'Legal', company: 'Algebra', faq: 'FAQ', size: 'Size guide', shipping: 'Shipping', returns: 'Returns', tracking: 'Track order', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy', terms: 'Terms', withdrawal: 'Right of withdrawal', cookies: 'Cookies', a11y: 'Accessibility', cookieSettings: 'Cookie settings', rights: 'All rights reserved.' },
     consent: { title: 'Cookies and statistics', body: 'We only use strictly necessary storage (for example your bag). With your consent we also measure how the shop is used: on our own server (no cookies, no IP address) and with Microsoft Clarity (clicks and scrolling as heatmaps and recordings, all text and input masked, with cookies).', accept: 'Allow statistics', reject: 'Necessary only', more: 'Learn more' },
     meta: {
-      home: ['Algebra · Built on proportion.', 'European contemporary essentials for men and women: polo, tee, crew and the Graphic Series. Heavy organic cotton, one embroidered sign.'],
+      home: ['Algebra · The intelligence of form.', 'European contemporary essentials for men and women: polo, tee, crew and the Graphic Series. Heavy organic cotton, one embroidered sign.'],
       men: ['Men · Algebra', 'Polo, Heavy Tee and Crew for men. Calm cuts, a small embroidered symbol.'],
       women: ['Women · Algebra', 'Premium Tee, Polo and Crew in women’s cuts. One world, its own cuts.'],
       polos: ['Polos · Algebra', 'Heavy piqué polo with the embroidered Algebra symbol.'],
@@ -171,7 +171,7 @@ export const t = {
       },
       tiles: { men: 'Homme', women: 'Femme', graphic: 'Graphic Series', polo: 'The Polo', shop: 'Découvrir' },
       essentials: ['The Essentials', 'Des pièces calmes, un petit signe.', 'Polo, t-shirt et sweat en coton bio, brodés du symbole Algebra.', 'Découvrir les Essentials'],
-      story: ['Built on proportion.', 'Algebra, ce sont des vêtements justes : une belle matière, une coupe nette, un signe qu’on ne remarque qu’au second regard.', 'À propos d’Algebra'],
+      story: ['Tout commence par un geste.', 'Une graine déplacée sur un plateau d’Awélé. Un fil entrelacé dans une étoffe. Une forme qui se répète, se transforme et révèle un ordre invisible.', 'À propos d’Algebra'],
       rail: 'Nouveau dans la Graphic Series',
       germany: ['Brodé et imprimé en Europe', 'Chaque pièce est finie pour vous en Europe et expédiée depuis l’UE.'],
       similar: 'Les couleurs peuvent légèrement varier selon votre écran.',
@@ -224,7 +224,7 @@ export const t = {
     footer: { shop: 'Boutique', help: 'Aide', legal: 'Informations légales', company: 'Algebra', faq: 'FAQ', size: 'Guide des tailles', shipping: 'Livraison', returns: 'Retours', tracking: 'Suivre ma commande', contact: 'Contact', imprint: 'Mentions légales', privacy: 'Confidentialité', terms: 'CGV', withdrawal: 'Droit de rétractation', cookies: 'Cookies', a11y: 'Accessibilité', cookieSettings: 'Réglages cookies', rights: 'Tous droits réservés.' },
     consent: { title: 'Cookies et statistiques', body: 'Nous n’utilisons que le stockage strictement nécessaire (par exemple votre panier). Avec votre accord, nous mesurons aussi l’utilisation de la boutique : sur notre propre serveur (sans cookie ni adresse IP) et avec Microsoft Clarity (clics et défilement en cartes de chaleur et enregistrements, tous les textes et saisies masqués, avec cookies).', accept: 'Autoriser les statistiques', reject: 'Nécessaires uniquement', more: 'En savoir plus' },
     meta: {
-      home: ['Algebra · Built on proportion.', 'Essentiels contemporains européens pour homme et femme : polo, t-shirt, sweat et la Graphic Series. Fabriqués à la commande.'],
+      home: ['Algebra · L’intelligence des formes.', 'Essentiels contemporains européens pour homme et femme : polo, t-shirt, sweat et la Graphic Series. Fabriqués à la commande.'],
       men: ['Homme · Algebra', 'Polo, Heavy Tee et Crew pour homme. Coupes calmes, petit symbole brodé.'],
       women: ['Femme · Algebra', 'Premium Tee, Polo et Crew en coupe femme. Un univers, des coupes propres.'],
       polos: ['Polos · Algebra', 'Polo en piqué épais, symbole Algebra brodé.'],

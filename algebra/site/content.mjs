@@ -68,27 +68,49 @@ export const pages = {
 <p>Nos coupes unisexes sont droites, les coupes femme taillent normalement. Une question sur la taille ? Écrivez-nous, nous vous aidons volontiers.</p>`,
   },
   about: {
-    de: `<p class="about__kicker">Stil beginnt mit Haltung.</p>
-<p class="lead">ALGEBRA ist eine europäische Modemarke für zeitlose Essentials, klare Silhouetten und durchdachte Details.</p>
-<p>Unsere Philosophie ist einfach: Schönheit entsteht durch Balance. Zwischen Form und Funktion. Zwischen Zurückhaltung und Ausdruck. Zwischen dem Vertrauten und dem Besonderen.</p>
-<p>Inspiriert von der Ästhetik der Mathematik, steht ALGEBRA für Präzision, Harmonie und Individualität. Unser charakteristisches Monogramm – ein A mit zwei horizontalen Linien – verkörpert diesen Gedanken.</p>
-<p>Von klassischen Poloshirts und hochwertigen Basics bis hin zu ausdrucksstarken Designs unserer Graphic Series verbindet jede Kollektion eine gemeinsame Idee: zeitgemäße Eleganz mit unverwechselbarem Charakter.</p>
-<p class="about__credo">Wir glauben nicht an das Überflüssige. Wir glauben an das Wesentliche.</p>
-<p class="about__sign"><span>ALGEBRA</span><em>Built on proportion.</em></p>`,
-    en: `<p class="about__kicker">Style begins with attitude.</p>
-<p class="lead">ALGEBRA is a European fashion label for timeless essentials, clean silhouettes and considered details.</p>
-<p>Our philosophy is simple: beauty comes from balance. Between form and function. Between restraint and expression. Between the familiar and the exceptional.</p>
-<p>Inspired by the aesthetics of mathematics, ALGEBRA stands for precision, harmony and individuality. Our signature monogram, an A with two horizontal lines, embodies this idea.</p>
-<p>From classic polo shirts and refined basics to the expressive designs of our Graphic Series, every collection shares one idea: contemporary elegance with unmistakable character.</p>
-<p class="about__credo">We do not believe in the superfluous. We believe in the essential.</p>
-<p class="about__sign"><span>ALGEBRA</span><em>Built on proportion.</em></p>`,
-    fr: `<p class="about__kicker">Le style commence par une attitude.</p>
-<p class="lead">ALGEBRA est une marque de mode européenne d’essentiels intemporels, de silhouettes épurées et de détails réfléchis.</p>
-<p>Notre philosophie est simple : la beauté naît de l’équilibre. Entre la forme et la fonction. Entre la retenue et l’expression. Entre le familier et l’exceptionnel.</p>
-<p>Inspirée par l’esthétique des mathématiques, ALGEBRA incarne la précision, l’harmonie et l’individualité. Notre monogramme, un A traversé de deux lignes horizontales, porte cette idée.</p>
-<p>Des polos classiques et des basiques de grande qualité jusqu’aux créations expressives de notre Graphic Series, chaque collection partage une même idée : une élégance contemporaine au caractère affirmé.</p>
-<p class="about__credo">Nous ne croyons pas au superflu. Nous croyons à l’essentiel.</p>
-<p class="about__sign"><span>ALGEBRA</span><em>Built on proportion.</em></p>`,
+    // owner 10.11.2026: the manifesto "Une graine. Une forme. Un monde." (French original; DE and EN written from it)
+    de: `<p class="about__kicker">Ein Samenkorn. Eine Form. Eine Welt.</p>
+<p class="lead">Alles beginnt mit einer Geste.</p>
+<p>Ein Samenkorn, auf einem Awélé-Brett weitergesetzt. Ein Faden, in einen Stoff verwoben. Eine Form, die sich wiederholt, sich verwandelt und eine unsichtbare Ordnung offenbart.</p>
+<p>Seit jeher erfinden Kulturen ihre eigenen Sprachen, um die Welt zu verstehen und ihr Form zu geben.</p>
+<p>In der Strategie eines uralten Spiels, in der Geometrie eines Gewebes, in der Präzision eines Handwerks finden wir dieselbe Intelligenz: jene, die aus wesentlichen Gesten unendliche Vielfalt entstehen lässt.</p>
+<p>Aus dieser Begegnung von Erbe und Entdeckung entsteht Algebra.</p>
+<p>Wir glauben, dass nichts wirklich für sich allein besteht. Jede Kreation trägt die Erinnerung an die Kulturen, die sie inspiriert haben, und an die Blicke, die ihr Leben geben.</p>
+<p>Wir glauben auch, dass Schönheit nicht erstarrt. Sie verwandelt sich, wird weitergegeben und erfindet sich neu.</p>
+<p>Kupfer verkörpert diese lebendige Erinnerung. Sein tiefes Leuchten erinnert an Materialien, die Jahrhunderte überdauern, und an das Können, das ihnen Bedeutung gibt.<br>Das Unendliche steht für unsere grenzenlose Neugier.<br>Das Gleichgewicht leitet jede unserer Entscheidungen.</p>
+<p>Wir suchen eine Eleganz, die das Wesentliche nie dem Schein opfert. Eine Eleganz, in der jedes Detail das Ganze spiegelt, jedes Material seinen Grund hat und jeder Unterschied die Kreation bereichert.</p>
+<p>Das Beste von hier und anderswo. Erbe ohne Stillstand. Innovation ohne Vergessen.</p>
+<p>Algebra ist unsere Art, die Intelligenz der Formen und die Schönheit unsichtbarer Verbindungen zu feiern.</p>
+<p class="about__credo">Denn wahrer Luxus ist nicht nur, was man besitzt. Sondern was man weitergeben möchte.</p>
+<p class="about__sign"><span>ALGEBRA</span><em>Die Intelligenz der Formen. Die Eleganz des Unendlichen.</em></p>`,
+    en: `<p class="about__kicker">A seed. A shape. A world.</p>
+<p class="lead">Everything begins with a gesture.</p>
+<p>A seed moved across an Awélé board. A thread woven into cloth. A shape that repeats, transforms and reveals an invisible order.</p>
+<p>Civilisations have always invented their own languages to understand the world and give it form.</p>
+<p>In the strategy of an ancestral game, in the geometry of a textile, in the precision of a craft, we find the same intelligence: the one that draws infinite complexity from essential gestures.</p>
+<p>Algebra is born from this meeting of heritage and discovery.</p>
+<p>We believe that nothing truly exists alone. Every creation carries the memory of the cultures that inspired it and of the eyes that bring it to life.</p>
+<p>We also believe that beauty does not stand still. It transforms, is handed on and reinvents itself.</p>
+<p>Copper embodies this living memory. Its deep glow recalls materials that cross the centuries and the know-how that gives them meaning.<br>Infinity stands for our boundless curiosity.<br>Balance guides every one of our choices.</p>
+<p>We seek an elegance that never sacrifices the essential to appearance. An elegance in which every detail reflects the whole, every material has its reason to be and every difference enriches the creation.</p>
+<p>The best of here and elsewhere. Heritage without stillness. Innovation without forgetting.</p>
+<p>Algebra is our way of celebrating the intelligence of form and the beauty of invisible ties.</p>
+<p class="about__credo">Because true luxury is not only what we own. It is what we choose to pass on.</p>
+<p class="about__sign"><span>ALGEBRA</span><em>The intelligence of form. The elegance of infinity.</em></p>`,
+    fr: `<p class="about__kicker">Une graine. Une forme. Un monde.</p>
+<p class="lead">Tout commence par un geste.</p>
+<p>Une graine déplacée sur un plateau d’Awélé. Un fil entrelacé dans une étoffe. Une forme qui se répète, se transforme et révèle un ordre invisible.</p>
+<p>Depuis toujours, les civilisations inventent leurs propres langages pour comprendre le monde et lui donner forme.</p>
+<p>Dans la stratégie d’un jeu ancestral, dans la géométrie d’un textile, dans la précision d’un savoir-faire, nous retrouvons une même intelligence : celle qui fait naître l’infinie complexité de gestes essentiels.</p>
+<p>C’est de cette rencontre entre héritages et découvertes que naît Algebra.</p>
+<p>Nous croyons que rien n’existe véritablement seul. Chaque création porte la mémoire des cultures qui l’ont inspirée et des regards qui lui donnent vie.</p>
+<p>Nous croyons aussi que la beauté ne se fige pas. Elle se transforme, se transmet et se réinvente.</p>
+<p>Le cuivre incarne cette mémoire vivante. Sa lumière profonde évoque les matières traversant les siècles et les savoir-faire qui leur donnent sens.<br>L’infini représente notre curiosité sans frontières.<br>L’équilibre guide chacun de nos choix.</p>
+<p>Nous recherchons une élégance qui ne sacrifie jamais l’essentiel à l’apparence. Une élégance dans laquelle chaque détail reflète l’ensemble, chaque matière possède sa raison d’être et chaque différence enrichit la création.</p>
+<p>Le meilleur d’ici et d’ailleurs. L’héritage sans immobilité. L’innovation sans oubli.</p>
+<p>Algebra est notre manière de célébrer l’intelligence des formes et la beauté des liens invisibles.</p>
+<p class="about__credo">Parce que le véritable luxe n’est pas seulement ce que l’on possède. C’est ce que l’on choisit de transmettre.</p>
+<p class="about__sign"><span>ALGEBRA</span><em>L’intelligence des formes. L’élégance de l’infini.</em></p>`,
   },
   shipping: {
     de: `<h2>Lieferländer und Kosten</h2><table><thead><tr><th>Land</th><th>Versand</th><th>Kostenlos ab</th></tr></thead><tbody><tr><td>Deutschland</td><td>4,90 €</td><td>100 €</td></tr><tr><td>Frankreich, Österreich, Belgien, Niederlande, Luxemburg</td><td>7,90 €</td><td>150 €</td></tr></tbody></table>

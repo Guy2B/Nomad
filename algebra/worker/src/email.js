@@ -30,9 +30,9 @@ const T = {
     fr: ({ link, firstName }) => ['Merci de confirmer : A Circle', `${firstName ? `Bonjour ${firstName},\n\n` : ''}un clic, et vous faites partie d’A Circle :\n${link}\n\nA Circle est gratuit, vous pouvez le quitter à tout moment. Si vous ne vous êtes pas inscrit, ignorez simplement cet e-mail.\n\nAlgebra`],
   },
   circleWelcome: {
-    de: ({ link }) => ['Du bist dabei.', `A Circle gibt dir den ersten Zugang zu ausgewählten Veröffentlichungen von Algebra: neue Kapitel, die Graphic Series, die Knitwear.\n\nWir schreiben selten, und nur, wenn es etwas zu zeigen gibt.\n\nDeine Mitgliedschaft und deine Einstellungen:\n${link}\n\nAlgebra\nBuilt on proportion.`],
-    en: ({ link }) => ['You’re inside.', `A Circle gives you first access to selected Algebra releases: new chapters, the Graphic Series, the knitwear.\n\nWe write rarely, and only when there is something to show.\n\nYour membership and preferences:\n${link}\n\nAlgebra\nBuilt on proportion.`],
-    fr: ({ link }) => ['Vous y êtes.', `A Circle vous donne un premier accès à une sélection de sorties Algebra : nouveaux chapitres, Graphic Series, maille.\n\nNous écrivons rarement, et seulement quand il y a quelque chose à montrer.\n\nVotre adhésion et vos préférences :\n${link}\n\nAlgebra\nBuilt on proportion.`],
+    de: ({ link }) => ['Du bist dabei.', `A Circle gibt dir den ersten Zugang zu ausgewählten Veröffentlichungen von Algebra: neue Kapitel, die Graphic Series, die Knitwear.\n\nWir schreiben selten, und nur, wenn es etwas zu zeigen gibt.\n\nDeine Mitgliedschaft und deine Einstellungen:\n${link}\n\nAlgebra\nDie Intelligenz der Formen. Die Eleganz des Unendlichen.`],
+    en: ({ link }) => ['You’re inside.', `A Circle gives you first access to selected Algebra releases: new chapters, the Graphic Series, the knitwear.\n\nWe write rarely, and only when there is something to show.\n\nYour membership and preferences:\n${link}\n\nAlgebra\nThe intelligence of form. The elegance of infinity.`],
+    fr: ({ link }) => ['Vous y êtes.', `A Circle vous donne un premier accès à une sélection de sorties Algebra : nouveaux chapitres, Graphic Series, maille.\n\nNous écrivons rarement, et seulement quand il y a quelque chose à montrer.\n\nVotre adhésion et vos préférences :\n${link}\n\nAlgebra\nL’intelligence des formes. L’élégance de l’infini.`],
   },
 };
 // Flows prepared but not sent automatically yet (need a scheduler and consent rules, see docs/EMAIL_FLOWS.md):
