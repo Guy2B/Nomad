@@ -276,7 +276,7 @@ const ED = {
     cta: 'Kollektion entdecken',
     story: ['Herbst / Winter 2026', 'Ein Samenkorn. Eine Form. Eine Welt.'],
     knit: ['Knitwear', 'Struktur, neu gedacht.', 'Feine Maschen, ruhige Formen. Die erste Knitwear von Algebra erscheint in Kürze.', 'Benachrichtigen', 'Demnächst'],
-    graphic: ['Graphic Series', 'Die großen Gleichungen der Welt.', 'Neun Ausdrucksformen. Eine Philosophie.', 'Zur Graphic Series'],
+    graphic: ['Graphic Series', 'Die unsichtbare Ordnung der Welt.', 'Neun Perspektiven auf Form, Verbindung und Wandel.', 'Zur Graphic Series', 'Neun Motive. Neun Perspektiven.', 'Von den Zügen des Awélé bis zu den Strukturen der modernen Wissenschaft erkundet die Graphic Series die unsichtbaren Beziehungen, die unsere Welt prägen. Wissenschaft, Formen und kulturelles Erbe treten hier in Dialog, jedes mit seiner eigenen Herkunft.', 'Jedes Motiv erzählt von einer Idee. Gemeinsam sind sie eine Hommage an das Wissen, das kulturelle Erbe und die unendliche Vielfalt der Formen.', 'Die Philosophie entdecken'],
     ess: ['The Essentials', 'Alle Essentials'],
     statement: ['Die Intelligenz der Formen.', 'Die Eleganz des Unendlichen.'],
     trust: [['Versand', 'Kostenlos ab 100 €'], ['Rückgabe', '14 Tage'], ['Zahlung', 'Sicher verschlüsselt']],
@@ -287,7 +287,7 @@ const ED = {
     cta: 'Discover the collection',
     story: ['Autumn / Winter 2026', 'A seed. A shape. A world.'],
     knit: ['Knitwear', 'Structure, softened.', 'Fine gauge, quiet shapes. Algebra’s first knitwear arrives soon.', 'Get notified', 'Coming soon'],
-    graphic: ['Graphic Series', 'The great equations of the world.', 'Nine Expressions. One Philosophy.', 'Explore the Graphic Series'],
+    graphic: ['Graphic Series', 'The invisible order of the world.', 'Nine perspectives on form, connection and change.', 'Explore the Graphic Series', 'Nine motifs. Nine perspectives.', 'From the moves of Awélé to the structures of modern science, the Graphic Series explores the invisible relations that shape our world. Science, forms and cultural heritage enter into dialogue here, each with its own origin.', 'Every motif tells of one idea. Together they pay tribute to knowledge, to heritage and to the endless variety of forms.', 'Discover the philosophy'],
     ess: ['The Essentials', 'All essentials'],
     statement: ['The intelligence of form.', 'The elegance of infinity.'],
     trust: [['Shipping', 'Free from 100 €'], ['Returns', '14 days'], ['Payment', 'Securely encrypted']],
@@ -298,7 +298,7 @@ const ED = {
     cta: 'Découvrir la collection',
     story: ['Automne / Hiver 2026', 'Une graine. Une forme. Un monde.'],
     knit: ['Knitwear', 'La structure, adoucie.', 'Maille fine, formes calmes. La première maille Algebra arrive bientôt.', 'Être prévenu', 'Bientôt'],
-    graphic: ['Graphic Series', 'Les grandes équations du monde.', 'Neuf expressions. Une philosophie.', 'Découvrir la Graphic Series'],
+    graphic: ['Graphic Series', 'L’ordre invisible du monde.', 'Neuf regards sur la forme, le lien et le changement.', 'Découvrir la Graphic Series', 'Neuf motifs. Neuf regards.', 'Des mouvements de l’Awélé aux structures de la science moderne, la Graphic Series explore les relations invisibles qui façonnent notre monde. Science, formes et héritages culturels y entrent en dialogue, chacun avec sa propre origine.', 'Chaque motif raconte une idée. Ensemble, ils rendent hommage au savoir, aux héritages et à l’infinie variété des formes.', 'Découvrir la philosophie'],
     ess: ['The Essentials', 'Tous les essentiels'],
     statement: ['L’intelligence des formes.', 'L’élégance de l’infini.'],
     trust: [['Livraison', 'Offerte dès 100 €'], ['Retours', '14 jours'], ['Paiement', 'Chiffré et sécurisé']],
@@ -332,7 +332,7 @@ function card(lang, from, p, { eager = false, color, crop = false } = {}) {
   return `<li class="card${crop ? ' card--crop' : ''}" data-gender="${p.gender}" data-cat="${p.category}" data-price="${low}" data-colors="${color || p.colors.join(' ')}" data-sizes="${sizes.join(' ')}">
   <a href="${color ? `${href}?color=${color}` : href}" class="card__a" data-track="select_item" data-id="${p.id}" data-href="${href}">
     <div class="card__img">${sets}</div>
-    <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>
+    <div class="card__txt"><h3 class="card__name">${esc(displayName(p, lang))}</h3>${p.line === 'graphic' && gChapters[p.graphic] ? `<p class="card__chap">${esc(gChapters[p.graphic].title[lang])}</p>` : ''}
     <p class="card__price">${soon ? `<span class="muted">${esc(L.product.unavailable)}</span>` : `${several ? `${FROM[lang]} ` : ''}${money(low, lang)}`}</p></div>
   </a>
   <p class="card__meta"><span class="sws">${sw}</span></p></li>`;
@@ -350,7 +350,6 @@ function collectionPage(lang, key) {
   // essentials: one card per colour (polo navy, polo black, polo ivory …); graphic tees: one card each
   let gi = 0;
   const entries = list.flatMap((p) => (p.line === 'essentials' ? p.colors.map((c) => [p, c]) : [[p, key === 'graphic-series' || key === 't-shirts' || key === 'shop' || key === 'men' || key === 'women' ? p.colors[gi++ % p.colors.length] : null]]));
-  const G = ED[lang].graphic;
   const intro = key === 'graphic-series' ? `<p class="coll__line">${esc(gSeries.title[lang])}</p><p class="coll__poem">${gSeries.poem[lang].map(esc).join('<br>')}</p>` : '';
   const outro = key === 'graphic-series' ? `<section class="coll__outro wrap">${gSeries.outro[lang].map((t, i, a) => `<p${i === a.length - 1 ? ' class="coll__credo"' : ''}>${esc(t)}</p>`).join('')}</section>` : '';
   const body = `<section class="coll">
@@ -574,7 +573,15 @@ function home(lang) {
     <h2 class="gsfeat__h">${esc(E.graphic[1])}</h2>
     <p class="gsfeat__p">${esc(E.graphic[2])}</p>
   </div>
-  ${lookbook(path, lang, `/${lang}/graphic-series/`)}
+  <div class="gsman">
+    <a class="gsman__img" href="${r(`/${lang}/graphic-series/`)}" tabindex="-1" aria-hidden="true">${photo(path, 'campaign-walk', '', { w: 1122, h: 1402, sizes: '(min-width: 1024px) 55vw, 100vw' })}</a>
+    <div class="gsman__txt">
+      <p class="gsman__h">${esc(E.graphic[4])}</p>
+      <p>${esc(E.graphic[5])}</p>
+      <p>${esc(E.graphic[6])}</p>
+      <p><a class="more" href="${r(`/${lang}/graphic-series/`)}">${esc(E.graphic[7])}</a></p>
+    </div>
+  </div>
 </section>
 
 <section class="rail rail--gs">
