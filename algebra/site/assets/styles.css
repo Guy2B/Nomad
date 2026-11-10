@@ -617,3 +617,4 @@ p a:hover, .prose a:hover, .acc a:hover { color: var(--copper); }
 .hero__txt { padding-bottom: clamp(64px, 11vh, 120px); }
 .hero__links a.more--inv { border-bottom-color: var(--copper-light); }
 .hero__links a.more--inv:hover { color: var(--copper-light); border-bottom-color: var(--copper-light); }
+.hero__season { line-height: 1.9; }

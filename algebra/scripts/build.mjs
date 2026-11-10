@@ -538,7 +538,7 @@ function home(lang) {
   ${photo(path, 'campaign-couple', `Algebra · ${E.story[0]}`, { w: 1672, h: 941, eager: true, cls: 'hero__img' })}
   <div class="hero__txt">
     <h1 class="hero__brand">${sigSvg('wm wm--hero')}</h1>
-    <p class="hero__season">${esc(site.signatures[lang])}</p>
+    <p class="hero__season">${esc(site.signatures[lang]).replace('. ', '.<br>')}</p>
     <p class="hero__links"><a class="more more--inv" href="${r(`/${lang}/shop/`)}">${esc(E.cta)}</a></p>
   </div>
 </section>
