@@ -831,6 +831,10 @@ ${PREVIEW ? '  X-Robots-Tag: noindex, nofollow\n' : ''}/assets/fonts/*
   Referrer-Policy: no-referrer
 /assets/photos/*
   Cache-Control: public, max-age=86400
+/social/*
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=86400
 /assets/catalog.*
   Cache-Control: public, max-age=300
 /assets/styles.css
@@ -850,6 +854,8 @@ writeFileSync(join(dist, 'robots.txt'), PREVIEW ? `# Preview: pages carry noinde
 
 // static assets
 cpSync(join(root, 'site', 'assets'), join(dist, 'assets'), { recursive: true, });
+// social media kit (owner 12.11.2026): images and Reels, fetched by the social upload helpers (CORS), never indexed
+if (existsSync(join(root, 'site', 'social'))) cpSync(join(root, 'site', 'social'), join(dist, 'social'), { recursive: true });
 // Garment colour swatches as classes: the Content-Security-Policy (style-src 'self') blocks inline style attributes.
 writeFileSync(
   join(dist, 'assets', 'styles.css'),
